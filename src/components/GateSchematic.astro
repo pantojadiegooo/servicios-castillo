@@ -26,13 +26,13 @@ const { nodes = defaultNodes, compact = false } = Astro.props;
 ---
 
 <div class="gate-schematic">
-  <div class="gate-track" role="list" aria-label="Etapas del proceso Castillo, de Discover a Evolve">
+  <ol class="gate-track" aria-label="Etapas del proceso Castillo, de Discover a Evolve">
     {nodes.map((node) => (
-      <div class={node.isGate ? "gate-node is-gate" : "gate-node"}>
+      <li class={node.isGate ? "gate-node is-gate" : "gate-node"}>
         <div class="gate-dot" aria-hidden="true"></div>
         <div class="gate-label">{node.label}</div>
         {!compact && node.sub && <div class="gate-sub">{node.sub}</div>}
-      </div>
+      </li>
     ))}
-  </div>
+  </ol>
 </div>

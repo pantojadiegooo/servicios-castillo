@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Página No Encontrada (404) — Servicios Castillo"
+  description="La página que estás buscando no existe o ha sido movida. Regresa a la página principal para explorar nuestras soluciones digitales."
+  canonical="https://servicios-castillo.vercel.app/404.html"
+  ogUrl="https://servicios-castillo.vercel.app/404.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Error 404</p>
+        <p class="eyebrow">404 — Dirección No Encontrada</p>
+        <h1>La página que buscas no existe o ha sido movida.</h1>
+        <p>Es posible que la dirección se haya escrito incorrectamente o que el contenido ya no esté disponible en esta ruta.</p>
+        <div class="hero-actions" style="margin-top:1.5rem;">
+          <a class="btn btn-gold" href="index.html">Volver al Inicio</a>
+          <a class="btn btn-outline" href="contacto.html">Solicitar Cotización</a>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Buscas ayuda con tu proyecto digital?"
+      description="Cuéntanos tus requerimientos y te orientaremos de inmediato."
+      ctaLabel="Ir a Contacto"
+      ctaHref="contacto.html"
+    />
+
+  </main>
+</BaseLayout>
