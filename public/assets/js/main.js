@@ -93,7 +93,7 @@
       }
 
       // Check form endpoint
-      var endpoint = form.getAttribute("data-endpoint") || form.getAttribute("action") || window.PUBLIC_FORM_ENDPOINT;
+      var endpoint = form.getAttribute("data-endpoint") || form.getAttribute("action") || window.PUBLIC_FORM_ENDPOINT || "https://formspree.io/f/maewolbo";
       if (!endpoint || endpoint.trim() === "" || endpoint === "null") {
         status.textContent = "El formulario requiere configurar la URL de recepción (PUBLIC_FORM_ENDPOINT) para transmitir la solicitud en producción.";
         status.className = "form-status is-error";

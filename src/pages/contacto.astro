@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 
-const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/maewolbo';
 ---
 
 <BaseLayout
@@ -24,7 +24,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <form id="contact-form" class="form-grid" action={formEndpoint || undefined} method="POST" novalidate data-endpoint={formEndpoint}>
+          <form id="contact-form" class="form-grid" action={formEndpoint} method="POST" novalidate data-endpoint={formEndpoint}>
             <div class="field">
               <label for="nombre">Nombre Completo o Empresa</label>
               <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Ej. Ana Martínez / Grupo Alpha">
@@ -80,7 +80,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
               <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
             </div>
           </form>
-          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1rem;">Para activar la transmisión de solicitudes en producción, especifique la URL del proveedor en la variable de entorno <code>PUBLIC_FORM_ENDPOINT</code>.</p>
+          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1rem;">Canal oficial de recepción de solicitudes activado mediante transmisión segura encriptada (Formspree).</p>
         </div>
         <div class="reveal">
           <div class="gate-report">
