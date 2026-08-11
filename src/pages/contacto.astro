@@ -24,7 +24,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <form id="contact-form" class="form-grid" action={formEndpoint} method="POST" novalidate data-endpoint={formEndpoint}>
+          <form id="contact-form" class="form-grid" action={formEndpoint} method="POST">
             <div class="field">
               <label for="nombre">Nombre Completo o Empresa</label>
               <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Ej. Ana Martínez / Grupo Alpha">
