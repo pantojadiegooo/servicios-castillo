@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Castle Packages — Servicios Castillo"
+  description="Cinco paquetes, de Castle Bronze a Castle Diamond, con alcance definido y el Castillo Security & Quality Gate incluido."
+  canonical="https://serviciosorg-castillo.example.mx/paquetes.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/paquetes.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Castle Packages</p>
+        <h1>Castle Packages</h1>
+        <p>Alcance definido desde el inicio, precio razonable y el Castillo Security &amp; Quality Gate incluido en todos los niveles.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="packages-grid reveal">
+          
+          <div class="package-card" data-tier="bronze">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Bronze</h3>
+            <div class="package-price">$5,000 MXN</div>
+            <ul>
+              <li>Landing personalizada</li><li>Hasta 5 secciones</li><li>Responsive</li><li>WhatsApp integrado</li><li>Formulario de contacto</li><li>SEO técnico básico</li><li>Optimización de imágenes</li><li>HTTPS</li><li>Accesibilidad base</li><li>Analítica</li><li>Castillo Security &amp; Quality Gate</li>
+            </ul>
+            <div class="package-rounds">2 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Bronze">Solicitar Castle Bronze</a>
+          </div>
+          <div class="package-card" data-tier="silver">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Silver</h3>
+            <div class="package-price">$7,000 MXN</div>
+            <ul>
+              <li>Hasta 5 páginas</li><li>Diseño personalizado</li><li>Arquitectura de contenido</li><li>Formularios</li><li>WhatsApp integrado</li><li>SEO técnico</li><li>Analítica</li><li>Integraciones básicas</li><li>Optimización de rendimiento</li><li>Accesibilidad</li><li>Revisión de privacidad y seguridad</li><li>Castillo Security &amp; Quality Gate</li>
+            </ul>
+            <div class="package-rounds">3 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Silver">Solicitar Castle Silver</a>
+          </div>
+          <div class="package-card" data-tier="gold">
+            <span class="package-tag">Recomendado</span>
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Gold</h3>
+            <div class="package-price">$10,000 MXN</div>
+            <ul>
+              <li>8–10 páginas</li><li>UX/UI orientado a conversión</li><li>SEO avanzado</li><li>Formularios y flujos personalizados</li><li>Integraciones externas</li><li>CMS/blog cuando corresponda</li><li>Animaciones sutiles</li><li>Optimización de Core Web Vitals</li><li>Accesibilidad avanzada</li><li>Revisión de dependencias</li><li>Seguridad y privacidad</li><li>Pruebas multiplataforma</li><li>Castillo Security &amp; Quality Gate completo</li>
+            </ul>
+            <div class="package-rounds">4 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Gold">Solicitar Castle Gold</a>
+          </div>
+          <div class="package-card" data-tier="platinum">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Platinum</h3>
+            <div class="package-price">$35,000 MXN</div>
+            <ul>
+              <li>Arquitectura digital personalizada</li><li>Hasta 15 páginas según alcance</li><li>UX/UI avanzado y diseño a medida</li><li>CMS</li><li>Integraciones avanzadas</li><li>Automatizaciones seleccionadas</li><li>SEO y rendimiento avanzados</li><li>Seguridad reforzada</li><li>Revisión profunda de privacidad y datos</li><li>Pruebas funcionales y multiplataforma</li><li>Auditoría técnica previa al lanzamiento</li><li>Castillo Security &amp; Quality Gate completo</li>
+            </ul>
+            <div class="package-rounds">5 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Platinum">Solicitar Castle Platinum</a>
+          </div>
+          <div class="package-card" data-tier="diamond">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Diamond</h3>
+            <div class="package-price">Desde $45,000 MXN</div>
+            <ul>
+              <li>Desarrollo digital a medida</li><li>Sin límite artificial de páginas</li><li>E-commerce y sistemas web</li><li>Paneles administrativos y APIs</li><li>Autenticación y bases de datos</li><li>Automatizaciones e integraciones empresariales</li><li>Arquitectura personalizada</li><li>Seguridad adaptada al proyecto</li><li>Precio final según alcance</li>
+            </ul>
+            <div class="package-rounds">Rondas según alcance</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Diamond">Solicitar Castle Diamond</a>
+          </div>
+        </div>
+        <p style="margin-top:2rem; color:var(--steel); font-size:.9rem; max-width:60ch;">Los precios están expresados en pesos mexicanos (MXN) y corresponden al alcance descrito en cada paquete. Cambios fuera de alcance se cotizan y documentan por separado.</p>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas sobre los paquetes</p>
+          <h2>Lo que más nos preguntan.</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Qué pasa si mi proyecto no encaja exactamente en un paquete?" answer="Los paquetes son puntos de partida. Si tu proyecto tiene necesidades distintas, lo ajustamos o te recomendamos Castle Diamond, que se cotiza a medida." />
+              <FAQItem question="¿El dominio y el hosting están incluidos?" answer="El alcance de dominio y hosting se define por proyecto; lo revisamos contigo antes de empezar para que sepas exactamente qué incluye tu paquete." />
+              <FAQItem question="¿Qué incluyen las rondas de revisión?" answer="Cada ronda es una oportunidad de retroalimentar y ajustar la solución dentro del alcance acordado antes del lanzamiento." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Puedo cambiar de paquete a mitad del proyecto?" answer="Sí, es posible ajustar el alcance; los cambios se documentan y se cotizan de forma transparente." />
+              <FAQItem question="¿Todos los paquetes incluyen el Security & Quality Gate?" answer="Sí. Todo proyecto, sin importar el paquete, pasa por el Gate antes de lanzarse." />
+              <FAQItem question="¿Qué incluye Castle Diamond exactamente?" answer="Depende del proyecto: puede incluir e-commerce, sistemas web, paneles administrativos, APIs, autenticación y automatizaciones. El precio final depende del alcance." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Cuál paquete es para ti?"
+      description="Cuéntanos sobre tu proyecto y te ayudamos a ubicar el paquete correcto."
+    />
+
+  </main>
+</BaseLayout>

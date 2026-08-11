@@ -1,0 +1,60 @@
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.check-list li {
+  padding-left: 1.75em;
+  position: relative;
+  line-height: 1.55;
+}
+
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.breadcrumb {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--steel-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--steel-soft);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+  color: var(--gold);
+}
+
+/* .reveal is preserved as structural hook — content remains visible by default */
+.reveal {
+  opacity: 1;
+}

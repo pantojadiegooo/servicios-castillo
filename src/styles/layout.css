@@ -1,0 +1,81 @@
+/* ===== Sections & Rhythm ===== */
+.section {
+  padding-block: clamp(3.5rem, 6vw, 6.25rem);
+  position: relative;
+}
+
+.section-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.section-dim {
+  background: var(--paper-dim);
+  color: var(--ink);
+}
+
+.section-dim h2,
+.section-dim h3,
+.section-dim h4 {
+  color: var(--ink);
+}
+
+.section-dim p {
+  color: var(--steel);
+}
+
+.section-head {
+  max-width: 680px;
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.section-head h2 {
+  font-size: var(--step-3);
+  margin-bottom: 0.4em;
+}
+
+.section-dark .section-head h2 {
+  color: var(--paper);
+}
+
+.section-head p {
+  color: var(--steel-soft);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.section-dim .section-head p {
+  color: var(--steel);
+}
+
+hr.rule {
+  border: 0;
+  border-top: 1px solid var(--line-dark);
+  margin: 0;
+}
+
+.rule-light {
+  border-top-color: #DAD7CE;
+}
+
+/* ===== Grids ===== */
+.grid {
+  display: grid;
+  gap: var(--gap);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+@media (max-width: 980px) {
+  .grid-3, .grid-4, .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4, .grid-5 {
+    grid-template-columns: 1fr;
+  }
+}

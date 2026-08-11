@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Servicios Castillo — Soluciones digitales con estándar de calidad verificable"
+  description="Servicios Castillo, una empresa de Grupo Castillo, construye, audita, interviene, transforma y cuida soluciones digitales bajo el Castillo Security & Quality Gate."
+  canonical="https://serviciosorg-castillo.example.mx/index.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/index.html"
+>
+  <main id="main">
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Servicios Castillo — Una empresa de Grupo Castillo</p>
+        <h1>Soluciones digitales con estándar de calidad verificable.</h1>
+        <p class="lede">Construimos, auditamos, corregimos, transformamos y mantenemos soluciones digitales. Tecnología profesional y seguridad no deberían ser un privilegio reservado a grandes corporativos.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="contacto.html">Iniciar proyecto</a>
+          <a class="btn btn-outline" href="contacto.html?necesidad=auditar">Analizar mi sitio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Soluciones</p>
+          <h2>Cinco formas de trabajar contigo, según en dónde estés hoy.</h2>
+          <p>Ya sea que empieces desde cero o que ya tengas una solución en marcha, hay una línea de trabajo pensada para tu momento.</p>
+        </div>
+        <div class="reveal">
+        <div class="solutions-strip">
+          <a href="soluciones.html#build">
+            <span class="s-code">BUILD</span>
+            <span class="s-name">Build</span>
+            <span class="s-desc">Creamos soluciones digitales desde cero.</span>
+          </a><a href="auditoria.html">
+            <span class="s-code">AUDIT</span>
+            <span class="s-name">Audit</span>
+            <span class="s-desc">Analizamos soluciones digitales existentes.</span>
+          </a><a href="intervencion.html">
+            <span class="s-code">INTV</span>
+            <span class="s-name">Intervention</span>
+            <span class="s-desc">Corregimos, protegemos y optimizamos.</span>
+          </a><a href="transformacion.html">
+            <span class="s-code">TRNS</span>
+            <span class="s-name">Transformation</span>
+            <span class="s-desc">Modernizamos y reconstruimos.</span>
+          </a><a href="cuidado.html">
+            <span class="s-code">CARE</span>
+            <span class="s-name">Care</span>
+            <span class="s-desc">Mantenemos y evolucionamos.</span>
+          </a>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow">¿Ya tienes una web?</p>
+          <h2>No necesariamente tienes que empezar de cero.</h2>
+          <p>Si tu sitio ya existe pero es lento, se ve mal en móvil, tiene errores o simplemente quedó a medias, hay un camino más corto que reconstruir todo desde el principio.</p>
+          <a class="btn btn-line" href="contacto.html?necesidad=auditar">Analizar mi sitio</a>
+        </div>
+        <div class="grid" style="gap:1rem;">
+          <div class="card card-light reveal">
+            <span class="card-num">01 — CASTLE AUDIT</span>
+            <h3>Descubrimos qué está mal.</h3>
+            <p>Diagnóstico técnico de seguridad, rendimiento, accesibilidad y SEO, con prioridades claras.</p>
+          </div>
+          <div class="card card-light reveal">
+            <span class="card-num">02 — CASTLE INTERVENTION</span>
+            <h3>Corregimos y optimizamos.</h3>
+            <p>Resolvemos lo que está roto, lento o inseguro, sin rehacer lo que ya funciona.</p>
+          </div>
+          <div class="card card-light reveal">
+            <span class="card-num">03 — CASTLE TRANSFORMATION</span>
+            <h3>Reconstruimos cuando es necesario.</h3>
+            <p>Cuando reparar ya no es suficiente: rediseño, migración o nueva arquitectura.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
+          <h2>No construimos para entregar. Construimos para validar.</h2>
+          <p>Cada proyecto recorre el mismo sistema de nueve etapas antes de considerarse listo. Si no pasa el Gate, no se entrega.</p>
+        </div>
+        <div class="reveal">
+          <GateSchematic />
+        </div>
+        <p style="margin-top:2rem;"><a class="btn btn-outline" href="seguridad-calidad.html">Conocer el Gate a detalle</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Castle Packages</p>
+          <h2>Precio razonable, alcance definido desde el inicio.</h2>
+          <p>Cinco paquetes que van de una presencia digital profesional a soluciones empresariales a medida.</p>
+        </div>
+        <div class="packages-grid reveal">
+          
+          <div class="package-card" data-tier="bronze">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Bronze</h3>
+            <div class="package-price">$5,000 MXN</div>
+            <ul>
+              <li>Landing personalizada</li><li>Hasta 5 secciones</li><li>Responsive</li><li>WhatsApp integrado</li><li>Formulario de contacto</li><li>SEO técnico básico</li><li>Optimización de imágenes</li><li>HTTPS</li><li>Accesibilidad base</li><li>Analítica</li><li>Castillo Security &amp; Quality Gate</li>
+            </ul>
+            <div class="package-rounds">2 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Bronze">Solicitar Castle Bronze</a>
+          </div>
+          <div class="package-card" data-tier="silver">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Silver</h3>
+            <div class="package-price">$7,000 MXN</div>
+            <ul>
+              <li>Hasta 5 páginas</li><li>Diseño personalizado</li><li>Arquitectura de contenido</li><li>Formularios</li><li>WhatsApp integrado</li><li>SEO técnico</li><li>Analítica</li><li>Integraciones básicas</li><li>Optimización de rendimiento</li><li>Accesibilidad</li><li>Revisión de privacidad y seguridad</li><li>Castillo Security &amp; Quality Gate</li>
+            </ul>
+            <div class="package-rounds">3 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Silver">Solicitar Castle Silver</a>
+          </div>
+          <div class="package-card" data-tier="gold">
+            <span class="package-tag">Recomendado</span>
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Gold</h3>
+            <div class="package-price">$10,000 MXN</div>
+            <ul>
+              <li>8–10 páginas</li><li>UX/UI orientado a conversión</li><li>SEO avanzado</li><li>Formularios y flujos personalizados</li><li>Integraciones externas</li><li>CMS/blog cuando corresponda</li><li>Animaciones sutiles</li><li>Optimización de Core Web Vitals</li><li>Accesibilidad avanzada</li><li>Revisión de dependencias</li><li>Seguridad y privacidad</li><li>Pruebas multiplataforma</li><li>Castillo Security &amp; Quality Gate completo</li>
+            </ul>
+            <div class="package-rounds">4 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Gold">Solicitar Castle Gold</a>
+          </div>
+          <div class="package-card" data-tier="platinum">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Platinum</h3>
+            <div class="package-price">$35,000 MXN</div>
+            <ul>
+              <li>Arquitectura digital personalizada</li><li>Hasta 15 páginas según alcance</li><li>UX/UI avanzado y diseño a medida</li><li>CMS</li><li>Integraciones avanzadas</li><li>Automatizaciones seleccionadas</li><li>SEO y rendimiento avanzados</li><li>Seguridad reforzada</li><li>Revisión profunda de privacidad y datos</li><li>Pruebas funcionales y multiplataforma</li><li>Auditoría técnica previa al lanzamiento</li><li>Castillo Security &amp; Quality Gate completo</li>
+            </ul>
+            <div class="package-rounds">5 rondas de revisión</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Platinum">Solicitar Castle Platinum</a>
+          </div>
+          <div class="package-card" data-tier="diamond">
+            
+            <span class="tier-swatch" aria-hidden="true"></span>
+            <h3>Castle Diamond</h3>
+            <div class="package-price">Desde $45,000 MXN</div>
+            <ul>
+              <li>Desarrollo digital a medida</li><li>Sin límite artificial de páginas</li><li>E-commerce y sistemas web</li><li>Paneles administrativos y APIs</li><li>Autenticación y bases de datos</li><li>Automatizaciones e integraciones empresariales</li><li>Arquitectura personalizada</li><li>Seguridad adaptada al proyecto</li><li>Precio final según alcance</li>
+            </ul>
+            <div class="package-rounds">Rondas según alcance</div>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Diamond">Solicitar Castle Diamond</a>
+          </div>
+        </div>
+        <p style="margin-top:2rem;"><a class="btn btn-line" href="paquetes.html">Ver todos los detalles de Castle Packages</a></p>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow">Castle Transparency</p>
+          <h2>Construimos para que puedas crecer, no para que dependas de nosotros.</h2>
+          <p>El alcance está definido desde el inicio. Los cambios fuera de alcance se documentan. Las cuentas e infraestructura te pertenecen cuando corresponda. No creamos dependencias artificiales para retenerte.</p>
+        </div>
+        <ul class="check-list reveal">
+          <li>Sabes exactamente qué estás comprando.</li>
+          <li>El alcance queda por escrito antes de empezar.</li>
+          <li>Documentamos la solución entregada.</li>
+          <li>La IA se usa como herramienta de apoyo para análisis, optimización y procesos, siempre bajo validación humana — nunca como sustituto de ella.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de escribirnos, quizá esto ya responda tu duda.</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cuánto cuesta un proyecto con Servicios Castillo?" answer="Depende del alcance. Nuestros Castle Packages van de $5,000 a $35,000 MXN, y Castle Diamond se cotiza desde $45,000 MXN según el proyecto." />
+              <FAQItem question="¿Qué es el Castillo Security & Quality Gate?" answer="Es el sistema de nueve etapas que recorre cada proyecto — de Discover a Evolve — antes de considerarse listo para producción. Si no pasa el Gate, no se entrega." />
+              <FAQItem question="¿Usan inteligencia artificial para construir los sitios?" answer="Usamos IA como herramienta de apoyo para análisis, optimización y procesos de calidad, siempre bajo validación humana. No es un sustituto de esa validación." />
+              <FAQItem question="¿El sitio y el dominio son míos?" answer="Sí. Las cuentas e infraestructura pertenecen al cliente cuando corresponda, y documentamos la solución entregada para que no dependas de nosotros para operar." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="Ya tengo una web, ¿tengo que empezar de cero?" answer="No necesariamente. Podemos auditarla (Castle Audit), corregirla y optimizarla (Castle Intervention), o reconstruirla si ya no da para más (Castle Transformation)." />
+              <FAQItem question="¿Cuántas rondas de revisión incluye cada paquete?" answer="Van de 2 rondas en Castle Bronze a 5 en Castle Platinum. Castle Diamond se define según el alcance del proyecto." />
+              <FAQItem question="¿Ofrecen mantenimiento después del lanzamiento?" answer="Sí, a través de Castle Care: actualizaciones, seguridad, respaldos, monitoreo y evolución continua de la solución." />
+              <FAQItem question="¿Cómo empiezo un proyecto?" answer="Completa el formulario de contacto contándonos qué necesitas. Con eso ubicamos el paquete o la línea de trabajo más adecuada." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Construyamos algo serio."
+      description="Cuéntanos qué necesitas y te ayudamos a ubicar el camino correcto: construir, auditar, corregir, transformar o mantener."
+    />
+
+  </main>
+</BaseLayout>

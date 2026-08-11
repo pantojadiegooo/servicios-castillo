@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Proyectos — Servicios Castillo"
+  description="Casos demostrativos que muestran cómo estructuramos un proyecto: problema, solución, tecnología, resultado y validación."
+  canonical="https://serviciosorg-castillo.example.mx/proyectos.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/proyectos.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Proyectos</p>
+        <h1>Proyectos</h1>
+        <p>Estamos construyendo nuestro portafolio con proyectos reales. Mientras tanto, estos casos demostrativos muestran cómo estructuramos y documentamos cada proyecto.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid-2">
+        
+          <article class="project-case reveal">
+            <span class="badge badge-demo">Proyecto demostrativo — Build</span>
+            <h3 style="margin-top:.9rem;">Sitio institucional para una empresa de servicios</h3>
+            <dl class="case-steps">
+              <div><dt>Problema</dt><dd>Sin presencia digital propia; dependía solo de redes sociales.</dd></div>
+              <div><dt>Solución</dt><dd>Sitio institucional con arquitectura de contenido clara y formulario de contacto.</dd></div>
+              <div><dt>Tecnología</dt><dd>HTML semántico, CSS moderno, formularios accesibles.</dd></div>
+              <div><dt>Resultado</dt><dd>Presencia digital propia, navegable y responsive.</dd></div>
+              <div><dt>Validación</dt><dd>Castillo Security &amp; Quality Gate.</dd></div>
+            </dl>
+          </article>
+        
+          <article class="project-case reveal">
+            <span class="badge badge-demo">Proyecto demostrativo — Intervention</span>
+            <h3 style="margin-top:.9rem;">Corrección de rendimiento en sitio existente</h3>
+            <dl class="case-steps">
+              <div><dt>Problema</dt><dd>Tiempos de carga altos y errores en dispositivos móviles.</dd></div>
+              <div><dt>Solución</dt><dd>Optimización de imágenes, revisión de código y ajustes de responsive.</dd></div>
+              <div><dt>Tecnología</dt><dd>Auditoría técnica + intervención dirigida.</dd></div>
+              <div><dt>Resultado</dt><dd>Mejora en tiempos de carga y experiencia móvil.</dd></div>
+              <div><dt>Validación</dt><dd>Validación posterior a la intervención (Validate).</dd></div>
+            </dl>
+          </article>
+        
+          <article class="project-case reveal">
+            <span class="badge badge-demo">Proyecto demostrativo — Transformation</span>
+            <h3 style="margin-top:.9rem;">Migración de una solución obsoleta</h3>
+            <dl class="case-steps">
+              <div><dt>Problema</dt><dd>Plataforma anterior difícil de mantener y de escalar.</dd></div>
+              <div><dt>Solución</dt><dd>Nueva arquitectura, migración de contenido y reconstrucción completa.</dd></div>
+              <div><dt>Tecnología</dt><dd>Nueva arquitectura de la solución.</dd></div>
+              <div><dt>Resultado</dt><dd>Base técnica preparada para crecer.</dd></div>
+              <div><dt>Validación</dt><dd>Castillo Security &amp; Quality Gate completo.</dd></div>
+            </dl>
+          </article>
+        
+          <article class="project-case reveal">
+            <span class="badge badge-demo">Proyecto demostrativo — Care</span>
+            <h3 style="margin-top:.9rem;">Mantenimiento continuo de una solución en producción</h3>
+            <dl class="case-steps">
+              <div><dt>Problema</dt><dd>Solución lanzada sin plan de mantenimiento posterior.</dd></div>
+              <div><dt>Solución</dt><dd>Monitoreo, actualizaciones periódicas y respaldos programados.</dd></div>
+              <div><dt>Tecnología</dt><dd>Monitoreo continuo + mantenimiento programado.</dd></div>
+              <div><dt>Resultado</dt><dd>Solución vigente, segura y actualizada.</dd></div>
+              <div><dt>Validación</dt><dd>Reporte de estado periódico.</dd></div>
+            </dl>
+          </article>
+      </div>
+      <p style="margin-top:2rem; color:var(--steel); font-size:.85rem; max-width:60ch;">Los proyectos marcados como "Proyecto demostrativo" son ejemplos ilustrativos del formato de caso que utilizamos, no clientes reales. Esta sección está preparada para incorporar proyectos reales conforme se completen.</p>
+    </section>
+
+    <CTABand
+      title="¿Quieres ser parte de esta sección?"
+      description="Inicia tu proyecto con nosotros y, con tu autorización, podría convertirse en un caso real."
+    />
+
+  </main>
+</BaseLayout>

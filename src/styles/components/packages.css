@@ -1,0 +1,118 @@
+/* ===== Package Cards Architecture ===== */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1140px) {
+  .packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.package-card {
+  border: 1px solid #E2DFD6;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.package-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.package-card[data-tier="gold"] {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(198, 161, 82, 0.18);
+  background: #FFFFFF;
+}
+
+.package-card[data-tier="gold"]:hover {
+  box-shadow: 0 0 0 1px var(--gold), 0 16px 36px rgba(198, 161, 82, 0.28);
+}
+
+.package-tag {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  border-bottom-left-radius: var(--radius);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.tier-swatch {
+  width: 2.5rem;
+  height: 0.3rem;
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+[data-tier="bronze"] .tier-swatch { background: var(--bronze); }
+[data-tier="silver"] .tier-swatch { background: var(--silver); }
+[data-tier="gold"] .tier-swatch { background: var(--gold); }
+[data-tier="platinum"] .tier-swatch { background: var(--platinum); }
+[data-tier="diamond"] .tier-swatch { background: var(--diamond); }
+
+.package-card h3 {
+  font-size: 1.28rem;
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+}
+
+.package-price {
+  font-family: var(--f-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--steel);
+  margin-bottom: 1.1rem;
+}
+
+.package-card ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.package-card li {
+  font-size: 0.88rem;
+  padding: 0.45rem 0;
+  border-top: 1px dashed #E2DFD6;
+  color: var(--steel);
+  line-height: 1.45;
+}
+
+.package-card li:first-child {
+  border-top: none;
+}
+
+.package-rounds {
+  font-size: 0.8rem;
+  color: var(--steel-soft);
+  margin-bottom: 1.25rem;
+  font-family: var(--f-mono);
+  font-weight: 500;
+}

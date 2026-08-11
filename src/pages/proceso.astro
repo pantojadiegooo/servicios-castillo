@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Proceso — Servicios Castillo"
+  description="Un sistema de nueve etapas, de Discover a Evolve, que recorre cada proyecto de Servicios Castillo."
+  canonical="https://serviciosorg-castillo.example.mx/proceso.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/proceso.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Proceso</p>
+        <h1>Un sistema, no una lista de pasos.</h1>
+        <p>Cada proyecto — sin importar el paquete o la línea de trabajo — recorre las mismas nueve etapas.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal">
+          <GateSchematic compact={true} />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container">
+        <div class="process-list reveal">
+          <div class="process-row">
+            <span class="process-code">01</span>
+            <div><h3>DISCOVER</h3><p>Entendemos el negocio, los usuarios, los objetivos y las necesidades reales del proyecto.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">02</span>
+            <div><h3>DESIGN</h3><p>Diseñamos la experiencia y la arquitectura visual antes de escribir código de producción.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">03</span>
+            <div><h3>BUILD</h3><p>Construimos la solución siguiendo la arquitectura definida.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">04</span>
+            <div><h3>TEST</h3><p>Probamos funcionalidad, comportamiento responsive y flujos completos de usuario.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">05</span>
+            <div><h3>AUDIT</h3><p>Revisamos seguridad, rendimiento, accesibilidad, SEO y calidad general del código.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">06</span>
+            <div><h3>GATE</h3><p>Aplicamos el Castillo Security &amp; Quality Gate. Si no pasa, no se entrega.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">07</span>
+            <div><h3>LAUNCH</h3><p>Publicamos la solución en producción.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">08</span>
+            <div><h3>VERIFY</h3><p>Comprobamos que la solución funcione correctamente ya en producción.</p></div>
+          </div><div class="process-row">
+            <span class="process-code">09</span>
+            <div><h3>EVOLVE</h3><p>Mantenemos y evolucionamos la solución con el tiempo, a través de Castle Care.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Listo para empezar?"
+      description="El primer paso del proceso es Discover: cuéntanos sobre tu proyecto."
+    />
+
+  </main>
+</BaseLayout>

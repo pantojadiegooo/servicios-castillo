@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  description,
+  ctaLabel = "Iniciar proyecto",
+  ctaHref = "contacto.html"
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="container">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <a class="btn btn-ink" href={ctaHref}>{ctaLabel}</a>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Castillo Security & Quality Gate — Servicios Castillo"
+  description="No construimos para entregar. Construimos para validar. Conoce el sistema de nueve etapas que recorre cada proyecto."
+  canonical="https://serviciosorg-castillo.example.mx/seguridad-calidad.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/seguridad-calidad.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Security &amp; Quality Gate</p>
+        <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
+        <h1>No construimos para entregar. Construimos para validar.</h1>
+        <p>Cada proyecto recorre el mismo sistema de nueve etapas, de Discover a Evolve. Si no pasa el Gate, no se entrega.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal">
+          <GateSchematic />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Qué considera el Gate</h2>
+          <p>Según el proyecto, el Gate revisa:</p>
+          <ul class="check-list">
+            <li>Seguridad</li>
+            <li>Privacidad</li>
+            <li>Rendimiento</li>
+            <li>Accesibilidad</li>
+            <li>SEO técnico</li>
+            <li>Integridad del código</li>
+            <li>Dependencias</li>
+            <li>Funcionalidad</li>
+            <li>Responsive</li>
+            <li>Configuración de producción</li>
+            <li>Formularios</li>
+            <li>Integraciones</li>
+            <li>Experiencia de usuario</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>El rol de la inteligencia artificial</h2>
+          <p>Utilizamos IA como herramienta de apoyo para análisis, optimización y control de calidad, siempre bajo validación humana. La IA no sustituye esa validación: la acompaña.</p>
+          <p>No afirmamos contar con certificaciones, acreditaciones o auditorías externas que no existen. El Gate es nuestro propio estándar interno de trabajo, no una certificación de un tercero.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Delivery Report</h2>
+          <p>Cada proyecto puede recibir un reporte de entrega que documenta el estado de la solución al momento del lanzamiento.</p>
+          <p style="font-size:.85rem; color:var(--steel-soft);">Los resultados mostrados abajo son un ejemplo ilustrativo del formato del reporte, no una puntuación real.</p>
+        </div>
+        <div class="reveal">
+          <div class="gate-report">
+            <div class="gate-report-head">
+              <strong>Castillo Security &amp; Quality Gate</strong>
+              <span class="badge badge-demo">Ejemplo</span>
+            </div>
+            <dl>
+              <dt>Proyecto</dt><dd>—</dd>
+              <dt>Versión</dt><dd>v0.1</dd>
+              <dt>Estado</dt><dd class="gate-check">Aprobado</dd>
+              <dt>Security</dt><dd class="gate-check">✓</dd>
+              <dt>Performance</dt><dd class="gate-check">✓</dd>
+              <dt>Accessibility</dt><dd class="gate-check">✓</dd>
+              <dt>SEO</dt><dd class="gate-check">✓</dd>
+              <dt>Functional QA</dt><dd class="gate-check">✓</dd>
+              <dt>Production</dt><dd class="gate-check">✓</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Quieres que tu proyecto pase por el Gate?"
+      description="Ya sea que construyamos algo nuevo o intervengamos lo que ya tienes, el Gate es parte del proceso."
+    />
+
+  </main>
+</BaseLayout>

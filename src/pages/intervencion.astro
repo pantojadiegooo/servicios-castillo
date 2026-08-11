@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Castle Intervention — Servicios Castillo"
+  description="Corregimos, protegemos y optimizamos sitios existentes que presentan errores, lentitud o problemas de seguridad."
+  canonical="https://serviciosorg-castillo.example.mx/intervencion.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/intervencion.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Intervention</p>
+        <p class="eyebrow">INTERVENTION</p>
+        <h1>Castle Intervention</h1>
+        <p>Tu sitio no necesita empezar de cero: necesita que alguien entre, corrija lo que falla y lo deje funcionando bien.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Qué incluye</h2>
+          <ul class="check-list">
+            <li>Corrección de errores evidentes</li><li>Optimización de velocidad</li><li>Corrección de experiencia móvil</li><li>Endurecimiento de seguridad (hardening)</li><li>Optimización general</li><li>Validación posterior a la intervención</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>Cómo trabajamos</h2>
+          <div class="process-list">
+            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">01</span>
+              <div><h3 style="font-size:1.05rem;">Diagnose</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">02</span>
+              <div><h3 style="font-size:1.05rem;">Intervene</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">03</span>
+              <div><h3 style="font-size:1.05rem;">Harden</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">04</span>
+              <div><h3 style="font-size:1.05rem;">Optimize</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">05</span>
+              <div><h3 style="font-size:1.05rem;">Validate</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
+          <h2>También pasa por el Gate.</h2>
+          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+        </div>
+        <div class="reveal">
+          <GateSchematic compact={true} />
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Tu web tiene un problema puntual?"
+      description="Cuéntanos qué está fallando. Muchas veces reparar es más rápido y económico que reconstruir."
+    />
+
+  </main>
+</BaseLayout>

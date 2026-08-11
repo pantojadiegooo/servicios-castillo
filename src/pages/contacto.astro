@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQItem from '../components/FAQItem.astro';
+---
+
+<BaseLayout
+  title="Contacto — Servicios Castillo"
+  description="Inicia tu proyecto con Servicios Castillo. Cuéntanos qué necesitas: crear, mejorar, auditar o mantener tu solución digital."
+  canonical="https://serviciosorg-castillo.example.mx/contacto.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/contacto.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Contacto</p>
+        <h1>Iniciemos tu proyecto.</h1>
+        <p>Cuéntanos qué necesitas. Con esa información ubicamos el paquete o la línea de trabajo más adecuada para ti.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <form id="contact-form" class="form-grid" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="empresa">Empresa <span class="hint">(opcional)</span></label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="whatsapp">WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" required autocomplete="tel">
+            </div>
+            <div class="field full">
+              <label for="necesidad">¿Qué necesitas?</label>
+              <select id="necesidad" name="necesidad" required>
+                <option value="">Selecciona una opción</option>
+                <option value="crear">Crear una web</option>
+                <option value="mejorar">Mejorar mi web</option>
+                <option value="auditar">Auditar mi web</option>
+                <option value="resolver">Resolver un problema</option>
+                <option value="sistema">Desarrollar un sistema</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="presupuesto">Presupuesto aproximado</label>
+              <select id="presupuesto" name="presupuesto">
+                <option value="">Selecciona un rango</option>
+                <option value="5-10k">$5,000 – $10,000 MXN</option>
+                <option value="10-35k">$10,000 – $35,000 MXN</option>
+                <option value="35-45k">$35,000 – $45,000 MXN</option>
+                <option value="45k+">$45,000 MXN o más</option>
+                <option value="no-seguro">Aún no lo sé</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="descripcion">Descripción del proyecto</label>
+              <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-gold" type="submit">Iniciar proyecto</button>
+              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1rem;">Este formulario aún no está conectado a un sistema de envío. En esta primera versión, valida y confirma los datos localmente; la integración de envío se conecta en una siguiente fase.</p>
+        </div>
+        <div class="reveal">
+          <div class="gate-report">
+            <div class="gate-report-head"><strong>Antes de escribirnos</strong></div>
+            <p style="color:var(--paper); font-size:.9rem;">Si ya tienes una idea de qué necesitas, esto te ayuda a ubicarte más rápido:</p>
+            <ul class="check-list" style="margin-top:1rem;">
+              <li>¿Proyecto nuevo? Revisa <a href="soluciones.html#build" style="color:var(--gold);">Build</a> y <a href="paquetes.html" style="color:var(--gold);">Castle Packages</a>.</li>
+              <li>¿Sitio ya existente? Empieza por <a href="auditoria.html" style="color:var(--gold);">Castle Audit</a>.</li>
+              <li>¿Algo específico roto o lento? Ve a <a href="intervencion.html" style="color:var(--gold);">Castle Intervention</a>.</li>
+              <li>¿Necesitas mantenimiento continuo? Revisa <a href="cuidado.html" style="color:var(--gold);">Castle Care</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de enviar el formulario</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿En cuánto tiempo me responden?" answer="Revisamos cada solicitud y te contactamos por correo o WhatsApp para agendar una siguiente conversación." />
+              <FAQItem question="¿Necesito saber exactamente qué quiero antes de escribir?" answer="No. Cuéntanos tu situación general; juntos definimos el alcance durante la etapa Discover del proceso." />
+              <FAQItem question="¿Puedo pedir solo una auditoría, sin comprometerme a un proyecto completo?" answer="Sí. Castle Audit es un servicio independiente que puedes solicitar sin obligación de continuar con una intervención o reconstrucción." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Qué pasa después de enviar el formulario?" answer="Revisamos tu solicitud, la ubicamos dentro de nuestras líneas de trabajo y te contactamos para la etapa de Discover." />
+              <FAQItem question="¿Los precios de Castle Packages son finales?" answer="Corresponden al alcance descrito en cada paquete. Cambios fuera de alcance se cotizan y documentan aparte." />
+              <FAQItem question="¿Qué información debo incluir en la descripción del proyecto?" answer="Entre más contexto nos des sobre tu negocio, objetivos y situación actual, más rápido podemos ubicar el camino correcto." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

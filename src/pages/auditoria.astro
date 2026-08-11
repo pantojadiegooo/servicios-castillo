@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Castle Audit — Servicios Castillo"
+  description="Diagnóstico técnico de seguridad, rendimiento, accesibilidad, SEO y privacidad para tu solución digital actual."
+  canonical="https://serviciosorg-castillo.example.mx/auditoria.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/auditoria.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Audit</p>
+        <p class="eyebrow">AUDIT</p>
+        <h1>Castle Audit</h1>
+        <p>Antes de decidir qué hacer con tu sitio, hay que entender exactamente en qué estado está.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Qué incluye</h2>
+          <ul class="check-list">
+            <li>Security Audit</li><li>Performance Audit</li><li>Accessibility Audit</li><li>SEO Audit</li><li>Technical Audit</li><li>Privacy Review</li><li>Diagnóstico con prioridades claras</li><li>Recomendaciones accionables</li><li>Plan de intervención opcional</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>Cómo trabajamos</h2>
+          <div class="process-list">
+            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">01</span>
+              <div><h3 style="font-size:1.05rem;">Revisión técnica completa</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">02</span>
+              <div><h3 style="font-size:1.05rem;">Identificación de riesgos y oportunidades</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">03</span>
+              <div><h3 style="font-size:1.05rem;">Reporte con prioridades</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">04</span>
+              <div><h3 style="font-size:1.05rem;">Recomendaciones y siguiente paso</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
+          <h2>También pasa por el Gate.</h2>
+          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+        </div>
+        <div class="reveal">
+          <GateSchematic compact={true} />
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Quieres saber en qué estado está tu sitio?"
+      description="Empieza con un Castle Audit y toma decisiones con información real, no con suposiciones."
+    />
+
+  </main>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  open?: boolean;
+}
+
+const { question, answer, open = false } = Astro.props;
+---
+
+{open ? (
+  <details open>
+    <summary>{question}</summary>
+    <p>{answer}</p>
+  </details>
+) : (
+  <details>
+    <summary>{question}</summary>
+    <p>{answer}</p>
+  </details>
+)}

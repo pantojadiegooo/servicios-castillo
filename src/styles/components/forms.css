@@ -1,0 +1,84 @@
+/* ===== Contact Form & Input Fields ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.field .hint {
+  font-size: 0.78rem;
+  color: var(--steel-soft);
+  font-weight: 400;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: var(--f-body);
+  font-size: 0.98rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: var(--ink-card);
+  color: var(--paper);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(198, 161, 82, 0.2);
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.25);
+}
+
+.form-status {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border-radius: var(--radius);
+}
+
+.form-status.is-success {
+  color: var(--success);
+  background: rgba(52, 211, 153, 0.1);
+  padding: 0.85rem 1.1rem;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.form-status.is-error {
+  color: var(--danger);
+  background: rgba(248, 113, 113, 0.1);
+  padding: 0.85rem 1.1rem;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}

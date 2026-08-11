@@ -1,0 +1,88 @@
+/* ===== Solutions Strip ===== */
+.solutions-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--ink-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.solutions-strip a {
+  text-decoration: none;
+  color: var(--paper);
+  padding: 2rem 1.4rem;
+  border-right: 1px solid var(--line-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 170px;
+  justify-content: space-between;
+  position: relative;
+  transition: background var(--transition-normal), transform var(--transition-fast);
+}
+
+.solutions-strip a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.solutions-strip a:last-child {
+  border-right: none;
+}
+
+.solutions-strip a:hover,
+.solutions-strip a:focus-visible {
+  background: var(--ink-card);
+}
+
+.solutions-strip a:hover::before,
+.solutions-strip a:focus-visible::before {
+  opacity: 1;
+}
+
+.solutions-strip .s-code {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.solutions-strip .s-name {
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.solutions-strip .s-desc {
+  font-size: 0.85rem;
+  color: var(--steel-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .solutions-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .solutions-strip a {
+    border-bottom: 1px solid var(--line-dark);
+  }
+}
+
+@media (max-width: 580px) {
+  .solutions-strip {
+    grid-template-columns: 1fr;
+  }
+  .solutions-strip a {
+    border-right: none;
+  }
+}

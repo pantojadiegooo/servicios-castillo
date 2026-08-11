@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GateSchematic from '../components/GateSchematic.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Castle Transformation — Servicios Castillo"
+  description="Modernizamos, reconstruimos o migramos soluciones digitales cuando reparar ya no es suficiente."
+  canonical="https://serviciosorg-castillo.example.mx/transformacion.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/transformacion.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Transformation</p>
+        <p class="eyebrow">TRANSFORMATION</p>
+        <h1>Castle Transformation</h1>
+        <p>Cuando la base técnica ya no aguanta el crecimiento del negocio, toca reconstruir sobre cimientos sólidos.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Qué incluye</h2>
+          <ul class="check-list">
+            <li>Rediseño completo</li><li>Modernización tecnológica</li><li>Migración de plataforma</li><li>Replatforming</li><li>Reconstrucción</li><li>Nueva arquitectura de la solución</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h2>Cómo trabajamos</h2>
+          <div class="process-list">
+            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">01</span>
+              <div><h3 style="font-size:1.05rem;">Discovery del sistema actual</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">02</span>
+              <div><h3 style="font-size:1.05rem;">Diseño de la nueva arquitectura</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">03</span>
+              <div><h3 style="font-size:1.05rem;">Construcción por fases</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">04</span>
+              <div><h3 style="font-size:1.05rem;">Validación bajo el Gate</h3></div>
+            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <span class="process-code">05</span>
+              <div><h3 style="font-size:1.05rem;">Lanzamiento y verificación</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
+          <h2>También pasa por el Gate.</h2>
+          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+        </div>
+        <div class="reveal">
+          <GateSchematic compact={true} />
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Tu solución actual ya no da para más?"
+      description="Hablemos de cómo migrar o reconstruir sin perder lo que ya funciona."
+    />
+
+  </main>
+</BaseLayout>

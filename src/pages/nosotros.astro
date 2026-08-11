@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="Nosotros — Servicios Castillo"
+  description="Servicios Castillo es la unidad de soluciones digitales de Grupo Castillo. Nuestra filosofía y estándar de trabajo."
+  canonical="https://serviciosorg-castillo.example.mx/nosotros.html"
+  ogUrl="https://serviciosorg-castillo.example.mx/nosotros.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / Nosotros</p>
+        <h1>Grupo Castillo &amp; Servicios Castillo</h1>
+        <p>Una estructura corporativa y una unidad especializada en soluciones digitales.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow">Grupo Castillo</p>
+          <h2>La organización matriz.</h2>
+          <p>Grupo Castillo es la estructura corporativa detrás de Servicios Castillo, con una presencia sobria y de respaldo.</p>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Servicios Castillo</p>
+          <h2>La unidad de soluciones digitales.</h2>
+          <p>Servicios Castillo es la parte tecnológica y comercial: la que construye, audita, interviene, transforma y mantiene soluciones digitales.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Filosofía</p>
+          <h2>La tecnología profesional, la seguridad y la calidad no deberían ser un privilegio reservado exclusivamente para grandes corporativos.</h2>
+          <p>Por eso construimos con un estándar de trabajo verificable — el Castillo Security &amp; Quality Gate — sin importar el tamaño del proyecto.</p>
+        </div>
+        <div class="grid grid-3 reveal">
+          <div class="card"><h3>Tecnología profesional</h3><p>Construimos con arquitecturas limpias, escalables y mantenibles.</p></div>
+          <div class="card"><h3>Calidad verificable</h3><p>Cada proyecto pasa por el mismo sistema de validación antes de lanzarse.</p></div>
+          <div class="card"><h3>Precio razonable</h3><p>Paquetes con alcance definido, sin sorpresas ni letras pequeñas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dim">
+      <div class="container two-col">
+        <div class="reveal">
+          <h2>Castle Transparency</h2>
+          <p>El cliente sabe qué está comprando. El alcance está definido. Los cambios fuera de alcance se documentan. Las cuentas e infraestructura pertenecen al cliente cuando corresponda.</p>
+        </div>
+        <div class="reveal">
+          <h2>El rol de la IA</h2>
+          <p>Utilizamos inteligencia artificial como herramienta de apoyo para análisis, optimización y procesos — nunca como sustituto de la validación humana.</p>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Quieres trabajar con nosotros?"
+      description="Cuéntanos sobre tu proyecto y ubiquemos juntos el mejor camino."
+    />
+
+  </main>
+</BaseLayout>

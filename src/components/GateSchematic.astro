@@ -1,0 +1,38 @@
+---
+export interface GateNode {
+  label: string;
+  sub?: string;
+  isGate?: boolean;
+}
+
+interface Props {
+  nodes?: GateNode[];
+  compact?: boolean;
+}
+
+const defaultNodes: GateNode[] = [
+  { label: "DISCOVER", sub: "Entendemos el negocio, los usuarios y los objetivos." },
+  { label: "DESIGN",   sub: "Diseñamos la experiencia y la arquitectura visual." },
+  { label: "BUILD",    sub: "Construimos la solución." },
+  { label: "TEST",     sub: "Probamos funcionalidad, responsive y flujos." },
+  { label: "AUDIT",    sub: "Revisamos seguridad, rendimiento, accesibilidad, SEO y calidad." },
+  { label: "GATE",     sub: "Aplicamos el Castillo Security & Quality Gate.", isGate: true },
+  { label: "LAUNCH",   sub: "Publicamos la solución." },
+  { label: "VERIFY",   sub: "Comprobamos el resultado en producción." },
+  { label: "EVOLVE",   sub: "Mantenemos y evolucionamos la solución." }
+];
+
+const { nodes = defaultNodes, compact = false } = Astro.props;
+---
+
+<div class="gate-schematic">
+  <div class="gate-track" role="list" aria-label="Etapas del proceso Castillo, de Discover a Evolve">
+    {nodes.map((node) => (
+      <div class={node.isGate ? "gate-node is-gate" : "gate-node"}>
+        <div class="gate-dot" aria-hidden="true"></div>
+        <div class="gate-label">{node.label}</div>
+        {!compact && node.sub && <div class="gate-sub">{node.sub}</div>}
+      </div>
+    ))}
+  </div>
+</div>

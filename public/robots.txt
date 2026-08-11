@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://serviciosorg-castillo.example.mx/sitemap.xml

@@ -1,0 +1,70 @@
+/* ===== FAQ Accordions ===== */
+.faq details {
+  border-top: 1px solid #DAD7CE;
+  padding-block: 1.2rem;
+  transition: background var(--transition-fast);
+}
+
+.faq details:last-child {
+  border-bottom: 1px solid #DAD7CE;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: center;
+  user-select: none;
+  color: var(--ink);
+  transition: color var(--transition-fast);
+}
+
+.faq summary:hover {
+  color: var(--gold-dark);
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--f-mono);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.faq details[open] summary::after {
+  content: "–";
+}
+
+.faq p {
+  margin-top: 0.85rem;
+  color: var(--steel);
+  max-width: 70ch;
+  line-height: 1.65;
+}
+
+/* Dark section FAQs */
+.section-dark .faq details {
+  border-top-color: var(--line-dark);
+}
+.section-dark .faq details:last-child {
+  border-bottom-color: var(--line-dark);
+}
+.section-dark .faq summary {
+  color: var(--paper);
+}
+.section-dark .faq summary:hover {
+  color: var(--gold);
+}
+.section-dark .faq p {
+  color: var(--steel-soft);
+}

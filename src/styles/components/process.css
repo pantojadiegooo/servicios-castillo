@@ -1,0 +1,55 @@
+/* ===== Process (Discover..Evolve 01-09) ===== */
+.process-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.75rem;
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--line-dark);
+  transition: background var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.process-row:hover {
+  background: rgba(20, 26, 38, 0.4);
+}
+
+.process-row:last-child {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.process-code {
+  font-family: var(--f-mono);
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.process-row h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.process-row:hover h3 {
+  color: var(--gold-light);
+}
+
+.process-row p {
+  color: var(--steel-soft);
+  margin: 0;
+  max-width: 64ch;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .process-row {
+    grid-template-columns: 60px 1fr;
+    gap: 1rem;
+    padding-block: 1.25rem;
+  }
+}
