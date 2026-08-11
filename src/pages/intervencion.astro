@@ -5,10 +5,10 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Castle Intervention — Servicios Castillo"
-  description="Corregimos, protegemos y optimizamos sitios existentes que presentan errores, lentitud o problemas de seguridad."
-  canonical="https://serviciosorg-castillo.example.mx/intervencion.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/intervencion.html"
+  title="Castle Intervention — Corrección, Seguridad y Optimización Web"
+  description="Solución directa para sitios web existentes con errores, lentitud, fallas en dispositivos móviles o vulnerabilidades de seguridad."
+  canonical="https://servicios-castillo.vercel.app/intervencion.html"
+  ogUrl="https://servicios-castillo.vercel.app/intervencion.html"
 >
   <main id="main">
 
@@ -16,37 +16,47 @@ import CTABand from '../components/CTABand.astro';
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Intervention</p>
         <p class="eyebrow">INTERVENTION</p>
-        <h1>Castle Intervention</h1>
-        <p>Tu sitio no necesita empezar de cero: necesita que alguien entre, corrija lo que falla y lo deje funcionando bien.</p>
+        <h1>Castle Intervention: Reparar y optimizar sin rehacer todo.</h1>
+        <p>Tu sitio no necesariamente necesita empezar de cero: necesita ingeniería directa para corregir lo que falla, eliminar la lentitud y dejarlo funcionando con estabilidad.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <h2>Qué incluye</h2>
-          <ul class="check-list">
-            <li>Corrección de errores evidentes</li><li>Optimización de velocidad</li><li>Corrección de experiencia móvil</li><li>Endurecimiento de seguridad (hardening)</li><li>Optimización general</li><li>Validación posterior a la intervención</li>
+          <p class="eyebrow">Problemas habituales</p>
+          <h2>¿Cuándo necesitas una Intervención?</h2>
+          <ul class="check-list" style="margin-top:1rem;">
+            <li><strong>Lentitud extrema:</strong> Imágenes sin optimizar, scripts bloqueantes o hosting mal configurado.</li>
+            <li><strong>Fallas en móviles:</strong> Elementos desalineados, desbordamiento horizontal o botones inaccesibles.</li>
+            <li><strong>Formularios rotos:</strong> Contactos que nunca llegan o fallas en integraciones de leads.</li>
+            <li><strong>Problemas de seguridad:</strong> Alertas del navegador, cabeceras HTTP inseguras o malware.</li>
+            <li><strong>Código inaccesible:</strong> Implementaciones anteriores que quedaron a medias o con errores de consola.</li>
           </ul>
         </div>
         <div class="reveal">
-          <h2>Cómo trabajamos</h2>
+          <p class="eyebrow">Metodología de intervención</p>
+          <h2>El proceso de 5 pasos</h2>
           <div class="process-list">
-            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+            <div class="process-row" style="padding-block:.85rem; grid-template-columns:50px 1fr;">
               <span class="process-code">01</span>
-              <div><h3 style="font-size:1.05rem;">Diagnose</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <div><h3 style="font-size:1rem;">Diagnose</h3><p style="font-size:.85rem; color:var(--steel);">Aislamos la causa raíz del error sin adivinanzas.</p></div>
+            </div>
+            <div class="process-row" style="padding-block:.85rem; grid-template-columns:50px 1fr;">
               <span class="process-code">02</span>
-              <div><h3 style="font-size:1.05rem;">Intervene</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <div><h3 style="font-size:1rem;">Intervene</h3><p style="font-size:.85rem; color:var(--steel);">Corregimos el código o configuración directamente.</p></div>
+            </div>
+            <div class="process-row" style="padding-block:.85rem; grid-template-columns:50px 1fr;">
               <span class="process-code">03</span>
-              <div><h3 style="font-size:1.05rem;">Harden</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <div><h3 style="font-size:1rem;">Harden</h3><p style="font-size:.85rem; color:var(--steel);">Reforzamos la seguridad y saneamos dependencias.</p></div>
+            </div>
+            <div class="process-row" style="padding-block:.85rem; grid-template-columns:50px 1fr;">
               <span class="process-code">04</span>
-              <div><h3 style="font-size:1.05rem;">Optimize</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
+              <div><h3 style="font-size:1rem;">Optimize</h3><p style="font-size:.85rem; color:var(--steel);">Aceleramos la carga y reducimos el peso de los assets.</p></div>
+            </div>
+            <div class="process-row" style="padding-block:.85rem; grid-template-columns:50px 1fr;">
               <span class="process-code">05</span>
-              <div><h3 style="font-size:1.05rem;">Validate</h3></div>
+              <div><h3 style="font-size:1rem;">Validate</h3><p style="font-size:.85rem; color:var(--steel);">Comprobamos que todo funcione limpiamente en producción.</p></div>
             </div>
           </div>
         </div>
@@ -57,8 +67,8 @@ import CTABand from '../components/CTABand.astro';
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
-          <h2>También pasa por el Gate.</h2>
-          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+          <h2>Validación post-intervención</h2>
+          <p>Toda corrección realizada pasa por las pruebas de verificación del Gate antes de entregarse.</p>
         </div>
         <div class="reveal">
           <GateSchematic compact={true} />
@@ -67,8 +77,10 @@ import CTABand from '../components/CTABand.astro';
     </section>
 
     <CTABand
-      title="¿Tu web tiene un problema puntual?"
-      description="Cuéntanos qué está fallando. Muchas veces reparar es más rápido y económico que reconstruir."
+      title="¿Tienes un problema puntual en tu web que necesitas resolver?"
+      description="Cuéntanos qué está fallando. Muchas veces reparar es más rápido, limpio y económico que reconstruir desde cero."
+      ctaLabel="Solicitar Intervención"
+      ctaHref="contacto.html?necesidad=resolver"
     />
 
   </main>

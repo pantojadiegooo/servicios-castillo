@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+# Servicios Castillo — Plataforma Digital
 
-```sh
-npm create astro@latest -- --template minimal
+Unidad de soluciones digitales de **Grupo Castillo**. Plataforma web estática construida sobre **Astro**, diseñada bajo el **Castillo Security & Quality Gate**.
+
+- **Producción**: [https://servicios-castillo.vercel.app/](https://servicios-castillo.vercel.app/)
+- **Repositorio**: [https://github.com/pantojadiegooo/servicios-castillo](https://github.com/pantojadiegooo/servicios-castillo)
+
+---
+
+## 🛠️ Arquitectura Técnica
+
+* **Framework**: Astro v7.2 (Compilación estática en `dist/`)
+* **Formato de Rutas**: `build.format: 'file'` (Preserva URLs nativas `.html`)
+* **Estilos**: Vanilla CSS modularizado en `src/styles/` (`tokens.css`, `reset.css`, `layout.css`, `hero.css`, `components/*.css`)
+* **JavaScript**: Nativo en `public/assets/js/main.js` (Menú accesible, validación client-side, lectura de query params `?paquete=` / `?necesidad=`, transmisión HTTP `fetch`)
+* **Iconografía & Assets**: Favicon SVG, PNG (32px), Apple Touch Icon (180px) y Open Graph Banner (1200x630)
+
+---
+
+## 🚀 Comandos del Proyecto
+
+Todos los comandos se ejecutan desde la raíz del proyecto:
+
+| Comando | Acción |
+| :--- | :--- |
+| `npm run dev` | Inicia el servidor local de desarrollo en `http://localhost:4321` |
+| `npm run build` | Compila el sitio estático de producción en `./dist/` (12 rutas `.html`) |
+| `npm run preview` | Previsualiza localmente el sitio compilado en `dist/` |
+| `npm run check` | Ejecuta la verificación de tipos e integridad de Astro (`astro check`) |
+
+---
+
+## 📬 Configuración del Formulario de Contacto
+
+El formulario de `/contacto.html` transmite las solicitudes en tiempo real a cualquier proveedor (Formspree, Web3Forms, Netlify Forms, EmailJS o API propia).
+
+### Variable de Entorno
+Crea o configura la variable `PUBLIC_FORM_ENDPOINT` en tu plataforma de hosting (Vercel) o archivo `.env`:
+
+```env
+PUBLIC_FORM_ENDPOINT="https://formspree.io/f/tu-id-formspree"
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Si la variable no se especifica, el script del cliente informará en la UI de forma accesible que el formulario requiere la URL receptora para transmitir los datos en producción.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛡️ Castillo Security & Quality Gate
+
+El proceso de desarrollo y validación comprende 9 etapas continuas:
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+DISCOVER → DESIGN → BUILD → TEST → AUDIT → GATE → LAUNCH → VERIFY → EVOLVE
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+1. **Security**: Verificación de cabeceras, recursos HTTPS y ausencia de scripts maliciosos.
+2. **Performance**: Renderizado estático ultrarrápido sin dependencias frontend pesadas.
+3. **Accessibility**: Estructura semántica HTML5, navegación por teclado, contraste y soporte para `prefers-reduced-motion`.
+4. **SEO**: Etiquetas canónicas, Open Graph, Twitter Cards, `robots.txt` y `sitemap.xml` vinculados al dominio de producción.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📄 Licencia
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+© 2026 Servicios Castillo — Una empresa de Grupo Castillo. Todos los derechos reservados.

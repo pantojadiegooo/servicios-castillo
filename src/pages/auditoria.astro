@@ -5,10 +5,10 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Castle Audit — Servicios Castillo"
-  description="Diagnóstico técnico de seguridad, rendimiento, accesibilidad, SEO y privacidad para tu solución digital actual."
-  canonical="https://serviciosorg-castillo.example.mx/auditoria.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/auditoria.html"
+  title="Castle Audit — Diagnóstico Técnico de Soluciones Digitales"
+  description="Auditoría técnica independiente de seguridad, rendimiento, accesibilidad WCAG 2.2, SEO y arquitectura para soluciones digitales existentes."
+  canonical="https://servicios-castillo.vercel.app/auditoria.html"
+  ogUrl="https://servicios-castillo.vercel.app/auditoria.html"
 >
   <main id="main">
 
@@ -16,35 +16,39 @@ import CTABand from '../components/CTABand.astro';
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Audit</p>
         <p class="eyebrow">AUDIT</p>
-        <h1>Castle Audit</h1>
-        <p>Antes de decidir qué hacer con tu sitio, hay que entender exactamente en qué estado está.</p>
+        <h1>Castle Audit: Diagnóstico técnico antes de tomar decisiones.</h1>
+        <p>Antes de gastar dinero en rehacer una web o contratar desarrollos a ciegas, analizamos qué está fallando, qué sirve y qué se debe corregir prioritariamente.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <h2>Qué incluye</h2>
-          <ul class="check-list">
-            <li>Security Audit</li><li>Performance Audit</li><li>Accessibility Audit</li><li>SEO Audit</li><li>Technical Audit</li><li>Privacy Review</li><li>Diagnóstico con prioridades claras</li><li>Recomendaciones accionables</li><li>Plan de intervención opcional</li>
+          <p class="eyebrow">Alcance del diagnóstico</p>
+          <h2>Cinco dimensiones de evaluación técnica.</h2>
+          <p>Un análisis integral que evalúa el código, la infraestructura y la experiencia de usuario bajo criterios objetivos:</p>
+          <ul class="check-list" style="margin-top:1.5rem;">
+            <li><strong>Security Audit:</strong> Vulnerabilidades en dependencias, configuración de cabeceras HTTP, HTTPS y validación de entrada de datos.</li>
+            <li><strong>Performance Audit:</strong> Core Web Vitals (LCP, INP, CLS), render blocking, compresión de imágenes y peso de scripts.</li>
+            <li><strong>Accessibility Audit (WCAG 2.2 AA):</strong> Navegación por teclado, contraste cromático, lectores de pantalla y semántica HTML.</li>
+            <li><strong>SEO &amp; Indexabilidad Audit:</strong> Estructura H1-H6, metadatos Open Graph, etiquetas canónicas, sitemap y datos estructurados.</li>
+            <li><strong>Technical &amp; Architecture Audit:</strong> Calidad de código, mantenibilidad, dependencias obsoletas y compatibilidad responsive.</li>
           </ul>
         </div>
         <div class="reveal">
-          <h2>Cómo trabajamos</h2>
-          <div class="process-list">
-            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">01</span>
-              <div><h3 style="font-size:1.05rem;">Revisión técnica completa</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">02</span>
-              <div><h3 style="font-size:1.05rem;">Identificación de riesgos y oportunidades</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">03</span>
-              <div><h3 style="font-size:1.05rem;">Reporte con prioridades</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">04</span>
-              <div><h3 style="font-size:1.05rem;">Recomendaciones y siguiente paso</h3></div>
-            </div>
+          <p class="eyebrow">Entregables tangibles</p>
+          <h2>Lo que recibes al finalizar el Audit</h2>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>1. Reporte Ejecutivo &amp; Técnico</h3>
+            <p>Documento detallado con diagnóstico claro, categorizado por gravedad de hallazgos (P0 Bloqueante a P3 Opcional).</p>
+          </div>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>2. Hoja de Ruta de Intervención</h3>
+            <p>Plan de acción priorizado con los pasos exactos para corregir las fallas detectadas.</p>
+          </div>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>3. Sesión de Retroalimentación</h3>
+            <p>Explicación técnica y comercial de los resultados para que tomes decisiones informadas con tu equipo.</p>
           </div>
         </div>
       </div>
@@ -54,8 +58,8 @@ import CTABand from '../components/CTABand.astro';
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
-          <h2>También pasa por el Gate.</h2>
-          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+          <h2>Fase 5 del proceso: AUDIT</h2>
+          <p>Castle Audit es la quinta etapa de nuestro propio sistema de validación, disponible también como servicio independiente.</p>
         </div>
         <div class="reveal">
           <GateSchematic compact={true} />
@@ -64,8 +68,10 @@ import CTABand from '../components/CTABand.astro';
     </section>
 
     <CTABand
-      title="¿Quieres saber en qué estado está tu sitio?"
-      description="Empieza con un Castle Audit y toma decisiones con información real, no con suposiciones."
+      title="¿Quieres saber exactamente en qué estado está tu sitio?"
+      description="Solicita un Castle Audit y toma decisiones basadas en evidencia técnica real, no en suposiciones."
+      ctaLabel="Solicitar Castle Audit"
+      ctaHref="contacto.html?necesidad=auditar"
     />
 
   </main>

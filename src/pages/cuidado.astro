@@ -5,10 +5,10 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Castle Care — Servicios Castillo"
-  description="Mantenimiento y evolución continua para soluciones digitales: actualizaciones, seguridad, respaldos y monitoreo."
-  canonical="https://serviciosorg-castillo.example.mx/cuidado.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/cuidado.html"
+  title="Castle Care — Mantenimiento y Evolución Continua Web"
+  description="Servicio continuo de mantenimiento, seguridad, monitoreo de uptime, respaldos y evolución tecnológica para soluciones digitales."
+  canonical="https://servicios-castillo.vercel.app/cuidado.html"
+  ogUrl="https://servicios-castillo.vercel.app/cuidado.html"
 >
   <main id="main">
 
@@ -16,35 +16,38 @@ import CTABand from '../components/CTABand.astro';
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Care</p>
         <p class="eyebrow">CARE</p>
-        <h1>Castle Care</h1>
-        <p>Una solución digital sana necesita mantenimiento continuo, no solo un buen lanzamiento.</p>
+        <h1>Castle Care: Mantenimiento y evolución continua.</h1>
+        <p>Una solución digital en producción no termina en el lanzamiento. Requiere supervisión activa, actualizaciones de seguridad y evolución tecnológica constante.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <h2>Qué incluye</h2>
-          <ul class="check-list">
-            <li>Actualizaciones periódicas</li><li>Seguridad continua</li><li>Respaldos (backups)</li><li>Monitoreo</li><li>Corrección de incidencias</li><li>Optimización y evolución tecnológica</li>
+          <p class="eyebrow">¿Qué incluye Castle Care?</p>
+          <h2>Mantenimiento activo y protección.</h2>
+          <ul class="check-list" style="margin-top:1rem;">
+            <li><strong>Monitoreo de Disponibilidad &amp; Uptime:</strong> Supervisión constante para detectar caídas o fallas en el servidor.</li>
+            <li><strong>Parches &amp; Seguridad Continua:</strong> Actualización periódica de dependencias y saneamiento de cabeceras.</li>
+            <li><strong>Respaldos Automatizados (Backups):</strong> Copias de seguridad periódicas del código y activos digitales.</li>
+            <li><strong>Resolución de Incidencias:</strong> Atención prioritaria ante fallas técnicas o errores inesperados.</li>
+            <li><strong>Evolución &amp; Mejoras Menores:</strong> Ajustes de contenido, diseño o nuevas secciones según crezca tu negocio.</li>
           </ul>
         </div>
         <div class="reveal">
-          <h2>Cómo trabajamos</h2>
-          <div class="process-list">
-            <div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">01</span>
-              <div><h3 style="font-size:1.05rem;">Monitoreo continuo</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">02</span>
-              <div><h3 style="font-size:1.05rem;">Mantenimiento programado</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">03</span>
-              <div><h3 style="font-size:1.05rem;">Reporte de estado</h3></div>
-            </div><div class="process-row" style="padding-block:1rem; grid-template-columns:60px 1fr;">
-              <span class="process-code">04</span>
-              <div><h3 style="font-size:1.05rem;">Evolución según necesidades del negocio</h3></div>
-            </div>
+          <p class="eyebrow">Modos de atención</p>
+          <h2>Esquemas de Acompañamiento</h2>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>Castle Care Basic</h3>
+            <p style="font-size:.88rem; color:var(--steel);">Monitoreo de uptime, parches de seguridad mensuales, respaldos periódicos y soporte ante emergencias.</p>
+          </div>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>Castle Care Pro</h3>
+            <p style="font-size:.88rem; color:var(--steel);">Todo lo de Basic + horas mensuales dedicadas a cambios de contenido, optimización de velocidad y reporte mensual de estado.</p>
+          </div>
+          <div class="card card-light" style="margin-top:1rem;">
+            <h3>Castle Care Enterprise</h3>
+            <p style="font-size:.88rem; color:var(--steel);">Atención personalizada con SLA de respuesta prioritario, evolución constante de características y soporte dedicado.</p>
           </div>
         </div>
       </div>
@@ -54,8 +57,8 @@ import CTABand from '../components/CTABand.astro';
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
-          <h2>También pasa por el Gate.</h2>
-          <p>Todo proyecto, sin importar su tamaño, recorre el mismo sistema de validación antes de considerarse listo.</p>
+          <h2>Fase 9 del proceso: EVOLVE</h2>
+          <p>Castle Care constituye la etapa final del sistema Gate, asegurando que tu plataforma mantenga los estándares de calidad con los que fue lanzada.</p>
         </div>
         <div class="reveal">
           <GateSchematic compact={true} />
@@ -64,8 +67,10 @@ import CTABand from '../components/CTABand.astro';
     </section>
 
     <CTABand
-      title="¿Quién cuida tu solución después del lanzamiento?"
-      description="Con Castle Care tu solución se mantiene actualizada, segura y vigente."
+      title="¿Quién cuida tu solución digital después del lanzamiento?"
+      description="Evita que tu sitio quede desactualizado, inseguro o abandonado. Mantén tu inversión protegida con Castle Care."
+      ctaLabel="Consultar Planes Castle Care"
+      ctaHref="contacto.html?necesidad=otro"
     />
 
   </main>

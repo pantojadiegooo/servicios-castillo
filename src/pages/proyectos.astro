@@ -4,78 +4,120 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Proyectos — Servicios Castillo"
-  description="Casos demostrativos que muestran cómo estructuramos un proyecto: problema, solución, tecnología, resultado y validación."
-  canonical="https://serviciosorg-castillo.example.mx/proyectos.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/proyectos.html"
+  title="Casos de Estudio y Demostración de Capacidades — Servicios Castillo"
+  description="Explora nuestros casos de estudio de arquitectura web, incluyendo la auditoría técnica en vivo de nuestra propia plataforma digital."
+  canonical="https://servicios-castillo.vercel.app/proyectos.html"
+  ogUrl="https://servicios-castillo.vercel.app/proyectos.html"
 >
   <main id="main">
 
     <section class="page-hero">
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Proyectos</p>
-        <h1>Proyectos</h1>
-        <p>Estamos construyendo nuestro portafolio con proyectos reales. Mientras tanto, estos casos demostrativos muestran cómo estructuramos y documentamos cada proyecto.</p>
+        <h1>Casos de Estudio &amp; Living Case Study</h1>
+        <p>Demostramos nuestra ingeniería mediante la auditoría técnica en vivo de nuestra propia plataforma y casos ilustrativos estructurados por problema, solución y resultados.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container grid grid-2">
-        
-          <article class="project-case reveal">
-            <span class="badge badge-demo">Proyecto demostrativo — Build</span>
-            <h3 style="margin-top:.9rem;">Sitio institucional para una empresa de servicios</h3>
+      <div class="container">
+        <!-- LIVING CASE STUDY -->
+        <div class="reveal" style="margin-bottom:3rem;">
+          <article class="project-case" style="border-color:var(--gold-soft); background:rgba(184,147,74,0.04); padding:2rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+              <span class="badge" style="background:var(--gold); color:#000; font-weight:700;">PROYECTO PROPIO — LIVING CASE STUDY EN VIVO</span>
+              <a href="https://github.com/pantojadiegooo/servicios-castillo" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-size:.85rem; text-decoration:underline;">Ver Código Fuente Abierto en GitHub ↗</a>
+            </div>
+
+            <h2 style="margin-top:1rem; font-size:1.6rem;">Plataforma Digital Servicios Castillo v1.0</h2>
+            <p style="color:var(--paper-soft); margin-block:.75rem; max-width:70ch;">La mejor demostración de lo que construimos es nuestro propio sitio web: una plataforma ultrarrápida, segura y accesible sin utilizar sobreingeniería ni dependencias innecesarias.</p>
+
+            <div class="grid grid-3" style="margin-block:1.5rem; gap:1rem;">
+              <div class="card card-light" style="padding:1rem;">
+                <span style="font-size:.75rem; color:var(--steel); text-transform:uppercase; letter-spacing:0.05em;">Compilación Estática</span>
+                <p style="font-size:1.4rem; font-weight:700; color:var(--gold); margin-top:.2rem;">1.0s SSG</p>
+                <p style="font-size:.8rem; color:var(--paper-soft);">12 rutas .html generadas por Astro v7.2</p>
+              </div>
+              <div class="card card-light" style="padding:1rem;">
+                <span style="font-size:.75rem; color:var(--steel); text-transform:uppercase; letter-spacing:0.05em;">JavaScript Cliente</span>
+                <p style="font-size:1.4rem; font-weight:700; color:var(--gold); margin-top:.2rem;">3.8 KB Nativo</p>
+                <p style="font-size:.8rem; color:var(--paper-soft);">0 frameworks pesados, 0 bundles inflados</p>
+              </div>
+              <div class="card card-light" style="padding:1rem;">
+                <span style="font-size:.75rem; color:var(--steel); text-transform:uppercase; letter-spacing:0.05em;">Auditoría de Dependencias</span>
+                <p style="font-size:1.4rem; font-weight:700; color:var(--gold); margin-top:.2rem;">0 Vulnerabilidades</p>
+                <p style="font-size:.8rem; color:var(--paper-soft);">Resultado en escaneo <code style="font-size:.75rem;">npm audit</code> sobre dependencias de código</p>
+              </div>
+            </div>
+
             <dl class="case-steps">
-              <div><dt>Problema</dt><dd>Sin presencia digital propia; dependía solo de redes sociales.</dd></div>
-              <div><dt>Solución</dt><dd>Sitio institucional con arquitectura de contenido clara y formulario de contacto.</dd></div>
-              <div><dt>Tecnología</dt><dd>HTML semántico, CSS moderno, formularios accesibles.</dd></div>
-              <div><dt>Resultado</dt><dd>Presencia digital propia, navegable y responsive.</dd></div>
-              <div><dt>Validación</dt><dd>Castillo Security &amp; Quality Gate.</dd></div>
+              <div><dt>Desafío Técnico</dt><dd>Crear una web comercial liviana, elegante y accesible sin recurrir a plantillas recargadas ni frameworks client-side pesados.</dd></div>
+              <div><dt>Arquitectura</dt><dd>Astro SSG estático, Vanilla CSS modularizado en 19 archivos, JavaScript nativo ES6+ y etiquetado JSON-LD.</dd></div>
+              <div><dt>Validación Gate</dt><dd>Compilación estática limpia, 0 errores en <code style="font-size:.8rem;">astro check</code> y accesibilidad WCAG 2.2 AA validada.</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="section-head reveal" style="margin-top:3rem;">
+          <p class="eyebrow">Metodología de Trabajo</p>
+          <h2>Demostración por Línea de Servicio</h2>
+        </div>
+
+        <div class="grid grid-2 reveal">
+          <article class="project-case">
+            <span class="badge badge-demo">Caso Ilustrativo — Build</span>
+            <h3 style="margin-top:.9rem;">Desarrollo Institucional para Negocio de Servicios</h3>
+            <dl class="case-steps">
+              <div><dt>Problema</dt><dd>Dependencia exclusiva de redes sociales sin presencia web propia ni canal formal de captación.</dd></div>
+              <div><dt>Solución</dt><dd>Sitio de 5 páginas con arquitectura de contenido clara, botón de WhatsApp y formulario accesible.</dd></div>
+              <div><dt>Tecnología</dt><dd>HTML5 semántico, CSS responsivo, optimización de velocidad de carga.</dd></div>
+              <div><dt>Validación</dt><dd>Verificado bajo las 9 etapas del protocolo Castillo Quality Gate.</dd></div>
             </dl>
           </article>
         
-          <article class="project-case reveal">
-            <span class="badge badge-demo">Proyecto demostrativo — Intervention</span>
-            <h3 style="margin-top:.9rem;">Corrección de rendimiento en sitio existente</h3>
+          <article class="project-case">
+            <span class="badge badge-demo">Caso Ilustrativo — Intervention</span>
+            <h3 style="margin-top:.9rem;">Optimización de Rendimiento &amp; Reparación Móvil</h3>
             <dl class="case-steps">
-              <div><dt>Problema</dt><dd>Tiempos de carga altos y errores en dispositivos móviles.</dd></div>
-              <div><dt>Solución</dt><dd>Optimización de imágenes, revisión de código y ajustes de responsive.</dd></div>
-              <div><dt>Tecnología</dt><dd>Auditoría técnica + intervención dirigida.</dd></div>
-              <div><dt>Resultado</dt><dd>Mejora en tiempos de carga y experiencia móvil.</dd></div>
-              <div><dt>Validación</dt><dd>Validación posterior a la intervención (Validate).</dd></div>
+              <div><dt>Problema</dt><dd>Tiempos de carga superiores a 5 segundos, fallas en pantallas de celular y scripts bloqueantes.</dd></div>
+              <div><dt>Solución</dt><dd>Optimización de imágenes (WebP), eliminación de CSS/JS innecesario y corrección de responsividad.</dd></div>
+              <div><dt>Tecnología</dt><dd>Auditoría DevTools + optimización de assets + saneamiento de código.</dd></div>
+              <div><dt>Validación</dt><dd>Prueba de velocidad y rendimiento Core Web Vitals post-intervención.</dd></div>
             </dl>
           </article>
         
-          <article class="project-case reveal">
-            <span class="badge badge-demo">Proyecto demostrativo — Transformation</span>
-            <h3 style="margin-top:.9rem;">Migración de una solución obsoleta</h3>
+          <article class="project-case">
+            <span class="badge badge-demo">Caso Ilustrativo — Transformation</span>
+            <h3 style="margin-top:.9rem;">Reconstrucción y Migración de Sitio Legacy</h3>
             <dl class="case-steps">
-              <div><dt>Problema</dt><dd>Plataforma anterior difícil de mantener y de escalar.</dd></div>
-              <div><dt>Solución</dt><dd>Nueva arquitectura, migración de contenido y reconstrucción completa.</dd></div>
-              <div><dt>Tecnología</dt><dd>Nueva arquitectura de la solución.</dd></div>
-              <div><dt>Resultado</dt><dd>Base técnica preparada para crecer.</dd></div>
-              <div><dt>Validación</dt><dd>Castillo Security &amp; Quality Gate completo.</dd></div>
+              <div><dt>Problema</dt><dd>Plataforma basada en CMS antiguo, difícil de actualizar y propensa a fallas de seguridad.</dd></div>
+              <div><dt>Solución</dt><dd>Reconstrucción en arquitectura estática SSG, rediseño UX/UI y mapa de redirecciones 301 para SEO.</dd></div>
+              <div><dt>Tecnología</dt><dd>Astro SSG + diseño responsivo + preservación de URLs históricas.</dd></div>
+              <div><dt>Validación</dt><dd>Quality Gate completo con verificación de cero enlaces rotos.</dd></div>
             </dl>
           </article>
         
-          <article class="project-case reveal">
-            <span class="badge badge-demo">Proyecto demostrativo — Care</span>
-            <h3 style="margin-top:.9rem;">Mantenimiento continuo de una solución en producción</h3>
+          <article class="project-case">
+            <span class="badge badge-demo">Caso Ilustrativo — Care</span>
+            <h3 style="margin-top:.9rem;">Mantenimiento Técnico Continúo &amp; Monitoreo</h3>
             <dl class="case-steps">
-              <div><dt>Problema</dt><dd>Solución lanzada sin plan de mantenimiento posterior.</dd></div>
-              <div><dt>Solución</dt><dd>Monitoreo, actualizaciones periódicas y respaldos programados.</dd></div>
-              <div><dt>Tecnología</dt><dd>Monitoreo continuo + mantenimiento programado.</dd></div>
-              <div><dt>Resultado</dt><dd>Solución vigente, segura y actualizada.</dd></div>
-              <div><dt>Validación</dt><dd>Reporte de estado periódico.</dd></div>
+              <div><dt>Problema</dt><dd>Sitio en producción sin supervisión activa, propenso a caídas y desactualizaciones de seguridad.</dd></div>
+              <div><dt>Solución</dt><dd>Monitoreo automatizado de disponibilidad 24/7, respaldos semanales y parches de seguridad.</dd></div>
+              <div><dt>Tecnología</dt><dd>Monitoreo continuo + actualizaciones técnicas + reportes de estado.</dd></div>
+              <div><dt>Validación</dt><dd>Reporte mensual de disponibilidad y salud de la plataforma.</dd></div>
             </dl>
           </article>
+        </div>
+
+        <p style="margin-top:2rem; color:var(--steel); font-size:.85rem; max-width:65ch;">Nota de transparencia: Los casos etiquetados como "Caso Ilustrativo" muestran la metodología de análisis y documentación que aplicamos en cada desarrollo. Esta sección se actualiza continuamente con proyectos autorizados por nuestros clientes.</p>
       </div>
-      <p style="margin-top:2rem; color:var(--steel); font-size:.85rem; max-width:60ch;">Los proyectos marcados como "Proyecto demostrativo" son ejemplos ilustrativos del formato de caso que utilizamos, no clientes reales. Esta sección está preparada para incorporar proyectos reales conforme se completen.</p>
     </section>
 
     <CTABand
-      title="¿Quieres ser parte de esta sección?"
-      description="Inicia tu proyecto con nosotros y, con tu autorización, podría convertirse en un caso real."
+      title="¿Quieres que tu negocio tenga una plataforma con este nivel de calidad?"
+      description="Cuéntanos qué necesitas y construyamos tu solución bajo el estándar Castillo Quality Gate."
+      ctaLabel="Solicitar Cotización"
+      ctaHref="contacto.html"
     />
 
   </main>

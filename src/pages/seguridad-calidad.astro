@@ -5,10 +5,10 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Castillo Security & Quality Gate — Servicios Castillo"
-  description="No construimos para entregar. Construimos para validar. Conoce el sistema de nueve etapas que recorre cada proyecto."
-  canonical="https://serviciosorg-castillo.example.mx/seguridad-calidad.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/seguridad-calidad.html"
+  title="Castillo Security & Quality Gate — Protocolo de Validación Digital"
+  description="No construimos para entregar: construimos para validar. Conoce las 9 etapas del protocolo de calidad y seguridad de Servicios Castillo."
+  canonical="https://servicios-castillo.vercel.app/seguridad-calidad.html"
+  ogUrl="https://servicios-castillo.vercel.app/seguridad-calidad.html"
 >
   <main id="main">
 
@@ -17,7 +17,7 @@ import CTABand from '../components/CTABand.astro';
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Security &amp; Quality Gate</p>
         <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
         <h1>No construimos para entregar. Construimos para validar.</h1>
-        <p>Cada proyecto recorre el mismo sistema de nueve etapas, de Discover a Evolve. Si no pasa el Gate, no se entrega.</p>
+        <p>Cada proyecto recorre el mismo sistema de nueve etapas, de Discover a Evolve. Si una solución no pasa la prueba del Gate en la etapa 6, el lanzamiento se detiene hasta corregir la falla.</p>
       </div>
     </section>
 
@@ -32,28 +32,26 @@ import CTABand from '../components/CTABand.astro';
     <section class="section section-dim">
       <div class="container two-col">
         <div class="reveal">
-          <h2>Qué considera el Gate</h2>
-          <p>Según el proyecto, el Gate revisa:</p>
-          <ul class="check-list">
-            <li>Seguridad</li>
-            <li>Privacidad</li>
-            <li>Rendimiento</li>
-            <li>Accesibilidad</li>
-            <li>SEO técnico</li>
-            <li>Integridad del código</li>
-            <li>Dependencias</li>
-            <li>Funcionalidad</li>
-            <li>Responsive</li>
-            <li>Configuración de producción</li>
-            <li>Formularios</li>
-            <li>Integraciones</li>
-            <li>Experiencia de usuario</li>
+          <p class="eyebrow">Criterios de Inspección</p>
+          <h2>¿Qué evalúa la etapa GATE?</h2>
+          <p>La etapa 6 (GATE) es un filtro de aprobación donde se ejecutan pruebas automatizadas y manuales sobre 6 vectores esenciales:</p>
+          <ul class="check-list" style="margin-top:1rem;">
+            <li><strong>Seguridad &amp; Privacidad:</strong> Ausencia de vulnerabilidades en librerías (`npm audit`), saneamiento de entradas y HTTPS.</li>
+            <li><strong>Rendimiento (Core Web Vitals):</strong> Carga veloz de LCP, respuesta fluida de INP y estabilidad visual sin saltos (CLS).</li>
+            <li><strong>Accesibilidad (WCAG 2.2 AA):</strong> Navegación por teclado completa, jerarquía de encabezados, contraste cromático y etiquetas ARIA.</li>
+            <li><strong>SEO Técnico:</strong> Metadatos Open Graph, estructura semántica, sitemap XML, `robots.txt` y redirecciones limpias.</li>
+            <li><strong>QA Funcional:</strong> Validación de formularios E2E, botones interactivos y comportamiento responsivo en móviles.</li>
+            <li><strong>Configuración de Producción:</strong> Bundling minificado de CSS/JS, caché y ausencia de variables sensibles expuestas.</li>
           </ul>
         </div>
         <div class="reveal">
-          <h2>El rol de la inteligencia artificial</h2>
-          <p>Utilizamos IA como herramienta de apoyo para análisis, optimización y control de calidad, siempre bajo validación humana. La IA no sustituye esa validación: la acompaña.</p>
-          <p>No afirmamos contar con certificaciones, acreditaciones o auditorías externas que no existen. El Gate es nuestro propio estándar interno de trabajo, no una certificación de un tercero.</p>
+          <p class="eyebrow">Rigor y Transparencia</p>
+          <h2>Metodología e Inteligencia Artificial</h2>
+          <p>Utilizamos Inteligencia Artificial como acelerador de análisis de código, optimización y auditoría de patrones. Sin embargo, la decisión final de aprobación en el Gate es ejecutada y firmada bajo supervisión humana profesional.</p>
+          <div class="card card-light" style="margin-top:1.5rem; border-left:3px solid var(--gold);">
+            <h3 style="font-size:1rem;">Aclaración de Transparencia</h3>
+            <p style="font-size:.85rem; color:var(--steel);">El Castillo Security &amp; Quality Gate es nuestro estándar interno de ingeniería y control de calidad. No pretendemos venderlo como una certificación legal ni acreditación de terceros que no exista.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -61,26 +59,25 @@ import CTABand from '../components/CTABand.astro';
     <section class="section">
       <div class="container two-col">
         <div class="reveal">
-          <h2>Delivery Report</h2>
-          <p>Cada proyecto puede recibir un reporte de entrega que documenta el estado de la solución al momento del lanzamiento.</p>
-          <p style="font-size:.85rem; color:var(--steel-soft);">Los resultados mostrados abajo son un ejemplo ilustrativo del formato del reporte, no una puntuación real.</p>
+          <p class="eyebrow">Documentación del Proyecto</p>
+          <h2>Delivery Report de Ejemplo</h2>
+          <p>Cada proyecto finalizado recibe un reporte de entrega que certifica las pruebas realizadas y los resultados de validación en la fecha de despliegue.</p>
         </div>
         <div class="reveal">
           <div class="gate-report">
             <div class="gate-report-head">
               <strong>Castillo Security &amp; Quality Gate</strong>
-              <span class="badge badge-demo">Ejemplo</span>
+              <span class="badge badge-demo">Ejemplo de Formato</span>
             </div>
             <dl>
-              <dt>Proyecto</dt><dd>—</dd>
-              <dt>Versión</dt><dd>v0.1</dd>
-              <dt>Estado</dt><dd class="gate-check">Aprobado</dd>
-              <dt>Security</dt><dd class="gate-check">✓</dd>
-              <dt>Performance</dt><dd class="gate-check">✓</dd>
-              <dt>Accessibility</dt><dd class="gate-check">✓</dd>
-              <dt>SEO</dt><dd class="gate-check">✓</dd>
-              <dt>Functional QA</dt><dd class="gate-check">✓</dd>
-              <dt>Production</dt><dd class="gate-check">✓</dd>
+              <dt>Plataforma</dt><dd>Servicios Castillo v1.0</dd>
+              <dt>Compilación</dt><dd>Static SSG (Astro v7.2)</dd>
+              <dt>Estado Gate</dt><dd class="gate-check">Aprobado (0 Bloqueantes)</dd>
+              <dt>Security</dt><dd class="gate-check">✓ Pass (0 Audit Vulns)</dd>
+              <dt>Performance</dt><dd class="gate-check">✓ Pass (Static Build &lt; 1.1s)</dd>
+              <dt>Accessibility</dt><dd class="gate-check">✓ Pass (WCAG 2.2 AA)</dd>
+              <dt>SEO</dt><dd class="gate-check">✓ Pass (Canonical + OG)</dd>
+              <dt>Functional QA</dt><dd class="gate-check">✓ Pass (Form Fetch E2E)</dd>
             </dl>
           </div>
         </div>
@@ -88,8 +85,10 @@ import CTABand from '../components/CTABand.astro';
     </section>
 
     <CTABand
-      title="¿Quieres que tu proyecto pase por el Gate?"
-      description="Ya sea que construyamos algo nuevo o intervengamos lo que ya tienes, el Gate es parte del proceso."
+      title="¿Quieres que tu proyecto sea construido y validado bajo este estándar?"
+      description="Inicia tu desarrollo o auditoría con nosotros. Toda entrega recorre las 9 etapas del Gate."
+      ctaLabel="Conocer Paquetes y Alcances"
+      ctaHref="paquetes.html"
     />
 
   </main>

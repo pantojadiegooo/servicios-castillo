@@ -4,109 +4,153 @@ import CTABand from '../components/CTABand.astro';
 ---
 
 <BaseLayout
-  title="Soluciones — Servicios Castillo"
-  description="Cinco líneas de trabajo: Build, Audit, Intervention, Transformation y Care. Soluciones digitales para cada momento de tu proyecto."
-  canonical="https://serviciosorg-castillo.example.mx/soluciones.html"
-  ogUrl="https://serviciosorg-castillo.example.mx/soluciones.html"
+  title="Líneas de Trabajo y Soluciones Digitales — Servicios Castillo"
+  description="Cinco líneas de trabajo: Build, Castle Audit, Castle Intervention, Castle Transformation y Castle Care. Soluciones según la etapa de tu proyecto."
+  canonical="https://servicios-castillo.vercel.app/soluciones.html"
+  ogUrl="https://servicios-castillo.vercel.app/soluciones.html"
 >
   <main id="main">
 
     <section class="page-hero">
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Soluciones</p>
-        <h1>Soluciones digitales, no "páginas web".</h1>
-        <p>Cinco líneas de trabajo pensadas para distintos momentos: crear, analizar, corregir, transformar o mantener.</p>
+        <h1>Soluciones Digitales Diseñadas para Cada Etapa</h1>
+        <p>Cinco líneas de trabajo estructuradas según la situación actual de tu negocio: crear desde cero, analizar, reparar, reconstruir o mantener.</p>
       </div>
     </section>
 
-    
+    <!-- GUÍA DE DIAGNÓSTICO -->
+    <section class="section">
+      <div class="container">
+        <div class="card card-light reveal" style="padding:1.5rem; border-left:4px solid var(--gold);">
+          <h2 style="font-size:1.2rem; margin-bottom:.5rem;">¿Cómo saber cuál opción necesitas?</h2>
+          <div class="grid grid-3" style="gap:1rem; margin-top:1rem;">
+            <div>
+              <strong style="color:var(--gold); font-size:.9rem;">1. Si NO tienes sitio web:</strong>
+              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#build" style="text-decoration:underline;">BUILD</a> o explora los <a href="paquetes.html" style="text-decoration:underline;">Castle Packages</a> desde $4,500 MXN.</p>
+            </div>
+            <div>
+              <strong style="color:var(--gold); font-size:.9rem;">2. Si tu web actual es LENTA o FALLA:</strong>
+              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#intervention" style="text-decoration:underline;">INTERVENTION</a> para reparar sin tirar lo que ya funciona.</p>
+            </div>
+            <div>
+              <strong style="color:var(--gold); font-size:.9rem;">3. Si no sabes QUÉ ESTÁ MAL:</strong>
+              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#audit" style="text-decoration:underline;">AUDIT</a> para un diagnóstico completo de velocidad y seguridad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILD -->
     <section class="section section-dim" id="build">
       <div class="container two-col">
         <div class="reveal">
           <p class="eyebrow">01 — BUILD</p>
           <h2>Creamos soluciones digitales desde cero.</h2>
-          <p>Para proyectos nuevos: sitios web, e-commerce, sistemas web e integraciones, diseñados y construidos con una arquitectura pensada para crecer.</p>
-          
+          <p>Para proyectos nuevos: sitios web institucionales, e-commerce, sistemas web e integraciones a medida, diseñados con una arquitectura pensada para escalar.</p>
+          <p style="margin-top:1.5rem;"><a class="btn btn-gold" href="paquetes.html">Ver paquetes Build (Castle Packages)</a></p>
         </div>
         <div class="reveal">
           <ul class="check-list">
-            <li>Sitios web institucionales y corporativos</li><li>E-commerce</li><li>Sistemas web a medida</li><li>Integraciones con herramientas externas</li><li>Soluciones digitales personalizadas</li>
+            <li>Sitios web corporativos e institucionales</li>
+            <li>E-commerce y catálogos digitales</li>
+            <li>Plataformas y sistemas web a medida</li>
+            <li>Integraciones con APIs y herramientas externas</li>
+            <li>Castillo Security &amp; Quality Gate completo</li>
           </ul>
         </div>
       </div>
     </section>
 
-    
+    <!-- AUDIT -->
     <section class="section" id="audit">
       <div class="container two-col">
         <div class="reveal">
           <p class="eyebrow">02 — AUDIT</p>
           <h2>Analizamos lo que ya existe.</h2>
-          <p>Diagnosticamos tu solución digital actual antes de tocar una sola línea de código.</p>
-          <p class="pill-row" style="margin-top:1.5rem;"><span class="pill">Diagnóstico</span><span class="pill">Prioridades</span><span class="pill">Recomendaciones</span><span class="pill">Plan de intervención (opcional)</span></p>
+          <p>Diagnosticamos tu solución digital actual bajo criterios objetivos de seguridad, velocidad, accesibilidad, SEO y arquitectura antes de tocar una sola línea de código.</p>
+          <p class="pill-row" style="margin-top:1rem;"><span class="pill">Security</span><span class="pill">Performance</span><span class="pill">WCAG 2.2 A11y</span><span class="pill">SEO</span><span class="pill">Prioridades P0-P3</span></p>
+          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="auditoria.html">Conocer detalles de Castle Audit</a></p>
         </div>
         <div class="reveal">
           <ul class="check-list">
-            <li>Security Audit</li><li>Performance Audit</li><li>Accessibility Audit</li><li>SEO Audit</li><li>Technical Audit</li><li>Privacy Review</li>
+            <li>Security &amp; Vulnerability Audit</li>
+            <li>Performance &amp; Core Web Vitals Audit</li>
+            <li>Accessibility Audit (WCAG 2.2 AA)</li>
+            <li>SEO &amp; Indexabilidad Audit</li>
+            <li>Reporte detallado con prioridades accionables</li>
           </ul>
         </div>
       </div>
     </section>
 
-    
+    <!-- INTERVENTION -->
     <section class="section section-dim" id="intervention">
       <div class="container two-col">
         <div class="reveal">
           <p class="eyebrow">03 — INTERVENTION</p>
           <h2>Corregimos, protegemos y optimizamos.</h2>
-          <p>Para sitios que ya existen pero presentan problemas: lentitud, errores, mala experiencia móvil o vulnerabilidades.</p>
-          <p class="pill-row" style="margin-top:1.5rem;"><span class="pill">Diagnose</span><span class="pill">Intervene</span><span class="pill">Harden</span><span class="pill">Optimize</span><span class="pill">Validate</span></p>
+          <p>Para sitios que ya existen pero presentan problemas puntuales: lentitud, errores en móviles, fallas de scripts o alertas de seguridad.</p>
+          <p class="pill-row" style="margin-top:1rem;"><span class="pill">Diagnose</span><span class="pill">Intervene</span><span class="pill">Harden</span><span class="pill">Optimize</span><span class="pill">Validate</span></p>
+          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="intervencion.html">Conocer detalles de Castle Intervention</a></p>
         </div>
         <div class="reveal">
           <ul class="check-list">
-            <li>¿Tu web es demasiado lenta?</li><li>¿Se rompe o falla?</li><li>¿Está perdiendo clientes?</li><li>¿Funciona mal en móvil?</li><li>¿Tiene problemas de seguridad?</li><li>¿Una implementación anterior quedó mal?</li>
+            <li>Corrección de errores evidentes y fallas móviles</li>
+            <li>Optimización de velocidad y assets</li>
+            <li>Endurecimiento de seguridad (hardening)</li>
+            <li>Validación posterior a la intervención</li>
           </ul>
         </div>
       </div>
     </section>
 
-    
+    <!-- TRANSFORMATION -->
     <section class="section" id="transformation">
       <div class="container two-col">
         <div class="reveal">
           <p class="eyebrow">04 — TRANSFORMATION</p>
           <h2>Cuando reparar ya no es suficiente.</h2>
-          <p>Modernizamos, reconstruimos o migramos soluciones existentes hacia una base técnica sólida.</p>
-          
+          <p>Modernizamos, reconstruimos o migramos soluciones obsoletas hacia una base técnica estática y escalable sin perder tu posicionamiento SEO.</p>
+          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="transformacion.html">Conocer detalles de Castle Transformation</a></p>
         </div>
         <div class="reveal">
           <ul class="check-list">
-            <li>Rediseño</li><li>Modernización</li><li>Migración</li><li>Replatforming</li><li>Reconstrucción</li><li>Nueva arquitectura</li>
+            <li>Rediseño UX/UI enfocado en conversión</li>
+            <li>Replatforming y migración de CMS</li>
+            <li>Mapa de redirecciones SEO preservado</li>
+            <li>Nueva arquitectura estática de alto rendimiento</li>
           </ul>
         </div>
       </div>
     </section>
 
-    
+    <!-- CARE -->
     <section class="section section-dim" id="care">
       <div class="container two-col">
         <div class="reveal">
           <p class="eyebrow">05 — CARE</p>
           <h2>Mantenemos y evolucionamos.</h2>
-          <p>Una solución digital no termina en el lanzamiento. Care es el trabajo continuo que la mantiene sana y vigente.</p>
-          
+          <p>Supervisión activa, monitoreo de disponibilidad, actualizaciones de seguridad y evolución tecnológica constante para soluciones en producción.</p>
+          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="cuidado.html">Conocer detalles de Castle Care</a></p>
         </div>
         <div class="reveal">
           <ul class="check-list">
-            <li>Actualizaciones</li><li>Seguridad</li><li>Respaldos (backups)</li><li>Monitoreo</li><li>Correcciones</li><li>Optimización y evolución tecnológica</li>
+            <li>Monitoreo de disponibilidad (Uptime)</li>
+            <li>Actualizaciones y parches de seguridad</li>
+            <li>Respaldos periódicos automatizados</li>
+            <li>Soporte técnico y evolución continua</li>
           </ul>
         </div>
       </div>
     </section>
 
     <CTABand
-      title="¿No sabes por dónde empezar?"
-      description="Cuéntanos en qué momento está tu proyecto y te ayudamos a ubicar la línea de trabajo correcta."
+      title="¿No sabes cuál línea de trabajo corresponde a tu proyecto?"
+      description="Cuéntanos la situación actual de tu web y te orientamos hacia el camino técnico más conveniente."
+      ctaLabel="Evaluar mi proyecto"
+      ctaHref="contacto.html"
     />
 
   </main>
