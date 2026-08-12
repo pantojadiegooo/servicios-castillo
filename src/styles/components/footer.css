@@ -62,7 +62,7 @@
 
 .footer-brand p {
   font-size: 0.9rem;
-  color: var(--steel-soft);
+  color: var(--steel-light);
   max-width: 32ch;
   line-height: 1.55;
   margin-top: 0.5rem;
@@ -77,15 +77,44 @@
   border-top: 1px solid var(--line-dark);
   padding-top: 2rem;
   font-size: 0.82rem;
-  color: var(--steel-soft);
+  color: var(--steel-light);
+}
+
+.footer-gate-badge {
+  display: inline-block;
+  border: 1px solid var(--gold-dark);
+  color: var(--gold-light);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  background: rgba(198, 161, 82, 0.05);
+  box-shadow: 0 0 8px rgba(198, 161, 82, 0.12);
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.footer-gate-badge:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(198, 161, 82, 0.22);
+  background: rgba(198, 161, 82, 0.08);
 }
 
 .footer-legal a {
-  color: var(--steel-soft);
+  color: var(--steel-light);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer-legal a:hover {
   color: var(--gold);
+}
+
+@media (max-width: 540px) {
+  .footer-legal {
+    justify-content: center;
+    text-align: center;
+  }
 }

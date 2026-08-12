@@ -6,3 +6,20 @@
 .gate-report dt{ color: var(--steel-soft); }
 .gate-report dd{ margin:0; font-family:var(--f-mono); color: var(--paper); }
 .gate-check{ color:#5FAE7B; }
+
+@media (max-width: 480px) {
+  .gate-report {
+    padding: 1.25rem;
+  }
+}
+
+.gate-report.wide {
+  max-width: none;
+  padding: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .gate-report.wide {
+    padding: 1.25rem;
+  }
+}

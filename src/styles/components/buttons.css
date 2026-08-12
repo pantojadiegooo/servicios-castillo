@@ -73,3 +73,29 @@
   color: var(--ink);
   box-shadow: 0 4px 14px rgba(198, 161, 82, 0.25);
 }
+
+/* Soporte para botones outline en secciones con fondo claro */
+.section-dim .btn-outline {
+  border-color: rgba(74, 85, 104, 0.4);
+  color: var(--ink);
+  background: transparent;
+}
+
+.section-dim .btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: rgba(198, 161, 82, 0.08);
+}
+
+/* Ajustes responsive para pantallas móviles angostas */
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-actions .btn,
+  .form-grid .btn {
+    width: 100%;
+  }
+}

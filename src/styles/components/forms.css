@@ -36,6 +36,9 @@
 .field input,
 .field select,
 .field textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   font-family: var(--f-body);
   font-size: 0.98rem;
   padding: 0.85rem 1rem;
@@ -44,6 +47,18 @@
   background: var(--ink-card);
   color: var(--paper);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  accent-color: var(--gold);
+}
+
+.field select option {
+  background-color: var(--ink-surface);
+  color: var(--paper);
+}
+
+.field select option:checked,
+.field select option:hover {
+  background-color: var(--gold) !important;
+  color: var(--ink) !important;
 }
 
 .field input:focus,

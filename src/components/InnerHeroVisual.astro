@@ -1,0 +1,656 @@
+---
+interface Props {
+  type: 'soluciones' | 'auditoria' | 'intervencion' | 'transformacion' | 'cuidado' | 'nosotros' | 'proceso' | 'seguridad-calidad' | 'proyectos' | 'paquetes' | 'contacto';
+}
+
+const { type } = Astro.props;
+---
+
+<div class="inner-hero-visual-wrapper" data-type={type} aria-hidden="true">
+  <canvas class="inner-hero-canvas"></canvas>
+</div>
+
+<style>
+  .inner-hero-visual-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent;
+  }
+
+  .inner-hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+  }
+</style>
+
+<script is:inline>
+  class InnerHeroVisual {
+    constructor(element) {
+      this.wrapper = element;
+      this.type = element.getAttribute('data-type') || 'soluciones';
+      this.canvas = element.querySelector('.inner-hero-canvas');
+      if (!this.canvas) return;
+      this.ctx = this.canvas.getContext('2d');
+      
+      this.width = 0;
+      this.height = 0;
+      this.dpi = window.devicePixelRatio || 1;
+      this.time = 0;
+      this.frameId = null;
+      this.isVisible = false;
+      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Cache de colores desde variables CSS o fallbacks
+      const style = getComputedStyle(document.documentElement);
+      this.colors = {
+        gold: style.getPropertyValue('--gold').trim() || '#C6A152',
+        goldLight: style.getPropertyValue('--gold-light').trim() || '#E2C787',
+        steelSoft: style.getPropertyValue('--steel-soft').trim() || '#8894A6',
+        steelLight: style.getPropertyValue('--steel-light').trim() || '#C4CBD5'
+      };
+
+      this.mouse = { x: 0, y: 0, active: false };
+      
+      this.init();
+    }
+
+    init() {
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+      
+      // Registrar mouse listener en la seccion page-hero para reactividad (proyectos)
+      if (this.type === 'proyectos') {
+        const heroSection = this.wrapper.closest('.page-hero');
+        if (heroSection) {
+          heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            this.mouse.x = e.clientX - rect.left;
+            this.mouse.y = e.clientY - rect.top;
+            this.mouse.active = true;
+          });
+          heroSection.addEventListener('mouseleave', () => {
+            this.mouse.active = false;
+          });
+        }
+      }
+
+      this.setupCustomPattern();
+
+      // Observador de intersección para optimización de CPU
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible) {
+            if (this.reducedMotion) {
+              this.draw();
+            } else {
+              this.loop();
+            }
+          } else {
+            if (this.frameId) {
+              cancelAnimationFrame(this.frameId);
+              this.frameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.05 });
+
+      this.observer.observe(this.wrapper);
+    }
+
+    resize() {
+      this.width = this.wrapper.clientWidth;
+      this.height = this.wrapper.clientHeight;
+      
+      this.canvas.width = this.width * this.dpi;
+      this.canvas.height = this.height * this.dpi;
+      
+      this.ctx.setTransform(this.dpi, 0, 0, this.dpi, 0, 0);
+      
+      if (!this.reducedMotion && this.isVisible) {
+        this.draw();
+      } else {
+        this.draw();
+      }
+    }
+
+    setupCustomPattern() {
+      const isMobile = window.innerWidth < 768;
+      
+      if (this.type === 'soluciones') {
+        // Órbitas y nodos
+        this.orbits = [
+          { r: isMobile ? 60 : 100, speed: 0.015, nodes: 2 },
+          { r: isMobile ? 100 : 180, speed: -0.008, nodes: 3 }
+        ];
+      } 
+      else if (this.type === 'auditoria') {
+        // Puntos de grilla parpadeantes
+        this.gridPoints = [];
+        const gap = 38;
+        const rows = 6;
+        const cols = 22;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            if (Math.random() < 0.22) {
+              this.gridPoints.push({
+                x: c * gap + 20,
+                y: r * gap + 25,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.02 + Math.random() * 0.03
+              });
+            }
+          }
+        }
+        if (isMobile) {
+          this.gridPoints = this.gridPoints.slice(0, Math.floor(this.gridPoints.length * 0.3));
+        }
+      } 
+      else if (this.type === 'intervencion') {
+        // Escáner vertical y nodos flotantes
+        this.scannerY = 0;
+        this.scannerSpeed = 1.1;
+        this.nodes = [];
+        const count = isMobile ? 6 : 18;
+        for (let i = 0; i < count; i++) {
+          this.nodes.push({
+            x: Math.random() * 800 + 50,
+            y: Math.random() * 200 + 30,
+            size: Math.random() * 2.5 + 1.5,
+            activePhase: 0
+          });
+        }
+      } 
+      else if (this.type === 'transformacion') {
+        // Nodos que mutan
+        this.polyNodes = [];
+        const count = isMobile ? 4 : 7;
+        for (let i = 0; i < count; i++) {
+          this.polyNodes.push({
+            baseX: Math.random() * 600 + 100,
+            baseY: Math.random() * 150 + 50,
+            x: 0, y: 0,
+            phaseX: Math.random() * Math.PI * 2,
+            phaseY: Math.random() * Math.PI * 2,
+            speedX: 0.01 + Math.random() * 0.015,
+            speedY: 0.01 + Math.random() * 0.015,
+            range: 15 + Math.random() * 15
+          });
+        }
+      } 
+      else if (this.type === 'cuidado') {
+        // Partículas que ascienden lentamente
+        this.particles = [];
+        const count = isMobile ? 8 : 28;
+        for (let i = 0; i < count; i++) {
+          this.particles.push({
+            x: Math.random() * 800 + 50,
+            y: Math.random() * 260 + 50,
+            vy: -0.15 - Math.random() * 0.25,
+            alpha: Math.random() * 0.16 + 0.04,
+            size: Math.random() * 1.5 + 0.8
+          });
+        }
+      } 
+      else if (this.type === 'nosotros') {
+        // Nodos de red conectados
+        this.networkNodes = [];
+        const count = isMobile ? 6 : 16;
+        for (let i = 0; i < count; i++) {
+          this.networkNodes.push({
+            x: Math.random() * 800 + 50,
+            y: Math.random() * 200 + 30,
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: (Math.random() - 0.5) * 0.15,
+            size: Math.random() * 2 + 1
+          });
+        }
+      } 
+      else if (this.type === 'proceso') {
+        // Pulso de flujo
+        this.trackY = 0;
+        this.pulses = [];
+        const count = isMobile ? 2 : 4;
+        for (let i = 0; i < count; i++) {
+          this.pulses.push({
+            progress: Math.random(),
+            speed: 0.003 + Math.random() * 0.003
+          });
+        }
+      } 
+      else if (this.type === 'seguridad-calidad') {
+        // Escudo de alambre giratorio
+        this.shieldNodes = [];
+        const points = 8;
+        for (let i = 0; i < points; i++) {
+          const angle = (i / points) * Math.PI * 2;
+          this.shieldNodes.push({ angle, r: 60 });
+        }
+      } 
+      else if (this.type === 'proyectos') {
+        // Constelación reactiva al ratón
+        this.constellation = [];
+        const count = isMobile ? 10 : 32;
+        for (let i = 0; i < count; i++) {
+          this.constellation.push({
+            x: Math.random() * 800 + 50,
+            y: Math.random() * 200 + 30,
+            baseSize: Math.random() * 2 + 1,
+            size: 0,
+            glow: 0
+          });
+        }
+      } 
+      else if (this.type === 'paquetes') {
+        // Escalera de líneas
+        this.levels = isMobile ? 3 : 5;
+      } 
+      else if (this.type === 'contacto') {
+        // Ondas de señal de llamada
+        this.waves = [0, 0.33, 0.66];
+      }
+    }
+
+    draw() {
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      const isMobile = this.width < 768;
+      const opacityMultiplier = isMobile ? 0.35 : 1.0;
+
+      // Dibujar cuadrícula base sutil común
+      this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.008)';
+      this.ctx.lineWidth = 0.5;
+      const step = 48;
+      for (let x = 0; x < this.width; x += step) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x, 0);
+        this.ctx.lineTo(x, this.height);
+        this.ctx.stroke();
+      }
+      for (let y = 0; y < this.height; y += step) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, y);
+        this.ctx.lineTo(this.width, y);
+        this.ctx.stroke();
+      }
+
+      // 1. SOLUCIONES
+      if (this.type === 'soluciones') {
+        const cx = this.width * 0.76;
+        const cy = this.height / 2;
+        
+        this.orbits.forEach((orbit) => {
+          // Órbita
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = 'rgba(136, 148, 166, 0.05)';
+          this.ctx.arc(cx, cy, orbit.r, 0, Math.PI * 2);
+          this.ctx.stroke();
+          
+          // Nodos en la órbita
+          for (let i = 0; i < orbit.nodes; i++) {
+            const angle = (i / orbit.nodes) * Math.PI * 2 + (this.time * orbit.speed);
+            const nx = cx + Math.cos(angle) * orbit.r;
+            const ny = cy + Math.sin(angle) * orbit.r;
+            
+            this.ctx.beginPath();
+            this.ctx.fillStyle = `rgba(198, 161, 82, ${0.4 * opacityMultiplier})`;
+            this.ctx.arc(nx, ny, 3.5, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = 'rgba(198, 161, 82, 0.08)';
+            this.ctx.moveTo(cx, cy);
+            this.ctx.lineTo(nx, ny);
+            this.ctx.stroke();
+          }
+        });
+      }
+
+      // 2. AUDITORÍA
+      else if (this.type === 'auditoria') {
+        const offset = this.width * 0.52;
+        this.gridPoints.forEach((pt) => {
+          const osc = Math.sin(this.time * pt.speed + pt.phase) * 0.5 + 0.5;
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${osc * 0.16 * opacityMultiplier})`;
+          this.ctx.arc(pt.x + offset, pt.y, 2, 0, Math.PI * 2);
+          this.ctx.fill();
+
+          if (osc > 0.85) {
+            this.ctx.strokeStyle = `rgba(198, 161, 82, ${(osc - 0.85) * 0.5 * opacityMultiplier})`;
+            this.ctx.strokeRect(pt.x + offset - 4, pt.y - 4, 8, 8);
+          }
+        });
+      }
+
+      // 3. INTERVENCIÓN
+      else if (this.type === 'intervencion') {
+        const offset = this.width * 0.48;
+        
+        // Línea técnica de escáner
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.1 * opacityMultiplier})`;
+        this.ctx.lineWidth = 1;
+        this.ctx.moveTo(offset, this.scannerY);
+        this.ctx.lineTo(offset + 420, this.scannerY);
+        this.ctx.stroke();
+
+        this.nodes.forEach((node) => {
+          const dx = node.x * (420 / 900) + offset;
+          const dy = node.y;
+          
+          // Detección cuando el escáner cruza
+          if (Math.abs(this.scannerY - dy) < 4) {
+            node.activePhase = 1.0;
+          }
+          
+          this.ctx.beginPath();
+          this.ctx.fillStyle = node.activePhase > 0.05
+            ? `rgba(198, 161, 82, ${node.activePhase * 0.5 * opacityMultiplier})`
+            : `rgba(136, 148, 166, ${0.12 * opacityMultiplier})`;
+          this.ctx.arc(dx, dy, node.size + (node.activePhase * 2), 0, Math.PI * 2);
+          this.ctx.fill();
+
+          if (node.activePhase > 0) {
+            node.activePhase -= 0.03;
+          }
+        });
+      }
+
+      // 4. TRANSFORMACIÓN
+      else if (this.type === 'transformacion') {
+        const offset = this.width * 0.65;
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = `rgba(136, 148, 166, ${0.07 * opacityMultiplier})`;
+        this.ctx.lineWidth = 0.6;
+        
+        this.polyNodes.forEach((node, i) => {
+          node.x = node.baseX * (320 / 800) + offset + Math.sin(this.time * node.speedX + node.phaseX) * node.range;
+          node.y = node.baseY + Math.cos(this.time * node.speedY + node.phaseY) * (node.range * 0.6);
+          
+          if (i === 0) this.ctx.moveTo(node.x, node.y);
+          else this.ctx.lineTo(node.x, node.y);
+        });
+        this.ctx.closePath();
+        this.ctx.stroke();
+
+        this.polyNodes.forEach((node) => {
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${0.28 * opacityMultiplier})`;
+          this.ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+      }
+
+      // 5. CUIDADO
+      else if (this.type === 'cuidado') {
+        const offset = this.width * 0.72;
+        this.particles.forEach((part) => {
+          if (!this.reducedMotion) {
+            part.y += part.vy;
+            if (part.y < 10) {
+              part.y = this.height - 10;
+              part.x = Math.random() * 250 + offset;
+            }
+          }
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${part.alpha * opacityMultiplier})`;
+          this.ctx.arc(part.x, part.y, part.size, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+      }
+
+      // 6. NOSOTROS
+      else if (this.type === 'nosotros') {
+        const offset = this.width * 0.54;
+        
+        this.networkNodes.forEach((node) => {
+          if (!this.reducedMotion) {
+            node.x += node.vx;
+            node.y += node.vy;
+            const rx = node.x * (360 / 900) + offset;
+            if (rx < offset || rx > offset + 360) node.vx *= -1;
+            if (node.y < 10 || node.y > this.height - 10) node.vy *= -1;
+          }
+        });
+
+        // Líneas
+        this.ctx.strokeStyle = `rgba(136, 148, 166, ${0.05 * opacityMultiplier})`;
+        this.ctx.lineWidth = 0.5;
+        for (let i = 0; i < this.networkNodes.length; i++) {
+          const n1 = this.networkNodes[i];
+          const x1 = n1.x * (360 / 900) + offset;
+          for (let j = i + 1; j < this.networkNodes.length; j++) {
+            const n2 = this.networkNodes[j];
+            const x2 = n2.x * (360 / 900) + offset;
+            const dist = Math.hypot(x2 - x1, n2.y - n1.y);
+            if (dist < 80) {
+              this.ctx.beginPath();
+              this.ctx.moveTo(x1, n1.y);
+              this.ctx.lineTo(x2, n2.y);
+              this.ctx.stroke();
+            }
+          }
+        }
+
+        // Nodos
+        this.networkNodes.forEach((node) => {
+          const rx = node.x * (360 / 900) + offset;
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${0.2 * opacityMultiplier})`;
+          this.ctx.arc(rx, node.y, node.size, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+      }
+
+      // 7. PROCESO
+      else if (this.type === 'proceso') {
+        const offset = this.width * 0.58;
+        const cy = this.height / 2 + 10;
+        const lineLen = 320;
+        
+        // Línea técnica principal
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = 'rgba(136, 148, 166, 0.07)';
+        this.ctx.lineWidth = 1.5;
+        this.ctx.moveTo(offset, cy);
+        this.ctx.lineTo(offset + lineLen, cy);
+        this.ctx.stroke();
+
+        // Nodos de control fijos
+        const fixedNodes = 4;
+        for (let i = 0; i < fixedNodes; i++) {
+          const px = offset + (i / (fixedNodes - 1)) * lineLen;
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(136, 148, 166, ${0.18 * opacityMultiplier})`;
+          this.ctx.arc(px, cy, 3, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+
+        // Pulsos animados
+        this.pulses.forEach((pulse) => {
+          if (!this.reducedMotion) {
+            pulse.progress += pulse.speed;
+            if (pulse.progress > 1.0) pulse.progress = 0;
+          }
+          
+          const px = offset + pulse.progress * lineLen;
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${0.65 * opacityMultiplier})`;
+          this.ctx.arc(px, cy, 4, 0, Math.PI * 2);
+          this.ctx.fill();
+
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.18 * opacityMultiplier})`;
+          this.ctx.arc(px, cy, 9, 0, Math.PI * 2);
+          this.ctx.stroke();
+        });
+      }
+
+      // 8. SEGURIDAD Y CALIDAD
+      else if (this.type === 'seguridad-calidad') {
+        const cx = this.width * 0.74;
+        const cy = this.height / 2;
+        const angleSpeed = this.time * 0.18;
+        
+        // Escudo de alambre sutil
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.08 * opacityMultiplier})`;
+        this.ctx.lineWidth = 0.8;
+        
+        const projectedPoints = this.shieldNodes.map((node) => {
+          const curAngle = node.angle + angleSpeed;
+          const x = cx + Math.cos(curAngle) * node.r;
+          const y = cy + Math.sin(curAngle) * (node.r * 0.55); // Perspectiva 3D
+          return { x, y };
+        });
+
+        for (let i = 0; i < projectedPoints.length; i++) {
+          const p1 = projectedPoints[i];
+          this.ctx.lineTo(p1.x, p1.y);
+          
+          // Ejes internos hacia el centro
+          this.ctx.moveTo(cx, cy);
+          this.ctx.lineTo(p1.x, p1.y);
+          this.ctx.moveTo(p1.x, p1.y);
+        }
+        this.ctx.closePath();
+        this.ctx.stroke();
+
+        // Nodos
+        projectedPoints.forEach((p) => {
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${0.35 * opacityMultiplier})`;
+          this.ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+      }
+
+      // 9. PROYECTOS
+      else if (this.type === 'proyectos') {
+        const offset = this.width * 0.55;
+        
+        this.constellation.forEach((node) => {
+          const dx = node.x * (360 / 900) + offset;
+          const dy = node.y;
+          
+          let scaleSize = 0;
+          let glowIntensity = 0;
+
+          if (this.mouse.active) {
+            const dist = Math.hypot(this.mouse.x - dx, this.mouse.y - dy);
+            if (dist < 75) {
+              const proximity = (75 - dist) / 75; // 0 a 1
+              scaleSize = proximity * 2.5;
+              glowIntensity = proximity * 0.35;
+            }
+          }
+
+          node.size += (node.baseSize + scaleSize - node.size) * 0.1;
+          node.glow += (glowIntensity - node.glow) * 0.1;
+
+          this.ctx.beginPath();
+          this.ctx.fillStyle = node.glow > 0.02
+            ? `rgba(198, 161, 82, ${(0.15 + node.glow) * opacityMultiplier})`
+            : `rgba(136, 148, 166, ${0.08 * opacityMultiplier})`;
+          this.ctx.arc(dx, dy, node.size, 0, Math.PI * 2);
+          this.ctx.fill();
+
+          if (node.glow > 0.05) {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = `rgba(198, 161, 82, ${node.glow * 0.25 * opacityMultiplier})`;
+            this.ctx.arc(dx, dy, node.size + 4, 0, Math.PI * 2);
+            this.ctx.stroke();
+          }
+        });
+      }
+
+      // 10. PAQUETES
+      else if (this.type === 'paquetes') {
+        const offset = this.width * 0.65;
+        const startY = 35;
+        const lGap = 32;
+        const lineLen = 220;
+
+        for (let i = 0; i < this.levels; i++) {
+          const ly = startY + i * lGap;
+          const lx = offset + i * 18;
+          const activeOsc = Math.sin(this.time * 1.5 + i) * 0.5 + 0.5;
+
+          // Eje horizontal de nivel
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = `rgba(136, 148, 166, ${0.06 * opacityMultiplier})`;
+          this.ctx.moveTo(lx, ly);
+          this.ctx.lineTo(lx + lineLen, ly);
+          this.ctx.stroke();
+
+          // Nodos indicadores del tier
+          this.ctx.beginPath();
+          this.ctx.fillStyle = `rgba(198, 161, 82, ${(0.1 + activeOsc * 0.2) * opacityMultiplier})`;
+          this.ctx.arc(lx + i * 35, ly, 3, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      }
+
+      // 11. CONTACTO
+      else if (this.type === 'contacto') {
+        const cx = this.width * 0.74;
+        const cy = this.height / 2;
+        const maxRadius = isMobile ? 65 : 120;
+
+        this.waves.forEach((_, idx) => {
+          if (!this.reducedMotion) {
+            this.waves[idx] += 0.004;
+            if (this.waves[idx] > 1.0) this.waves[idx] = 0;
+          }
+          
+          const radius = this.waves[idx] * maxRadius;
+          const alpha = (1.0 - this.waves[idx]) * 0.12 * opacityMultiplier;
+
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = `rgba(198, 161, 82, ${alpha})`;
+          this.ctx.lineWidth = 1;
+          this.ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+          this.ctx.stroke();
+        });
+
+        // Nodo emisor central
+        this.ctx.beginPath();
+        this.ctx.fillStyle = `rgba(198, 161, 82, ${0.45 * opacityMultiplier})`;
+        this.ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
+        this.ctx.fill();
+      }
+    }
+
+    loop() {
+      this.time += 0.04;
+      
+      // Control de animacion lineal de la pagina Intervencion
+      if (this.type === 'intervencion') {
+        this.scannerY += this.scannerSpeed;
+        if (this.scannerY > this.height || this.scannerY < 0) {
+          this.scannerSpeed *= -1;
+        }
+      }
+
+      this.draw();
+      this.frameId = requestAnimationFrame(() => this.loop());
+    }
+  }
+
+  // Inicializar todos los visuales en el dom
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.inner-hero-visual-wrapper').forEach((el) => {
+      new InnerHeroVisual(el);
+    });
+  });
+</script>

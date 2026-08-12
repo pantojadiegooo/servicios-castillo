@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
 const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/maewolbo';
 ---
@@ -14,6 +15,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
   <main id="main">
 
     <section class="page-hero">
+      <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Contacto &amp; Cotización</p>
         <h1>Iniciemos tu Proyecto Digital</h1>
@@ -21,9 +23,10 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
       </div>
     </section>
 
-    <section class="section">
-      <div class="container two-col">
-        <div class="reveal">
+    <section class="section" style="padding-top: 1.5rem;">
+      <div class="container">
+        <!-- Formulario centrado -->
+        <div class="reveal" style="max-width: 920px; margin: 0 auto 4rem auto;">
           <form id="contact-form" class="form-grid" action={formEndpoint} method="POST">
             <div class="field">
               <label for="nombre">Nombre Completo o Empresa</label>
@@ -74,24 +77,41 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
               <label for="descripcion">Detalles de tu Proyecto o Sitio Actual</label>
               <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Cuéntanos brevemente de tu negocio, los objetivos de tu web o la dirección URL de tu sitio actual si necesitas una revisión."></textarea>
             </div>
-            <div class="field full">
-              <button class="btn btn-gold" type="submit">Enviar Solicitud de Cotización</button>
-              <p style="font-size:.8rem; color:var(--steel-soft); margin-top:.5rem;">🔒 Tu información es 100% confidencial. Respuesta técnica en menos de 24h hábiles. Sin compromisos ni llamadas molestas de ventas.</p>
+            <div class="field full" style="text-align: center; margin-top: 1rem;">
+              <button class="btn btn-gold" type="submit" style="width: 100%; max-width: 320px; margin: 0 auto;">Solicitar propuesta</button>
+              <p style="font-size:.8rem; color:var(--steel-soft); margin-top:.75rem;">🔒 Tu información es confidencial. Te respondemos en menos de 24 horas hábiles. Sin compromisos ni llamadas molestas.</p>
             </div>
           </form>
-          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1rem;">Canal oficial de recepción de solicitudes activado mediante transmisión segura encriptada (Formspree).</p>
+          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1.5rem; text-align:center;">Tu solicitud llega directamente a nuestro equipo.</p>
         </div>
-        <div class="reveal">
-          <div class="gate-report">
-            <div class="gate-report-head"><strong>¿Qué ocurre después de enviar?</strong></div>
-            <ol style="margin-top:1rem; padding-left:1.2rem; color:var(--paper-soft); font-size:.9rem; line-height:1.6;">
-              <li style="margin-bottom:.5rem;"><strong>Revisión Técnica:</strong> Analizamos la información de tu proyecto o inspeccionamos tu URL actual.</li>
-              <li style="margin-bottom:.5rem;"><strong>Propuesta Clara:</strong> Te enviamos por correo una propuesta de alcance, paquete recomendado y presupuesto por escrito.</li>
-              <li><strong>Etapa Discover:</strong> Si apruebas la propuesta, agendamos una llamada breve para iniciar la construcción o intervención.</li>
-            </ol>
-            <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.08);">
-              <p style="font-size:.85rem; color:var(--steel);">¿Prefieres explorar primero los paquetes?</p>
-              <a href="paquetes.html" style="color:var(--gold); font-size:.9rem; text-decoration:underline;">Ver comparativa completa de Castle Packages →</a>
+
+        <!-- ¿Qué ocurre después de enviar? Abajo, centrado y bien diseñado -->
+        <div class="reveal" style="max-width: 920px; margin: 0 auto;">
+          <div class="gate-report wide" style="background: var(--ink-card); border: 1px solid var(--line-dark); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            <div class="gate-report-head" style="font-size: 1.25rem; color: var(--gold); border-bottom: 1px solid var(--line-dark); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+              <strong>¿Qué ocurre después de enviar?</strong>
+            </div>
+            <div class="grid grid-3" style="gap: 2rem;">
+              <div>
+                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; font-weight: bold;">01</div>
+                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Revisión Técnica</h4>
+                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Analizamos la información de tu proyecto o inspeccionamos tu URL actual bajo criterios de optimización.</p>
+              </div>
+              <div>
+                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; font-weight: bold;">02</div>
+                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Propuesta Clara</h4>
+                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Te enviamos por correo una propuesta detallada de alcance, paquete recomendado y presupuesto por escrito.</p>
+              </div>
+              <div>
+                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; font-weight: bold;">03</div>
+                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Etapa Discover</h4>
+                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Si apruebas la propuesta, agendamos una llamada de 15 minutos para iniciar la fase formal de planificación.</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <p style="font-size: .85rem; color: var(--steel-soft); margin: 0;">¿Prefieres explorar primero los paquetes?</p>
+              <a href="paquetes.html" class="btn btn-outline" style="padding: 0.55rem 1.25rem; font-size: 0.8rem; height: auto;">Ver comparativa de Castle Packages →</a>
             </div>
           </div>
         </div>

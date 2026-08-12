@@ -1,6 +1,7 @@
 /* ===== Cards & Architectural Containers ===== */
 .card {
   border: 1px solid var(--line-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   background: var(--ink-card);
   padding: 2rem;
   border-radius: var(--radius-lg);
@@ -12,12 +13,19 @@
 .card:hover {
   transform: translateY(-3px);
   border-color: rgba(198, 161, 82, 0.4);
+  border-top-color: rgba(198, 161, 82, 0.35);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
 }
 
 .card-light {
   background: #FFFFFF;
   border-color: #E1DED4;
+  color: var(--ink);
+}
+
+.card-light h2,
+.card-light h3,
+.card-light h4 {
   color: var(--ink);
 }
 

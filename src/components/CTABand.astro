@@ -15,9 +15,142 @@ const {
 ---
 
 <section class="cta-band">
-  <div class="container">
+  <div class="cta-visual-wrapper" aria-hidden="true">
+    <canvas class="cta-visual-canvas"></canvas>
+  </div>
+  <div class="container" style="position: relative; z-index: 2;">
     <h2>{title}</h2>
     <p>{description}</p>
-    <a class="btn btn-ink" href={ctaHref}>{ctaLabel}</a>
+    <a class="btn btn-gold" href={ctaHref}>{ctaLabel}</a>
   </div>
 </section>
+
+<script is:inline>
+  class ClosingVisual {
+    constructor(element) {
+      this.wrapper = element;
+      this.canvas = element.querySelector('.cta-visual-canvas');
+      if (!this.canvas) return;
+      this.ctx = this.canvas.getContext('2d');
+      this.width = 0;
+      this.height = 0;
+      this.dpi = window.devicePixelRatio || 1;
+      this.frameId = null;
+      this.isVisible = false;
+      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      this.particles = [];
+      this.init();
+    }
+
+    init() {
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+      this.setupParticles();
+
+      // IntersectionObserver para detener animaciones fuera de pantalla
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible) {
+            if (this.reducedMotion) {
+              this.draw();
+            } else {
+              this.loop();
+            }
+          } else {
+            if (this.frameId) {
+              cancelAnimationFrame(this.frameId);
+              this.frameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.05 });
+
+      this.observer.observe(this.wrapper);
+    }
+
+    resize() {
+      this.width = this.wrapper.clientWidth;
+      this.height = this.wrapper.clientHeight;
+      this.canvas.width = this.width * this.dpi;
+      this.canvas.height = this.height * this.dpi;
+      this.ctx.setTransform(this.dpi, 0, 0, this.dpi, 0, 0);
+      this.draw();
+    }
+
+    setupParticles() {
+      const isMobile = window.innerWidth < 768;
+      const count = isMobile ? 8 : 22;
+      this.particles = [];
+      for (let i = 0; i < count; i++) {
+        this.particles.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * 220 + 20,
+          vy: -0.15 - Math.random() * 0.25,
+          alpha: Math.random() * 0.16 + 0.03,
+          size: Math.random() * 1.5 + 0.8
+        });
+      }
+    }
+
+    draw() {
+      this.ctx.clearRect(0, 0, this.width, this.height);
+      const isMobile = this.width < 768;
+      const opacityMultiplier = isMobile ? 0.35 : 1.0;
+
+      // 1. Dibujar Grid 3D en Perspectiva muy tenue
+      const vanishY = -140; // Punto de fuga
+      const cx = this.width / 2;
+      this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.035 * opacityMultiplier})`;
+      this.ctx.lineWidth = 0.8;
+
+      // Líneas de perspectiva (rayos desde el punto de fuga)
+      const lineCount = isMobile ? 8 : 16;
+      for (let i = 0; i <= lineCount; i++) {
+        const ratio = i / lineCount;
+        const xEnd = (ratio - 0.5) * this.width * 2.8 + cx;
+        this.ctx.beginPath();
+        this.ctx.moveTo(cx, vanishY);
+        this.ctx.lineTo(xEnd, this.height);
+        this.ctx.stroke();
+      }
+
+      // Líneas horizontales de perspectiva
+      const horizonCount = isMobile ? 5 : 9;
+      for (let i = 0; i < horizonCount; i++) {
+        const ratio = i / horizonCount;
+        const y = Math.pow(ratio, 1.8) * this.height;
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, y);
+        this.ctx.lineTo(this.width, y);
+        this.ctx.stroke();
+      }
+
+      // 2. Dibujar partículas doradas ascendentes sutiles
+      this.particles.forEach((part) => {
+        if (!this.reducedMotion) {
+          part.y += part.vy;
+          if (part.y < -10) {
+            part.y = this.height + 10;
+            part.x = Math.random() * this.width;
+          }
+        }
+        this.ctx.beginPath();
+        this.ctx.fillStyle = `rgba(198, 161, 82, ${part.alpha * opacityMultiplier})`;
+        this.ctx.arc(part.x, part.y, part.size, 0, Math.PI * 2);
+        this.ctx.fill();
+      });
+    }
+
+    loop() {
+      this.draw();
+      this.frameId = requestAnimationFrame(() => this.loop());
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.cta-visual-wrapper').forEach((el) => {
+      new ClosingVisual(el);
+    });
+  });
+</script>

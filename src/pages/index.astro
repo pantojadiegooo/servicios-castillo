@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GateSchematic from '../components/GateSchematic.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
+import CastleGateVisual from '../components/CastleGateVisual.astro';
 ---
 
 <BaseLayout
@@ -14,13 +15,16 @@ import CTABand from '../components/CTABand.astro';
   <main id="main">
 
     <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Servicios Castillo — Una empresa de Grupo Castillo</p>
-        <h1>Desarrollo e Ingeniería Web de Calidad Profesional a Precios Accesibles.</h1>
-        <p class="lede">Construimos, optimizamos y protegemos soluciones digitales sin inflar costos. Obtén velocidad extrema, seguridad y accesibilidad bajo un proceso de validación transparente.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="contacto.html">Cotizar mi Proyecto</a>
-          <a class="btn btn-outline" href="contacto.html?necesidad=auditar">Analizar mi Sitio Actual</a>
+      <CastleGateVisual />
+      <div class="container hero-container-grid">
+        <div class="hero-text-block">
+          <p class="eyebrow">Ingeniería Digital · Desarrollo Web</p>
+          <h1>Desarrollo e Ingeniería Web con Estándar Profesional.</h1>
+          <p class="lede">Construimos, auditamos y protegemos plataformas digitales sólidas, verificables y mantenibles. Sin sobreingeniería, sin costos ocultos, bajo un protocolo de validación documentado.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="contacto.html">Cotizar mi Proyecto</a>
+            <a class="btn btn-outline" href="contacto.html?necesidad=auditar">Analizar mi Sitio Actual</a>
+          </div>
         </div>
       </div>
     </section>
@@ -159,7 +163,7 @@ import CTABand from '../components/CTABand.astro';
               <li>Desarrollo de software web a medida</li><li>Sin límites artificiales de páginas</li><li>E-commerce, portales y aplicaciones</li><li>Paneles de administración y APIs</li><li>Autenticación y bases de datos</li><li>Integración de sistemas y automatización</li><li>Arquitectura de alta disponibilidad</li><li>Cotización precisa según requerimientos</li>
             </ul>
             <div class="package-rounds">Rondas según alcance</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Diamond">Solicitar Diamond</a>
+            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Diamond">Solicitar propuesta personalizada</a>
           </div>
         </div>
         <p style="margin-top:2rem;"><a class="btn btn-line" href="paquetes.html">Comparar todos los detalles de Castle Packages</a></p>

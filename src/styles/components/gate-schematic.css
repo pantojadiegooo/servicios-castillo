@@ -110,3 +110,14 @@
   margin-top: 0.4rem;
   line-height: 1.45;
 }
+
+/* Scrollbar sutil para el pipeline horizontal en dispositivos móviles */
+@media (max-width: 860px) {
+  .gate-schematic::-webkit-scrollbar {
+    height: 4px;
+  }
+  .gate-schematic::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+  }
+}

@@ -6,12 +6,21 @@
   align-items: stretch;
 }
 
+@media (max-width: 1380px) and (min-width: 1141px) {
+  .packages-grid {
+    gap: 0.75rem;
+  }
+  .package-card {
+    padding: 1.5rem 0.85rem !important;
+  }
+}
+
 @media (max-width: 1140px) {
   .packages-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .packages-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -48,6 +57,27 @@
   box-shadow: 0 0 0 1px var(--gold), 0 16px 36px rgba(198, 161, 82, 0.28);
 }
 
+.package-card[data-tier="platinum"] {
+  border-color: rgba(144, 157, 176, 0.6);
+  background: #FAFAFA;
+  box-shadow: 0 0 0 1px rgba(144, 157, 176, 0.4), 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.package-card[data-tier="platinum"]:hover {
+  border-color: rgba(198, 161, 82, 0.5);
+  box-shadow: 0 0 0 1px rgba(198, 161, 82, 0.4), 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+.package-card[data-tier="diamond"] {
+  background: #F8F8FA;
+  border-color: transparent;
+  box-shadow: 0 0 0 1.5px rgba(120, 141, 182, 0.5), 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.package-card[data-tier="diamond"]:hover {
+  box-shadow: 0 0 0 1.5px rgba(198, 161, 82, 0.45), 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
 .package-tag {
   position: absolute;
   top: -1px;
@@ -65,17 +95,18 @@
 }
 
 .tier-swatch {
-  width: 2.5rem;
-  height: 0.3rem;
-  margin-bottom: 1.25rem;
+  width: 100%;
+  height: 0.2rem;
+  margin-bottom: 1.5rem;
   border-radius: 2px;
+  opacity: 0.85;
 }
 
 [data-tier="bronze"] .tier-swatch { background: var(--bronze); }
 [data-tier="silver"] .tier-swatch { background: var(--silver); }
-[data-tier="gold"] .tier-swatch { background: var(--gold); }
-[data-tier="platinum"] .tier-swatch { background: var(--platinum); }
-[data-tier="diamond"] .tier-swatch { background: var(--diamond); }
+[data-tier="gold"] .tier-swatch { background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light)); }
+[data-tier="platinum"] .tier-swatch { background: linear-gradient(90deg, var(--steel), var(--platinum), var(--steel-light)); }
+[data-tier="diamond"] .tier-swatch { background: linear-gradient(90deg, var(--steel-soft), var(--diamond), var(--platinum)); opacity: 1; }
 
 .package-card h3 {
   font-size: 1.28rem;
@@ -85,10 +116,14 @@
 
 .package-price {
   font-family: var(--f-mono);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--steel);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
   margin-bottom: 1.1rem;
+}
+
+[data-tier="diamond"] .package-price {
+  color: var(--steel);
 }
 
 .package-card ul {

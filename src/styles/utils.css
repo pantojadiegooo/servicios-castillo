@@ -29,9 +29,11 @@
   content: "✓";
   position: absolute;
   left: 0;
+  top: 0.35em;
   color: var(--gold);
   font-weight: 700;
   font-size: 1rem;
+  line-height: 1;
 }
 
 .breadcrumb {

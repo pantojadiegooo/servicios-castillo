@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
@@ -12,6 +13,7 @@ import CTABand from '../components/CTABand.astro';
   <main id="main">
 
     <section class="page-hero">
+      <InnerHeroVisual type="soluciones" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Soluciones</p>
         <h1>Soluciones Digitales Diseñadas para Cada Etapa</h1>
@@ -23,19 +25,19 @@ import CTABand from '../components/CTABand.astro';
     <section class="section">
       <div class="container">
         <div class="card card-light reveal" style="padding:1.5rem; border-left:4px solid var(--gold);">
-          <h2 style="font-size:1.2rem; margin-bottom:.5rem;">¿Cómo saber cuál opción necesitas?</h2>
+          <h2 style="font-size:1.2rem; margin-bottom:.5rem; color:var(--ink);">¿Cómo saber cuál opción necesitas?</h2>
           <div class="grid grid-3" style="gap:1rem; margin-top:1rem;">
             <div>
-              <strong style="color:var(--gold); font-size:.9rem;">1. Si NO tienes sitio web:</strong>
-              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#build" style="text-decoration:underline;">BUILD</a> o explora los <a href="paquetes.html" style="text-decoration:underline;">Castle Packages</a> desde $4,500 MXN.</p>
+              <strong style="color:var(--gold-dark); font-size:.9rem;">1. Si NO tienes sitio web:</strong>
+              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#build" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">BUILD</a> o explora los <a href="paquetes.html" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">Castle Packages</a> desde $4,500 MXN.</p>
             </div>
             <div>
-              <strong style="color:var(--gold); font-size:.9rem;">2. Si tu web actual es LENTA o FALLA:</strong>
-              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#intervention" style="text-decoration:underline;">INTERVENTION</a> para reparar sin tirar lo que ya funciona.</p>
+              <strong style="color:var(--gold-dark); font-size:.9rem;">2. Si tu web actual es LENTA o FALLA:</strong>
+              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#intervention" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">INTERVENTION</a> para reparar sin tirar lo que ya funciona.</p>
             </div>
             <div>
-              <strong style="color:var(--gold); font-size:.9rem;">3. Si no sabes QUÉ ESTÁ MAL:</strong>
-              <p style="font-size:.85rem; color:var(--paper-soft); margin-top:.25rem;">Elige <a href="#audit" style="text-decoration:underline;">AUDIT</a> para un diagnóstico completo de velocidad y seguridad.</p>
+              <strong style="color:var(--gold-dark); font-size:.9rem;">3. Si no sabes QUÉ ESTÁ MAL:</strong>
+              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#audit" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">AUDIT</a> para un diagnóstico completo de velocidad y seguridad.</p>
             </div>
           </div>
         </div>

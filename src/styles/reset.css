@@ -70,6 +70,8 @@ h1, h2, h3, h4 {
   margin: 0 0 0.5em;
   letter-spacing: -0.015em;
   color: var(--paper);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 p {
@@ -142,4 +144,11 @@ summary:focus-visible {
   background: var(--gold);
   display: inline-block;
   opacity: 0.85;
+}
+
+/* Ajustes de padding en móviles para optimizar espacio útil */
+@media (max-width: 480px) {
+  .card, .card-light, .project-case {
+    padding: 1.5rem !important;
+  }
 }

@@ -4,10 +4,29 @@
 
 .project-case{ border:1px solid #E1DED4; border-radius: var(--radius); padding:1.75rem; background:#fff; }
 .project-case .case-steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:.75rem; margin-top:1rem; font-size:.78rem; }
-@media (max-width:760px){ .project-case .case-steps{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:860px){ .project-case .case-steps{ grid-template-columns:repeat(2,1fr); } }
 .project-case .case-steps dt{ font-family:var(--f-mono); color:var(--gold); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.25rem; }
 .project-case .case-steps dd{ margin:0; color:var(--steel); }
 
-.pill-row{ display:flex; flex-wrap:wrap; gap:.6rem; }
-.pill{ border:1px solid var(--line-dark); border-radius: 20px; padding:.4rem .9rem; font-size:.8rem; color:var(--paper); }
-.card-light + .pill, .section:not(.section-dark) .pill{ border-color:#DAD7CE; color:var(--ink); }
+.pill-row { display:flex; flex-wrap:wrap; gap:.6rem; }
+.pill { border:1px solid rgba(255,255,255,0.15); border-radius: 20px; padding:.4rem .9rem; font-size:.8rem; color:var(--steel-light); background: rgba(255,255,255,0.02); }
+.section-dim .pill, .card-light .pill, .card-light + .pill { border-color:#DAD7CE; color:var(--ink); background: transparent; }
+
+/* Legibilidad en tarjetas de proyecto claras */
+.project-case h2,
+.project-case h3 {
+  color: var(--ink);
+}
+.project-case .case-steps dt {
+  color: var(--gold-dark);
+}
+.project-case .case-steps dd {
+  color: var(--steel);
+}
+
+@media (max-width: 480px) {
+  .project-case .case-steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

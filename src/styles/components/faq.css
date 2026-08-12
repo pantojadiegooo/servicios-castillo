@@ -1,12 +1,12 @@
 /* ===== FAQ Accordions ===== */
 .faq details {
-  border-top: 1px solid #DAD7CE;
+  border-top: 1px solid var(--line-dark);
   padding-block: 1.2rem;
   transition: background var(--transition-fast);
 }
 
 .faq details:last-child {
-  border-bottom: 1px solid #DAD7CE;
+  border-bottom: 1px solid var(--line-dark);
 }
 
 .faq summary {
@@ -19,12 +19,12 @@
   gap: 1.25rem;
   align-items: center;
   user-select: none;
-  color: var(--ink);
+  color: var(--paper);
   transition: color var(--transition-fast);
 }
 
 .faq summary:hover {
-  color: var(--gold-dark);
+  color: var(--gold);
 }
 
 .faq summary::-webkit-details-marker {
@@ -47,24 +47,24 @@
 
 .faq p {
   margin-top: 0.85rem;
-  color: var(--steel);
+  color: var(--steel-soft);
   max-width: 70ch;
   line-height: 1.65;
 }
 
-/* Dark section FAQs */
-.section-dark .faq details {
-  border-top-color: var(--line-dark);
+/* Light section (dimmed) FAQs */
+.section-dim .faq details {
+  border-top-color: #DAD7CE;
 }
-.section-dark .faq details:last-child {
-  border-bottom-color: var(--line-dark);
+.section-dim .faq details:last-child {
+  border-bottom-color: #DAD7CE;
 }
-.section-dark .faq summary {
-  color: var(--paper);
+.section-dim .faq summary {
+  color: var(--ink);
 }
-.section-dark .faq summary:hover {
-  color: var(--gold);
+.section-dim .faq summary:hover {
+  color: var(--gold-dark);
 }
-.section-dark .faq p {
-  color: var(--steel-soft);
+.section-dim .faq p {
+  color: var(--steel);
 }
