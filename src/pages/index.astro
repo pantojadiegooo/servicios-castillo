@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
-import CastleGateVisual from '../components/CastleGateVisual.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
 ---
 
@@ -14,28 +13,27 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
 >
   <main id="main">
 
-    <!-- 01 — HERO & IDENTIDAD CORPORATIVA (SIN PRECIOS EN HERO) -->
+    <!-- 01 — HERO & IDENTIDAD CORPORATIVA (SOBRIO, EDITORIAL, SIN CANVAS COMPETIDOR) -->
     <section class="hero" style="position: relative; overflow: hidden; padding-top: 6rem; padding-bottom: 5.5rem;">
-      <CastleGateVisual />
       <div class="container" style="position: relative; z-index: 2; max-width: 960px; margin: 0 auto; text-align: center;">
-        <div class="badge badge-cyan" style="margin-bottom: 1.5rem; display: inline-flex;">
-          <span class="badge-dot"></span> FIRMA DE INGENIERÍA DIGITAL &amp; GOBERNANZA TÉCNICA
-        </div>
+        <p class="eyebrow" style="margin-bottom: 1.5rem; justify-content: center;">
+          FIRMA DE INGENIERÍA DIGITAL &amp; GOBERNANZA TÉCNICA
+        </p>
         <h1 style="font-size: clamp(2.3rem, 4.2vw, 3.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem;">
           Construimos, evaluamos, corregimos y protegemos <span style="color: var(--cyan);">sistemas digitales confiables.</span>
         </h1>
         <p class="lede" style="font-size: 1.15rem; color: var(--steel-light); line-height: 1.7; margin-bottom: 2.25rem; max-width: 72ch; margin-left: auto; margin-right: auto;">
           Grupo Castillo combina desarrollo web de alto rendimiento con titularidad y control del código para el cliente, intervención técnica en sistemas existentes y tecnología propia para la gobernanza determinista de releases.
         </p>
-        <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+        <div class="hero-actions" style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
           <a class="btn btn-primary" href="/paquetes.html">Explorar Paquetes Build</a>
           <a class="btn btn-outline" href="/diagnostico.html">¿No sabes qué necesitas? Inicia Diagnóstico</a>
         </div>
 
         <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); max-width: 720px; margin: 0 auto;">
           <div>
-            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">Titularidad Total</strong>
-            <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Código &amp; Cuentas del Cliente</span>
+            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">Titularidad del Cliente</strong>
+            <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Código &amp; Cuentas Propias</span>
           </div>
           <div>
             <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">72h Objetivo</strong>
@@ -237,9 +235,9 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
             </p>
             
             <ul style="list-style: none; padding: 0; margin-bottom: 1.75rem; font-size: 0.9rem; color: var(--paper); display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ <strong>Ejecución Local en Memoria:</strong> No requiere enviar tu código fuente a servidores externos.</li>
-              <li>✔ <strong>Gate Breakers:</strong> Veto inmediato en CI/CD con Exit Code 1 ante secretos críticos.</li>
-              <li>✔ <strong>Release Certificate:</strong> Integridad técnica verificable mediante sello criptográfico SHA-256.</li>
+              <li><strong>Ejecución Local en Memoria:</strong> No requiere enviar tu código fuente a servidores externos.</li>
+              <li><strong>Gate Breakers:</strong> Veto inmediato en CI/CD con Exit Code 1 ante secretos críticos.</li>
+              <li><strong>Release Certificate:</strong> Integridad técnica verificable mediante sello criptográfico SHA-256.</li>
             </ul>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">

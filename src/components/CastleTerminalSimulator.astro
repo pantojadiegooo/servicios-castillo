@@ -47,7 +47,7 @@ const { className = "" } = Astro.props;
       },
       {
         delay: 1400,
-        content: '<div class="terminal-line t-blocked">✖ [GATE DECISION]: BLOCKED (Exit Code 1)</div><div class="terminal-line t-warn">  └─ [GB-01] Gate Breaker Active: 1 critical secret detected (AWS Secret Key in config.js:14)</div><div class="terminal-line t-muted">  └─ Current Score: 52.40 / 100.00 | Compliance Report: .castle/compliance-report.html</div>'
+        content: '<div class="terminal-line t-blocked">[GATE DECISION]: BLOCKED (Exit Code 1)</div><div class="terminal-line t-warn">  └─ [GB-01] Gate Breaker Active: 1 critical secret detected (AWS Secret Key in config.js:14)</div><div class="terminal-line t-muted">  └─ Current Score: 52.40 / 100.00 | Compliance Report: .castle/compliance-report.html</div>'
       },
       {
         delay: 2600,
@@ -63,7 +63,7 @@ const { className = "" } = Astro.props;
       },
       {
         delay: 4600,
-        content: '<div class="terminal-line t-pass">✔ [GATE DECISION]: PASSED (Exit Code 0)</div><div class="terminal-line t-pass">  └─ Gate Breakers: CLEARED (0 Active) | Score: 88.89 / 100.00 (Threshold: 60.00)</div><div class="terminal-line t-muted">  └─ Release Certificate Issued: .castle/release-certificate.json</div>'
+        content: '<div class="terminal-line t-pass">[GATE DECISION]: PASSED (Exit Code 0)</div><div class="terminal-line t-pass">  └─ Gate Breakers: CLEARED (0 Active) | Score: 88.89 / 100.00 (Threshold: 60.00)</div><div class="terminal-line t-muted">  └─ Release Certificate Issued: .castle/release-certificate.json</div>'
       },
       {
         delay: 5400,
@@ -71,7 +71,7 @@ const { className = "" } = Astro.props;
       },
       {
         delay: 6000,
-        content: '<div class="terminal-line t-pass">✔ [CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>'
+        content: '<div class="terminal-line t-pass">[CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>'
       }
     ];
 

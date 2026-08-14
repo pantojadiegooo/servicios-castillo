@@ -72,7 +72,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
 
             <div style="padding: 0.85rem 1rem; background: rgba(0, 210, 255, 0.04); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-bottom: 2rem; font-size: 0.8rem; color: var(--steel-light);">
-              🔒 <em>Nota de privacidad:</em> La edad se solicita de manera voluntaria únicamente para fines estadísticos y demográficos de mercado. No influye en la recomendación técnica.
+              <em>Nota de privacidad:</em> La edad se solicita de manera voluntaria únicamente para fines estadísticos y demográficos de mercado. No influye en la recomendación técnica.
             </div>
 
             <div style="display: flex; justify-content: flex-end;">
@@ -497,6 +497,22 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               necesidadParam: 'urgencia'
             };
           }
+          // REGLA DE CÓDIGO HEREDADO EMPRESARIAL / AUDITORÍA PROFUNDA
+          else if (situacion === 'software_legacy' && (tipoNegocio === 'empresa_grande' || presupuesto === 'alta')) {
+            rec = {
+              badge: 'AUDITORÍA DE ARQUITECTURA',
+              title: 'Castle Audit',
+              subtitle: 'Auditoría Técnica Profunda y Due Diligence de Código',
+              price: 'Desde $19,900 MXN',
+              priceUsd: '~$1,170 USD',
+              reasoning: 'Para software heredado o procesos de adquisición de tecnología, una auditoría multicapa mapea deuda técnica, vulnerabilidades y riesgos antes de intervenir.',
+              notNeeded: 'No intentes reconstruir el software a ciegas sin conocer la causa raíz de la deuda técnica. El Audit ahorra miles de dólares en retrabajos.',
+              maturity: 'Nivel 3 — Evaluación de Arquitectura Compleja',
+              nextAction: 'Agendar sesión de Due Diligence técnico',
+              paqueteParam: 'Castle Audit',
+              necesidadParam: 'auditar'
+            };
+          }
           // REGLA DE CI/CD & GOBERNANZA TÉCNICA
           else if (situacion === 'equipo_ci_cd' || objetivo === 'diagnostico_72h' || (equipo === 'con_equipo' && situacion === 'web_con_fallas')) {
             if (objetivo === 'diagnostico_72h' || presupuesto === 'media') {
@@ -529,37 +545,21 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               };
             }
           }
-          // REGLA DE CÓDIGO HEREDADO / AUDITORÍA PROFUNDA
-          else if (situacion === 'software_legacy' || objetivo === 'diagnostico_72h') {
-            if (tipoNegocio === 'empresa_grande' || presupuesto === 'alta') {
-              rec = {
-                badge: 'AUDITORÍA DE ARQUITECTURA',
-                title: 'Castle Audit',
-                subtitle: 'Auditoría Técnica Profunda y Due Diligence de Código',
-                price: 'Desde $19,900 MXN',
-                priceUsd: '~$1,170 USD',
-                reasoning: 'Para software heredado o procesos de adquisición de tecnología, una auditoría multicapa mapea deuda técnica, vulnerabilidades y riesgos antes de intervenir.',
-                notNeeded: 'No intentes reconstruir el software a ciegas sin conocer la causa raíz de la deuda técnica. El Audit ahorra miles de dólares en retrabajos.',
-                maturity: 'Nivel 3 — Evaluación de Arquitectura Compleja',
-                nextAction: 'Agendar sesión de Due Diligence técnico',
-                paqueteParam: 'Castle Audit',
-                necesidadParam: 'auditar'
-              };
-            } else {
-              rec = {
-                badge: 'INTERVENCIÓN DIRECTA',
-                title: 'Castle Rescue (Standard)',
-                subtitle: 'Remediación y Desbloqueo Técnico en Repositorio',
-                price: '$12,900 MXN',
-                priceUsd: '~$760 USD',
-                reasoning: 'Ingenieros especializados intervienen directamente en tu código para corregir fallas agudas, sanear secretos y estabilizar la plataforma sin rehacer todo.',
-                notNeeded: 'No necesitas tirar a la basura todo el sistema actual. Muchas fallas se resuelven con horas de intervención quirúrgica limpia.',
-                maturity: 'Nivel 2 — Estabilización de Código',
-                nextAction: 'Solicitar cotización de Castle Rescue',
-                paqueteParam: 'Castle Rescue',
-                necesidadParam: 'mejorar'
-              };
-            }
+          // REGLA DE CÓDIGO HEREDADO / RESCATE PYME
+          else if (situacion === 'software_legacy') {
+            rec = {
+              badge: 'INTERVENCIÓN DIRECTA',
+              title: 'Castle Rescue (Standard)',
+              subtitle: 'Remediación y Desbloqueo Técnico en Repositorio',
+              price: '$12,900 MXN',
+              priceUsd: '~$760 USD',
+              reasoning: 'Ingenieros especializados intervienen directamente en tu código para corregir fallas agudas, sanear secretos y estabilizar la plataforma sin rehacer todo.',
+              notNeeded: 'No necesitas tirar a la basura todo el sistema actual. Muchas fallas se resuelven con horas de intervención quirúrgica limpia.',
+              maturity: 'Nivel 2 — Estabilización de Código',
+              nextAction: 'Solicitar cotización de Castle Rescue',
+              paqueteParam: 'Castle Rescue',
+              necesidadParam: 'mejorar'
+            };
           }
           // REGLA DE CONTINUIDAD MENSUAL
           else if (objetivo === 'continuidad_mensual' || presupuesto === 'recurrente') {
