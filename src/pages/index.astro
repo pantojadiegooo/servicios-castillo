@@ -1,191 +1,407 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GateSchematic from '../components/GateSchematic.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleGateVisual from '../components/CastleGateVisual.astro';
+import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
 ---
 
 <BaseLayout
-  title="Servicios Castillo — Desarrollo e Ingeniería Web a Precios Accesibles"
-  description="Construimos, optimizamos y protegemos sitios web veloces, accesibles y seguros. Calidad de ingeniería digital con precios claros para PYMEs y negocios."
+  title="Grupo Castillo — Firma de Ingeniería de Software y Gobernanza Tecnológica"
+  description="Grupo Castillo construye y protege sistemas digitales de alto rendimiento: plataformas web resilientes, auditoría de código heredado y gobernanza determinista mediante tecnología propia."
   canonical="https://servicios-castillo.vercel.app/index.html"
   ogUrl="https://servicios-castillo.vercel.app/index.html"
 >
   <main id="main">
 
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" style="position: relative; overflow: hidden; padding-top: 5.5rem; padding-bottom: 5rem;">
       <CastleGateVisual />
-      <div class="container hero-container-grid">
+      <div class="container hero-container-grid" style="position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;">
         <div class="hero-text-block">
-          <p class="eyebrow">Ingeniería Digital · Desarrollo Web</p>
-          <h1>Desarrollo e Ingeniería Web con Estándar Profesional.</h1>
-          <p class="lede">Construimos, auditamos y protegemos plataformas digitales sólidas, verificables y mantenibles. Sin sobreingeniería, sin costos ocultos, bajo un protocolo de validación documentado.</p>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="contacto.html">Cotizar mi Proyecto</a>
-            <a class="btn btn-outline" href="contacto.html?necesidad=auditar">Analizar mi Sitio Actual</a>
+          <div class="badge badge-cyan" style="margin-bottom: 1.25rem;">
+            <span class="badge-dot"></span> FIRMA DE INGENIERÍA DIGITAL &amp; GOBERNANZA TÉCNICA
           </div>
+          <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.25rem;">
+            Grupo Castillo construye, evalúa, corrige y mantiene <span style="color: var(--cyan);">sistemas digitales confiables.</span>
+          </h1>
+          <p class="lede" style="font-size: 1.1rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 2rem;">
+            Construimos plataformas web veloces con propiedad absoluta del código para el cliente, intervenimos bases de código heredadas y aplicamos nuestro motor propio <strong>Castle Gate</strong> para autorizar entregas bajo evidencia inmutable.
+          </p>
+          <div class="hero-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <a class="btn btn-primary" href="contacto.html?necesidad=checkup">Solicitar Castle Checkup</a>
+            <a class="btn btn-outline" href="#servicios">Explorar Catálogo</a>
+          </div>
+          <div class="hero-metrics" style="display: flex; gap: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+            <div>
+              <strong style="display: block; font-size: 1.45rem; font-family: var(--f-mono); color: var(--paper);">72h</strong>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Objetivo Checkup</span>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 1.45rem; font-family: var(--f-mono); color: var(--paper);">Iron → Diamond</strong>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">6 Niveles Build</span>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 1.45rem; font-family: var(--f-mono); color: var(--paper);">0-Deps</strong>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">100% Offline / Local</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Terminal Simulator -->
+        <div class="hero-terminal-wrap">
+          <CastleTerminalSimulator />
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- PROFESSIONAL SERVICES & COMMERCIAL CATALOG -->
+    <section class="section" id="servicios">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Líneas de Trabajo</p>
-          <h2>Soluciones adaptadas a la etapa actual de tu negocio.</h2>
-          <p>Ya sea que necesites lanzar una web desde cero, diagnosticar fallas o reconstruir tu plataforma, tenemos un esquema claro de trabajo.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Líneas de Trabajo Oficiales</p>
+          <h2>Capacidades y Catálogo Comercial</h2>
+          <p>Un modelo estructurado que cubre desarrollo de plataformas, diagnóstico ágil y gobernanza continua de software.</p>
         </div>
-        <div class="reveal">
-        <div class="solutions-strip">
-          <a href="soluciones.html#build">
-            <span class="s-code">BUILD</span>
-            <span class="s-name">Build</span>
-            <span class="s-desc">Creamos sitios y soluciones desde cero.</span>
-          </a><a href="auditoria.html">
-            <span class="s-code">AUDIT</span>
-            <span class="s-name">Audit</span>
-            <span class="s-desc">Analizamos la velocidad y seguridad de tu web.</span>
-          </a><a href="intervencion.html">
-            <span class="s-code">INTV</span>
-            <span class="s-name">Intervention</span>
-            <span class="s-desc">Corregimos errores, lentitud y fallas móviles.</span>
-          </a><a href="transformacion.html">
-            <span class="s-code">TRNS</span>
-            <span class="s-name">Transformation</span>
-            <span class="s-desc">Reconstruimos y migramos plataformas obsoletas.</span>
-          </a><a href="cuidado.html">
-            <span class="s-code">CARE</span>
-            <span class="s-name">Care</span>
-            <span class="s-desc">Mantenimiento, respaldos y soporte continuo.</span>
-          </a>
-        </div></div>
-      </div>
-    </section>
 
-    <section class="section section-dim">
-      <div class="container two-col">
-        <div class="reveal">
-          <p class="eyebrow">¿Tu web actual no genera los resultados esperados?</p>
-          <h2>No necesariamente tienes que rehacer todo desde cero.</h2>
-          <p>Si tu sitio carga lento, se desacomoda en celulares, pierde contactos o tiene errores técnicos, podemos intervenirlo y optimizarlo directamente sin desperdiciar tu inversión previa.</p>
-          <a class="btn btn-line" href="contacto.html?necesidad=auditar">Diagnosticar mi Web Actual</a>
-        </div>
-        <div class="grid" style="gap:1rem;">
-          <div class="card card-light reveal">
-            <span class="card-num">01 — CASTLE AUDIT</span>
-            <h3>Identificamos los puntos de fuga.</h3>
-            <p>Diagnóstico de velocidad, accesibilidad, seguridad y SEO para ubicar exactamente qué está fallando.</p>
-          </div>
-          <div class="card card-light reveal">
-            <span class="card-num">02 — CASTLE INTERVENTION</span>
-            <h3>Reparamos lo que está roto.</h3>
-            <p>Corregimos código, aceleramos la carga y ajustamos el diseño móvil sin rehacer lo que ya funciona.</p>
-          </div>
-          <div class="card card-light reveal">
-            <span class="card-num">03 — CASTLE TRANSFORMATION</span>
-            <h3>Migramos si la base es obsoleta.</h3>
-            <p>Cuando la tecnología actual ya no permite crecer: rediseño UX/UI y migración conservando tu posicionamiento SEO.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
-          <h2>No construimos para entregar. Construimos para validar.</h2>
-          <p>Cada proyecto recorre un proceso de 9 etapas de control de calidad. Si una solución no supera las verificaciones de rendimiento, seguridad y accesibilidad, no se publica.</p>
-        </div>
-        <div class="reveal">
-          <GateSchematic />
-        </div>
-        <p style="margin-top:2rem;"><a class="btn btn-outline" href="seguridad-calidad.html">Conocer el Proceso Gate a Detalle</a></p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Castle Packages</p>
-          <h2>Precios transparentes y alcance claro desde el primer día.</h2>
-          <p>Paquetes competitivos diseñados para ofrecer máximo valor de ingeniería sin sobrecostos de agencia tradicional.</p>
-        </div>
-        <div class="packages-grid reveal">
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
           
-          <div class="package-card" data-tier="bronze">
-            <span class="tier-swatch" aria-hidden="true"></span>
-            <h3>Castle Bronze</h3>
-            <div class="package-price">$4,500 MXN</div>
-            <ul>
-              <li>Landing page personalizada</li><li>Hasta 5 secciones de contenido</li><li>Diseño 100% responsivo</li><li>WhatsApp y formulario integrado</li><li>SEO técnico fundamental</li><li>Optimización de imágenes</li><li>Conexión HTTPS segura</li><li>Accesibilidad base (WCAG)</li><li>Integración de analítica</li><li>Castillo Quality Gate incluido</li>
-            </ul>
-            <div class="package-rounds">2 rondas de revisión</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Bronze">Solicitar Bronze</a>
+          <!-- 1. BUILD -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">01 — BUILD (IRON A DIAMOND)</span>
+            <h3 style="font-size: 1.25rem; margin: 0.75rem 0 0.5rem 0;">Desarrollo e Ingeniería Web</h3>
+            <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              Desde presencia esencial para independientes ($2,800 MXN) hasta software de alta disponibilidad ($40,000+ MXN). Código limpio, velocidad extrema y propiedad total.
+            </p>
+            <div style="padding-top: 1rem; border-top: 1px solid var(--glass-border);">
+              <a href="paquetes.html" class="btn btn-outline" style="width: 100%; font-size: 0.82rem; padding: 0.5rem 1rem; height: auto;">Ver Paquetes Build (6 Tiers) →</a>
+            </div>
           </div>
-          <div class="package-card" data-tier="silver">
-            <span class="tier-swatch" aria-hidden="true"></span>
-            <h3>Castle Silver</h3>
-            <div class="package-price">$7,500 MXN</div>
-            <ul>
-              <li>Sitio de hasta 5 páginas</li><li>Diseño visual a medida</li><li>Arquitectura de contenidos</li><li>Formularios de contacto avanzables</li><li>WhatsApp directo e integrado</li><li>SEO técnico por página</li><li>Optimización de velocidad</li><li>Revisión de accesibilidad</li><li>Verificación de seguridad base</li><li>Castillo Quality Gate incluido</li>
-            </ul>
-            <div class="package-rounds">3 rondas de revisión</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Silver">Solicitar Silver</a>
+
+          <!-- 2. CHECKUP -->
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.06) 0%, var(--glass-surface) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">02 — CHECKUP</span>
+              <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 2px 7px;">PUNTO DE ENTRADA</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin: 0.75rem 0 0.5rem 0;">Castle Checkup ($8,900 MXN)</h3>
+            <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              ¿Dónde está parado tu software? Radiografía completa de 65 controles CQS v1.1 en 72h hábiles con 100% de crédito aplicado hacia tu contratación anual de Gate.
+            </p>
+            <div style="padding-top: 1rem; border-top: 1px solid var(--glass-border);">
+              <a href="#checkup-detail" class="btn btn-primary" style="width: 100%; font-size: 0.82rem; padding: 0.5rem 1rem; height: auto;">Conocer Castle Checkup →</a>
+            </div>
           </div>
-          <div class="package-card" data-tier="gold">
-            <span class="package-tag">Más Popular</span>
-            <span class="tier-swatch" aria-hidden="true"></span>
-            <h3>Castle Gold</h3>
-            <div class="package-price">$12,500 MXN</div>
-            <ul>
-              <li>Sitio de 8 a 10 páginas</li><li>Diseño UX/UI enfocado en conversión</li><li>SEO técnico avanzado</li><li>Formularios y flujos personalizados</li><li>CMS / Blog autogestionable</li><li>Optimización Core Web Vitals</li><li>Accesibilidad WCAG 2.2 AA</li><li>Pruebas multiplataforma</li><li>Certificado de entrega y código fuente</li><li>Castillo Quality Gate completo</li>
-            </ul>
-            <div class="package-rounds">4 rondas de revisión</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Gold">Solicitar Castle Gold</a>
+
+          <!-- 3. CARE -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); font-weight: 700;">03 — CONTINUIDAD</span>
+            <h3 style="font-size: 1.25rem; margin: 0.75rem 0 0.5rem 0;">Castle Care (Suscripción)</h3>
+            <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              Supervisión mensual activa desde $3,500 MXN/mes, parches de seguridad, auditorías continuas y horas de remediación directa (Rescue) incluidas.
+            </p>
+            <div style="padding-top: 1rem; border-top: 1px solid var(--glass-border);">
+              <a href="cuidado.html" class="btn btn-outline" style="width: 100%; font-size: 0.82rem; padding: 0.5rem 1rem; height: auto;">Explorar Planes Care →</a>
+            </div>
           </div>
-          <div class="package-card" data-tier="platinum">
-            <span class="tier-swatch" aria-hidden="true"></span>
-            <h3>Castle Platinum</h3>
-            <div class="package-price">$24,500 MXN</div>
-            <ul>
-              <li>Arquitectura de hasta 15 páginas</li><li>Diseño avanzado y personalizado</li><li>Gestor CMS con flujos a medida</li><li>Integraciones externas con APIs</li><li>SEO y rendimiento de alta especificación</li><li>Seguridad y hardening reforzado</li><li>Pruebas de carga y compatibilidad</li><li>Auditoría previa al lanzamiento</li><li>Castillo Quality Gate completo</li>
-            </ul>
-            <div class="package-rounds">5 rondas de revisión</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Platinum">Solicitar Platinum</a>
-          </div>
-          <div class="package-card" data-tier="diamond">
-            <span class="tier-swatch" aria-hidden="true"></span>
-            <h3>Castle Diamond</h3>
-            <div class="package-price">Desde $40,000 MXN</div>
-            <ul>
-              <li>Desarrollo de software web a medida</li><li>Sin límites artificiales de páginas</li><li>E-commerce, portales y aplicaciones</li><li>Paneles de administración y APIs</li><li>Autenticación y bases de datos</li><li>Integración de sistemas y automatización</li><li>Arquitectura de alta disponibilidad</li><li>Cotización precisa según requerimientos</li>
-            </ul>
-            <div class="package-rounds">Rondas según alcance</div>
-            <a class="btn btn-line" href="contacto.html?paquete=Castle%20Diamond">Solicitar propuesta personalizada</a>
-          </div>
+
         </div>
-        <p style="margin-top:2rem;"><a class="btn btn-line" href="paquetes.html">Comparar todos los detalles de Castle Packages</a></p>
       </div>
     </section>
 
+    <!-- LEGACY CODE & RESCUE USE CASE SPOTLIGHT -->
+    <section class="section section-dim" id="rescate-codigo">
+      <div class="container">
+        <div class="glass-panel reveal" style="padding: 3rem 2.5rem; background: rgba(14, 18, 27, 0.75); border-color: rgba(255, 255, 255, 0.08);">
+          <div class="two-col" style="align-items: center; gap: 3rem;">
+            <div>
+              <div class="badge badge-cyan" style="margin-bottom: 1rem;">CASO DE USO CRÍTICO</div>
+              <h2 style="font-size: 1.85rem; line-height: 1.25; margin-bottom: 1rem;">
+                ¿Tu desarrollador original desapareció o nadie entiende tu sistema?
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+                El "código huérfano" y los sistemas heredados son un riesgo operativo silencioso. En Grupo Castillo realizamos ingeniería de rescate: analizamos repositorios sin documentación, saneamos secretos expuestos, reparamos fallas críticas y devolvemos el control total a tu empresa.
+              </p>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="intervencion.html" class="btn btn-outline">Conocer Servicio Castle Rescue →</a>
+                <a href="contacto.html?necesidad=mejorar" class="btn btn-primary">Solicitar Diagnóstico de Emergencia</a>
+              </div>
+            </div>
+
+            <div class="glass-panel" style="padding: 2rem; background: rgba(8, 11, 17, 0.85); border-color: var(--line-dark);">
+              <h4 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--paper);">Cómo intervenimos bases de código existentes:</h4>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); font-size: 0.88rem; color: var(--steel-light); display: flex; gap: 8px;">
+                  <strong style="color: var(--cyan); font-family: var(--f-mono);">01</strong> Mapeo estático sin romper producción.
+                </li>
+                <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); font-size: 0.88rem; color: var(--steel-light); display: flex; gap: 8px;">
+                  <strong style="color: var(--cyan); font-family: var(--f-mono);">02</strong> Purga y rotación de claves privadas expuestas.
+                </li>
+                <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); font-size: 0.88rem; color: var(--steel-light); display: flex; gap: 8px;">
+                  <strong style="color: var(--cyan); font-family: var(--f-mono);">03</strong> Desbloqueo de pipelines CI/CD y despliegues.
+                </li>
+                <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); font-size: 0.88rem; color: var(--steel-light); display: flex; gap: 8px;">
+                  <strong style="color: var(--cyan); font-family: var(--f-mono);">04</strong> Entrega de documentación y repositorio saneado.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPRIETARY TECHNOLOGY: CASTLE GATE (STRATEGIC PRESENTATION) -->
+    <section class="section section-dark" id="tecnologia-gate">
+      <div class="container">
+        <div class="glass-panel reveal" style="padding: 3.5rem 3rem; background: radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.08) 0%, rgba(10, 14, 22, 0.9) 70%); border-color: rgba(255, 255, 255, 0.12);">
+          <div class="two-col" style="align-items: center; gap: 3.5rem;">
+            <div>
+              <div class="badge badge-cyan" style="margin-bottom: 1rem;">TECNOLOGÍA PROPIA DIFERENCIAL</div>
+              <h2 style="font-size: 2.1rem; line-height: 1.2; margin-bottom: 1.25rem;">
+                Castle Security &amp; Quality Gate
+              </h2>
+              <p style="font-size: 1rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+                A diferencia de agencias convencionales, Grupo Castillo desarrolló su propio motor de gobernanza determinista. Evaluamos 65 controles estáticos bajo la metodología CQS v1.1 para garantizar que ningún release con secretos expuestos o código deficiente llegue a producción.
+              </p>
+              <ul style="list-style: none; margin-bottom: 2rem; padding: 0;">
+                <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.92rem; color: var(--paper);">
+                  <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                  <span><strong>Castle Native Probes:</strong> Detección estática en memoria de credenciales (AWS, Stripe, GitHub PAT).</span>
+                </li>
+                <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.92rem; color: var(--paper);">
+                  <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                  <span><strong>Gate Breakers:</strong> Veto inmediato de builds en CI/CD con Exit Code 1.</span>
+                </li>
+                <li style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.92rem; color: var(--paper);">
+                  <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                  <span><strong>Release Certificate:</strong> Evidencia auditable e inmutable sellada con digest SHA-256.</span>
+                </li>
+              </ul>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="castle-gate.html" class="btn btn-primary">Ver Especificación y Licencias →</a>
+                <a href="contacto.html?necesidad=auditar" class="btn btn-outline">Solicitar Evaluación Técnica</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="glass-panel" style="padding: 2rem; background: rgba(5, 7, 12, 0.85); border-color: var(--line-dark);">
+                <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                  <span>LICENCIAMIENTO POR POLÍTICA</span>
+                  <span style="color: var(--cyan);">C1 → C6</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                    <span style="color: var(--paper); font-weight: 600;">C1 — Foundation</span>
+                    <span style="font-family: var(--f-mono); color: var(--paper);">$9,900 MXN / año</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                    <span style="color: var(--paper); font-weight: 600;">C2 — Standard</span>
+                    <span style="font-family: var(--f-mono); color: var(--paper);">$16,900 MXN / año</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                    <span style="color: var(--paper); font-weight: 600;">C3 — Professional</span>
+                    <span style="font-family: var(--f-mono); color: var(--paper);">$26,900 MXN / año</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                    <span style="color: var(--cyan); font-weight: 600;">C4 a C6 — Enterprise</span>
+                    <span style="font-family: var(--f-mono); color: var(--cyan);">Hasta $74,900 MXN</span>
+                  </div>
+                </div>
+                <div style="margin-top: 1.25rem; text-align: center;">
+                  <a href="castle-gate.html" style="font-size: 0.8rem; color: var(--steel-light); text-decoration: none;">Explorar los 65 controles y matriz C1→C6 &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASTLE CHECKUP SPOTLIGHT (COMMERCIAL ENTRY) -->
+    <section class="section section-dim" id="checkup-detail">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Punto de Entrada Comercial</p>
+          <h2>Castle Checkup: Diagnóstico Técnico Ágil</h2>
+          <p>La forma más rápida de conocer la salud real de tu software sin compromisos de largo plazo.</p>
+        </div>
+
+        <div class="glass-panel reveal" style="padding: 3rem; max-width: 1040px; margin: 0 auto;">
+          <div class="two-col" style="align-items: center; gap: 3rem;">
+            <div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem;">¿Qué incluye el diagnóstico?</h3>
+              <ul style="list-style: none; margin-bottom: 1.75rem; padding: 0;">
+                <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; font-size: 0.95rem; color: var(--steel-light);">
+                  <span style="color: var(--cyan); font-weight: bold; font-family: var(--f-mono);">01</span>
+                  <span>Evaluación estática de 65 controles CQS v1.1 en 7 dominios técnicos independientes.</span>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; font-size: 0.95rem; color: var(--steel-light);">
+                  <span style="color: var(--cyan); font-weight: bold; font-family: var(--f-mono);">02</span>
+                  <span>Detección de Gate Breakers (claves privadas en código, links no cifrados, dependencias rotas).</span>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; font-size: 0.95rem; color: var(--steel-light);">
+                  <span style="color: var(--cyan); font-weight: bold; font-family: var(--f-mono);">03</span>
+                  <span>Entrega de Reporte HTML interactivo y dictamen de Gate Readiness C1/C2.</span>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem; font-size: 0.95rem; color: var(--steel-light);">
+                  <span style="color: var(--cyan); font-weight: bold; font-family: var(--f-mono);">04</span>
+                  <span>Sesión virtual de 1 hora de devolución con un Consultor Senior de Grupo Castillo.</span>
+                </li>
+              </ul>
+              <div style="padding: 1rem 1.25rem; background: rgba(0, 229, 153, 0.08); border-left: 3px solid var(--success); border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--paper);">
+                <strong>Acreditación Comercial:</strong> El 100% del valor del Checkup se acredita hacia una contratación anual de Castle Gate realizada dentro de los 30 días posteriores.
+              </div>
+            </div>
+
+            <div class="glass-panel" style="text-align: center; padding: 2.5rem 2rem; background: rgba(10, 13, 20, 0.85);">
+              <span class="badge badge-cyan" style="margin-bottom: 1rem;">PRECIO DE LANZAMIENTO</span>
+              <div style="font-size: 2.5rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); margin: 0.75rem 0;">$8,900 MXN</div>
+              <span style="display: block; font-family: var(--f-mono); font-size: 0.9rem; color: var(--steel-soft); margin-bottom: 1.25rem;">~$525 USD (Pago Único)</span>
+              <a href="contacto.html?necesidad=checkup" class="btn btn-primary" style="width: 100%;">Solicitar Castle Checkup</a>
+              <span style="display: block; font-size: 0.78rem; color: var(--steel-soft); margin-top: 1rem;">1 Repositorio • Objetivo de entrega: 72h hábiles • 100% Remoto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM FLOW DIAGRAM (WITH CLEAR VALUE PROPOSITIONS) -->
+    <section class="section" id="ecosistema">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Arquitectura de Servicios</p>
+          <h2>Ecosistema Integrado de Soluciones</h2>
+          <p>Cada línea responde a una necesidad concreta en el ciclo de vida de tu software.</p>
+        </div>
+
+        <div class="ecosystem-diagram reveal">
+          <div class="flow-main-track">
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE CHECKUP</div>
+              <div class="flow-node-sub">¿Dónde estoy? ($8,900 MXN)</div>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE GATE</div>
+              <div class="flow-node-sub">¿Cómo controlo mis releases?</div>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE CARE</div>
+              <div class="flow-node-sub">¿Puedes acompañarme continuamente?</div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.08em; margin: 10px 0;">
+            ▼ Rutas de Intervención Especializadas ▼
+          </div>
+
+          <div class="flow-branches">
+            <div class="branch-node glass-panel">
+              <h5>CASTLE AUDIT</h5>
+              <p>¿Qué tan profundo es el problema? Desde $19,900 MXN</p>
+            </div>
+            <div class="branch-node glass-panel">
+              <h5>CASTLE RESCUE</h5>
+              <p>¿Puedes ayudarme a corregirlo? Desde $6,900 MXN</p>
+            </div>
+            <div class="branch-node glass-panel">
+              <h5>CASTLE EMERGENCY</h5>
+              <p>¿Necesito intervención inmediata? Desde $5,900 MXN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & CLIENT OWNERSHIP PRINCIPLES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Principios de Confianza</p>
+          <h2>Por qué los clientes eligen a Grupo Castillo</h2>
+          <p>Eliminamos las prácticas opacas de las agencias tradicionales con transparencia y rigor técnico.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem;">🔑</div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Propiedad Absoluta</h4>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6;">
+              El código fuente, los repositorios, las cuentas de hosting y los dominios se registran 100% a tu nombre desde el primer día. Cero dependencias artificiales ni retención de activos.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem;">🛡️</div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Privacidad e Invarianza</h4>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6;">
+              Nuestra tecnología Castle Gate funciona 100% offline sin telemetría ni llamadas de red. Tu código nunca sale de tus servidores ni de tus runners privados de CI/CD.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem;">📋</div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Contratos por Escrito</h4>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6;">
+              Cada paquete y servicio cuenta con alcance delimitado, número de revisiones por escrito y precios transparentes sin costos ocultos ni sorpresas de última hora.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIVE POSITIONING & HONEST DIFFERENTIATION -->
     <section class="section section-dim">
-      <div class="container two-col">
-        <div class="reveal">
-          <p class="eyebrow">Transparencia &amp; Autonomía</p>
-          <h2>Construimos para que tu negocio crezca, no para amarrarte a nosotros.</h2>
-          <p>Definimos el alcance por escrito antes de empezar. Las cuentas de hosting, dominio e infraestructura te pertenecen por completo. Te entregamos el código fuente limpio para que tengas independencia total.</p>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Posicionamiento Técnico</p>
+          <h2>¿Cómo se complementa Castle Gate con otras herramientas?</h2>
+          <p>Las herramientas especializadas hacen su trabajo de análisis. Castle Gate actúa como el árbitro de gobernanza determinista que toma la decisión final de release.</p>
         </div>
-        <ul class="check-list reveal">
-          <li>Precios finales sin letras chiquitas ni cargos sorpresa.</li>
-          <li>Alcance por escrito antes de dar el primer paso.</li>
-          <li>Documentación técnica y código fuente entregado.</li>
-          <li>Inteligencia Artificial como herramienta de análisis, siempre bajo validación y supervisión de ingenieros humanos.</li>
-        </ul>
+
+        <div class="comparison-table-wrap reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Dimensión</th>
+                <th>SonarQube / SAST</th>
+                <th>Snyk / CVEs</th>
+                <th style="color: var(--cyan);">Castle Gate v1.0.0</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 600;">Propósito Central</td>
+                <td style="color: var(--steel-light);">Análisis sintáctico AST</td>
+                <td style="color: var(--steel-light);">Base de datos dinámica de CVEs</td>
+                <td style="font-weight: 600; color: var(--cyan);">Gobernanza y Decisión de Release</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Conectividad &amp; Privacidad</td>
+                <td style="color: var(--steel-light);">Servidor dedicado / Nube</td>
+                <td style="color: var(--steel-light);">Requiere conexión a internet</td>
+                <td style="font-weight: 600; color: var(--success);">100% Offline / Zero-Deps</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Velocidad en CI/CD</td>
+                <td style="color: var(--steel-light);">Varios minutos en pipeline</td>
+                <td style="color: var(--steel-light);">Llamadas remotas de red</td>
+                <td style="font-weight: 600; color: var(--cyan);">&lt; 500 ms en memoria</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Certificado de Release</td>
+                <td style="color: var(--steel-light);">No emite certificado sellado</td>
+                <td style="color: var(--steel-light);">No emite certificado sellado</td>
+                <td style="font-weight: 600; color: var(--success);">Digest SHA-256 Inalterable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
+    <!-- FAQ SECTION -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
@@ -195,18 +411,16 @@ import CastleGateVisual from '../components/CastleGateVisual.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Cuánto cuesta un sitio web con Servicios Castillo?" answer="Nuestros paquetes van desde $4,500 MXN para una landing page optimizada (Castle Bronze), hasta $12,500 MXN para plataformas corporativas completas (Castle Gold). Para sistemas a medida, cotizamos desde $40,000 MXN." />
-              <FAQItem question="¿Qué es el Castillo Security & Quality Gate?" answer="Es nuestro protocolo interno de 9 etapas (Discover, Design, Build, Test, Audit, Gate, Launch, Verify, Evolve). Evaluamos objetivamente velocidad, accesibilidad, seguridad y SEO antes de publicar." />
-              <FAQItem question="¿El sitio web y el código me pertenecen?" answer="Sí, totalmente. El código fuente se entrega y las cuentas de hosting y dominio quedan a tu nombre. No creamos dependencias artificiales." />
-              <FAQItem question="¿Utilizan inteligencia artificial en sus desarrollos?" answer="Utilizamos IA como acelerador de análisis, optimización y detección de patrones de error. La arquitectura, diseño y validación de seguridad son ejecutadas y supervisadas por ingenieros." />
+              <FAQItem open={true} question="¿Por qué contratar a Grupo Castillo en lugar de una agencia tradicional?" answer="Grupo Castillo combina desarrollo web de alta fidelidad con ingeniería rigurosa y tecnología propia (Castle Gate), garantizando que tu plataforma sea veloz, accesible, segura y completamente tuya." />
+              <FAQItem question="¿El código y las plataformas nos pertenecen?" answer="Sí, absolutamente. Todo el código fuente, repositorios, configuraciones de hosting y dominios quedan 100% a tu nombre sin dependencias artificiales." />
+              <FAQItem question="¿Qué es el diagnóstico Castle Checkup?" answer="Es un servicio ágil ($8,900 MXN) donde evaluamos tu repositorio con 65 controles CQS v1.1 en 72h hábiles para detectar fugas de credenciales, dependencias rotas y problemas de rendimiento, con 100% de crédito aplicado hacia tu plan anual." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="Si ya tengo un sitio web roto o lento, ¿pueden arreglarlo?" answer="Sí. No siempre es necesario empezar de cero. Con Castle Intervention o Castle Audit analizamos tu web actual, corregimos los errores de carga o visuales y optimizamos tu código existente." />
-              <FAQItem question="¿Cuántas revisiones se incluyen durante el desarrollo?" answer="Van desde 2 rondas de revisión en Castle Bronze hasta 5 en Castle Platinum. En cada ronda ajustamos el diseño y contenido según tus observaciones." />
-              <FAQItem question="¿Ofrecen mantenimiento técnico post-lanzamiento?" answer="Sí, mediante los planes Castle Care ofrecemos monitoreo de disponibilidad 24/7, respaldos automatizados, parches de seguridad y actualización de contenidos." />
-              <FAQItem question="¿Cómo solicitó un diagnóstico o cotización?" answer="Solo llena el formulario de contacto con los detalles de tu proyecto. Te enviamos una propuesta técnica y económica clara en menos de 24 horas hábiles." />
+              <FAQItem open={true} question="¿Castle Gate transmite información fuera de nuestra infraestructura?" answer="No. Castle Gate es un motor 100% offline con cero dependencias externas y cero llamadas de red. Se ejecuta exclusivamente en la memoria local de tu equipo o en los runners de tu CI/CD privado." />
+              <FAQItem question="¿Cómo solicitamos una propuesta técnica?" answer="Solo completa el formulario de contacto con los detalles de tu proyecto o repositorio. Te respondemos con una propuesta formal por escrito en menos de 24 horas hábiles." />
+              <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante los planes mensuales Castle Care (desde $3,500 MXN/mes) ofrecemos monitoreo continuo, respaldos automáticos, parches de seguridad y horas de ingeniería de rescate (Rescue) incluidas." />
             </div>
           </div>
         </div>
@@ -214,9 +428,9 @@ import CastleGateVisual from '../components/CastleGateVisual.astro';
     </section>
 
     <CTABand
-      title="Hablemos de tu proyecto digital."
-      description="Cuéntanos qué necesita tu negocio y te ayudamos a elegir la opción técnica y económica más conveniente."
-      ctaLabel="Solicitar Cotización"
+      title="Hablemos de tu proyecto o repositorio."
+      description="Cuéntanos qué necesita tu negocio y coordinamos una evaluación técnica inicial en menos de 24 horas."
+      ctaLabel="Iniciar Contacto"
       ctaHref="contacto.html"
     />
 

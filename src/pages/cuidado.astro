@@ -6,8 +6,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
-  title="Castle Care — Mantenimiento y Evolución Continua Web"
-  description="Servicio continuo de mantenimiento, seguridad, monitoreo de uptime, respaldos y evolución tecnológica para soluciones digitales."
+  title="Castle Care — Acompañamiento, Continuidad y Gobernanza Técnica Mensual"
+  description="Servicio continuo de mantenimiento, seguridad, monitoreo de uptime, respaldos y gobernanza tecnológica para soluciones digitales y repositorios en producción."
   canonical="https://servicios-castillo.vercel.app/cuidado.html"
   ogUrl="https://servicios-castillo.vercel.app/cuidado.html"
 >
@@ -17,50 +17,130 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       <InnerHeroVisual type="cuidado" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="soluciones.html">Soluciones</a> / Castle Care</p>
-        <p class="eyebrow">CARE</p>
-        <h1>Castle Care: Mantenimiento y evolución continua.</h1>
-        <p>Una solución digital en producción no termina en el lanzamiento. Requiere supervisión activa, actualizaciones de seguridad y evolución tecnológica constante.</p>
+        <p class="eyebrow" style="color: var(--cyan);">CONTINUIDAD &amp; GOBERNANZA</p>
+        <h1>Castle Care: Mantenimiento y Evolución Continua</h1>
+        <p>Una solución digital en producción no termina en el lanzamiento. Requiere supervisión activa, parches de seguridad, auditorías periódicas y horas de ingeniería de rescate.</p>
       </div>
     </section>
 
+    <!-- CAPABILITIES LIST -->
     <section class="section">
-      <div class="container two-col">
+      <div class="container two-col" style="align-items: center; gap: 3.5rem;">
         <div class="reveal">
-          <p class="eyebrow">¿Qué incluye Castle Care?</p>
-          <h2>Mantenimiento activo y protección.</h2>
-          <ul class="check-list" style="margin-top:1rem;">
-            <li><strong>Monitoreo de Disponibilidad &amp; Uptime:</strong> Supervisión constante para detectar caídas o fallas en el servidor.</li>
-            <li><strong>Parches &amp; Seguridad Continua:</strong> Actualización periódica de dependencias y saneamiento de cabeceras.</li>
-            <li><strong>Respaldos Automatizados (Backups):</strong> Copias de seguridad periódicas del código y activos digitales.</li>
-            <li><strong>Resolución de Incidencias:</strong> Atención prioritaria ante fallas técnicas o errores inesperados.</li>
-            <li><strong>Evolución &amp; Mejoras Menores:</strong> Ajustes de contenido, diseño o nuevas secciones según crezca tu negocio.</li>
+          <p class="eyebrow" style="color: var(--cyan);">¿Qué cubre Castle Care?</p>
+          <h2>Protección Activa y Continuidad Tecnológica</h2>
+          <ul class="check-list" style="margin-top: 1.5rem; list-style: none; padding: 0;">
+            <li style="padding: 0.75rem 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light); font-size: 0.95rem;">
+              <strong style="color: var(--paper);">Monitoreo de Disponibilidad &amp; Uptime:</strong> Supervisión constante para alertar caídas o degradación de servicio.
+            </li>
+            <li style="padding: 0.75rem 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light); font-size: 0.95rem;">
+              <strong style="color: var(--paper);">Auditoría de Releases &amp; Certificados:</strong> Revisión periódica del score CQS v1.1 y certificados SHA-256 en CI/CD.
+            </li>
+            <li style="padding: 0.75rem 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light); font-size: 0.95rem;">
+              <strong style="color: var(--paper);">Parches &amp; Seguridad Continua:</strong> Actualización de dependencias críticas y blindaje contra secretos expuestos.
+            </li>
+            <li style="padding: 0.75rem 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light); font-size: 0.95rem;">
+              <strong style="color: var(--paper);">Horas de Remediación Directa (Rescue):</strong> Ingenieros de Grupo Castillo intervienen directamente en tu código para resolver incidencias.
+            </li>
+            <li style="padding: 0.75rem 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light); font-size: 0.95rem;">
+              <strong style="color: var(--paper);">Mesa de Consultoría Senior:</strong> Sesiones mensuales de arquitectura y planificación de evolución técnica.
+            </li>
           </ul>
         </div>
-        <div class="reveal">
-          <p class="eyebrow">Modos de atención</p>
-          <h2>Esquemas de Acompañamiento</h2>
-          <div class="card card-light" style="margin-top:1rem;">
-            <h3>Castle Care Basic</h3>
-            <p style="font-size:.88rem; color:var(--steel);">Monitoreo de uptime, parches de seguridad mensuales, respaldos periódicos y soporte ante emergencias.</p>
-          </div>
-          <div class="card card-light" style="margin-top:1rem;">
-            <h3>Castle Care Pro</h3>
-            <p style="font-size:.88rem; color:var(--steel);">Todo lo de Basic + horas mensuales dedicadas a cambios de contenido, optimización de velocidad y reporte mensual de estado.</p>
-          </div>
-          <div class="card card-light" style="margin-top:1rem;">
-            <h3>Castle Care Enterprise</h3>
-            <p style="font-size:.88rem; color:var(--steel);">Atención personalizada con SLA de respuesta prioritario, evolución constante de características y soporte dedicado.</p>
+
+        <!-- RECURRING VS SINGLE PROJECT CALLOUT -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.3);">
+          <span class="badge badge-cyan" style="margin-bottom: 1rem;">MODELO DE CONTINUIDAD</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Proyecto Único vs. Suscripción Care</h3>
+          <p style="font-size: 0.92rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
+            Los paquetes <strong>Build (Iron a Diamond)</strong> entregan una plataforma lista y validada. <strong>Castle Care</strong> asegura que, mes a mes, el software no sufra degradación de seguridad, acumulación de deuda técnica o bloqueos inesperados.
+          </p>
+          <div style="padding: 1rem; background: rgba(0, 229, 153, 0.08); border-left: 3px solid var(--success); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--paper);">
+            <strong>Tranquilidad para tu equipo:</strong> Acompañamiento técnico predecible con canal directo de ingeniería.
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CARE SUBSCRIPTION TIERS -->
+    <section class="section section-dark" id="planes-care">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Esquemas de Suscripción</p>
+          <h2>Planes Mensuales de Castle Care</h2>
+          <p>Niveles de acompañamiento estructurados según el número de repositorios y criticidad técnica.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          
+          <!-- ESSENTIAL -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">PLAN MENSUAL</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0 0.25rem 0;">Care Essential</h3>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.35rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$3,500 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$205 USD / mes</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 1 Repositorio activo monitoreado</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 1 Revisión mensual de certificados y score</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 1 Sesión mensual (hasta 1 hora)</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Monitoreo de disponibilidad y respaldos</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 15% Descuento en horas de Castle Rescue</li>
+            </ul>
+            <a href="contacto.html?necesidad=cuidado" class="btn btn-outline" style="width: 100%;">Solicitar Care Essential</a>
+          </div>
+
+          <!-- PRO -->
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+            <span class="badge badge-cyan" style="margin-bottom: 0.5rem; font-size: 0.68rem; padding: 2px 7px;">MÁS RECOMENDADO</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0 0.25rem 0;">Care Pro</h3>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.35rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$7,900 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$465 USD / mes</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Hasta 3 Repositorios activos monitoreados</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 2 Revisiones mensuales + seguimiento CI/CD</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ 2 Sesiones mensuales de consultoría</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--cyan); font-weight: 600; border-top: 1px dashed var(--line-dark);">✔ 4 Horas/mes de Remediación Directa (Rescue)</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Canal de atención prioritario</li>
+            </ul>
+            <a href="contacto.html?necesidad=cuidado" class="btn btn-primary" style="width: 100%;">Solicitar Care Pro</a>
+          </div>
+
+          <!-- ENTERPRISE -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">ALTA DISPONIBILIDAD</span>
+            <h3 style="font-size: 1.3rem; margin: 0.5rem 0 0.25rem 0;">Care Enterprise</h3>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.35rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$17,900 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$1,050 USD / mes</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Hasta 8 Repositorios en gobernanza continua</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Revisiones continuas y seguimiento de releases</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Mesa de arquitectura (hasta 4 sesiones/mes)</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--cyan); font-weight: 600; border-top: 1px dashed var(--line-dark);">✔ 10 Horas/mes de Remediación Directa (Rescue)</li>
+              <li style="padding: 6px 0; font-size: 0.88rem; color: var(--steel-light); border-top: 1px dashed var(--line-dark);">✔ Atención prioritaria y servicios Emergency bajo condiciones</li>
+            </ul>
+            <a href="contacto.html?necesidad=cuidado" class="btn btn-outline" style="width: 100%;">Solicitar Care Enterprise</a>
+          </div>
+
+        </div>
+        <p class="currency-disclaimer" style="text-align: center; margin-top: 2rem;">
+          * Planes mensuales facturados en MXN. Equivalente USD informativo aproximado. Las horas de remediación no utilizadas no se acumulan automáticamente. Horas de ingeniería adicionales se cotizan por separado.
+        </p>
+      </div>
+    </section>
+
+    <!-- GATE INTEGRATION -->
     <section class="section section-dim">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Castillo Security &amp; Quality Gate</p>
-          <h2>Fase 9 del proceso: EVOLVE</h2>
-          <p>Castle Care constituye la etapa final del sistema Gate, asegurando que tu plataforma mantenga los estándares de calidad con los que fue lanzada.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Gobernanza en el Ciclo de Vida</p>
+          <h2>Fase 9 del Proceso: EVOLVE</h2>
+          <p>Castle Care constituye la etapa final de nuestro sistema, asegurando que tu plataforma mantenga los estándares de calidad con los que fue lanzada.</p>
         </div>
         <div class="reveal">
           <GateSchematic compact={true} />
@@ -70,9 +150,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
     <CTABand
       title="¿Quién cuida tu solución digital después del lanzamiento?"
-      description="Evita que tu sitio quede desactualizado, inseguro o abandonado. Mantén tu inversión protegida con Castle Care."
+      description="Evita que tu sitio quede desactualizado, inseguro o con deuda técnica oculta. Protege tu inversión con Castle Care."
       ctaLabel="Consultar Planes Castle Care"
-      ctaHref="contacto.html?necesidad=otro"
+      ctaHref="contacto.html?necesidad=cuidado"
     />
 
   </main>

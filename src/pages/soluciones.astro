@@ -5,8 +5,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
-  title="Líneas de Trabajo y Soluciones Digitales — Servicios Castillo"
-  description="Cinco líneas de trabajo: Build, Castle Audit, Castle Intervention, Castle Transformation y Castle Care. Soluciones según la etapa de tu proyecto."
+  title="Líneas de Trabajo y Soluciones Digitales — Grupo Castillo"
+  description="Arquitectura de soluciones de Grupo Castillo: Build (Iron a Diamond), Castle Checkup, Castle Audit, Castle Rescue, Castle Emergency y Castle Care."
   canonical="https://servicios-castillo.vercel.app/soluciones.html"
   ogUrl="https://servicios-castillo.vercel.app/soluciones.html"
 >
@@ -16,142 +16,155 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       <InnerHeroVisual type="soluciones" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Soluciones</p>
-        <h1>Soluciones Digitales Diseñadas para Cada Etapa</h1>
-        <p>Cinco líneas de trabajo estructuradas según la situación actual de tu negocio: crear desde cero, analizar, reparar, reconstruir o mantener.</p>
+        <h1>Soluciones de Ingeniería para Cada Etapa</h1>
+        <p>Una firma tecnológica que construye plataformas nuevas, diagnostica código en producción, repara sistemas heredados y acompaña tu continuidad operativa.</p>
       </div>
     </section>
 
-    <!-- GUÍA DE DIAGNÓSTICO -->
+    <!-- GUÍA DE DIAGNÓSTICO RÁPIDO SEGÚN PERFIL -->
     <section class="section">
       <div class="container">
-        <div class="card card-light reveal" style="padding:1.5rem; border-left:4px solid var(--gold);">
-          <h2 style="font-size:1.2rem; margin-bottom:.5rem; color:var(--ink);">¿Cómo saber cuál opción necesitas?</h2>
-          <div class="grid grid-3" style="gap:1rem; margin-top:1rem;">
+        <div class="glass-panel reveal" style="padding: 2.25rem; border-left: 4px solid var(--cyan);">
+          <h2 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--paper);">¿Cómo saber qué servicio necesitas?</h2>
+          <p style="font-size: 0.92rem; color: var(--steel-light); margin-bottom: 1.5rem;">Identifica la situación actual de tu negocio o base de código:</p>
+          <div class="grid grid-3" style="gap: 1.5rem;">
             <div>
-              <strong style="color:var(--gold-dark); font-size:.9rem;">1. Si NO tienes sitio web:</strong>
-              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#build" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">BUILD</a> o explora los <a href="paquetes.html" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">Castle Packages</a> desde $4,500 MXN.</p>
+              <strong style="color: var(--cyan); font-size: 0.95rem;">1. Si necesitas software nuevo:</strong>
+              <p style="font-size: 0.88rem; color: var(--steel-light); margin-top: 0.35rem;">
+                Elige la línea <a href="#build" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">BUILD</a> o explora los <a href="paquetes.html" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">Paquetes Iron a Diamond</a> con alcance cerrado y validación técnica.
+              </p>
             </div>
             <div>
-              <strong style="color:var(--gold-dark); font-size:.9rem;">2. Si tu web actual es LENTA o FALLA:</strong>
-              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#intervention" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">INTERVENTION</a> para reparar sin tirar lo que ya funciona.</p>
+              <strong style="color: var(--cyan); font-size: 0.95rem;">2. Si no sabes qué está fallando:</strong>
+              <p style="font-size: 0.88rem; color: var(--steel-light); margin-top: 0.35rem;">
+                Elige <a href="#checkup" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">CHECKUP (72h)</a> o <a href="auditoria.html" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">AUDIT</a> para una evaluación estática sin tocar código.
+              </p>
             </div>
             <div>
-              <strong style="color:var(--gold-dark); font-size:.9rem;">3. Si no sabes QUÉ ESTÁ MAL:</strong>
-              <p style="font-size:.85rem; color:var(--steel); margin-top:.25rem;">Elige <a href="#audit" style="color:var(--gold-dark); text-decoration:underline; font-weight:600;">AUDIT</a> para un diagnóstico completo de velocidad y seguridad.</p>
+              <strong style="color: var(--cyan); font-size: 0.95rem;">3. Si tu sistema está roto o heredado:</strong>
+              <p style="font-size: 0.88rem; color: var(--steel-light); margin-top: 0.35rem;">
+                Elige <a href="#rescue" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">RESCUE / INTERVENTION</a> para ingeniería directa en tu repositorio o auxilio ante código huérfano.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BUILD -->
+    <!-- 1. BUILD -->
     <section class="section section-dim" id="build">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">01 — BUILD</p>
-          <h2>Creamos soluciones digitales desde cero.</h2>
-          <p>Para proyectos nuevos: sitios web institucionales, e-commerce, sistemas web e integraciones a medida, diseñados con una arquitectura pensada para escalar.</p>
-          <p style="margin-top:1.5rem;"><a class="btn btn-gold" href="paquetes.html">Ver paquetes Build (Castle Packages)</a></p>
+          <p class="eyebrow" style="color: var(--cyan);">01 — BUILD</p>
+          <h2>Construcción e Ingeniería Digital</h2>
+          <p>Desarrollamos soluciones web sólidas y de alto rendimiento: desde presencia básica para profesionales independientes (Iron) hasta aplicaciones y portales a medida (Diamond).</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-primary" href="paquetes.html">Explorar Paquetes Build (Iron a Diamond) →</a>
+          </p>
         </div>
         <div class="reveal">
-          <ul class="check-list">
-            <li>Sitios web corporativos e institucionales</li>
-            <li>E-commerce y catálogos digitales</li>
-            <li>Plataformas y sistemas web a medida</li>
-            <li>Integraciones con APIs y herramientas externas</li>
-            <li>Castillo Security &amp; Quality Gate completo</li>
+          <ul class="check-list" style="list-style: none; padding: 0;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Escalera 6 Tiers:</strong> Iron, Bronze, Silver, Gold, Platinum, Diamond.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Propiedad Total:</strong> Código fuente, hosting y dominios a nombre del cliente.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Rendimiento Extremo:</strong> Core Web Vitals optimizados (LCP &lt; 1s).</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Validación de Calidad:</strong> Protocolo Castillo Gate incluido en cada nivel.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- AUDIT -->
-    <section class="section" id="audit">
+    <!-- 2. CHECKUP -->
+    <section class="section" id="checkup">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">02 — AUDIT</p>
-          <h2>Analizamos lo que ya existe.</h2>
-          <p>Diagnosticamos tu solución digital actual bajo criterios objetivos de seguridad, velocidad, accesibilidad, SEO y arquitectura antes de tocar una sola línea de código.</p>
-          <p class="pill-row" style="margin-top:1rem;"><span class="pill">Security</span><span class="pill">Performance</span><span class="pill">WCAG 2.2 A11y</span><span class="pill">SEO</span><span class="pill">Prioridades P0-P3</span></p>
-          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="auditoria.html">Conocer detalles de Castle Audit</a></p>
+          <p class="eyebrow" style="color: var(--cyan);">02 — CHECKUP</p>
+          <h2>¿Dónde estoy parado? Diagnóstico en 72h.</h2>
+          <p>Radiografía estática de tu repositorio o sitio web bajo los 65 controles CQS v1.1. Detecta secretos expuestos, dependencias rotas y problemas de accesibilidad con 100% de abono acreditable hacia tu plan.</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-outline" href="contacto.html?necesidad=checkup">Solicitar Castle Checkup</a>
+          </p>
         </div>
         <div class="reveal">
-          <ul class="check-list">
-            <li>Security &amp; Vulnerability Audit</li>
-            <li>Performance &amp; Core Web Vitals Audit</li>
-            <li>Accessibility Audit (WCAG 2.2 AA)</li>
-            <li>SEO &amp; Indexabilidad Audit</li>
-            <li>Reporte detallado con prioridades accionables</li>
+          <ul class="check-list" style="list-style: none; padding: 0;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>72 Horas SLA:</strong> Entrega rápida y 100% remota.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Reporte HTML Interactivo:</strong> Calificación por dominio CQS v1.1.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>1h de Devolución:</strong> Sesión con Consultor Senior.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Inversión Acreditable:</strong> ($350 – $750 USD).</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- INTERVENTION -->
-    <section class="section section-dim" id="intervention">
+    <!-- 3. AUDIT & CODE DUE DILIGENCE -->
+    <section class="section section-dim" id="audit">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">03 — INTERVENTION</p>
-          <h2>Corregimos, protegemos y optimizamos.</h2>
-          <p>Para sitios que ya existen pero presentan problemas puntuales: lentitud, errores en móviles, fallas de scripts o alertas de seguridad.</p>
-          <p class="pill-row" style="margin-top:1rem;"><span class="pill">Diagnose</span><span class="pill">Intervene</span><span class="pill">Harden</span><span class="pill">Optimize</span><span class="pill">Validate</span></p>
-          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="intervencion.html">Conocer detalles de Castle Intervention</a></p>
+          <p class="eyebrow" style="color: var(--cyan);">03 — AUDIT</p>
+          <h2>¿Qué tan profundo es el problema?</h2>
+          <p>Auditoría profunda de arquitectura, seguridad y código heredado. Ideal para procesos de adquisición (Due Diligence), plataformas con deuda técnica acumulada o sistemas huérfanos.</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-outline" href="auditoria.html">Detalles de Castle Audit →</a>
+          </p>
         </div>
         <div class="reveal">
-          <ul class="check-list">
-            <li>Corrección de errores evidentes y fallas móviles</li>
-            <li>Optimización de velocidad y assets</li>
-            <li>Endurecimiento de seguridad (hardening)</li>
-            <li>Validación posterior a la intervención</li>
+          <ul class="check-list" style="list-style: none; padding: 0;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ Análisis de acoplamiento, deuda técnica y dependencias.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ Revisión de código heredado (Legacy / Código Huérfano).</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ Evaluación de accesibilidad WCAG 2.2 AA y SEO técnico.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ Matriz priorizada de hallazgos P0 (Bloqueante) a P3.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- TRANSFORMATION -->
-    <section class="section" id="transformation">
+    <!-- 4. RESCUE & EMERGENCY -->
+    <section class="section" id="rescue">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">04 — TRANSFORMATION</p>
-          <h2>Cuando reparar ya no es suficiente.</h2>
-          <p>Modernizamos, reconstruimos o migramos soluciones obsoletas hacia una base técnica estática y escalable sin perder tu posicionamiento SEO.</p>
-          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="transformacion.html">Conocer detalles de Castle Transformation</a></p>
+          <p class="eyebrow" style="color: var(--cyan);">04 — RESCUE &amp; EMERGENCY</p>
+          <h2>¿Puedes ayudarme a corregirlo?</h2>
+          <p>Ingeniería directa en tu base de código para desbloquear releases, purgar secretos expuestos, resolver fallas agudas o rescatar sistemas cuando el desarrollador original ya no está disponible.</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-outline" href="intervencion.html">Conocer Castle Rescue &amp; Intervención →</a>
+          </p>
         </div>
         <div class="reveal">
-          <ul class="check-list">
-            <li>Rediseño UX/UI enfocado en conversión</li>
-            <li>Replatforming y migración de CMS</li>
-            <li>Mapa de redirecciones SEO preservado</li>
-            <li>Nueva arquitectura estática de alto rendimiento</li>
+          <ul class="check-list" style="list-style: none; padding: 0;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Castle Rescue:</strong> Remediación directa en código y Pull Requests.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Castle Emergency:</strong> Atención prioritaria (&lt; 4h) ante incidentes graves.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Saneamiento de Secretos:</strong> Rotación y blindaje de credenciales.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Validación Gate:</strong> Verificación estricta post-intervención.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- CARE -->
+    <!-- 5. CARE -->
     <section class="section section-dim" id="care">
       <div class="container two-col">
         <div class="reveal">
-          <p class="eyebrow">05 — CARE</p>
-          <h2>Mantenemos y evolucionamos.</h2>
-          <p>Supervisión activa, monitoreo de disponibilidad, actualizaciones de seguridad y evolución tecnológica constante para soluciones en producción.</p>
-          <p style="margin-top:1.5rem;"><a class="btn btn-outline" href="cuidado.html">Conocer detalles de Castle Care</a></p>
+          <p class="eyebrow" style="color: var(--cyan);">05 — CARE</p>
+          <h2>¿Puedes acompañarme continuamente?</h2>
+          <p>Suscripción mensual recurrente para supervisión de uptime, parches de seguridad, auditorías continuas y horas de remediación directa (Rescue) garantizadas en tu contrato.</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-outline" href="cuidado.html">Ver Planes de Castle Care →</a>
+          </p>
         </div>
         <div class="reveal">
-          <ul class="check-list">
-            <li>Monitoreo de disponibilidad (Uptime)</li>
-            <li>Actualizaciones y parches de seguridad</li>
-            <li>Respaldos periódicos automatizados</li>
-            <li>Soporte técnico y evolución continua</li>
+          <ul class="check-list" style="list-style: none; padding: 0;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Planes:</strong> Care Essential, Care Pro y Care Enterprise.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Horas de Rescue:</strong> 4h a 10h mensuales de ingeniería directa.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Monitoreo y Respaldos:</strong> Supervisión de disponibilidad y parches.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Gobernanza Continua:</strong> Seguimiento de certificados SHA-256 en CI/CD.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <CTABand
-      title="¿No sabes cuál línea de trabajo corresponde a tu proyecto?"
-      description="Cuéntanos la situación actual de tu web y te orientamos hacia el camino técnico más conveniente."
-      ctaLabel="Evaluar mi proyecto"
+      title="¿Tienes dudas sobre cuál solución elegir?"
+      description="Cuéntanos sobre tu negocio o repositorio y coordinamos una evaluación técnica en menos de 24 horas."
+      ctaLabel="Evaluar mi Proyecto"
       ctaHref="contacto.html"
     />
 

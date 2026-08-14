@@ -1,4 +1,4 @@
-/* ===== Contact Form & Input Fields ===== */
+/* ===== Contact Form & Input Fields (Technical & Clean) ===== */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,14 +40,14 @@
   max-width: 100%;
   box-sizing: border-box;
   font-family: var(--f-body);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   padding: 0.85rem 1rem;
   border: 1px solid var(--line-dark);
   border-radius: var(--radius);
   background: var(--ink-card);
   color: var(--paper);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  accent-color: var(--gold);
+  accent-color: var(--cyan);
 }
 
 .field select option {
@@ -55,25 +55,19 @@
   color: var(--paper);
 }
 
-.field select option:checked,
-.field select option:hover {
-  background-color: var(--gold) !important;
-  color: var(--ink) !important;
-}
-
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(198, 161, 82, 0.2);
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.18);
 }
 
 .field input[aria-invalid="true"],
 .field select[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
   border-color: var(--danger);
-  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.25);
+  box-shadow: 0 0 0 2px rgba(255, 59, 92, 0.25);
 }
 
 .form-status {
@@ -86,14 +80,14 @@
 
 .form-status.is-success {
   color: var(--success);
-  background: rgba(52, 211, 153, 0.1);
+  background: var(--success-bg);
   padding: 0.85rem 1.1rem;
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  border: 1px solid rgba(0, 229, 153, 0.3);
 }
 
 .form-status.is-error {
   color: var(--danger);
-  background: rgba(248, 113, 113, 0.1);
+  background: var(--danger-bg);
   padding: 0.85rem 1.1rem;
-  border: 1px solid rgba(248, 113, 113, 0.3);
+  border: 1px solid rgba(255, 59, 92, 0.3);
 }

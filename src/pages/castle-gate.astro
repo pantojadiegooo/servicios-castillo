@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTABand from '../components/CTABand.astro';
+import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
+---
+
+<BaseLayout
+  title="Castle Security & Quality Gate v1.0.0 — Motor de Gobernanza y Validación de Releases"
+  description="Tecnología propietaria de Grupo Castillo: Motor de validación técnica determinista basado en CQS v1.1. 65 controles, 7 dominios, 0 dependencias externas y certificados SHA-256."
+  canonical="https://servicios-castillo.vercel.app/castle-gate.html"
+  ogUrl="https://servicios-castillo.vercel.app/castle-gate.html"
+>
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="page-hero" style="padding-top: 4.5rem; padding-bottom: 3.5rem;">
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="index.html#servicios">Tecnología</a> / Castle Gate v1.0.0</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">TECNOLOGÍA PROPIA • CQS v1.1 • RELEASE READY</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem); max-width: 24ch;">Castle Security &amp; Quality Gate</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Motor de gobernanza de software y validación determinista de releases. Ejecuta 65 controles estáticos en memoria, veta código inseguro en CI/CD con Exit Code 1 y emite Release Certificates sellados mediante SHA-256.
+        </p>
+      </div>
+    </section>
+
+    <!-- LIVE TERMINAL & CAPABILITIES SECTION -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="two-col" style="align-items: center; gap: 3.5rem;">
+          <div class="reveal">
+            <p class="eyebrow" style="color: var(--cyan);">Demostración en Tiempo Real</p>
+            <h2>Validación Determinista en Memoria</h2>
+            <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+              Castle Gate opera <strong>100% offline</strong> con cero dependencias externas y cero llamadas de red. Su ejecución toma menos de 500 ms en cualquier pipeline de integración continua.
+            </p>
+
+            <div class="glass-panel" style="padding: 1.25rem; margin-bottom: 1.5rem; background: rgba(14, 18, 27, 0.65);">
+              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem;">Flujo de Gobernanza Verificable:</h4>
+              <ol style="font-size: 0.88rem; color: var(--steel-light); padding-left: 1.25rem; line-height: 1.6;">
+                <li><strong>Native Probes:</strong> Escaneo estático de claves y secretos expuestos.</li>
+                <li><strong>Gate Breaker Check:</strong> Veto inmediato si existe riesgo P0 (Exit Code 1).</li>
+                <li><strong>CQS Scoring:</strong> Ponderación nominal sobre 100.00 puntos en 7 dominios.</li>
+                <li><strong>Release Certificate:</strong> Sello criptográfico SHA-256 inmutable (Exit Code 0).</li>
+              </ol>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#licenciamiento" class="btn btn-primary">Ver Esquemas de Licenciamiento</a>
+              <a href="contacto.html?necesidad=checkup" class="btn btn-outline">Solicitar Checkup Inicial</a>
+            </div>
+          </div>
+
+          <!-- TERMINAL COMPONENT -->
+          <div class="reveal">
+            <CastleTerminalSimulator />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 DOMAINS ARCHITECTURE -->
+    <section class="section section-dim" id="dominios">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Arquitectura Metodológica</p>
+          <h2>7 Dominios Técnicos • 65 Controles Nominales</h2>
+          <p>La metodología CQS v1.1 audita exhaustivamente cada aspecto crítico del ciclo de vida del software.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 1</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Seguridad &amp; Privacidad</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Detección de credenciales expuestas (AWS, Stripe, SSH), cabeceras HTTP estrictas, CSP, sanitización y prevención de inyecciones.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 2</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Rendimiento Web</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Optimización de Core Web Vitals (LCP, INP, CLS), compresión de assets, eliminación de render-blocking y carga asíncrona.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 3</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Accesibilidad WCAG 2.2</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Navegación completa por teclado, contraste cromático contrast-ratio &ge; 4.5:1, etiquetas ARIA y semántica HTML5.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 4</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Calidad de Código</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Tipado estático, cobertura de pruebas unitarias, linting estricto, modularidad y ausencia de código muerto o dependencias huérfanas.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 5</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Arquitectura &amp; Resiliencia</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Manejo de excepciones estructurado, fallbacks de red, degradación elegante y desacoplamiento de componentes.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIOS 6 &amp; 7</span>
+              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
+            </div>
+            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">SEO Técnico &amp; Gobernanza</h4>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+              Metadatos Open Graph, sitemaps canónicos, lockfiles inmutables e integridad de artefactos de release.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY MATRIX & ANNUAL LICENSING -->
+    <section class="section" id="licenciamiento">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Licenciamiento de Software</p>
+          <h2>Matriz de Políticas C1 a C6 y Tarifas Anuales</h2>
+          <p>Licenciamiento inicial de mercado para integración en runners privados de CI/CD.</p>
+        </div>
+
+        <div class="matrix-stepper reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+          
+          <!-- C1 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem;">
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C1</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Foundation</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$9,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$580 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 60.00 • 0 Secretos expuestos • Lockfiles requeridos</div>
+          </div>
+
+          <!-- C2 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem;">
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C2</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Standard</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$16,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$990 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 78.00 • Seguridad HTTP estricta • Formato estandarizado</div>
+          </div>
+
+          <!-- C3 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+            <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px; margin-bottom: 0.25rem;">RECOMENDADO</span>
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C3</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Professional</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$26,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$1,580 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 85.00 • Core Web Vitals • WCAG 2.2 AA completo</div>
+          </div>
+
+          <!-- C4 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem;">
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C4</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Advanced</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$39,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$2,345 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 90.00 • Arquitectura desacoplada • Cobertura de tests</div>
+          </div>
+
+          <!-- C5 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem;">
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C5</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Enterprise</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$54,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$3,225 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 95.00 • Auditoría multicapa • Alta disponibilidad</div>
+          </div>
+
+          <!-- C6 -->
+          <div class="step-card glass-panel" style="padding: 1.75rem;">
+            <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C6</div>
+            <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Ultimate</div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$74,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$4,400 USD / año</span>
+            <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score = 100.00 • 65 Controles nominales aprobados al 100%</div>
+          </div>
+
+        </div>
+
+        <p class="currency-disclaimer" style="text-align: center;">
+          * Tarifas anuales de lanzamiento expresadas en pesos mexicanos (MXN). Equivalente USD aproximado para fines informativos.
+        </p>
+      </div>
+    </section>
+
+    <!-- CI/CD INTEGRATION & GITHUB ACTIONS -->
+    <section class="section section-dark" id="integracion">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Integración en 2 Líneas</p>
+          <h2>Automatización Nativa en GitHub Actions y GitLab CI</h2>
+          <p>Agrega Castle Gate a tu flujo de entrega continua en menos de 5 minutos.</p>
+        </div>
+
+        <div class="glass-panel reveal" style="padding: 2.5rem; max-width: 860px; margin: 0 auto; background: #040508;">
+          <div style="font-family: var(--f-mono); font-size: 0.88rem; line-height: 1.7; color: var(--steel-light);">
+            <div style="color: var(--steel-soft); margin-bottom: 0.75rem;"># .github/workflows/castle-gate.yml</div>
+            <div><span style="color: var(--cyan);">name:</span> <span style="color: #fff;">Castle Quality &amp; Security Gate</span></div>
+            <div><span style="color: var(--cyan);">on:</span> <span style="color: #fff;">[push, pull_request]</span></div>
+            <div style="margin-top: 0.5rem;"><span style="color: var(--cyan);">jobs:</span></div>
+            <div style="padding-left: 1.25rem;"><span style="color: var(--cyan);">gate-evaluation:</span></div>
+            <div style="padding-left: 2.5rem;"><span style="color: var(--cyan);">runs-on:</span> <span style="color: #fff;">ubuntu-latest</span></div>
+            <div style="padding-left: 2.5rem;"><span style="color: var(--cyan);">steps:</span></div>
+            <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- uses:</span> <span style="color: #fff;">actions/checkout@v4</span></div>
+            <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- name:</span> <span style="color: #fff;">Execute Castle Gate C1</span></div>
+            <div style="padding-left: 5rem; color: var(--success);">run: npx @grupo-castillo/castle-gate scan --dir . --level C1</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section section-dim" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Gate</p>
+          <h2>Dudas Técnicas y Operativas</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Por qué Castle Gate es 100% offline?" answer="Para garantizar privacidad total. Muchas empresas no pueden permitir que sus claves privadas o código fuente salgan hacia servidores de terceros. Castle Gate evalúa todo en la memoria del runner local." />
+              <FAQItem question="¿Qué pasa si mi pipeline se bloquea?" answer="El comando devuelve Exit Code 1 y genera un archivo compliance-report.html que detalla el archivo y la línea exacta donde está el secreto o bloqueo para que puedas remediarlo en minutos." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo pruebo Castle Gate en mi repositorio?" answer="El punto de entrada más ágil es solicitar un Castle Checkup ($8,900 MXN). Nuestro equipo realiza el escaneo inicial, te entrega el reporte interactivo y acredita el 100% del costo si contratas la licencia anual dentro de los 30 días posteriores." />
+              <FAQItem question="¿Puedo integrar Castle Gate en GitLab CI o Bitbucket?" answer="Sí, totalmente. Como es un paquete ejecutable por Node.js (npx), funciona de manera idéntica en cualquier sistema de integración continua basado en Linux, macOS o Windows." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Comienza con Castle Checkup."
+      description="Obtén una radiografía completa de los 65 controles CQS de tu repositorio en menos de 72 horas hábiles."
+      ctaLabel="Solicitar Castle Checkup ($8,900 MXN)"
+      ctaHref="contacto.html?necesidad=checkup"
+    />
+
+  </main>
+</BaseLayout>

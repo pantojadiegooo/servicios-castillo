@@ -12,7 +12,7 @@
 .faq summary {
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@
 }
 
 .faq summary:hover {
-  color: var(--gold);
+  color: var(--cyan);
 }
 
 .faq summary::-webkit-details-marker {
@@ -34,9 +34,9 @@
 .faq summary::after {
   content: "+";
   font-family: var(--f-mono);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--cyan);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
 }
@@ -47,24 +47,25 @@
 
 .faq p {
   margin-top: 0.85rem;
-  color: var(--steel-soft);
+  color: var(--steel-light);
   max-width: 70ch;
   line-height: 1.65;
+  font-size: 0.92rem;
 }
 
 /* Light section (dimmed) FAQs */
 .section-dim .faq details {
-  border-top-color: #DAD7CE;
+  border-top-color: var(--line-dark);
 }
 .section-dim .faq details:last-child {
-  border-bottom-color: #DAD7CE;
+  border-bottom-color: var(--line-dark);
 }
 .section-dim .faq summary {
-  color: var(--ink);
+  color: var(--paper);
 }
 .section-dim .faq summary:hover {
-  color: var(--gold-dark);
+  color: var(--cyan);
 }
 .section-dim .faq p {
-  color: var(--steel);
+  color: var(--steel-light);
 }

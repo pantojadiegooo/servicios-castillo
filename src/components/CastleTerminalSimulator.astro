@@ -1,0 +1,123 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`terminal-window ${className}`} id="castle-terminal-demo">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+    </div>
+    <div class="terminal-title">bash — castle-gate v1.0.0 (CLI Execution)</div>
+    <div class="badge badge-pass" style="font-size: 0.65rem; padding: 2px 8px;">OFFLINE VERIFIED</div>
+  </div>
+  <div class="terminal-body" id="terminal-body" aria-live="polite">
+    <div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>
+  </div>
+  <div class="terminal-footer">
+    <span class="t-muted" style="font-size: 0.74rem;">Simulación determinista en tiempo real</span>
+    <div style="display: flex; gap: 8px;">
+      <button id="btn-reset-demo" class="btn btn-outline" style="font-size: 0.75rem; padding: 4px 10px; height: auto;">Reiniciar</button>
+      <button id="btn-run-demo" class="btn btn-gold" style="font-size: 0.75rem; padding: 4px 12px; height: auto;">Ejecutar Demo en Vivo</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const terminalBody = document.getElementById('terminal-body');
+    const runDemoBtn = document.getElementById('btn-run-demo');
+    const resetDemoBtn = document.getElementById('btn-reset-demo');
+
+    if (!terminalBody || !runDemoBtn) return;
+
+    const demoSteps = [
+      {
+        delay: 350,
+        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate scan --dir ./api-service --level C1</span></div>'
+      },
+      {
+        delay: 800,
+        content: '<div class="terminal-line t-muted">Auditing 24 files across 7 CQS v1.1 domains in memory...</div>'
+      },
+      {
+        delay: 1400,
+        content: '<div class="terminal-line t-blocked">✖ [GATE DECISION]: BLOCKED (Exit Code 1)</div><div class="terminal-line t-warn">  └─ [GB-01] Gate Breaker Active: 1 critical secret detected (AWS Secret Key in config.js:14)</div><div class="terminal-line t-muted">  └─ Current Score: 52.40 / 100.00 | Compliance Report: .castle/compliance-report.html</div>'
+      },
+      {
+        delay: 2600,
+        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd"># Remediating: Extracted AWS_SECRET_KEY to process.env and updated package-lock.json</span></div>'
+      },
+      {
+        delay: 3400,
+        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate scan --dir ./api-service --level C1</span></div>'
+      },
+      {
+        delay: 4000,
+        content: '<div class="terminal-line t-muted">Re-evaluating CQS v1.1 rules (184ms)...</div>'
+      },
+      {
+        delay: 4600,
+        content: '<div class="terminal-line t-pass">✔ [GATE DECISION]: PASSED (Exit Code 0)</div><div class="terminal-line t-pass">  └─ Gate Breakers: CLEARED (0 Active) | Score: 88.89 / 100.00 (Threshold: 60.00)</div><div class="terminal-line t-muted">  └─ Release Certificate Issued: .castle/release-certificate.json</div>'
+      },
+      {
+        delay: 5400,
+        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate verify-cert --cert .castle/release-certificate.json</span></div>'
+      },
+      {
+        delay: 6000,
+        content: '<div class="terminal-line t-pass">✔ [CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>'
+      }
+    ];
+
+    let isRunning = false;
+    let timeouts = [];
+
+    function clearAllTimeouts() {
+      timeouts.forEach(t => clearTimeout(t));
+      timeouts = [];
+    }
+
+    function startDemo() {
+      if (isRunning) return;
+      isRunning = true;
+      runDemoBtn.disabled = true;
+      runDemoBtn.textContent = "Ejecutando...";
+      terminalBody.innerHTML = "";
+
+      demoSteps.forEach((step, index) => {
+        const t = setTimeout(() => {
+          terminalBody.innerHTML += step.content;
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+          if (index === demoSteps.length - 1) {
+            isRunning = false;
+            runDemoBtn.disabled = false;
+            runDemoBtn.textContent = "Reiniciar Demostración";
+          }
+        }, step.delay);
+        timeouts.push(t);
+      });
+    }
+
+    runDemoBtn.addEventListener('click', () => {
+      clearAllTimeouts();
+      isRunning = false;
+      startDemo();
+    });
+
+    if (resetDemoBtn) {
+      resetDemoBtn.addEventListener('click', () => {
+        clearAllTimeouts();
+        isRunning = false;
+        terminalBody.innerHTML = '<div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>';
+        runDemoBtn.disabled = false;
+        runDemoBtn.textContent = "Ejecutar Demo en Vivo";
+      });
+    }
+  });
+</script>

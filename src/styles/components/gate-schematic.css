@@ -1,4 +1,4 @@
-/* ===== Gate Schematic (Signature Stage Pipeline) ===== */
+/* ===== Gate Schematic (Signature Stage Pipeline - Titanium & Cyan) ===== */
 .gate-schematic {
   overflow-x: auto;
   padding-block: 1.5rem;
@@ -24,8 +24,8 @@
   left: 30px;
   right: 30px;
   height: 2px;
-  background: linear-gradient(90deg, var(--line-dark) 0%, var(--gold) 60%, var(--line-dark) 100%);
-  opacity: 0.7;
+  background: linear-gradient(90deg, var(--line-dark) 0%, var(--cyan) 60%, var(--line-dark) 100%);
+  opacity: 0.5;
 }
 
 .gate-node {
@@ -65,28 +65,28 @@
 }
 
 .gate-node:hover .gate-dot {
-  border-color: var(--gold-light);
-  box-shadow: 0 0 10px rgba(198, 161, 82, 0.3);
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.25);
 }
 
 .gate-node:hover .gate-dot::after {
-  background: var(--gold-light);
+  background: var(--cyan);
 }
 
 .gate-node.is-gate .gate-dot {
-  border-color: var(--gold);
+  border-color: var(--cyan);
   width: 32px;
   height: 32px;
   margin-top: -4px;
-  box-shadow: 0 0 15px rgba(198, 161, 82, 0.4);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
   background: var(--ink-card);
 }
 
 .gate-node.is-gate .gate-dot::after {
-  background: var(--gold);
+  background: var(--cyan);
   width: 10px;
   height: 10px;
-  box-shadow: 0 0 6px rgba(198, 161, 82, 0.8);
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
 }
 
 .gate-label {
@@ -99,7 +99,7 @@
 }
 
 .gate-node.is-gate .gate-label {
-  color: var(--gold);
+  color: var(--cyan);
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -111,13 +111,12 @@
   line-height: 1.45;
 }
 
-/* Scrollbar sutil para el pipeline horizontal en dispositivos móviles */
 @media (max-width: 860px) {
   .gate-schematic::-webkit-scrollbar {
     height: 4px;
   }
   .gate-schematic::-webkit-scrollbar-thumb {
-    background: var(--gold-dark);
+    background: var(--line-dark);
     border-radius: 2px;
   }
 }

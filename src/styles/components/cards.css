@@ -1,7 +1,7 @@
 /* ===== Cards & Architectural Containers ===== */
 .card {
   border: 1px solid var(--line-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: var(--ink-card);
   padding: 2rem;
   border-radius: var(--radius-lg);
@@ -12,49 +12,50 @@
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(198, 161, 82, 0.4);
-  border-top-color: rgba(198, 161, 82, 0.35);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+  border-color: rgba(0, 210, 255, 0.35);
+  border-top-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.06);
 }
 
 .card-light {
-  background: #FFFFFF;
-  border-color: #E1DED4;
-  color: var(--ink);
+  background: #10141E;
+  border-color: var(--line-dark);
+  color: var(--paper);
 }
 
 .card-light h2,
 .card-light h3,
 .card-light h4 {
-  color: var(--ink);
+  color: var(--paper);
 }
 
 .card-light:hover {
-  border-color: var(--gold);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--cyan);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 0.6rem;
+  color: var(--paper);
 }
 
 .card p {
-  color: var(--steel-soft);
-  font-size: 0.96rem;
+  color: var(--steel-light);
+  font-size: 0.92rem;
   line-height: 1.6;
   margin-bottom: 0;
 }
 
 .card-light p {
-  color: var(--steel);
+  color: var(--steel-soft);
 }
 
 .card-num {
   font-family: var(--f-mono);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--cyan);
   margin-bottom: 0.85rem;
   display: block;
   letter-spacing: 0.08em;

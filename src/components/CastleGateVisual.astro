@@ -61,10 +61,10 @@
       // Obtener colores del tema CSS de forma segura
       const style = getComputedStyle(document.documentElement);
       this.colors = {
-        gold: style.getPropertyValue('--gold').trim() || '#C6A152',
-        goldLight: style.getPropertyValue('--gold-light').trim() || '#E2C787',
-        steelSoft: style.getPropertyValue('--steel-soft').trim() || '#8894A6',
-        steelLight: style.getPropertyValue('--steel-light').trim() || '#C4CBD5'
+        cyan: style.getPropertyValue('--cyan').trim() || '#00D2FF',
+        paper: style.getPropertyValue('--paper').trim() || '#F8F7F4',
+        steelSoft: style.getPropertyValue('--steel-soft').trim() || '#8A94A6',
+        steelLight: style.getPropertyValue('--steel-light').trim() || '#CBD5E1'
       };
       
       this.init();
@@ -131,7 +131,7 @@
           vy: -0.2 - Math.random() * 0.4,
           symbol: symbols[Math.floor(Math.random() * symbols.length)],
           size: Math.random() * 5 + 4,
-          alpha: Math.random() * 0.18 + 0.05
+          alpha: Math.random() * 0.15 + 0.04
         });
       }
     }
@@ -191,7 +191,7 @@
 
       // Draw active grid flashes
       this.gridFlashes.forEach((flash) => {
-        this.ctx.strokeStyle = `rgba(255, 255, 255, ${flash.opacity * 0.08})`;
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${flash.opacity * 0.06})`;
         this.ctx.lineWidth = 0.8;
         this.ctx.beginPath();
         if (flash.type === 'v') {
@@ -213,10 +213,9 @@
       const radiusOuter = isMobile ? 80 : 160;
       const radiusInner = isMobile ? 55 : 110;
       
-      // Opacidad reducida en móviles para no interferir con la legibilidad del texto
-      const opacityFactor = isMobile ? 0.32 : 1.0;
+      const opacityFactor = isMobile ? 0.28 : 0.85;
       
-      // Draw breathing volumetric radial background aura
+      // Draw breathing volumetric radial background aura (Subtle Cyan / Titanium)
       const breathing = 0.82 + Math.sin(time * 1.8) * 0.08;
       const auraRadius = radiusOuter * 2.8 * breathing;
       
@@ -224,9 +223,9 @@
         gateX, gateY, 0,
         gateX, gateY, auraRadius
       );
-      auraGrad.addColorStop(0, `rgba(198, 161, 82, ${0.22 * opacityFactor})`);
-      auraGrad.addColorStop(0.3, `rgba(198, 161, 82, ${0.06 * opacityFactor})`);
-      auraGrad.addColorStop(0.7, `rgba(198, 161, 82, ${0.01 * opacityFactor})`);
+      auraGrad.addColorStop(0, `rgba(0, 210, 255, ${0.12 * opacityFactor})`);
+      auraGrad.addColorStop(0.35, `rgba(0, 210, 255, ${0.03 * opacityFactor})`);
+      auraGrad.addColorStop(0.7, `rgba(203, 213, 225, ${0.01 * opacityFactor})`);
       auraGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       
       this.ctx.fillStyle = auraGrad;
@@ -236,7 +235,7 @@
 
       // Outer structural ring
       this.ctx.beginPath();
-      this.ctx.strokeStyle = `rgba(136, 148, 166, ${0.18 * opacityFactor})`;
+      this.ctx.strokeStyle = `rgba(138, 148, 166, ${0.18 * opacityFactor})`;
       this.ctx.lineWidth = 1;
       
       const ringSteps = 96;
@@ -257,8 +256,8 @@
 
       // Inner validation orbit
       this.ctx.beginPath();
-      this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.25 * opacityFactor})`;
-      this.ctx.lineWidth = 1.5;
+      this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.22 * opacityFactor})`;
+      this.ctx.lineWidth = 1.2;
       for (let i = 0; i <= ringSteps; i++) {
         const angle = (i / ringSteps) * Math.PI * 2;
         const x = Math.cos(angle) * radiusInner;
@@ -274,7 +273,7 @@
       }
       this.ctx.stroke();
 
-      // Central core glows (validating machine core)
+      // Central core glows
       const coreRotated = this.rotate3D(0, 0, 0, rotX, rotY);
       const coreProjected = this.project(coreRotated, focalLength, gateX, gateY);
       
@@ -282,8 +281,8 @@
         coreProjected.x, coreProjected.y, 1,
         coreProjected.x, coreProjected.y, 55 * coreProjected.scale
       );
-      coreGrad.addColorStop(0, `rgba(198, 161, 82, ${0.42 * opacityFactor})`);
-      coreGrad.addColorStop(0.25, `rgba(198, 161, 82, ${0.18 * opacityFactor})`);
+      coreGrad.addColorStop(0, `rgba(0, 210, 255, ${0.25 * opacityFactor})`);
+      coreGrad.addColorStop(0.3, `rgba(0, 210, 255, ${0.08 * opacityFactor})`);
       coreGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       
       this.ctx.beginPath();
@@ -292,7 +291,6 @@
       this.ctx.fill();
 
       // Particles drawing
-      this.ctx.fillStyle = `rgba(198, 161, 82, ${0.4 * opacityFactor})`;
       this.particles.forEach((part) => {
         if (!this.reducedMotion) {
           part.y += part.vy;
@@ -306,13 +304,13 @@
         const projected = this.project(rotated, focalLength, gateX, gateY);
         
         if (projected.scale > 0.4) {
-          this.ctx.fillStyle = `rgba(198, 161, 82, ${part.alpha * projected.scale * opacityFactor})`;
+          this.ctx.fillStyle = `rgba(203, 213, 225, ${part.alpha * projected.scale * opacityFactor})`;
           if (part.symbol === '.') {
             this.ctx.beginPath();
             this.ctx.arc(projected.x, projected.y, 1.2 * projected.scale, 0, Math.PI * 2);
             this.ctx.fill();
           } else {
-            this.ctx.font = `${part.size * projected.scale}px "SF Mono", "JetBrains Mono", monospace`;
+            this.ctx.font = `${part.size * projected.scale}px "JetBrains Mono", "SF Mono", monospace`;
             this.ctx.fillText(part.symbol, projected.x, projected.y);
           }
         }
@@ -333,12 +331,12 @@
       projectedNodes.sort((a, b) => b.z - a.z);
 
       projectedNodes.forEach(({ node, projected }) => {
-        const rSize = (node.isGate ? 9 : 5) * projected.scale;
+        const rSize = (node.isGate ? 8 : 4.5) * projected.scale;
         
         // Link lines
         this.ctx.beginPath();
-        this.ctx.strokeStyle = node.isGate ? `rgba(198, 161, 82, ${0.28 * opacityFactor})` : `rgba(136, 148, 166, ${0.12 * opacityFactor})`;
-        this.ctx.lineWidth = node.isGate ? 1.5 : 0.8;
+        this.ctx.strokeStyle = node.isGate ? `rgba(0, 210, 255, ${0.25 * opacityFactor})` : `rgba(138, 148, 166, ${0.10 * opacityFactor})`;
+        this.ctx.lineWidth = node.isGate ? 1.2 : 0.6;
         this.ctx.moveTo(coreProjected.x, coreProjected.y);
         this.ctx.lineTo(projected.x, projected.y);
         this.ctx.stroke();
@@ -347,42 +345,40 @@
         if (node.isGate) {
           const glowGrad = this.ctx.createRadialGradient(
             projected.x, projected.y, 1,
-            projected.x, projected.y, rSize * 4
+            projected.x, projected.y, rSize * 3.5
           );
-          glowGrad.addColorStop(0, `rgba(198, 161, 82, ${0.5 * opacityFactor})`);
+          glowGrad.addColorStop(0, `rgba(0, 210, 255, ${0.35 * opacityFactor})`);
           glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
           this.ctx.beginPath();
           this.ctx.fillStyle = glowGrad;
-          this.ctx.arc(projected.x, projected.y, rSize * 4, 0, Math.PI * 2);
+          this.ctx.arc(projected.x, projected.y, rSize * 3.5, 0, Math.PI * 2);
           this.ctx.fill();
         }
 
         // Draw node
         this.ctx.beginPath();
-        this.ctx.fillStyle = node.isGate ? this.colors.gold : this.colors.steelSoft;
+        this.ctx.fillStyle = node.isGate ? this.colors.cyan : this.colors.steelSoft;
         this.ctx.arc(projected.x, projected.y, rSize, 0, Math.PI * 2);
         this.ctx.fill();
 
         // Node outer ring
         this.ctx.beginPath();
-        this.ctx.strokeStyle = node.isGate ? this.colors.goldLight : `rgba(255,255,255,${0.22 * opacityFactor})`;
+        this.ctx.strokeStyle = node.isGate ? '#ffffff' : `rgba(255,255,255,${0.18 * opacityFactor})`;
         this.ctx.lineWidth = 1;
         this.ctx.arc(projected.x, projected.y, rSize + 2, 0, Math.PI * 2);
         this.ctx.stroke();
 
-        // Active node technical data labels (QC tags & status hashes)
+        // Active node technical data labels
         const isFocus = node.isGate || (this.mouse.active && projected.scale > 0.95);
         if (isFocus) {
           this.ctx.textAlign = 'center';
           
-          // Primary text
-          this.ctx.font = `700 ${Math.max(8, 9 * projected.scale)}px "SF Mono", "JetBrains Mono", monospace`;
-          this.ctx.fillStyle = node.isGate ? this.colors.goldLight : this.colors.steelLight;
+          this.ctx.font = `700 ${Math.max(8, 9 * projected.scale)}px "JetBrains Mono", "SF Mono", monospace`;
+          this.ctx.fillStyle = node.isGate ? '#ffffff' : this.colors.steelLight;
           this.ctx.fillText(node.label, projected.x, projected.y - rSize - 12);
           
-          // Code ID tag (e.g. QC_GATE_PASS, 0x8A12)
-          this.ctx.font = `500 ${Math.max(6.5, 7.5 * projected.scale)}px "SF Mono", "JetBrains Mono", monospace`;
-          this.ctx.fillStyle = `rgba(198, 161, 82, ${0.6 * opacityFactor})`;
+          this.ctx.font = `500 ${Math.max(6.5, 7.5 * projected.scale)}px "JetBrains Mono", "SF Mono", monospace`;
+          this.ctx.fillStyle = `rgba(0, 210, 255, ${0.7 * opacityFactor})`;
           this.ctx.fillText(node.code, projected.x, projected.y - rSize - 4);
         }
       });
@@ -391,12 +387,10 @@
     loop() {
       this.time += 0.008;
       
-      // Random grid flashes generation
-      if (Math.random() < 0.045) {
+      if (Math.random() < 0.035) {
         const type = Math.random() > 0.5 ? 'h' : 'v';
         const cellSize = 56;
         const limit = type === 'h' ? this.height : this.width;
-        // Keep flash lines aligned to grid cells
         const pos = Math.floor(Math.random() * (limit / cellSize)) * cellSize;
         
         this.gridFlashes.push({
@@ -406,13 +400,11 @@
         });
       }
       
-      // Update grid flashes opacities
       this.gridFlashes.forEach((flash) => {
         flash.opacity -= 0.018;
       });
       this.gridFlashes = this.gridFlashes.filter(f => f.opacity > 0);
 
-      // Mouse interactive target rotation computation
       if (this.mouse.active) {
         this.targetRotationY = -0.45 + this.mouse.x * 0.55;
         this.targetRotationX = 0.45 + this.mouse.y * 0.42;

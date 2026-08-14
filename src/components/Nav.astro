@@ -1,11 +1,10 @@
 ---
 const navLinks = [
   { href: "index.html",             label: "Inicio" },
-  { href: "soluciones.html",        label: "Soluciones" },
-  { href: "paquetes.html",          label: "Castle Packages" },
+  { href: "castle-gate.html",       label: "Castle Gate" },
+  { href: "soluciones.html",        label: "Servicios" },
+  { href: "paquetes.html",          label: "Paquetes" },
   { href: "seguridad-calidad.html", label: "Security & Quality" },
-  { href: "proceso.html",           label: "Proceso" },
-  { href: "proyectos.html",         label: "Proyectos" },
   { href: "nosotros.html",          label: "Nosotros" },
 ];
 
@@ -15,8 +14,8 @@ const pathname = Astro.url.pathname.split("/").pop() || "index.html";
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <span class="brand-name">Servicios Castillo</span>
-      <span class="brand-sub">Grupo Castillo · Soluciones digitales</span>
+      <span class="brand-name">Grupo Castillo</span>
+      <span class="brand-sub">Ingeniería &amp; Gobernanza Digital</span>
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -26,7 +25,7 @@ const pathname = Astro.url.pathname.split("/").pop() || "index.html";
       {navLinks.map(({ href, label }) => (
         <li><a href={href} aria-current={pathname === href ? "page" : undefined}>{label}</a></li>
       ))}
-      <li><a class="nav-cta" href="contacto.html">Iniciar proyecto</a></li>
+      <li><a class="nav-cta" href="contacto.html">Iniciar Proyecto</a></li>
       </ul>
     </nav>
   </div>

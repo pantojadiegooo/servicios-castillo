@@ -1,4 +1,4 @@
-/* ===== Solutions Strip ===== */
+/* ===== Solutions Strip (Clean Engineering Grid) ===== */
 .solutions-strip {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -29,8 +29,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: var(--gold);
+  height: 2px;
+  background: var(--cyan);
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
@@ -52,20 +52,21 @@
 .solutions-strip .s-code {
   font-family: var(--f-mono);
   font-size: 0.72rem;
-  color: var(--gold);
+  color: var(--cyan);
   letter-spacing: 0.12em;
   font-weight: 600;
 }
 
 .solutions-strip .s-name {
-  font-family: var(--f-display);
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-family: var(--f-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--paper);
 }
 
 .solutions-strip .s-desc {
   font-size: 0.85rem;
-  color: var(--steel-soft);
+  color: var(--steel-light);
   line-height: 1.5;
 }
 
