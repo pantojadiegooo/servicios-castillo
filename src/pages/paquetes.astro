@@ -7,7 +7,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
 <BaseLayout
   title="Catálogo Oficial de Paquetes Build — Grupo Castillo"
-  description="Catálogo completo de desarrollo e ingeniería web de Grupo Castillo: 6 niveles (Iron a Diamond) con precios transparentes en MXN, alcance riguroso y propiedad total."
+  description="Catálogo completo de desarrollo e ingeniería web de Grupo Castillo: 6 niveles (Iron a Diamond) con precios transparentes en MXN, alcance riguroso y titularidad del cliente."
   canonical="https://servicios-castillo.vercel.app/paquetes.html"
   ogUrl="https://servicios-castillo.vercel.app/paquetes.html"
 >
@@ -16,10 +16,10 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="page-hero">
       <InnerHeroVisual type="paquetes" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> / Paquetes Build</p>
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Paquetes Build</p>
         <div class="badge badge-cyan" style="margin-bottom: 1rem;">CATÁLOGO COMPLETO DE DESARROLLO • 6 NIVELES</div>
         <h1>Paquetes de Desarrollo Web e Ingeniería</h1>
-        <p>Precios claros, alcance delimitado por escrito y propiedad absoluta del código para el cliente desde el primer día.</p>
+        <p>Precios claros, alcance delimitado por escrito y titularidad del código para el cliente desde el primer día.</p>
       </div>
     </section>
 
@@ -27,24 +27,27 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="section" style="padding-top: 1.5rem; padding-bottom: 2rem;">
       <div class="container">
         <div class="glass-panel reveal" style="padding: 1.75rem 2rem; background: rgba(14, 18, 27, 0.7); border-color: rgba(255, 255, 255, 0.08);">
-          <div style="font-size: 0.82rem; font-family: var(--f-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;">
-            Orientación por Tipo de Negocio
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+            <div style="font-size: 0.82rem; font-family: var(--f-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.06em;">
+              Orientación por Tipo de Negocio
+            </div>
+            <a href="/diagnostico.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: underline; font-weight: 600;">¿Incertidumbre sobre qué nivel elegir? Iniciar Diagnóstico →</a>
           </div>
-          <div class="grid grid-3" style="gap: 1.5rem; margin-top: 1rem;">
+          <div class="grid grid-3" style="gap: 1.5rem;">
             <div style="border-left: 2px solid var(--steel-soft); padding-left: 1rem;">
-              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">Profesionales &amp; Micronegocios</h4>
+              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">Personas / Profesionales / Micronegocios</h4>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0; line-height: 1.5;">
                 Presencia ágil y botón directo a WhatsApp. Recomendados: <strong>Castle Iron</strong> ($2,800 MXN) y <strong>Castle Bronze</strong> ($4,500 MXN).
               </p>
             </div>
             <div style="border-left: 2px solid var(--cyan); padding-left: 1rem;">
-              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">PyMEs &amp; Empresas en Crecimiento</h4>
+              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">PyMEs / Empresas</h4>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0; line-height: 1.5;">
                 Sitios corporativos y blogs autogestionables. Recomendados: <strong>Castle Silver</strong> ($7,500 MXN) y <strong>Castle Gold</strong> ($12,500 MXN).
               </p>
             </div>
             <div style="border-left: 2px solid var(--paper); padding-left: 1rem;">
-              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">Corporativos &amp; Software a Medida</h4>
+              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.35rem;">Equipos de Software / Organizaciones</h4>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0; line-height: 1.5;">
                 Integraciones complejas, APIs y alta escala. Recomendados: <strong>Castle Platinum</strong> ($24,500 MXN) y <strong>Castle Diamond</strong> (Desde $40,000 MXN).
               </p>
@@ -58,158 +61,174 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="section" id="catalogo-build" style="padding-top: 1rem;">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Escalera de Proyectos Únicos</p>
-          <h2>Catálogo Completo Build: Iron a Diamond</h2>
-          <p>Selecciona un paquete para ver su ficha técnica individual, entregables, alcances y exclusiones.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Línea Build</p>
+          <h2>Catálogo Completo de 6 Paquetes</h2>
+          <p>Desde presencia básica para profesionistas independientes hasta sistemas a medida de alta escala.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.75rem; margin-bottom: 2rem;">
-
+        <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
+          
           <!-- 1. CASTLE IRON -->
-          <div class="card glass-panel package-card" id="pkg-iron" style="display: flex; flex-direction: column;">
-            <div class="package-header">
-              <span class="package-tier-label">NIVEL 01 • ACCESIBLE</span>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Iron</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Presencia esencial en una sola vista para independientes y profesionistas.</p>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 01 • ESENCIAL</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$2,800 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$165 USD (Pago Único)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Iron</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Presencia digital esencial One-Page para profesionistas y micronegocios.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$2,800 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$165 USD</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Estructura One-Page ágil</li>
-              <li>✔ Botón directo a WhatsApp</li>
-              <li>✔ SSL y dominio conectado</li>
-              <li>✔ 1 ronda de revisión</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Estructura One-Page (1 vista ágil)</li>
+              <li>✔ Enlace directo a WhatsApp</li>
+              <li>✔ Optimización de carga instantánea</li>
+              <li>✔ Certificado SSL y hosting incluido</li>
+              <li>✔ 1 ronda de revisión formal</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/iron.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Iron" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Iron</a>
+              <a class="btn btn-outline" href="/paquetes/iron.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Iron" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Iron</a>
             </div>
           </div>
 
           <!-- 2. CASTLE BRONZE -->
-          <div class="card glass-panel package-card" id="pkg-bronze" style="display: flex; flex-direction: column;">
-            <div class="package-header">
-              <span class="package-tier-label">NIVEL 02 • CONVERSIÓN</span>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Bronze</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Landing page comercial de hasta 5 secciones estructurada para captar prospectos.</p>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 02 • CAPTACIÓN</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$4,500 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$265 USD (Pago Único)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Bronze</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Landing comercial enfocada en conversión para campañas y nuevos productos.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$4,500 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$265 USD</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Hasta 5 secciones de venta</li>
-              <li>✔ Formulario de contacto directo</li>
-              <li>✔ Analítica de visitas configurada</li>
-              <li>✔ 2 rondas de revisión</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Hasta 5 secciones estructuradas</li>
+              <li>✔ Formulario de captación de clientes</li>
+              <li>✔ Integración analítica básica</li>
+              <li>✔ Diseño adaptado a móviles</li>
+              <li>✔ 2 rondas de revisión formal</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/bronze.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Bronze" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Bronze</a>
+              <a class="btn btn-outline" href="/paquetes/bronze.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Bronze" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Bronze</a>
             </div>
           </div>
 
           <!-- 3. CASTLE SILVER -->
-          <div class="card glass-panel package-card" id="pkg-silver" style="display: flex; flex-direction: column;">
-            <div class="package-header">
-              <span class="package-tier-label">NIVEL 03 • CORPORATIVO</span>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Silver</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Sitio corporativo estructurado de hasta 5 páginas independientes para empresas.</p>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 03 • CORPORATIVO</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$7,500 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$440 USD (Pago Único)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Silver</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Sitio corporativo multi-página para empresas que requieren estructura formal.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$7,500 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$440 USD</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Hasta 5 páginas separadas</li>
-              <li>✔ Navegación y menús completos</li>
-              <li>✔ SEO on-page estructurado</li>
-              <li>✔ 3 rondas de revisión</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Hasta 5 páginas completas independientes</li>
+              <li>✔ Menú de navegación interactivo</li>
+              <li>✔ SEO on-page y metadatos estructurados</li>
+              <li>✔ Protocolo Castle Gate C1 incluido</li>
+              <li>✔ 3 rondas de revisión formal</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/silver.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Silver" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Silver</a>
+              <a class="btn btn-outline" href="/paquetes/silver.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Silver" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Silver</a>
             </div>
           </div>
 
-          <!-- 4. CASTLE GOLD (MÁS POPULAR) -->
-          <div class="card glass-panel package-card" id="pkg-gold" style="display: flex; flex-direction: column; border-color: rgba(0, 210, 255, 0.4); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
-            <div class="package-header">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="package-tier-label" style="color: var(--cyan);">NIVEL 04 • CRECIMIENTO</span>
-                <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">MÁS POPULAR</span>
-              </div>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Gold</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Plataforma completa de 8-10 páginas con Blog / CMS autogestionable.</p>
+          <!-- 4. CASTLE GOLD (POPULAR) -->
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 7px;">MÁS POPULAR</span>
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 04</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$12,500 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$735 USD (Pago Único)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Gold</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Plataforma de crecimiento corporativo con Blog / CMS autogestionable.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$12,500 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$735 USD</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
               <li>✔ 8 a 10 páginas completas</li>
-              <li>✔ Blog / Noticias autogestionable</li>
-              <li>✔ Core Web Vitals &lt; 1s</li>
-              <li>✔ 4 rondas de revisión</li>
+              <li>✔ Blog / CMS autogestionable</li>
+              <li>✔ Optimización Core Web Vitals</li>
+              <li>✔ SEO avanzado Schema.org (JSON-LD)</li>
+              <li>✔ 4 rondas de revisión formal</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/gold.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Gold" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Gold</a>
+              <a class="btn btn-outline" href="/paquetes/gold.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Gold" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Gold</a>
             </div>
           </div>
 
           <!-- 5. CASTLE PLATINUM -->
-          <div class="card glass-panel package-card" id="pkg-platinum" style="display: flex; flex-direction: column;">
-            <div class="package-header">
-              <span class="package-tier-label">NIVEL 05 • INTEGRACIÓN</span>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Platinum</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Hasta 15 páginas, integración con APIs externas, CRM y pasarelas de pago.</p>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 05 • INTEGRADO</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$24,500 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$1,440 USD (Pago Único)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Platinum</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Plataforma avanzada con integración de APIs, CRM, pagos y seguridad reforzada.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$24,500 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$1,440 USD</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Hasta 15 páginas especializadas</li>
-              <li>✔ Integración con APIs / CRM / Pagos</li>
-              <li>✔ Hardening de seguridad estricto</li>
-              <li>✔ 5 rondas de revisión</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Hasta 15 páginas y secciones dinámicas</li>
+              <li>✔ Integración de pagos (Stripe / Mercado Pago)</li>
+              <li>✔ Conexión con CRM y bases de datos</li>
+              <li>✔ Hardening de seguridad y cabeceras estrictas</li>
+              <li>✔ 5 rondas de revisión formal</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/platinum.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Platinum" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Platinum</a>
+              <a class="btn btn-outline" href="/paquetes/platinum.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Platinum" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Platinum</a>
             </div>
           </div>
 
           <!-- 6. CASTLE DIAMOND -->
-          <div class="card glass-panel package-card" id="pkg-diamond" style="display: flex; flex-direction: column;">
-            <div class="package-header">
-              <span class="package-tier-label">NIVEL 06 • A MEDIDA</span>
-              <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Diamond</h3>
-              <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Software a la medida, portales de usuarios y arquitecturas de alta disponibilidad.</p>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 06 • EMPRESARIAL</span>
             </div>
-            <div class="package-price-wrap" style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div class="package-price" style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">Desde $40,000 MXN</div>
-              <span class="price-sub-usd" style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$2,350 USD (Según Alcance)</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Diamond</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Ingeniería de software a la medida, portales de clientes y alta disponibilidad.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">Desde $40,000 MXN</div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$2,350 USD (Base)</span>
             </div>
-            <ul class="package-features" style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Arquitectura y módulos a medida</li>
-              <li>✔ Autenticación y roles de usuario</li>
-              <li>✔ Gobernanza Castle Gate C5/C6</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Arquitectura personalizada a la medida</li>
+              <li>✔ Portales de usuarios y permisos (RBAC)</li>
+              <li>✔ Infraestructura Edge / Alta Disponibilidad</li>
+              <li>✔ Implementación de gobernanza C5/C6</li>
               <li>✔ Sprints y entregables continuos</li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="paquetes/diamond.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Detalle Completo →</a>
-              <a class="btn btn-primary" href="contacto.html?paquete=Castle%20Diamond" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Diamond</a>
+              <a class="btn btn-outline" href="/paquetes/diamond.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?paquete=Castle%20Diamond" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Diamond</a>
             </div>
           </div>
 
         </div>
 
         <p class="currency-disclaimer" style="text-align: center; margin-bottom: 3rem;">
-          * Tarifas iniciales expresadas en pesos mexicanos (MXN). Equivalentes en USD son aproximados e informativos. La cotización contractual y facturación se realiza en MXN.
+          * Tarifas de lanzamiento expresadas en pesos mexicanos (MXN). Equivalentes en USD son informativos. La cotización contractual y facturación se realiza en MXN.
         </p>
       </div>
     </section>
@@ -218,9 +237,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="section section-dim" id="comparativa">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Matriz de Características</p>
+          <p class="eyebrow" style="color: var(--cyan);">Matriz de Características</p>
           <h2>Comparativa Técnica de los 6 Niveles Build</h2>
-          <p>Transparencia absoluta en lo que incluye cada nivel de desarrollo.</p>
+          <p>Transparencia en lo que incluye cada nivel de desarrollo.</p>
         </div>
 
         <div class="comparison-table-wrap reveal">
@@ -265,7 +284,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
                 <td style="color: var(--success);">✔</td>
               </tr>
               <tr>
-                <td style="font-weight: 600;">Formulario de Cotización</td>
+                <td style="font-weight: 600;">Formulario de Captación</td>
                 <td style="color: var(--steel-soft);">—</td>
                 <td style="color: var(--success);">✔</td>
                 <td style="color: var(--success);">✔</td>
@@ -301,13 +320,13 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
                 <td>Por sprint</td>
               </tr>
               <tr>
-                <td style="font-weight: 600;">Propiedad Total del Código</td>
-                <td style="color: var(--success);">100%</td>
-                <td style="color: var(--success);">100%</td>
-                <td style="color: var(--success);">100%</td>
-                <td style="color: var(--success);">100%</td>
-                <td style="color: var(--success);">100%</td>
-                <td style="color: var(--success);">100%</td>
+                <td style="font-weight: 600;">Titularidad de Código</td>
+                <td style="color: var(--success);">100% Cliente</td>
+                <td style="color: var(--success);">100% Cliente</td>
+                <td style="color: var(--success);">100% Cliente</td>
+                <td style="color: var(--success);">100% Cliente</td>
+                <td style="color: var(--success);">100% Cliente</td>
+                <td style="color: var(--success);">100% Cliente</td>
               </tr>
             </tbody>
           </table>
@@ -323,12 +342,12 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">¿BUSCAS ACOMPAÑAMIENTO O AUDITORÍA?</span>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0 0.5rem 0;">Servicios de Diagnóstico, Rescate y Continuidad Mensual</h3>
             <p style="font-size: 0.9rem; color: var(--steel-light); margin: 0;">
-              Explora nuestros servicios independientes: Castle Checkup, Castle Audit, Castle Rescue y suscripciones mensuales Castle Care.
+              Explora nuestros servicios independientes: Castle Checkup ($8,900 MXN), Castle Audit, Castle Rescue y suscripciones mensuales Castle Care.
             </p>
           </div>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="servicios.html" class="btn btn-primary">Ver Todos los Servicios →</a>
-            <a href="servicios/care.html" class="btn btn-outline">Ver Planes Castle Care</a>
+            <a href="/servicios.html" class="btn btn-primary">Ver Todos los Servicios →</a>
+            <a href="/servicios/care.html" class="btn btn-outline">Ver Planes Castle Care</a>
           </div>
         </div>
       </div>
@@ -344,14 +363,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Cómo se realiza el proceso de pago?" answer="Trabajamos típicamente con un esquema de 50% de anticipo para iniciar la arquitectura y 50% contra entrega final tras completar las rondas de revisión." />
-              <FAQItem question="¿El código nos pertenece por completo?" answer="Sí. El repositorio, los archivos y la configuración de hosting quedan 100% registrados a tu nombre sin ataduras ni mensualidades forzosas de desarrollo." />
+              <FAQItem open={true} question="¿Cómo se realiza el proceso de pago?" answer="Trabajamos típicamente con un esquema de 50% de anticipo para iniciar la arquitectura y 50% contra entrega final tras completar las rondas de revisión formal." />
+              <FAQItem question="¿El código nos pertenece conforme a contrato?" answer="Sí. Todo el código fuente entregado, repositorios y cuentas de hosting permanecen bajo la titularidad y control del cliente conforme al contrato de servicios." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Qué pasa si mis requerimientos no encajan exactamente en un paquete?" answer="Podemos cotizar módulos o páginas adicionales de forma proporcional o estructurar una propuesta a la medida bajo Castle Diamond." />
-              <FAQItem question="¿Qué soporte recibo después de la entrega?" answer="Todos los paquetes incluyen garantía de estabilidad inicial y puedes contratar Castle Care (desde $3,500 MXN/mes) para mantenimiento y seguridad continua." />
+              <FAQItem question="¿Qué soporte recibo después de la entrega?" answer="Todos los paquetes incluyen garantía de estabilidad inicial y puedes contratar Castle Care (desde $3,500 MXN/mes) para supervisión técnica y horas de rescate continuo." />
             </div>
           </div>
         </div>
@@ -360,9 +379,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
     <CTABand
       title="¿Tienes dudas sobre qué paquete es el adecuado?"
-      description="Cuéntanos sobre tu negocio y te orientamos sin compromiso en menos de 24 horas."
-      ctaLabel="Solicitar Asesoría de Paquetes"
-      ctaHref="contacto.html"
+      description="Utiliza nuestro diagnóstico interactivo o cuéntanos directamente sobre tu negocio."
+      ctaLabel="Iniciar Diagnóstico Castillo"
+      ctaHref="/diagnostico.html"
     />
 
   </main>

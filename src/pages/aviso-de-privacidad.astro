@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Aviso de Privacidad y Tratamiento de Información — Grupo Castillo"
+  description="Política de privacidad, confidencialidad técnica y tratamiento responsable de información de proyectos y repositorios en Grupo Castillo."
+  canonical="https://servicios-castillo.vercel.app/aviso-de-privacidad.html"
+  ogUrl="https://servicios-castillo.vercel.app/aviso-de-privacidad.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="nosotros" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Aviso de Privacidad</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">CONFIDENCIALIDAD &amp; PROTECCIÓN DE DATOS</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Aviso de Privacidad</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          En Grupo Castillo valoramos la confianza y la privacidad de nuestros clientes. Este documento describe cómo recolectamos, protegemos y tratamos la información de contacto y los activos técnicos de los proyectos.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <div class="glass-panel reveal" style="padding: 3rem; line-height: 1.7; color: var(--steel-light);">
+          
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">1. Identidad y Responsable del Tratamiento</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <strong>Grupo Castillo</strong> (en adelante "la Firma"), con portal oficial en <a href="https://servicios-castillo.vercel.app/" style="color: var(--cyan);">https://servicios-castillo.vercel.app/</a>, es responsable del tratamiento de los datos personales y técnicos recabados a través de este sitio web y en el marco de sus servicios profesionales de ingeniería.
+          </p>
+          <div style="padding: 1rem; background: rgba(0, 210, 255, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-bottom: 2rem; font-size: 0.85rem;">
+            <em>Nota de Transparencia Institucional:</em> La información fiscal oficial (RFC y Domicilio Fiscal) se formaliza y asienta por escrito en los contratos de prestación de servicios y facturación correspondientes conforme a la normativa fiscal de México.
+          </div>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">2. Datos Personales Recabados</h2>
+          <p style="margin-bottom: 1rem; font-size: 0.95rem;">
+            Recabamos únicamente la información necesaria para fines comerciales, de diagnóstico y de ejecución técnica:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li><strong>Datos de Contacto y Cotización:</strong> Nombre completo, correo electrónico, número de teléfono/WhatsApp (opcional) y descripción del proyecto.</li>
+            <li><strong>Datos de Diagnóstico Comercial:</strong> Nombre, apellido, ciudad y edad (la edad se solicita de manera voluntaria exclusivamente para análisis estadístico y demográfico interno de mercado).</li>
+            <li><strong>Información Técnica de Proyecto:</strong> Repositorios, URLs de demostración, especificaciones técnicas y esquemas de arquitectura proporcionados voluntariamente por el cliente.</li>
+          </ul>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">3. Principio de Menor Privilegio y Seguridad Técnica</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Aplicamos estándares de seguridad y confidencialidad técnica estricta:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li><strong>Evaluación Local en Memoria:</strong> Nuestras herramientas internas de auditoría y el motor Castle Gate ejecutan análisis estáticos en memoria local y no envían código fuente ni credenciales a servidores externos.</li>
+            <li><strong>No Almacenamiento de Secretos:</strong> Nunca solicitamos ni almacenamos contraseñas bancarias, tokens privados permanentes ni claves maestras no requeridas.</li>
+            <li><strong>Cierre de Accesos Post-Entrega:</strong> Una vez finalizado el proyecto o servicio, transferimos el control absoluto al cliente y procedemos a la desvinculación de credenciales operativas.</li>
+          </ul>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">4. Finalidad del Tratamiento de Datos</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Los datos recabados se utilizan exclusivamente para:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li>Elaborar cotizaciones comerciales y propuestas técnicas de desarrollo.</li>
+            <li>Generar recomendaciones técnicas dentro del Diagnóstico Castillo.</li>
+            <li>Coordinar llamadas de levantamiento y seguimiento de proyectos.</li>
+            <li>Formalizar contratos de servicios y emisión de comprobantes fiscales.</li>
+          </ul>
+          <p style="margin-bottom: 2rem; font-size: 0.95rem;">
+            <strong>No vendemos, rentamos ni transferimos tus datos personales a terceros</strong> con fines publicitarios o comerciales ajenos a Grupo Castillo.
+          </p>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">5. Derechos de Acceso, Rectificación, Cancelación y Oposición (ARCO)</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Tienes derecho a conocer qué datos personales tenemos registrados, para qué los utilizamos y las condiciones de uso. Asimismo, puedes solicitar la corrección o cancelación de tus registros enviando una solicitud a través de nuestro formulario de contacto en <a href="/contacto.html" style="color: var(--cyan);">https://servicios-castillo.vercel.app/contacto.html</a>.
+          </p>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">6. Modificaciones al Aviso de Privacidad</h2>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">
+            Grupo Castillo se reserva el derecho de actualizar este Aviso de Privacidad para reflejar cambios legales o mejoras operativas. Las modificaciones estarán siempre publicadas y accesibles en esta misma dirección web.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Tienes dudas sobre el manejo de información de tu proyecto?"
+      description="Escríbenos directamente y te orientamos con absoluta transparencia."
+      ctaLabel="Ir al Formulario de Contacto"
+      ctaHref="/contacto.html"
+    />
+
+  </main>
+</BaseLayout>

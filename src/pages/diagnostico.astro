@@ -1,0 +1,723 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Diagnóstico Castillo — Orientación Técnica y Comercial de Software | Grupo Castillo"
+  description="Herramienta interactiva de orientación comercial de Grupo Castillo: determina el paquete, servicio de intervención o gobernanza adecuado para tu negocio."
+  canonical="https://servicios-castillo.vercel.app/diagnostico.html"
+  ogUrl="https://servicios-castillo.vercel.app/diagnostico.html"
+>
+  <main id="main">
+
+    <section class="page-hero" style="padding-top: 5rem; padding-bottom: 3.5rem;">
+      <InnerHeroVisual type="soluciones" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Diagnóstico Castillo</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">INSTRUMENTO DE ORIENTACIÓN TÉCNICA</div>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); max-width: 22ch;">¿Qué solución necesita realmente tu negocio?</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          No necesitas conocer nuestro catálogo técnico para comenzar. Responde 5 preguntas guiadas y nuestro motor de decisión identificará el punto de partida adecuado para tu empresa.
+        </p>
+      </div>
+    </section>
+
+    <!-- WIZARD CONTAINER -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 5rem;">
+      <div class="container" style="max-width: 880px;">
+        
+        <div class="glass-panel" id="diag-app" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.9); border-color: rgba(0, 210, 255, 0.25); min-height: 480px; position: relative;">
+          
+          <!-- PROGRESS HEADER -->
+          <div id="diag-progress-header" style="margin-bottom: 2rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span id="diag-step-indicator" style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">PASO 1 DE 5: PERFIL BÁSICO</span>
+              <span id="diag-step-percent" style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft);">20% Completado</span>
+            </div>
+            <div style="width: 100%; height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 2px; overflow: hidden;">
+              <div id="diag-progress-bar" style="width: 20%; height: 100%; background: linear-gradient(90deg, var(--cyan) 0%, #3B82F6 100%); transition: width 0.3s ease;"></div>
+            </div>
+          </div>
+
+          <!-- STEP 1: DATOS BÁSICOS -->
+          <div class="diag-step" id="step-1" style="display: block;">
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">01. Cuéntanos sobre ti</h2>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.75rem;">
+              Esta información nos ayuda a personalizar tu reporte técnico final.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div class="field">
+                <label for="diag-nombre" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Nombre <span style="color: var(--cyan);">*</span></label>
+                <input type="text" id="diag-nombre" placeholder="Ej. Ana" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
+              </div>
+              <div class="field">
+                <label for="diag-apellido" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Apellido <span style="color: var(--cyan);">*</span></label>
+                <input type="text" id="diag-apellido" placeholder="Ej. Martínez" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem;">
+              <div class="field">
+                <label for="diag-ciudad" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Ciudad / País <span style="color: var(--cyan);">*</span></label>
+                <input type="text" id="diag-ciudad" placeholder="Ej. Ciudad de México / Remoto" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
+              </div>
+              <div class="field">
+                <label for="diag-edad" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Edad <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">(Opcional)</span></label>
+                <input type="number" id="diag-edad" placeholder="Ej. 34" min="18" max="100" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
+              </div>
+            </div>
+
+            <div style="padding: 0.85rem 1rem; background: rgba(0, 210, 255, 0.04); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-bottom: 2rem; font-size: 0.8rem; color: var(--steel-light);">
+              🔒 <em>Nota de privacidad:</em> La edad se solicita de manera voluntaria únicamente para fines estadísticos y demográficos de mercado. No influye en la recomendación técnica.
+            </div>
+
+            <div style="display: flex; justify-content: flex-end;">
+              <button type="button" class="btn btn-primary" onclick="window.diagNext(1)">Continuar al Paso 2 →</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: SITUACIÓN ACTUAL -->
+          <div class="diag-step" id="step-2" style="display: none;">
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">02. ¿Cuál es el estado actual de tu plataforma o software?</h2>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
+              Selecciona el escenario que mejor describa la situación técnica de tu negocio:
+            </p>
+
+            <div class="diag-options-grid" style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="sin_web" checked style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">No tengo sitio web ni presencia digital</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Queremos lanzar nuestra primera página web o landing comercial para tener presencia formal.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="web_antigua" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tengo un sitio web antiguo que requiere rediseño o modernización</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">El sitio actual se ve desactualizado, no representa bien a la empresa o no es cómodo en móviles.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="web_con_fallas" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tengo una web en producción con problemas técnicos, lentitud o errores</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">El sitio tarda en cargar, tiene formularios rotos o necesitamos una auditoría/reparación directa.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="software_legacy" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos un sistema o código heredado (Legacy) sin documentación o huérfano</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">El desarrollador original ya no está disponible y necesitamos rescatar, evaluar o migrar la plataforma.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="equipo_ci_cd" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos equipo de ingeniería y necesitamos gobernanza / validación en CI/CD</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Queremos integrar Castle Gate para vetar claves expuestas y gobernar la calidad de cada release.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="situacion" value="incidente_urgente" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos un incidente urgente o caída activa en producción</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Fuga de credenciales, sitio caído o bloqueo crítico que requiere intervención prioritaria inmediata.</span>
+                </div>
+              </label>
+
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-outline" onclick="window.diagPrev(2)">← Anterior</button>
+              <button type="button" class="btn btn-primary" onclick="window.diagNext(2)">Continuar al Paso 3 →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: OBJETIVO PRINCIPAL -->
+          <div class="diag-step" id="step-3" style="display: none;">
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">03. ¿Qué objetivo buscas resolver prioritariamente?</h2>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
+              Indica la meta principal para tu proyecto:
+            </p>
+
+            <div class="diag-options-grid" style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="presencia_rapida" checked style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Presencia digital esencial y contacto directo por WhatsApp</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Una página ágil de 1 sola sección con mis datos, servicios y enlace para que me escriban.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="captacion_landing" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Captar clientes potenciales con una landing comercial optimizada</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Estructura persuasiva de hasta 5 secciones con formulario de contacto y analítica.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="sitio_corporativo" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Sitio corporativo institucional completo (hasta 5 páginas)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Presencia multi-página profesional para presentar empresa, servicios, portafolio y contacto.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="cms_blog" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Plataforma con Blog / CMS autogestionable (8-10 páginas)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Publicar artículos, noticias o recursos por nuestra cuenta sin tocar código.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="integraciones_apis" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Integraciones avanzadas: APIs, CRM o pasarelas de pago</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Automatizar flujos de cobro en línea o sincronización de clientes con bases de datos.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="software_a_medida" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Desarrollo de software a la medida / portal privado</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Sistemas con roles de usuario, permisos, base de datos compleja y alta disponibilidad.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="diagnostico_72h" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Diagnóstico ágil en 72h para saber qué está fallando (Checkup)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Evaluación estática de 65 controles CQS sin tocar código, con crédito acreditable.</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="objetivo" value="continuidad_mensual" style="margin-top: 0.25rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Mantenimiento técnico mensual y horas de rescate (Castle Care)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Acompañamiento continuo para supervisar uptime, parches de seguridad y evitar deuda técnica.</span>
+                </div>
+              </label>
+
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-outline" onclick="window.diagPrev(3)">← Anterior</button>
+              <button type="button" class="btn btn-primary" onclick="window.diagNext(3)">Continuar al Paso 4 →</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: EQUIPO Y URGENCIA -->
+          <div class="diag-step" id="step-4" style="display: none;">
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">04. Equipo técnico y prioridad de entrega</h2>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
+              Cuéntanos sobre tu estructura interna y tiempos deseados:
+            </p>
+
+            <div style="margin-bottom: 1.75rem;">
+              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">¿Cuentas con equipo técnico o programadores internos?</label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="equipo" value="sin_equipo" checked>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">No, no tenemos equipo técnico; buscamos un socio que construya y gobierne todo.</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="equipo" value="con_equipo">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Sí, tenemos desarrolladores internos y requerimos auditoría, rescate o herramientas CI/CD.</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="equipo" value="proveedor_perdido">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Teníamos una agencia o freelancer externo que ya no nos da soporte.</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">¿Cuál es tu prioridad de tiempo?</label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="urgencia" value="urgente">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Urgente (lo antes posible / contingencia operativa activa).</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="urgencia" value="normal" checked>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Estándar (entre 2 y 4 semanas según el alcance pactado).</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="urgencia" value="planificado">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Planificación estructurada a futuro (1 a 3 meses).</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-outline" onclick="window.diagPrev(4)">← Anterior</button>
+              <button type="button" class="btn btn-primary" onclick="window.diagNext(4)">Continuar al Paso 5 →</button>
+            </div>
+          </div>
+
+          <!-- STEP 5: ESCALA Y PRESUPUESTO -->
+          <div class="diag-step" id="step-5" style="display: none;">
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">05. Escala del negocio y rango orientativo</h2>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
+              Para sugerir la opción con mejor retorno y sin gastos innecesarios:
+            </p>
+
+            <div style="margin-bottom: 1.75rem;">
+              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">Tipo de organización o negocio:</label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="tipo_negocio" value="profesional" checked>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Profesional independiente / Consultor / Micronegocio local.</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="tipo_negocio" value="pyme">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Pequeña o Mediana Empresa (PyME) con clientes y equipo en crecimiento.</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="tipo_negocio" value="empresa_grande">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Empresa consolidada / Scale-up / Organización de alto volumen.</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">Rango de presupuesto contemplado (MXN):</label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="presupuesto" value="baja" checked>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Esencial: $2,800 a $5,000 MXN</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="presupuesto" value="media">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Profesional: $7,500 a $15,000 MXN</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="presupuesto" value="alta">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Avanzado / A Medida: $19,900 a $40,000+ MXN</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="presupuesto" value="recurrente">
+                  <span style="font-size: 0.88rem; color: var(--steel-light);">Suscripción de acompañamiento mensual: $3,500 a $17,900 MXN/mes</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <button type="button" class="btn btn-outline" onclick="window.diagPrev(5)">← Anterior</button>
+              <button type="button" class="btn btn-primary" onclick="window.evaluarDiagnostico()" style="background: linear-gradient(135deg, var(--cyan) 0%, #3B82F6 100%);">Generar Recomendación Técnica →</button>
+            </div>
+          </div>
+
+          <!-- STEP 6: RESULTADO FINAL -->
+          <div class="diag-step" id="step-result" style="display: none;">
+            
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">EVALUACIÓN DE INGENIERÍA COMPLETADA</span>
+              <h2 style="font-size: 1.75rem; color: var(--paper); margin-bottom: 0.5rem;" id="res-greeting">Recomendación para tu Proyecto</h2>
+              <p style="font-size: 0.92rem; color: var(--steel-light);" id="res-profile-summary">
+                Basado en tu situación operativa y objetivos detectados.
+              </p>
+            </div>
+
+            <!-- RESULT CARD -->
+            <div class="glass-panel" style="padding: 2.25rem; background: #07090E; border: 1px solid rgba(0, 210, 255, 0.35); border-radius: var(--radius-md); margin-bottom: 2rem;">
+              
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 1rem;">
+                <div>
+                  <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); text-transform: uppercase; font-weight: 700;" id="res-badge">SOLUCIÓN RECOMENDADA</span>
+                  <h3 style="font-size: 1.6rem; color: var(--paper); margin: 0.25rem 0;" id="res-title">Castle Bronze</h3>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);" id="res-subtitle">Landing Comercial de Conversión</span>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-family: var(--f-mono); font-size: 1.6rem; font-weight: 800; color: var(--paper);" id="res-price">$4,500 MXN</div>
+                  <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft);" id="res-price-usd">~$265 USD</span>
+                </div>
+              </div>
+
+              <!-- DETALLES DE LA RECOMENDACIÓN -->
+              <div style="margin-bottom: 1.5rem;">
+                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem;">¿Por qué te recomendamos esta solución?</h4>
+                <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.65;" id="res-reasoning">
+                  Tu negocio requiere captar clientes con rapidez y presupuesto acotado. Castle Bronze entrega una landing comercial estructurada con formulario de contacto y analítica sin costos excesivos.
+                </p>
+              </div>
+
+              <div style="padding: 1rem; background: rgba(0, 229, 153, 0.06); border-left: 3px solid var(--success); border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+                <strong style="color: var(--success); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Qué NO necesitas contratar todavía:</strong>
+                <p style="font-size: 0.82rem; color: var(--steel-light); margin: 0; line-height: 1.5;" id="res-not-needed">
+                  No necesitas una plataforma compleja a la medida (Diamond) ni un esquema de auditoría profunda. Iniciar con un alcance cerrado protege tu flujo de capital.
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85rem; border-top: 1px dashed var(--line-dark); padding-top: 1rem;">
+                <div>
+                  <span style="color: var(--steel-soft);">Madurez digital estimada:</span>
+                  <strong style="display: block; color: var(--paper);" id="res-maturity">Nivel 1 — Entrada Comercial</strong>
+                </div>
+                <div>
+                  <span style="color: var(--steel-soft);">Siguiente paso recomendado:</span>
+                  <strong style="display: block; color: var(--cyan);" id="res-next-action">Solicitar propuesta formal</strong>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CTAS DE ACCIÓN -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;">
+              <a href="#" id="res-cta-contact" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">Solicitar esta Solución por Formulario →</a>
+              <a href="#" id="res-cta-whatsapp" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.85rem 1.75rem; border-color: #25D366; color: #25D366;">Consultar por WhatsApp</a>
+            </div>
+
+            <div style="text-align: center;">
+              <button type="button" onclick="window.location.reload()" style="background: none; border: none; color: var(--steel-soft); font-size: 0.82rem; text-decoration: underline; cursor: pointer;">
+                ↺ Realizar otro diagnóstico con diferentes parámetros
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MOTOR DE DECISIÓN EN JAVASCRIPT NATIVO -->
+    <script is:inline>
+      (function() {
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        window.diagNext = function(fromStep) {
+          if (fromStep === 1) {
+            const nombre = document.getElementById('diag-nombre').value.trim();
+            const apellido = document.getElementById('diag-apellido').value.trim();
+            const ciudad = document.getElementById('diag-ciudad').value.trim();
+            if (!nombre || !apellido || !ciudad) {
+              alert('Por favor completa los campos obligatorios: Nombre, Apellido y Ciudad.');
+              return;
+            }
+          }
+
+          document.getElementById('step-' + fromStep).style.display = 'none';
+          currentStep = fromStep + 1;
+          document.getElementById('step-' + currentStep).style.display = 'block';
+          updateProgress();
+        };
+
+        window.diagPrev = function(fromStep) {
+          document.getElementById('step-' + fromStep).style.display = 'none';
+          currentStep = fromStep - 1;
+          document.getElementById('step-' + currentStep).style.display = 'block';
+          updateProgress();
+        };
+
+        function updateProgress() {
+          const percent = Math.round((currentStep / totalSteps) * 100);
+          document.getElementById('diag-progress-bar').style.width = percent + '%';
+          document.getElementById('diag-step-percent').innerText = percent + '% Completado';
+          
+          const titles = [
+            '',
+            'PASO 1 DE 5: PERFIL BÁSICO',
+            'PASO 2 DE 5: SITUACIÓN ACTUAL',
+            'PASO 3 DE 5: OBJETIVO PRINCIPAL',
+            'PASO 4 DE 5: EQUIPO Y PRIORIDAD',
+            'PASO 5 DE 5: ESCALA Y PRESUPUESTO'
+          ];
+          if (currentStep <= 5) {
+            document.getElementById('diag-step-indicator').innerText = titles[currentStep];
+          }
+        }
+
+        window.evaluarDiagnostico = function() {
+          const nombre = document.getElementById('diag-nombre').value.trim() || 'Cliente';
+          const apellido = document.getElementById('diag-apellido').value.trim() || '';
+          const ciudad = document.getElementById('diag-ciudad').value.trim() || '';
+
+          const getSelected = function(name) {
+            const el = document.querySelector(`input[name="${name}"]:checked`);
+            return el ? el.value : '';
+          };
+
+          const situacion = getSelected('situacion');
+          const objetivo = getSelected('objetivo');
+          const equipo = getSelected('equipo');
+          const urgencia = getSelected('urgencia');
+          const tipoNegocio = getSelected('tipo_negocio');
+          const presupuesto = getSelected('presupuesto');
+
+          // MOTOR DE DECISIÓN BASADO EN EL MÍNIMO PRODUCTO SUFICIENTE
+          let rec = {
+            badge: 'BUILD • PRESENCIA ESENCIAL',
+            title: 'Castle Iron',
+            subtitle: 'Presencia Digital One-Page de Carga Rápida',
+            price: '$2,800 MXN',
+            priceUsd: '~$165 USD',
+            reasoning: `Para tu perfil en ${ciudad}, una estructura One-Page optimizada con enlace directo a WhatsApp es el punto de partida más ágil, profesional y rentable.`,
+            notNeeded: 'No requieres un desarrollo multi-página costoso ni CMS complejo en esta etapa. Mantener la estructura ligera asegura inversión mínima y retorno rápido.',
+            maturity: 'Nivel 1 — Entrada Digital',
+            nextAction: 'Solicitar propuesta formal para Castle Iron',
+            paqueteParam: 'Castle Iron',
+            necesidadParam: 'iron'
+          };
+
+          // REGLA DE INCIDENTE URGENTE
+          if (situacion === 'incidente_urgente' || (urgencia === 'urgente' && situacion === 'web_con_fallas')) {
+            rec = {
+              badge: 'INTERVENCIÓN PRIORITARIA',
+              title: 'Castle Emergency',
+              subtitle: 'Respuesta Rápida y Contención de Incidentes Críticos',
+              price: 'Desde $5,900 MXN',
+              priceUsd: '~$345 USD',
+              reasoning: 'Tienes un incidente o bloqueo operativo activo en producción. La prioridad inmediata es contener la contingencia, proteger credenciales y restablecer el servicio.',
+              notNeeded: 'No es momento de planificar un rediseño completo. Primero se estabiliza la plataforma actual y posteriormente se evalúan mejoras estructurales.',
+              maturity: 'Nivel Crítico — Intervención Operativa',
+              nextAction: 'Coordinar respuesta prioritaria con guardia de ingeniería',
+              paqueteParam: 'Castle Emergency',
+              necesidadParam: 'urgencia'
+            };
+          }
+          // REGLA DE CI/CD & GOBERNANZA TÉCNICA
+          else if (situacion === 'equipo_ci_cd' || objetivo === 'diagnostico_72h' || (equipo === 'con_equipo' && situacion === 'web_con_fallas')) {
+            if (objetivo === 'diagnostico_72h' || presupuesto === 'media') {
+              rec = {
+                badge: 'DIAGNÓSTICO TÉCNICO',
+                title: 'Castle Checkup',
+                subtitle: 'Radiografía de 65 Controles CQS v1.1 en 72h Hábiles',
+                price: '$8,900 MXN',
+                priceUsd: '~$525 USD',
+                reasoning: 'Evalúa la seguridad, dependencias y rendimiento de tu código en 72h hábiles con reporte interactivo y 100% de abono acreditable hacia tu plan de Castle Gate.',
+                notNeeded: 'No necesitas contratar una licencia anual a ciegas. El Checkup te entrega una radiografía exacta del estado de tu repositorio antes de comprometer mayor presupuesto.',
+                maturity: 'Nivel 3 — Madurez de Software en Evaluación',
+                nextAction: 'Solicitar evaluación técnica Castle Checkup',
+                paqueteParam: 'Castle Checkup',
+                necesidadParam: 'checkup'
+              };
+            } else {
+              rec = {
+                badge: 'GOBERNANZA DE RELEASES',
+                title: 'Castle Gate CLI (C1 Foundation)',
+                subtitle: 'Motor Determinista de Validación en CI/CD',
+                price: '$9,900 MXN / año',
+                priceUsd: '~$580 USD / año',
+                reasoning: 'Tu equipo de desarrollo se beneficiará de un motor automatizado que vete claves expuestas y garantice la calidad de cada release en GitHub Actions o GitLab CI.',
+                notNeeded: 'No necesitas la póliza máxima C6 Ultimate para iniciar. La política C1 o C2 establece la línea base de seguridad indispensable.',
+                maturity: 'Nivel 4 — Gobernanza Automatizada',
+                nextAction: 'Integrar Castle Gate en tu runner de CI/CD',
+                paqueteParam: 'Castle Gate C1',
+                necesidadParam: 'gate-licencia'
+              };
+            }
+          }
+          // REGLA DE CÓDIGO HEREDADO / AUDITORÍA PROFUNDA
+          else if (situacion === 'software_legacy' || objetivo === 'diagnostico_72h') {
+            if (tipoNegocio === 'empresa_grande' || presupuesto === 'alta') {
+              rec = {
+                badge: 'AUDITORÍA DE ARQUITECTURA',
+                title: 'Castle Audit',
+                subtitle: 'Auditoría Técnica Profunda y Due Diligence de Código',
+                price: 'Desde $19,900 MXN',
+                priceUsd: '~$1,170 USD',
+                reasoning: 'Para software heredado o procesos de adquisición de tecnología, una auditoría multicapa mapea deuda técnica, vulnerabilidades y riesgos antes de intervenir.',
+                notNeeded: 'No intentes reconstruir el software a ciegas sin conocer la causa raíz de la deuda técnica. El Audit ahorra miles de dólares en retrabajos.',
+                maturity: 'Nivel 3 — Evaluación de Arquitectura Compleja',
+                nextAction: 'Agendar sesión de Due Diligence técnico',
+                paqueteParam: 'Castle Audit',
+                necesidadParam: 'auditar'
+              };
+            } else {
+              rec = {
+                badge: 'INTERVENCIÓN DIRECTA',
+                title: 'Castle Rescue (Standard)',
+                subtitle: 'Remediación y Desbloqueo Técnico en Repositorio',
+                price: '$12,900 MXN',
+                priceUsd: '~$760 USD',
+                reasoning: 'Ingenieros especializados intervienen directamente en tu código para corregir fallas agudas, sanear secretos y estabilizar la plataforma sin rehacer todo.',
+                notNeeded: 'No necesitas tirar a la basura todo el sistema actual. Muchas fallas se resuelven con horas de intervención quirúrgica limpia.',
+                maturity: 'Nivel 2 — Estabilización de Código',
+                nextAction: 'Solicitar cotización de Castle Rescue',
+                paqueteParam: 'Castle Rescue',
+                necesidadParam: 'mejorar'
+              };
+            }
+          }
+          // REGLA DE CONTINUIDAD MENSUAL
+          else if (objetivo === 'continuidad_mensual' || presupuesto === 'recurrente') {
+            rec = {
+              badge: 'ACOMPAÑAMIENTO MENSUAL',
+              title: 'Castle Care Pro',
+              subtitle: 'Supervisión de Uptime, Parches y 4h Rescue Incluidas',
+              price: '$7,900 MXN / mes',
+              priceUsd: '~$465 USD / mes',
+              reasoning: 'Acompañamiento continuo con hasta 3 repositorios supervisados, 4 horas mensuales de ingeniería directa (Rescue) y canal de soporte prioritario.',
+              notNeeded: 'No necesitas contratar un desarrollador de planta de tiempo completo para mantener tu plataforma segura, veloz y actualizada.',
+              maturity: 'Nivel 3 — Continuidad y Gobernanza Mensual',
+              nextAction: 'Formalizar suscripción mensual Castle Care Pro',
+              paqueteParam: 'Castle Care Pro',
+              necesidadParam: 'cuidado'
+            };
+          }
+          // REGLA DE SOFTWARE A MEDIDA
+          else if (objetivo === 'software_a_medida' || (tipoNegocio === 'empresa_grande' && presupuesto === 'alta')) {
+            rec = {
+              badge: 'INGENIERÍA A MEDIDA',
+              title: 'Castle Diamond',
+              subtitle: 'Plataforma Personalizada, Roles y Alta Disponibilidad',
+              price: 'Desde $40,000 MXN',
+              priceUsd: '~$2,350 USD (Base)',
+              reasoning: 'Tu modelo operativo requiere arquitectura desacoplada, control de accesos RBAC y validación estricta bajo estándares C5/C6.',
+              notNeeded: 'No aceptes plantillas comerciales genéricas que limiten el crecimiento de tu organización. Un desarrollo a la medida ofrece escalabilidad real.',
+              maturity: 'Nivel 5 — Arquitectura Empresarial',
+              nextAction: 'Agendar sesión de levantamiento de arquitectura',
+              paqueteParam: 'Castle Diamond',
+              necesidadParam: 'crear'
+            };
+          }
+          // REGLA DE PLATINUM / INTEGRACIONES
+          else if (objetivo === 'integraciones_apis' || presupuesto === 'alta') {
+            rec = {
+              badge: 'BUILD • PLATAFORMA INTEGRADA',
+              title: 'Castle Platinum',
+              subtitle: 'Hasta 15 Páginas, Integración de Pagos, CRM y Hardening',
+              price: '$24,500 MXN',
+              priceUsd: '~$1,440 USD',
+              reasoning: 'Ideal para conectar tu plataforma con pasarelas de pago tokenizadas, automatizaciones y bases de datos con seguridad reforzada.',
+              notNeeded: 'No requieres software empresarial a medida desde el día 1 si tu flujo operativo se cubre con integraciones estándar bien implementadas.',
+              maturity: 'Nivel 3 — Plataforma Integrada de Alto Volumen',
+              nextAction: 'Solicitar propuesta formal para Castle Platinum',
+              paqueteParam: 'Castle Platinum',
+              necesidadParam: 'crear'
+            };
+          }
+          // REGLA DE GOLD / BLOG / CMS
+          else if (objetivo === 'cms_blog' || (tipoNegocio === 'pyme' && presupuesto === 'media')) {
+            rec = {
+              badge: 'BUILD • CRECIMIENTO CORPORATIVO',
+              title: 'Castle Gold',
+              subtitle: '8-10 Páginas con Módulo de Blog / CMS Autogestionable',
+              price: '$12,500 MXN',
+              priceUsd: '~$735 USD',
+              reasoning: 'La solución más completa para PyMEs que necesitan publicar contenidos, optimización de Core Web Vitals y posicionamiento SEO avanzado.',
+              notNeeded: 'No pagues por integraciones complejas de backend si lo que necesitas prioritariamente es un sitio corporativo con blog fácil de administrar.',
+              maturity: 'Nivel 2 — Presencia Corporativa y Contenido',
+              nextAction: 'Solicitar propuesta formal para Castle Gold',
+              paqueteParam: 'Castle Gold',
+              necesidadParam: 'crear'
+            };
+          }
+          // REGLA DE SILVER / CORPORATIVO BÁSICO
+          else if (objetivo === 'sitio_corporativo' || situacion === 'web_antigua') {
+            rec = {
+              badge: 'BUILD • SITIO INSTITUCIONAL',
+              title: 'Castle Silver',
+              subtitle: 'Sitio Web Multi-página Profesional (Hasta 5 Páginas)',
+              price: '$7,500 MXN',
+              priceUsd: '~$440 USD',
+              reasoning: 'Estructura multi-página limpia para empresas que necesitan presentar formalmente su catálogo de servicios con SEO on-page.',
+              notNeeded: 'No necesitas un blog autogestionable si tus contenidos institucionales no cambian frecuentemente.',
+              maturity: 'Nivel 2 — Presencia Institucional Sólida',
+              nextAction: 'Solicitar propuesta formal para Castle Silver',
+              paqueteParam: 'Castle Silver',
+              necesidadParam: 'crear'
+            };
+          }
+          // REGLA DE BRONZE / CAPTACIÓN
+          else if (objetivo === 'captacion_landing') {
+            rec = {
+              badge: 'BUILD • CAPTACIÓN COMERCIAL',
+              title: 'Castle Bronze',
+              subtitle: 'Landing Comercial Estructurada de hasta 5 Secciones',
+              price: '$4,500 MXN',
+              priceUsd: '~$265 USD',
+              reasoning: 'Estructura orientada a conversión para campañas publicitarias o lanzamiento de productos específicos con formulario y analítica.',
+              notNeeded: 'No necesitas un sitio multi-página si tu objetivo principal es concentrar el tráfico en una sola llamada a la acción.',
+              maturity: 'Nivel 1 — Conversión de Tráfico Comercial',
+              nextAction: 'Solicitar propuesta formal para Castle Bronze',
+              paqueteParam: 'Castle Bronze',
+              necesidadParam: 'crear'
+            };
+          }
+
+          // RENDERIZADO DEL RESULTADO
+          document.getElementById('diag-progress-header').style.display = 'none';
+          document.getElementById('step-5').style.display = 'none';
+          document.getElementById('step-result').style.display = 'block';
+
+          document.getElementById('res-greeting').innerText = `Recomendación para ${nombre} ${apellido}`;
+          document.getElementById('res-profile-summary').innerText = `Ubicación: ${ciudad} • Organización: ${tipoNegocio.toUpperCase()}`;
+          document.getElementById('res-badge').innerText = rec.badge;
+          document.getElementById('res-title').innerText = rec.title;
+          document.getElementById('res-subtitle').innerText = rec.subtitle;
+          document.getElementById('res-price').innerText = rec.price;
+          document.getElementById('res-price-usd').innerText = rec.priceUsd;
+          document.getElementById('res-reasoning').innerText = rec.reasoning;
+          document.getElementById('res-not-needed').innerText = rec.notNeeded;
+          document.getElementById('res-maturity').innerText = rec.maturity;
+          document.getElementById('res-next-action').innerText = rec.nextAction;
+
+          // ENLACE A CONTACTO
+          const contactUrl = `/contacto.html?paquete=${encodeURIComponent(rec.paqueteParam)}&necesidad=${encodeURIComponent(rec.necesidadParam)}`;
+          document.getElementById('res-cta-contact').href = contactUrl;
+
+          // ENLACE A WHATSAPP LIMPIO (SIN DATOS SENSIBLES NI EDAD)
+          const waText = encodeURIComponent(`Hola Grupo Castillo, completé el Diagnóstico Castillo en la web para ${nombre} (${ciudad}). Mi recomendación resultante es: ${rec.title} (${rec.price}). Me gustaría conocer los detalles de contratación.`);
+          document.getElementById('res-cta-whatsapp').href = `https://wa.me/525512345678?text=${waText}`;
+
+          window.scrollTo({ top: document.getElementById('diag-app').offsetTop - 80, behavior: 'smooth' });
+        };
+      })();
+    </script>
+
+    <!-- FAQ SECTION -->
+    <section class="section section-dim" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre el Diagnóstico</p>
+          <h2>Certeza antes de iniciar</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Este diagnóstico tiene costo o compromiso?" answer="No. El Diagnóstico Castillo es una herramienta 100% gratuita y sin compromiso que te ayuda a clarificar el alcance técnico antes de solicitar una cotización formal." />
+              <FAQItem question="¿Por qué la herramienta recomienda opciones económicas?" answer="En Grupo Castillo aplicamos el principio del mínimo producto suficiente: recomendar exactamente lo que tu empresa necesita para resolver su problema actual sin inflar costos innecesariamente." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Qué pasa si mi proyecto tiene requerimientos mixtos?" answer="El diagnóstico sugiere el punto de partida ideal. Al enviarnos tus datos, un ingeniero revisará tu caso para afinar la cotización con precisión según tus módulos específicos." />
+              <FAQItem question="¿Cómo se resguardan mis datos personales?" answer="Tus datos se tratan bajo estricta confidencialidad. No vendemos información y no recolectamos datos sensibles ni contraseñas." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Prefieres hablar directamente con un ingeniero de Grupo Castillo?"
+      description="Cuéntanos tus requerimientos por escrito y te enviamos una propuesta detallada en menos de 24 horas hábiles."
+      ctaLabel="Ir a Contacto Directo"
+      ctaHref="/contacto.html"
+    />
+
+  </main>
+</BaseLayout>

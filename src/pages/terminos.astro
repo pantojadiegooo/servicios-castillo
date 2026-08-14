@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Términos y Condiciones Comerciales — Grupo Castillo"
+  description="Términos de servicio, titularidad de código, alcances por escrito, rondas de revisión y condiciones operativas de Grupo Castillo."
+  canonical="https://servicios-castillo.vercel.app/terminos.html"
+  ogUrl="https://servicios-castillo.vercel.app/terminos.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="nosotros" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Términos y Condiciones</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">CONDICIONES DE SERVICIO &amp; TITULARIDAD</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Términos y Condiciones</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Bases operativas y compromisos contractuales que rigen la contratación de servicios de desarrollo, auditoría, intervención y mantenimiento técnico con Grupo Castillo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <div class="glass-panel reveal" style="padding: 3rem; line-height: 1.7; color: var(--steel-light);">
+          
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">1. Objeto y Alcance de los Servicios</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Grupo Castillo presta servicios profesionales de desarrollo web (Línea Build: Iron a Diamond), auditoría técnica (Castle Checkup y Castle Audit), remediación de código (Castle Rescue y Castle Emergency), continuidad operativa (Castle Care) y licenciamiento de software de validación (Castle Gate CLI).
+          </p>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">2. Titularidad del Código y Activos Operativos</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Al liquidarse la totalidad de los honorarios pactados en el contrato o cotización correspondiente:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li><strong>Código Fuente Entregable:</strong> La titularidad y control del código fuente original desarrollado a la medida para el proyecto permanece bajo el cliente.</li>
+            <li><strong>Cuentas de Infraestructura:</strong> Los dominios, cuentas de hosting, certificados y servicios de terceros se configuran directamente a nombre del cliente.</li>
+            <li><strong>Tecnología Propietaria de Gobernanza:</strong> El motor Castle Gate y la metodología CQS v1.1 son propiedad intelectual exclusiva de Grupo Castillo; el cliente recibe las licencias de uso, scripts de integración o certificados de release correspondientes a su nivel contratado.</li>
+          </ul>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">3. Esquema de Pagos y Facturación</h2>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li><strong>Paquetes Build (Iron a Diamond):</strong> Esquema estándar de 50% de anticipo al inicio de la Fase Discover y 50% restante contra entrega final y validación en Gate.</li>
+            <li><strong>Servicios Puntuales (Checkup, Audit, Rescue):</strong> Pago del 100% al ordenar el servicio para programación y reserva de ingenieros. En el caso de Castle Checkup ($8,900 MXN), el 100% del importe es acreditable hacia la contratación anual de Castle Gate si se formaliza dentro de los 30 días naturales posteriores.</li>
+            <li><strong>Suscripciones Castle Care:</strong> Facturación mensual anticipada. Las horas de rescate técnico (Rescue) no utilizadas durante el mes no son acumulables para periodos posteriores.</li>
+            <li><strong>Moneda:</strong> Las tarifas contractuales oficiales se expresan en pesos mexicanos (MXN). Las referencias en USD son estrictamente informativas.</li>
+          </ul>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">4. Rondas de Revisión y Control de Cambios</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Cada paquete comercial incluye un número específico de rondas de revisión formal delimitadas por contrato (desde 1 ronda en Iron hasta 5 rondas en Platinum). Solicitudes de modificación que alteren la arquitectura o excedan el alcance pactado se cotizan por separado como horas de ingeniería adicionales.
+          </p>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">5. Tiempos de Entrega y Acuerdos de Nivel de Servicio (SLAs)</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Los plazos de entrega indicados en la web (como 72 horas hábiles para Castle Checkup o 3 a 5 días para Castle Iron) constituyen objetivos operativos de ingeniería sujetos a que el cliente proporcione oportunamente los accesos, contenidos y retroalimentaciones necesarias.
+          </p>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">6. Limitación de Responsabilidad</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Grupo Castillo aplica rigurosos controles de ingeniería, seguridad y rendimiento. No obstante, no asume responsabilidad por:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 2rem; font-size: 0.95rem;">
+            <li>Caídas o interrupciones imputables a proveedores externos de infraestructura (Vercel, AWS, Google Cloud, proveedores de DNS o registradores de dominios).</li>
+            <li>Modificaciones posteriores en el código realizadas por terceros no autorizados por Grupo Castillo.</li>
+            <li>Ataques de denegación de servicio (DDoS) o vulnerabilidades de día cero fuera del alcance de la pila de software entregada.</li>
+          </ul>
+
+          <h2 style="font-size: 1.4rem; color: var(--paper); margin-bottom: 1rem;">7. Confidencialidad (NDA)</h2>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">
+            Ambas partes se comprometen a resguardar la confidencialidad de la información estratégica, comercial y técnica intercambiada durante la cotización, desarrollo y mantenimiento del proyecto.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Listo para iniciar tu desarrollo bajo términos claros y transparentes?"
+      description="Contáctanos y coordinamos la propuesta técnica y formal de tu proyecto."
+      ctaLabel="Solicitar Propuesta"
+      ctaHref="/contacto.html"
+    />
+
+  </main>
+</BaseLayout>

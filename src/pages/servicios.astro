@@ -16,7 +16,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="page-hero">
       <InnerHeroVisual type="soluciones" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> / Servicios Profesionales</p>
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Servicios Profesionales</p>
         <div class="badge badge-cyan" style="margin-bottom: 1rem;">LÍNEAS DE TRABAJO ESPECIALIZADAS • 5 CAPACIDADES</div>
         <h1>Servicios Profesionales de Ingeniería</h1>
         <p>Diagnóstico ágil, auditoría profunda, saneamiento de código heredado, auxilio prioritario y acompañamiento continuo.</p>
@@ -27,26 +27,29 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="section" style="padding-top: 1.5rem; padding-bottom: 2rem;">
       <div class="container">
         <div class="glass-panel reveal" style="padding: 2rem; background: rgba(14, 18, 27, 0.7); border-color: rgba(255, 255, 255, 0.08);">
-          <div style="font-size: 0.82rem; font-family: var(--f-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;">
-            ¿Qué necesidad tiene tu software hoy?
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem;">
+            <div style="font-size: 0.82rem; font-family: var(--f-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.06em;">
+              ¿Qué necesidad tiene tu software hoy?
+            </div>
+            <a href="/diagnostico.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: underline; font-weight: 600;">¿Incertidumbre sobre qué servicio necesitas? Iniciar Diagnóstico →</a>
           </div>
           <div class="grid grid-3" style="gap: 1.5rem;">
             <div>
               <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft);">FASE DE DIAGNÓSTICO</span>
               <p style="font-size: 0.88rem; color: var(--paper); margin: 0.25rem 0 0 0;">
-                <em>"¿Dónde está parado mi software?"</em> → <a href="servicios/checkup.html" style="color: var(--cyan); font-weight: 600;">Castle Checkup</a>
+                <em>"¿Dónde está parado mi software?"</em> → <a href="/servicios/checkup.html" style="color: var(--cyan); font-weight: 600;">Castle Checkup</a>
               </p>
             </div>
             <div>
               <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft);">FASE DE INVESTIGACIÓN</span>
               <p style="font-size: 0.88rem; color: var(--paper); margin: 0.25rem 0 0 0;">
-                <em>"¿Qué tan profundo es el problema?"</em> → <a href="servicios/audit.html" style="color: var(--cyan); font-weight: 600;">Castle Audit</a>
+                <em>"¿Qué tan profundo es el problema?"</em> → <a href="/servicios/audit.html" style="color: var(--cyan); font-weight: 600;">Castle Audit</a>
               </p>
             </div>
             <div>
               <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft);">FASE DE CORRECCIÓN</span>
               <p style="font-size: 0.88rem; color: var(--paper); margin: 0.25rem 0 0 0;">
-                <em>"¿Puedes ayudarme a corregirlo?"</em> → <a href="servicios/rescue.html" style="color: var(--cyan); font-weight: 600;">Castle Rescue</a>
+                <em>"¿Puedes ayudarme a corregirlo?"</em> → <a href="/servicios/rescue.html" style="color: var(--cyan); font-weight: 600;">Castle Rescue</a>
               </p>
             </div>
           </div>
@@ -58,45 +61,48 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="section" id="catalogo-servicios" style="padding-top: 1rem;">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Capacidades Oficiales</p>
-          <h2>Ecosistema de Servicios Profesionales</h2>
-          <p>Soluciones independientes para cada momento del ciclo de vida de tus sistemas.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Capacidades Especializadas</p>
+          <h2>Todos los Servicios Profesionales</h2>
+          <p>Soluciones independientes para evaluar, rescatar y sostener plataformas digitales en producción.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.75rem; margin-bottom: 2rem;">
-
+        <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
+          
           <!-- 1. CASTLE CHECKUP -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 01 • DIAGNÓSTICO</span>
-              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">ENTRADA</span>
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 01 • ÁGIL</span>
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">72H HÁBILES</span>
             </div>
             <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Checkup</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Radiografía estática de 65 controles CQS v1.1 en 72 horas hábiles.</p>
+            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Diagnóstico estático del repositorio bajo 65 controles CQS v1.1.</p>
             
             <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
               <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$8,900 MXN</div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$525 USD (100% Acreditable)</span>
+              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$525 USD • 100% Acreditable hacia Gate</span>
             </div>
 
             <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ 1 Repositorio analizado</li>
-              <li>✔ Detección de claves expuestas</li>
-              <li>✔ Reporte HTML interactivo</li>
-              <li>✔ Sesión de 1h con consultor</li>
+              <li>✔ Escaneo en memoria de secretos expuestos</li>
+              <li>✔ Reporte interactivo con score CQS</li>
+              <li>✔ Sesión de 1h con Consultor Senior</li>
+              <li>✔ 100% Acreditable hacia Castle Gate anual</li>
             </ul>
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="servicios/checkup.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha de Checkup →</a>
-              <a class="btn btn-primary" href="contacto.html?necesidad=checkup" style="width: 100%; text-align: center; font-size: 0.82rem;">Solicitar Checkup</a>
+              <a class="btn btn-outline" href="/servicios/checkup.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica →</a>
+              <a class="btn btn-primary" href="/contacto.html?necesidad=checkup" style="width: 100%; text-align: center; font-size: 0.82rem;">Solicitar Checkup (72h)</a>
             </div>
           </div>
 
           <!-- 2. CASTLE AUDIT -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); font-weight: 700;">SERVICIO 02 • INVESTIGACIÓN</span>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 02 • PROFUNDO</span>
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">DUE DILIGENCE</span>
+            </div>
             <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Audit</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Auditoría profunda de arquitectura, seguridad y deuda técnica para Due Diligence.</p>
+            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Auditoría exhaustiva de arquitectura, seguridad y código heredado.</p>
             
             <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
               <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">Desde $19,900 MXN</div>
@@ -104,69 +110,75 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
 
             <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Mapeo estático y arquitectura</li>
-              <li>✔ Matriz de riesgos P0 a P3</li>
-              <li>✔ Hoja de ruta de remediación</li>
-              <li>✔ Presentación a directivos</li>
+              <li>✔ Análisis profundo de deuda técnica</li>
+              <li>✔ Inspección de dependencias y vulnerabilidades</li>
+              <li>✔ Matriz de riesgos priorizados P0 a P3</li>
+              <li>✔ Hoja de ruta técnica de remediación</li>
             </ul>
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="servicios/audit.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha de Audit →</a>
-              <a class="btn btn-primary" href="contacto.html?necesidad=auditar" style="width: 100%; text-align: center; font-size: 0.82rem;">Solicitar Audit</a>
+              <a class="btn btn-outline" href="/servicios/audit.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Modalidades de Audit →</a>
+              <a class="btn btn-primary" href="/contacto.html?necesidad=auditar" style="width: 100%; text-align: center; font-size: 0.82rem;">Cotizar Castle Audit</a>
             </div>
           </div>
 
           <!-- 3. CASTLE RESCUE -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); font-weight: 700;">SERVICIO 03 • REMEDIACIÓN</span>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 03 • INTERVENCIÓN</span>
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">EN CÓDIGO</span>
+            </div>
             <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Rescue</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Intervención directa en código para sanear secretos y reparar pipelines.</p>
+            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Ingeniería directa en el repositorio para sanear secretos y reparar fallas.</p>
             
             <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
               <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">Desde $6,900 MXN</div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$405 USD (Por Paquete de Horas)</span>
+              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$405 USD (Bolsas Express / Standard)</span>
             </div>
 
             <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Purga y rotación de claves</li>
-              <li>✔ Desbloqueo de CI/CD y builds</li>
-              <li>✔ Entrega en Pull Requests limpios</li>
-              <li>✔ Validación previa sin romper prod</li>
+              <li>✔ Remediación directa en Pull Requests</li>
+              <li>✔ Rotación y blindaje de secretos expuestos</li>
+              <li>✔ Desbloqueo de CI/CD y fallas de compilación</li>
+              <li>✔ Validación estricta post-intervención</li>
             </ul>
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="servicios/rescue.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha de Rescue →</a>
-              <a class="btn btn-primary" href="contacto.html?necesidad=mejorar" style="width: 100%; text-align: center; font-size: 0.82rem;">Solicitar Rescue</a>
+              <a class="btn btn-outline" href="/servicios/rescue.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Alcance Rescue →</a>
+              <a class="btn btn-primary" href="/contacto.html?necesidad=mejorar" style="width: 100%; text-align: center; font-size: 0.82rem;">Solicitar Rescue</a>
             </div>
           </div>
 
           <!-- 4. CASTLE EMERGENCY -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #ff7b7b; font-weight: 700;">SERVICIO 04 • URGENCIA</span>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 04 • URGENCIAS</span>
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">PRIORITARIO</span>
+            </div>
             <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Castle Emergency</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Respuesta prioritaria ante incidentes críticos, fugas de secretos o caídas.</p>
+            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Respuesta técnica prioritaria para contención de incidentes críticos.</p>
             
             <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
               <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">Desde $5,900 MXN</div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$345 USD (Por Incidente)</span>
+              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$345 USD (Contención Inicial)</span>
             </div>
 
             <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ Contención inmediata de daños</li>
-              <li>✔ Aplicación de hotfix seguro</li>
-              <li>✔ Reporte formal de causa raíz</li>
-              <li>✔ Prioridad alta de asignación</li>
+              <li>✔ Asignación prioritaria de ingenieros</li>
+              <li>✔ Diagnóstico de causa raíz en contingencia</li>
+              <li>✔ Mitigación inmediata de brechas y caídas</li>
+              <li>✔ Reporte forense post-incidente</li>
             </ul>
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="servicios/emergency.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha de Emergency →</a>
-              <a class="btn btn-primary" href="contacto.html?necesidad=urgencia" style="width: 100%; text-align: center; font-size: 0.82rem; background: #d93838; border-color: #d93838;">Solicitar Emergencia</a>
+              <a class="btn btn-outline" href="/servicios/emergency.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Protocolo Emergency →</a>
+              <a class="btn btn-primary" href="/contacto.html?necesidad=urgencia" style="width: 100%; text-align: center; font-size: 0.82rem;">Activar Emergency</a>
             </div>
           </div>
 
           <!-- 5. CASTLE CARE -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem; border-color: rgba(0, 210, 255, 0.45); background: linear-gradient(180deg, rgba(0, 210, 255, 0.06) 0%, var(--glass-surface) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">SERVICIO 05 • RECURRENTE</span>
               <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">CONTINUIDAD</span>
             </div>
@@ -186,8 +198,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </ul>
 
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-              <a class="btn btn-outline" href="servicios/care.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Planes Castle Care →</a>
-              <a class="btn btn-primary" href="contacto.html?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem;">Suscribirme a Care</a>
+              <a class="btn btn-outline" href="/servicios/care.html" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Planes Castle Care →</a>
+              <a class="btn btn-primary" href="/contacto.html?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem;">Suscribirme a Care</a>
             </div>
           </div>
 
@@ -196,9 +208,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); font-weight: 700;">¿BUSCAS CREAR DESDE CERO?</span>
             <h3 style="font-size: 1.3rem; margin: 0.5rem 0;">Paquetes Build (Iron a Diamond)</h3>
             <p style="font-size: 0.85rem; color: var(--steel-light); margin-bottom: 1.5rem;">
-              Si necesitas crear un nuevo sitio web, landing comercial o software a medida desde $2,800 MXN con código propio.
+              Si necesitas crear un nuevo sitio web, landing comercial o software a medida desde $2,800 MXN con titularidad propia del código.
             </p>
-            <a href="paquetes.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Explorar Catálogo Build (6 Tiers) →</a>
+            <a href="/paquetes.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Explorar Catálogo Build (6 Tiers) →</a>
           </div>
 
         </div>
@@ -215,14 +227,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por dónde empezar si no conozco el estado de mi código?" answer="El punto de entrada recomendado es Castle Checkup ($8,900 MXN / 72h). Te entrega una radiografía completa y el 100% se acredita si contratas Castle Gate anual." />
+              <FAQItem open={true} question="¿Por dónde empezar si no conozco el estado de mi código?" answer="El punto de entrada recomendado es Castle Checkup ($8,900 MXN / 72h hábiles). Te entrega una radiografía completa y el 100% se acredita hacia Castle Gate anual dentro de los 30 días posteriores." />
               <FAQItem question="¿Puedo contratar Castle Rescue sin haber hecho un Checkup?" answer="Sí. Si ya identificaste un problema puntual (por ejemplo una clave expuesta o un pipeline roto), puedes solicitar directamente un paquete Rescue Express o Standard." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Qué diferencia hay entre Rescue y Emergency?" answer="Rescue es una intervención programada para sanear repositorios y pipelines. Emergency es una activación de prioridad inmediata para contener incidentes críticos activos." />
-              <FAQItem question="¿Cómo garantizan la confidencialidad de nuestro software?" answer="Firmamos un acuerdo mutuo de confidencialidad (NDA) antes de recibir acceso y ejecutamos todas las pruebas en entornos aislados y privados." />
+              <FAQItem question="¿Cómo se resguarda la confidencialidad de nuestro software?" answer="Firmamos un acuerdo mutuo de confidencialidad (NDA) antes de recibir acceso y ejecutamos todas las pruebas en entornos aislados y privados." />
             </div>
           </div>
         </div>
@@ -231,9 +243,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
     <CTABand
       title="¿Necesitas apoyo técnico para tu software?"
-      description="Cuéntanos la situación de tu proyecto y coordinamos una evaluación inicial en menos de 24 horas."
-      ctaLabel="Contactar a Ingeniería"
-      ctaHref="contacto.html"
+      description="Cuéntanos la situación de tu proyecto o utiliza nuestro diagnóstico comercial guiado."
+      ctaLabel="Iniciar Diagnóstico Castillo"
+      ctaHref="/diagnostico.html"
     />
 
   </main>

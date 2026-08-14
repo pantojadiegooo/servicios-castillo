@@ -17,13 +17,26 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
     <section class="page-hero">
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> / Contacto &amp; Cotización</p>
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Contacto &amp; Cotización</p>
         <h1>Iniciemos tu Proyecto Digital</h1>
         <p>Cuéntanos sobre tu negocio o sitio web actual. Te enviamos una evaluación técnica y propuesta de trabajo en menos de 24 horas hábiles.</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 1.5rem;">
+    <!-- ORIENTACIÓN PREVIA DIAGNÓSTICO -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1.5rem;">
+      <div class="container" style="max-width: 920px;">
+        <div class="glass-panel reveal" style="padding: 1.25rem 1.75rem; border-left: 3px solid var(--cyan); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: rgba(14, 18, 27, 0.75);">
+          <div>
+            <strong style="color: var(--paper); font-size: 0.95rem;">¿No tienes certeza de cuál paquete o servicio elegir?</strong>
+            <p style="color: var(--steel-light); font-size: 0.82rem; margin: 0.2rem 0 0 0;">Utiliza nuestro Diagnóstico Castillo para obtener una recomendación técnica en menos de 2 minutos.</p>
+          </div>
+          <a href="/diagnostico.html" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.8rem;">Iniciar Diagnóstico →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0.5rem;">
       <div class="container">
         <!-- Formulario centrado -->
         <div class="reveal" style="max-width: 920px; margin: 0 auto 4rem auto;">
@@ -118,7 +131,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
                 <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Te enviamos por correo una propuesta detallada de alcance, paquete recomendado y presupuesto por escrito.</p>
               </div>
               <div>
-                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 600;">03</div>
+                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: bold;">03</div>
                 <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Etapa Discover</h4>
                 <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Si apruebas la propuesta, agendamos una llamada de 15 minutos para iniciar la fase formal de planificación.</p>
               </div>
@@ -126,7 +139,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
 
             <div style="margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <p style="font-size: .85rem; color: var(--steel-soft); margin: 0;">¿Prefieres explorar primero los paquetes?</p>
-              <a href="paquetes.html" class="btn btn-outline" style="padding: 0.55rem 1.25rem; font-size: 0.8rem; height: auto;">Ver comparativa de Castle Packages →</a>
+              <a href="/paquetes.html" class="btn btn-outline" style="padding: 0.55rem 1.25rem; font-size: 0.8rem; height: auto;">Ver comparativa de Castle Packages →</a>
             </div>
           </div>
         </div>
@@ -150,8 +163,8 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Los presupuestos tienen algún costo?" answer="No. La evaluación inicial y el desglose de cotización son completamente gratuitos y sin compromiso comercial." />
-              <FAQItem question="¿Qué pasa si mi presupuesto es ajustado?" answer="Te asesoramos para comenzar con Castle Iron ($2,800 MXN) o Castle Bronze ($4,500 MXN) que garantizan calidad y velocidad sin comprometer tu inversión." />
-              <FAQItem question="¿Cómo garantizan la calidad del trabajo?" answer="Todo proyecto, independientemente del presupuesto, debe aprobar las pruebas de rendimiento, accesibilidad y seguridad de nuestro protocolo Castillo Quality Gate." />
+              <FAQItem question="¿Qué pasa si mi presupuesto es ajustado?" answer="Te asesoramos para comenzar con Castle Iron ($2,800 MXN) o Castle Bronze ($4,500 MXN) que ofrecen calidad y velocidad sin comprometer tu inversión." />
+              <FAQItem question="¿Cómo se valida la calidad del trabajo?" answer="Todo proyecto, independientemente del presupuesto, debe aprobar las pruebas de rendimiento, accesibilidad y seguridad de nuestro protocolo Castillo Quality Gate." />
             </div>
           </div>
         </div>

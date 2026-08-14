@@ -7,128 +7,110 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
 
 <BaseLayout
   title="Castle Care — Suscripción Mensual de Continuidad y Gobernanza Técnica | Grupo Castillo"
-  description="Suscripción Castle Care (desde $3,500 MXN/mes): Supervisión técnica proactiva, parches de seguridad, auditorías continuas y horas de remediación directa (Rescue) incluidas."
+  description="Planes Castle Care (Desde $3,500 MXN / mes): Supervisión continua de uptime, actualización de dependencias, parches de seguridad y horas Rescue mensuales incluidas."
   canonical="https://servicios-castillo.vercel.app/servicios/care.html"
   ogUrl="https://servicios-castillo.vercel.app/servicios/care.html"
 >
   <main id="main">
 
     <section class="page-hero">
-      <InnerHeroVisual type="cuidado" />
+      <InnerHeroVisual type="mantenimiento" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../servicios.html">Servicios</a> / Castle Care</p>
-        <div class="badge badge-cyan" style="margin-bottom: 1rem;">CONTINUIDAD TECNOLÓGICA • SUSCRIPCIÓN MENSUAL</div>
-        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Care: Supervisión y Mantenimiento Técnico Continuo</h1>
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Servicios</a> / Castle Care</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">CONTINUIDAD MENSUAL • GOBERNANZA &amp; RESCUE</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Care: Acompañamiento Técnico Continuo</h1>
         <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
-          Acompañamiento profesional mensual para proteger la salud de tu software, prevenir degradación de rendimiento y contar con horas de ingeniería de rescate disponibles.
+          Mantén tu software seguro, veloz y actualizado mes a mes sin necesidad de contratar un equipo de ingeniería de planta de tiempo completo.
         </p>
       </div>
     </section>
 
-    <!-- RESUMEN DEL SERVICIO Y FICHA TÉCNICA -->
+    <!-- RESUMEN DEL SERVICIO Y COMPARATIVA DE PLANES -->
     <section class="section">
       <div class="container">
         
         <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Planes Mensuales de Continuidad</p>
-          <h2>3 Niveles de Acompañamiento Técnico</h2>
-          <p>Estructurados según el número de repositorios, frecuencia de revisión y horas de remediación requeridas.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Niveles de Suscripción Mensual</p>
+          <h2>Elige el plan adecuado para tu operación</h2>
+          <p>Mantenimiento preventivo, supervisión de uptime y horas de ingeniería quirúrgica directa (Rescue) incluidas.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.75rem; margin-bottom: 3rem;">
-
-          <!-- CARE ESSENTIAL -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); font-weight: 700;">NIVEL 01 • BÁSICO</span>
-            <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Care Essential</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Para plataformas estables que requieren monitoreo preventivo y parches mensuales.</p>
-            
-            <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$3,500 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$205 USD / mes</span>
+        <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
+          
+          <!-- 1. CARE ESSENTIAL -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 01 • ESENCIAL</span>
             </div>
-
-            <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ <strong>1 Repositorio</strong> cubierto</li>
-              <li>✔ 1 revisión mensual de score CQS</li>
-              <li>✔ Actualización de dependencias base</li>
-              <li>✔ 1 sesión mensual de consultoría (1h)</li>
-              <li>✔ <strong>15% de descuento</strong> en horas Rescue</li>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Care Essential</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Supervisión de disponibilidad y parches de seguridad para sitios web institucionales.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$3,500 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$205 USD / mes</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ 1 Repositorio / Sitio supervisado</li>
+              <li>✔ Monitoreo de disponibilidad 24/7</li>
+              <li>✔ Actualización mensual de dependencias</li>
+              <li>✔ Parches menores de seguridad</li>
+              <li>✖ No incluye horas de rescate directo</li>
             </ul>
-
-            <a class="btn btn-outline" href="../../contacto.html?necesidad=cuidado&paquete=Care%20Essential" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Essential</a>
+            <a class="btn btn-primary" href="/contacto.html?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Essential</a>
           </div>
 
-          <!-- CARE PRO (RECOMENDADO) -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem; border-color: rgba(0, 210, 255, 0.45); background: linear-gradient(180deg, rgba(0, 210, 255, 0.06) 0%, var(--glass-surface) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">NIVEL 02 • RECOMENDADO</span>
-              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">POPULAR</span>
+          <!-- 2. CARE PRO (POPULAR) -->
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 7px;">RECOMENDADO</span>
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 02</span>
             </div>
-            <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Care Pro</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Para negocios con operaciones activas que requieren soporte y remediación continua.</p>
-            
-            <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$7,900 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$465 USD / mes</span>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Care Pro</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              La combinación ideal de supervisión y 4 horas mensuales de intervención técnica directa.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$7,900 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$465 USD / mes</span>
             </div>
-
-            <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ <strong>Hasta 3 Repositorios</strong> cubiertos</li>
-              <li>✔ 2 revisiones mensuales + CI/CD</li>
-              <li>✔ <strong>4 Horas de Rescue Directas</strong> incluidas</li>
-              <li>✔ 2 sesiones mensuales de consultoría</li>
-              <li>✔ Canal de atención prioritario (Slack/Teams)</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Hasta 3 Repositorios supervisados</li>
+              <li>✔ <strong>4 Horas Rescue directas incluidas/mes</strong></li>
+              <li>✔ Actualización preventiva de librerías</li>
+              <li>✔ Canal de soporte técnico prioritario</li>
+              <li>✔ Reporte mensual ejecutivo de salud técnica</li>
             </ul>
-
-            <a class="btn btn-primary" href="../../contacto.html?necesidad=cuidado&paquete=Care%20Pro" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Care Pro</a>
+            <a class="btn btn-primary" href="/contacto.html?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Care Pro</a>
           </div>
 
-          <!-- CARE ENTERPRISE -->
-          <div class="card glass-panel" style="display: flex; flex-direction: column; padding: 2.25rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); font-weight: 700;">NIVEL 03 • CORPORATIVO</span>
-            <h3 style="font-size: 1.35rem; margin: 0.25rem 0 0.5rem 0;">Care Enterprise</h3>
-            <p style="font-size: 0.85rem; color: var(--steel-light); min-height: 2.8rem; margin: 0;">Para organizaciones con múltiples servicios y requerimientos de arquitectura crítica.</p>
-            
-            <div style="margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-              <div style="font-size: 1.85rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper);">$17,900 MXN <span style="font-size: 0.85rem; font-weight: normal; color: var(--steel-soft);">/ mes</span></div>
-              <span style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">~$1,050 USD / mes</span>
+          <!-- 3. CARE ENTERPRISE -->
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 03 • ALTA DISPONIBILIDAD</span>
             </div>
-
-            <ul style="font-size: 0.85rem; color: var(--steel-light); list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem;">
-              <li>✔ <strong>Hasta 8 Repositorios</strong> cubiertos</li>
-              <li>✔ Supervisión continua de pipelines</li>
-              <li>✔ <strong>10 Horas de Rescue Directas</strong> incluidas</li>
-              <li>✔ Mesa de arquitectura (hasta 4 sesiones/mes)</li>
-              <li>✔ Atención de contingencias bajo guardia</li>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Care Enterprise</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
+              Mesa de ayuda dedicada, hasta 10 repositorios y 10 horas de ingeniería mensual.
+            </p>
+            <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$17,900 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <span class="price-sub-usd" style="display: block; font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-top: 0.25rem;">~$1,050 USD / mes</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+              <li>✔ Hasta 10 Repositorios supervisados</li>
+              <li>✔ <strong>10 Horas Rescue directas incluidas/mes</strong></li>
+              <li>✔ Sesión mensual de revisión de arquitectura</li>
+              <li>✔ SLA de respuesta garantizado por contrato</li>
+              <li>✔ Soporte multicanal dedicado</li>
             </ul>
-
-            <a class="btn btn-outline" href="../../contacto.html?necesidad=cuidado&paquete=Care%20Enterprise" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Enterprise</a>
+            <a class="btn btn-primary" href="/contacto.html?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem;">Contratar Enterprise</a>
           </div>
 
         </div>
 
-        <!-- CONDICIONES OPERATIVAS Y LÍMITES -->
-        <div class="glass-panel reveal" style="padding: 2rem 2.5rem; background: rgba(14, 18, 27, 0.7); border-color: rgba(255, 255, 255, 0.08);">
-          <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 1rem;">Condiciones Operativas y Alcance de Castle Care:</h4>
-          <div class="two-col" style="gap: 2rem;">
-            <div>
-              <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
-                <strong>Horas de Remediación (Rescue):</strong> Las horas incluidas en los planes Pro y Enterprise están destinadas a parches de seguridad, refactorización de deuda técnica, corrección de dependencias y desatoro de pipelines.
-              </p>
-              <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-                <strong>No Acumulación:</strong> Las horas no utilizadas durante el periodo mensual no se acumulan para meses posteriores.
-              </p>
-            </div>
-            <div>
-              <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
-                <strong>Nuevas Funcionalidades:</strong> El desarrollo de nuevos módulos o rediseños visuales mayores se cotiza por separado mediante paquetes Build o tabulador de horas preferencial.
-              </p>
-              <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-                <strong>Sin Plazos Forzosos:</strong> La suscripción se factura mensualmente y puede cancelarse con 30 días de anticipación.
-              </p>
-            </div>
-          </div>
+        <div style="padding: 1.25rem; background: rgba(0, 210, 255, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--steel-light); max-width: 800px; margin: 0 auto 3rem auto; text-align: center;">
+          ℹ <em>Condición operativa:</em> Las horas de rescate técnico (Rescue) incluidas en los planes Care Pro y Care Enterprise se ejecutan durante el mes corriente y no son acumulables para meses posteriores.
         </div>
 
       </div>
@@ -144,14 +126,14 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por qué contratar Castle Care si mi sitio ya está terminado?" answer="El software se degrada silenciosamente: las dependencias quedan obsoletas, surgen nuevas vulnerabilidades y los estándares de navegadores cambian. Care garantiza que tu inversión se mantenga actualizada y protegida." />
-              <FAQItem question="¿Qué ocurre si requiero más horas de Rescue en un mes específico?" answer="Puedes adquirir paquetes de horas adicionales con la tarifa preferencial con descuento correspondiente a tu plan activo." />
+              <FAQItem open={true} question="¿Existe plazo forzoso de permanencia?" answer="No. Las suscripciones Castle Care son mensuales y se pueden cancelar en cualquier momento avisando con 15 días de anticipación al siguiente corte de facturación." />
+              <FAQItem question="¿Para qué puedo usar las horas Rescue incluidas en Care Pro?" answer="Puedes usarlas para implementar nuevas secciones, reparar errores en librerías, optimizar imágenes, actualizar textos o sanear credenciales." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Podemos cambiar de plan según la temporada de nuestro negocio?" answer="Sí, puedes solicitar el cambio de nivel (upgrade o downgrade) con aviso previo al inicio de tu siguiente ciclo mensual de facturación." />
-              <FAQItem question="¿Castle Care incluye el costo del hosting?" answer="No. El cliente mantiene el pago directo de su proveedor de hosting y dominio a su nombre para garantizar propiedad total de sus activos." />
+              <FAQItem open={true} question="¿Qué pasa si en un mes requiero más horas de las incluidas?" answer="Si excedes tus horas incluidas, las horas adicionales de ingeniería se facturan con una tarifa preferencial con descuento de cliente suscriptor." />
+              <FAQItem question="¿Cómo se monitorea la disponibilidad?" answer="Configuramos sondas automatizadas que verifican el tiempo de respuesta HTTP y la validez de los certificados SSL cada 60 segundos." />
             </div>
           </div>
         </div>
@@ -159,10 +141,10 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
     </section>
 
     <CTABand
-      title="Protege la continuidad técnica de tus plataformas web."
-      description="Inicia tu suscripción mensual Castle Care con Grupo Castillo."
+      title="Asegura la salud y continuidad de tu software hoy."
+      description="Suscríbete a Castle Care y delega la supervisión técnica en los expertos de Grupo Castillo."
       ctaLabel="Suscribirme a Castle Care"
-      ctaHref="../../contacto.html?necesidad=cuidado"
+      ctaHref="/contacto.html?necesidad=cuidado"
     />
 
   </main>
