@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import CTABand from '../../components/CTABand.astro';
+import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Castle Silver — Sitio Corporativo Estructurado para Empresas | Grupo Castillo"
+  description="Paquete Castle Silver ($7,500 MXN / ~$440 USD): Sitio web corporativo de hasta 5 páginas independientes, SEO estructurado, arquitectura limpia y velocidad extrema."
+  canonical="https://servicios-castillo.vercel.app/paquetes/silver.html"
+  ogUrl="https://servicios-castillo.vercel.app/paquetes/silver.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="paquetes" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../paquetes.html">Paquetes</a> / Castle Silver</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">SITIO CORPORATIVO • PYMES Y EMPRESAS</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Silver: Presencia Corporativa Multi-Página</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          La solución estructurada para empresas que requieren comunicar su catálogo, historia, equipo y servicios en páginas independientes con navegación clara.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMEN COMERCIAL Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL PAQUETE -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Para quién es Castle Silver?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Ideal para pequeñas y medianas empresas (PyMEs), despachos jurídicos o contables, consultoras, clínicas y firmas comerciales que necesitan una plataforma formal con estructura institucional completa.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué problema resuelve?</h3>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+            Supera la limitación de una landing page cuando tu negocio ofrece múltiples líneas de servicio que requieren explicaciones detalladas, páginas de casos de éxito y navegación estructurada para generar credibilidad con clientes institucionales.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué incluye exactamente?</h3>
+          <ul class="check-list" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Hasta 5 Páginas Independientes:</strong> Ej. Inicio, Nosotros/Empresa, Servicios, Proyectos/Casos de Éxito y Contacto.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Navegación y Menú Principal:</strong> Header interactivo con navegación fluida y menú móvil optimizado.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>SEO On-Page Completo:</strong> Títulos, descripciones meta, sitemap XML y Open Graph para compartir en redes sociales.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Rendimiento de Carga Extrema:</strong> Cero frameworks pesados innecesarios para tiempos de respuesta instantáneos.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Gobernanza CQS:</strong> Validación de accesibilidad WCAG 2.2 AA y políticas de calidad estricta.</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué NO incluye?</h3>
+          <ul style="list-style: none; padding: 0; color: var(--steel-soft); font-size: 0.9rem; margin-bottom: 2rem;">
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Panel de administración CMS para publicar artículos frecuentes (disponible en Castle Gold).</li>
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Integración de pagos en línea o carrito de compras (disponible en Castle Platinum).</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué necesitamos del cliente?</h3>
+          <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6;">
+            Estructura deseada de páginas, información detallada de cada servicio, manual de identidad o logotipo y fotografías institucionales.
+          </p>
+        </div>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">PROPUESTA DE LANZAMIENTO</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            $7,500 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            ~$440 USD (Pago Único)
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Revisiones incluidas:</span>
+              <strong style="color: var(--paper);">3 rondas formales</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Plazo estimado:</span>
+              <strong style="color: var(--paper);">7 a 10 días hábiles</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Propiedad del código:</span>
+              <strong style="color: var(--success);">100% del cliente</strong>
+            </div>
+          </div>
+
+          <a href="../contacto.html?paquete=Castle%20Silver" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Solicitar Castle Silver</a>
+          <a href="../paquetes/gold.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver siguiente nivel: Castle Gold →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * Equivalente USD aproximado; la cotización y facturación contractual se realiza en MXN.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Silver</p>
+          <h2>Dudas Comunes</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Puedo solicitar una página adicional si requiero 6 páginas?" answer="Sí, se puede cotizar una página adicional de manera proporcional sin necesidad de brincar al paquete completo superior." />
+              <FAQItem question="¿El sitio incluye formulario de contacto en la página de contacto?" answer="Sí, incluye un formulario estructurado con validación técnica y envío a tu buzón institucional." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo garantizan que el sitio cargue rápido?" answer="Construimos con código moderno y optimizado sin plugins pesados ni dependencias innecesarias, verificando con pruebas automáticas de rendimiento antes de la entrega." />
+              <FAQItem question="¿Nos entregan los archivos fuente?" answer="Sí, absolutamente. Todo el repositorio y los archivos te pertenecen al 100%." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Construye la presencia institucional que tu empresa necesita."
+      description="Iniciemos hoy la estructuración de tu sitio web corporativo con Grupo Castillo."
+      ctaLabel="Comenzar con Castle Silver"
+      ctaHref="../contacto.html?paquete=Castle%20Silver"
+    />
+
+  </main>
+</BaseLayout>

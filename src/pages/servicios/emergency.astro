@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import CTABand from '../../components/CTABand.astro';
+import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Castle Emergency — Intervención Prioritaria ante Incidentes Críticos | Grupo Castillo"
+  description="Servicio Castle Emergency (Desde $5,900 MXN / ~$345 USD): Respuesta prioritaria ante fuga activa de credenciales, pipelines bloqueados y caídas críticas de plataformas web."
+  canonical="https://servicios-castillo.vercel.app/servicios/emergency.html"
+  ogUrl="https://servicios-castillo.vercel.app/servicios/emergency.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="intervencion" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../servicios.html">Servicios</a> / Castle Emergency</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">RESPUESTA PRIORITARIA • CONTENCIÓN DE INCIDENTES</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Emergency: Respuesta Inmediata ante Contingencias</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Auxilio técnico prioritario para contener fugas de claves, mitigar fallas críticas en despliegues y restablecer la continuidad de tu servicio web en situaciones urgentes.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMEN DEL SERVICIO Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL SERVICIO -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Qué es Castle Emergency y qué problema resuelve?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Castle Emergency responde a la urgencia: <em>"Tenemos un incidente crítico en producción o un bloqueo mayor y necesitamos auxilio técnico inmediato."</em> Movilizamos recursos de ingeniería para detener el impacto, aislar la causa raíz y estabilizar la plataforma.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Escenarios de Aplicación:</h3>
+          <ul class="check-list" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">🚨 <strong>Exposición Accidental de Secretos:</strong> Claves privadas de AWS, Stripe o credenciales de base de datos publicadas en repositorios públicos o logs.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">🚨 <strong>Bloqueo Crítico de Release:</strong> Despliegue de producción caído o pipeline CI/CD en fallo total previo a un lanzamiento comercial inminente.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">🚨 <strong>Inyección o Alteración Maliciosa:</strong> Modificaciones no autorizadas en scripts frontend o redirecciones maliciosas.</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Protocolo de Atención en 3 Pasos:</h3>
+          <ol style="color: var(--steel-light); font-size: 0.95rem; line-height: 1.65; padding-left: 1.25rem; margin-bottom: 2rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>Contención Inmediata:</strong> Aislar la vulnerabilidad, revocar credenciales comprometidas y detener el daño operativo.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Restablecimiento:</strong> Aplicar hotfix para restaurar el servicio a un estado seguro y operativo.</li>
+            <li><strong>Reporte Post-Incidente:</strong> Documentación detallada de causa raíz y recomendaciones preventivas para evitar recurrencias.</li>
+          </ol>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué NO incluye?</h3>
+          <ul style="list-style: none; padding: 0; color: var(--steel-soft); font-size: 0.9rem; margin-bottom: 2rem;">
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ SLA universal garantizado sin contrato previo (ofrecemos objetivo de respuesta prioritaria según disponibilidad de ingenieros de guardia).</li>
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Reconstrucción integral de arquitecturas (requiere servicio Castle Rescue o Build).</li>
+          </ul>
+        </div>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(255, 100, 100, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-blocked" style="margin-bottom: 0.75rem;">INTERVENCIÓN PRIORITARIA</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            Desde $5,900 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            ~$345 USD (Por Incidente)
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Objetivo de respuesta:</span>
+              <strong style="color: var(--paper);">Prioridad Inmediata</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Enfoque:</span>
+              <strong style="color: var(--paper);">Contención &amp; Hotfix</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Post-Incidente:</span>
+              <strong style="color: var(--success);">Reporte de Causa Raíz</strong>
+            </div>
+          </div>
+
+          <a href="../../contacto.html?necesidad=urgencia" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem; background: #d93838; border-color: #d93838;">Solicitar Atención de Emergencia</a>
+          <a href="../servicios/care.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver cobertura continua: Castle Care →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * Los clientes con suscripción activa Castle Care Enterprise cuentan con atención prioritaria incluida.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Emergency</p>
+          <h2>Dudas Comunes</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo solicitamos el auxilio de emergencia?" answer="Envía el formulario seleccionando 'Intervención prioritaria urgente' o contáctanos directamente con la descripción del incidente. Un ingeniero evaluará el caso de inmediato." />
+              <FAQItem question="¿Qué pasa si el problema requiere días de desarrollo?" answer="En la fase de emergencia aplicamos el hotfix o contención para estabilizar el sistema. Las refactorizaciones de fondo se canalizan posteriormente a través de Castle Rescue." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo garantizamos respuesta continua 24/7?" answer="Para empresas que requieren cobertura continua y guardias técnicas dedicadas, recomendamos contratar nuestro esquema anual Castle Care Enterprise." />
+              <FAQItem question="¿El servicio incluye el reporte para auditoría interna?" answer="Sí, cada intervención de emergencia concluye con un reporte formal de causa raíz, acciones ejecutadas y medidas de prevención." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Tienes un incidente técnico urgente en este momento?"
+      description="Notifícanos de inmediato para coordinar la respuesta técnica de contención."
+      ctaLabel="Activar Respuesta de Emergencia"
+      ctaHref="../../contacto.html?necesidad=urgencia"
+    />
+
+  </main>
+</BaseLayout>

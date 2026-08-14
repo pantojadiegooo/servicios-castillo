@@ -14,132 +14,174 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
   <main id="main">
 
     <!-- HERO SECTION -->
-    <section class="page-hero" style="padding-top: 4.5rem; padding-bottom: 3.5rem;">
+    <section class="page-hero" style="padding-top: 5rem; padding-bottom: 4rem;">
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="index.html#servicios">Tecnología</a> / Castle Gate v1.0.0</p>
+        <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="servicios.html">Tecnología</a> / Castle Gate v1.0.0</p>
         <div class="badge badge-cyan" style="margin-bottom: 1rem;">TECNOLOGÍA PROPIA • CQS v1.1 • RELEASE READY</div>
-        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem); max-width: 24ch;">Castle Security &amp; Quality Gate</h1>
-        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
-          Motor de gobernanza de software y validación determinista de releases. Ejecuta 65 controles estáticos en memoria, veta código inseguro en CI/CD con Exit Code 1 y emite Release Certificates sellados mediante SHA-256.
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); max-width: 24ch;">Castle Security &amp; Quality Gate</h1>
+        <p style="max-width: 70ch; font-size: 1.15rem; color: var(--steel-light); line-height: 1.7;">
+          Motor de gobernanza de software y validación determinista de releases. Diseñado para garantizar que ningún código con claves expuestas, dependencias rotas o fallas de rendimiento llegue a producción.
         </p>
       </div>
     </section>
 
-    <!-- LIVE TERMINAL & CAPABILITIES SECTION -->
+    <!-- CAPA 1: EXPLICACIÓN EJECUTIVA PARA DIRECTORES Y FUNDADORES -->
     <section class="section" style="padding-top: 1rem;">
       <div class="container">
-        <div class="two-col" style="align-items: center; gap: 3.5rem;">
-          <div class="reveal">
-            <p class="eyebrow" style="color: var(--cyan);">Demostración en Tiempo Real</p>
-            <h2>Validación Determinista en Memoria</h2>
-            <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
-              Castle Gate opera <strong>100% offline</strong> con cero dependencias externas y cero llamadas de red. Su ejecución toma menos de 500 ms en cualquier pipeline de integración continua.
-            </p>
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Capa Ejecutiva de Negocio</p>
+          <h2>¿Por qué tu empresa necesita gobernanza en sus entregas?</h2>
+          <p>La seguridad y calidad del software no deben depender de la memoria de un programador o de revisiones manuales aisladas.</p>
+        </div>
 
-            <div class="glass-panel" style="padding: 1.25rem; margin-bottom: 1.5rem; background: rgba(14, 18, 27, 0.65);">
-              <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem;">Flujo de Gobernanza Verificable:</h4>
-              <ol style="font-size: 0.88rem; color: var(--steel-light); padding-left: 1.25rem; line-height: 1.6;">
-                <li><strong>Native Probes:</strong> Escaneo estático de claves y secretos expuestos.</li>
-                <li><strong>Gate Breaker Check:</strong> Veto inmediato si existe riesgo P0 (Exit Code 1).</li>
-                <li><strong>CQS Scoring:</strong> Ponderación nominal sobre 100.00 puntos en 7 dominios.</li>
-                <li><strong>Release Certificate:</strong> Sello criptográfico SHA-256 inmutable (Exit Code 0).</li>
-              </ol>
-            </div>
+        <div class="grid grid-3 reveal" style="gap: 1.75rem; margin-bottom: 3rem;">
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">RIESGO 01: FUGAS DE DATOS</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Prevención de Exposición de Secretos</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Una clave de AWS o Stripe quemada en código puede costar miles de dólares en minutos. Castle Gate actúa como un árbitro que veta automáticamente el release antes de que el código salga de tu control.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">RIESGO 02: DEGRADACIÓN</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Control de Calidad Inmutable</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Establece umbrales mínimos de rendimiento, accesibilidad WCAG y calidad de código. Si una entrega no cumple la política ratificada por tu empresa, el despliegue no se autoriza.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">CERTEZA: AUDITORÍA</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Certificado de Release SHA-256</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Cada entrega autorizada genera un Release Certificate inalterable sellado criptográficamente con SHA-256, proporcionando evidencia auditable para auditorías internas y clientes corporativos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPA 2: DETALLE TÉCNICO PARA CTOS, DEVOPS E INGENIEROS (CON TERMINAL EN VIVO) -->
+    <section class="section section-dim" id="detalle-tecnico">
+      <div class="container">
+        
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Capa de Ingeniería Técnica</p>
+          <h2>Especificación Técnica y Ejecución en Memoria</h2>
+          <p>Castle Gate opera 100% offline sin llamadas de red ni telemetría externa. Ejecución en menos de 500 ms.</p>
+        </div>
+
+        <div class="two-col reveal" style="align-items: center; gap: 3.5rem; margin-bottom: 3.5rem;">
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--paper);">Flujo Determinista de Decisión:</h3>
+            <ol style="font-size: 0.92rem; color: var(--steel-light); padding-left: 1.25rem; line-height: 1.7; margin-bottom: 1.75rem;">
+              <li style="margin-bottom: 0.5rem;">
+                <strong>Native Probes:</strong> Escaneo estático en memoria de patrones de credenciales privadas (AWS, Stripe, SSH, GitHub PAT).
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <strong>Gate Breaker Check:</strong> Veto inmediato con <code>Exit Code 1</code> ante cualquier hallazgo bloqueante (P0).
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <strong>Evaluación CQS v1.1:</strong> Ponderación nominal sobre 100.00 puntos en 7 dominios técnicos independientes.
+              </li>
+              <li>
+                <strong>Release Certificate SHA-256:</strong> Emisión de sello inmutable con <code>Exit Code 0</code> autorizando el despliegue.
+              </li>
+            </ol>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="#licenciamiento" class="btn btn-primary">Ver Esquemas de Licenciamiento</a>
-              <a href="contacto.html?necesidad=checkup" class="btn btn-outline">Solicitar Checkup Inicial</a>
+              <a href="#licenciamiento" class="btn btn-primary">Ver Tarifas de Licenciamiento</a>
+              <a href="servicios/checkup.html" class="btn btn-outline">Solicitar Checkup Inicial ($8,900 MXN)</a>
             </div>
           </div>
 
-          <!-- TERMINAL COMPONENT -->
-          <div class="reveal">
+          <!-- TERMINAL CLI DEMO -->
+          <div>
             <CastleTerminalSimulator />
           </div>
         </div>
+
+        <!-- 7 DOMINIOS TÉCNICOS CQS V1.1 -->
+        <div class="reveal">
+          <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--paper);">7 Dominios Técnicos • 65 Controles Nominales</h3>
+          <p style="text-align: center; font-size: 0.9rem; color: var(--steel-soft); margin-bottom: 2rem;">
+            La metodología CQS v1.1 audita exhaustivamente cada dimensión crítica del ciclo de vida del software.
+          </p>
+
+          <div class="grid grid-3" style="gap: 1.5rem;">
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 1</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Seguridad &amp; Privacidad</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Detección estática de credenciales, cabeceras HTTP estrictas, CSP, sanitización y prevención de inyecciones.
+              </p>
+            </div>
+
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 2</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Rendimiento Web</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Optimización de Core Web Vitals (LCP, INP, CLS), compresión de recursos y eliminación de render-blocking.
+              </p>
+            </div>
+
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 3</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Accesibilidad WCAG 2.2</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Navegación completa por teclado, contraste cromático contrast-ratio &ge; 4.5:1, etiquetas ARIA y semántica HTML5.
+              </p>
+            </div>
+
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 4</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Calidad de Código</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Tipado estático, cobertura de pruebas unitarias, linting estricto y ausencia de dependencias huérfanas.
+              </p>
+            </div>
+
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 5</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Arquitectura &amp; Resiliencia</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Manejo estructurado de errores, fallbacks de red, degradación elegante y desacoplamiento de componentes.
+              </p>
+            </div>
+
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIOS 6 &amp; 7</span>
+                <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">SEO Técnico &amp; Gobernanza</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
+                Metadatos Open Graph, sitemaps canónicos, lockfiles inmutables e integridad de artefactos de release.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- 7 DOMAINS ARCHITECTURE -->
-    <section class="section section-dim" id="dominios">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Arquitectura Metodológica</p>
-          <h2>7 Dominios Técnicos • 65 Controles Nominales</h2>
-          <p>La metodología CQS v1.1 audita exhaustivamente cada aspecto crítico del ciclo de vida del software.</p>
-        </div>
-
-        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 1</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Seguridad &amp; Privacidad</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Detección de credenciales expuestas (AWS, Stripe, SSH), cabeceras HTTP estrictas, CSP, sanitización y prevención de inyecciones.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 2</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Rendimiento Web</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Optimización de Core Web Vitals (LCP, INP, CLS), compresión de assets, eliminación de render-blocking y carga asíncrona.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 3</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Accesibilidad WCAG 2.2</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Navegación completa por teclado, contraste cromático contrast-ratio &ge; 4.5:1, etiquetas ARIA y semántica HTML5.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 4</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Calidad de Código</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Tipado estático, cobertura de pruebas unitarias, linting estricto, modularidad y ausencia de código muerto o dependencias huérfanas.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIO 5</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">Arquitectura &amp; Resiliencia</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Manejo de excepciones estructurado, fallbacks de red, degradación elegante y desacoplamiento de componentes.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.75rem;">
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOMINIOS 6 &amp; 7</span>
-              <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">20.00 PTS</span>
-            </div>
-            <h4 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 0.5rem;">SEO Técnico &amp; Gobernanza</h4>
-            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55;">
-              Metadatos Open Graph, sitemaps canónicos, lockfiles inmutables e integridad de artefactos de release.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- POLICY MATRIX & ANNUAL LICENSING -->
+    <!-- MATRIZ DE POLÍTICAS C1 A C6 Y LICENCIAMIENTO ANUAL -->
     <section class="section" id="licenciamiento">
       <div class="container">
         <div class="section-head reveal">
@@ -213,7 +255,7 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
       </div>
     </section>
 
-    <!-- CI/CD INTEGRATION & GITHUB ACTIONS -->
+    <!-- INTEGRACIÓN EN CI/CD -->
     <section class="section section-dark" id="integracion">
       <div class="container">
         <div class="section-head reveal">

@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import CTABand from '../../components/CTABand.astro';
+import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Castle Platinum — Integraciones Avanzadas, APIs y Seguridad Hardened | Grupo Castillo"
+  description="Paquete Castle Platinum ($24,500 MXN / ~$1,440 USD): Hasta 15 páginas, conexión con APIs externas, CRM, pasarelas de pago y hardening de seguridad estricto."
+  canonical="https://servicios-castillo.vercel.app/paquetes/platinum.html"
+  ogUrl="https://servicios-castillo.vercel.app/paquetes/platinum.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="paquetes" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../paquetes.html">Paquetes</a> / Castle Platinum</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">INTEGRACIONES AVANZADAS • SEGURIDAD RIGUROSA</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Platinum: Ecosistema Digital Integrado y Conectado</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Desarrollo robusto para empresas que requieren sincronizar su plataforma web con servicios de terceros, pasarelas de cobro, CRMs y sistemas internos.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMEN COMERCIAL Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL PAQUETE -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Para quién es Castle Platinum?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Ideal para corporativos medianos, empresas de comercio electrónico estructurado, plataformas educativas o firmas que necesitan automatizar la captación conectando directamente a su CRM o procesador de pagos.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué problema resuelve?</h3>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+            Elimina el trabajo manual de captura y los silos de información. Conecta tu sitio web con tus herramientas operativas garantizando que los datos viajen de forma cifrada y segura sin caídas de servicio.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué incluye exactamente?</h3>
+          <ul class="check-list" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Hasta 15 Páginas Especializadas:</strong> Catálogo complejo, áreas de productos, recursos técnicos y páginas transaccionales.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Integración con APIs Externas:</strong> Conexión con Stripe, Mercado Pago, HubSpot, Salesforce, Mailchimp o webhooks personalizados.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Hardening de Seguridad Estricto:</strong> Configuración de cabeceras HTTP de seguridad (CSP, HSTS, X-Frame-Options) y protección contra inyecciones.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Gestión Segura de Secretos y Variables:</strong> Separación estricta de credenciales de producción y entorno de pruebas.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Certificado de Calidad Castillo Quality Gate C4:</strong> Verificación de arquitectura desacoplada y resiliencia.</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué NO incluye?</h3>
+          <ul style="list-style: none; padding: 0; color: var(--steel-soft); font-size: 0.9rem; margin-bottom: 2rem;">
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Arquitecturas de microservicios distribuidos a gran escala o aplicaciones móviles nativas (disponible en Castle Diamond).</li>
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Licenciamiento o comisiones de procesamiento cobradas por terceros (Stripe, HubSpot, etc.).</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué necesitamos del cliente?</h3>
+          <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6;">
+            Acceso a las APIs o documentación de los sistemas a integrar, credenciales de entornos de prueba (sandbox) y definición de flujos de datos requeridos.
+          </p>
+        </div>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">PROPUESTA DE LANZAMIENTO</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            $24,500 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            ~$1,440 USD (Pago Único)
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Revisiones incluidas:</span>
+              <strong style="color: var(--paper);">5 rondas formales</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Plazo estimado:</span>
+              <strong style="color: var(--paper);">15 a 25 días hábiles</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Propiedad del código:</span>
+              <strong style="color: var(--success);">100% del cliente</strong>
+            </div>
+          </div>
+
+          <a href="../contacto.html?paquete=Castle%20Platinum" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Solicitar Castle Platinum</a>
+          <a href="../paquetes/diamond.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver nivel empresarial: Castle Diamond →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * Equivalente USD aproximado; la cotización y facturación contractual se realiza en MXN.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Platinum</p>
+          <h2>Dudas Comunes</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo garantizan la seguridad en el manejo de pagos?" answer="No almacenamos datos sensibles de tarjetas en el servidor; implementamos integraciones tokenizadas con estándares oficiales (Stripe / Mercado Pago) con cifrado SSL de punto a punto." />
+              <FAQItem question="¿Qué ocurre si la API externa cambia en el futuro?" answer="Construimos capas de abstracción que aíslan los cambios externos para facilitar su actualización sin romper la funcionalidad central de tu web." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Podemos conectar una base de datos propia?" answer="Sí, mediante endpoints seguros podemos consultar o enviar registros hacia bases de datos privadas bajo políticas estrictas de autenticación." />
+              <FAQItem question="¿Incluye soporte continuo post-lanzamiento?" answer="Recomendamos acompañar este paquete con Castle Care Enterprise ($17,900 MXN/mes) para supervisión técnica continua y mesa de arquitectura dedicada." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Conecta tu negocio digital con la máxima seguridad técnica."
+      description="Coordina una llamada de arquitectura técnica con los ingenieros de Grupo Castillo."
+      ctaLabel="Comenzar con Castle Platinum"
+      ctaHref="../contacto.html?paquete=Castle%20Platinum"
+    />
+
+  </main>
+</BaseLayout>

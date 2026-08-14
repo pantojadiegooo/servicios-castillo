@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import CTABand from '../../components/CTABand.astro';
+import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Castle Audit — Auditoría Técnica Profunda de Arquitectura y Deuda Técnica | Grupo Castillo"
+  description="Servicio Castle Audit (Desde $19,900 MXN / ~$1,170 USD): Diagnóstico exhaustivo de seguridad, arquitectura, deuda técnica y mantenibilidad para Due Diligence y código heredado."
+  canonical="https://servicios-castillo.vercel.app/servicios/audit.html"
+  ogUrl="https://servicios-castillo.vercel.app/servicios/audit.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="auditoria" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../servicios.html">Servicios</a> / Castle Audit</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">AUDITORÍA PROFUNDA • DUE DILIGENCE &amp; ARQUITECTURA</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Audit: Investigación Técnica Exhaustiva</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Evaluación rigurosa de arquitectura, seguridad, deuda técnica oculta y mantenibilidad para tomar decisiones informadas antes de adquisiciones, migraciones o rediseños mayores.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMEN DEL SERVICIO Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL SERVICIO -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Qué es Castle Audit y qué problema resuelve?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Castle Audit responde a la pregunta: <em>"¿Qué tan profundo es el problema y cuánto costará solucionarlo?"</em>. Proporciona una radiografía completa de sistemas existentes para evitar rehacer software a ciegas o heredar riesgos ocultos en procesos de compra o cambio de proveedores.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Para quién es y cuándo contratarlo?</h3>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+            Para directores de tecnología, inversionistas en procesos de Due Diligence técnico, directores generales evaluando si reconstruir o refactorizar un sistema legado, y organizaciones que requieren un dictamen técnico independiente.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Niveles y Modalidades de Auditoría:</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Audit Standard ($19,900 MXN / ~$1,170 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">1 REPOSITORIO</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Análisis estático exhaustivo, reporte de hallazgos por severidad (P0 a P3), detección de deuda técnica y hoja de ruta básica.</p>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02); border-color: rgba(0, 210, 255, 0.3);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Audit Advanced ($39,900 MXN / ~$2,345 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">HASTA 3 REPOSITORIOS</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Evaluación multi-servicio, análisis de acoplamiento, revisión de contratos de API, análisis de dependencias críticas y plan de mitigación.</p>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Audit Enterprise (Desde $74,900 MXN / ~$4,400 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">PLATAFORMA COMPLETA</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Auditoría integral para procesos de fusiones y adquisiciones (M&A Due Diligence), entrevistas con líderes técnicos y evaluación de gobernanza multinivel.</p>
+            </div>
+          </div>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Entregables tangibles:</h3>
+          <ul class="check-list" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Dictamen Ejecutivo &amp; Técnico:</strong> Resumen no técnico para dirección + desglose detallado para ingeniería.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Matriz Priorizada de Riesgos:</strong> Clasificación rigurosa de vulnerabilidades y puntos de falla únicos.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Hoja de Ruta de Intervención:</strong> Estimación de esfuerzo y pasos secuenciales para remediar el código.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);">✔ <strong>Mesa de Presentación Ejecutiva:</strong> Sesión interactiva de preguntas y respuestas con los líderes de tu empresa.</li>
+          </ul>
+        </div>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">AUDITORÍA PROFUNDA</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            Desde $19,900 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            ~$1,170 USD (Según Modalidad)
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Plazo típico:</span>
+              <strong style="color: var(--paper);">1 a 3 semanas</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Enfoque:</span>
+              <strong style="color: var(--paper);">Arquitectura &amp; Seguridad</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Independencia:</span>
+              <strong style="color: var(--success);">Dictamen Objetivo</strong>
+            </div>
+          </div>
+
+          <a href="../../contacto.html?necesidad=auditar" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Solicitar Castle Audit</a>
+          <a href="../servicios/rescue.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver servicio de corrección: Castle Rescue →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * Se firma acuerdo mutuo de confidencialidad (NDA) antes de recibir acceso a los repositorios.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Audit</p>
+          <h2>Dudas Comunes</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Castle Audit incluye la corrección del código?" answer="No. El Audit entrega el diagnóstico objetivo y la hoja de ruta detallada para que tu equipo interno o nuestro servicio Castle Rescue ejecute las correcciones." />
+              <FAQItem question="¿Firmamos un acuerdo de confidencialidad?" answer="Sí, absolutamente. Antes de que nos otorgues acceso a cualquier línea de código, formalizamos un NDA por escrito para garantizar la confidencialidad total de tus activos." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿En qué se diferencia de Castle Checkup?" answer="Castle Checkup ($8,900 MXN) es una evaluación estática rápida en 72h enfocada en readiness inicial. Castle Audit es una investigación exhaustiva que analiza contratos de arquitectura, deuda técnica profunda y riesgos de continuidad de negocio." />
+              <FAQItem question="¿Sirve para procesos de adquisición o due diligence?" answer="Sí, la modalidad Audit Enterprise está estructurada específicamente para dar certeza a fondos de inversión y directivos antes de cerrar transacciones comerciales." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Obtén certeza técnica antes de invertir en reconstrucciones."
+      description="Coordina una llamada preliminar de auditoría con los consultores senior de Grupo Castillo."
+      ctaLabel="Solicitar Propuesta de Auditoría"
+      ctaHref="../../contacto.html?necesidad=auditar"
+    />
+
+  </main>
+</BaseLayout>

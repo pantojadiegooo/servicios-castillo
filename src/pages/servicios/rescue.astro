@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
+import CTABand from '../../components/CTABand.astro';
+import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Castle Rescue — Intervención Directa en Código Heredado y Pipelines | Grupo Castillo"
+  description="Servicio Castle Rescue (Desde $6,900 MXN / ~$405 USD): Saneamiento de secretos expuestos, corrección de dependencias rotas y desbloqueo de pipelines CI/CD."
+  canonical="https://servicios-castillo.vercel.app/servicios/rescue.html"
+  ogUrl="https://servicios-castillo.vercel.app/servicios/rescue.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="intervencion" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../servicios.html">Servicios</a> / Castle Rescue</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">INTERVENCIÓN DIRECTA • REMEDIACIÓN EN CÓDIGO</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Castle Rescue: Corrección y Estabilización de Software</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Ingeniería de rescate para intervenir repositorios problemáticos, purgar credenciales comprometidas y reparar pipelines bloqueados mediante Pull Requests directos.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMEN DEL SERVICIO Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL SERVICIO -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Qué es Castle Rescue y qué problema resuelve?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Castle Rescue responde a la necesidad: <em>"¿Puedes ayudarme a corregir los problemas de mi software?"</em>. Es un servicio de intervención técnica práctica donde nuestros ingenieros modifican el código fuente para resolver bloqueos, sanear vulnerabilidades y dejar la plataforma operativa.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Cuándo contratar Castle Rescue?</h3>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+            Cuando tu equipo no tiene el tiempo o la especialización para solucionar claves de API quemadas en el repositorio, tus builds de CI/CD fallan continuamente por dependencias obsoletas, o tu desarrollador anterior dejó un sistema huérfano sin documentación clara.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Modalidades de Intervención:</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Rescue Express ($6,900 MXN / ~$405 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">4 - 5 HORAS</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Purga de secretos y credenciales en código, migración a variables de entorno (.env) y desbloqueo puntual de un fallo bloqueante.</p>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02); border-color: rgba(0, 210, 255, 0.3);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Rescue Standard ($12,900 MXN / ~$755 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">8 - 10 HORAS</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Remediación de dependencias vulnerables, actualización de lockfiles, reparación de flujos GitHub Actions y entrega de Pull Requests limpios.</p>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.25rem; background: rgba(255,255,255,0.02);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <strong style="color: var(--paper);">Rescue Complex (Desde $24,900 MXN / ~$1,460 USD)</strong>
+                <span style="font-size: 0.75rem; color: var(--cyan); font-family: var(--f-mono);">&gt; 15 HORAS</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Intervención profunda en bases de código heredadas, desacoplamiento de módulos críticos y saneamiento de repositorios multi-servicio.</p>
+            </div>
+          </div>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué NO incluye?</h3>
+          <ul style="list-style: none; padding: 0; color: var(--steel-soft); font-size: 0.9rem; margin-bottom: 2rem;">
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Desarrollo de nuevas funcionalidades o módulos comerciales desde cero (requiere paquete Build).</li>
+            <li style="padding: 6px 0; border-top: 1px dashed var(--line-dark);">✖ Horas infinitas de soporte sin límite de alcance.</li>
+          </ul>
+        </div>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">INTERVENCIÓN EN CÓDIGO</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            Desde $6,900 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            ~$405 USD (Por Paquete de Horas)
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Entregable principal:</span>
+              <strong style="color: var(--paper);">Pull Requests Limpios</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Pruebas previas:</span>
+              <strong style="color: var(--paper);">Sin romper producción</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Propiedad:</span>
+              <strong style="color: var(--success);">Repositorio del cliente</strong>
+            </div>
+          </div>
+
+          <a href="../../contacto.html?necesidad=mejorar" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Solicitar Castle Rescue</a>
+          <a href="../servicios/care.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver mantenimiento continuo: Castle Care →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * Trabajamos sobre ramas aisladas (branches) para validar que no existan regresiones antes de solicitar merge.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Rescue</p>
+          <h2>Dudas Comunes</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo garantizan que la intervención no rompa el sitio en producción?" answer="Nunca trabajamos directamente en la rama principal de producción. Creamos ramas de trabajo aisladas, ejecutamos pruebas automáticas y te entregamos los Pull Requests documentados para tu aprobación final." />
+              <FAQItem question="¿Qué pasa si las horas del paquete no alcanzan para todo?" answer="Antes de iniciar realizamos una estimación inicial del alcance. Si surgen problemas imprevistos en código legado, te notificamos de inmediato para decidir juntos la priorización antes de consumir horas adicionales." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Castle Rescue incluye rotación de claves comprometidas?" answer="Te ayudamos a extraer las claves del código fuente hacia variables de entorno y te guiamos en la revocación y generación de nuevas credenciales en tus proveedores (AWS, Stripe, etc.)." />
+              <FAQItem question="¿Castle Care incluye horas de Rescue?" answer="Sí. El plan mensual Castle Care Pro incluye 4 horas mensuales de Rescue y Care Enterprise incluye 10 horas mensuales directamente para contingencias." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="Desbloquea tus pipelines y sanea tu código hoy mismo."
+      description="Cuéntanos el problema técnico de tu repositorio y coordinamos una intervención ágil."
+      ctaLabel="Solicitar Intervención Rescue"
+      ctaHref="../../contacto.html?necesidad=mejorar"
+    />
+
+  </main>
+</BaseLayout>

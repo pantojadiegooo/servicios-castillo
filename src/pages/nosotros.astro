@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
-  title="Nosotros y Filosofía de Trabajo — Servicios Castillo"
-  description="Conoce Servicios Castillo, la unidad de soluciones digitales de Grupo Castillo. Nuestra filosofía de calidad verificable e ingeniería profesional."
+  title="Nosotros — Filosofía, Principios y Responsabilidad Técnica | Grupo Castillo"
+  description="Conoce la filosofía, principios de ingeniería y compromiso de transparencia de Grupo Castillo: propiedad absoluta del cliente, rigor técnico y tecnología propia."
   canonical="https://servicios-castillo.vercel.app/nosotros.html"
   ogUrl="https://servicios-castillo.vercel.app/nosotros.html"
 >
@@ -16,67 +17,194 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       <InnerHeroVisual type="nosotros" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="index.html">Inicio</a> / Nosotros</p>
-        <h1>Ingeniería con principios. Calidad que se puede medir.</h1>
-        <p>La estructura de Grupo Castillo y la unidad especializada Servicios Castillo, con una filosofía de trabajo clara: lo que se construye se valida, lo que se promete se documenta.</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem;">FILOSOFÍA DE INGENIERÍA &amp; PRINCIPIOS</div>
+        <h1 style="font-size: clamp(2.2rem, 3.5vw, 3.2rem);">Quiénes Somos y Cómo Trabajamos</h1>
+        <p style="max-width: 68ch; font-size: 1.1rem; color: var(--steel-light);">
+          Grupo Castillo es una firma de ingeniería de software y gobernanza tecnológica fundada bajo un principio central: construir sistemas confiables con transparencia absoluta y propiedad total para el cliente.
+        </p>
       </div>
     </section>
 
+    <!-- 01 — POR QUÉ EXISTE GRUPO CASTILLO -->
     <section class="section">
-      <div class="container two-col">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
         <div class="reveal">
-          <p class="eyebrow">Grupo Castillo</p>
-          <h2>La organización matriz.</h2>
-          <p>Grupo Castillo representa la estructura corporativa de respaldo detrás de Servicios Castillo. Aporta visión de largo plazo, sobriedad operativa y compromiso con el trabajo bien hecho.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Propósito Fundamental</p>
+          <h2>Por qué existe Grupo Castillo</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            El mercado del desarrollo web suele polarizarse entre dos extremos insatisfactorios: por un lado, agencias comerciales que construyen sobre plantillas pesadas y retienen los accesos del cliente; por otro, consultorías corporativas con tarifas inaccesibles para PyMEs y negocios en crecimiento.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Grupo Castillo existe para ofrecer una tercera vía: <strong>ingeniería de software rigurosa, accesible y transparente</strong>. Desarrollamos con código limpio, validamos releases mediante tecnología determinista propia (Castle Gate) y transferimos la propiedad absoluta de cada activo a nuestros clientes.
+          </p>
         </div>
-        <div class="reveal">
-          <p class="eyebrow">Servicios Castillo</p>
-          <h2>La unidad de ingeniería digital.</h2>
-          <p>Servicios Castillo es la célula operativa especializada: la que diseña, construye, audita, interviene, transforma y cuida plataformas digitales de alto rendimiento.</p>
+
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35);">
+          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1rem;">Nuestra Promesa de Servicio:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">01.</strong> Contratos claros con alcance y número de revisiones por escrito.
+            </li>
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">02.</strong> Cero retención de código, dominios o cuentas de infraestructura.
+            </li>
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">03.</strong> Validación de calidad y accesibilidad previa a cualquier release.
+            </li>
+            <li>
+              <strong style="color: var(--cyan);">04.</strong> Confidencialidad estricta y tratamiento responsable de información.
+            </li>
+          </ul>
         </div>
+
       </div>
     </section>
 
-    <section class="section section-dark">
+    <!-- 02 — PRINCIPIOS DE INGENIERÍA -->
+    <section class="section section-dim" id="principios">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Filosofía de Trabajo</p>
-          <h2>La tecnología profesional, la seguridad y la calidad no deberían ser un privilegio exclusivo de grandes corporativos.</h2>
-          <p>Democratizamos el acceso a una arquitectura web de estándar industrial a través de un proceso transparente y verificable en 9 etapas: el Castillo Security &amp; Quality Gate.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Cultura de Trabajo</p>
+          <h2>Nuestros Principios Rectores</h2>
+          <p>Las convicciones técnicas y éticas que guían cada decisión de diseño e implementación.</p>
         </div>
-        <div class="grid grid-3 reveal">
-          <div class="card">
-            <h3>Ingeniería Limpia</h3>
-            <p>Construimos con arquitecturas estáticas ultrarrápidas, HTML semántico y CSS modular. Evitamos la sobreingeniería y dependencias redundantes.</p>
+
+        <div class="grid grid-3 reveal" style="gap: 1.75rem;">
+          
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Rigor Técnico sin Excesos</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Construimos interfaces veloces y sistemas mantenibles sin recurrir a frameworks inflados ni dependencias innecesarias que ralenticen la experiencia de usuario.
+            </p>
           </div>
-          <div class="card">
-            <h3>Calidad Verificable</h3>
-            <p>Cada entrega pasa por pruebas objetivas de rendimiento, accesibilidad WCAG 2.2 AA, SEO técnico y análisis de vulnerabilidades.</p>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Propiedad Real del Cliente</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              No creamos dependencias artificiales. Todo el código, repositorios y cuentas se configuran a nombre del cliente para que conserve su libertad tecnológica.
+            </p>
           </div>
-          <div class="card">
-            <h3>Transparencia de Alcance</h3>
-            <p>Cotizaciones claras con alcance y rondas de revisión definidas desde el inicio. Sin costos ocultos ni dependencias artificiales.</p>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Evidencia sobre Suposiciones</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              No afirmamos que un software funciona bien; lo demostramos mediante pruebas automatizadas, métricas Core Web Vitals y certificados criptográficos SHA-256.
+            </p>
           </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Privacidad y Menor Privilegio</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Nuestras herramientas de análisis operan de forma local y offline. Solicitamos únicamente los accesos estrictamente necesarios para cumplir el alcance acordado.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Honestidad Comercial</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              No prometemos soluciones mágicas ni inventamos garantías regulatorias. Explicamos con claridad qué incluye cada paquete, qué no incluye y qué límites existen.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Relaciones de Largo Plazo</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Buscamos ser el socio tecnológico de confianza de nuestros clientes, acompañando su evolución mediante esquemas de mantenimiento mensual y soporte técnico.
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="section section-dim">
-      <div class="container two-col">
-        <div class="reveal">
-          <h2>Castle Transparency &amp; Autonomía</h2>
-          <p>Las cuentas de hosting, dominios e infraestructura pertenecen al cliente cuando corresponda. Entregamos documentación clara para que puedas operar de forma autónoma sin depender de nosotros para el día a día.</p>
+    <!-- 03 — QUÉ ESPERAMOS Y QUÉ PUEDES ESPERAR -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Acuerdo de Colaboración</p>
+          <h2>Qué significa trabajar juntos</h2>
+          <p>Una relación profesional fluida requiere compromisos mutuos claros desde el inicio.</p>
         </div>
-        <div class="reveal">
-          <h2>Uso Responsable de la IA</h2>
-          <p>Aprovechamos herramientas de Inteligencia Artificial como aceleradores de análisis, optimización y procesos de control de calidad. Sin embargo, toda decisión arquitectónica y validación de seguridad es realizada bajo supervisión humana profesional.</p>
+
+        <div class="two-col reveal" style="gap: 3rem;">
+          
+          <div class="glass-panel" style="padding: 2.25rem;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--paper);">Lo que puedes esperar de nosotros:</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Comunicación directa y técnica sin intermediarios innecesarios.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Cumplimiento estricto de los plazos acordados por escrito.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Código documentado y probado contra regresiones.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Reportes transparentes de estado y sesiones de retroalimentación formal.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass-panel" style="padding: 2.25rem;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--paper);">Lo que necesitamos de nuestros clientes:</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Disponibilidad oportuna de la información, textos y accesos requeridos.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Un responsable de proyecto designado para la toma de decisiones y aprobaciones.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Retroalimentación consolidada durante las rondas formales de revisión.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem;">
+                <span style="color: var(--cyan); font-weight: bold;">✔</span>
+                <span>Respeto a los alcances y términos establecidos en la propuesta contractual.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section section-dim" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas sobre Nuestra Firma</p>
+          <h2>Transparencia institucional</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Dónde opera Grupo Castillo?" answer="Operamos de forma remota y atendemos clientes en todo México y Latinoamérica, coordinando sesiones virtuales y entregas mediante repositorios seguros." />
+              <FAQItem question="¿Emiten facturas fiscales (CFDI) en México?" answer="Sí, todos nuestros servicios y paquetes comerciales son facturables en moneda nacional (MXN) conforme a los requisitos fiscales aplicables." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo garantizan la confidencialidad de la información?" answer="Formalizamos acuerdos de no divulgación (NDA) antes de acceder a repositorios o bases de datos y aplicamos principios de menor privilegio en el manejo de credenciales." />
+              <FAQItem question="¿Qué tecnología utilizan para el desarrollo web?" answer="Desarrollamos con tecnologías modernas enfocadas en rendimiento estático, HTML5 semántico, CSS puro optimizado y motores de compilación ligeros que no dependen de plataformas cerradas." />
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <CTABand
-      title="¿Listo para construir con un estándar profesional?"
-      description="Cuéntanos tu proyecto y descubramos juntos el camino técnico más adecuado para llevarlo a cabo."
-      ctaLabel="Iniciar Proyecto"
+      title="Construyamos juntos una plataforma confiable para tu empresa."
+      description="Inicia la conversación con los directores de ingeniería de Grupo Castillo."
+      ctaLabel="Iniciar Contacto"
       ctaHref="contacto.html"
     />
 
