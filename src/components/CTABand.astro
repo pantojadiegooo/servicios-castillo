@@ -7,54 +7,176 @@ interface Props {
 }
 
 const {
-  title,
-  description,
-  ctaLabel = "Iniciar proyecto",
-  ctaHref = "/contacto.html"
+  title = "Hablemos de tu proyecto o repositorio.",
+  description = "Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial interactivo.",
+  ctaLabel = "Iniciar Diagnóstico Castillo.",
+  ctaHref = "/diagnostico.html"
 } = Astro.props;
 ---
 
 <section class="cta-band">
+  <!-- Technological Vortex & Data Stream Canvas Background -->
   <div class="cta-visual-wrapper" aria-hidden="true">
+    <div class="cta-fallback-bg"></div>
     <canvas class="cta-visual-canvas"></canvas>
+    <div class="cta-contrast-mask"></div>
   </div>
-  <div class="container" style="position: relative; z-index: 2;">
+
+  <div class="container" style="position: relative; z-index: 3;">
     <h2>{title}</h2>
     <p>{description}</p>
-    <a class="btn btn-gold" href={ctaHref}>{ctaLabel}</a>
+    <a class="btn btn-cta-crystal" href={ctaHref} id="cta-crystal-btn">{ctaLabel}</a>
   </div>
 </section>
 
+<style>
+  .cta-band {
+    background: #040609;
+    color: var(--paper);
+    padding-block: clamp(4.5rem, 7vw, 6.25rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 210, 255, 0.22);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.15);
+  }
+
+  .cta-visual-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .cta-fallback-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0, 210, 255, 0.14) 0%, rgba(4, 6, 9, 0.8) 60%, #040609 95%),
+      linear-gradient(180deg, rgba(4, 6, 9, 0.4) 0%, rgba(4, 6, 9, 0.95) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cta-visual-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .cta-contrast-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 75% 65% at 50% 50%,
+      rgba(4, 6, 9, 0.82) 0%,
+      rgba(4, 6, 9, 0.48) 50%,
+      rgba(4, 6, 9, 0.08) 80%,
+      rgba(4, 6, 9, 0.88) 100%
+    );
+  }
+
+  .cta-band .container {
+    position: relative;
+    z-index: 4;
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    color: var(--paper);
+    margin-bottom: 0.85rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .cta-band p {
+    max-width: 62ch;
+    margin-inline: auto;
+    color: var(--steel-light);
+    font-size: 1.08rem;
+    line-height: 1.65;
+    margin-bottom: 2.25rem;
+  }
+</style>
+
 <script is:inline>
-  class ClosingVisual {
-    constructor(element) {
-      this.wrapper = element;
-      this.canvas = element.querySelector('.cta-visual-canvas');
-      if (!this.canvas) return;
+  class TechVortexCTA {
+    constructor(bandElement) {
+      this.band = bandElement;
+      this.wrapper = bandElement.querySelector('.cta-visual-wrapper');
+      this.canvas = bandElement.querySelector('.cta-visual-canvas');
+      this.button = bandElement.querySelector('.btn-cta-crystal');
+      if (!this.wrapper || !this.canvas) return;
+
       this.ctx = this.canvas.getContext('2d');
+      if (!this.ctx) return;
+
       this.width = 0;
       this.height = 0;
-      this.dpi = window.devicePixelRatio || 1;
+      this.dpi = Math.min(window.devicePixelRatio || 1, 2);
+      this.time = 0;
       this.frameId = null;
       this.isVisible = false;
       this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      this.particles = [];
+
+      // Energy pulse on button hover
+      this.isButtonHovered = false;
+      this.hoverPulseRadius = 0;
+      this.hoverPulseAlpha = 0;
+
+      // Vortex geometry & particles
+      this.vortexRings = [];
+      this.cyanParticles = [];
+      this.goldParticles = [];
+      this.rightCodeStreams = [];
+
+      this.telemetrySnippets = [
+        "SHA256:8f4a", "CQS_v1.1", "DIAGNOSTICO_ACK", "EXIT:0",
+        "01100011", "GATE_READY", "AUTH_PASS", "SYNC:OK", "SEC:STRICT"
+      ];
+
       this.init();
     }
 
     init() {
       this.resize();
-      window.addEventListener('resize', () => this.resize());
-      this.setupParticles();
+      window.addEventListener('resize', () => this.resize(), { passive: true });
 
-      // IntersectionObserver para detener animaciones fuera de pantalla
+      // Button hover energetic response (Does NOT move button or layout)
+      if (this.button) {
+        this.button.addEventListener('mouseenter', () => {
+          this.isButtonHovered = true;
+          this.hoverPulseRadius = 15;
+          this.hoverPulseAlpha = 0.85;
+        });
+
+        this.button.addEventListener('mouseleave', () => {
+          this.isButtonHovered = false;
+        });
+      }
+
+      // IntersectionObserver for performance
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           this.isVisible = entry.isIntersecting;
           if (this.isVisible) {
             if (this.reducedMotion) {
               this.draw();
-            } else {
+            } else if (!this.frameId) {
               this.loop();
             }
           } else {
@@ -66,91 +188,215 @@ const {
         });
       }, { threshold: 0.05 });
 
-      this.observer.observe(this.wrapper);
+      this.observer.observe(this.band);
+      this.setupScene();
     }
 
     resize() {
-      this.width = this.wrapper.clientWidth;
-      this.height = this.wrapper.clientHeight;
-      this.canvas.width = this.width * this.dpi;
-      this.canvas.height = this.height * this.dpi;
+      this.width = this.band.clientWidth || window.innerWidth;
+      this.height = this.band.clientHeight || 360;
+
+      this.canvas.width = Math.floor(this.width * this.dpi);
+      this.canvas.height = Math.floor(this.height * this.dpi);
+
       this.ctx.setTransform(this.dpi, 0, 0, this.dpi, 0, 0);
-      this.draw();
+      this.setupScene();
+
+      if (this.reducedMotion || !this.isVisible) {
+        this.draw();
+      }
     }
 
-    setupParticles() {
-      const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 8 : 22;
-      this.particles = [];
-      for (let i = 0; i < count; i++) {
-        this.particles.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * 220 + 20,
-          vy: -0.15 - Math.random() * 0.25,
-          alpha: Math.random() * 0.16 + 0.03,
-          size: Math.random() * 1.5 + 0.8
+    setupScene() {
+      const isMobile = this.width < 768;
+
+      // 1. SETUP VORTEX RINGS (RADIAL PERSPECTIVE ELLIPSES)
+      this.vortexRings = [];
+      const ringCount = isMobile ? 6 : 10;
+      const maxRx = isMobile ? this.width * 0.55 : this.width * 0.44;
+      const maxRy = isMobile ? this.height * 0.75 : this.height * 0.68;
+
+      for (let r = 1; r <= ringCount; r++) {
+        const ratio = r / ringCount;
+        this.vortexRings.push({
+          rx: ratio * maxRx,
+          ry: ratio * maxRy,
+          speed: (0.006 + (r % 3) * 0.003) * (r % 2 === 0 ? 1 : -1),
+          alpha: 0.15 + (1 - ratio) * 0.25,
+          dashOffset: 0
+        });
+      }
+
+      // 2. SETUP CYAN TRAVELING PHOTONS (ALONG VORTEX ORBITS)
+      this.cyanParticles = [];
+      const cyanCount = isMobile ? 24 : 52;
+      for (let i = 0; i < cyanCount; i++) {
+        const ringIdx = i % ringCount;
+        this.cyanParticles.push({
+          ringIdx,
+          angle: (i / cyanCount) * Math.PI * 2,
+          speed: 0.008 + Math.random() * 0.008,
+          size: Math.random() * 2.2 + 1.2,
+          alpha: Math.random() * 0.45 + 0.35
+        });
+      }
+
+      // 3. SETUP GOLD / AMBER ACCENT SPARKS
+      this.goldParticles = [];
+      const goldCount = isMobile ? 12 : 28;
+      for (let j = 0; j < goldCount; j++) {
+        const ringIdx = (j * 2) % ringCount;
+        this.goldParticles.push({
+          ringIdx,
+          angle: (j / goldCount) * Math.PI * 2 + 0.5,
+          speed: 0.006 + Math.random() * 0.006,
+          size: Math.random() * 1.8 + 1.0,
+          alpha: Math.random() * 0.5 + 0.35
+        });
+      }
+
+      // 4. SETUP RIGHT-SIDE CODE CASCADE
+      this.rightCodeStreams = [];
+      const streamCount = isMobile ? 3 : 7;
+      const startX = this.width - (isMobile ? 110 : 200);
+
+      for (let s = 0; s < streamCount; s++) {
+        this.rightCodeStreams.push({
+          x: startX + s * (isMobile ? 28 : 26),
+          y: Math.random() * this.height,
+          speed: 0.35 + Math.random() * 0.45,
+          text: this.telemetrySnippets[s % this.telemetrySnippets.length],
+          alpha: 0.14 + Math.random() * 0.12
         });
       }
     }
 
     draw() {
+      if (!this.ctx) return;
       this.ctx.clearRect(0, 0, this.width, this.height);
-      const isMobile = this.width < 768;
-      const opacityMultiplier = isMobile ? 0.35 : 1.0;
 
-      // 1. Dibujar Grid 3D en Perspectiva muy tenue
-      const vanishY = -140; // Punto de fuga
       const cx = this.width / 2;
-      this.ctx.strokeStyle = `rgba(198, 161, 82, ${0.035 * opacityMultiplier})`;
-      this.ctx.lineWidth = 0.8;
+      const cy = this.height / 2;
+      const isMobile = this.width < 768;
 
-      // Líneas de perspectiva (rayos desde el punto de fuga)
-      const lineCount = isMobile ? 8 : 16;
-      for (let i = 0; i <= lineCount; i++) {
-        const ratio = i / lineCount;
-        const xEnd = (ratio - 0.5) * this.width * 2.8 + cx;
+      // A. BACKGROUND PERSPECTIVE CIRCUIT LINES
+      const gridCount = isMobile ? 6 : 14;
+      this.ctx.lineWidth = 0.5;
+      for (let g = 0; g <= gridCount; g++) {
+        const ratio = g / gridCount;
+        const xBottom = ratio * this.width;
         this.ctx.beginPath();
-        this.ctx.moveTo(cx, vanishY);
-        this.ctx.lineTo(xEnd, this.height);
+        this.ctx.moveTo(cx, cy);
+        this.ctx.lineTo(xBottom, this.height);
+        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.035)';
         this.ctx.stroke();
       }
 
-      // Líneas horizontales de perspectiva
-      const horizonCount = isMobile ? 5 : 9;
-      for (let i = 0; i < horizonCount; i++) {
-        const ratio = i / horizonCount;
-        const y = Math.pow(ratio, 1.8) * this.height;
-        this.ctx.beginPath();
-        this.ctx.moveTo(0, y);
-        this.ctx.lineTo(this.width, y);
-        this.ctx.stroke();
-      }
-
-      // 2. Dibujar partículas doradas ascendentes sutiles
-      this.particles.forEach((part) => {
+      // B. DRAW VORTEX RINGS
+      this.vortexRings.forEach((ring, idx) => {
         if (!this.reducedMotion) {
-          part.y += part.vy;
-          if (part.y < -10) {
-            part.y = this.height + 10;
-            part.x = Math.random() * this.width;
+          ring.dashOffset += ring.speed * 4;
+        }
+
+        const pulse = Math.sin(this.time * 1.5 + idx * 0.5) * 0.5 + 0.5;
+        this.ctx.beginPath();
+        this.ctx.ellipse(cx, cy, ring.rx, ring.ry, 0, 0, Math.PI * 2);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${ring.alpha * (0.6 + pulse * 0.4)})`;
+        this.ctx.lineWidth = idx % 2 === 0 ? 1.2 : 0.7;
+        this.ctx.stroke();
+      });
+
+      // C. DRAW RIGHT-SIDE CODE CASCADE
+      this.ctx.font = '7px "JetBrains Mono", monospace';
+      this.rightCodeStreams.forEach((stream) => {
+        if (!this.reducedMotion) {
+          stream.y += stream.speed;
+          if (stream.y > this.height + 20) {
+            stream.y = -20;
           }
         }
+        this.ctx.fillStyle = `rgba(0, 210, 255, ${stream.alpha})`;
+        this.ctx.fillText(stream.text, stream.x, stream.y);
+      });
+
+      // D. DRAW CYAN TRAVELING PHOTONS
+      this.cyanParticles.forEach((p) => {
+        if (!this.reducedMotion) {
+          p.angle += p.speed;
+        }
+        const ring = this.vortexRings[p.ringIdx] || this.vortexRings[0];
+        const px = cx + Math.cos(p.angle) * ring.rx;
+        const py = cy + Math.sin(p.angle) * ring.ry;
+
+        // Photon halo
         this.ctx.beginPath();
-        this.ctx.fillStyle = `rgba(198, 161, 82, ${part.alpha * opacityMultiplier})`;
-        this.ctx.arc(part.x, part.y, part.size, 0, Math.PI * 2);
+        this.ctx.arc(px, py, p.size * 2.2, 0, Math.PI * 2);
+        this.ctx.fillStyle = 'rgba(0, 210, 255, 0.35)';
+        this.ctx.fill();
+
+        // Photon core
+        this.ctx.beginPath();
+        this.ctx.arc(px, py, p.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#00D2FF';
         this.ctx.fill();
       });
+
+      // E. DRAW GOLD / AMBER ACCENT SPARKS
+      this.goldParticles.forEach((p) => {
+        if (!this.reducedMotion) {
+          p.angle -= p.speed;
+        }
+        const ring = this.vortexRings[p.ringIdx] || this.vortexRings[0];
+        const px = cx + Math.cos(p.angle) * ring.rx;
+        const py = cy + Math.sin(p.angle) * ring.ry;
+
+        // Gold spark halo
+        this.ctx.beginPath();
+        this.ctx.arc(px, py, p.size * 2.0, 0, Math.PI * 2);
+        this.ctx.fillStyle = 'rgba(255, 200, 80, 0.3)';
+        this.ctx.fill();
+
+        // Gold spark core
+        this.ctx.beginPath();
+        this.ctx.arc(px, py, p.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#FFD700';
+        this.ctx.fill();
+      });
+
+      // F. BUTTON HOVER ENERGY WAVE (BURSTS FROM BEHIND THE BUTTON)
+      if (this.hoverPulseAlpha > 0.01) {
+        if (!this.reducedMotion) {
+          this.hoverPulseRadius += 3.5;
+          this.hoverPulseAlpha *= 0.94;
+        }
+
+        const btnY = cy + (isMobile ? 70 : 85);
+        this.ctx.beginPath();
+        this.ctx.ellipse(cx, btnY, this.hoverPulseRadius * 2.2, this.hoverPulseRadius * 0.9, 0, 0, Math.PI * 2);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${this.hoverPulseAlpha})`;
+        this.ctx.lineWidth = 1.8;
+        this.ctx.stroke();
+
+        this.ctx.beginPath();
+        this.ctx.ellipse(cx, btnY, this.hoverPulseRadius * 2.2, this.hoverPulseRadius * 0.9, 0, 0, Math.PI * 2);
+        this.ctx.fillStyle = `rgba(0, 210, 255, ${this.hoverPulseAlpha * 0.15})`;
+        this.ctx.fill();
+      }
     }
 
     loop() {
+      this.time += 0.016;
       this.draw();
-      this.frameId = requestAnimationFrame(() => this.loop());
+
+      if (this.isVisible && !this.reducedMotion) {
+        this.frameId = requestAnimationFrame(() => this.loop());
+      }
     }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.cta-visual-wrapper').forEach((el) => {
-      new ClosingVisual(el);
+    document.querySelectorAll('.cta-band').forEach((el) => {
+      new TechVortexCTA(el);
     });
   });
 </script>
