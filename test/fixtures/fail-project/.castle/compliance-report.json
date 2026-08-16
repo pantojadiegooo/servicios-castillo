@@ -1,0 +1,221 @@
+{
+  "certificate": {
+    "validation_id": "CG-2026-220A42",
+    "protocol": "CQS_v1.1",
+    "policy_level": "C1",
+    "target_release_sha": "e5fce57bfbe6100c190c0bf4b4ea00664e808549",
+    "evaluation_timestamp_utc": "2026-08-16T20:58:43.674Z",
+    "status": "FAIL",
+    "exit_code": 1,
+    "score": 72.5,
+    "secrets_detected": 2,
+    "gate_breakers_active": 2,
+    "domains_summary": {
+      "DOM-01": {
+        "name": "Secret & Credential Detection",
+        "score": 20,
+        "status": "FAIL",
+        "findingsCount": 2
+      },
+      "DOM-02": {
+        "name": "Dependency & Supply Chain Health",
+        "score": 70,
+        "status": "PASS",
+        "findingsCount": 2
+      },
+      "DOM-03": {
+        "name": "Static Code Quality & Architecture",
+        "score": 100,
+        "status": "PASS",
+        "findingsCount": 0
+      },
+      "DOM-04": {
+        "name": "Accessibility & Semantic HTML (WCAG AA)",
+        "score": 100,
+        "status": "PASS",
+        "findingsCount": 0
+      },
+      "DOM-05": {
+        "name": "Web Performance & Core Web Vitals Hygiene",
+        "score": 100,
+        "status": "PASS",
+        "findingsCount": 0
+      },
+      "DOM-06": {
+        "name": "Build & Production Configuration Hygiene",
+        "score": 90,
+        "status": "PASS",
+        "findingsCount": 1
+      },
+      "DOM-07": {
+        "name": "SEO, Canonical & Governance Metadata",
+        "score": 90,
+        "status": "PASS",
+        "findingsCount": 2
+      }
+    },
+    "ownership": "CLIENT_EXCLUSIVE",
+    "signature_digest_sha256": "a0706d07cd54553eb85775ca4e149d904824fcd9363ab7588f0c053b18874afa"
+  },
+  "evaluation": {
+    "targetDir": "C:\\Users\\panto\\Downloads\\servicios-castillo\\test\\fixtures\\fail-project",
+    "policyLevel": "C1",
+    "policyThreshold": 60,
+    "score": 72.5,
+    "status": "FAIL",
+    "exitCode": 1,
+    "gateBreakersActive": 2,
+    "secretsDetected": 2,
+    "domains": [
+      {
+        "domainId": "DOM-01",
+        "domainName": "Secret & Credential Detection",
+        "score": 20,
+        "status": "FAIL",
+        "gateBreakersActive": 2,
+        "findings": [
+          {
+            "id": "SEC-02",
+            "name": "AWS Access Key ID & Secret",
+            "file": "src/config.js",
+            "line": 3,
+            "snippet": "accessKeyId: \"AKIAIOSFODNN7EXAMPLE\",...",
+            "severity": "CRITICAL",
+            "isGateBreaker": true,
+            "description": "Standard AWS IAM 20-character Access Key ID identifier"
+          },
+          {
+            "id": "SEC-06",
+            "name": "Database URI with Embedded Credentials",
+            "file": "src/config.js",
+            "line": 4,
+            "snippet": "databaseUri: \"postgres://admin:superSecretPass123@db.interna...",
+            "severity": "CRITICAL",
+            "isGateBreaker": true,
+            "description": "Database connection string containing plaintext user and password"
+          }
+        ],
+        "summary": {
+          "filesScanned": 2,
+          "secretsDetected": 2,
+          "gateBreakers": 2
+        }
+      },
+      {
+        "domainId": "DOM-02",
+        "domainName": "Dependency & Supply Chain Health",
+        "score": 70,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [
+          {
+            "id": "DEP-05",
+            "name": "Engine Runtime Pinning",
+            "rule": "engines.node is recommended for reproducible builds",
+            "severity": "LOW",
+            "isGateBreaker": false
+          },
+          {
+            "id": "DEP-02",
+            "name": "Lockfile Integrity",
+            "rule": "Deterministic lockfile (package-lock.json / pnpm-lock.yaml / yarn.lock) is required",
+            "severity": "HIGH",
+            "isGateBreaker": false
+          }
+        ],
+        "summary": {
+          "hasManifest": true,
+          "hasLockfile": false,
+          "issuesCount": 2
+        }
+      },
+      {
+        "domainId": "DOM-03",
+        "domainName": "Static Code Quality & Architecture",
+        "score": 100,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [],
+        "summary": {
+          "sourceFilesScanned": 1,
+          "assetsScanned": 0,
+          "issuesCount": 0
+        }
+      },
+      {
+        "domainId": "DOM-04",
+        "domainName": "Accessibility & Semantic HTML (WCAG AA)",
+        "score": 100,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [],
+        "summary": {
+          "pagesEvaluated": 1,
+          "issuesCount": 0
+        }
+      },
+      {
+        "domainId": "DOM-05",
+        "domainName": "Web Performance & Core Web Vitals Hygiene",
+        "score": 100,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [],
+        "summary": {
+          "jsBundleSizeBytes": 0,
+          "issuesCount": 0
+        }
+      },
+      {
+        "domainId": "DOM-06",
+        "domainName": "Build & Production Configuration Hygiene",
+        "score": 90,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [
+          {
+            "id": "PROD-04-404",
+            "name": "Missing Custom 404 Handler",
+            "rule": "Custom 404 error page should be configured for resilience",
+            "severity": "MEDIUM",
+            "isGateBreaker": false
+          }
+        ],
+        "summary": {
+          "hasVercelHeaders": false,
+          "has404Handler": false,
+          "issuesCount": 1
+        }
+      },
+      {
+        "domainId": "DOM-07",
+        "domainName": "SEO, Canonical & Governance Metadata",
+        "score": 90,
+        "status": "PASS",
+        "gateBreakersActive": 0,
+        "findings": [
+          {
+            "id": "SEO-03-SITEMAP",
+            "name": "Missing XML Sitemap",
+            "rule": "sitemap.xml is recommended for search index discovery",
+            "severity": "LOW",
+            "isGateBreaker": false
+          },
+          {
+            "id": "SEO-04-ROBOTS",
+            "name": "Missing robots.txt",
+            "rule": "robots.txt is recommended to control crawler access",
+            "severity": "LOW",
+            "isGateBreaker": false
+          }
+        ],
+        "summary": {
+          "pagesAudited": 0,
+          "hasSitemap": false,
+          "hasRobots": false,
+          "issuesCount": 2
+        }
+      }
+    ]
+  }
+}

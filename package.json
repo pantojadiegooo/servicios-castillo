@@ -10,7 +10,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "castle-gate": "node ./bin/castle-gate.js",
+    "test:gate": "node ./test/castle-gate.test.js"
   },
   "dependencies": {
     "astro": "^7.2.0"

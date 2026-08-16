@@ -1,0 +1,45 @@
+name: Castle Quality & Security Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  gate-evaluation:
+    name: CQS v1.1 Policy Evaluation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Astro Typecheck & Build
+        run: |
+          npm run check
+          npm run build
+
+      - name: Run Castle Gate Test Suite
+        run: npm run test:gate
+
+      - name: Execute Castle Gate Runner (CQS v1.1 / Policy C4)
+        run: node bin/castle-gate.js scan --dir . --level C4 --out .castle
+
+      - name: Verify Release Certificate Integrity
+        run: node bin/castle-gate.js verify-cert --cert .castle/release-certificate.json
+
+      - name: Upload Compliance Evidence Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: castle-gate-evidence
+          path: .castle/
+          retention-days: 30

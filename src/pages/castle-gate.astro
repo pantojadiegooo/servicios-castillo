@@ -276,7 +276,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <div style="padding-left: 2.5rem;"><span style="color: var(--cyan);">steps:</span></div>
             <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- uses:</span> <span style="color: #fff;">actions/checkout@v4</span></div>
             <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- name:</span> <span style="color: #fff;">Run Castle Gate Runner (CQS v1.1)</span></div>
-            <div style="padding-left: 5rem; color: var(--success);">run: ./bin/castle-gate-runner --dir . --level C1 --key ${'{'} secrets.CASTLE_GATE_LICENSE {'}'}</div>
+            <div style="padding-left: 5rem; color: var(--success);">run: node bin/castle-gate.js scan --dir . --level C4</div>
           </div>
           <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); font-size: 0.82rem; color: var(--steel-soft);">
             <strong style="color: var(--paper);">Nota de despliegue:</strong> El runner de Castle Gate se distribuye como binario autónomo para runners privados o imagen de contenedor CI/CD provista bajo licencia anual, garantizando que el análisis se ejecute 100% en la memoria de tu propia infraestructura.
@@ -419,7 +419,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
               <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); display: block; margin-bottom: 1rem;">DEMO • REPOSITORIO PROPIO</span>
               <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
-                <CastleGateBadge variant="full" validationId="CG-2026-SYS01" releaseSha="54e0a5a" isSelfValidation={true} />
+                <CastleGateBadge variant="full" validationId="CG-2026-E60998" releaseSha="e5fce57" isSelfValidation={true} />
               </div>
               <p style="font-size: 0.78rem; color: var(--steel-light); margin: 0; line-height: 1.45;">
                 Acreditación de pipeline estático ejecutado para este mismo sitio web.

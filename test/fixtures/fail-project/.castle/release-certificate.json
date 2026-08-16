@@ -1,0 +1,58 @@
+{
+  "validation_id": "CG-2026-220A42",
+  "protocol": "CQS_v1.1",
+  "policy_level": "C1",
+  "target_release_sha": "e5fce57bfbe6100c190c0bf4b4ea00664e808549",
+  "evaluation_timestamp_utc": "2026-08-16T20:58:43.674Z",
+  "status": "FAIL",
+  "exit_code": 1,
+  "score": 72.5,
+  "secrets_detected": 2,
+  "gate_breakers_active": 2,
+  "domains_summary": {
+    "DOM-01": {
+      "name": "Secret & Credential Detection",
+      "score": 20,
+      "status": "FAIL",
+      "findingsCount": 2
+    },
+    "DOM-02": {
+      "name": "Dependency & Supply Chain Health",
+      "score": 70,
+      "status": "PASS",
+      "findingsCount": 2
+    },
+    "DOM-03": {
+      "name": "Static Code Quality & Architecture",
+      "score": 100,
+      "status": "PASS",
+      "findingsCount": 0
+    },
+    "DOM-04": {
+      "name": "Accessibility & Semantic HTML (WCAG AA)",
+      "score": 100,
+      "status": "PASS",
+      "findingsCount": 0
+    },
+    "DOM-05": {
+      "name": "Web Performance & Core Web Vitals Hygiene",
+      "score": 100,
+      "status": "PASS",
+      "findingsCount": 0
+    },
+    "DOM-06": {
+      "name": "Build & Production Configuration Hygiene",
+      "score": 90,
+      "status": "PASS",
+      "findingsCount": 1
+    },
+    "DOM-07": {
+      "name": "SEO, Canonical & Governance Metadata",
+      "score": 90,
+      "status": "PASS",
+      "findingsCount": 2
+    }
+  },
+  "ownership": "CLIENT_EXCLUSIVE",
+  "signature_digest_sha256": "a0706d07cd54553eb85775ca4e149d904824fcd9363ab7588f0c053b18874afa"
+}

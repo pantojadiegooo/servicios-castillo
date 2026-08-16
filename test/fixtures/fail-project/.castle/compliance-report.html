@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Castle Gate Compliance Report — CG-2026-220A42</title>
+  <style>
+    body {
+      background: #06080C;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 32px 16px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header-card {
+      background: #0E121B;
+      border: 1px solid #222B3A;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    @media (max-width: 680px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .kpi-box {
+      background: #06080C;
+      border: 1px solid #222B3A;
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-val {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: monospace;
+      margin-top: 4px;
+    }
+    .kpi-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #94A3B8;
+      font-family: monospace;
+    }
+    code {
+      font-family: "JetBrains Mono", "SF Mono", Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span style="font-family: monospace; font-size: 11px; color: #00D2FF; letter-spacing: 0.08em; text-transform: uppercase;">
+            GRUPO CASTILLO • QUALITY &amp; SECURITY GATE (CQS v1.1)
+          </span>
+          <h1 style="margin: 4px 0 6px 0; font-size: 22px; color: #F8FAFC;">
+            Release Compliance Report
+          </h1>
+          <div style="font-family: monospace; font-size: 12px; color: #94A3B8;">
+            ID: <strong style="color: #00D2FF;">CG-2026-220A42</strong> | 
+            Policy: <strong>C1</strong> | 
+            Timestamp: 2026-08-16T20:58:43.674Z
+          </div>
+        </div>
+        <div>
+          <span class="badge" style="background: rgba(255, 59, 92, 0.12); color: #FF3B5C; border: 1px solid #FF3B5C; font-size: 14px; padding: 6px 14px;">
+            FAIL (Exit Code 1)
+          </span>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-box">
+          <div class="kpi-lbl">Composite Score</div>
+          <div class="kpi-val" style="color: #FF3B5C;">72.5 / 100</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-lbl">Gate Breakers</div>
+          <div class="kpi-val" style="color: #FF3B5C;">
+            2 Active
+          </div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-lbl">Secrets Detected</div>
+          <div class="kpi-val" style="color: #FF3B5C;">
+            2
+          </div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-lbl">Domains Audited</div>
+          <div class="kpi-val" style="color: #00D2FF;">
+            7 / 7
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid #222B3A; font-size: 11px; font-family: monospace; color: #94A3B8; word-break: break-all;">
+        <strong>Target Release SHA:</strong> e5fce57bfbe6100c190c0bf4b4ea00664e808549<br>
+        <strong>Signature Digest (SHA-256):</strong> a0706d07cd54553eb85775ca4e149d904824fcd9363ab7588f0c053b18874afa
+      </div>
+    </div>
+
+    <h2 style="font-size: 16px; margin: 24px 0 12px 0; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-family: monospace;">
+      Domain Inspection Results
+    </h2>
+
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-01</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Secret & Credential Detection</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #FF3B5C;">20.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #FF3B5C;">FAIL</span>
+          </div>
+        </div>
+        <div style="margin-top: 12px; border-top: 1px solid #222B3A; padding-top: 10px;">
+          <strong style="font-size: 11px; text-transform: uppercase; color: #94A3B8;">Findings (2):</strong>
+          <ul style="margin: 6px 0 0 0; padding-left: 16px; font-size: 12px; color: #CBD5E1;">
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FF3B5C; font-weight: bold;">[CRITICAL]</span>
+                <code>src/config.js:3</code> — 
+                AWS Access Key ID & Secret
+                <br><code style="background: #06080C; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #94A3B8;">accessKeyId: "AKIAIOSFODNN7EXAMPLE",...</code>
+              </li>
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FF3B5C; font-weight: bold;">[CRITICAL]</span>
+                <code>src/config.js:4</code> — 
+                Database URI with Embedded Credentials
+                <br><code style="background: #06080C; padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #94A3B8;">databaseUri: "postgres://admin:superSecretPass123@db.interna...</code>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-02</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Dependency & Supply Chain Health</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">70.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <div style="margin-top: 12px; border-top: 1px solid #222B3A; padding-top: 10px;">
+          <strong style="font-size: 11px; text-transform: uppercase; color: #94A3B8;">Findings (2):</strong>
+          <ul style="margin: 6px 0 0 0; padding-left: 16px; font-size: 12px; color: #CBD5E1;">
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FFB800; font-weight: bold;">[LOW]</span>
+                
+                Engine Runtime Pinning
+                
+              </li>
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FFB800; font-weight: bold;">[HIGH]</span>
+                
+                Lockfile Integrity
+                
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-03</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Static Code Quality & Architecture</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">100.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 12px; color: #00E599;">✓ All controls satisfied nominal baseline without findings.</p>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-04</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Accessibility & Semantic HTML (WCAG AA)</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">100.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 12px; color: #00E599;">✓ All controls satisfied nominal baseline without findings.</p>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-05</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Web Performance & Core Web Vitals Hygiene</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">100.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 12px; color: #00E599;">✓ All controls satisfied nominal baseline without findings.</p>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-06</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">Build & Production Configuration Hygiene</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">90.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <div style="margin-top: 12px; border-top: 1px solid #222B3A; padding-top: 10px;">
+          <strong style="font-size: 11px; text-transform: uppercase; color: #94A3B8;">Findings (1):</strong>
+          <ul style="margin: 6px 0 0 0; padding-left: 16px; font-size: 12px; color: #CBD5E1;">
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FFB800; font-weight: bold;">[MEDIUM]</span>
+                
+                Missing Custom 404 Handler
+                
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+      <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">DOM-07</span>
+            <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">SEO, Canonical & Governance Metadata</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-family: monospace; font-size: 14px; font-weight: bold; color: #00E599;">90.0 / 100</span>
+            <span style="display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; color: #00E599;">PASS</span>
+          </div>
+        </div>
+        <div style="margin-top: 12px; border-top: 1px solid #222B3A; padding-top: 10px;">
+          <strong style="font-size: 11px; text-transform: uppercase; color: #94A3B8;">Findings (2):</strong>
+          <ul style="margin: 6px 0 0 0; padding-left: 16px; font-size: 12px; color: #CBD5E1;">
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FFB800; font-weight: bold;">[LOW]</span>
+                
+                Missing XML Sitemap
+                
+              </li>
+            
+              <li style="margin-bottom: 6px;">
+                <span style="color: #FFB800; font-weight: bold;">[LOW]</span>
+                
+                Missing robots.txt
+                
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    
+
+    <div style="margin-top: 32px; text-align: center; font-size: 11px; color: #64748B; font-family: monospace;">
+      Castle Quality Standard (CQS v1.1) • Evaluation executed locally in memory • Client owns 100% of software assets.
+    </div>
+  </div>
+</body>
+</html>
