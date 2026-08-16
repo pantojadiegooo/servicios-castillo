@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
+import CastleGateEngineVisual from '../components/CastleGateEngineVisual.astro';
 ---
 
 <BaseLayout
@@ -13,13 +14,14 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
 >
   <main id="main">
 
-    <!-- HERO SECTION -->
-    <section class="page-hero" style="padding-top: 5rem; padding-bottom: 4rem;">
-      <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Tecnología</a> / Castle Gate v1.0.0</p>
-        <div class="badge badge-cyan" style="margin-bottom: 1rem;">TECNOLOGÍA PROPIA • CQS v1.1 • RELEASE READY</div>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); max-width: 24ch;">Castle Security &amp; Quality Gate</h1>
-        <p style="max-width: 70ch; font-size: 1.15rem; color: var(--steel-light); line-height: 1.7;">
+    <!-- HERO SECTION (ORBE HOLOGRÁFICO DE CÓDIGO Y ENERGÍA) -->
+    <section class="page-hero" style="position: relative; overflow: hidden; background: #06080C; padding-top: 5.5rem; padding-bottom: 4.75rem;">
+      <CastleGateEngineVisual />
+      <div class="container page-hero-inner" style="position: relative; z-index: 4; text-align: center; max-width: 860px; margin: 0 auto;">
+        <p class="breadcrumb" style="justify-content: center;"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Tecnología</a> / Castle Gate v1.0.0</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem; display: inline-flex;">TECNOLOGÍA PROPIA • CQS v1.1 • RELEASE READY</div>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); max-width: 24ch; margin-left: auto; margin-right: auto; line-height: 1.16; letter-spacing: -0.02em; margin-bottom: 1rem;">Castle Security &amp; Quality Gate</h1>
+        <p style="max-width: 70ch; margin-left: auto; margin-right: auto; font-size: 1.12rem; color: var(--steel-light); line-height: 1.7;">
           Motor de gobernanza de software y validación determinista de releases. Diseñado para evaluar y vetar entregas que incumplan los controles de seguridad y calidad CQS v1.1 configurados en tu pipeline.
         </p>
       </div>
