@@ -166,21 +166,21 @@ const { className = "" } = Astro.props;
       // 1. SETUP HOLOGRAPHIC MODULAR BLOCKS (ISOMETRIC 3D GRID)
       this.modules = [];
 
-      // Definitions of architectural building blocks
+      // Definitions of architectural building blocks (Symmetrically balanced)
       const moduleSpecs = [
         // Left Architecture Cluster (Core, UI Engine, API Gateway)
-        { relX: -0.38, relY: -0.15, w: 75, h: 65, depth: 35, tag: "MOD_01 [CORE_UI]", floatSpeed: 1.2, floatAmp: 9, phase: 0.0, isWire: false },
-        { relX: -0.24, relY: -0.30, w: 90, h: 55, depth: 40, tag: "MOD_02 [ROUTING]", floatSpeed: 0.9, floatAmp: 11, phase: 1.4, isWire: true },
-        { relX: -0.35, relY: 0.22,  w: 105, h: 80, depth: 45, tag: "MOD_03 [GATE_API]", floatSpeed: 1.1, floatAmp: 8, phase: 2.7, isWire: false },
-        { relX: -0.18, relY: 0.35,  w: 70, h: 60, depth: 30, tag: "MOD_04 [AUTH_RBAC]", floatSpeed: 1.4, floatAmp: 12, phase: 4.1, isWire: true },
-        { relX: -0.44, relY: 0.05,  w: 60, h: 50, depth: 28, tag: "NODE_L0", floatSpeed: 1.0, floatAmp: 7, phase: 0.8, isWire: true },
+        { relX: -0.35, relY: -0.20, w: 80, h: 65, depth: 36, tag: "MOD_01 [CORE_UI]", floatSpeed: 1.2, floatAmp: 9, phase: 0.0, isWire: false },
+        { relX: -0.22, relY: -0.30, w: 90, h: 55, depth: 40, tag: "MOD_02 [ROUTING]", floatSpeed: 0.9, floatAmp: 11, phase: 1.4, isWire: true },
+        { relX: -0.34, relY: 0.24,  w: 100, h: 75, depth: 42, tag: "MOD_03 [GATE_API]", floatSpeed: 1.1, floatAmp: 8, phase: 2.7, isWire: false },
+        { relX: -0.20, relY: 0.34,  w: 75, h: 60, depth: 32, tag: "MOD_04 [AUTH_RBAC]", floatSpeed: 1.4, floatAmp: 12, phase: 4.1, isWire: true },
+        { relX: -0.42, relY: 0.04,  w: 60, h: 50, depth: 28, tag: "NODE_L0", floatSpeed: 1.0, floatAmp: 7, phase: 0.8, isWire: true },
 
         // Right Architecture Cluster (Data Layer, Microservices, Scale Engine)
-        { relX: 0.28,  relY: -0.22, w: 85, h: 70, depth: 38, tag: "MOD_05 [DATA_BUS]", floatSpeed: 1.0, floatAmp: 10, phase: 0.6, isWire: false },
-        { relX: 0.40,  relY: -0.08, w: 70, h: 55, depth: 32, tag: "MOD_06 [CACHE_L1]", floatSpeed: 1.3, floatAmp: 8, phase: 2.1, isWire: true },
-        { relX: 0.22,  relY: 0.26,  w: 95, h: 75, depth: 42, tag: "MOD_07 [PIPELINE]", floatSpeed: 0.8, floatAmp: 11, phase: 3.5, isWire: false },
-        { relX: 0.38,  relY: 0.30,  w: 80, h: 65, depth: 36, tag: "MOD_08 [SECURITY]", floatSpeed: 1.2, floatAmp: 9, phase: 5.0, isWire: true },
-        { relX: 0.46,  relY: 0.12,  w: 65, h: 50, depth: 28, tag: "NODE_R0", floatSpeed: 1.1, floatAmp: 7, phase: 1.8, isWire: true }
+        { relX: 0.35,  relY: -0.20, w: 80, h: 65, depth: 36, tag: "MOD_05 [DATA_BUS]", floatSpeed: 1.0, floatAmp: 9, phase: 0.6, isWire: false },
+        { relX: 0.22,  relY: -0.30, w: 90, h: 55, depth: 40, tag: "MOD_06 [CACHE_L1]", floatSpeed: 1.3, floatAmp: 11, phase: 2.1, isWire: true },
+        { relX: 0.34,  relY: 0.24,  w: 100, h: 75, depth: 42, tag: "MOD_07 [PIPELINE]", floatSpeed: 0.8, floatAmp: 8, phase: 3.5, isWire: false },
+        { relX: 0.20,  relY: 0.34,  w: 75, h: 60, depth: 32, tag: "MOD_08 [SECURITY]", floatSpeed: 1.2, floatAmp: 12, phase: 5.0, isWire: true },
+        { relX: 0.42,  relY: 0.04,  w: 60, h: 50, depth: 28, tag: "NODE_R0", floatSpeed: 1.1, floatAmp: 7, phase: 1.8, isWire: true }
       ];
 
       const scale = isMobile ? 0.65 : (isTablet ? 0.85 : 1.0);

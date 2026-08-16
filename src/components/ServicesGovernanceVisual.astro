@@ -166,13 +166,13 @@ const { className = "" } = Astro.props;
       // 1. SETUP 5 MAIN GOVERNANCE CAPABILITY NODES / SLABS
       this.governanceNodes = [];
 
-      // 5 Major Architectural Nodes (Checkup, Audit, Rescue, Emergency, Care) + Support Relays
+      // 5 Major Architectural Nodes (Symmetrically balanced) + Support Relays
       const nodeDefinitions = [
         // 01. CHECKUP NODE (Top-Left): Static scan & telemetry
         {
           id: 'checkup',
           relX: -0.34, relY: -0.22,
-          w: 110, h: 70, depth: 36,
+          w: 115, h: 72, depth: 36,
           label: "01. CHECKUP",
           subLabel: "SCAN_65_CTRLS",
           type: "diagnostic",
@@ -182,8 +182,8 @@ const { className = "" } = Astro.props;
         // 02. AUDIT NODE (Top-Right): In-depth inspection & vulnerability remediation
         {
           id: 'audit',
-          relX: 0.32, relY: -0.24,
-          w: 125, h: 75, depth: 40,
+          relX: 0.34, relY: -0.22,
+          w: 115, h: 72, depth: 36,
           label: "02. AUDIT",
           subLabel: "REMEDIATION_PATH",
           type: "audit_slab",
@@ -194,8 +194,8 @@ const { className = "" } = Astro.props;
         // 03. RESCUE NODE (Bottom-Left): Legacy refactoring & stabilization
         {
           id: 'rescue',
-          relX: -0.36, relY: 0.28,
-          w: 115, h: 75, depth: 38,
+          relX: -0.34, relY: 0.26,
+          w: 115, h: 72, depth: 36,
           label: "03. RESCUE",
           subLabel: "FORTIFIED_CODE",
           type: "fortified",
@@ -205,19 +205,19 @@ const { className = "" } = Astro.props;
         // 04. EMERGENCY NODE (Bottom-Right): Incident response & containment
         {
           id: 'emergency',
-          relX: 0.35, relY: 0.26,
-          w: 120, h: 70, depth: 35,
+          relX: 0.34, relY: 0.26,
+          w: 115, h: 72, depth: 36,
           label: "04. EMERGENCY",
           subLabel: "CONTAINMENT_OK",
           type: "priority",
           accentColor: "#00D2FF",
           floatSpeed: 1.0, floatAmp: 10, phase: 4.6
         },
-        // 05. CARE NODE (Bottom-Center / Offset): Continuous governance & heartbeat
+        // 05. CARE NODE (Bottom-Center Symmetrical): Continuous governance & heartbeat
         {
           id: 'care',
-          relX: -0.12, relY: 0.38,
-          w: 105, h: 60, depth: 30,
+          relX: 0.0, relY: 0.36,
+          w: 110, h: 62, depth: 32,
           label: "05. CARE",
           subLabel: "HEARTBEAT_LIVE",
           type: "monitor",
@@ -227,7 +227,7 @@ const { className = "" } = Astro.props;
         // Satellite Relay 01 (Deep left)
         {
           id: 'relay_left',
-          relX: -0.44, relY: 0.04,
+          relX: -0.44, relY: 0.03,
           w: 65, h: 45, depth: 25,
           label: "GATE_BUS_0",
           subLabel: "0x8A12",
@@ -238,7 +238,7 @@ const { className = "" } = Astro.props;
         // Satellite Relay 02 (Deep right)
         {
           id: 'relay_right',
-          relX: 0.44, relY: 0.02,
+          relX: 0.44, relY: 0.03,
           w: 65, h: 45, depth: 25,
           label: "GATE_BUS_1",
           subLabel: "SHA256:OK",

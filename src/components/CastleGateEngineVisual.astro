@@ -170,7 +170,7 @@ const { className = "" } = Astro.props;
       const isMobile = this.width < 768;
       const isTablet = this.width >= 768 && this.width < 1080;
       const cx = this.width / 2;
-      const cy = this.height * 0.44;
+      const cy = this.height * 0.48;
 
       // Base radius of the 3D Holographic Orb
       this.orbRadius = isMobile ? 105 : (isTablet ? 150 : 185);

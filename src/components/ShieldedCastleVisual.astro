@@ -166,19 +166,19 @@ const { className = "" } = Astro.props;
       const isMobile = this.width < 768;
       const isTablet = this.width >= 768 && this.width < 1080;
       const cx = this.width / 2;
-      const cy = this.height * 0.44;
+      const cy = this.height * 0.48;
 
       // Fortress dimensions
       this.castleScale = isMobile ? 0.65 : (isTablet ? 0.85 : 1.0);
       this.hexRadius = isMobile ? 120 : (isTablet ? 175 : 215);
 
-      // 1. SETUP SURVEILLANCE DRONES (3 TO 4 DRONES WITH INDEPENDENT PATROLS)
+      // 1. SETUP SURVEILLANCE DRONES (Symmetrically balanced)
       this.drones = [];
       const droneSpecs = [
-        { relX: -0.32, relY: -0.28, patrolRangeX: 18, patrolRangeY: 10, speed: 0.9, phase: 0.0, scanAngle: 0.35, depth: 1.15 },
-        { relX: 0.34,  relY: -0.24, patrolRangeX: 22, patrolRangeY: 14, speed: 1.2, phase: 1.7, scanAngle: -0.3, depth: 1.05 },
-        { relX: -0.38, relY: 0.14,  patrolRangeX: 14, patrolRangeY: 16, speed: 0.7, phase: 3.4, scanAngle: 0.2,  depth: 0.95 },
-        { relX: 0.36,  relY: 0.18,  patrolRangeX: 16, patrolRangeY: 12, speed: 1.1, phase: 4.8, scanAngle: -0.25, depth: 1.10 }
+        { relX: -0.34, relY: -0.24, patrolRangeX: 18, patrolRangeY: 12, speed: 0.9, phase: 0.0, scanAngle: 0.35, depth: 1.15 },
+        { relX: 0.34,  relY: -0.24, patrolRangeX: 18, patrolRangeY: 12, speed: 1.1, phase: 1.7, scanAngle: -0.35, depth: 1.15 },
+        { relX: -0.36, relY: 0.20,  patrolRangeX: 16, patrolRangeY: 14, speed: 0.8, phase: 3.4, scanAngle: 0.25,  depth: 1.05 },
+        { relX: 0.36,  relY: 0.20,  patrolRangeX: 16, patrolRangeY: 14, speed: 1.0, phase: 4.8, scanAngle: -0.25, depth: 1.05 }
       ];
 
       const droneCount = isMobile ? 2 : droneSpecs.length;

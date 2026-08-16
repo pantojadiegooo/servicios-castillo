@@ -12,9 +12,15 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/index.html">
-      <span class="brand-name">Grupo Castillo</span>
-      <span class="brand-sub">Ingeniería &amp; Gobernanza Digital</span>
+    <a class="brand" href="/index.html" aria-label="Grupo Castillo — Inicio">
+      <svg class="brand-symbol" viewBox="40 18 122 166" width="22" height="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60.20,27.54 L43.77,27.54 L43.77,177.54 L114.79,177.54 L60.20,27.54 Z" fill="#3E7C93"/>
+        <path d="M123.25,174.46 L158.23,174.46 L158.23,24.46 L68.66,24.46 L123.25,174.46 Z" fill="#E8EAEC"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">Grupo Castillo</span>
+        <span class="brand-sub">Ingeniería &amp; Gobernanza Digital</span>
+      </div>
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
