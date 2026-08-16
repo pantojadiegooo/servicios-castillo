@@ -1,0 +1,88 @@
+---
+interface Props {
+  variant?: 'full' | 'compact' | 'pill' | 'card';
+  validationId?: string;
+  releaseSha?: string;
+  policyLevel?: string;
+  href?: string;
+  isSelfValidation?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'full',
+  validationId = 'CG-2026-REF01',
+  releaseSha,
+  policyLevel = 'CQS v1.1',
+  href = '/castle-gate.html#validacion',
+  isSelfValidation = false,
+  class: extraClass = ''
+} = Astro.props;
+
+const ariaTitle = `Validado por Castle Security & Quality Gate — ${policyLevel} (ID: ${validationId})`;
+---
+
+{variant === 'card' ? (
+  <div class={`cg-mark-card ${extraClass}`} role="region" aria-label="Ficha de Validación Técnica Castle Gate">
+    <div class="cg-mark-card-header">
+      <a href={href} class="cg-mark cg-mark-compact" title="Ver especificación del protocolo de validación">
+        <span class="cg-mark-symbol" aria-hidden="true">
+          <svg viewBox="40 18 122 166" width="16" height="22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60.20,27.54 L43.77,27.54 L43.77,177.54 L114.79,177.54 L60.20,27.54 Z" fill="#3E7C93"/>
+            <path d="M123.25,174.46 L158.23,174.46 L158.23,24.46 L68.66,24.46 L123.25,174.46 Z" fill="#E8EAEC"/>
+          </svg>
+        </span>
+        <span class="cg-mark-body">
+          <span class="cg-mark-title">Validado por Castle Security &amp; Quality Gate</span>
+          <span class="cg-mark-sub">
+            <span class="cg-mark-status-dot"></span>
+            <strong>{policyLevel}</strong> • RELEASE PASS
+          </span>
+        </span>
+      </a>
+      <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 2px 6px;">VERIFICACIÓN TÉCNICA</span>
+    </div>
+    <div class="cg-mark-card-meta">
+      <div class="cg-mark-meta-item">
+        <span>Identificador</span>
+        <strong>{validationId}</strong>
+      </div>
+      {releaseSha && (
+        <div class="cg-mark-meta-item">
+          <span>Release SHA</span>
+          <strong>{releaseSha}</strong>
+        </div>
+      )}
+      <div class="cg-mark-meta-item">
+        <span>Evaluación</span>
+        <strong style="color: var(--success);">PASS (0 Secretos • CQS OK)</strong>
+      </div>
+      <div class="cg-mark-meta-item">
+        <span>Propiedad</span>
+        <strong style="color: var(--steel-light);">{isSelfValidation ? 'Repositorio Propio' : 'Exclusiva del Cliente'}</strong>
+      </div>
+    </div>
+  </div>
+) : (
+  <a
+    href={href}
+    class={`cg-mark ${variant === 'compact' ? 'cg-mark-compact' : ''} ${variant === 'pill' ? 'cg-mark-pill' : ''} ${extraClass}`}
+    title={ariaTitle}
+    aria-label={ariaTitle}
+  >
+    <span class="cg-mark-symbol" aria-hidden="true">
+      <svg viewBox="40 18 122 166" width={variant === 'compact' ? '14' : '16'} height={variant === 'compact' ? '19' : '22'} xmlns="http://www.w3.org/2000/svg">
+        <path d="M60.20,27.54 L43.77,27.54 L43.77,177.54 L114.79,177.54 L60.20,27.54 Z" fill="#3E7C93"/>
+        <path d="M123.25,174.46 L158.23,174.46 L158.23,24.46 L68.66,24.46 L123.25,174.46 Z" fill="#E8EAEC"/>
+      </svg>
+    </span>
+    <span class="cg-mark-body">
+      <span class="cg-mark-title">Validado por Castle Security &amp; Quality Gate</span>
+      <span class="cg-mark-sub">
+        <span class="cg-mark-status-dot"></span>
+        <strong>{policyLevel}</strong>
+        {releaseSha ? ` • SHA: ${releaseSha}` : ' • Release PASS'}
+      </span>
+    </span>
+  </a>
+)}

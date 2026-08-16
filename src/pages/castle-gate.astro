@@ -4,6 +4,7 @@ import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
 import CastleGateEngineVisual from '../components/CastleGateEngineVisual.astro';
+import CastleGateBadge from '../components/CastleGateBadge.astro';
 ---
 
 <BaseLayout
@@ -281,6 +282,160 @@ import CastleGateEngineVisual from '../components/CastleGateEngineVisual.astro';
       </div>
     </section>
 
+    <!-- PROTOCOLO Y MARCA DE VALIDACIÓN TÉCNICA (CQS v1.1) -->
+    <section class="section section-dark" id="validacion">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Evidencia de Proceso • CQS v1.1</p>
+          <h2>Marca Técnica de Validación</h2>
+          <p>Mecanismo transparente para identificar releases que completaron satisfactoriamente la evaluación determinista de controles.</p>
+        </div>
+
+        <!-- PRINCIPIO FUNDAMENTAL -->
+        <div class="glass-panel reveal" style="padding: 2rem 2.5rem; margin-bottom: 3rem; border-left: 3px solid var(--cyan); background: rgba(10, 12, 15, 0.9);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.75rem;">
+            <div>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.25rem;">01. PRODUCTO</span>
+              <strong style="color: var(--paper); font-size: 1.05rem; display: block; margin-bottom: 0.35rem;">Propiedad Exclusiva del Cliente</strong>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
+                El código fuente, bases de datos, dominio, infraestructura y cuentas continúan perteneciendo 100% al cliente. La marca no reclama titularidad sobre el software.
+              </p>
+            </div>
+            <div>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.25rem;">02. PROCESO</span>
+              <strong style="color: var(--paper); font-size: 1.05rem; display: block; margin-bottom: 0.35rem;">Castle Security &amp; Quality Gate</strong>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
+                Protocolo determinista ejecutado en la memoria del runner local para verificar ausencia de secretos y cumplimiento nominal de 65 controles CQS v1.1.
+              </p>
+            </div>
+            <div>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.25rem;">03. SELLO</span>
+              <strong style="color: var(--paper); font-size: 1.05rem; display: block; margin-bottom: 0.35rem;">Evidencia de Ejecución</strong>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
+                Distintivo técnico sobrio que enlaza a esta especificación para acreditar que la versión específica superó la auditoría de pipeline sin vetos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 PILARES: QUÉ EVALÚA, QUÉ SIGNIFICA PASS, QUÉ NO SIGNIFICA, IDENTIFICADOR -->
+        <div class="validation-pillar-grid reveal">
+          
+          <!-- QUÉ EVALÚA -->
+          <div class="validation-pillar-card is-certified">
+            <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.35rem;">CRITERIOS DE AUDITORÍA</span>
+            <h3 style="font-size: 1.15rem; color: var(--paper); margin-bottom: 0.75rem;">¿Qué evalúa el protocolo CQS v1.1?</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
+              Audita estáticamente 7 dominios técnicos independientes:
+            </p>
+            <ul style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.6; padding-left: 1.25rem; margin: 0;">
+              <li><strong>Seguridad &amp; Secretos:</strong> Detección estática en memoria de credenciales privadas, tokens y cabeceras CSP.</li>
+              <li><strong>Rendimiento Web:</strong> Umbrales Core Web Vitals (LCP, INP, CLS) y eliminación de bloqueos de render.</li>
+              <li><strong>Accesibilidad:</strong> Semántica HTML5, contrastes WCAG 2.2 AA y navegación por teclado.</li>
+              <li><strong>Calidad &amp; Arquitectura:</strong> Integridad de lockfiles, linting estricto y manejo determinista de excepciones.</li>
+            </ul>
+          </div>
+
+          <!-- QUÉ SIGNIFICA PASS -->
+          <div class="validation-pillar-card is-certified">
+            <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.35rem;">ESTADO NOMINAL</span>
+            <h3 style="font-size: 1.15rem; color: var(--paper); margin-bottom: 0.75rem;">¿Qué significa el estado PASS?</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
+              Significa que el release analizado cumplió formalmente los umbrales nominales de la política configurada (C1 a C6) con <code style="color: var(--success); font-family: var(--f-mono);">Exit Code 0</code>:
+            </p>
+            <ul style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.6; padding-left: 1.25rem; margin: 0;">
+              <li><strong>Cero fallos bloqueantes:</strong> No se detectaron secretos ni vulnerabilidades de severidad P0/P1.</li>
+              <li><strong>Puntuación alcanzada:</strong> El release superó el puntaje nominal exigido para su nivel de política.</li>
+              <li><strong>Trazabilidad generada:</strong> Emisión del certificado criptográfico vinculado al hash del commit evaluado.</li>
+            </ul>
+          </div>
+
+          <!-- QUÉ NO SIGNIFICA (LÍMITES Y VERACIDAD) -->
+          <div class="validation-pillar-card is-prohibited">
+            <span style="font-family: var(--f-mono); font-size: 0.72rem; color: #FF4D4D; font-weight: 700; display: block; margin-bottom: 0.35rem;">LÍMITES DE RESPONSABILIDAD</span>
+            <h3 style="font-size: 1.15rem; color: var(--paper); margin-bottom: 0.75rem;">Lo que la marca NUNCA significa</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
+              En Grupo Castillo aplicamos una política de transparencia absoluta:
+            </p>
+            <ul style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.6; padding-left: 1.25rem; margin: 0;">
+              <li><strong>NO es garantía de invulnerabilidad:</strong> Ningún software es 100% inmune; la seguridad depende también de la operación e infraestructura.</li>
+              <li><strong>NO es certificación regulatoria externa:</strong> Es un control determinista de ingeniería, no una acreditación gubernamental (como ISO 27001 o SOC 2).</li>
+              <li><strong>NO cubre commits posteriores:</strong> Solo valida el estado del código evaluado al momento del release.</li>
+            </ul>
+          </div>
+
+          <!-- IDENTIFICADOR Y TRAZABILIDAD -->
+          <div class="validation-pillar-card is-certified">
+            <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.35rem;">SISTEMA DE IDENTIFICADORES</span>
+            <h3 style="font-size: 1.15rem; color: var(--paper); margin-bottom: 0.75rem;">Trazabilidad e Identificador Único</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 0.75rem;">
+              Cada validación autorizada se identifica bajo una nomenclatura estructurada:
+            </p>
+            <div style="padding: 0.65rem 0.85rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); font-family: var(--f-mono); font-size: 0.82rem; color: var(--cyan); margin-bottom: 0.75rem;">
+              ID: CG-YYYY-XXXXXX (ej. CG-2026-0001)
+            </div>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
+              El registro asocia la fecha UTC, la versión del protocolo y el SHA de release sin exponer código fuente, variables ni secretos privados.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- MUESTRA TÉCNICA DE LA MARCA EN PRODUCCIÓN -->
+        <div class="reveal" style="margin-top: 3.5rem;">
+          <h3 style="text-align: center; font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">Integración Visual de la Marca Técnica</h3>
+          <p style="text-align: center; font-size: 0.88rem; color: var(--steel-soft); max-width: 680px; margin: 0 auto 2rem auto;">
+            Diseñada para incorporarse de forma sobria y discreta en footers, documentación, notas de versión o paneles técnicos autorizados por el cliente.
+          </p>
+
+          <div class="grid grid-3" style="gap: 1.5rem; align-items: start;">
+            
+            <!-- VARIANTE 1: FULL -->
+            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+              <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--steel-soft); display: block; margin-bottom: 1rem;">VARIANTE 01 • ESTÁNDAR</span>
+              <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                <CastleGateBadge variant="full" policyLevel="CQS v1.1" />
+              </div>
+              <p style="font-size: 0.78rem; color: var(--steel-light); margin: 0; line-height: 1.45;">
+                Ideal para footers corporativos o secciones de documentación de release.
+              </p>
+            </div>
+
+            <!-- VARIANTE 2: COMPACT / PILL -->
+            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+              <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--steel-soft); display: block; margin-bottom: 1rem;">VARIANTE 02 • COMPACTA</span>
+              <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                <CastleGateBadge variant="compact" policyLevel="CQS v1.1" />
+              </div>
+              <p style="font-size: 0.78rem; color: var(--steel-light); margin: 0; line-height: 1.45;">
+                Alineación reducida para barras técnicas densas o metadatos de commit.
+              </p>
+            </div>
+
+            <!-- VARIANTE 3: DEMO REPOSITORIO PROPIO -->
+            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+              <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); display: block; margin-bottom: 1rem;">DEMO • REPOSITORIO PROPIO</span>
+              <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                <CastleGateBadge variant="full" validationId="CG-2026-SYS01" releaseSha="54e0a5a" isSelfValidation={true} />
+              </div>
+              <p style="font-size: 0.78rem; color: var(--steel-light); margin: 0; line-height: 1.45;">
+                Acreditación de pipeline estático ejecutado para este mismo sitio web.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ENLACE A DOCUMENTO DE ESPECIFICACIÓN Y BORRADOR CONTRACTUAL -->
+          <div style="text-align: center; margin-top: 2rem;">
+            <p style="font-size: 0.82rem; color: var(--steel-soft); margin: 0;">
+              Consulta las reglas de uso, revocación y borrador contractual en la <strong style="color: var(--paper);">Especificación Técnica CQS v1.1</strong>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- FAQ SECTION -->
     <section class="section section-dim" id="faq">
       <div class="container">
@@ -293,12 +448,14 @@ import CastleGateEngineVisual from '../components/CastleGateEngineVisual.astro';
             <div class="faq">
               <FAQItem open={true} question="¿Por qué Castle Gate evalúa localmente en memoria?" answer="Para proteger la privacidad del código fuente. Muchas organizaciones no pueden permitir que sus credenciales privadas o código fuente salgan hacia servidores de terceros. Castle Gate evalúa todo en la memoria del runner local sin transmitir datos hacia el exterior." />
               <FAQItem question="¿Qué pasa si mi pipeline se bloquea?" answer="El comando devuelve Exit Code 1 y genera un archivo compliance-report.html que detalla el archivo y la línea exacta donde está el secreto o bloqueo para que puedas remediarlo en minutos." />
+              <FAQItem question="¿Qué significa la Marca de Validación en el software de un cliente?" answer="La marca identifica que un release específico superó la auditoría estática de controles CQS v1.1. No altera la propiedad del software (el código y dominio pertenecen 100% al cliente), no es una certificación regulatoria externa y su exhibición pública es totalmente voluntaria para el cliente." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Cómo pruebo Castle Gate en mi repositorio?" answer="El punto de entrada más ágil es solicitar un Castle Checkup ($8,900 MXN). Nuestro equipo realiza el escaneo inicial, te entrega el reporte interactivo y acredita el 100% del costo si contratas la licencia anual dentro de los 30 días posteriores." />
               <FAQItem question="¿Puedo integrar Castle Gate en GitLab CI o Bitbucket?" answer="Sí, totalmente. Como es un paquete ejecutable por Node.js (npx), funciona de manera idéntica en cualquier sistema de integración continua basado en Linux, macOS o Windows." />
+              <FAQItem question="¿Cuándo debe retirarse la marca de validación de un proyecto?" answer="La marca debe retirarse si el código del proyecto sufre modificaciones posteriores no auditadas por el pipeline de Castle Gate, si un release posterior arroja Exit Code 1 sin corregirse o si concluye el protocolo de gobernanza continua." />
             </div>
           </div>
         </div>
