@@ -13,7 +13,7 @@ const { className = "" } = Astro.props;
       <div class="terminal-dot yellow"></div>
       <div class="terminal-dot green"></div>
     </div>
-    <div class="terminal-title">bash — castle-gate v1.0.0 (CLI Execution)</div>
+    <div class="terminal-title">bash — castle-gate-runner v1.0.0 (CI/CD Execution)</div>
     <div class="badge badge-pass" style="font-size: 0.65rem; padding: 2px 8px;">OFFLINE VERIFIED</div>
   </div>
   <div class="terminal-body" id="terminal-body" aria-live="polite">
@@ -39,7 +39,7 @@ const { className = "" } = Astro.props;
     const demoSteps = [
       {
         delay: 350,
-        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate scan --dir ./api-service --level C1</span></div>'
+        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>'
       },
       {
         delay: 800,
@@ -55,7 +55,7 @@ const { className = "" } = Astro.props;
       },
       {
         delay: 3400,
-        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate scan --dir ./api-service --level C1</span></div>'
+        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>'
       },
       {
         delay: 4000,
@@ -67,7 +67,7 @@ const { className = "" } = Astro.props;
       },
       {
         delay: 5400,
-        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd">npx @grupo-castillo/castle-gate verify-cert --cert .castle/release-certificate.json</span></div>'
+        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner verify-cert --cert .castle/release-certificate.json</span></div>'
       },
       {
         delay: 6000,
