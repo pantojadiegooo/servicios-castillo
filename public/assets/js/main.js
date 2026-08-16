@@ -37,24 +37,37 @@
 
         var paqueteParam = params.get("paquete");
         var presupuestoSelect = document.getElementById("presupuesto");
+        var descripcionTextarea = document.getElementById("descripcion");
+
         if (paqueteParam && presupuestoSelect) {
+          var normalizedPaquete = paqueteParam.toLowerCase();
+
           var tierMap = {
-            "Castle Bronze": "4.5-7.5k",
-            "Castle Silver": "7.5-12.5k",
-            "Castle Gold": "7.5-12.5k",
-            "Castle Platinum": "12.5-24.5k",
-            "Castle Diamond": "40k+"
+            "castle iron": "iron",
+            "castle bronze": "bronze",
+            "castle silver": "silver",
+            "castle gold": "gold",
+            "castle platinum": "platinum",
+            "castle diamond": "diamond"
           };
-          if (tierMap[paqueteParam]) {
+
+          var mappedValue = tierMap[normalizedPaquete];
+
+          if (mappedValue) {
             for (var k = 0; k < presupuestoSelect.options.length; k++) {
-              if (presupuestoSelect.options[k].value === tierMap[paqueteParam]) {
+              if (presupuestoSelect.options[k].value === mappedValue) {
                 presupuestoSelect.selectedIndex = k;
                 break;
               }
             }
           }
+
           if (necesidadSelect && !necesidadParam && !necesidadSelect.value) {
             necesidadSelect.value = "crear";
+          }
+
+          if (descripcionTextarea && !descripcionTextarea.value) {
+            descripcionTextarea.value = "Interesado en cotizar: " + paqueteParam + ".";
           }
         }
       } catch (err) {}
