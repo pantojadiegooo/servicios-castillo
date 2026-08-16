@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
-import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+import ServicesGovernanceVisual from '../components/ServicesGovernanceVisual.astro';
 ---
 
 <BaseLayout
@@ -13,13 +13,13 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 >
   <main id="main">
 
-    <section class="page-hero">
-      <InnerHeroVisual type="soluciones" />
-      <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Servicios Profesionales</p>
-        <div class="badge badge-cyan" style="margin-bottom: 1rem;">LÍNEAS DE TRABAJO ESPECIALIZADAS • 5 CAPACIDADES</div>
-        <h1>Servicios Profesionales de Ingeniería</h1>
-        <p>Diagnóstico ágil, auditoría profunda, saneamiento de código heredado, auxilio prioritario y acompañamiento continuo.</p>
+    <section class="page-hero" style="position: relative; overflow: hidden; background: #06080C; padding-top: 5.5rem; padding-bottom: 4.75rem;">
+      <ServicesGovernanceVisual />
+      <div class="container page-hero-inner" style="position: relative; z-index: 4; text-align: center; max-width: 860px; margin: 0 auto;">
+        <p class="breadcrumb" style="justify-content: center;"><a href="/index.html">Inicio</a> / Servicios Profesionales</p>
+        <div class="badge badge-cyan" style="margin-bottom: 1rem; display: inline-flex;">LÍNEAS DE TRABAJO ESPECIALIZADAS • 5 CAPACIDADES</div>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 1rem;">Servicios Profesionales de Ingeniería</h1>
+        <p style="max-width: 68ch; margin-left: auto; margin-right: auto; font-size: 1.08rem; color: var(--steel-light); line-height: 1.65;">Diagnóstico ágil, auditoría profunda, saneamiento de código heredado, auxilio prioritario y acompañamiento continuo.</p>
       </div>
     </section>
 
