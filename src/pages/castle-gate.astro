@@ -260,9 +260,9 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     <section class="section section-dark" id="integracion">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Integración en 2 Líneas</p>
+          <p class="eyebrow" style="color: var(--cyan);">Integración en Pipelines CI/CD</p>
           <h2>Automatización Nativa en GitHub Actions y GitLab CI</h2>
-          <p>Agrega Castle Gate a tu flujo de entrega continua en menos de 5 minutos.</p>
+          <p>Ejecuta el motor de gobernanza en la memoria de tu propio runner privado sin transmitir código hacia el exterior.</p>
         </div>
 
         <div class="glass-panel reveal" style="padding: 2.5rem; max-width: 860px; margin: 0 auto; background: #040508;">
@@ -275,8 +275,11 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <div style="padding-left: 2.5rem;"><span style="color: var(--cyan);">runs-on:</span> <span style="color: #fff;">ubuntu-latest</span></div>
             <div style="padding-left: 2.5rem;"><span style="color: var(--cyan);">steps:</span></div>
             <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- uses:</span> <span style="color: #fff;">actions/checkout@v4</span></div>
-            <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- name:</span> <span style="color: #fff;">Execute Castle Gate C1</span></div>
-            <div style="padding-left: 5rem; color: var(--success);">run: npx @grupo-castillo/castle-gate scan --dir . --level C1</div>
+            <div style="padding-left: 3.75rem;"><span style="color: var(--cyan);">- name:</span> <span style="color: #fff;">Run Castle Gate Runner (CQS v1.1)</span></div>
+            <div style="padding-left: 5rem; color: var(--success);">run: ./bin/castle-gate-runner --dir . --level C1 --key ${'{'} secrets.CASTLE_GATE_LICENSE {'}'}</div>
+          </div>
+          <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); font-size: 0.82rem; color: var(--steel-soft);">
+            <strong style="color: var(--paper);">Nota de despliegue:</strong> El runner de Castle Gate se distribuye como binario autónomo para runners privados o imagen de contenedor CI/CD provista bajo licencia anual, garantizando que el análisis se ejecute 100% en la memoria de tu propia infraestructura.
           </div>
         </div>
       </div>
@@ -454,7 +457,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Cómo pruebo Castle Gate en mi repositorio?" answer="El punto de entrada más ágil es solicitar un Castle Checkup ($8,900 MXN). Nuestro equipo realiza el escaneo inicial, te entrega el reporte interactivo y acredita el 100% del costo si contratas la licencia anual dentro de los 30 días posteriores." />
-              <FAQItem question="¿Puedo integrar Castle Gate en GitLab CI o Bitbucket?" answer="Sí, totalmente. Como es un paquete ejecutable por Node.js (npx), funciona de manera idéntica en cualquier sistema de integración continua basado en Linux, macOS o Windows." />
+              <FAQItem question="¿Puedo integrar Castle Gate en GitLab CI o Bitbucket?" answer="Sí, totalmente. El ejecutable del runner funciona como binario multiplataforma o contenedor compatible con cualquier sistema de integración continua basado en Linux, macOS o Windows (GitHub Actions, GitLab CI, Bitbucket Pipelines, etc.)." />
               <FAQItem question="¿Cuándo debe retirarse la marca de validación de un proyecto?" answer="La marca debe retirarse si el código del proyecto sufre modificaciones posteriores no auditadas por el pipeline de Castle Gate, si un release posterior arroja Exit Code 1 sin corregirse o si concluye el protocolo de gobernanza continua." />
             </div>
           </div>
