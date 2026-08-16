@@ -1,10 +1,10 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-CBA1B5",
+    "validation_id": "CG-2026-58BA0E",
     "protocol": "CQS_v1.1",
     "policy_level": "C1",
-    "target_release_sha": "e5fce57bfbe6100c190c0bf4b4ea00664e808549",
-    "evaluation_timestamp_utc": "2026-08-16T20:58:43.997Z",
+    "target_release_sha": "3d612373733a596be8d3a04db88079b31c7522a0",
+    "evaluation_timestamp_utc": "2026-08-16T21:03:53.842Z",
     "status": "PASS",
     "exit_code": 0,
     "score": 98.5,
@@ -55,7 +55,7 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "a7c36c2bc8757538de98fe4b9e5b1cdcaacc70927b21f228fa235ab27d0fbf56"
+    "signature_digest_sha256": "c88b0d280ef5e3cfbc45f9c9d59a1b137b21fbaa121a1d9e2762f9cd15fbf653"
   },
   "evaluation": {
     "targetDir": "C:\\Users\\panto\\Downloads\\servicios-castillo\\test\\fixtures\\pass-project",
