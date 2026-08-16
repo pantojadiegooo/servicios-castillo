@@ -11,7 +11,10 @@
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-glass);
-  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: 
+    border-color var(--transition-normal), 
+    transform var(--transition-normal), 
+    box-shadow var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
@@ -23,7 +26,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
   pointer-events: none;
 }
 
@@ -33,34 +36,42 @@
   box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+.glass-panel:active {
+  transform: translateY(0);
+  transition-duration: 75ms;
+}
+
 /* Technical Badges */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 5px 12px;
-  font-size: 0.74rem;
+  gap: 6px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.72rem;
   font-family: var(--f-mono);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   border-radius: 9999px;
   border: 1px solid var(--glass-border);
   background: rgba(14, 18, 27, 0.85);
   backdrop-filter: blur(8px);
   color: var(--steel-light);
+  line-height: 1.2;
 }
 
 .badge-cyan {
-  border-color: rgba(0, 210, 255, 0.3);
+  border-color: rgba(0, 210, 255, 0.35);
   color: var(--cyan);
   background: var(--cyan-subtle);
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.06);
 }
 
 .badge-pass {
-  border-color: rgba(0, 229, 153, 0.3);
+  border-color: rgba(0, 229, 153, 0.35);
   color: var(--success);
   background: var(--success-bg);
+  box-shadow: 0 0 12px rgba(0, 229, 153, 0.06);
 }
 
 .badge-dot {
@@ -69,7 +80,15 @@
   border-radius: 50%;
   background: currentColor;
   display: inline-block;
-  box-shadow: 0 0 8px currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-panel,
+  .glass-panel:hover {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Terminal Window Component (Hardware Instrument Chassis) */

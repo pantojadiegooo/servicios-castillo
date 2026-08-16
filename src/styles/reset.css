@@ -108,16 +108,38 @@ ul, ol {
   top: 1rem;
 }
 
-/* Focus states */
+/* Focus states — High-precision accessible cyan ring */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 3px;
-  border-radius: 2px;
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.22), 0 0 12px rgba(0, 210, 255, 0.25) !important;
+  border-radius: 4px;
+}
+
+/* Base Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+p a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 210, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+p a:hover {
+  color: #66e3ff;
+  text-decoration-color: #66e3ff;
 }
 
 /* Eyebrow signposts */
@@ -156,9 +178,10 @@ summary:focus-visible {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+    transform: none !important;
   }
 }

@@ -42,12 +42,21 @@
   font-family: var(--f-body);
   font-size: 0.95rem;
   padding: 0.85rem 1rem;
+  min-height: 48px;
   border: 1px solid var(--line-dark);
   border-radius: var(--radius);
   background: var(--ink-card);
   color: var(--paper);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: 
+    border-color var(--transition-fast), 
+    box-shadow var(--transition-fast), 
+    background var(--transition-fast);
   accent-color: var(--cyan);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .field select option {
@@ -60,14 +69,15 @@
 .field textarea:focus {
   outline: none;
   border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.18);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.18), 0 0 12px rgba(0, 210, 255, 0.12);
+  background: #151b28;
 }
 
 .field input[aria-invalid="true"],
 .field select[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
   border-color: var(--danger);
-  box-shadow: 0 0 0 2px rgba(255, 59, 92, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 59, 92, 0.22);
 }
 
 .form-status {

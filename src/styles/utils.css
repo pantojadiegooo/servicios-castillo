@@ -56,7 +56,58 @@
   color: var(--gold);
 }
 
-/* .reveal is preserved as structural hook — content remains visible by default */
+/* ===== Reveal & Motion Hierarchy ===== */
 .reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: 
+    opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), 
+    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Delay Tokens */
+.reveal.delay-1,
+.grid > .reveal:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.reveal.delay-2,
+.grid > .reveal:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.reveal.delay-3,
+.grid > .reveal:nth-child(3) {
+  transition-delay: 0.18s;
+}
+
+.reveal.delay-4,
+.grid > .reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.reveal.delay-5,
+.grid > .reveal:nth-child(5) {
+  transition-delay: 0.30s;
+}
+
+.reveal.delay-6,
+.grid > .reveal:nth-child(6) {
+  transition-delay: 0.36s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
 }

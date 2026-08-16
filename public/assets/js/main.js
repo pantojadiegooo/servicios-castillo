@@ -97,4 +97,39 @@
       a.setAttribute("aria-current", "page");
     }
   });
+
+  // Header scroll state with throttling
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var checkScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
+      }
+    };
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    checkScroll();
+  }
+
+  // Scroll reveal with subtle staggered hierarchy
+  if ("IntersectionObserver" in window) {
+    var reveals = document.querySelectorAll(".reveal");
+    if (reveals.length > 0) {
+      var revealObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -40px 0px", threshold: 0.08 }
+      );
+      reveals.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+    }
+  }
 })();
