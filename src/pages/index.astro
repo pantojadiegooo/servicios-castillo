@@ -4,6 +4,7 @@ import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
 import HeroEngineVisual from '../components/HeroEngineVisual.astro';
+import CastleGateBadge from '../components/CastleGateBadge.astro';
 ---
 
 <BaseLayout
@@ -14,7 +15,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 >
   <main id="main">
 
-    <!-- 01 — HERO & IDENTIDAD CORPORATIVA (CINEMÁTICO DE ALTA GAMA) -->
+    <!-- 01 — HERO & IDENTIDAD CORPORATIVA -->
     <section class="hero" style="position: relative; overflow: hidden; padding-top: 6.5rem; padding-bottom: 5.5rem; background: #06080C;">
       <HeroEngineVisual />
       <div class="container hero-content-container" style="position: relative; z-index: 4; max-width: 960px; margin: 0 auto; text-align: center;">
@@ -25,7 +26,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           Construimos, evaluamos, corregimos y protegemos <span style="color: var(--cyan);">sistemas digitales confiables.</span>
         </h1>
         <p class="lede" style="font-size: 1.15rem; color: var(--steel-light); line-height: 1.7; margin-bottom: 2.25rem; max-width: 72ch; margin-left: auto; margin-right: auto;">
-          Grupo Castillo combina desarrollo web de alto rendimiento con titularidad y control del código para el cliente, intervención técnica en sistemas existentes y tecnología propia para la gobernanza determinista de releases.
+          Desarrollo web de alto rendimiento con titularidad absoluta del código para el cliente, intervención técnica en sistemas existentes y tecnología propia para la gobernanza de releases.
         </p>
         <div class="hero-actions" style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
           <a class="btn btn-primary" href="/paquetes.html">Explorar Paquetes Build</a>
@@ -34,7 +35,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 
         <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); max-width: 760px; margin: 0 auto;">
           <div>
-            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">Titularidad del Cliente</strong>
+            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">100% Titularidad</strong>
             <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Código &amp; Cuentas Propias</span>
           </div>
           <div>
@@ -42,191 +43,202 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Diagnóstico Checkup</span>
           </div>
           <div>
-            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">Tecnología Propia</strong>
-            <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Castle Gate Engine</span>
+            <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">CQS v1.1</strong>
+            <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Castle Gate Runner</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 02 — PROBLEMAS REALES DEL CLIENTE (EMPATÍA Y RIESGOS) -->
-    <section class="section section-dim" id="problemas">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Desafíos Frecuentes</p>
-          <h2>Las dificultades que resolvemos para nuestros clientes</h2>
-          <p>Identificamos los puntos de fricción más comunes en el desarrollo y mantenimiento de software.</p>
-        </div>
-
-        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-bottom: 0.5rem;">ESCENARIO 01</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Código Abandonado o Huérfano</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              El desarrollador o agencia original desapareció y nadie en tu empresa se atreve a modificar el sistema por temor a romper la operación.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-bottom: 0.5rem;">ESCENARIO 02</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Falta de Certeza de Calidad</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Tu sitio funciona pero desconoces si contiene claves expuestas, fallas de accesibilidad o problemas de lentitud que ahuyentan clientes.
-            </p>
-          </div>
-
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft); margin-bottom: 0.5rem;">ESCENARIO 03</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Dependencia y Falta de Control</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Proveedores que retienen dominios o código en plataformas cerradas, impidiendo que tu empresa tenga el control real de sus activos.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 — SOLUCIONES: QUÉ HACE GRUPO CASTILLO -->
-    <section class="section" id="soluciones">
+    <!-- 02 — QUÉ HACEMOS (4 PILARES DE CAPACIDAD TÉCNICA) -->
+    <section class="section section-dim" id="que-hacemos">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow" style="color: var(--cyan);">Capacidades de Ingeniería</p>
-          <h2>Un modelo integral para el ciclo de vida del software</h2>
-          <p>Estructuramos nuestras capacidades en líneas de acción claras y complementarias.</p>
+          <h2>Cuatro pilares para el ciclo de vida del software</h2>
+          <p>Acompañamos a organizaciones en cada etapa técnica sin fricciones ni dependencias artificiales.</p>
+        </div>
+
+        <div class="grid grid-4 reveal" style="gap: 1.25rem;">
+          
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">01 • CONSTRUCCIÓN</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Construimos</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1rem;">
+              Sitios y plataformas web de alta velocidad mediante arquitectura estática SSG, diseño a medida y código propio del cliente.
+            </p>
+            <a href="/paquetes.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Paquetes Build →</a>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">02 • EVALUACIÓN</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Evaluamos</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1rem;">
+              Auditorías estáticas de seguridad, accesibilidad y rendimiento en repositorios existentes con Castle Checkup y Castle Audit.
+            </p>
+            <a href="/servicios/checkup.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Diagnósticos →</a>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">03 • INTERVENCIÓN</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Corregimos</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1rem;">
+              Rescate de software heredado, saneamiento de claves expuestas y respuesta técnica ante caídas críticas de producción.
+            </p>
+            <a href="/servicios/rescue.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Servicios de Rescate →</a>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">04 • CONTINUIDAD</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Mantenemos</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1rem;">
+              Supervisión de disponibilidad, parches mensuales de seguridad y re-certificación periódica mediante pólizas Castle Care.
+            </p>
+            <a href="/servicios/care.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Pólizas Care →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — PARA QUIÉN: 3 PERFILES SIN AMONTONAMIENTO DE PRECIOS -->
+    <section class="section" id="para-quien">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Segmentación</p>
+          <h2>Soluciones adaptadas a cada escala de organización</h2>
+          <p>Propuestas técnicas calibradas según las prioridades de tu etapa de negocio.</p>
         </div>
 
         <div class="grid grid-3 reveal" style="gap: 1.5rem;">
           
-          <div class="card glass-panel" style="padding: 2rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">BUILD</span>
-            <h3 style="font-size: 1.2rem; margin: 0.5rem 0;">Construimos</h3>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">PERFIL 01</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Profesionales &amp; Micronegocios</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Desarrollamos sitios y plataformas web desde nivel esencial (Iron) hasta software a medida (Diamond) con titularidad jurídica del cliente.
+              Para consultores, médicos, despachos o comercios que requieren una presencia web arquitectónica, rápida, con enlace directo a WhatsApp y sin costos recurrentes forzados.
             </p>
-            <a href="/paquetes.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Catálogo Build →</a>
+            <div style="font-size: 0.8rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 1rem;">
+              Enfoque: <strong>Lanzamiento ágil y conversión directa</strong>
+            </div>
+            <a href="/paquetes.html" class="btn btn-outline btn-sm">Ver Opciones Recomendadas</a>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">CHECKUP &amp; AUDIT</span>
-            <h3 style="font-size: 1.2rem; margin: 0.5rem 0;">Diagnosticamos &amp; Investigamos</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35);">
+            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">PERFIL 02</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">PyMEs &amp; Empresas en Crecimiento</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Evaluamos repositorios en 72h hábiles con Castle Checkup o realizamos auditorías profundas de arquitectura con Castle Audit.
+              Para empresas que necesitan una plataforma corporativa multi-página, catálogo autogestionable, blog técnico y acompañamiento continuo de mantenimiento.
             </p>
-            <a href="/servicios/checkup.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Castle Checkup →</a>
+            <div style="font-size: 0.8rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 1rem;">
+              Enfoque: <strong>Escalabilidad corporativa y gobernanza</strong>
+            </div>
+            <a href="/paquetes.html" class="btn btn-primary btn-sm">Ver Plataformas Corporativas</a>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">RESCUE &amp; CARE</span>
-            <h3 style="font-size: 1.2rem; margin: 0.5rem 0;">Corregimos &amp; Acompañamos</h3>
+          <div class="card glass-panel" style="padding: 2.25rem;">
+            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">PERFIL 03</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Líderes Técnicos &amp; Equipos de Software</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Intervenimos repositorios para sanear secretos y ofrecemos supervisión técnica continua mediante suscripciones mensuales Castle Care.
+              Para CTOs y directores que necesitan auditar código antes de una inversión, sanear secretos expuestos en repositorios heredados o integrar Castle Gate en pipelines de CI/CD.
             </p>
-            <a href="/servicios/care.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Planes de Continuidad Care →</a>
+            <div style="font-size: 0.8rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 1rem;">
+              Enfoque: <strong>Auditoría profunda y veto determinista</strong>
+            </div>
+            <a href="/servicios.html" class="btn btn-outline btn-sm">Ver Servicios de Ingeniería</a>
           </div>
 
         </div>
-
-        <!-- DIAGNÓSTICO CALLOUT BANNER -->
-        <div class="glass-panel reveal" style="margin-top: 2.5rem; padding: 2.25rem; border-left: 4px solid var(--cyan); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; background: linear-gradient(135deg, rgba(0, 210, 255, 0.05) 0%, rgba(14, 18, 27, 0.9) 100%);">
-          <div>
-            <span class="badge badge-cyan" style="margin-bottom: 0.5rem; font-size: 0.7rem;">ORIENTACIÓN COMERCIAL GUIADA</span>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.35rem; color: var(--paper);">¿Incertidumbre sobre qué solución elegir?</h3>
-            <p style="font-size: 0.9rem; color: var(--steel-light); margin: 0; max-width: 60ch;">
-              No necesitas conocer nuestro catálogo técnico para comenzar. Utiliza nuestro Diagnóstico Castillo interactivo para determinar el punto de partida exacto para tu empresa.
-            </p>
-          </div>
-          <div>
-            <a href="/diagnostico.html" class="btn btn-primary" style="white-space: nowrap;">Iniciar Diagnóstico Castillo →</a>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- 04 — CÓMO TRABAJAMOS: PROCESO DISCIPLINADO -->
+    <!-- 04 — CÓMO TRABAJAMOS (PROCESO DISCIPLINADO) -->
     <section class="section section-dim" id="metodologia">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow" style="color: var(--cyan);">Metodología de Trabajo</p>
-          <h2>Proceso claro, transparente y sin sorpresas</h2>
+          <h2>Proceso de ingeniería claro, predecible y documentado</h2>
           <p>Cada proyecto avanza por fases estructuradas con entregables definidos por escrito.</p>
         </div>
 
         <div class="grid grid-3 reveal" style="gap: 1.5rem;">
           <div class="card glass-panel" style="padding: 2rem;">
             <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">01</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Fase Discover &amp; Alcance</h3>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Alcance &amp; Contrato por Escrito</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Analizamos requerimientos, definimos el paquete o servicio adecuado y establecemos el presupuesto y número de revisiones por contrato.
+              Definimos la Declaración de Trabajo (SOW), el inventario de rutas, las rondas de revisión y el presupuesto fijo antes de escribir una sola línea de código.
             </p>
           </div>
 
           <div class="card glass-panel" style="padding: 2rem;">
             <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">02</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Ingeniería &amp; Validación</h3>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Ingeniería &amp; Validación CQS</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Construimos o intervenimos con código modular y sometemos cada release a los controles de seguridad, accesibilidad y rendimiento.
+              Construimos sobre arquitectura estática y ejecutamos Castle Gate Runner para comprobar que el release cumpla los umbrales de seguridad, accesibilidad y rendimiento.
             </p>
           </div>
 
           <div class="card glass-panel" style="padding: 2rem;">
             <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">03</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Entrega &amp; Gobernanza</h3>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Handoff &amp; Soberanía Total</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Publicamos en producción, transferimos accesos directos al cliente y entregamos reportes técnicos de cumplimiento.
+              Transferimos el repositorio Git, el hosting y el dominio a tus cuentas directas. El cliente conserva el 100% de titularidad con 30 días de garantía técnica.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 05 — SEGMENTACIÓN: A QUIÉN ATENDEMOS -->
-    <section class="section" id="segmentacion">
+    <!-- 05 — PAQUETES BUILD (ENTRADA VISUAL AL CATÁLOGO) -->
+    <section class="section" id="paquetes-catalogo">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Segmentación de Clientes</p>
-          <h2>Soluciones adaptadas a cada escala y necesidad</h2>
-          <p>Diseñamos propuestas específicas según el tipo de organización y su madurez digital.</p>
+          <p class="eyebrow" style="color: var(--cyan);">Catálogo Build</p>
+          <h2>Seis niveles de construcción progresiva</h2>
+          <p>Desde landings esenciales hasta plataformas corporativas insignia a medida.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
-          
-          <div class="card glass-panel" style="padding: 2.25rem;">
-            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">MICRONEGOCIOS</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Personas / Profesionales / Micronegocios</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Para consultores, médicos, abogados o comercios que necesitan una presencia web rápida, profesional y con enlace directo a WhatsApp.
-            </p>
-            <p style="font-size: 0.82rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 0.5rem;">Recomendado: <strong>Castle Iron</strong> o <strong>Castle Bronze</strong></p>
-            <a href="/paquetes.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Explorar Paquetes Build →</a>
+        <div class="grid grid-3 reveal" style="gap: 1.25rem; margin-bottom: 2rem;">
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #71717A;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Iron</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">1 Página • Landing Esencial</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Presencia arquitectónica de impacto con conversión directa a WhatsApp.</p>
           </div>
-
-          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35);">
-            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">PYMES &amp; EMPRESAS</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">PyMEs / Empresas</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Para empresas que buscan un sitio corporativo multi-página, catálogo autogestionable con blog/CMS y acompañamiento continuo.
-            </p>
-            <p style="font-size: 0.82rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 0.5rem;">Recomendado: <strong>Castle Silver</strong>, <strong>Castle Gold</strong> o <strong>Castle Care</strong></p>
-            <a href="/paquetes.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Explorar Paquetes Build →</a>
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #CD7F32;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Bronze</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">3-5 Páginas • Presencia PyME</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Estructura corporativa inicial con secciones claras y formulario seguro.</p>
           </div>
-
-          <div class="card glass-panel" style="padding: 2.25rem;">
-            <div class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.75rem;">EQUIPOS DE SOFTWARE</div>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Equipos de Software / Organizaciones</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Para CTOs y directores que requieren auditar código antes de una inversión, sanear secretos expuestos o gobernar pipelines de CI/CD.
-            </p>
-            <p style="font-size: 0.82rem; color: var(--paper); font-family: var(--f-mono); margin-bottom: 0.5rem;">Recomendado: <strong>Castle Checkup</strong>, <strong>Castle Audit</strong> o <strong>Castle Gate CLI</strong></p>
-            <a href="/servicios.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Servicios Profesionales →</a>
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #94A3B8;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Silver</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">6-10 Páginas • Multisección</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Arquitectura completa para catálogos, servicios y blog autogestionable.</p>
           </div>
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #EAB308;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Gold</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">11-18 Páginas • Corporativo</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Plataforma integral de alta presencia con diseño avanzado e integraciones.</p>
+          </div>
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #E0E7FF;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Platinum</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">19-28 Páginas • Alta Escala</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Ecosistema corporativo robusto para organizaciones consolidadas.</p>
+          </div>
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #00D2FF;">
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Diamond</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">Custom Scope • Insignia</span>
+            <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Desarrollo a medida con máxima sofisticación visual y técnica.</p>
+          </div>
+        </div>
 
+        <div style="text-align: center;">
+          <a href="/paquetes.html" class="btn btn-primary">Explorar Catálogo Completo de Paquetes Build →</a>
         </div>
       </div>
     </section>
 
-    <!-- 06 — EVIDENCIA TECNOLÓGICA & DEMOSTRACIÓN INTERACTIVA (TERMINAL CLI) -->
-    <section class="section section-dark" id="evidencia-tecnologica">
+    <!-- 06 — CASTLE GATE: NARRATIVA TÉCNICA SECUENCIAL -->
+    <section class="section section-dark" id="castle-gate-tecnologia">
       <div class="container">
         <div class="two-col" style="align-items: center; gap: 3.5rem;">
           
@@ -235,15 +247,33 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             <h2 style="font-size: 2.1rem; line-height: 1.2; margin-bottom: 1.25rem;">
               Gobernanza Determinista de Releases: Castle Gate
             </h2>
-            <p style="font-size: 1rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
-              A diferencia de agencias convencionales, Grupo Castillo desarrolló su propio motor de gobernanza de software. Castle Gate evalúa estáticamente controles CQS v1.1 en la memoria local del runner para vetar releases que incumplan las políticas configuradas en tu CI/CD.
+            <p style="font-size: 1rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+              A diferencia de agencias convencionales, Grupo Castillo desarrolló su propio motor de gobernanza. Castle Gate opera directamente en la memoria local de tu runner CI/CD para vetar liberaciones que incumplan los controles CQS v1.1.
             </p>
             
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.75rem; font-size: 0.9rem; color: var(--paper); display: flex; flex-direction: column; gap: 0.5rem;">
-              <li><strong>Ejecución Local en Memoria:</strong> No requiere enviar tu código fuente a servidores externos.</li>
-              <li><strong>Gate Breakers:</strong> Veto inmediato en CI/CD con Exit Code 1 ante secretos críticos.</li>
-              <li><strong>Release Certificate:</strong> Integridad técnica verificable mediante sello criptográfico SHA-256.</li>
-            </ul>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">01</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">Evaluación en Memoria Local:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">Análisis estático sin enviar tu código fuente ni credenciales a servidores externos.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">02</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">Gate Breakers Automáticos:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">Veto inmediato en CI/CD con Exit Code 1 ante secretos expuestos o vulnerabilidades críticas.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">03</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">Evidencia Criptográfica:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">Emisión de certificado JSON firmado con SHA-256 vinculado al commit exacto del release.</span>
+                </div>
+              </div>
+            </div>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
               <a href="/castle-gate.html" class="btn btn-primary">Especificación y Licenciamiento →</a>
@@ -251,7 +281,6 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             </div>
           </div>
 
-          <!-- TERMINAL INTERACTIVA EN SU UBICACIÓN DE EVIDENCIA -->
           <div class="reveal">
             <CastleTerminalSimulator />
           </div>
@@ -260,62 +289,67 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
       </div>
     </section>
 
-    <!-- 07 — PRINCIPIOS DE CONFIANZA, PRIVACIDAD Y TITULARIDAD -->
-    <section class="section section-dim" id="confianza">
+    <!-- 07 — CASO INTERNO DE REFERENCIA: CASTLE WEB (DOGFOODING) -->
+    <section class="section section-dim" id="caso-interno">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Principios de Confianza</p>
-          <h2>Responsabilidad técnica y respeto a tus activos</h2>
-          <p>Construimos relaciones profesionales fundamentadas en la transparencia y la certeza operativa.</p>
-        </div>
-
-        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
-          
-          <div class="card glass-panel" style="padding: 2rem;">
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Titularidad del Cliente</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              El código fuente original entregado, los repositorios y las cuentas de hosting permanecen bajo la titularidad y control del cliente conforme a contrato.
-            </p>
+        <div class="glass-panel reveal" style="padding: 2.5rem; border-color: rgba(0, 210, 255, 0.25); background: linear-gradient(135deg, rgba(6, 8, 12, 0.95) 0%, rgba(18, 48, 74, 0.3) 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
+            <div>
+              <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">CASO INTERNO VIVO DE REFERENCIA</span>
+              <h2 style="font-size: 1.8rem; margin: 0 0 0.5rem 0; color: var(--paper);">
+                Castle Web — Internal Castle Diamond Build
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--steel-light); margin: 0; max-width: 65ch; line-height: 1.6;">
+                Nuestra propia plataforma web es el primer caso de validación estricta: 23 rutas estáticas SSG, 7 componentes visuales interactivos y 100% de controles CQS v1.1 aprobados con 0 errores y 0 vulnerabilidades.
+              </p>
+            </div>
+            <div style="text-align: right;">
+              <CastleGateBadge variant="compact" validationId="CG-2026-68D04F" releaseSha="3d61237" isSelfValidation={true} />
+            </div>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Privacidad y Menor Privilegio</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              La información del proyecto se trata con estricta confidencialidad. Solicitamos únicamente los accesos mínimos indispensables y cerramos credenciales tras la entrega.
-            </p>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; font-family: var(--f-mono);">Puntuación CQS</span>
+              <strong style="display: block; font-size: 1.3rem; color: #00E599; font-family: var(--f-mono);">100.0 / 100</strong>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; font-family: var(--f-mono);">Rutas SSG</span>
+              <strong style="display: block; font-size: 1.3rem; color: var(--paper); font-family: var(--f-mono);">23 Páginas</strong>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; font-family: var(--f-mono);">Accesibilidad</span>
+              <strong style="display: block; font-size: 1.3rem; color: var(--paper); font-family: var(--f-mono);">WCAG AA 100%</strong>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; font-family: var(--f-mono);">Secretos / CVEs</span>
+              <strong style="display: block; font-size: 1.3rem; color: #00E599; font-family: var(--f-mono);">0 Detectados</strong>
+            </div>
           </div>
-
-          <div class="card glass-panel" style="padding: 2rem;">
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Contratos y Alcance por Escrito</h3>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
-              Cada paquete y servicio cuenta con entregables delimitados, número de revisiones por contrato y cotizaciones transparentes sin costos ocultos.
-            </p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 08 — PREGUNTAS FRECUENTES GENERALES -->
+    <!-- 08 — PREGUNTAS FRECUENTES -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Preguntas Frecuentes</p>
-          <h2>Respuestas claras sobre Grupo Castillo</h2>
+          <h2>Certeza técnica y transparencia</h2>
         </div>
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Grupo Castillo combina desarrollo web accesible con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control." />
-              <FAQItem question="¿El código y las cuentas nos pertenecen?" answer="Sí. Todo el código fuente original entregado, repositorios y configuraciones de hosting quedan registrados bajo la titularidad y control del cliente conforme a contrato." />
-              <FAQItem question="¿Qué es el diagnóstico Castle Checkup?" answer="Es un servicio ágil de evaluación técnica donde auditamos tu repositorio bajo 65 controles CQS v1.1 en 72h hábiles para detectar fugas de claves y bloqueos de calidad, con abono del 100% acreditable hacia tu contratación de licencia anual de Castle Gate." />
+              <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Combinamos desarrollo web de alto rendimiento con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control absoluto." />
+              <FAQItem question="¿El código y las cuentas nos pertenecen?" answer="Sí. Todo el código fuente original entregado, repositorios y configuraciones de hosting quedan registrados bajo la titularidad exclusiva del cliente conforme a contrato." />
+              <FAQItem question="¿Qué es el diagnóstico Castle Checkup?" answer="Es un servicio ágil de evaluación técnica donde auditamos tu repositorio bajo controles CQS v1.1 en 72h hábiles para detectar fugas de claves y bloqueos de calidad, con bonificación del 100% hacia la contratación de cualquier paquete Build." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Castle Gate transmite información fuera de nuestra infraestructura?" answer="No. La evaluación de Castle Gate se ejecuta localmente en la memoria del runner y no requiere enviar tu código fuente ni secretos a servidores externos." />
-              <FAQItem question="¿Cómo solicitamos una propuesta formal?" answer="Completa el formulario de contacto o utiliza nuestro Diagnóstico Castillo guiado. Te respondemos con una propuesta técnica por escrito en menos de 24 horas hábiles." />
-              <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante los planes mensuales Castle Care ofrecemos supervisión continua de uptime, parches de seguridad y horas mensuales de ingeniería directa (Rescue) incluidas según el nivel de soporte contratado." />
+              <FAQItem question="¿Cómo solicitamos una propuesta formal?" answer="Completa el formulario de contacto o utiliza nuestro Diagnóstico interactivo. Te respondemos con una propuesta técnica por escrito en menos de 24 horas hábiles." />
+              <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante los planes mensuales Castle Care ofrecemos supervisión continua de uptime, parches de seguridad y horas mensuales de ingeniería directa incluidas según el nivel contratado." />
             </div>
           </div>
         </div>
@@ -325,7 +359,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
     <!-- 09 — CTA BAND FINAL -->
     <CTABand
       title="Hablemos de tu proyecto o repositorio."
-      description="Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial interactivo."
+      description="Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial guiado."
       ctaLabel="Iniciar Diagnóstico Castillo"
       ctaHref="/diagnostico.html"
     />
