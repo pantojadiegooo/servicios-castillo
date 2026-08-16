@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
+import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 ---
 
 <BaseLayout
@@ -13,9 +14,10 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
 >
   <main id="main">
 
-    <!-- 01 — HERO & IDENTIDAD CORPORATIVA (SOBRIO, EDITORIAL, SIN CANVAS COMPETIDOR) -->
-    <section class="hero" style="position: relative; overflow: hidden; padding-top: 6rem; padding-bottom: 5.5rem;">
-      <div class="container" style="position: relative; z-index: 2; max-width: 960px; margin: 0 auto; text-align: center;">
+    <!-- 01 — HERO & IDENTIDAD CORPORATIVA (CINEMÁTICO DE ALTA GAMA) -->
+    <section class="hero" style="position: relative; overflow: hidden; padding-top: 6.5rem; padding-bottom: 5.5rem; background: #06080C;">
+      <HeroEngineVisual />
+      <div class="container hero-content-container" style="position: relative; z-index: 4; max-width: 960px; margin: 0 auto; text-align: center;">
         <p class="eyebrow" style="margin-bottom: 1.5rem; justify-content: center;">
           FIRMA DE INGENIERÍA DIGITAL &amp; GOBERNANZA TÉCNICA
         </p>
@@ -30,7 +32,7 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
           <a class="btn btn-outline" href="/diagnostico.html">¿No sabes qué necesitas? Inicia Diagnóstico</a>
         </div>
 
-        <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); max-width: 720px; margin: 0 auto;">
+        <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); max-width: 760px; margin: 0 auto;">
           <div>
             <strong style="display: block; font-size: 1.35rem; font-family: var(--f-mono); color: var(--paper);">Titularidad del Cliente</strong>
             <span style="font-size: 0.75rem; color: var(--steel-soft); text-transform: uppercase; letter-spacing: 0.05em;">Código &amp; Cuentas Propias</span>
@@ -99,7 +101,7 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 700;">BUILD</span>
             <h3 style="font-size: 1.2rem; margin: 0.5rem 0;">Construimos</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.25rem;">
-              Desarrollamos sitios y plataformas web desde nivel esencial (Iron) hasta software a medida (Diamond) con titularidad total del cliente.
+              Desarrollamos sitios y plataformas web desde nivel esencial (Iron) hasta software a medida (Diamond) con titularidad jurídica del cliente.
             </p>
             <a href="/paquetes.html" style="font-size: 0.82rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Catálogo Build →</a>
           </div>
@@ -169,7 +171,7 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
 
           <div class="card glass-panel" style="padding: 2rem;">
             <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">03</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Entrega &amp; Control Total</h3>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--paper);">Entrega &amp; Gobernanza</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Publicamos en producción, transferimos accesos directos al cliente y entregamos reportes técnicos de cumplimiento.
             </p>
@@ -301,8 +303,8 @@ import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Grupo Castillo combina desarrollo web accesible con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y bajo tu control total." />
-              <FAQItem question="¿El código y las cuentas nos pertenecen?" answer="Sí, absolutamente. Todo el código fuente original entregado, repositorios y configuraciones de hosting quedan registrados bajo la titularidad y control del cliente conforme a contrato." />
+              <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Grupo Castillo combina desarrollo web accesible con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control." />
+              <FAQItem question="¿El código y las cuentas nos pertenecen?" answer="Sí. Todo el código fuente original entregado, repositorios y configuraciones de hosting quedan registrados bajo la titularidad y control del cliente conforme a contrato." />
               <FAQItem question="¿Qué es el diagnóstico Castle Checkup?" answer="Es un servicio ágil ($8,900 MXN / ~$525 USD) donde evaluamos tu repositorio bajo 65 controles CQS v1.1 en 72h hábiles para detectar fugas de claves, con 100% de abono acreditable hacia tu contratación anual de Castle Gate dentro de los 30 días posteriores." />
             </div>
           </div>

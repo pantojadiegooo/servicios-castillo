@@ -68,6 +68,14 @@
   }
 }
 
+@media (max-width: 640px) {
+  .hero-metrics {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    padding: 1.25rem 1rem !important;
+  }
+}
+
 .page-hero {
   background: var(--ink-surface);
   color: var(--paper);

@@ -1,0 +1,533 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`modular-assembly-wrapper ${className}`} id="modular-assembly-wrapper" aria-hidden="true">
+  <!-- Fallback CSS background with architectural depth -->
+  <div class="modular-assembly-fallback"></div>
+  <canvas id="modular-assembly-canvas" class="modular-assembly-canvas"></canvas>
+  <!-- Optical contrast shield for perfect text legibility -->
+  <div class="modular-assembly-contrast-mask"></div>
+</div>
+
+<style>
+  .modular-assembly-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #06080c;
+  }
+
+  .modular-assembly-fallback {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 50% 48%, rgba(0, 210, 255, 0.12) 0%, rgba(6, 8, 12, 0.75) 50%, #06080c 85%),
+      linear-gradient(180deg, rgba(6, 8, 12, 0.3) 0%, rgba(6, 8, 12, 0.95) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .modular-assembly-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .modular-assembly-contrast-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 78% 70% at 50% 48%,
+      rgba(6, 8, 12, 0.85) 0%,
+      rgba(6, 8, 12, 0.52) 55%,
+      rgba(6, 8, 12, 0.12) 85%,
+      rgba(6, 8, 12, 0.92) 100%
+    );
+  }
+</style>
+
+<script is:inline>
+  class ModularAssemblyHologram {
+    constructor() {
+      this.wrapper = document.getElementById('modular-assembly-wrapper');
+      this.canvas = document.getElementById('modular-assembly-canvas');
+      if (!this.wrapper || !this.canvas) return;
+
+      this.ctx = this.canvas.getContext('2d');
+      if (!this.ctx) return;
+
+      this.width = 0;
+      this.height = 0;
+      this.dpi = Math.min(window.devicePixelRatio || 1, 2);
+      this.time = 0;
+      this.frameId = null;
+      this.isVisible = false;
+      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Parallax smooth interpolation
+      this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+      this.scrollY = 0;
+
+      // Module definitions & connection bus
+      this.modules = [];
+      this.busConnections = [];
+      this.interPulses = [];
+      this.ambientParticles = [];
+
+      this.init();
+    }
+
+    init() {
+      this.resize();
+      window.addEventListener('resize', () => this.resize(), { passive: true });
+
+      // Mouse tracking over hero
+      const heroSection = this.wrapper.closest('.page-hero') || this.wrapper.closest('section');
+      if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width - 0.5;
+          const normY = (e.clientY - rect.top) / rect.height - 0.5;
+          this.mouse.targetX = normX * 38;
+          this.mouse.targetY = normY * 26;
+        }, { passive: true });
+
+        heroSection.addEventListener('mouseleave', () => {
+          this.mouse.targetX = 0;
+          this.mouse.targetY = 0;
+        }, { passive: true });
+      }
+
+      // Scroll listener
+      window.addEventListener('scroll', () => {
+        this.scrollY = window.scrollY || 0;
+      }, { passive: true });
+
+      // Observe visibility to conserve CPU/GPU
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible) {
+            if (this.reducedMotion) {
+              this.draw();
+            } else if (!this.frameId) {
+              this.loop();
+            }
+          } else {
+            if (this.frameId) {
+              cancelAnimationFrame(this.frameId);
+              this.frameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.02 });
+
+      this.observer.observe(this.wrapper);
+      this.setupScene();
+    }
+
+    resize() {
+      this.width = this.wrapper.clientWidth || window.innerWidth;
+      this.height = this.wrapper.clientHeight || 560;
+
+      this.canvas.width = Math.floor(this.width * this.dpi);
+      this.canvas.height = Math.floor(this.height * this.dpi);
+
+      this.ctx.setTransform(this.dpi, 0, 0, this.dpi, 0, 0);
+      this.setupScene();
+
+      if (this.reducedMotion || !this.isVisible) {
+        this.draw();
+      }
+    }
+
+    setupScene() {
+      const isMobile = this.width < 768;
+      const isTablet = this.width >= 768 && this.width < 1080;
+      const cx = this.width / 2;
+      const cy = this.height * 0.48;
+
+      // 1. SETUP HOLOGRAPHIC MODULAR BLOCKS (ISOMETRIC 3D GRID)
+      this.modules = [];
+
+      // Definitions of architectural building blocks
+      const moduleSpecs = [
+        // Left Architecture Cluster (Core, UI Engine, API Gateway)
+        { relX: -0.38, relY: -0.15, w: 75, h: 65, depth: 35, tag: "MOD_01 [CORE_UI]", floatSpeed: 1.2, floatAmp: 9, phase: 0.0, isWire: false },
+        { relX: -0.24, relY: -0.30, w: 90, h: 55, depth: 40, tag: "MOD_02 [ROUTING]", floatSpeed: 0.9, floatAmp: 11, phase: 1.4, isWire: true },
+        { relX: -0.35, relY: 0.22,  w: 105, h: 80, depth: 45, tag: "MOD_03 [GATE_API]", floatSpeed: 1.1, floatAmp: 8, phase: 2.7, isWire: false },
+        { relX: -0.18, relY: 0.35,  w: 70, h: 60, depth: 30, tag: "MOD_04 [AUTH_RBAC]", floatSpeed: 1.4, floatAmp: 12, phase: 4.1, isWire: true },
+        { relX: -0.44, relY: 0.05,  w: 60, h: 50, depth: 28, tag: "NODE_L0", floatSpeed: 1.0, floatAmp: 7, phase: 0.8, isWire: true },
+
+        // Right Architecture Cluster (Data Layer, Microservices, Scale Engine)
+        { relX: 0.28,  relY: -0.22, w: 85, h: 70, depth: 38, tag: "MOD_05 [DATA_BUS]", floatSpeed: 1.0, floatAmp: 10, phase: 0.6, isWire: false },
+        { relX: 0.40,  relY: -0.08, w: 70, h: 55, depth: 32, tag: "MOD_06 [CACHE_L1]", floatSpeed: 1.3, floatAmp: 8, phase: 2.1, isWire: true },
+        { relX: 0.22,  relY: 0.26,  w: 95, h: 75, depth: 42, tag: "MOD_07 [PIPELINE]", floatSpeed: 0.8, floatAmp: 11, phase: 3.5, isWire: false },
+        { relX: 0.38,  relY: 0.30,  w: 80, h: 65, depth: 36, tag: "MOD_08 [SECURITY]", floatSpeed: 1.2, floatAmp: 9, phase: 5.0, isWire: true },
+        { relX: 0.46,  relY: 0.12,  w: 65, h: 50, depth: 28, tag: "NODE_R0", floatSpeed: 1.1, floatAmp: 7, phase: 1.8, isWire: true }
+      ];
+
+      const scale = isMobile ? 0.65 : (isTablet ? 0.85 : 1.0);
+
+      moduleSpecs.forEach((spec, idx) => {
+        // In mobile, show only a curated subset of modules to keep scene uncluttered
+        if (isMobile && (idx === 1 || idx === 3 || idx === 6 || idx === 8)) return;
+
+        const basePosX = cx + spec.relX * this.width * (isMobile ? 0.85 : 1.0);
+        const basePosY = cy + spec.relY * this.height * (isMobile ? 0.75 : 1.0);
+
+        this.modules.push({
+          id: idx,
+          baseX: basePosX,
+          baseY: basePosY,
+          w: spec.w * scale,
+          h: spec.h * scale,
+          depth: spec.depth * scale,
+          tag: spec.tag,
+          floatSpeed: spec.floatSpeed,
+          floatAmp: spec.floatAmp * (isMobile ? 0.5 : 1.0),
+          phase: spec.phase,
+          isWire: spec.isWire,
+          currentX: basePosX,
+          currentY: basePosY,
+          // Tracing animation state
+          traceOffset: Math.random() * Math.PI * 2,
+          constructionGlow: Math.random() * 0.4 + 0.6
+        });
+      });
+
+      // Sort modules by Y for correct isometric depth occlusion
+      this.modules.sort((a, b) => a.baseY - b.baseY);
+
+      // 2. SETUP INTER-MODULE BUS CONNECTIONS & PULSES
+      this.busConnections = [];
+      for (let i = 0; i < this.modules.length; i++) {
+        for (let j = i + 1; j < this.modules.length; j++) {
+          const m1 = this.modules[i];
+          const m2 = this.modules[j];
+          const dist = Math.hypot(m1.baseX - m2.baseX, m1.baseY - m2.baseY);
+
+          // Connect nearby modules in the same cluster or cross-bridge
+          if (dist < (isMobile ? 180 : 320)) {
+            this.busConnections.push({
+              fromId: m1.id,
+              toId: m2.id,
+              alpha: 0.16 + (dist < 200 ? 0.12 : 0),
+              // Pulses on this connection bus
+              pulseProgress: Math.random(),
+              pulseSpeed: 0.004 + Math.random() * 0.003,
+              activePulse: Math.random() > 0.3
+            });
+          }
+        }
+      }
+
+      // 3. SETUP AMBIENT HOLOGRAPHIC PARTICLES
+      this.ambientParticles = [];
+      const particleCount = isMobile ? 12 : 28;
+      for (let p = 0; p < particleCount; p++) {
+        this.ambientParticles.push({
+          x: Math.random() * this.width,
+          y: Math.random() * this.height,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: -Math.random() * 0.3 - 0.08,
+          size: Math.random() * 2.2 + 0.8,
+          alpha: Math.random() * 0.3 + 0.1,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    drawIsometricModule(mod, time) {
+      const ctx = this.ctx;
+      const skew = 0.5;
+      const levitation = Math.sin(time * mod.floatSpeed + mod.phase) * mod.floatAmp;
+      
+      const x = mod.currentX;
+      const y = mod.currentY + levitation;
+      const w = mod.w;
+      const h = mod.h;
+      const d = mod.depth;
+
+      const topOffX = d * skew;
+      const topOffY = -d * skew;
+
+      // Real-time construction trace phase (sine pulse)
+      const buildPulse = Math.sin(time * 1.5 + mod.traceOffset) * 0.5 + 0.5;
+
+      ctx.save();
+      ctx.translate(x, y);
+
+      // A. BACK FACES (TRANSLUCID / HOLOGRAM DEPTH)
+      if (mod.isWire) {
+        ctx.beginPath();
+        ctx.moveTo(0, h);
+        ctx.lineTo(topOffX, h + topOffY);
+        ctx.lineTo(w + topOffX, h + topOffY);
+        ctx.lineTo(w, h);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(0, 210, 255, 0.02)';
+        ctx.fill();
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.08 + buildPulse * 0.1})`;
+        ctx.setLineDash([3, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // B. FRONT FACE
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(w, 0);
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.closePath();
+
+      if (mod.isWire) {
+        ctx.fillStyle = 'rgba(10, 14, 23, 0.75)';
+        ctx.fill();
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.45 + buildPulse * 0.35})`;
+        ctx.lineWidth = 1.0;
+        ctx.stroke();
+      } else {
+        ctx.fillStyle = 'rgba(14, 18, 27, 0.92)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 0.9;
+        ctx.stroke();
+      }
+
+      // C. TOP FACE (ISOMETRIC CAP)
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(topOffX, topOffY);
+      ctx.lineTo(w + topOffX, topOffY);
+      ctx.lineTo(w, 0);
+      ctx.closePath();
+
+      ctx.fillStyle = mod.isWire 
+        ? `rgba(0, 210, 255, ${0.08 + buildPulse * 0.08})`
+        : 'rgba(20, 26, 38, 0.95)';
+      ctx.fill();
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + buildPulse * 0.45})`;
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      // D. RIGHT SIDE FACE
+      ctx.beginPath();
+      ctx.moveTo(w, 0);
+      ctx.lineTo(w + topOffX, topOffY);
+      ctx.lineTo(w + topOffX, h + topOffY);
+      ctx.lineTo(w, h);
+      ctx.closePath();
+
+      ctx.fillStyle = mod.isWire 
+        ? 'rgba(6, 9, 14, 0.8)'
+        : 'rgba(8, 11, 16, 0.95)';
+      ctx.fill();
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.15 + buildPulse * 0.2})`;
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+
+      // E. INTERNAL CIRCUIT / ASSEMBLY GRID LINES
+      const gridRows = 3;
+      for (let r = 1; r <= gridRows; r++) {
+        const rowY = (r / (gridRows + 1)) * h;
+        ctx.beginPath();
+        ctx.moveTo(6, rowY);
+        ctx.lineTo(w - 6, rowY);
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.12 + (r === 1 ? buildPulse * 0.25 : 0)})`;
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+      }
+
+      // F. CORNER ASSEMBLY NODES (4 PRIMARY CORNERS)
+      const cornerRadius = 2.2;
+      const corners = [
+        { cx: 0, cy: 0 },
+        { cx: w, cy: 0 },
+        { cx: topOffX, cy: topOffY },
+        { cx: w + topOffX, cy: topOffY },
+        { cx: 0, cy: h },
+        { cx: w, cy: h }
+      ];
+
+      corners.forEach((c, idx) => {
+        ctx.beginPath();
+        ctx.arc(c.cx, c.cy, cornerRadius, 0, Math.PI * 2);
+        ctx.fillStyle = idx < 4 ? '#00D2FF' : 'rgba(0, 210, 255, 0.6)';
+        ctx.fill();
+      });
+
+      // G. TELEMETRY EMBOSSED IDENTIFIER
+      if (w > 50) {
+        ctx.font = '7px "JetBrains Mono", monospace';
+        ctx.fillStyle = `rgba(0, 210, 255, ${0.5 + buildPulse * 0.3})`;
+        ctx.fillText(mod.tag, 6, h - 8);
+
+        // Status beacon indicator
+        ctx.beginPath();
+        ctx.arc(w - 10, h - 10, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = '#00E599';
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    draw() {
+      if (!this.ctx) return;
+      this.ctx.clearRect(0, 0, this.width, this.height);
+
+      const isMobile = this.width < 768;
+      const cx = this.width / 2;
+
+      // Slow cinematic diagonal camera pan
+      const panX = Math.sin(this.time * 0.1) * (isMobile ? 6 : 14);
+      const panY = Math.cos(this.time * 0.08) * (isMobile ? 4 : 10);
+
+      // A. ISOMETRIC FLOOR BLUEPRINT GRID
+      const gridCount = isMobile ? 8 : 16;
+      this.ctx.lineWidth = 0.5;
+      for (let g = -gridCount; g <= gridCount; g++) {
+        const xOffset = g * (isMobile ? 35 : 55);
+        const yStart = this.height * 0.25;
+        const yEnd = this.height * 0.95;
+
+        // Diagonal isometric lines (Left & Right 30 degree slope)
+        this.ctx.beginPath();
+        this.ctx.moveTo(cx + xOffset + panX, yStart + panY);
+        this.ctx.lineTo(cx + xOffset * 1.8 + panX, yEnd + panY);
+        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.035)';
+        this.ctx.stroke();
+      }
+
+      // Update module positions with mouse and scroll parallax
+      const moduleMap = new Map();
+      this.modules.forEach((mod) => {
+        const depthFactor = 0.8 + (mod.id % 4) * 0.15;
+        mod.currentX = mod.baseX + this.mouse.x * depthFactor + panX;
+        mod.currentY = mod.baseY + this.mouse.y * depthFactor + panY - (this.scrollY * 0.08);
+        moduleMap.set(mod.id, mod);
+      });
+
+      // B. INTER-MODULE BUS CONNECTIONS & TRAVELING INTEGRATION PULSES
+      this.busConnections.forEach((conn) => {
+        const m1 = moduleMap.get(conn.fromId);
+        const m2 = moduleMap.get(conn.toId);
+        if (!m1 || !m2) return;
+
+        const lev1 = Math.sin(this.time * m1.floatSpeed + m1.phase) * m1.floatAmp;
+        const lev2 = Math.sin(this.time * m2.floatSpeed + m2.phase) * m2.floatAmp;
+
+        const p1x = m1.currentX + m1.w * 0.5;
+        const p1y = m1.currentY + lev1 + m1.h * 0.5;
+        const p2x = m2.currentX + m2.w * 0.5;
+        const p2y = m2.currentY + lev2 + m2.h * 0.5;
+
+        // Orthogonal / Isometric Bus routing (elbow turn)
+        const midX = p1x + (p2x - p1x) * 0.5;
+        const midY = p1y;
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(p1x, p1y);
+        this.ctx.lineTo(midX, midY);
+        this.ctx.lineTo(p2x, p2y);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${conn.alpha})`;
+        this.ctx.lineWidth = 0.9;
+        this.ctx.stroke();
+
+        // Traveling Integration Light Pulse
+        if (conn.activePulse) {
+          if (!this.reducedMotion) {
+            conn.pulseProgress += conn.pulseSpeed;
+            if (conn.pulseProgress > 1) {
+              conn.pulseProgress = 0;
+            }
+          }
+
+          // Compute position along elbow route
+          let pulseX, pulseY;
+          if (conn.pulseProgress < 0.5) {
+            const segT = conn.pulseProgress / 0.5;
+            pulseX = p1x + (midX - p1x) * segT;
+            pulseY = midY;
+          } else {
+            const segT = (conn.pulseProgress - 0.5) / 0.5;
+            pulseX = midX + (p2x - midX) * segT;
+            pulseY = midY + (p2y - midY) * segT;
+          }
+
+          // Pulse halo
+          this.ctx.beginPath();
+          this.ctx.arc(pulseX, pulseY, 5, 0, Math.PI * 2);
+          this.ctx.fillStyle = 'rgba(0, 210, 255, 0.35)';
+          this.ctx.fill();
+
+          // Pulse core
+          this.ctx.beginPath();
+          this.ctx.arc(pulseX, pulseY, 2.2, 0, Math.PI * 2);
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fill();
+        }
+      });
+
+      // C. DRAW ISOMETRIC MODULAR BLOCKS
+      this.modules.forEach((mod) => {
+        this.drawIsometricModule(mod, this.time);
+      });
+
+      // D. AMBIENT PARTICLES
+      this.ambientParticles.forEach((p) => {
+        if (!this.reducedMotion) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) {
+            p.y = this.height + 10;
+            p.x = Math.random() * this.width;
+          }
+          if (p.x < -10) p.x = this.width + 10;
+          if (p.x > this.width + 10) p.x = -10;
+        }
+
+        const pulse = Math.sin(this.time * 2 + p.phase) * 0.5 + 0.5;
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha + pulse * 0.25})`;
+        this.ctx.fill();
+      });
+    }
+
+    loop() {
+      // Inertial mouse interpolation
+      this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.055;
+      this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.055;
+
+      this.time += 0.016;
+      this.draw();
+
+      if (this.isVisible && !this.reducedMotion) {
+        this.frameId = requestAnimationFrame(() => this.loop());
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new ModularAssemblyHologram();
+  });
+</script>

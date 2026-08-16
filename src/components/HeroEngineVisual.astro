@@ -1,0 +1,700 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`hero-engine-visual-wrapper ${className}`} id="hero-engine-wrapper" aria-hidden="true">
+  <!-- Fallback CSS background with architectural depth -->
+  <div class="hero-engine-fallback"></div>
+  <canvas id="hero-engine-canvas" class="hero-engine-canvas"></canvas>
+  <!-- Optical contrast mask for flawless text legibility -->
+  <div class="hero-engine-contrast-mask"></div>
+</div>
+
+<style>
+  .hero-engine-visual-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #06080c;
+  }
+
+  .hero-engine-fallback {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 50% 44%, rgba(0, 210, 255, 0.15) 0%, rgba(6, 8, 12, 0.75) 45%, #06080c 85%),
+      linear-gradient(180deg, rgba(6, 8, 12, 0.2) 0%, rgba(6, 8, 12, 0.95) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-engine-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-engine-contrast-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 76% 66% at 50% 45%,
+      rgba(6, 8, 12, 0.82) 0%,
+      rgba(6, 8, 12, 0.48) 55%,
+      rgba(6, 8, 12, 0.1) 85%,
+      rgba(6, 8, 12, 0.9) 100%
+    );
+  }
+</style>
+
+<script is:inline>
+  class HeroEngineCinematic {
+    constructor() {
+      this.wrapper = document.getElementById('hero-engine-wrapper');
+      this.canvas = document.getElementById('hero-engine-canvas');
+      if (!this.wrapper || !this.canvas) return;
+
+      this.ctx = this.canvas.getContext('2d');
+      if (!this.ctx) return;
+
+      this.width = 0;
+      this.height = 0;
+      this.dpi = Math.min(window.devicePixelRatio || 1, 2);
+      this.time = 0;
+      this.frameId = null;
+      this.isVisible = false;
+      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Parallax smooth interpolation
+      this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+      this.scrollY = 0;
+
+      // Telemetry matrix code stream bank
+      this.codeStreamSamples = [
+        "CQS_v1.1", "SYS_AUTH", "SHA256", "EXIT_0", "GATE_OK", "0x8F4A",
+        "PORT_443", "DOMAINS:7", "RUNNER", "LOCK_OK", "WCAG_AA", "SSL_PASS",
+        "SEC_CHECK", "RELEASE", "INTEGRITY", "STATIC", "ASTRO_7", "VERIFIED"
+      ];
+
+      this.serverClusters = [];
+      this.conduits = [];
+      this.particles = [];
+      this.floorGridLines = [];
+
+      this.init();
+    }
+
+    init() {
+      this.resize();
+      window.addEventListener('resize', () => this.resize(), { passive: true });
+
+      // Mouse parallax tracking over parent hero
+      const heroSection = this.wrapper.closest('.hero');
+      if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width - 0.5;
+          const normY = (e.clientY - rect.top) / rect.height - 0.5;
+          this.mouse.targetX = normX * 36;
+          this.mouse.targetY = normY * 24;
+        }, { passive: true });
+
+        heroSection.addEventListener('mouseleave', () => {
+          this.mouse.targetX = 0;
+          this.mouse.targetY = 0;
+        }, { passive: true });
+      }
+
+      // Scroll parallax tracking
+      window.addEventListener('scroll', () => {
+        this.scrollY = window.scrollY || 0;
+      }, { passive: true });
+
+      // Observe visibility for CPU/GPU preservation
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this.isVisible = entry.isIntersecting;
+          if (this.isVisible) {
+            if (this.reducedMotion) {
+              this.draw();
+            } else if (!this.frameId) {
+              this.loop();
+            }
+          } else {
+            if (this.frameId) {
+              cancelAnimationFrame(this.frameId);
+              this.frameId = null;
+            }
+          }
+        });
+      }, { threshold: 0.02 });
+
+      this.observer.observe(this.wrapper);
+      this.setupScene();
+    }
+
+    resize() {
+      this.width = this.wrapper.clientWidth || window.innerWidth;
+      this.height = this.wrapper.clientHeight || 740;
+
+      this.canvas.width = Math.floor(this.width * this.dpi);
+      this.canvas.height = Math.floor(this.height * this.dpi);
+
+      this.ctx.setTransform(this.dpi, 0, 0, this.dpi, 0, 0);
+      this.setupScene();
+
+      if (this.reducedMotion || !this.isVisible) {
+        this.draw();
+      }
+    }
+
+    setupScene() {
+      const isMobile = this.width < 768;
+      const isTablet = this.width >= 768 && this.width < 1080;
+      const cx = this.width / 2;
+      const cy = this.height * 0.44;
+
+      // 1. STRUCTURED ARCHITECTURAL SERVER MONOLITHS (LEFT & RIGHT)
+      this.serverClusters = [];
+
+      // Left Bank Monolith Specifications
+      const leftLayout = [
+        { relX: -0.04, relY: 0.12, relW: 0.14, relH: 0.38, depth: 32, hasBeacon: true, leds: 6 },
+        { relX: 0.08,  relY: 0.28, relW: 0.16, relH: 0.46, depth: 38, hasBeacon: true, leds: 8 },
+        { relX: 0.02,  relY: 0.58, relW: 0.18, relH: 0.42, depth: 44, hasBeacon: false, leds: 7 },
+        { relX: -0.06, relY: 0.72, relW: 0.15, relH: 0.35, depth: 36, hasBeacon: true, leds: 5 },
+        { relX: 0.18,  relY: 0.16, relW: 0.12, relH: 0.30, depth: 28, hasBeacon: false, leds: 4 },
+        { relX: 0.22,  relY: 0.68, relW: 0.11, relH: 0.34, depth: 30, hasBeacon: true, leds: 5 }
+      ];
+
+      // Right Bank Monolith Specifications
+      const rightLayout = [
+        { relX: 0.90, relY: 0.14, relW: 0.14, relH: 0.36, depth: 32, hasBeacon: true, leds: 6 },
+        { relX: 0.76, relY: 0.26, relW: 0.16, relH: 0.48, depth: 38, hasBeacon: true, leds: 8 },
+        { relX: 0.80, relY: 0.56, relW: 0.18, relH: 0.44, depth: 44, hasBeacon: false, leds: 7 },
+        { relX: 0.92, relY: 0.70, relW: 0.15, relH: 0.36, depth: 36, hasBeacon: true, leds: 5 },
+        { relX: 0.70, relY: 0.15, relW: 0.12, relH: 0.32, depth: 28, hasBeacon: false, leds: 4 },
+        { relX: 0.67, relY: 0.66, relW: 0.11, relH: 0.34, depth: 30, hasBeacon: true, leds: 5 }
+      ];
+
+      const processMonoliths = (layout, side) => {
+        const count = isMobile ? Math.min(3, layout.length) : layout.length;
+        for (let i = 0; i < count; i++) {
+          const spec = layout[i];
+          const scale = isMobile ? 0.8 : (isTablet ? 0.9 : 1.0);
+          const w = Math.max(isMobile ? 55 : 85, this.width * spec.relW * scale);
+          const h = Math.max(isMobile ? 120 : 180, this.height * spec.relH * scale);
+          const x = spec.relX * this.width;
+          const y = spec.relY * this.height;
+
+          // Generate code lines for matrix rain on front panel
+          const codeLines = [];
+          const lineCount = Math.floor(h / 18);
+          for (let l = 0; l < lineCount; l++) {
+            codeLines.push(this.codeStreamSamples[(i * 3 + l) % this.codeStreamSamples.length]);
+          }
+
+          this.serverClusters.push({
+            side,
+            x, y, w, h,
+            depth: spec.depth * scale,
+            pulsePhase: i * 0.9 + (side === 'left' ? 0 : Math.PI),
+            codeLines,
+            ledCount: spec.leds,
+            hasBeacon: spec.hasBeacon
+          });
+        }
+      };
+
+      processMonoliths(leftLayout, 'left');
+      processMonoliths(rightLayout, 'right');
+
+      // Sort by Y for correct isometric occlusion
+      this.serverClusters.sort((a, b) => a.y - b.y);
+
+      // 2. DATA HIGHWAYS & OPTIC CONDUITS (CONVERGING TO CASTLE GATE CORE)
+      this.conduits = [];
+      const conduitCount = isMobile ? 6 : 14;
+
+      for (let i = 0; i < conduitCount; i++) {
+        const isLeft = i % 2 === 0;
+        const startX = isLeft 
+          ? (isMobile ? -20 : Math.random() * (this.width * 0.18))
+          : (isMobile ? this.width + 20 : this.width - Math.random() * (this.width * 0.18));
+        const startY = (i / conduitCount) * (this.height * 0.88) + 40;
+
+        // Core target angle and radius
+        const angle = isLeft 
+          ? Math.PI * 0.78 + ((i / conduitCount) - 0.5) * 0.9
+          : -Math.PI * 0.22 + ((i / conduitCount) - 0.5) * 0.9;
+        
+        const targetRadius = (isMobile ? 65 : 120) + (i % 3) * 16;
+        const targetX = cx + Math.cos(angle) * targetRadius;
+        const targetY = cy + Math.sin(angle) * targetRadius;
+
+        // Smooth fluid control points
+        const cp1x = isLeft ? startX + (cx - startX) * 0.45 : startX - (startX - cx) * 0.45;
+        const cp1y = startY + ((i % 2 === 0) ? -45 : 45);
+        const cp2x = isLeft ? cx - (cx - startX) * 0.25 : cx + (startX - cx) * 0.25;
+        const cp2y = cy + ((i % 2 === 0) ? 35 : -35);
+
+        // Packets
+        const packetCount = isMobile ? 1 : 2;
+        const packets = [];
+        for (let p = 0; p < packetCount; p++) {
+          packets.push({
+            progress: (p / packetCount) + (i * 0.12) % 1.0,
+            speed: 0.0035 + (i % 4) * 0.0008,
+            size: (isMobile ? 2.2 : 3.2),
+            glow: 0.85
+          });
+        }
+
+        this.conduits.push({
+          startX, startY,
+          cp1x, cp1y,
+          cp2x, cp2y,
+          targetX, targetY,
+          packets,
+          alpha: 0.22 + (i % 3) * 0.06,
+          width: isMobile ? 1.0 : 1.4
+        });
+      }
+
+      // 3. AMBIENT PARTICLES
+      this.particles = [];
+      const particleCount = isMobile ? 14 : 38;
+      for (let i = 0; i < particleCount; i++) {
+        this.particles.push({
+          x: Math.random() * this.width,
+          y: Math.random() * this.height,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: -Math.random() * 0.4 - 0.1,
+          size: Math.random() * 2.0 + 0.8,
+          alpha: Math.random() * 0.35 + 0.12,
+          pulse: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    getBezierPoint(t, p0, p1, p2, p3) {
+      const u = 1 - t;
+      const tt = t * t;
+      const uu = u * u;
+      const uuu = uu * u;
+      const ttt = tt * t;
+
+      return {
+        x: uuu * p0.x + 3 * uu * t * p1.x + 3 * u * tt * p2.x + ttt * p3.x,
+        y: uuu * p0.y + 3 * uu * t * p1.y + 3 * u * tt * p2.y + ttt * p3.y
+      };
+    }
+
+    drawIsometricServerMonolith(x, y, w, h, depth, isLeft, blockTime, block) {
+      const ctx = this.ctx;
+      const skew = 0.45;
+      const pulse = Math.sin(blockTime * 1.6 + block.pulsePhase) * 0.5 + 0.5;
+
+      ctx.save();
+      ctx.translate(x, y);
+
+      // FRONT FACE (OBSIDIAN TITANIUM CHASSIS)
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(w, 0);
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.closePath();
+      ctx.fillStyle = '#0a0e17';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+
+      // TOP CAP (GLOWING ACCENT TOP)
+      const topOffset = isLeft ? depth * skew : -depth * skew;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(topOffset, -depth * skew);
+      ctx.lineTo(w + topOffset, -depth * skew);
+      ctx.lineTo(w, 0);
+      ctx.closePath();
+      ctx.fillStyle = `rgba(18, 26, 40, 0.95)`;
+      ctx.fill();
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.3 + pulse * 0.4})`;
+      ctx.lineWidth = 1.0;
+      ctx.stroke();
+
+      // SIDE FACET
+      ctx.beginPath();
+      if (isLeft) {
+        ctx.moveTo(w, 0);
+        ctx.lineTo(w + topOffset, -depth * skew);
+        ctx.lineTo(w + topOffset, h - depth * skew);
+        ctx.lineTo(w, h);
+      } else {
+        ctx.moveTo(0, 0);
+        ctx.lineTo(topOffset, -depth * skew);
+        ctx.lineTo(topOffset, h - depth * skew);
+        ctx.lineTo(0, h);
+      }
+      ctx.closePath();
+      ctx.fillStyle = '#06090e';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.stroke();
+
+      // MATRIX CODE STREAM TEXTURE ON FRONT
+      ctx.font = '7.5px "JetBrains Mono", monospace';
+      const maxLines = Math.min(block.codeLines.length, Math.floor((h - 20) / 14));
+      for (let l = 0; l < maxLines; l++) {
+        const lineY = 18 + l * 14;
+        const isHighlight = l % 3 === 0;
+        ctx.fillStyle = isHighlight 
+          ? `rgba(0, 210, 255, ${0.45 + pulse * 0.35})`
+          : `rgba(136, 148, 166, 0.22)`;
+        ctx.fillText(block.codeLines[l], 8, lineY);
+
+        // Rack divider dash
+        ctx.beginPath();
+        ctx.moveTo(w - 24, lineY - 2);
+        ctx.lineTo(w - 6, lineY - 2);
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.15 + (isHighlight ? pulse * 0.3 : 0)})`;
+        ctx.stroke();
+      }
+
+      // LED STATUS BAR CLUSTER
+      for (let l = 0; l < block.ledCount; l++) {
+        const ledY = h - 35 + l * 8;
+        if (ledY < h - 8) {
+          ctx.beginPath();
+          ctx.arc(10 + l * 8, ledY, 1.8, 0, Math.PI * 2);
+          ctx.fillStyle = (l === 0) 
+            ? `rgba(0, 229, 153, ${0.75 + pulse * 0.25})`
+            : `rgba(0, 210, 255, 0.65)`;
+          ctx.fill();
+        }
+      }
+
+      // TOP GLOWING BEACON CUBE (CASTLE NODE LIGHT)
+      if (block.hasBeacon) {
+        const beaconX = w / 2 + (topOffset * 0.5);
+        const beaconY = -depth * skew * 0.5;
+        const bSize = 8;
+
+        // Radial beacon flare
+        const bGrad = ctx.createRadialGradient(beaconX, beaconY, 1, beaconX, beaconY, bSize * 2.8);
+        bGrad.addColorStop(0, `rgba(0, 210, 255, ${0.7 + pulse * 0.3})`);
+        bGrad.addColorStop(0.5, `rgba(0, 210, 255, ${0.2 + pulse * 0.15})`);
+        bGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = bGrad;
+        ctx.beginPath();
+        ctx.arc(beaconX, beaconY, bSize * 2.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Beacon Solid Box
+        ctx.beginPath();
+        ctx.rect(beaconX - bSize / 2, beaconY - bSize / 2, bSize, bSize);
+        ctx.fillStyle = '#00D2FF';
+        ctx.fill();
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      ctx.restore();
+    }
+
+    drawCastleGateCore(cx, cy, time) {
+      const ctx = this.ctx;
+      const isMobile = this.width < 768;
+      const baseR = isMobile ? 95 : 185;
+      const pulse = Math.sin(time * 1.5) * 0.5 + 0.5;
+
+      ctx.save();
+      ctx.translate(cx, cy);
+
+      // 1. DEEP CYAN ATMOSPHERIC FLARE
+      const gradBg = ctx.createRadialGradient(0, 0, baseR * 0.1, 0, 0, baseR * 2.6);
+      gradBg.addColorStop(0, `rgba(0, 210, 255, ${0.22 + pulse * 0.1})`);
+      gradBg.addColorStop(0.3, `rgba(0, 210, 255, ${0.08 + pulse * 0.04})`);
+      gradBg.addColorStop(0.65, 'rgba(6, 8, 12, 0.45)');
+      gradBg.addColorStop(1, 'transparent');
+      ctx.fillStyle = gradBg;
+      ctx.beginPath();
+      ctx.arc(0, 0, baseR * 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 2. RADIAL OPTIC SPIKES / DATA AXES (45 DEGREE ANGLES)
+      ctx.save();
+      ctx.rotate(time * 0.04);
+      for (let i = 0; i < 8; i++) {
+        const ang = (i / 8) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(ang) * (baseR * 0.6), Math.sin(ang) * (baseR * 0.6));
+        ctx.lineTo(Math.cos(ang) * (baseR * 1.55), Math.sin(ang) * (baseR * 1.55));
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.12 + pulse * 0.1})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 3. OUTER TELEMETRY TICK RING (ROTATING SLOWLY CLOCKWISE)
+      ctx.save();
+      ctx.rotate(time * 0.07);
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.25 + pulse * 0.15})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(0, 0, baseR * 1.28, 0, Math.PI * 2);
+      ctx.stroke();
+
+      const notchCount = 48;
+      for (let n = 0; n < notchCount; n++) {
+        const ang = (n / notchCount) * Math.PI * 2;
+        const isMajor = n % 6 === 0;
+        const len = isMajor ? 12 : 5;
+        const r1 = baseR * 1.28;
+        const r2 = r1 - len;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1);
+        ctx.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2);
+        ctx.strokeStyle = isMajor 
+          ? `rgba(0, 210, 255, ${0.65 + pulse * 0.3})`
+          : `rgba(255, 255, 255, 0.2)`;
+        ctx.lineWidth = isMajor ? 1.5 : 0.8;
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 4. SEGMENTED GATE SHIELD APERTURE (COUNTER-CLOCKWISE)
+      ctx.save();
+      ctx.rotate(-time * 0.05);
+      const segments = 6;
+      for (let s = 0; s < segments; s++) {
+        const startAng = (s / segments) * Math.PI * 2;
+        const endAng = startAng + (Math.PI * 2 / segments) * 0.68;
+        ctx.beginPath();
+        ctx.arc(0, 0, baseR * 1.06, startAng, endAng);
+        ctx.strokeStyle = `rgba(0, 210, 255, ${0.55 + pulse * 0.3})`;
+        ctx.lineWidth = 2.8;
+        ctx.stroke();
+
+        // Terminal vertex nodes
+        const vx = Math.cos(startAng) * baseR * 1.06;
+        const vy = Math.sin(startAng) * baseR * 1.06;
+        ctx.beginPath();
+        ctx.arc(vx, vy, 3.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#00D2FF';
+        ctx.fill();
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 5. MAIN GLOWING NEON CORE RING
+      ctx.beginPath();
+      ctx.arc(0, 0, baseR * 0.84, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.65 + pulse * 0.35})`;
+      ctx.lineWidth = 2.2;
+      ctx.stroke();
+
+      // Neon halo glow
+      ctx.beginPath();
+      ctx.arc(0, 0, baseR * 0.84, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.18 + pulse * 0.18})`;
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      // 6. INNER ROTATING CROSSHAIR RETICLE
+      ctx.save();
+      ctx.rotate(time * 0.11);
+      const crossRadius = baseR * 0.62;
+      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.25})`;
+      ctx.lineWidth = 1.0;
+      ctx.setLineDash([6, 8]);
+      ctx.beginPath();
+      ctx.arc(0, 0, crossRadius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 4 Precision Corner Brackets
+      for (let b = 0; b < 4; b++) {
+        const bAng = b * (Math.PI / 2) + Math.PI / 4;
+        const bx = Math.cos(bAng) * crossRadius;
+        const by = Math.sin(bAng) * crossRadius;
+        ctx.beginPath();
+        ctx.arc(bx, by, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 210, 255, ${0.8 + pulse * 0.2})`;
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // 7. CASTLE GATE CORE IRIS NUCLEUS
+      const coreGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, baseR * 0.44);
+      coreGrad.addColorStop(0, `rgba(255, 255, 255, ${0.9 + pulse * 0.1})`);
+      coreGrad.addColorStop(0.22, `rgba(0, 210, 255, ${0.85 + pulse * 0.15})`);
+      coreGrad.addColorStop(0.65, `rgba(0, 210, 255, ${0.25 + pulse * 0.15})`);
+      coreGrad.addColorStop(1, 'transparent');
+
+      ctx.fillStyle = coreGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, baseR * 0.44, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Central Geometric Gate Symbol
+      ctx.strokeStyle = '#FFFFFF';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(-7, -7, 14, 14);
+
+      ctx.beginPath();
+      ctx.arc(0, 0, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#00D2FF';
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    draw() {
+      if (!this.ctx) return;
+      this.ctx.clearRect(0, 0, this.width, this.height);
+
+      const isMobile = this.width < 768;
+      const cx = this.width / 2 + this.mouse.x * 0.35;
+      const cy = this.height * 0.44 + this.mouse.y * 0.35 - (this.scrollY * 0.12);
+
+      // A. PERSPECTIVE FLOOR CIRCUIT GRID
+      const gridCount = isMobile ? 8 : 16;
+      this.ctx.lineWidth = 0.6;
+      for (let g = 0; g <= gridCount; g++) {
+        const ratio = g / gridCount;
+        const xBottom = ratio * this.width;
+        this.ctx.beginPath();
+        this.ctx.moveTo(cx, cy);
+        this.ctx.lineTo(xBottom, this.height);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, 0.05)`;
+        this.ctx.stroke();
+      }
+
+      // Horizontal Floor Grid Rings
+      for (let r = 1; r <= 5; r++) {
+        const rRatio = Math.pow(r / 5, 2.2);
+        const yLine = cy + rRatio * (this.height - cy);
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, yLine);
+        this.ctx.lineTo(this.width, yLine);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.02 + r * 0.01})`;
+        this.ctx.stroke();
+      }
+
+      // B. DATA CONDUITS & TRAVELING PULSE PACKETS
+      this.conduits.forEach((c) => {
+        const p0 = { x: c.startX + this.mouse.x * 0.75, y: c.startY + this.mouse.y * 0.75 };
+        const p1 = { x: c.cp1x + this.mouse.x * 0.45, y: c.cp1y + this.mouse.y * 0.45 };
+        const p2 = { x: c.cp2x + this.mouse.x * 0.3, y: c.cp2y + this.mouse.y * 0.3 };
+        const p3 = { x: c.targetX + this.mouse.x * 0.35, y: c.targetY + this.mouse.y * 0.35 };
+
+        // Draw conduit line
+        this.ctx.beginPath();
+        this.ctx.moveTo(p0.x, p0.y);
+        this.ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+        this.ctx.strokeStyle = `rgba(0, 210, 255, ${c.alpha})`;
+        this.ctx.lineWidth = c.width;
+        this.ctx.stroke();
+
+        // Draw traveling packets
+        c.packets.forEach((pkt) => {
+          if (!this.reducedMotion) {
+            pkt.progress += pkt.speed;
+            if (pkt.progress > 1) {
+              pkt.progress = 0;
+            }
+          }
+
+          const pt = this.getBezierPoint(pkt.progress, p0, p1, p2, p3);
+
+          // Glow halo
+          this.ctx.beginPath();
+          this.ctx.arc(pt.x, pt.y, pkt.size * 2.5, 0, Math.PI * 2);
+          this.ctx.fillStyle = `rgba(0, 210, 255, ${0.35 * pkt.glow})`;
+          this.ctx.fill();
+
+          // Packet core
+          this.ctx.beginPath();
+          this.ctx.arc(pt.x, pt.y, pkt.size, 0, Math.PI * 2);
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fill();
+        });
+      });
+
+      // C. CASTLE GATE ENGINE NUCLEUS (CENTRAL CORE LAYER)
+      this.drawCastleGateCore(cx, cy, this.time);
+
+      // D. SERVER INFRASTRUCTURE MONOLITHS (ISOMETRIC TOWERS)
+      this.serverClusters.forEach((block) => {
+        const isLeft = block.side === 'left';
+        const depthFactor = isLeft ? 0.95 : 1.05;
+        const posX = block.x + this.mouse.x * depthFactor;
+        const posY = block.y + this.mouse.y * depthFactor - (this.scrollY * 0.08);
+
+        this.drawIsometricServerMonolith(
+          posX, posY,
+          block.w, block.h, block.depth,
+          isLeft, this.time, block
+        );
+      });
+
+      // E. AMBIENT DATA PARTICLES
+      this.particles.forEach((p) => {
+        if (!this.reducedMotion) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.y < -10) {
+            p.y = this.height + 10;
+            p.x = Math.random() * this.width;
+          }
+          if (p.x < -10) p.x = this.width + 10;
+          if (p.x > this.width + 10) p.x = -10;
+        }
+
+        const pulse = Math.sin(this.time * 2 + p.pulse) * 0.5 + 0.5;
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha + pulse * 0.25})`;
+        this.ctx.fill();
+      });
+    }
+
+    loop() {
+      // Smooth mouse interpolation
+      this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.055;
+      this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.055;
+
+      this.time += 0.016;
+      this.draw();
+
+      if (this.isVisible && !this.reducedMotion) {
+        this.frameId = requestAnimationFrame(() => this.loop());
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new HeroEngineCinematic();
+  });
+</script>

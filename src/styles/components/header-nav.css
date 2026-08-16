@@ -133,7 +133,8 @@
     box-shadow: var(--shadow-md);
   }
 
-  .main-nav.is-open {
+  .main-nav.is-open,
+  .main-nav.open {
     display: block;
   }
 

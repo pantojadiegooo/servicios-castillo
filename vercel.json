@@ -25,5 +25,11 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/auditoria.html", "destination": "/servicios/audit.html", "permanent": true },
+    { "source": "/cuidado.html", "destination": "/servicios/care.html", "permanent": true },
+    { "source": "/intervencion.html", "destination": "/servicios/rescue.html", "permanent": true },
+    { "source": "/transformacion.html", "destination": "/servicios.html", "permanent": true }
   ]
 }
