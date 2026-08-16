@@ -171,43 +171,5 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
       </div>
     </section>
 
-    <!-- Context pre-population script -->
-    <script is:inline>
-      (function() {
-        const params = new URLSearchParams(window.location.search);
-        const paquete = params.get('paquete');
-        const necesidad = params.get('necesidad');
-
-        if (necesidad) {
-          const necSelect = document.getElementById('necesidad');
-          if (necSelect) {
-            for (let i = 0; i < necSelect.options.length; i++) {
-              if (necSelect.options[i].value === necesidad) {
-                necSelect.selectedIndex = i;
-                break;
-              }
-            }
-          }
-        }
-
-        if (paquete) {
-          const presSelect = document.getElementById('presupuesto');
-          const descInput = document.getElementById('descripcion');
-          if (presSelect) {
-            const pLower = paquete.toLowerCase();
-            for (let i = 0; i < presSelect.options.length; i++) {
-              if (presSelect.options[i].text.toLowerCase().includes(pLower)) {
-                presSelect.selectedIndex = i;
-                break;
-              }
-            }
-          }
-          if (descInput && !descInput.value) {
-            descInput.value = `Interesado en cotizar: ${paquete}.`;
-          }
-        }
-      })();
-    </script>
-
   </main>
 </BaseLayout>
