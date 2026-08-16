@@ -41,28 +41,6 @@
 
         var paqueteParam = params.get("paquete");
         var presupuestoSelect = document.getElementById("presupuesto");
-<<<<<<< HEAD
-        var descripcionTextarea = document.getElementById("descripcion");
-
-        if (paqueteParam && presupuestoSelect) {
-          var normalizedPaquete = paqueteParam.toLowerCase();
-
-          var tierMap = {
-            "castle iron": "iron",
-            "castle bronze": "bronze",
-            "castle silver": "silver",
-            "castle gold": "gold",
-            "castle platinum": "platinum",
-            "castle diamond": "diamond"
-          };
-
-          var mappedValue = tierMap[normalizedPaquete];
-
-          if (mappedValue) {
-            for (var k = 0; k < presupuestoSelect.options.length; k++) {
-              if (presupuestoSelect.options[k].value === mappedValue) {
-                presupuestoSelect.selectedIndex = k;
-=======
         var descInput = document.getElementById("descripcion");
 
         if (paqueteParam) {
@@ -75,7 +53,6 @@
               if (optVal && (pLower === optVal || pLower.indexOf(optVal) !== -1 || optVal.indexOf(pLower) !== -1)) {
                 presupuestoSelect.selectedIndex = j;
                 matched = true;
->>>>>>> 19bbef4 (feat: implement modular assembly hologram hero in paquetes and cinematic hero in index)
                 break;
               }
             }
