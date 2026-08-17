@@ -1,10 +1,10 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-21A0DD",
+    "validation_id": "CG-2026-776E97",
     "protocol": "CQS_v1.1",
     "policy_level": "C1",
-    "target_release_sha": "2f56d09b49d7c379c2660c2a9066fbb0dbd41267",
-    "evaluation_timestamp_utc": "2026-08-16T21:07:48.907Z",
+    "target_release_sha": "93c65cb94237b2b72df3f042490e2eb805f46eff",
+    "evaluation_timestamp_utc": "2026-08-17T08:31:49.577Z",
     "status": "FAIL",
     "exit_code": 1,
     "score": 72.5,
@@ -55,7 +55,7 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "5357a0a3fcfdafdd48a9cbf1718a59546d9eaf53c808a5007c61275cd5b1f442"
+    "signature_digest_sha256": "636544e608166325daa352550fb675184bb5cc42a693ecc5171f60acb49b9dd8"
   },
   "evaluation": {
     "targetDir": "C:\\Users\\panto\\Downloads\\servicios-castillo\\test\\fixtures\\fail-project",

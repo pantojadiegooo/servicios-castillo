@@ -7,7 +7,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
 <BaseLayout
   title="Diagnóstico Castillo — Orientación Técnica y Comercial de Software | Grupo Castillo"
-  description="Herramienta interactiva de orientación comercial de Grupo Castillo: determina el paquete, servicio de intervención o gobernanza adecuado para tu negocio."
+  description="Herramienta interactiva de orientación comercial de Grupo Castillo: determina el paquete de desarrollo web, servicio de intervención sobre sistemas existentes o gobernanza adecuado para tu negocio."
   canonical="https://servicios-castillo.vercel.app/diagnostico.html"
   ogUrl="https://servicios-castillo.vercel.app/diagnostico.html"
 >
@@ -17,8 +17,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       <InnerHeroVisual type="diagnostico" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="/index.html">Inicio</a> / Diagnóstico Castillo</p>
-        <div class="badge badge-cyan">INSTRUMENTO DE ORIENTACIÓN TÉCNICA</div>
-        <h1>¿Qué solución necesita realmente tu negocio?</h1>
+        <div class="badge badge-cyan">INSTRUMENTO DETERMINISTA DE INGENIERÍA</div>
+        <h1>¿Qué solución técnica necesita realmente tu negocio?</h1>
         <p>No necesitas conocer nuestro catálogo técnico para comenzar. Responde 5 preguntas guiadas y nuestro motor de decisión identificará el punto de partida adecuado para tu empresa.</p>
       </div>
     </section>
@@ -32,7 +32,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           <!-- PROGRESS HEADER -->
           <div id="diag-progress-header" style="margin-bottom: 2rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 1.25rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <span id="diag-step-indicator" style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">PASO 1 DE 5: PERFIL BÁSICO</span>
+              <span id="diag-step-indicator" style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">PASO 1 DE 5: IDENTIDAD Y CONTACTO</span>
               <span id="diag-step-percent" style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft);">20% Completado</span>
             </div>
             <div style="width: 100%; height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 2px; overflow: hidden;">
@@ -40,11 +40,11 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 1: DATOS BÁSICOS -->
+          <!-- STEP 1: IDENTIDAD -->
           <div class="diag-step" id="step-1" style="display: block;">
-            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">01. Cuéntanos sobre ti</h2>
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">01. Cuéntanos sobre ti y tu organización</h2>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.75rem;">
-              Esta información nos ayuda a personalizar tu reporte técnico final.
+              Esta información nos ayuda a contextualizar la recomendación técnica.
             </p>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
@@ -64,13 +64,13 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
                 <input type="text" id="diag-ciudad" placeholder="Ej. Ciudad de México / Remoto" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
               </div>
               <div class="field">
-                <label for="diag-empresa" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Empresa / Negocio <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">(Opcional)</span></label>
+                <label for="diag-empresa" style="display: block; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.4rem; font-weight: 600;">Empresa / Organización <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">(Opcional)</span></label>
                 <input type="text" id="diag-empresa" placeholder="Ej. Alpha Consulting" style="width: 100%; padding: 0.75rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.95rem;">
               </div>
             </div>
 
             <div style="padding: 0.85rem 1rem; background: rgba(0, 210, 255, 0.04); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-bottom: 2rem; font-size: 0.8rem; color: var(--steel-light);">
-              <em>Confidencialidad:</em> Tu información se utiliza exclusivamente para personalizar tu reporte técnico. No compartimos datos con terceros.
+              <em>Confidencialidad:</em> Tu información se utiliza exclusivamente para estructurar tu diagnóstico. No enviamos spam ni compartimos datos con terceros.
             </div>
 
             <div style="display: flex; justify-content: flex-end;">
@@ -78,60 +78,52 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 2: SITUACIÓN ACTUAL -->
+          <!-- STEP 2: EMERGENCY -->
           <div class="diag-step" id="step-2" style="display: none;">
-            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">02. ¿Cuál es el estado actual de tu plataforma o software?</h2>
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">02. ¿Tienes un incidente crítico o contingencia activa en producción?</h2>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
-              Selecciona el escenario que mejor describa la situación técnica de tu negocio:
+              Si tu sistema está caído o sufres una vulnerabilidad activa, activamos protocolos de respuesta prioritaria:
             </p>
 
             <div class="diag-options-grid" style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
               
               <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="sin_web" checked style="margin-top: 0.25rem;">
+                <input type="radio" name="incidente" value="no" checked style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">No tengo sitio web ni presencia digital</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Queremos lanzar nuestra primera página web o landing comercial para tener presencia formal.</span>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">No, es una consulta planificada o desarrollo normal</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">No hay caídas activas ni emergencias en este momento. Buscamos desarrollo, auditoría o mejora estándar.</span>
                 </div>
               </label>
 
               <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="web_antigua" style="margin-top: 0.25rem;">
+                <input type="radio" name="incidente" value="si_menos_24h" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tengo un sitio web antiguo que requiere rediseño o modernización</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">El sitio actual se ve desactualizado, no representa bien a la empresa o no es cómodo en móviles.</span>
+                  <strong style="display: block; color: #FF4D4D; font-size: 0.95rem;">Sí, contingencia activa iniciada hace menos de 24 horas</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Sitio caído, error 500 generalizado o fuga de secretos expuestos en Git que requiere contención urgente.</span>
                 </div>
               </label>
 
               <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="web_con_fallas" style="margin-top: 0.25rem;">
+                <input type="radio" name="incidente" value="si_24_48h" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tengo una web en producción con problemas técnicos, lentitud o errores</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">El sitio tarda en cargar, tiene formularios rotos o necesitamos una auditoría/reparación directa.</span>
+                  <strong style="display: block; color: #FF4D4D; font-size: 0.95rem;">Sí, incidente crítico entre 24 y 48 horas activo</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Falla severa de release o pérdida de acceso que continúa afectando la operación.</span>
                 </div>
               </label>
 
               <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="software_legacy" style="margin-top: 0.25rem;">
+                <input type="radio" name="incidente" value="si_48_72h_afectando" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos un sistema o código heredado (Legacy) sin documentación o huérfano</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">El desarrollador original ya no está disponible y necesitamos rescatar, evaluar o migrar la plataforma.</span>
+                  <strong style="display: block; color: #FF4D4D; font-size: 0.95rem;">Sí, incidente entre 48 y 72 horas que sigue afectando la operación</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Afectación continua en producción que no ha podido ser contenida internamente.</span>
                 </div>
               </label>
 
               <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="equipo_ci_cd" style="margin-top: 0.25rem;">
+                <input type="radio" name="incidente" value="si_mas_72h" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos equipo de ingeniería y necesitamos gobernanza / validación en CI/CD</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Queremos integrar Castle Gate para vetar claves expuestas y gobernar la calidad de cada release.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
-                <input type="radio" name="situacion" value="incidente_urgente" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Tenemos un incidente urgente o caída activa en producción</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Fuga de credenciales, sitio caído o bloqueo crítico que requiere intervención prioritaria inmediata.</span>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Ocurrió una falla hace más de 72 horas (no es emergencia activa)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">El problema persiste o es intermitente, pero ya no requiere auxilio de choque en caliente.</span>
                 </div>
               </label>
 
@@ -143,76 +135,36 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 3: OBJETIVO PRINCIPAL -->
+          <!-- STEP 3: SISTEMA EXISTENTE / MIGRACIÓN -->
           <div class="diag-step" id="step-3" style="display: none;">
-            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">03. ¿Qué objetivo buscas resolver prioritariamente?</h2>
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">03. ¿Cuál es el punto de partida técnico?</h2>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
-              Indica la meta principal para tu proyecto:
+              Indica si se trata de un desarrollo nuevo o intervención sobre software previo:
             </p>
 
             <div class="diag-options-grid" style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
               
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="presencia_rapida" checked style="margin-top: 0.25rem;">
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="partida" value="new" checked style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Presencia digital esencial y contacto directo por WhatsApp</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Una página ágil de 1 sola sección con mis datos, servicios y enlace para que me escriban.</span>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Construcción desde cero (Sin código previo)</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Queremos lanzar un nuevo sitio web, landing comercial o software con arquitectura moderna.</span>
                 </div>
               </label>
 
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="captacion_landing" style="margin-top: 0.25rem;">
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="partida" value="existing" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Captar clientes potenciales con una landing comercial optimizada</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Estructura persuasiva de hasta 5 secciones con formulario de contacto y analítica.</span>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Trabajar sobre un repositorio o software existente</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Ya contamos con un sistema en producción y necesitamos diagnóstico, auditoría, rescate o mantenimiento.</span>
                 </div>
               </label>
 
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="sitio_corporativo" style="margin-top: 0.25rem;">
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <input type="radio" name="partida" value="replace_preserve" style="margin-top: 0.25rem;">
                 <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Sitio corporativo institucional completo (hasta 5 páginas)</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Presencia multi-página profesional para presentar empresa, servicios, portafolio y contacto.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="cms_blog" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Plataforma con Blog / CMS autogestionable (8-10 páginas)</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Publicar artículos, noticias o recursos por nuestra cuenta sin tocar código.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="integraciones_apis" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Integraciones avanzadas: APIs, CRM o pasarelas de pago</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Automatizar flujos de cobro en línea o sincronización de clientes con bases de datos.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="software_a_medida" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Desarrollo de software a la medida / portal privado</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Sistemas con roles de usuario, permisos, base de datos compleja y alta disponibilidad.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="diagnostico_72h" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Diagnóstico ágil en 72h para saber qué está fallando (Checkup)</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Evaluación estática de 65 controles CQS sin tocar código, con crédito acreditable.</span>
-                </div>
-              </label>
-
-              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="radio" name="objetivo" value="continuidad_mensual" style="margin-top: 0.25rem;">
-                <div>
-                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Mantenimiento técnico mensual y horas de rescate (Castle Care)</strong>
-                  <span style="font-size: 0.82rem; color: var(--steel-light);">Acompañamiento continuo para supervisar uptime, parches de seguridad y evitar deuda técnica.</span>
+                  <strong style="display: block; color: var(--paper); font-size: 0.95rem;">Migración de plataforma antigua preservando datos y SEO</strong>
+                  <span style="font-size: 0.82rem; color: var(--steel-light);">Reconstrucción completa de una web o CMS obsoleto cuidando el historial, enlaces y base de datos.</span>
                 </div>
               </label>
 
@@ -224,45 +176,73 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 4: EQUIPO Y URGENCIA -->
+          <!-- STEP 4: ALCANCE, COMPLEJIDAD Y GOBERNANZA -->
           <div class="diag-step" id="step-4" style="display: none;">
-            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">04. Equipo técnico y prioridad de entrega</h2>
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">04. Alcance, Complejidad y Gobernanza</h2>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
-              Cuéntanos sobre tu estructura interna y tiempos deseados:
+              Selecciona el objetivo central, señales técnicas y si requieres gobernanza CI/CD:
             </p>
 
             <div style="margin-bottom: 1.75rem;">
-              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">¿Cuentas con equipo técnico o programadores internos?</label>
-              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="equipo" value="sin_equipo" checked>
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">No, no tenemos equipo técnico; buscamos un socio que construya y gobierne todo.</span>
+              <label for="diag-project-goal" style="display: block; font-size: 0.88rem; color: var(--paper); font-weight: 700; margin-bottom: 0.5rem;">4.1 Meta principal del proyecto:</label>
+              <select id="diag-project-goal" style="width: 100%; padding: 0.8rem 1rem; background: #06080C; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.92rem;">
+                <option value="presence">Presencia digital esencial One-Page</option>
+                <option value="landing">Landing comercial para captación y campañas</option>
+                <option value="corporate" selected>Sitio corporativo institucional multi-página</option>
+                <option value="cms">Sitio con Blog / Publicación de contenidos autogestionable</option>
+                <option value="platform">Plataforma integrada con pagos y CRM</option>
+                <option value="governance">Solo necesito gobernar cómo trabaja y publica mi equipo (Gobernanza CI/CD)</option>
+                <option value="review">Diagnóstico técnico ágil de repositorio (72h)</option>
+                <option value="audit">Auditoría profunda de arquitectura y seguridad</option>
+                <option value="repair">Rescate o intervención directa en código heredado</option>
+                <option value="maintenance">Póliza mensual de mantenimiento y continuidad técnica</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 1.75rem;">
+              <label style="display: block; font-size: 0.88rem; color: var(--paper); font-weight: 700; margin-bottom: 0.5rem;">4.2 ¿Requieres gobernanza de calidad y seguridad en CI/CD (Castle Gate)?</label>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; background: #07090E; padding: 0.65rem 1rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="governance" value="no" checked>
+                  <span style="font-size: 0.85rem; color: var(--steel-light);">No / No requerido</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="equipo" value="con_equipo">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Sí, tenemos desarrolladores internos y requerimos auditoría, rescate o herramientas CI/CD.</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="equipo" value="proveedor_perdido">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Teníamos una agencia o freelancer externo que ya no nos da soporte.</span>
+                <label style="display: flex; align-items: center; gap: 0.5rem; background: #07090E; padding: 0.65rem 1rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="radio" name="governance" value="yes">
+                  <span style="font-size: 0.85rem; color: var(--cyan); font-weight: 600;">Sí, incorporar Castle Gate (CQS v1.1)</span>
                 </label>
               </div>
             </div>
 
-            <div style="margin-bottom: 2rem;">
-              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">¿Cuál es tu prioridad de tiempo?</label>
-              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="urgencia" value="urgente">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Urgente (lo antes posible / contingencia operativa activa).</span>
+            <div style="margin-bottom: 1.5rem;">
+              <span style="display: block; font-size: 0.88rem; color: var(--paper); font-weight: 700; margin-bottom: 0.4rem;">4.3 Complejidad técnica adicional (Selecciona todas las que apliquen):</span>
+              <p style="font-size: 0.78rem; color: var(--steel-soft); margin-bottom: 0.75rem;">
+                Las señales duras y transaccionales clasifican el proyecto hacia la arquitectura técnica adecuada.
+              </p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="hard_signals" value="auth"> Autenticación / Roles (RBAC)
                 </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="urgencia" value="normal" checked>
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Estándar (entre 2 y 4 semanas según el alcance pactado).</span>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="hard_signals" value="backend"> Backend / Lógica de negocio a medida
                 </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="urgencia" value="planificado">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Planificación estructurada a futuro (1 a 3 meses).</span>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="hard_signals" value="database"> Base de datos estructurada
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="hard_signals" value="portal"> Portal privado de clientes/socios
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="soft_signals" value="checkout"> Pasarela de cobro en línea
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="soft_signals" value="crm"> Integración con CRM / Leads
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="soft_signals" value="analytics"> Analítica avanzada / Conversiones
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--steel-light); background: #07090E; padding: 0.5rem 0.75rem; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
+                  <input type="checkbox" name="soft_signals" value="booking"> Módulo de reservaciones / Citas
                 </label>
               </div>
             </div>
@@ -273,51 +253,79 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 5: ESCALA Y PRESUPUESTO -->
+          <!-- STEP 5: PRESUPUESTO ESTIMADO (INFORMATIVO) -->
           <div class="diag-step" id="step-5" style="display: none;">
-            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">05. Escala del negocio y rango orientativo</h2>
+            <h2 style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem;">05. Rango de Inversión Contemplado</h2>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.5rem;">
-              Para sugerir la opción con mejor retorno y sin gastos innecesarios:
+              Selecciona el rango de presupuesto aproximado para evaluar la viabilidad y recomendarte trade-offs realistas:
             </p>
 
-            <div style="margin-bottom: 1.75rem;">
-              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">Tipo de organización o negocio:</label>
-              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="tipo_negocio" value="profesional" checked>
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Profesional independiente / Consultor / Micronegocio local.</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="tipo_negocio" value="pyme">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Pequeña o Mediana Empresa (PyME) con clientes y equipo en crecimiento.</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="tipo_negocio" value="empresa_grande">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Empresa consolidada / Scale-up / Organización de alto volumen.</span>
-                </label>
-              </div>
-            </div>
+            <div class="diag-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 2rem;">
+              
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="iron" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$2,800 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto Esencial</span>
+                </div>
+              </label>
 
-            <div style="margin-bottom: 2rem;">
-              <label style="display: block; font-size: 0.9rem; color: var(--paper); margin-bottom: 0.75rem; font-weight: 700;">Rango de presupuesto contemplado (MXN):</label>
-              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="presupuesto" value="baja" checked>
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Esencial: $2,800 a $5,000 MXN</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="presupuesto" value="media">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Profesional: $7,500 a $15,000 MXN</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="presupuesto" value="alta">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Avanzado / A Medida: $19,900 a $40,000+ MXN</span>
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); cursor: pointer;">
-                  <input type="radio" name="presupuesto" value="recurrente">
-                  <span style="font-size: 0.88rem; color: var(--steel-light);">Suscripción de acompañamiento mensual: $3,500 a $17,900 MXN/mes</span>
-                </label>
-              </div>
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="bronze" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$4,500 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto para Captación</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="silver" checked style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$7,500 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto Sitio Corporativo</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="gold" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$12,500 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto Crecimiento / Blog</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="platinum" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$24,500 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto Plataforma Integrada</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="avanzado" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$40,000 MXN o más</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Presupuesto Software a Medida</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="checkup" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">$8,900 MXN</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Diagnóstico Checkup 72h</span>
+                </div>
+              </label>
+
+              <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
+                <input type="radio" name="presupuesto" value="abierto" style="margin-top: 0.2rem;">
+                <div>
+                  <strong style="display: block; color: var(--paper); font-size: 0.88rem;">Por definir / Asesoría</strong>
+                  <span style="font-size: 0.76rem; color: var(--steel-soft);">Evaluación previa de ingeniería</span>
+                </div>
+              </label>
+
             </div>
 
             <div style="display: flex; justify-content: space-between;">
@@ -326,29 +334,29 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
           </div>
 
-          <!-- STEP 6: RESULTADO FINAL -->
+          <!-- STEP RESULTADO FINAL -->
           <div class="diag-step" id="step-result" style="display: none;">
             
             <div style="text-align: center; margin-bottom: 2rem;">
               <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">EVALUACIÓN DE INGENIERÍA COMPLETADA</span>
               <h2 style="font-size: 1.75rem; color: var(--paper); margin-bottom: 0.5rem;" id="res-greeting">Recomendación para tu Proyecto</h2>
               <p style="font-size: 0.92rem; color: var(--steel-light);" id="res-profile-summary">
-                Basado en tu situación operativa y objetivos detectados.
+                Basado en tu situación operativa y requerimientos detectados.
               </p>
             </div>
 
-            <!-- RESULT CARD -->
-            <div class="glass-panel" style="padding: 2.25rem; background: #07090E; border: 1px solid rgba(0, 210, 255, 0.35); border-radius: var(--radius-md); margin-bottom: 2rem;">
+            <!-- TARJETA PRIMARIA -->
+            <div class="glass-panel" style="padding: 2.25rem; background: #07090E; border: 1px solid rgba(0, 210, 255, 0.35); border-radius: var(--radius-md); margin-bottom: 1.5rem;">
               
               <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 1rem;">
                 <div>
                   <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); text-transform: uppercase; font-weight: 700;" id="res-badge">SOLUCIÓN RECOMENDADA</span>
-                  <h3 style="font-size: 1.6rem; color: var(--paper); margin: 0.25rem 0;" id="res-title">Castle Bronze</h3>
-                  <span style="font-size: 0.88rem; color: var(--steel-light);" id="res-subtitle">Landing Comercial de Conversión</span>
+                  <h3 style="font-size: 1.6rem; color: var(--paper); margin: 0.25rem 0;" id="res-title">Castle Silver</h3>
+                  <span style="font-size: 0.88rem; color: var(--steel-light);" id="res-subtitle">Sitio Web Multi-página Profesional</span>
                 </div>
                 <div style="text-align: right;">
-                  <div style="font-family: var(--f-mono); font-size: 1.6rem; font-weight: 800; color: var(--paper);" id="res-price">$4,500 MXN</div>
-                  <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft);" id="res-price-usd">~$265 USD</span>
+                  <div style="font-family: var(--f-mono); font-size: 1.6rem; font-weight: 800; color: var(--paper);" id="res-price">$7,500 MXN</div>
+                  <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-soft);" id="res-price-usd">~$440 USD</span>
                 </div>
               </div>
 
@@ -356,33 +364,50 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               <div style="margin-bottom: 1.5rem;">
                 <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem;">¿Por qué te recomendamos esta solución?</h4>
                 <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.65;" id="res-reasoning">
-                  Tu negocio requiere captar clientes con rapidez y presupuesto acotado. Castle Bronze entrega una landing comercial estructurada con formulario de contacto y analítica sin costos excesivos.
+                  Estructura multi-página limpia para empresas que necesitan presentar formalmente su catálogo de servicios con navegación clara y SEO on-page.
                 </p>
               </div>
 
               <div style="padding: 1rem; background: rgba(0, 229, 153, 0.06); border-left: 3px solid var(--success); border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
-                <strong style="color: var(--success); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Qué NO necesitas contratar todavía:</strong>
+                <strong style="color: var(--success); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">Qué NO necesitas pagar en esta etapa:</strong>
                 <p style="font-size: 0.82rem; color: var(--steel-light); margin: 0; line-height: 1.5;" id="res-not-needed">
-                  No necesitas una plataforma compleja a la medida (Diamond) ni un esquema de auditoría profunda. Iniciar con un alcance cerrado protege tu flujo de capital.
+                  No necesitas un desarrollo complejo a la medida ni pagar por servidores dedicados.
                 </p>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85rem; border-top: 1px dashed var(--line-dark); padding-top: 1rem;">
                 <div>
-                  <span style="color: var(--steel-soft);">Madurez digital estimada:</span>
-                  <strong style="display: block; color: var(--paper);" id="res-maturity">Nivel 1 — Entrada Comercial</strong>
+                  <span style="color: var(--steel-soft);">Familia técnica:</span>
+                  <strong style="display: block; color: var(--paper);" id="res-family">Sitios Web</strong>
                 </div>
                 <div>
-                  <span style="color: var(--steel-soft);">Siguiente paso recomendado:</span>
-                  <strong style="display: block; color: var(--cyan);" id="res-next-action">Solicitar propuesta formal</strong>
+                  <span style="color: var(--steel-soft);">Titularidad del código:</span>
+                  <strong style="display: block; color: var(--cyan);">100% del Cliente</strong>
                 </div>
               </div>
 
             </div>
 
+            <!-- TARJETA SECUNDARIA DE GOBERNANZA (COMPUESTO) -->
+            <div id="res-secondary-card" class="glass-panel" style="display: none; padding: 1.5rem; background: rgba(14, 18, 27, 0.85); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+              <span class="badge badge-cyan" style="font-size: 0.68rem; margin-bottom: 0.4rem;">COMPONENTE SECUNDARIO DE GOBERNANZA</span>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin: 0.2rem 0;" id="res-secondary-title">Gobernanza Castle Gate CI/CD</h4>
+              <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.55; margin: 0.5rem 0 0 0;" id="res-secondary-desc">
+                Se detectó una necesidad adicional de gobernar cómo publica tu equipo.
+              </p>
+            </div>
+
+            <!-- TARJETA DE TRADE-OFF DE PRESUPUESTO -->
+            <div id="res-budget-tradeoff" class="glass-panel" style="display: none; padding: 1.25rem; background: rgba(234, 179, 8, 0.05); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+              <strong style="color: #EAB308; font-size: 0.88rem; display: block; margin-bottom: 0.25rem;" id="res-tradeoff-title">Nota de Alineación de Presupuesto</strong>
+              <p style="font-size: 0.82rem; color: var(--steel-light); margin: 0; line-height: 1.5;" id="res-tradeoff-msg">
+                El presupuesto estimado difiere de la inversión del producto técnico recomendado.
+              </p>
+            </div>
+
             <!-- CTAS DE ACCIÓN -->
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;">
-              <a href="#" id="res-cta-contact" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">Solicitar esta Solución por Formulario →</a>
+              <a href="#" id="res-cta-contact" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">Solicitar Propuesta para esta Solución →</a>
               <a href="#" id="res-cta-whatsapp" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.85rem 1.75rem; border-color: #25D366; color: #25D366;">Consultar por WhatsApp</a>
             </div>
 
@@ -436,11 +461,11 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           
           const titles = [
             '',
-            'PASO 1 DE 5: PERFIL BÁSICO',
-            'PASO 2 DE 5: SITUACIÓN ACTUAL',
-            'PASO 3 DE 5: OBJETIVO PRINCIPAL',
-            'PASO 4 DE 5: EQUIPO Y PRIORIDAD',
-            'PASO 5 DE 5: ESCALA Y PRESUPUESTO'
+            'PASO 1 DE 5: IDENTIDAD Y CONTACTO',
+            'PASO 2 DE 5: INCIDENTE / EMERGENCY',
+            'PASO 3 DE 5: SISTEMA EXISTENTE / MIGRACIÓN',
+            'PASO 4 DE 5: ALCANCE, COMPLEJIDAD Y GOBERNANZA',
+            'PASO 5 DE 5: PRESUPUESTO ESTIMADO'
           ];
           if (currentStep <= 5) {
             document.getElementById('diag-step-indicator').innerText = titles[currentStep];
@@ -450,210 +475,284 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         window.evaluarDiagnostico = function() {
           const nombre = document.getElementById('diag-nombre').value.trim() || 'Cliente';
           const apellido = document.getElementById('diag-apellido').value.trim() || '';
-          const ciudad = document.getElementById('diag-ciudad').value.trim() || '';
+          const ciudad = document.getElementById('diag-ciudad').value.trim() || 'México';
+          const empresa = document.getElementById('diag-empresa').value.trim() || '';
 
           const getSelected = function(name) {
-            const el = document.querySelector(`input[name="${name}"]:checked`);
+            const el = document.querySelector('input[name="' + name + '"]:checked');
             return el ? el.value : '';
           };
 
-          const situacion = getSelected('situacion');
-          const objetivo = getSelected('objetivo');
-          const equipo = getSelected('equipo');
-          const urgencia = getSelected('urgencia');
-          const tipoNegocio = getSelected('tipo_negocio');
-          const presupuesto = getSelected('presupuesto');
-
-          // MOTOR DE DECISIÓN BASADO EN EL MÍNIMO PRODUCTO SUFICIENTE
-          let rec = {
-            badge: 'BUILD • PRESENCIA ESENCIAL',
-            title: 'Castle Iron',
-            subtitle: 'Presencia Digital One-Page de Carga Rápida',
-            price: '$2,800 MXN',
-            priceUsd: '~$165 USD',
-            reasoning: `Para tu perfil en ${ciudad}, una estructura One-Page optimizada con enlace directo a WhatsApp es el punto de partida más ágil, profesional y rentable.`,
-            notNeeded: 'No requieres un desarrollo multi-página costoso ni CMS complejo en esta etapa. Mantener la estructura ligera asegura inversión mínima y retorno rápido.',
-            maturity: 'Nivel 1 — Entrada Digital',
-            nextAction: 'Solicitar propuesta formal para Castle Iron',
-            paqueteParam: 'Castle Iron',
-            necesidadParam: 'iron'
+          const getCheckboxes = function(name) {
+            const checked = [];
+            const els = document.querySelectorAll('input[name="' + name + '"]:checked');
+            els.forEach(function(el) { checked.push(el.value); });
+            return checked;
           };
 
-          // REGLA DE INCIDENTE URGENTE
-          if (situacion === 'incidente_urgente' || (urgencia === 'urgente' && situacion === 'web_con_fallas')) {
-            rec = {
-              badge: 'INTERVENCIÓN PRIORITARIA',
+          const incidente = getSelected('incidente');
+          const partida = getSelected('partida');
+          const projectGoal = document.getElementById('diag-project-goal').value;
+          const governance = getSelected('governance');
+          const hardSignals = getCheckboxes('hard_signals');
+          const softSignals = getCheckboxes('soft_signals');
+          const presupuesto = getSelected('presupuesto');
+
+          const isEmergency = incidente === 'si_menos_24h' || 
+                              incidente === 'si_24_48h' || 
+                              incidente === 'si_48_72h_afectando';
+
+          const isPureGovernance = (projectGoal === 'governance') && (governance === 'yes' || projectGoal === 'governance');
+
+          const countHard = hardSignals.length;
+          const countSoft = softSignals.length;
+          const isAdvanced = (countHard >= 1) || (countSoft >= 2);
+
+          let primary = null;
+          let secondary = null;
+          let family = '';
+
+          // N1: EMERGENCY GANA SIEMPRE
+          if (isEmergency) {
+            family = 'Servicios de Ingeniería';
+            primary = {
+              badge: 'INTERVENCIÓN PRIORITARIA • SLA INMEDIATO',
               title: 'Castle Emergency',
-              subtitle: 'Respuesta Rápida y Contención de Incidentes Críticos',
+              subtitle: 'Contención técnica inmediata, aislamiento de fallas y hotfix en caliente',
               price: 'Desde $5,900 MXN',
               priceUsd: '~$345 USD',
-              reasoning: 'Tienes un incidente o bloqueo operativo activo en producción. La prioridad inmediata es contener la contingencia, proteger credenciales y restablecer el servicio.',
-              notNeeded: 'No es momento de planificar un rediseño completo. Primero se estabiliza la plataforma actual y posteriormente se evalúan mejoras estructurales.',
-              maturity: 'Nivel Crítico — Intervención Operativa',
-              nextAction: 'Coordinar respuesta prioritaria con guardia de ingeniería',
+              costNumeric: 5900,
+              reasoning: 'Detectamos un incidente activo de alta criticidad que afecta la operación. La prioridad absoluta de ingeniería es aislar el daño, mitigar el riesgo y restablecer el servicio a los usuarios de inmediato.',
+              notNeeded: 'No contrates auditorías extensas ni desarrollos nuevos mientras exista una contingencia activa en producción.',
               paqueteParam: 'Castle Emergency',
               necesidadParam: 'urgencia'
             };
           }
-          // REGLA DE CÓDIGO HEREDADO EMPRESARIAL / AUDITORÍA PROFUNDA
-          else if (situacion === 'software_legacy' && (tipoNegocio === 'empresa_grande' || presupuesto === 'alta')) {
-            rec = {
-              badge: 'AUDITORÍA DE ARQUITECTURA',
-              title: 'Castle Audit',
-              subtitle: 'Auditoría Técnica Profunda y Due Diligence de Código',
-              price: 'Desde $19,900 MXN',
-              priceUsd: '~$1,170 USD',
-              reasoning: 'Para software heredado o procesos de adquisición de tecnología, una auditoría multicapa mapea deuda técnica, vulnerabilidades y riesgos antes de intervenir.',
-              notNeeded: 'No intentes reconstruir el software a ciegas sin conocer la causa raíz de la deuda técnica. El Audit ahorra miles de dólares en retrabajos.',
-              maturity: 'Nivel 3 — Evaluación de Arquitectura Compleja',
-              nextAction: 'Agendar sesión de Due Diligence técnico',
-              paqueteParam: 'Castle Audit',
-              necesidadParam: 'auditar'
+          // N3: SOLO GOBERNANZA (Castle Gate Primario)
+          else if (isPureGovernance) {
+            family = 'Gobernanza Tecnológica';
+            primary = {
+              badge: 'TECNOLOGÍA PROPIA • GOBERNANZA CI/CD',
+              title: 'Castle Gate CLI',
+              subtitle: 'Motor determinista de verificación de 65 controles CQS v1.1 para runners CI/CD',
+              price: '$9,900 MXN / año',
+              priceUsd: '~$580 USD / año (C1 Foundation)',
+              costNumeric: 9900,
+              reasoning: 'Tu objetivo central es gobernar los releases de tu equipo de desarrollo, evitando que código con secretos expuestos o dependencias vulnerables llegue a producción.',
+              notNeeded: 'No requieres desarrollo web ni consultorías adicionales si tu equipo técnico ya está estructurado y solo necesita el motor de veto en su pipeline.',
+              paqueteParam: 'Castle Gate CLI',
+              necesidadParam: 'gate-licencia'
             };
           }
-          // REGLA DE CI/CD & GOBERNANZA TÉCNICA
-          else if (situacion === 'equipo_ci_cd' || objetivo === 'diagnostico_72h' || (equipo === 'con_equipo' && situacion === 'web_con_fallas')) {
-            if (objetivo === 'diagnostico_72h' || presupuesto === 'media') {
-              rec = {
-                badge: 'DIAGNÓSTICO TÉCNICO',
-                title: 'Castle Checkup',
-                subtitle: 'Radiografía de 65 Controles CQS v1.1 en 72h Hábiles',
-                price: '$8,900 MXN',
-                priceUsd: '~$525 USD',
-                reasoning: 'Evalúa la seguridad, dependencias y rendimiento de tu código en 72h hábiles con reporte interactivo y 100% de abono acreditable hacia tu plan de Castle Gate.',
-                notNeeded: 'No necesitas contratar una licencia anual a ciegas. El Checkup te entrega una radiografía exacta del estado de tu repositorio antes de comprometer mayor presupuesto.',
-                maturity: 'Nivel 3 — Madurez de Software en Evaluación',
-                nextAction: 'Solicitar evaluación técnica Castle Checkup',
-                paqueteParam: 'Castle Checkup',
-                necesidadParam: 'checkup'
-              };
-            } else {
-              rec = {
-                badge: 'GOBERNANZA DE RELEASES',
-                title: 'Castle Gate CLI (C1 Foundation)',
-                subtitle: 'Motor Determinista de Validación en CI/CD',
-                price: '$9,900 MXN / año',
-                priceUsd: '~$580 USD / año',
-                reasoning: 'Tu equipo de desarrollo se beneficiará de un motor automatizado que vete claves expuestas y garantice la calidad de cada release en GitHub Actions o GitLab CI.',
-                notNeeded: 'No necesitas la póliza máxima C6 Ultimate para iniciar. La política C1 o C2 establece la línea base de seguridad indispensable.',
-                maturity: 'Nivel 4 — Gobernanza Automatizada',
-                nextAction: 'Integrar Castle Gate en tu runner de CI/CD',
-                paqueteParam: 'Castle Gate C1',
-                necesidadParam: 'gate-licencia'
+          // MIGRACIÓN: replace_preserve
+          else if (partida === 'replace_preserve') {
+            family = 'Servicios de Ingeniería';
+            primary = {
+              badge: 'MODERNIZACIÓN • PRESERVACIÓN DE ACTIVOS',
+              title: 'Migración y Modernización de Plataforma',
+              subtitle: 'Reconstrucción de software heredado con preservación de datos y SEO histórico',
+              price: 'Desde $19,900 MXN',
+              priceUsd: '~$1,170 USD',
+              costNumeric: 19900,
+              reasoning: 'Tu proyecto requiere reemplazar una plataforma obsoleta manteniendo la integridad de tus datos históricos, cuentas de usuario y posicionamiento orgánico en Google mediante mapeo canónico 301.',
+              notNeeded: 'No descartes tu arquitectura sin un análisis de migración que rescate la autoridad y la información acumulada de tu empresa.',
+              paqueteParam: 'Migración de Plataforma',
+              necesidadParam: 'transformar'
+            };
+            if (governance === 'yes') {
+              secondary = {
+                title: 'Gobernanza Castle Gate',
+                description: 'Se recomienda incorporar validación CQS v1.1 en el pipeline de la nueva plataforma para asegurar cero regresiones.'
               };
             }
           }
-          // REGLA DE CÓDIGO HEREDADO / RESCATE PYME
-          else if (situacion === 'software_legacy') {
-            rec = {
-              badge: 'INTERVENCIÓN DIRECTA',
-              title: 'Castle Rescue (Standard)',
-              subtitle: 'Remediación y Desbloqueo Técnico en Repositorio',
-              price: '$12,900 MXN',
-              priceUsd: '~$760 USD',
-              reasoning: 'Ingenieros especializados intervienen directamente en tu código para corregir fallas agudas, sanear secretos y estabilizar la plataforma sin rehacer todo.',
-              notNeeded: 'No necesitas tirar a la basura todo el sistema actual. Muchas fallas se resuelven con horas de intervención quirúrgica limpia.',
-              maturity: 'Nivel 2 — Estabilización de Código',
-              nextAction: 'Solicitar cotización de Castle Rescue',
-              paqueteParam: 'Castle Rescue',
-              necesidadParam: 'mejorar'
-            };
+          // N2: SISTEMAS EXISTENTES (existing = existing)
+          else if (partida === 'existing') {
+            family = 'Servicios de Ingeniería';
+            if (projectGoal === 'audit') {
+              primary = {
+                badge: 'EVALUACIÓN PROFUNDA • DUE DILIGENCE',
+                title: 'Castle Audit',
+                subtitle: 'Auditoría exhaustiva de arquitectura, modelo de amenazas y hoja de ruta',
+                price: 'Desde $19,900 MXN',
+                priceUsd: '~$1,170 USD',
+                costNumeric: 19900,
+                reasoning: 'Para repositorios complejos que requieren revisión humana y automatizada de arquitectura, seguridad y modelo de riesgos para toma de decisiones directivas.',
+                notNeeded: 'No compres refactorizaciones a ciegas sin un dictamen de arquitectura formal previo.',
+                paqueteParam: 'Castle Audit',
+                necesidadParam: 'audit'
+              };
+            } else if (projectGoal === 'repair') {
+              primary = {
+                badge: 'INTERVENCIÓN DIRECTA • PULL REQUESTS',
+                title: 'Castle Rescue',
+                subtitle: 'Intervención de ingenieros para refactorizar, reparar dependencias y saneamiento',
+                price: 'Desde $6,900 MXN',
+                priceUsd: '~$405 USD (Nivel Express)',
+                costNumeric: 6900,
+                reasoning: 'Requieres ingeniería directa en tus ramas de git para corregir claves expuestas, parchar CVEs o estabilizar pipelines rotos con Pull Requests validados.',
+                notNeeded: 'No reconstruyas todo el sistema si el problema se resuelve con una bolsa delimitada de horas de rescate quirúrgico.',
+                paqueteParam: 'Castle Rescue',
+                necesidadParam: 'rescue'
+              };
+            } else if (projectGoal === 'maintenance') {
+              primary = {
+                badge: 'CONTINUIDAD OPERATIVA • SUSCRIPCIÓN',
+                title: 'Castle Care',
+                subtitle: 'Póliza mensual de supervisión, parches de seguridad y horas de rescate',
+                price: 'Desde $3,500 MXN / mes',
+                priceUsd: '~$205 USD / mes',
+                costNumeric: 3500,
+                reasoning: 'Para asegurar la estabilidad permanente de un sistema en producción mediante supervisión activa de disponibilidad y mantenimiento preventivo.',
+                notNeeded: 'No pagues un equipo de desarrollo dedicado de tiempo completo si tu plataforma solo requiere supervisión estructurada de continuidad.',
+                paqueteParam: 'Castle Care',
+                necesidadParam: 'cuidado'
+              };
+            } else {
+              primary = {
+                badge: 'DIAGNÓSTICO ÁGIL • RADIOGRAFÍA 72H',
+                title: 'Castle Checkup',
+                subtitle: 'Escaneo integral de seguridad, rendimiento y accesibilidad en 72h hábiles',
+                price: '$8,900 MXN',
+                priceUsd: '~$525 USD (100% acreditable)',
+                costNumeric: 8900,
+                reasoning: 'El punto de partida ideal para obtener certeza absoluta sobre el estado técnico de tu repositorio antes de invertir en refactorizaciones o migraciones.',
+                notNeeded: 'No inicies remodelaciones costosas sin una radiografía objetiva de vulnerabilidades y deudas técnicas.',
+                paqueteParam: 'Castle Checkup',
+                necesidadParam: 'checkup'
+              };
+            }
+
+            if (governance === 'yes') {
+              secondary = {
+                title: 'Integración Secundaria de Castle Gate',
+                description: 'Además del servicio de ingeniería, detectamos tu necesidad de gobernar los releases continuos con políticas CQS v1.1 en CI/CD.'
+              };
+            }
           }
-          // REGLA DE CONTINUIDAD MENSUAL
-          else if (objetivo === 'continuidad_mensual' || presupuesto === 'recurrente') {
-            rec = {
-              badge: 'ACOMPAÑAMIENTO MENSUAL',
-              title: 'Castle Care Pro',
-              subtitle: 'Supervisión de Uptime, Parches y 4h Rescue Incluidas',
-              price: '$7,900 MXN / mes',
-              priceUsd: '~$465 USD / mes',
-              reasoning: 'Acompañamiento continuo con hasta 3 repositorios supervisados, 4 horas mensuales de ingeniería directa (Rescue) y canal de soporte prioritario.',
-              notNeeded: 'No necesitas contratar un desarrollador de planta de tiempo completo para mantener tu plataforma segura, veloz y actualizada.',
-              maturity: 'Nivel 3 — Continuidad y Gobernanza Mensual',
-              nextAction: 'Formalizar suscripción mensual Castle Care Pro',
-              paqueteParam: 'Castle Care Pro',
-              necesidadParam: 'cuidado'
-            };
+          // CONSTRUCCIÓN DE NUEVOS SISTEMAS
+          else {
+            if (isAdvanced) {
+              family = 'Proyectos Avanzados';
+              primary = {
+                badge: 'INGENIERÍA A LA MEDIDA • SOFTWARE AVANZADO',
+                title: 'Proyectos Avanzados',
+                subtitle: 'Software a la medida, arquitecturas escalables, roles y alta disponibilidad',
+                price: 'Desde $40,000 MXN',
+                priceUsd: '~$2,350 USD (Presupuesto Base)',
+                costNumeric: 40000,
+                reasoning: 'Tu proyecto contiene requerimientos técnicos específicos que exceden un sitio web estandarizado y demandan desarrollo a la medida con lógica propia y arquitectura robusta.',
+                notNeeded: 'No fuerces tu desarrollo en plantillas rígidas ni constructores genéricos que limitarán la seguridad y escalabilidad de tu negocio.',
+                paqueteParam: 'Proyecto Avanzado',
+                necesidadParam: 'proyecto-avanzado'
+              };
+
+              if (governance === 'yes') {
+                secondary = {
+                  title: 'Gobernanza Castle Gate C5/C6',
+                  description: 'Se incluirá la implementación del pipeline de validación continua CQS v1.1 como parte de la entrega de arquitectura.'
+                };
+              }
+            } else {
+              family = 'Sitios Web';
+              if (projectGoal === 'presence') {
+                primary = {
+                  badge: 'SITIOS WEB • ESENCIAL ONE-PAGE',
+                  title: 'Castle Iron',
+                  subtitle: 'Presencia digital esencial de alto impacto con enlace directo a WhatsApp',
+                  price: '$2,800 MXN',
+                  priceUsd: '~$165 USD',
+                  costNumeric: 2800,
+                  reasoning: 'La solución óptima para profesionistas independientes y micronegocios que necesitan validar su presencia digital sin sobrecostos.',
+                  notNeeded: 'No pagues por múltiples páginas internas ni gestores CMS si tu prioridad comercial actual es canalizar a tus clientes directo a WhatsApp.',
+                  paqueteParam: 'Castle Iron',
+                  necesidadParam: 'iron'
+                };
+              } else if (projectGoal === 'landing') {
+                primary = {
+                  badge: 'SITIOS WEB • CAPTACIÓN COMERCIAL',
+                  title: 'Castle Bronze',
+                  subtitle: 'Landing comercial estructurada de hasta 5 secciones con formulario de captura',
+                  price: '$4,500 MXN',
+                  priceUsd: '~$265 USD',
+                  costNumeric: 4500,
+                  reasoning: 'Estructura orientada a conversión para campañas publicitarias o lanzamiento de productos específicos con formulario y analítica.',
+                  notNeeded: 'No necesitas un sitio multi-página si tu objetivo principal es concentrar el tráfico publicitario en una sola llamada a la acción.',
+                  paqueteParam: 'Castle Bronze',
+                  necesidadParam: 'bronze'
+                };
+              } else if (projectGoal === 'cms') {
+                primary = {
+                  badge: 'SITIOS WEB • CRECIMIENTO Y CONTENIDOS',
+                  title: 'Castle Gold',
+                  subtitle: '8-10 Páginas con Módulo de Blog / CMS Autogestionable y SEO Avanzado',
+                  price: '$12,500 MXN',
+                  priceUsd: '~$735 USD',
+                  costNumeric: 12500,
+                  reasoning: 'La solución más completa para empresas que necesitan publicar artículos periódicamente, posicionar en Google y gestionar contenidos de forma autónoma.',
+                  notNeeded: 'No pagues por integraciones backend a medida si lo que necesitas prioritariamente es un sitio corporativo con blog fácil de administrar.',
+                  paqueteParam: 'Castle Gold',
+                  necesidadParam: 'gold'
+                };
+              } else if (projectGoal === 'platform') {
+                primary = {
+                  badge: 'SITIOS WEB • PLATAFORMA INTEGRADA',
+                  title: 'Castle Platinum',
+                  subtitle: 'Hasta 15 páginas con pasarela de pagos tokenizada y conexión CRM',
+                  price: '$24,500 MXN',
+                  priceUsd: '~$1,440 USD',
+                  costNumeric: 24500,
+                  reasoning: 'Ideal para empresas consolidadas que requieren conectar su web con pasarelas de pago (Stripe / Mercado Pago), analítica y CRM con seguridad reforzada.',
+                  notNeeded: 'No requieres software empresarial a medida desde el día 1 si tu flujo operativo se cubre con integraciones estándar bien implementadas.',
+                  paqueteParam: 'Castle Platinum',
+                  necesidadParam: 'platinum'
+                };
+              } else {
+                primary = {
+                  badge: 'SITIOS WEB • CORPORATIVO MULTI-PÁGINA',
+                  title: 'Castle Silver',
+                  subtitle: 'Sitio Web Profesional Multi-página (Hasta 5 Páginas)',
+                  price: '$7,500 MXN',
+                  priceUsd: '~$440 USD',
+                  costNumeric: 7500,
+                  reasoning: 'Estructura multi-página limpia para empresas que necesitan presentar formalmente su catálogo de servicios con navegación clara y SEO on-page.',
+                  notNeeded: 'No necesitas un blog autogestionable ni pasarelas de pago si tus contenidos institucionales no cambian frecuentemente.',
+                  paqueteParam: 'Castle Silver',
+                  necesidadParam: 'silver'
+                };
+              }
+
+              if (governance === 'yes') {
+                secondary = {
+                  title: 'Gobernanza Secundaria Castle Gate',
+                  description: 'Además de la construcción de tu sitio web, incorporamos la verificación de pipeline con Castle Gate C1/C2 para tu repositorio.'
+                };
+              }
+            }
           }
-          // REGLA DE SOFTWARE A MEDIDA
-          else if (objetivo === 'software_a_medida' || (tipoNegocio === 'empresa_grande' && presupuesto === 'alta')) {
-            rec = {
-              badge: 'INGENIERÍA A MEDIDA',
-              title: 'Castle Diamond',
-              subtitle: 'Plataforma Personalizada, Roles y Alta Disponibilidad',
-              price: 'Desde $40,000 MXN',
-              priceUsd: '~$2,350 USD (Base)',
-              reasoning: 'Tu modelo operativo requiere arquitectura desacoplada, control de accesos RBAC y validación estricta bajo estándares C5/C6.',
-              notNeeded: 'No aceptes plantillas comerciales genéricas que limiten el crecimiento de tu organización. Un desarrollo a la medida ofrece escalabilidad real.',
-              maturity: 'Nivel 5 — Arquitectura Empresarial',
-              nextAction: 'Agendar sesión de levantamiento de arquitectura',
-              paqueteParam: 'Castle Diamond',
-              necesidadParam: 'crear'
-            };
-          }
-          // REGLA DE PLATINUM / INTEGRACIONES
-          else if (objetivo === 'integraciones_apis' || presupuesto === 'alta') {
-            rec = {
-              badge: 'BUILD • PLATAFORMA INTEGRADA',
-              title: 'Castle Platinum',
-              subtitle: 'Hasta 15 Páginas, Integración de Pagos, CRM y Hardening',
-              price: '$24,500 MXN',
-              priceUsd: '~$1,440 USD',
-              reasoning: 'Ideal para conectar tu plataforma con pasarelas de pago tokenizadas, automatizaciones y bases de datos con seguridad reforzada.',
-              notNeeded: 'No requieres software empresarial a medida desde el día 1 si tu flujo operativo se cubre con integraciones estándar bien implementadas.',
-              maturity: 'Nivel 3 — Plataforma Integrada de Alto Volumen',
-              nextAction: 'Solicitar propuesta formal para Castle Platinum',
-              paqueteParam: 'Castle Platinum',
-              necesidadParam: 'crear'
-            };
-          }
-          // REGLA DE GOLD / BLOG / CMS
-          else if (objetivo === 'cms_blog' || (tipoNegocio === 'pyme' && presupuesto === 'media')) {
-            rec = {
-              badge: 'BUILD • CRECIMIENTO CORPORATIVO',
-              title: 'Castle Gold',
-              subtitle: '8-10 Páginas con Módulo de Blog / CMS Autogestionable',
-              price: '$12,500 MXN',
-              priceUsd: '~$735 USD',
-              reasoning: 'La solución más completa para PyMEs que necesitan publicar contenidos, optimización de Core Web Vitals y posicionamiento SEO avanzado.',
-              notNeeded: 'No pagues por integraciones complejas de backend si lo que necesitas prioritariamente es un sitio corporativo con blog fácil de administrar.',
-              maturity: 'Nivel 2 — Presencia Corporativa y Contenido',
-              nextAction: 'Solicitar propuesta formal para Castle Gold',
-              paqueteParam: 'Castle Gold',
-              necesidadParam: 'crear'
-            };
-          }
-          // REGLA DE SILVER / CORPORATIVO BÁSICO
-          else if (objetivo === 'sitio_corporativo' || situacion === 'web_antigua') {
-            rec = {
-              badge: 'BUILD • SITIO INSTITUCIONAL',
-              title: 'Castle Silver',
-              subtitle: 'Sitio Web Multi-página Profesional (Hasta 5 Páginas)',
-              price: '$7,500 MXN',
-              priceUsd: '~$440 USD',
-              reasoning: 'Estructura multi-página limpia para empresas que necesitan presentar formalmente su catálogo de servicios con SEO on-page.',
-              notNeeded: 'No necesitas un blog autogestionable si tus contenidos institucionales no cambian frecuentemente.',
-              maturity: 'Nivel 2 — Presencia Institucional Sólida',
-              nextAction: 'Solicitar propuesta formal para Castle Silver',
-              paqueteParam: 'Castle Silver',
-              necesidadParam: 'crear'
-            };
-          }
-          // REGLA DE BRONZE / CAPTACIÓN
-          else if (objetivo === 'captacion_landing') {
-            rec = {
-              badge: 'BUILD • CAPTACIÓN COMERCIAL',
-              title: 'Castle Bronze',
-              subtitle: 'Landing Comercial Estructurada de hasta 5 Secciones',
-              price: '$4,500 MXN',
-              priceUsd: '~$265 USD',
-              reasoning: 'Estructura orientada a conversión para campañas publicitarias o lanzamiento de productos específicos con formulario y analítica.',
-              notNeeded: 'No necesitas un sitio multi-página si tu objetivo principal es concentrar el tráfico en una sola llamada a la acción.',
-              maturity: 'Nivel 1 — Conversión de Tráfico Comercial',
-              nextAction: 'Solicitar propuesta formal para Castle Bronze',
-              paqueteParam: 'Castle Bronze',
-              necesidadParam: 'crear'
-            };
+
+          // EVALUACIÓN DE TRADE-OFF DE PRESUPUESTO
+          let budgetTradeoff = null;
+          const presValues = {
+            'iron': 2800, 'bronze': 4500, 'silver': 7500, 'gold': 12500,
+            'platinum': 24500, 'avanzado': 40000, 'checkup': 8900,
+            'audit': 19900, 'rescue': 6900, 'emergency': 5900,
+            'care': 3500, 'abierto': null
+          };
+
+          const userBudgetNum = presValues[presupuesto];
+          if (userBudgetNum !== undefined && userBudgetNum !== null) {
+            if (userBudgetNum < primary.costNumeric) {
+              budgetTradeoff = {
+                title: 'Nota de Alineación de Presupuesto',
+                message: 'El alcance técnico recomendado (' + primary.title + ': ' + primary.price + ') requiere una inversión mayor al rango estimado que seleccionaste. Recomendación: Podemos estructurar el proyecto en fases o ajustar los módulos en la sesión de cotización sin comprometer la calidad de ingeniería.'
+              };
+            } else if (userBudgetNum > primary.costNumeric * 1.6) {
+              budgetTradeoff = {
+                title: 'Optimización de Inversión (Sin Sobreingeniería)',
+                message: 'Tu presupuesto estimado es superior al costo de la solución requerida (' + primary.title + ': ' + primary.price + '). En Grupo Castillo aplicamos el principio del mínimo producto suficiente: te recomendamos no sobreinvertir en tecnología que tu operación aún no necesita.'
+              };
+            }
           }
 
           // RENDERIZADO DEL RESULTADO
@@ -661,25 +760,44 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           document.getElementById('step-5').style.display = 'none';
           document.getElementById('step-result').style.display = 'block';
 
-          document.getElementById('res-greeting').innerText = `Recomendación para ${nombre} ${apellido}`;
-          document.getElementById('res-profile-summary').innerText = `Ubicación: ${ciudad} • Organización: ${tipoNegocio.toUpperCase()}`;
-          document.getElementById('res-badge').innerText = rec.badge;
-          document.getElementById('res-title').innerText = rec.title;
-          document.getElementById('res-subtitle').innerText = rec.subtitle;
-          document.getElementById('res-price').innerText = rec.price;
-          document.getElementById('res-price-usd').innerText = rec.priceUsd;
-          document.getElementById('res-reasoning').innerText = rec.reasoning;
-          document.getElementById('res-not-needed').innerText = rec.notNeeded;
-          document.getElementById('res-maturity').innerText = rec.maturity;
-          document.getElementById('res-next-action').innerText = rec.nextAction;
+          document.getElementById('res-greeting').innerText = 'Recomendación para ' + nombre + ' ' + apellido;
+          document.getElementById('res-profile-summary').innerText = 'Ubicación: ' + ciudad + (empresa ? ' • Organización: ' + empresa : '') + ' • Familia: ' + family;
+          document.getElementById('res-badge').innerText = primary.badge;
+          document.getElementById('res-title').innerText = primary.title;
+          document.getElementById('res-subtitle').innerText = primary.subtitle;
+          document.getElementById('res-price').innerText = primary.price;
+          document.getElementById('res-price-usd').innerText = primary.priceUsd;
+          document.getElementById('res-reasoning').innerText = primary.reasoning;
+          document.getElementById('res-not-needed').innerText = primary.notNeeded;
+          document.getElementById('res-family').innerText = family;
+
+          // COMPONENTE SECUNDARIO
+          const secCard = document.getElementById('res-secondary-card');
+          if (secondary) {
+            secCard.style.display = 'block';
+            document.getElementById('res-secondary-title').innerText = secondary.title;
+            document.getElementById('res-secondary-desc').innerText = secondary.description;
+          } else {
+            secCard.style.display = 'none';
+          }
+
+          // TRADEOFF PRESUPUESTO
+          const tradeCard = document.getElementById('res-budget-tradeoff');
+          if (budgetTradeoff) {
+            tradeCard.style.display = 'block';
+            document.getElementById('res-tradeoff-title').innerText = budgetTradeoff.title;
+            document.getElementById('res-tradeoff-msg').innerText = budgetTradeoff.message;
+          } else {
+            tradeCard.style.display = 'none';
+          }
 
           // ENLACE A CONTACTO
-          const contactUrl = `/contacto.html?paquete=${encodeURIComponent(rec.paqueteParam)}&necesidad=${encodeURIComponent(rec.necesidadParam)}`;
+          const contactUrl = '/contacto.html?paquete=' + encodeURIComponent(primary.paqueteParam) + '&necesidad=' + encodeURIComponent(primary.necesidadParam);
           document.getElementById('res-cta-contact').href = contactUrl;
 
-          // ENLACE A WHATSAPP LIMPIO (SIN DATOS SENSIBLES NI EDAD)
-          const waText = encodeURIComponent(`Hola Grupo Castillo, completé el Diagnóstico Castillo en la web para ${nombre} (${ciudad}). Mi recomendación resultante es: ${rec.title} (${rec.price}). Me gustaría conocer los detalles de contratación.`);
-          document.getElementById('res-cta-whatsapp').href = `https://wa.me/525512345678?text=${waText}`;
+          // ENLACE A WHATSAPP
+          const waText = encodeURIComponent('Hola Grupo Castillo, completé el Diagnóstico Castillo en la web para ' + nombre + ' (' + ciudad + '). Mi recomendación resultante es: ' + primary.title + ' (' + primary.price + '). Me gustaría conocer los detalles de contratación.');
+          document.getElementById('res-cta-whatsapp').href = 'https://wa.me/525512345678?text=' + waText;
 
           window.scrollTo({ top: document.getElementById('diag-app').offsetTop - 80, behavior: 'smooth' });
         };

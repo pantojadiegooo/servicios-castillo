@@ -36,8 +36,9 @@
     { "source": "/transformacion.html", "destination": "/servicios.html", "permanent": true },
     { "source": "/transformacion", "destination": "/servicios.html", "permanent": true },
     { "source": "/seguridad-calidad.html", "destination": "/castle-gate.html", "permanent": true },
-    { "source": "/seguridad-calidad", "destination": "/castle-gate.html", "permanent": true },
     { "source": "/soluciones.html", "destination": "/servicios.html", "permanent": true },
-    { "source": "/soluciones", "destination": "/servicios.html", "permanent": true }
+    { "source": "/soluciones", "destination": "/servicios.html", "permanent": true },
+    { "source": "/paquetes/diamond.html", "destination": "/paquetes.html#proyectos-avanzados", "permanent": true },
+    { "source": "/paquetes/diamond", "destination": "/paquetes.html#proyectos-avanzados", "permanent": true }
   ]
 }

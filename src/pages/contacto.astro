@@ -58,38 +58,42 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
               <label for="necesidad">¿Qué necesita tu negocio?</label>
               <select id="necesidad" name="necesidad" required>
                 <option value="">Selecciona una opción</option>
-                <option value="checkup">Diagnóstico Castle Checkup ($8,900 MXN / 72h)</option>
                 <option value="iron">Presencia Digital Básica (Castle Iron - $2,800 MXN)</option>
-                <option value="crear">Crear un sitio web nuevo (Build Bronze a Diamond)</option>
-                <option value="mejorar">Acelerar o reparar web actual (Castle Rescue / Intervention)</option>
-                <option value="auditar">Auditoría profunda de arquitectura y seguridad (Castle Audit)</option>
-                <option value="gate-licencia">Licenciamiento de Castle Gate CLI (C1 a C6)</option>
-                <option value="transformar">Reconstruir / Migrar plataforma obsoleta (Transformation)</option>
-                <option value="cuidado">Mantenimiento y gobernanza continua (Castle Care)</option>
-                <option value="urgencia">Intervención prioritaria urgente (Castle Emergency)</option>
-                <option value="otro">Otro requerimiento a medida</option>
+                <option value="bronze">Landing Comercial (Castle Bronze - $4,500 MXN)</option>
+                <option value="silver">Sitio Corporativo Multi-página (Castle Silver - $7,500 MXN)</option>
+                <option value="gold">Crecimiento con Blog / CMS (Castle Gold - $12,500 MXN)</option>
+                <option value="platinum">Plataforma Integrada & Pagos (Castle Platinum - $24,500 MXN)</option>
+                <option value="proyecto-avanzado">Proyecto Avanzado a la Medida (Desde $40,000 MXN)</option>
+                <option value="checkup">Diagnóstico Ágil de Repositorio (Castle Checkup - $8,900 MXN)</option>
+                <option value="audit">Auditoría Profunda de Arquitectura (Castle Audit - Desde $19,900 MXN)</option>
+                <option value="rescue">Intervención y Rescate de Código (Castle Rescue - Desde $6,900 MXN)</option>
+                <option value="urgencia">Atención Prioritaria Inmediata (Castle Emergency - Desde $5,900 MXN)</option>
+                <option value="cuidado">Mantenimiento y Gobernanza Mensual (Castle Care - Desde $3,500/mes)</option>
+                <option value="gate-licencia">Licenciamiento de Castle Gate CLI (Gobernanza CI/CD)</option>
+                <option value="transformar">Migración y Modernización de Plataforma Obsoleta</option>
+                <option value="otro">Otro requerimiento técnico</option>
               </select>
             </div>
             <div class="field">
               <label for="presupuesto">Presupuesto Estimado / Paquete</label>
               <select id="presupuesto" name="presupuesto">
                 <option value="">Selecciona un rango aproximado (MXN)</option>
+                <option value="iron">$2,800 MXN (~$165 USD) — Castle Iron</option>
+                <option value="bronze">$4,500 MXN (~$265 USD) — Castle Bronze</option>
+                <option value="silver">$7,500 MXN (~$440 USD) — Castle Silver</option>
+                <option value="gold">$12,500 MXN (~$735 USD) — Castle Gold</option>
+                <option value="platinum">$24,500 MXN (~$1,440 USD) — Castle Platinum</option>
+                <option value="avanzado">$40,000 MXN o más — Proyectos Avanzados a la Medida</option>
                 <option value="checkup">$8,900 MXN (~$525 USD) — Castle Checkup 72h</option>
+                <option value="rescue">$6,900 – $24,900 MXN — Castle Rescue</option>
+                <option value="audit">$19,900 – $39,900 MXN — Castle Audit</option>
+                <option value="emergency">Desde $5,900 MXN — Castle Emergency</option>
                 <option value="care-essential">$3,500 MXN / mes (~$205 USD) — Care Essential</option>
                 <option value="care-pro">$7,900 MXN / mes (~$465 USD) — Care Pro</option>
                 <option value="care-enterprise">$17,900 MXN / mes (~$1,050 USD) — Care Enterprise</option>
                 <option value="gate-c1">$9,900 MXN / año — Castle Gate C1 Foundation</option>
                 <option value="gate-c2">$16,900 MXN / año — Castle Gate C2 Standard</option>
                 <option value="gate-c3">$26,900 MXN / año — Castle Gate C3 Professional</option>
-                <option value="iron">$2,800 MXN (~$165 USD) — Castle Iron</option>
-                <option value="bronze">$4,500 MXN — Castle Bronze</option>
-                <option value="silver">$7,500 MXN — Castle Silver</option>
-                <option value="gold">$12,500 MXN — Castle Gold</option>
-                <option value="platinum">$24,500 MXN — Castle Platinum</option>
-                <option value="diamond">$40,000 MXN o más — Castle Diamond / A Medida</option>
-                <option value="rescue">$6,900 – $12,900 MXN — Castle Rescue</option>
-                <option value="audit">$19,900 – $39,900 MXN — Castle Audit</option>
-                <option value="emergency">Desde $5,900 MXN — Castle Emergency</option>
                 <option value="por-definir">Requiero asesoría previa</option>
               </select>
             </div>
@@ -111,6 +115,50 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
               <p style="font-size:.8rem; color:var(--steel-soft); margin-top:.75rem;">Tu información es confidencial. Te respondemos en menos de 24 horas hábiles.</p>
             </div>
           </form>
+
+          <script is:inline>
+            (function() {
+              const params = new URLSearchParams(window.location.search);
+              const necParam = params.get('necesidad');
+              const paqParam = params.get('paquete');
+              const necSelect = document.getElementById('necesidad');
+              const presSelect = document.getElementById('presupuesto');
+              
+              if (necParam && necSelect) {
+                if (necSelect.querySelector('option[value="' + necParam + '"]')) {
+                  necSelect.value = necParam;
+                } else if (necParam === 'crear' || necParam === 'proyecto-avanzado') {
+                  necSelect.value = 'proyecto-avanzado';
+                }
+              }
+              
+              if (paqParam) {
+                const pLower = paqParam.toLowerCase();
+                if (presSelect) {
+                  if (pLower.includes('iron')) presSelect.value = 'iron';
+                  else if (pLower.includes('bronze')) presSelect.value = 'bronze';
+                  else if (pLower.includes('silver')) presSelect.value = 'silver';
+                  else if (pLower.includes('gold')) presSelect.value = 'gold';
+                  else if (pLower.includes('platinum')) presSelect.value = 'platinum';
+                  else if (pLower.includes('diamond') || pLower.includes('avanzado')) presSelect.value = 'avanzado';
+                  else if (pLower.includes('checkup')) presSelect.value = 'checkup';
+                  else if (pLower.includes('rescue')) presSelect.value = 'rescue';
+                  else if (pLower.includes('audit')) presSelect.value = 'audit';
+                  else if (pLower.includes('emergency')) presSelect.value = 'emergency';
+                  else if (pLower.includes('care')) presSelect.value = 'care-essential';
+                }
+                if (necSelect && !necParam) {
+                  if (pLower.includes('iron')) necSelect.value = 'iron';
+                  else if (pLower.includes('bronze')) necSelect.value = 'bronze';
+                  else if (pLower.includes('silver')) necSelect.value = 'silver';
+                  else if (pLower.includes('gold')) necSelect.value = 'gold';
+                  else if (pLower.includes('platinum')) necSelect.value = 'platinum';
+                  else if (pLower.includes('diamond') || pLower.includes('avanzado')) necSelect.value = 'proyecto-avanzado';
+                }
+              }
+            })();
+          </script>
+
           <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1.5rem; text-align:center;">Tu solicitud llega directamente a los ingenieros de Grupo Castillo.</p>
         </div>
 
