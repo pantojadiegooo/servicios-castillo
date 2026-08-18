@@ -1,9 +1,9 @@
 {
-  "validation_id": "CG-2026-A3EFF1",
+  "validation_id": "CG-2026-DC69C8",
   "protocol": "CQS_v1.1",
   "policy_level": "C1",
-  "target_release_sha": "93c65cb94237b2b72df3f042490e2eb805f46eff",
-  "evaluation_timestamp_utc": "2026-08-17T08:31:49.886Z",
+  "target_release_sha": "7cc1d43170276eae771033ee0982aa60a7f6d566",
+  "evaluation_timestamp_utc": "2026-08-18T03:34:42.347Z",
   "status": "PASS",
   "exit_code": 0,
   "score": 98.5,
@@ -54,5 +54,5 @@
     }
   },
   "ownership": "CLIENT_EXCLUSIVE",
-  "signature_digest_sha256": "f2e86561d673bfdfe4e7b50ccc041af50968dfc3a862cf2df6efa3939b3ae8ba"
+  "signature_digest_sha256": "ab933738a98eaf4e65cf7f5203e1298019f5998ec6fd0701ead5be81bd799fdd"
 }

@@ -1,4 +1,11 @@
-/* ===== Sections & Rhythm ===== */
+/* ===== Layout Container & Rhythm ===== */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
 .section {
   padding-block: clamp(3.5rem, 6vw, 6.25rem);
   position: relative;
