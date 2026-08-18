@@ -94,6 +94,10 @@ class SecurityProbe extends BaseAnalyzer {
       if (['.js', '.mjs', '.cjs', '.ts', '.jsx', '.tsx', '.html', '.htm'].includes(ext)) {
         for (let i = 0; i < lines.length; i++) {
           const lineContent = lines[i];
+          const trimmed = lineContent.trim();
+          if (trimmed.startsWith('//') || trimmed.startsWith('*') || trimmed.startsWith('/*')) continue;
+          if (trimmed.includes('rule:') || trimmed.includes('regex:') || trimmed.includes('description:') || trimmed.includes('details:')) continue;
+
           for (const pattern of DANGEROUS_PATTERNS) {
             if (pattern.regex.test(lineContent)) {
               findings.dangerous_patterns.push({

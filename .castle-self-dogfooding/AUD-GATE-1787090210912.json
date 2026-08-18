@@ -1,0 +1,655 @@
+{
+  "audit_record_id": "AUD-GATE-1787090210912",
+  "recorded_at": "2026-08-18T21:56:50.912Z",
+  "governance_metadata": {
+    "cqs_specification_version": "1.1.0",
+    "cqs_methodology_status": "FROZEN",
+    "gate_version": "1.0.0-candidate",
+    "gate_policy_version": "1.0.0-ratified",
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION"
+  },
+  "target_system": {
+    "name": "castle-gate-engine",
+    "environment": "production",
+    "source_dir": "./castle-gate"
+  },
+  "auditor": {
+    "name": "Automated Collector",
+    "organization": "Grupo Castillo"
+  },
+  "evidence_provenance": {
+    "project_id": "castle-gate-engine",
+    "environment": "production",
+    "collected_by": "automated_collector",
+    "source_repo": "local://castle-gate",
+    "commit_sha": "unspecified_sha",
+    "git_tree_hash": "92a8d3ab8fd5b9970571020264255aa146783b804a89cec54481b5d88b20e97e",
+    "timestamp": "2026-08-18T21:56:50.814Z",
+    "payload_sha256": "e93b4d860c428902e8743febb3ea1054664e5cb70ed9279087405fd25a9fe077"
+  },
+  "cqs_evaluation_summary": {
+    "evaluation_id": "EVAL-1787090210907",
+    "raw_score": 63.63636363636363,
+    "display_score": 63.64,
+    "nominal_weight": 100,
+    "applicable_weight": 55,
+    "excluded_weight": 45,
+    "cqs_verdict": "FAIL_BLOCKED"
+  },
+  "gate_decision_summary": {
+    "decision_id": "GATE-DEC-C1-1787090210912",
+    "gate_state": "BLOCKED",
+    "blockers_count": 1,
+    "blockers": [
+      {
+        "type": "REQUIRED_CONTROL_FAILED",
+        "code": "SEC-04.1",
+        "name": "Required Control SEC-04.1 Failed",
+        "details": "Policy level C1 strictly requires control SEC-04.1 to pass or have an active authorized waiver.",
+        "severity": "CRITICAL_RELEASE_BLOCKER"
+      }
+    ],
+    "required_actions": [
+      "Remediate or obtain authorized waiver for mandatory control: SEC-04.1"
+    ],
+    "decision_rationale": "1 mandatory required control(s) failed evaluation: SEC-04.1."
+  },
+  "remediation_history": null,
+  "full_traceability_chain": {
+    "evidence_package_id": "EVP-1787090210907-e93b4d86",
+    "cqs_evaluation_id": "EVAL-1787090210907",
+    "domains": [
+      {
+        "domain_code": "PER",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "PER-01",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "PER-01.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-01.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-02",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "PER-02.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-03",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "PER-03.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-03.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-04.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.4",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-05",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "PER-05.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-05.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "SEC",
+        "domain_score": 0.75,
+        "subcriteria": [
+          {
+            "subcriterion_code": "SEC-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-01.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.4",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.5",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.4
+              },
+              {
+                "control_id": "SEC-02.6",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.4
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-03",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "SEC-03.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-03.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-04",
+            "subcriterion_score": 0,
+            "controls": [
+              {
+                "control_id": "SEC-04.1",
+                "status": "FAIL",
+                "score": 0,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.4",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.5",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.8
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-05",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-05.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-05.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1
+              },
+              {
+                "control_id": "SEC-05.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "ACC",
+        "domain_score": null,
+        "subcriteria": [
+          {
+            "subcriterion_code": "ACC-01",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "ACC-01.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-01.2",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-02",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "ACC-02.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-03",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "ACC-03.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-03.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-04",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "ACC-04.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "ACC-04.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "ACC-04.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "SEO",
+        "domain_score": null,
+        "subcriteria": [
+          {
+            "subcriterion_code": "SEO-01",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "SEO-01.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-01.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-02",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "SEO-02.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-02.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-03",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "SEO-03.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-03.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-04",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "SEO-04.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-04.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-04.3",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 0.9375
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "UX",
+        "domain_score": null,
+        "subcriteria": [
+          {
+            "subcriterion_code": "UX-01",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "UX-01.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-01.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-02",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "UX-02.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-03",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "UX-03.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-03.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-04",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "UX-04.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-04.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.875
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "REL",
+        "domain_score": 0,
+        "subcriteria": [
+          {
+            "subcriterion_code": "REL-01",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "REL-01.1",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2.5
+              },
+              {
+                "control_id": "REL-01.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2.5
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "REL-02",
+            "subcriterion_score": 0,
+            "controls": [
+              {
+                "control_id": "REL-02.1",
+                "status": "FAIL",
+                "score": 0,
+                "weight": 2.5
+              },
+              {
+                "control_id": "REL-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "MNT",
+        "domain_score": 0,
+        "subcriteria": [
+          {
+            "subcriterion_code": "MNT-01",
+            "subcriterion_score": 0,
+            "controls": [
+              {
+                "control_id": "MNT-01.1",
+                "status": "FAIL",
+                "score": 0,
+                "weight": 1.25
+              },
+              {
+                "control_id": "MNT-01.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.25
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "MNT-02",
+            "subcriterion_score": null,
+            "controls": [
+              {
+                "control_id": "MNT-02.1",
+                "status": "N/A",
+                "score": null,
+                "weight": 1.25
+              },
+              {
+                "control_id": "MNT-02.2",
+                "status": "UNEXECUTED",
+                "score": null,
+                "weight": 1.25
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gate_decision_id": "GATE-DEC-C1-1787090210912",
+    "final_gate_state": "BLOCKED"
+  }
+}

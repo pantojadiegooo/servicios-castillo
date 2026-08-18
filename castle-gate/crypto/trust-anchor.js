@@ -21,7 +21,7 @@ class TrustAnchorStore {
    * @param {Object} [metadata]
    */
   constructor(initialAnchors = [], metadata = {}) {
-    this.schema_version = TRUST_ANCHOR_SCHEMA;
+    this.schema_version = metadata.schema_version || TRUST_ANCHOR_SCHEMA;
     this.store_id = metadata.store_id || `TRUST-STORE-${Date.now()}`;
     this.authority = metadata.authority || 'Grupo Castillo Root Security & Release Authority';
     this.updated_at = metadata.updated_at || new Date().toISOString();
@@ -70,6 +70,13 @@ class TrustAnchorStore {
    * @returns {Object} { trusted: boolean, anchor?: Object, reason?: string }
    */
   isKeyTrusted(publicKeyPem, keyId) {
+    if (this.schema_version !== TRUST_ANCHOR_SCHEMA) {
+      return {
+        trusted: false,
+        reason: `Unsupported Trust Anchor schema version: "${this.schema_version}". Expected "${TRUST_ANCHOR_SCHEMA}".`
+      };
+    }
+
     let targetKeyId = keyId;
     if (!targetKeyId && publicKeyPem) {
       targetKeyId = deriveKeyId(publicKeyPem);
@@ -152,8 +159,31 @@ class TrustAnchorStore {
     if (!fs.existsSync(filePath)) {
       throw new Error(`[Trust Anchor] File not found: ${filePath}`);
     }
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch (err) {
+      throw new Error(`[Trust Anchor] Malformed JSON in trust anchor file: ${err.message}`);
+    }
+
+    if (!data || typeof data !== 'object') {
+      throw new Error('[Trust Anchor] Trust anchor file does not contain a valid JSON object.');
+    }
+
     return new TrustAnchorStore(data.anchors || [], data);
+  }
+
+  /**
+   * Loads the official bundled trust anchor store from the package distribution.
+   */
+  static loadDefault() {
+    const defaultPath = path.join(__dirname, '..', 'trust-anchors.json');
+    if (fs.existsSync(defaultPath)) {
+      return TrustAnchorStore.loadFromFile(defaultPath);
+    }
+    return new TrustAnchorStore([], {
+      authority: 'Grupo Castillo Default Offline Trust Anchor Store'
+    });
   }
 }
 

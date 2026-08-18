@@ -1,0 +1,2134 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Castle Gate Assurance Engine",
+          "version": "1.0.0-candidate",
+          "informationUri": "https://grupocastillo.com/castle-gate",
+          "rules": [
+            {
+              "id": "AST_EMPTY_CATCH",
+              "name": "AST_EMPTY_CATCH",
+              "shortDescription": {
+                "text": "Empty catch block swallows errors without logging or mitigation."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleAstProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "AST_HIGH_COMPLEXITY",
+              "name": "AST_HIGH_COMPLEXITY",
+              "shortDescription": {
+                "text": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleAstProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "AST_FILE_OVERSIZED",
+              "name": "AST_FILE_OVERSIZED",
+              "shortDescription": {
+                "text": "File \"analyzers\\ast-probe.js\" exceeds AST node limit (2416 > 1500 nodes)."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleAstProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "AST_FUNCTION_OVERSIZED",
+              "name": "AST_FUNCTION_OVERSIZED",
+              "shortDescription": {
+                "text": "Function \"anonymous\" size (176 nodes) exceeds threshold of 150 nodes."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleAstProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "EXCESSIVE_NESTING",
+              "name": "EXCESSIVE_NESTING",
+              "shortDescription": {
+                "text": "Deep control nesting detected (depth: 6)."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleMaintainabilityProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            }
+          ]
+        }
+      },
+      "automationDetails": {
+        "id": "EVAL-4e61f43704560c09"
+      },
+      "results": [
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 158,
+                  "startColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/maintainability-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 137,
+                  "startColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/config-loader.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 6
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 4
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "index.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 221,
+                  "startColumn": 4
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "remediation/remediation-store.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 8
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_EMPTY_CATCH",
+          "level": "note",
+          "message": {
+            "text": "Empty catch block swallows errors without logging or mitigation."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 20
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 233,
+                  "startColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"anonymous\" cyclomatic complexity (47) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 416,
+                  "startColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"safeDiscoverFiles\" cyclomatic complexity (32) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/security-guard.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"traverse\" cyclomatic complexity (23) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/security-guard.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 2
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"parseArgs\" cyclomatic complexity (64) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cli/bin.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"runCli\" cyclomatic complexity (69) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cli/bin.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"canonicalize\" cyclomatic complexity (19) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/canonicalizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"evaluateGateDecision\" cyclomatic complexity (37) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/gate-decision-engine.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"generateReleaseCertificate\" cyclomatic complexity (62) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/release-authorizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"verifyReleaseCertificate\" cyclomatic complexity (18) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/release-authorizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"createBoundEvidenceArtifact\" cyclomatic complexity (35) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/evidence-binding.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"mapEvaluationToFrameworks\" cyclomatic complexity (22) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "governance/framework-mapper.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"executeCastleGate\" cyclomatic complexity (46) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "index.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"validateGatePolicy\" cyclomatic complexity (47) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/policy-validator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"validateWaiver\" cyclomatic complexity (22) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/waiver-manager.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"generateComplianceReportHtml\" cyclomatic complexity (19) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/compliance-report-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"generateSarifReport\" cyclomatic complexity (27) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sarif-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"extractDependencies\" cyclomatic complexity (20) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_HIGH_COMPLEXITY",
+          "level": "warning",
+          "message": {
+            "text": "Function \"verifyAssuranceArtifact\" cyclomatic complexity (107) exceeds maximum threshold of 15."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "verifier/castle-verify.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FILE_OVERSIZED",
+          "level": "warning",
+          "message": {
+            "text": "File \"analyzers\\ast-probe.js\" exceeds AST node limit (2416 > 1500 nodes)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FILE_OVERSIZED",
+          "level": "warning",
+          "message": {
+            "text": "File \"analyzers\\dom-semantics-probe.js\" exceeds AST node limit (1735 > 1500 nodes)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/dom-semantics-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FILE_OVERSIZED",
+          "level": "warning",
+          "message": {
+            "text": "File \"cli\\bin.js\" exceeds AST node limit (2227 > 1500 nodes)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cli/bin.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FILE_OVERSIZED",
+          "level": "warning",
+          "message": {
+            "text": "File \"index.js\" exceeds AST node limit (1716 > 1500 nodes)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "index.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FILE_OVERSIZED",
+          "level": "warning",
+          "message": {
+            "text": "File \"verifier\\castle-verify.js\" exceeds AST node limit (1649 > 1500 nodes)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "verifier/castle-verify.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"anonymous\" size (176 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 233,
+                  "startColumn": 19
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"anonymous\" size (643 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 416,
+                  "startColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"validatePathWithinWorkspace\" size (192 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/security-guard.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"safeDiscoverFiles\" size (498 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/security-guard.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"traverse\" size (323 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/security-guard.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 2
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createGateAuditRecord\" size (289 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "audit/gate-audit-trail.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"parseArgs\" size (661 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cli/bin.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"runCli\" size (1442 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "cli/bin.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"loadCastleGateConfig\" size (224 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/config-loader.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"canonicalize\" size (239 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/canonicalizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"verifyDsseEnvelope\" size (239 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/dsse.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createKeyBackup\" size (259 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/key-backup.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"restoreKeyBackup\" size (318 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/key-backup.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createRevocationManifest\" size (238 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/key-revocation.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"validateRevocationManifest\" size (193 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/key-revocation.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"checkKeyRevocationStatus\" size (316 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "crypto/key-revocation.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 151,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"evaluateGateDecision\" size (800 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/gate-decision-engine.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"generateReleaseCertificate\" size (682 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/release-authorizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"verifyReleaseCertificate\" size (326 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "engine/release-authorizer.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"anonymous\" size (211 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/adapters/osv-adapter.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createBoundEvidenceArtifact\" size (473 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/evidence-binding.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createEvidencePackage\" size (194 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/evidence-package.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"computeDirectoryTreeHash\" size (195 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"resolveGitProvenance\" size (282 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "evidence/git-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"mapEvaluationToFrameworks\" size (471 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "governance/framework-mapper.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"executeCastleGate\" size (943 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "index.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createPolicyArtifact\" size (214 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/policy-artifact.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"verifyPolicyArtifact\" size (162 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/policy-artifact.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"resolveGatePolicy\" size (329 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/policy-resolver.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"validateGatePolicy\" size (684 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/policy-validator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"createWaiver\" size (210 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/waiver-manager.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"validateWaiver\" size (481 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/waiver-manager.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"applyWaivers\" size (180 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "policy/waiver-manager.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 211,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"generateComplianceReportHtml\" size (403 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/compliance-report-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"generateSarifReport\" size (444 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sarif-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"extractDependencies\" size (303 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"generateCycloneDxSbom\" size (254 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"generateSpdxSbom\" size (172 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "reports/sbom-generator.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"verifyAssuranceArtifact\" size (1553 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "verifier/castle-verify.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "EXCESSIVE_NESTING",
+          "level": "note",
+          "message": {
+            "text": "Deep control nesting detected (depth: 6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "analyzers/ast-probe.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 512,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "EXCESSIVE_NESTING",
+          "level": "note",
+          "message": {
+            "text": "Deep control nesting detected (depth: 7)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "verifier/castle-verify.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 280,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        }
+      ]
+    }
+  ]
+}

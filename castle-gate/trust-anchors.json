@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0-trust-anchor",
+  "store_id": "CASTLE-OFFICIAL-ROOT-ANCHORS-2026",
+  "authority": "Grupo Castillo Root Security & Release Authority",
+  "updated_at": "2026-08-18T00:00:00.000Z",
+  "anchors": [
+    {
+      "key_id": "ed25519:186f93e7f2d0a75f",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA1zs6Pe8RRMx9YKnkFsDSm21meBrS3pLokoNSW50MUdY=\n-----END PUBLIC KEY-----\n",
+      "identity": {
+        "name": "Grupo Castillo Official Release Authority (Primary)",
+        "role": "RELEASE_AUTHORITY",
+        "scope": "ALL_LEVELS"
+      },
+      "valid_from": "2026-01-01T00:00:00.000Z",
+      "valid_until": "2030-01-01T00:00:00.000Z",
+      "trust_level": "OFFICIAL_ROOT"
+    }
+  ]
+}

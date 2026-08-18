@@ -1,0 +1,1810 @@
+{
+  "schema_version": "2.0.0-assurance",
+  "evaluation_id": "EVAL-4e61f43704560c09",
+  "nonce": "506b3f1f26bb28148ff65955d90f9a0a",
+  "timestamp": "2026-08-18T21:57:19.170Z",
+  "target_system": {
+    "name": "castle-gate-engine",
+    "environment": "production",
+    "repository_url": "local://castle-gate",
+    "commit_sha": "4e61f43704560c090381585d171bc94dd54fe98e",
+    "git_tree_hash": "64572ea20c3a20449c0c49b6191075b5f7354def915ed0611dfdd95865c6e44a",
+    "branch": "unknown",
+    "is_dirty": false
+  },
+  "governance": {
+    "cqs_specification_version": "1.1.0",
+    "policy_version": "1.0.0-ratified",
+    "policy_hash": "16ca1e1bb73dd459276467d069cbd62b06c5b08c357b7d61626adb8c81987550",
+    "engine_version": "1.0.0",
+    "castle_gate_version": "1.0.0-candidate"
+  },
+  "assessment": {
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION",
+    "gate_decision": "PASSED",
+    "cqs_raw_score": 72.72727272727273,
+    "cqs_display_score": 72.73,
+    "cqs_verdict": "CONDITIONAL_APPROVAL",
+    "gate_breakers_status": "CLEARED"
+  },
+  "controls": {
+    "SEC-05.1": {
+      "status": "PASS",
+      "details": "No hardcoded credentials, API keys, or committed .env files detected.",
+      "findings": []
+    },
+    "SEC-04.1": {
+      "status": "PASS",
+      "details": "No dangerous eval(), document.write(), or javascript: URIs detected.",
+      "findings": []
+    },
+    "SEC-01.2": {
+      "status": "PASS",
+      "details": "No unencrypted external HTTP links detected in production code.",
+      "findings": []
+    },
+    "SEC-02.1": {
+      "status": "PASS",
+      "details": "Security headers configuration (CSP/HSTS/X-Frame-Options) detected in project.",
+      "findings": []
+    },
+    "ACC-01.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "ACC-01.2": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "ACC-02.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "ACC-03.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "ACC-04.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "UX-01.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "SEO-02.1": {
+      "status": "N/A",
+      "details": "No HTML documents found in repository.",
+      "findings": []
+    },
+    "MNT-01.1": {
+      "status": "FAIL",
+      "details": "20 high-complexity function(s), 0 debugger statement(s), 0 circular import(s), 39 oversized function(s), 5 oversized file(s).",
+      "findings": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 92,
+          "column": 20,
+          "function_name": "anonymous",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 233,
+          "column": 19,
+          "function_name": "anonymous",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 416,
+          "column": 23,
+          "function_name": "anonymous",
+          "complexity": 47,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (47) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 85,
+          "column": 0,
+          "function_name": "safeDiscoverFiles",
+          "complexity": 32,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"safeDiscoverFiles\" cyclomatic complexity (32) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 104,
+          "column": 2,
+          "function_name": "traverse",
+          "complexity": 23,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"traverse\" cyclomatic complexity (23) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 62,
+          "column": 0,
+          "function_name": "parseArgs",
+          "complexity": 64,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"parseArgs\" cyclomatic complexity (64) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 155,
+          "column": 0,
+          "function_name": "runCli",
+          "complexity": 69,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"runCli\" cyclomatic complexity (69) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "crypto\\canonicalizer.js",
+          "line": 18,
+          "column": 0,
+          "function_name": "canonicalize",
+          "complexity": 19,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"canonicalize\" cyclomatic complexity (19) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\gate-decision-engine.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "evaluateGateDecision",
+          "complexity": 37,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"evaluateGateDecision\" cyclomatic complexity (37) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 37,
+          "column": 0,
+          "function_name": "generateReleaseCertificate",
+          "complexity": 62,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateReleaseCertificate\" cyclomatic complexity (62) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 167,
+          "column": 0,
+          "function_name": "verifyReleaseCertificate",
+          "complexity": 18,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"verifyReleaseCertificate\" cyclomatic complexity (18) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "evidence\\evidence-binding.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "createBoundEvidenceArtifact",
+          "complexity": 35,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"createBoundEvidenceArtifact\" cyclomatic complexity (35) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "governance\\framework-mapper.js",
+          "line": 25,
+          "column": 0,
+          "function_name": "mapEvaluationToFrameworks",
+          "complexity": 22,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"mapEvaluationToFrameworks\" cyclomatic complexity (22) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "index.js",
+          "line": 91,
+          "column": 0,
+          "function_name": "executeCastleGate",
+          "complexity": 46,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"executeCastleGate\" cyclomatic complexity (46) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "policy\\policy-validator.js",
+          "line": 51,
+          "column": 0,
+          "function_name": "validateGatePolicy",
+          "complexity": 47,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"validateGatePolicy\" cyclomatic complexity (47) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 92,
+          "column": 0,
+          "function_name": "validateWaiver",
+          "complexity": 22,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"validateWaiver\" cyclomatic complexity (22) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\compliance-report-generator.js",
+          "line": 13,
+          "column": 0,
+          "function_name": "generateComplianceReportHtml",
+          "complexity": 19,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateComplianceReportHtml\" cyclomatic complexity (19) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\sarif-generator.js",
+          "line": 38,
+          "column": 0,
+          "function_name": "generateSarifReport",
+          "complexity": 27,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateSarifReport\" cyclomatic complexity (27) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 20,
+          "column": 0,
+          "function_name": "extractDependencies",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"extractDependencies\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 48,
+          "column": 0,
+          "function_name": "verifyAssuranceArtifact",
+          "complexity": 107,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"verifyAssuranceArtifact\" cyclomatic complexity (107) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 233,
+          "column": 19,
+          "function_name": "anonymous",
+          "node_count": 176,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (176 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 416,
+          "column": 23,
+          "function_name": "anonymous",
+          "node_count": 643,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (643 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 30,
+          "column": 0,
+          "function_name": "validatePathWithinWorkspace",
+          "node_count": 192,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validatePathWithinWorkspace\" size (192 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 85,
+          "column": 0,
+          "function_name": "safeDiscoverFiles",
+          "node_count": 498,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"safeDiscoverFiles\" size (498 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 104,
+          "column": 2,
+          "function_name": "traverse",
+          "node_count": 323,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"traverse\" size (323 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "audit\\gate-audit-trail.js",
+          "line": 24,
+          "column": 0,
+          "function_name": "createGateAuditRecord",
+          "node_count": 289,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createGateAuditRecord\" size (289 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 62,
+          "column": 0,
+          "function_name": "parseArgs",
+          "node_count": 661,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"parseArgs\" size (661 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 155,
+          "column": 0,
+          "function_name": "runCli",
+          "node_count": 1442,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"runCli\" size (1442 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "config\\config-loader.js",
+          "line": 47,
+          "column": 0,
+          "function_name": "loadCastleGateConfig",
+          "node_count": 224,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"loadCastleGateConfig\" size (224 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\canonicalizer.js",
+          "line": 18,
+          "column": 0,
+          "function_name": "canonicalize",
+          "node_count": 239,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"canonicalize\" size (239 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\dsse.js",
+          "line": 74,
+          "column": 0,
+          "function_name": "verifyDsseEnvelope",
+          "node_count": 239,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyDsseEnvelope\" size (239 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-backup.js",
+          "line": 28,
+          "column": 0,
+          "function_name": "createKeyBackup",
+          "node_count": 259,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createKeyBackup\" size (259 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-backup.js",
+          "line": 93,
+          "column": 0,
+          "function_name": "restoreKeyBackup",
+          "node_count": 318,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"restoreKeyBackup\" size (318 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 35,
+          "column": 0,
+          "function_name": "createRevocationManifest",
+          "node_count": 238,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createRevocationManifest\" size (238 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 101,
+          "column": 0,
+          "function_name": "validateRevocationManifest",
+          "node_count": 193,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateRevocationManifest\" size (193 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 151,
+          "column": 0,
+          "function_name": "checkKeyRevocationStatus",
+          "node_count": 316,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"checkKeyRevocationStatus\" size (316 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\gate-decision-engine.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "evaluateGateDecision",
+          "node_count": 800,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"evaluateGateDecision\" size (800 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 37,
+          "column": 0,
+          "function_name": "generateReleaseCertificate",
+          "node_count": 682,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateReleaseCertificate\" size (682 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 167,
+          "column": 0,
+          "function_name": "verifyReleaseCertificate",
+          "node_count": 326,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyReleaseCertificate\" size (326 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\adapters\\osv-adapter.js",
+          "line": 73,
+          "column": 23,
+          "function_name": "anonymous",
+          "node_count": 211,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (211 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\evidence-binding.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "createBoundEvidenceArtifact",
+          "node_count": 473,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createBoundEvidenceArtifact\" size (473 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\evidence-package.js",
+          "line": 21,
+          "column": 0,
+          "function_name": "createEvidencePackage",
+          "node_count": 194,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createEvidencePackage\" size (194 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 22,
+          "column": 0,
+          "function_name": "computeDirectoryTreeHash",
+          "node_count": 195,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"computeDirectoryTreeHash\" size (195 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 68,
+          "column": 0,
+          "function_name": "resolveGitProvenance",
+          "node_count": 282,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"resolveGitProvenance\" size (282 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "governance\\framework-mapper.js",
+          "line": 25,
+          "column": 0,
+          "function_name": "mapEvaluationToFrameworks",
+          "node_count": 471,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"mapEvaluationToFrameworks\" size (471 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "index.js",
+          "line": 91,
+          "column": 0,
+          "function_name": "executeCastleGate",
+          "node_count": 943,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"executeCastleGate\" size (943 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-artifact.js",
+          "line": 24,
+          "column": 0,
+          "function_name": "createPolicyArtifact",
+          "node_count": 214,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createPolicyArtifact\" size (214 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-artifact.js",
+          "line": 83,
+          "column": 0,
+          "function_name": "verifyPolicyArtifact",
+          "node_count": 162,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyPolicyArtifact\" size (162 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-resolver.js",
+          "line": 40,
+          "column": 0,
+          "function_name": "resolveGatePolicy",
+          "node_count": 329,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"resolveGatePolicy\" size (329 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-validator.js",
+          "line": 51,
+          "column": 0,
+          "function_name": "validateGatePolicy",
+          "node_count": 684,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateGatePolicy\" size (684 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 33,
+          "column": 0,
+          "function_name": "createWaiver",
+          "node_count": 210,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createWaiver\" size (210 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 92,
+          "column": 0,
+          "function_name": "validateWaiver",
+          "node_count": 481,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateWaiver\" size (481 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 211,
+          "column": 0,
+          "function_name": "applyWaivers",
+          "node_count": 180,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"applyWaivers\" size (180 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\compliance-report-generator.js",
+          "line": 13,
+          "column": 0,
+          "function_name": "generateComplianceReportHtml",
+          "node_count": 403,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateComplianceReportHtml\" size (403 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sarif-generator.js",
+          "line": 38,
+          "column": 0,
+          "function_name": "generateSarifReport",
+          "node_count": 444,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateSarifReport\" size (444 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 20,
+          "column": 0,
+          "function_name": "extractDependencies",
+          "node_count": 303,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"extractDependencies\" size (303 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 83,
+          "column": 0,
+          "function_name": "generateCycloneDxSbom",
+          "node_count": 254,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateCycloneDxSbom\" size (254 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 150,
+          "column": 0,
+          "function_name": "generateSpdxSbom",
+          "node_count": 172,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateSpdxSbom\" size (172 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 48,
+          "column": 0,
+          "function_name": "verifyAssuranceArtifact",
+          "node_count": 1553,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyAssuranceArtifact\" size (1553 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 2416,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"analyzers\\ast-probe.js\" exceeds AST node limit (2416 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\dom-semantics-probe.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1735,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"analyzers\\dom-semantics-probe.js\" exceeds AST node limit (1735 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 2227,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"cli\\bin.js\" exceeds AST node limit (2227 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "index.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1716,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"index.js\" exceeds AST node limit (1716 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1649,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"verifier\\castle-verify.js\" exceeds AST node limit (1649 > 1500 nodes).",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "MNT-02.1": {
+      "status": "N/A",
+      "details": "No package.json manifest found in repository.",
+      "findings": []
+    },
+    "PER-04.2": {
+      "status": "PASS",
+      "details": "Explicit width and height dimensions defined on image tags.",
+      "findings": []
+    },
+    "REL-02.1": {
+      "status": "FAIL",
+      "details": "11 empty catch block(s) detected.",
+      "findings": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 158,
+          "column": 10,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\maintainability-probe.js",
+          "line": 137,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "config\\config-loader.js",
+          "line": 82,
+          "column": 12,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 48,
+          "column": 10,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 96,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 107,
+          "column": 6,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 108,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "index.js",
+          "line": 221,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "remediation\\remediation-store.js",
+          "line": 109,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 37,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 70,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        }
+      ]
+    }
+  },
+  "gate_evidence": {
+    "GB-01": false
+  },
+  "findings": {
+    "CastleSecurityProbe": {
+      "secrets": [],
+      "dangerous_patterns": [],
+      "insecure_transport": [],
+      "security_headers": []
+    },
+    "CastleDomSemanticsProbe": {
+      "missing_landmarks": [],
+      "heading_hierarchy_violations": [],
+      "missing_alt_images": [],
+      "missing_lang": [],
+      "missing_viewport": [],
+      "missing_seo_meta": [],
+      "color_contrast_violations": [],
+      "aria_violations": [],
+      "keyboard_focus_violations": []
+    },
+    "CastleMaintainabilityProbe": {
+      "monolithic_files": [],
+      "excessive_nesting": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 512,
+          "depth": 6,
+          "rule": "EXCESSIVE_NESTING",
+          "description": "Deep control nesting detected (depth: 6).",
+          "severity": "LOW"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 280,
+          "depth": 7,
+          "rule": "EXCESSIVE_NESTING",
+          "description": "Deep control nesting detected (depth: 7).",
+          "severity": "LOW"
+        }
+      ],
+      "lockfile_issues": [],
+      "wildcard_dependencies": [],
+      "missing_image_dimensions": [],
+      "legacy_image_formats": []
+    },
+    "CastleAstProbe": {
+      "debugger_statements": [],
+      "eval_invocations": [],
+      "unsafe_dom_sinks": [],
+      "empty_catch_blocks": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 158,
+          "column": 10,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\maintainability-probe.js",
+          "line": 137,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "config\\config-loader.js",
+          "line": 82,
+          "column": 12,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 48,
+          "column": 10,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 96,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 107,
+          "column": 6,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 108,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "index.js",
+          "line": 221,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "remediation\\remediation-store.js",
+          "line": 109,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 37,
+          "column": 8,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 70,
+          "column": 4,
+          "rule": "AST_EMPTY_CATCH",
+          "description": "Empty catch block swallows errors without logging or mitigation.",
+          "severity": "LOW"
+        }
+      ],
+      "high_complexity_functions": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 92,
+          "column": 20,
+          "function_name": "anonymous",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 233,
+          "column": 19,
+          "function_name": "anonymous",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 416,
+          "column": 23,
+          "function_name": "anonymous",
+          "complexity": 47,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"anonymous\" cyclomatic complexity (47) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 85,
+          "column": 0,
+          "function_name": "safeDiscoverFiles",
+          "complexity": 32,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"safeDiscoverFiles\" cyclomatic complexity (32) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 104,
+          "column": 2,
+          "function_name": "traverse",
+          "complexity": 23,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"traverse\" cyclomatic complexity (23) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 62,
+          "column": 0,
+          "function_name": "parseArgs",
+          "complexity": 64,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"parseArgs\" cyclomatic complexity (64) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 155,
+          "column": 0,
+          "function_name": "runCli",
+          "complexity": 69,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"runCli\" cyclomatic complexity (69) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "crypto\\canonicalizer.js",
+          "line": 18,
+          "column": 0,
+          "function_name": "canonicalize",
+          "complexity": 19,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"canonicalize\" cyclomatic complexity (19) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\gate-decision-engine.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "evaluateGateDecision",
+          "complexity": 37,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"evaluateGateDecision\" cyclomatic complexity (37) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 37,
+          "column": 0,
+          "function_name": "generateReleaseCertificate",
+          "complexity": 62,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateReleaseCertificate\" cyclomatic complexity (62) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 167,
+          "column": 0,
+          "function_name": "verifyReleaseCertificate",
+          "complexity": 18,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"verifyReleaseCertificate\" cyclomatic complexity (18) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "evidence\\evidence-binding.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "createBoundEvidenceArtifact",
+          "complexity": 35,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"createBoundEvidenceArtifact\" cyclomatic complexity (35) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "governance\\framework-mapper.js",
+          "line": 25,
+          "column": 0,
+          "function_name": "mapEvaluationToFrameworks",
+          "complexity": 22,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"mapEvaluationToFrameworks\" cyclomatic complexity (22) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "index.js",
+          "line": 91,
+          "column": 0,
+          "function_name": "executeCastleGate",
+          "complexity": 46,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"executeCastleGate\" cyclomatic complexity (46) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "policy\\policy-validator.js",
+          "line": 51,
+          "column": 0,
+          "function_name": "validateGatePolicy",
+          "complexity": 47,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"validateGatePolicy\" cyclomatic complexity (47) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 92,
+          "column": 0,
+          "function_name": "validateWaiver",
+          "complexity": 22,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"validateWaiver\" cyclomatic complexity (22) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\compliance-report-generator.js",
+          "line": 13,
+          "column": 0,
+          "function_name": "generateComplianceReportHtml",
+          "complexity": 19,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateComplianceReportHtml\" cyclomatic complexity (19) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\sarif-generator.js",
+          "line": 38,
+          "column": 0,
+          "function_name": "generateSarifReport",
+          "complexity": 27,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"generateSarifReport\" cyclomatic complexity (27) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 20,
+          "column": 0,
+          "function_name": "extractDependencies",
+          "complexity": 20,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"extractDependencies\" cyclomatic complexity (20) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 48,
+          "column": 0,
+          "function_name": "verifyAssuranceArtifact",
+          "complexity": 107,
+          "threshold": 15,
+          "rule": "AST_HIGH_COMPLEXITY",
+          "description": "Function \"verifyAssuranceArtifact\" cyclomatic complexity (107) exceeds maximum threshold of 15.",
+          "severity": "MEDIUM"
+        }
+      ],
+      "oversized_functions": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 233,
+          "column": 19,
+          "function_name": "anonymous",
+          "node_count": 176,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (176 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 416,
+          "column": 23,
+          "function_name": "anonymous",
+          "node_count": 643,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (643 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 30,
+          "column": 0,
+          "function_name": "validatePathWithinWorkspace",
+          "node_count": 192,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validatePathWithinWorkspace\" size (192 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 85,
+          "column": 0,
+          "function_name": "safeDiscoverFiles",
+          "node_count": 498,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"safeDiscoverFiles\" size (498 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "analyzers\\security-guard.js",
+          "line": 104,
+          "column": 2,
+          "function_name": "traverse",
+          "node_count": 323,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"traverse\" size (323 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "audit\\gate-audit-trail.js",
+          "line": 24,
+          "column": 0,
+          "function_name": "createGateAuditRecord",
+          "node_count": 289,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createGateAuditRecord\" size (289 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 62,
+          "column": 0,
+          "function_name": "parseArgs",
+          "node_count": 661,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"parseArgs\" size (661 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 155,
+          "column": 0,
+          "function_name": "runCli",
+          "node_count": 1442,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"runCli\" size (1442 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "config\\config-loader.js",
+          "line": 47,
+          "column": 0,
+          "function_name": "loadCastleGateConfig",
+          "node_count": 224,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"loadCastleGateConfig\" size (224 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\canonicalizer.js",
+          "line": 18,
+          "column": 0,
+          "function_name": "canonicalize",
+          "node_count": 239,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"canonicalize\" size (239 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\dsse.js",
+          "line": 74,
+          "column": 0,
+          "function_name": "verifyDsseEnvelope",
+          "node_count": 239,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyDsseEnvelope\" size (239 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-backup.js",
+          "line": 28,
+          "column": 0,
+          "function_name": "createKeyBackup",
+          "node_count": 259,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createKeyBackup\" size (259 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-backup.js",
+          "line": 93,
+          "column": 0,
+          "function_name": "restoreKeyBackup",
+          "node_count": 318,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"restoreKeyBackup\" size (318 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 35,
+          "column": 0,
+          "function_name": "createRevocationManifest",
+          "node_count": 238,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createRevocationManifest\" size (238 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 101,
+          "column": 0,
+          "function_name": "validateRevocationManifest",
+          "node_count": 193,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateRevocationManifest\" size (193 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "crypto\\key-revocation.js",
+          "line": 151,
+          "column": 0,
+          "function_name": "checkKeyRevocationStatus",
+          "node_count": 316,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"checkKeyRevocationStatus\" size (316 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\gate-decision-engine.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "evaluateGateDecision",
+          "node_count": 800,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"evaluateGateDecision\" size (800 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 37,
+          "column": 0,
+          "function_name": "generateReleaseCertificate",
+          "node_count": 682,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateReleaseCertificate\" size (682 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "engine\\release-authorizer.js",
+          "line": 167,
+          "column": 0,
+          "function_name": "verifyReleaseCertificate",
+          "node_count": 326,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyReleaseCertificate\" size (326 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\adapters\\osv-adapter.js",
+          "line": 73,
+          "column": 23,
+          "function_name": "anonymous",
+          "node_count": 211,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"anonymous\" size (211 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\evidence-binding.js",
+          "line": 41,
+          "column": 0,
+          "function_name": "createBoundEvidenceArtifact",
+          "node_count": 473,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createBoundEvidenceArtifact\" size (473 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\evidence-package.js",
+          "line": 21,
+          "column": 0,
+          "function_name": "createEvidencePackage",
+          "node_count": 194,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createEvidencePackage\" size (194 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 22,
+          "column": 0,
+          "function_name": "computeDirectoryTreeHash",
+          "node_count": 195,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"computeDirectoryTreeHash\" size (195 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "evidence\\git-resolver.js",
+          "line": 68,
+          "column": 0,
+          "function_name": "resolveGitProvenance",
+          "node_count": 282,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"resolveGitProvenance\" size (282 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "governance\\framework-mapper.js",
+          "line": 25,
+          "column": 0,
+          "function_name": "mapEvaluationToFrameworks",
+          "node_count": 471,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"mapEvaluationToFrameworks\" size (471 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "index.js",
+          "line": 91,
+          "column": 0,
+          "function_name": "executeCastleGate",
+          "node_count": 943,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"executeCastleGate\" size (943 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-artifact.js",
+          "line": 24,
+          "column": 0,
+          "function_name": "createPolicyArtifact",
+          "node_count": 214,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createPolicyArtifact\" size (214 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-artifact.js",
+          "line": 83,
+          "column": 0,
+          "function_name": "verifyPolicyArtifact",
+          "node_count": 162,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyPolicyArtifact\" size (162 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-resolver.js",
+          "line": 40,
+          "column": 0,
+          "function_name": "resolveGatePolicy",
+          "node_count": 329,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"resolveGatePolicy\" size (329 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\policy-validator.js",
+          "line": 51,
+          "column": 0,
+          "function_name": "validateGatePolicy",
+          "node_count": 684,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateGatePolicy\" size (684 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 33,
+          "column": 0,
+          "function_name": "createWaiver",
+          "node_count": 210,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"createWaiver\" size (210 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 92,
+          "column": 0,
+          "function_name": "validateWaiver",
+          "node_count": 481,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"validateWaiver\" size (481 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "policy\\waiver-manager.js",
+          "line": 211,
+          "column": 0,
+          "function_name": "applyWaivers",
+          "node_count": 180,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"applyWaivers\" size (180 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\compliance-report-generator.js",
+          "line": 13,
+          "column": 0,
+          "function_name": "generateComplianceReportHtml",
+          "node_count": 403,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateComplianceReportHtml\" size (403 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sarif-generator.js",
+          "line": 38,
+          "column": 0,
+          "function_name": "generateSarifReport",
+          "node_count": 444,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateSarifReport\" size (444 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 20,
+          "column": 0,
+          "function_name": "extractDependencies",
+          "node_count": 303,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"extractDependencies\" size (303 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 83,
+          "column": 0,
+          "function_name": "generateCycloneDxSbom",
+          "node_count": 254,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateCycloneDxSbom\" size (254 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "reports\\sbom-generator.js",
+          "line": 150,
+          "column": 0,
+          "function_name": "generateSpdxSbom",
+          "node_count": 172,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"generateSpdxSbom\" size (172 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 48,
+          "column": 0,
+          "function_name": "verifyAssuranceArtifact",
+          "node_count": 1553,
+          "threshold": 150,
+          "rule": "AST_FUNCTION_OVERSIZED",
+          "description": "Function \"verifyAssuranceArtifact\" size (1553 nodes) exceeds threshold of 150 nodes.",
+          "severity": "LOW"
+        }
+      ],
+      "oversized_files": [
+        {
+          "file": "analyzers\\ast-probe.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 2416,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"analyzers\\ast-probe.js\" exceeds AST node limit (2416 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "analyzers\\dom-semantics-probe.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1735,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"analyzers\\dom-semantics-probe.js\" exceeds AST node limit (1735 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "cli\\bin.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 2227,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"cli\\bin.js\" exceeds AST node limit (2227 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "index.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1716,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"index.js\" exceeds AST node limit (1716 > 1500 nodes).",
+          "severity": "MEDIUM"
+        },
+        {
+          "file": "verifier\\castle-verify.js",
+          "line": 1,
+          "column": 0,
+          "node_count": 1649,
+          "rule": "AST_FILE_OVERSIZED",
+          "description": "File \"verifier\\castle-verify.js\" exceeds AST node limit (1649 > 1500 nodes).",
+          "severity": "MEDIUM"
+        }
+      ],
+      "circular_imports": []
+    },
+    "CastleGitHistoryProbe": {
+      "historical_secrets": []
+    }
+  },
+  "scanners": {
+    "probes_executed": [
+      {
+        "probe_name": "CastleSecurityProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 53,
+        "duration_ms": 45,
+        "payload_sha256": "79d6c39b888a7de409cd36e7c270f2aa582b6d9f56705b2cddcb7dce682cb104",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleDomSemanticsProbe",
+        "probe_version": "2.0.0",
+        "files_scanned": 0,
+        "duration_ms": 6,
+        "payload_sha256": "9a5a24c1c372cee01fc3df6d1c5867b6d7f38e1f4398a6f8de2213cc0bcecee9",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleMaintainabilityProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 53,
+        "duration_ms": 21,
+        "payload_sha256": "871a9e82673b1ea96f8fd3437c6958dbda135901577748560b8255e343ccdbfa",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleAstProbe",
+        "probe_version": "2.0.0",
+        "files_scanned": 45,
+        "duration_ms": 142,
+        "payload_sha256": "f90b57b31010e98979855b986d5ec8a38639d5624b6c6454c89b189d4fc74749",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleGitHistoryProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 0,
+        "duration_ms": 319,
+        "payload_sha256": "29105c6c720212df96f92e1cd3a6605c6863cf9ab62caf910fbc9e43df81f6f2",
+        "errors": []
+      }
+    ]
+  },
+  "artifacts": {
+    "compliance_report_html_sha256": "a4becce93e356fc85ca2e724d9b4e3a4201f5a50e85e9c5b6aeeedfb9a0e4a6b",
+    "compliance_report_json_sha256": null,
+    "sarif_sha256": "94689421f5f6c635da692c5f1419a47101b6a3946f6ef1ccf84197f2678de465",
+    "sbom_cyclonedx_sha256": "e9442a5dd3399192a5f3d05bebc37cfa280c04cf9c312a9efaab0dfab92a3e06"
+  },
+  "integrity": {
+    "canonical_algorithm": "RFC-8785-JCS",
+    "payload_sha256": "ccc5ebc7397b6f97594a4010d2a50fde48a7dc76ae613d3120d45cff9a7cee15",
+    "signed": true,
+    "signature": {
+      "signature_algorithm": "ed25519",
+      "signature_base64": "yyU3HFBZbAb6rSaCcaNTn5/Eev1GebO5olVTgURd8w2JdYfFFhgbee1CbuxniV0PMNFD1c6DKirT2V2f3C9OBQ==",
+      "key_id": "ed25519:3d1aa227ca0a2c14",
+      "signed_at": "2026-08-18T21:57:19.254Z",
+      "canonical_sha256": "ccc5ebc7397b6f97594a4010d2a50fde48a7dc76ae613d3120d45cff9a7cee15"
+    },
+    "dsse_envelope": {
+      "payloadType": "application/vnd.in-toto+json",
+      "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYXJ0aWZhY3RzIjp7ImNvbXBsaWFuY2VfcmVwb3J0X2h0bWxfc2hhMjU2IjoiYTRiZWNjZTkzZTM1NmZjODVjYTJlNzI0ZDliNGUzYTQyMDFmNWE1MGU4NWU5YzViNmFlZWVkZmI5YTBlNGE2YiIsImNvbXBsaWFuY2VfcmVwb3J0X2pzb25fc2hhMjU2IjpudWxsLCJzYXJpZl9zaGEyNTYiOiI5NDY4OTQyMWY1ZjZjNjM1ZGE2OTJjNWYxNDE5YTQ3MTAxYjZhMzk0NmY2ZWYxY2NmODQxOTdmMjY3OGRlNDY1Iiwic2JvbV9jeWNsb25lZHhfc2hhMjU2IjoiZTk0NDJhNWRkMzM5OTE5MmE1ZjNkMDViZWJjMzdjZmEyODBjMDRjZjljMzEyYTllZmFhYjBkZmFiOTJhM2UwNiJ9LCJhc3Nlc3NtZW50Ijp7ImNxc19kaXNwbGF5X3Njb3JlIjo3Mi43MywiY3FzX3Jhd19zY29yZSI6NzIuNzI3MjcyNzI3MjcyNzMsImNxc192ZXJkaWN0IjoiQ09ORElUSU9OQUxfQVBQUk9WQUwiLCJnYXRlX2JyZWFrZXJzX3N0YXR1cyI6IkNMRUFSRUQiLCJnYXRlX2RlY2lzaW9uIjoiUEFTU0VEIiwiZ2F0ZV9sZXZlbCI6IkMxIiwiZ2F0ZV9sZXZlbF9uYW1lIjoiRk9VTkRBVElPTiJ9LCJjb250cm9scyI6eyJBQ0MtMDEuMSI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9LCJBQ0MtMDEuMiI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9LCJBQ0MtMDIuMSI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9LCJBQ0MtMDMuMSI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9LCJBQ0MtMDQuMSI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9LCJNTlQtMDEuMSI6eyJkZXRhaWxzIjoiMjAgaGlnaC1jb21wbGV4aXR5IGZ1bmN0aW9uKHMpLCAwIGRlYnVnZ2VyIHN0YXRlbWVudChzKSwgMCBjaXJjdWxhciBpbXBvcnQocyksIDM5IG92ZXJzaXplZCBmdW5jdGlvbihzKSwgNSBvdmVyc2l6ZWQgZmlsZShzKS4iLCJmaW5kaW5ncyI6W3siY29sdW1uIjoyMCwiY29tcGxleGl0eSI6MjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDIwKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJhbm9ueW1vdXMiLCJsaW5lIjo5MiwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjoxOSwiY29tcGxleGl0eSI6MjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDIwKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJhbm9ueW1vdXMiLCJsaW5lIjoyMzMsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MjMsImNvbXBsZXhpdHkiOjQ3LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiYW5vbnltb3VzXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICg0NykgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJmdW5jdGlvbl9uYW1lIjoiYW5vbnltb3VzIiwibGluZSI6NDE2LCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjMyLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwic2FmZURpc2NvdmVyRmlsZXNcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDMyKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJhbmFseXplcnNcXHNlY3VyaXR5LWd1YXJkLmpzIiwiZnVuY3Rpb25fbmFtZSI6InNhZmVEaXNjb3ZlckZpbGVzIiwibGluZSI6ODUsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MiwiY29tcGxleGl0eSI6MjMsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ0cmF2ZXJzZVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMjMpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImFuYWx5emVyc1xcc2VjdXJpdHktZ3VhcmQuanMiLCJmdW5jdGlvbl9uYW1lIjoidHJhdmVyc2UiLCJsaW5lIjoxMDQsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6NjQsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJwYXJzZUFyZ3NcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDY0KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJjbGlcXGJpbi5qcyIsImZ1bmN0aW9uX25hbWUiOiJwYXJzZUFyZ3MiLCJsaW5lIjo2MiwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5Ijo2OSwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInJ1bkNsaVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoNjkpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImNsaVxcYmluLmpzIiwiZnVuY3Rpb25fbmFtZSI6InJ1bkNsaSIsImxpbmUiOjE1NSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjoxOSwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNhbm9uaWNhbGl6ZVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMTkpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImNyeXB0b1xcY2Fub25pY2FsaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJjYW5vbmljYWxpemUiLCJsaW5lIjoxOCwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjozNywiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImV2YWx1YXRlR2F0ZURlY2lzaW9uXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgzNykgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiZW5naW5lXFxnYXRlLWRlY2lzaW9uLWVuZ2luZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJldmFsdWF0ZUdhdGVEZWNpc2lvbiIsImxpbmUiOjQxLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjYyLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVSZWxlYXNlQ2VydGlmaWNhdGVcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDYyKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJlbmdpbmVcXHJlbGVhc2UtYXV0aG9yaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJnZW5lcmF0ZVJlbGVhc2VDZXJ0aWZpY2F0ZSIsImxpbmUiOjM3LCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjE4LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmVyaWZ5UmVsZWFzZUNlcnRpZmljYXRlXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgxOCkgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiZW5naW5lXFxyZWxlYXNlLWF1dGhvcml6ZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoidmVyaWZ5UmVsZWFzZUNlcnRpZmljYXRlIiwibGluZSI6MTY3LCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjM1LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlQm91bmRFdmlkZW5jZUFydGlmYWN0XCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgzNSkgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiZXZpZGVuY2VcXGV2aWRlbmNlLWJpbmRpbmcuanMiLCJmdW5jdGlvbl9uYW1lIjoiY3JlYXRlQm91bmRFdmlkZW5jZUFydGlmYWN0IiwibGluZSI6NDEsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MjIsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJtYXBFdmFsdWF0aW9uVG9GcmFtZXdvcmtzXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgyMikgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiZ292ZXJuYW5jZVxcZnJhbWV3b3JrLW1hcHBlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJtYXBFdmFsdWF0aW9uVG9GcmFtZXdvcmtzIiwibGluZSI6MjUsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6NDYsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJleGVjdXRlQ2FzdGxlR2F0ZVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoNDYpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImluZGV4LmpzIiwiZnVuY3Rpb25fbmFtZSI6ImV4ZWN1dGVDYXN0bGVHYXRlIiwibGluZSI6OTEsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6NDcsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2YWxpZGF0ZUdhdGVQb2xpY3lcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDQ3KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJwb2xpY3lcXHBvbGljeS12YWxpZGF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoidmFsaWRhdGVHYXRlUG9saWN5IiwibGluZSI6NTEsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MjIsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2YWxpZGF0ZVdhaXZlclwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMjIpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6InBvbGljeVxcd2FpdmVyLW1hbmFnZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoidmFsaWRhdGVXYWl2ZXIiLCJsaW5lIjo5MiwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjoxOSwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImdlbmVyYXRlQ29tcGxpYW5jZVJlcG9ydEh0bWxcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDE5KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJyZXBvcnRzXFxjb21wbGlhbmNlLXJlcG9ydC1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZ2VuZXJhdGVDb21wbGlhbmNlUmVwb3J0SHRtbCIsImxpbmUiOjEzLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjI3LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVTYXJpZlJlcG9ydFwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMjcpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6InJlcG9ydHNcXHNhcmlmLWdlbmVyYXRvci5qcyIsImZ1bmN0aW9uX25hbWUiOiJnZW5lcmF0ZVNhcmlmUmVwb3J0IiwibGluZSI6MzgsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJleHRyYWN0RGVwZW5kZW5jaWVzXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgyMCkgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoicmVwb3J0c1xcc2JvbS1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZXh0cmFjdERlcGVuZGVuY2llcyIsImxpbmUiOjIwLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjEwNywiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZlcmlmeUFzc3VyYW5jZUFydGlmYWN0XCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgxMDcpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6InZlcmlmaWVyXFxjYXN0bGUtdmVyaWZ5LmpzIiwiZnVuY3Rpb25fbmFtZSI6InZlcmlmeUFzc3VyYW5jZUFydGlmYWN0IiwibGluZSI6NDgsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MTksImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBzaXplICgxNzYgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJmdW5jdGlvbl9uYW1lIjoiYW5vbnltb3VzIiwibGluZSI6MjMzLCJub2RlX2NvdW50IjoxNzYsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjIzLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiYW5vbnltb3VzXCIgc2l6ZSAoNjQzIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImFuYWx5emVyc1xcYXN0LXByb2JlLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImFub255bW91cyIsImxpbmUiOjQxNiwibm9kZV9jb3VudCI6NjQzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmFsaWRhdGVQYXRoV2l0aGluV29ya3NwYWNlXCIgc2l6ZSAoMTkyIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImFuYWx5emVyc1xcc2VjdXJpdHktZ3VhcmQuanMiLCJmdW5jdGlvbl9uYW1lIjoidmFsaWRhdGVQYXRoV2l0aGluV29ya3NwYWNlIiwibGluZSI6MzAsIm5vZGVfY291bnQiOjE5MiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInNhZmVEaXNjb3ZlckZpbGVzXCIgc2l6ZSAoNDk4IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImFuYWx5emVyc1xcc2VjdXJpdHktZ3VhcmQuanMiLCJmdW5jdGlvbl9uYW1lIjoic2FmZURpc2NvdmVyRmlsZXMiLCJsaW5lIjo4NSwibm9kZV9jb3VudCI6NDk4LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjoyLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidHJhdmVyc2VcIiBzaXplICgzMjMgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxzZWN1cml0eS1ndWFyZC5qcyIsImZ1bmN0aW9uX25hbWUiOiJ0cmF2ZXJzZSIsImxpbmUiOjEwNCwibm9kZV9jb3VudCI6MzIzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlR2F0ZUF1ZGl0UmVjb3JkXCIgc2l6ZSAoMjg5IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImF1ZGl0XFxnYXRlLWF1ZGl0LXRyYWlsLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNyZWF0ZUdhdGVBdWRpdFJlY29yZCIsImxpbmUiOjI0LCJub2RlX2NvdW50IjoyODksInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJwYXJzZUFyZ3NcIiBzaXplICg2NjEgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY2xpXFxiaW4uanMiLCJmdW5jdGlvbl9uYW1lIjoicGFyc2VBcmdzIiwibGluZSI6NjIsIm5vZGVfY291bnQiOjY2MSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInJ1bkNsaVwiIHNpemUgKDE0NDIgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY2xpXFxiaW4uanMiLCJmdW5jdGlvbl9uYW1lIjoicnVuQ2xpIiwibGluZSI6MTU1LCJub2RlX2NvdW50IjoxNDQyLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwibG9hZENhc3RsZUdhdGVDb25maWdcIiBzaXplICgyMjQgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY29uZmlnXFxjb25maWctbG9hZGVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImxvYWRDYXN0bGVHYXRlQ29uZmlnIiwibGluZSI6NDcsIm5vZGVfY291bnQiOjIyNCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNhbm9uaWNhbGl6ZVwiIHNpemUgKDIzOSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjcnlwdG9cXGNhbm9uaWNhbGl6ZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoiY2Fub25pY2FsaXplIiwibGluZSI6MTgsIm5vZGVfY291bnQiOjIzOSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZlcmlmeURzc2VFbnZlbG9wZVwiIHNpemUgKDIzOSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjcnlwdG9cXGRzc2UuanMiLCJmdW5jdGlvbl9uYW1lIjoidmVyaWZ5RHNzZUVudmVsb3BlIiwibGluZSI6NzQsIm5vZGVfY291bnQiOjIzOSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNyZWF0ZUtleUJhY2t1cFwiIHNpemUgKDI1OSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjcnlwdG9cXGtleS1iYWNrdXAuanMiLCJmdW5jdGlvbl9uYW1lIjoiY3JlYXRlS2V5QmFja3VwIiwibGluZSI6MjgsIm5vZGVfY291bnQiOjI1OSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInJlc3RvcmVLZXlCYWNrdXBcIiBzaXplICgzMTggbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY3J5cHRvXFxrZXktYmFja3VwLmpzIiwiZnVuY3Rpb25fbmFtZSI6InJlc3RvcmVLZXlCYWNrdXAiLCJsaW5lIjo5Mywibm9kZV9jb3VudCI6MzE4LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlUmV2b2NhdGlvbk1hbmlmZXN0XCIgc2l6ZSAoMjM4IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xca2V5LXJldm9jYXRpb24uanMiLCJmdW5jdGlvbl9uYW1lIjoiY3JlYXRlUmV2b2NhdGlvbk1hbmlmZXN0IiwibGluZSI6MzUsIm5vZGVfY291bnQiOjIzOCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZhbGlkYXRlUmV2b2NhdGlvbk1hbmlmZXN0XCIgc2l6ZSAoMTkzIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xca2V5LXJldm9jYXRpb24uanMiLCJmdW5jdGlvbl9uYW1lIjoidmFsaWRhdGVSZXZvY2F0aW9uTWFuaWZlc3QiLCJsaW5lIjoxMDEsIm5vZGVfY291bnQiOjE5MywicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNoZWNrS2V5UmV2b2NhdGlvblN0YXR1c1wiIHNpemUgKDMxNiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjcnlwdG9cXGtleS1yZXZvY2F0aW9uLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNoZWNrS2V5UmV2b2NhdGlvblN0YXR1cyIsImxpbmUiOjE1MSwibm9kZV9jb3VudCI6MzE2LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZXZhbHVhdGVHYXRlRGVjaXNpb25cIiBzaXplICg4MDAgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZW5naW5lXFxnYXRlLWRlY2lzaW9uLWVuZ2luZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJldmFsdWF0ZUdhdGVEZWNpc2lvbiIsImxpbmUiOjQxLCJub2RlX2NvdW50Ijo4MDAsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZVJlbGVhc2VDZXJ0aWZpY2F0ZVwiIHNpemUgKDY4MiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJlbmdpbmVcXHJlbGVhc2UtYXV0aG9yaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJnZW5lcmF0ZVJlbGVhc2VDZXJ0aWZpY2F0ZSIsImxpbmUiOjM3LCJub2RlX2NvdW50Ijo2ODIsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2ZXJpZnlSZWxlYXNlQ2VydGlmaWNhdGVcIiBzaXplICgzMjYgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZW5naW5lXFxyZWxlYXNlLWF1dGhvcml6ZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoidmVyaWZ5UmVsZWFzZUNlcnRpZmljYXRlIiwibGluZSI6MTY3LCJub2RlX2NvdW50IjozMjYsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjIzLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiYW5vbnltb3VzXCIgc2l6ZSAoMjExIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImV2aWRlbmNlXFxhZGFwdGVyc1xcb3N2LWFkYXB0ZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoiYW5vbnltb3VzIiwibGluZSI6NzMsIm5vZGVfY291bnQiOjIxMSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNyZWF0ZUJvdW5kRXZpZGVuY2VBcnRpZmFjdFwiIHNpemUgKDQ3MyBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJldmlkZW5jZVxcZXZpZGVuY2UtYmluZGluZy5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVCb3VuZEV2aWRlbmNlQXJ0aWZhY3QiLCJsaW5lIjo0MSwibm9kZV9jb3VudCI6NDczLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlRXZpZGVuY2VQYWNrYWdlXCIgc2l6ZSAoMTk0IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImV2aWRlbmNlXFxldmlkZW5jZS1wYWNrYWdlLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNyZWF0ZUV2aWRlbmNlUGFja2FnZSIsImxpbmUiOjIxLCJub2RlX2NvdW50IjoxOTQsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjb21wdXRlRGlyZWN0b3J5VHJlZUhhc2hcIiBzaXplICgxOTUgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZXZpZGVuY2VcXGdpdC1yZXNvbHZlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJjb21wdXRlRGlyZWN0b3J5VHJlZUhhc2giLCJsaW5lIjoyMiwibm9kZV9jb3VudCI6MTk1LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwicmVzb2x2ZUdpdFByb3ZlbmFuY2VcIiBzaXplICgyODIgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZXZpZGVuY2VcXGdpdC1yZXNvbHZlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJyZXNvbHZlR2l0UHJvdmVuYW5jZSIsImxpbmUiOjY4LCJub2RlX2NvdW50IjoyODIsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJtYXBFdmFsdWF0aW9uVG9GcmFtZXdvcmtzXCIgc2l6ZSAoNDcxIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImdvdmVybmFuY2VcXGZyYW1ld29yay1tYXBwZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoibWFwRXZhbHVhdGlvblRvRnJhbWV3b3JrcyIsImxpbmUiOjI1LCJub2RlX2NvdW50Ijo0NzEsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJleGVjdXRlQ2FzdGxlR2F0ZVwiIHNpemUgKDk0MyBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJpbmRleC5qcyIsImZ1bmN0aW9uX25hbWUiOiJleGVjdXRlQ2FzdGxlR2F0ZSIsImxpbmUiOjkxLCJub2RlX2NvdW50Ijo5NDMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVQb2xpY3lBcnRpZmFjdFwiIHNpemUgKDIxNCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHBvbGljeS1hcnRpZmFjdC5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVQb2xpY3lBcnRpZmFjdCIsImxpbmUiOjI0LCJub2RlX2NvdW50IjoyMTQsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2ZXJpZnlQb2xpY3lBcnRpZmFjdFwiIHNpemUgKDE2MiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHBvbGljeS1hcnRpZmFjdC5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2ZXJpZnlQb2xpY3lBcnRpZmFjdCIsImxpbmUiOjgzLCJub2RlX2NvdW50IjoxNjIsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJyZXNvbHZlR2F0ZVBvbGljeVwiIHNpemUgKDMyOSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHBvbGljeS1yZXNvbHZlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJyZXNvbHZlR2F0ZVBvbGljeSIsImxpbmUiOjQwLCJub2RlX2NvdW50IjozMjksInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2YWxpZGF0ZUdhdGVQb2xpY3lcIiBzaXplICg2ODQgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicG9saWN5XFxwb2xpY3ktdmFsaWRhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6InZhbGlkYXRlR2F0ZVBvbGljeSIsImxpbmUiOjUxLCJub2RlX2NvdW50Ijo2ODQsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVXYWl2ZXJcIiBzaXplICgyMTAgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicG9saWN5XFx3YWl2ZXItbWFuYWdlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVXYWl2ZXIiLCJsaW5lIjozMywibm9kZV9jb3VudCI6MjEwLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmFsaWRhdGVXYWl2ZXJcIiBzaXplICg0ODEgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicG9saWN5XFx3YWl2ZXItbWFuYWdlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2YWxpZGF0ZVdhaXZlciIsImxpbmUiOjkyLCJub2RlX2NvdW50Ijo0ODEsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhcHBseVdhaXZlcnNcIiBzaXplICgxODAgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicG9saWN5XFx3YWl2ZXItbWFuYWdlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJhcHBseVdhaXZlcnMiLCJsaW5lIjoyMTEsIm5vZGVfY291bnQiOjE4MCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImdlbmVyYXRlQ29tcGxpYW5jZVJlcG9ydEh0bWxcIiBzaXplICg0MDMgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicmVwb3J0c1xcY29tcGxpYW5jZS1yZXBvcnQtZ2VuZXJhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlQ29tcGxpYW5jZVJlcG9ydEh0bWwiLCJsaW5lIjoxMywibm9kZV9jb3VudCI6NDAzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVTYXJpZlJlcG9ydFwiIHNpemUgKDQ0NCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJyZXBvcnRzXFxzYXJpZi1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZ2VuZXJhdGVTYXJpZlJlcG9ydCIsImxpbmUiOjM4LCJub2RlX2NvdW50Ijo0NDQsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJleHRyYWN0RGVwZW5kZW5jaWVzXCIgc2l6ZSAoMzAzIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InJlcG9ydHNcXHNib20tZ2VuZXJhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImV4dHJhY3REZXBlbmRlbmNpZXMiLCJsaW5lIjoyMCwibm9kZV9jb3VudCI6MzAzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVDeWNsb25lRHhTYm9tXCIgc2l6ZSAoMjU0IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InJlcG9ydHNcXHNib20tZ2VuZXJhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlQ3ljbG9uZUR4U2JvbSIsImxpbmUiOjgzLCJub2RlX2NvdW50IjoyNTQsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZVNwZHhTYm9tXCIgc2l6ZSAoMTcyIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InJlcG9ydHNcXHNib20tZ2VuZXJhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlU3BkeFNib20iLCJsaW5lIjoxNTAsIm5vZGVfY291bnQiOjE3MiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZlcmlmeUFzc3VyYW5jZUFydGlmYWN0XCIgc2l6ZSAoMTU1MyBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJ2ZXJpZmllclxcY2FzdGxlLXZlcmlmeS5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2ZXJpZnlBc3N1cmFuY2VBcnRpZmFjdCIsImxpbmUiOjQ4LCJub2RlX2NvdW50IjoxNTUzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZpbGUgXCJhbmFseXplcnNcXGFzdC1wcm9iZS5qc1wiIGV4Y2VlZHMgQVNUIG5vZGUgbGltaXQgKDI0MTYgPiAxNTAwIG5vZGVzKS4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJsaW5lIjoxLCJub2RlX2NvdW50IjoyNDE2LCJydWxlIjoiQVNUX0ZJTEVfT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJNRURJVU0ifSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGaWxlIFwiYW5hbHl6ZXJzXFxkb20tc2VtYW50aWNzLXByb2JlLmpzXCIgZXhjZWVkcyBBU1Qgbm9kZSBsaW1pdCAoMTczNSA+IDE1MDAgbm9kZXMpLiIsImZpbGUiOiJhbmFseXplcnNcXGRvbS1zZW1hbnRpY3MtcHJvYmUuanMiLCJsaW5lIjoxLCJub2RlX2NvdW50IjoxNzM1LCJydWxlIjoiQVNUX0ZJTEVfT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJNRURJVU0ifSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGaWxlIFwiY2xpXFxiaW4uanNcIiBleGNlZWRzIEFTVCBub2RlIGxpbWl0ICgyMjI3ID4gMTUwMCBub2RlcykuIiwiZmlsZSI6ImNsaVxcYmluLmpzIiwibGluZSI6MSwibm9kZV9jb3VudCI6MjIyNywicnVsZSI6IkFTVF9GSUxFX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTUVESVVNIn0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRmlsZSBcImluZGV4LmpzXCIgZXhjZWVkcyBBU1Qgbm9kZSBsaW1pdCAoMTcxNiA+IDE1MDAgbm9kZXMpLiIsImZpbGUiOiJpbmRleC5qcyIsImxpbmUiOjEsIm5vZGVfY291bnQiOjE3MTYsInJ1bGUiOiJBU1RfRklMRV9PVkVSU0laRUQiLCJzZXZlcml0eSI6Ik1FRElVTSJ9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZpbGUgXCJ2ZXJpZmllclxcY2FzdGxlLXZlcmlmeS5qc1wiIGV4Y2VlZHMgQVNUIG5vZGUgbGltaXQgKDE2NDkgPiAxNTAwIG5vZGVzKS4iLCJmaWxlIjoidmVyaWZpZXJcXGNhc3RsZS12ZXJpZnkuanMiLCJsaW5lIjoxLCJub2RlX2NvdW50IjoxNjQ5LCJydWxlIjoiQVNUX0ZJTEVfT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJNRURJVU0ifV0sInN0YXR1cyI6IkZBSUwifSwiTU5ULTAyLjEiOnsiZGV0YWlscyI6Ik5vIHBhY2thZ2UuanNvbiBtYW5pZmVzdCBmb3VuZCBpbiByZXBvc2l0b3J5LiIsImZpbmRpbmdzIjpbXSwic3RhdHVzIjoiTi9BIn0sIlBFUi0wNC4yIjp7ImRldGFpbHMiOiJFeHBsaWNpdCB3aWR0aCBhbmQgaGVpZ2h0IGRpbWVuc2lvbnMgZGVmaW5lZCBvbiBpbWFnZSB0YWdzLiIsImZpbmRpbmdzIjpbXSwic3RhdHVzIjoiUEFTUyJ9LCJSRUwtMDIuMSI6eyJkZXRhaWxzIjoiMTEgZW1wdHkgY2F0Y2ggYmxvY2socykgZGV0ZWN0ZWQuIiwiZmluZGluZ3MiOlt7ImNvbHVtbiI6MTAsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImxpbmUiOjE1OCwicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjgsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJhbmFseXplcnNcXG1haW50YWluYWJpbGl0eS1wcm9iZS5qcyIsImxpbmUiOjEzNywicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjEyLCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiY29uZmlnXFxjb25maWctbG9hZGVyLmpzIiwibGluZSI6ODIsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjoxMCwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6ImV2aWRlbmNlXFxnaXQtcmVzb2x2ZXIuanMiLCJsaW5lIjo0OCwicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjgsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJldmlkZW5jZVxcZ2l0LXJlc29sdmVyLmpzIiwibGluZSI6OTYsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjo2LCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiZXZpZGVuY2VcXGdpdC1yZXNvbHZlci5qcyIsImxpbmUiOjEwNywicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjQsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJldmlkZW5jZVxcZ2l0LXJlc29sdmVyLmpzIiwibGluZSI6MTA4LCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifSx7ImNvbHVtbiI6NCwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6ImluZGV4LmpzIiwibGluZSI6MjIxLCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifSx7ImNvbHVtbiI6OCwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6InJlbWVkaWF0aW9uXFxyZW1lZGlhdGlvbi1zdG9yZS5qcyIsImxpbmUiOjEwOSwicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjgsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJyZXBvcnRzXFxzYm9tLWdlbmVyYXRvci5qcyIsImxpbmUiOjM3LCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifSx7ImNvbHVtbiI6NCwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6InJlcG9ydHNcXHNib20tZ2VuZXJhdG9yLmpzIiwibGluZSI6NzAsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9XSwic3RhdHVzIjoiRkFJTCJ9LCJTRUMtMDEuMiI6eyJkZXRhaWxzIjoiTm8gdW5lbmNyeXB0ZWQgZXh0ZXJuYWwgSFRUUCBsaW5rcyBkZXRlY3RlZCBpbiBwcm9kdWN0aW9uIGNvZGUuIiwiZmluZGluZ3MiOltdLCJzdGF0dXMiOiJQQVNTIn0sIlNFQy0wMi4xIjp7ImRldGFpbHMiOiJTZWN1cml0eSBoZWFkZXJzIGNvbmZpZ3VyYXRpb24gKENTUC9IU1RTL1gtRnJhbWUtT3B0aW9ucykgZGV0ZWN0ZWQgaW4gcHJvamVjdC4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6IlBBU1MifSwiU0VDLTA0LjEiOnsiZGV0YWlscyI6Ik5vIGRhbmdlcm91cyBldmFsKCksIGRvY3VtZW50LndyaXRlKCksIG9yIGphdmFzY3JpcHQ6IFVSSXMgZGV0ZWN0ZWQuIiwiZmluZGluZ3MiOltdLCJzdGF0dXMiOiJQQVNTIn0sIlNFQy0wNS4xIjp7ImRldGFpbHMiOiJObyBoYXJkY29kZWQgY3JlZGVudGlhbHMsIEFQSSBrZXlzLCBvciBjb21taXR0ZWQgLmVudiBmaWxlcyBkZXRlY3RlZC4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6IlBBU1MifSwiU0VPLTAyLjEiOnsiZGV0YWlscyI6Ik5vIEhUTUwgZG9jdW1lbnRzIGZvdW5kIGluIHJlcG9zaXRvcnkuIiwiZmluZGluZ3MiOltdLCJzdGF0dXMiOiJOL0EifSwiVVgtMDEuMSI6eyJkZXRhaWxzIjoiTm8gSFRNTCBkb2N1bWVudHMgZm91bmQgaW4gcmVwb3NpdG9yeS4iLCJmaW5kaW5ncyI6W10sInN0YXR1cyI6Ik4vQSJ9fSwiZXZhbHVhdGlvbl9pZCI6IkVWQUwtNGU2MWY0MzcwNDU2MGMwOSIsImZpbmRpbmdzIjp7IkNhc3RsZUFzdFByb2JlIjp7ImNpcmN1bGFyX2ltcG9ydHMiOltdLCJkZWJ1Z2dlcl9zdGF0ZW1lbnRzIjpbXSwiZW1wdHlfY2F0Y2hfYmxvY2tzIjpbeyJjb2x1bW4iOjEwLCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJsaW5lIjoxNTgsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjo4LCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxtYWludGFpbmFiaWxpdHktcHJvYmUuanMiLCJsaW5lIjoxMzcsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjoxMiwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6ImNvbmZpZ1xcY29uZmlnLWxvYWRlci5qcyIsImxpbmUiOjgyLCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifSx7ImNvbHVtbiI6MTAsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJldmlkZW5jZVxcZ2l0LXJlc29sdmVyLmpzIiwibGluZSI6NDgsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjo4LCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiZXZpZGVuY2VcXGdpdC1yZXNvbHZlci5qcyIsImxpbmUiOjk2LCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifSx7ImNvbHVtbiI6NiwiZGVzY3JpcHRpb24iOiJFbXB0eSBjYXRjaCBibG9jayBzd2FsbG93cyBlcnJvcnMgd2l0aG91dCBsb2dnaW5nIG9yIG1pdGlnYXRpb24uIiwiZmlsZSI6ImV2aWRlbmNlXFxnaXQtcmVzb2x2ZXIuanMiLCJsaW5lIjoxMDcsInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjo0LCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoiZXZpZGVuY2VcXGdpdC1yZXNvbHZlci5qcyIsImxpbmUiOjEwOCwicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjQsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJpbmRleC5qcyIsImxpbmUiOjIyMSwicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjgsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJyZW1lZGlhdGlvblxccmVtZWRpYXRpb24tc3RvcmUuanMiLCJsaW5lIjoxMDksInJ1bGUiOiJBU1RfRU1QVFlfQ0FUQ0giLCJzZXZlcml0eSI6IkxPVyJ9LHsiY29sdW1uIjo4LCJkZXNjcmlwdGlvbiI6IkVtcHR5IGNhdGNoIGJsb2NrIHN3YWxsb3dzIGVycm9ycyB3aXRob3V0IGxvZ2dpbmcgb3IgbWl0aWdhdGlvbi4iLCJmaWxlIjoicmVwb3J0c1xcc2JvbS1nZW5lcmF0b3IuanMiLCJsaW5lIjozNywicnVsZSI6IkFTVF9FTVBUWV9DQVRDSCIsInNldmVyaXR5IjoiTE9XIn0seyJjb2x1bW4iOjQsImRlc2NyaXB0aW9uIjoiRW1wdHkgY2F0Y2ggYmxvY2sgc3dhbGxvd3MgZXJyb3JzIHdpdGhvdXQgbG9nZ2luZyBvciBtaXRpZ2F0aW9uLiIsImZpbGUiOiJyZXBvcnRzXFxzYm9tLWdlbmVyYXRvci5qcyIsImxpbmUiOjcwLCJydWxlIjoiQVNUX0VNUFRZX0NBVENIIiwic2V2ZXJpdHkiOiJMT1cifV0sImV2YWxfaW52b2NhdGlvbnMiOltdLCJoaWdoX2NvbXBsZXhpdHlfZnVuY3Rpb25zIjpbeyJjb2x1bW4iOjIwLCJjb21wbGV4aXR5IjoyMCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImFub255bW91c1wiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMjApIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImFuYWx5emVyc1xcYXN0LXByb2JlLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImFub255bW91cyIsImxpbmUiOjkyLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjE5LCJjb21wbGV4aXR5IjoyMCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImFub255bW91c1wiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMjApIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImFuYWx5emVyc1xcYXN0LXByb2JlLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImFub255bW91cyIsImxpbmUiOjIzMywicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjoyMywiY29tcGxleGl0eSI6NDcsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDQ3KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJhbm9ueW1vdXMiLCJsaW5lIjo0MTYsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MzIsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJzYWZlRGlzY292ZXJGaWxlc1wiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMzIpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImFuYWx5emVyc1xcc2VjdXJpdHktZ3VhcmQuanMiLCJmdW5jdGlvbl9uYW1lIjoic2FmZURpc2NvdmVyRmlsZXMiLCJsaW5lIjo4NSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjoyLCJjb21wbGV4aXR5IjoyMywiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInRyYXZlcnNlXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgyMykgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxzZWN1cml0eS1ndWFyZC5qcyIsImZ1bmN0aW9uX25hbWUiOiJ0cmF2ZXJzZSIsImxpbmUiOjEwNCwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5Ijo2NCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInBhcnNlQXJnc1wiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoNjQpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImNsaVxcYmluLmpzIiwiZnVuY3Rpb25fbmFtZSI6InBhcnNlQXJncyIsImxpbmUiOjYyLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjY5LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwicnVuQ2xpXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICg2OSkgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiY2xpXFxiaW4uanMiLCJmdW5jdGlvbl9uYW1lIjoicnVuQ2xpIiwibGluZSI6MTU1LCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjE5LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY2Fub25pY2FsaXplXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgxOSkgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiY3J5cHRvXFxjYW5vbmljYWxpemVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNhbm9uaWNhbGl6ZSIsImxpbmUiOjE4LCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjM3LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZXZhbHVhdGVHYXRlRGVjaXNpb25cIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDM3KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJlbmdpbmVcXGdhdGUtZGVjaXNpb24tZW5naW5lLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImV2YWx1YXRlR2F0ZURlY2lzaW9uIiwibGluZSI6NDEsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6NjIsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZVJlbGVhc2VDZXJ0aWZpY2F0ZVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoNjIpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6ImVuZ2luZVxccmVsZWFzZS1hdXRob3JpemVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlUmVsZWFzZUNlcnRpZmljYXRlIiwibGluZSI6MzcsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MTgsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2ZXJpZnlSZWxlYXNlQ2VydGlmaWNhdGVcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDE4KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJlbmdpbmVcXHJlbGVhc2UtYXV0aG9yaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2ZXJpZnlSZWxlYXNlQ2VydGlmaWNhdGUiLCJsaW5lIjoxNjcsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MzUsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVCb3VuZEV2aWRlbmNlQXJ0aWZhY3RcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDM1KSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJldmlkZW5jZVxcZXZpZGVuY2UtYmluZGluZy5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVCb3VuZEV2aWRlbmNlQXJ0aWZhY3QiLCJsaW5lIjo0MSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjoyMiwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcIm1hcEV2YWx1YXRpb25Ub0ZyYW1ld29ya3NcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDIyKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJnb3Zlcm5hbmNlXFxmcmFtZXdvcmstbWFwcGVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6Im1hcEV2YWx1YXRpb25Ub0ZyYW1ld29ya3MiLCJsaW5lIjoyNSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5Ijo0NiwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImV4ZWN1dGVDYXN0bGVHYXRlXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICg0NikgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoiaW5kZXguanMiLCJmdW5jdGlvbl9uYW1lIjoiZXhlY3V0ZUNhc3RsZUdhdGUiLCJsaW5lIjo5MSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5Ijo0NywiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZhbGlkYXRlR2F0ZVBvbGljeVwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoNDcpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6InBvbGljeVxccG9saWN5LXZhbGlkYXRvci5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2YWxpZGF0ZUdhdGVQb2xpY3kiLCJsaW5lIjo1MSwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjoyMiwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZhbGlkYXRlV2FpdmVyXCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgyMikgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoicG9saWN5XFx3YWl2ZXItbWFuYWdlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2YWxpZGF0ZVdhaXZlciIsImxpbmUiOjkyLCJydWxlIjoiQVNUX0hJR0hfQ09NUExFWElUWSIsInNldmVyaXR5IjoiTUVESVVNIiwidGhyZXNob2xkIjoxNX0seyJjb2x1bW4iOjAsImNvbXBsZXhpdHkiOjE5LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVDb21wbGlhbmNlUmVwb3J0SHRtbFwiIGN5Y2xvbWF0aWMgY29tcGxleGl0eSAoMTkpIGV4Y2VlZHMgbWF4aW11bSB0aHJlc2hvbGQgb2YgMTUuIiwiZmlsZSI6InJlcG9ydHNcXGNvbXBsaWFuY2UtcmVwb3J0LWdlbmVyYXRvci5qcyIsImZ1bmN0aW9uX25hbWUiOiJnZW5lcmF0ZUNvbXBsaWFuY2VSZXBvcnRIdG1sIiwibGluZSI6MTMsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MjcsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZVNhcmlmUmVwb3J0XCIgY3ljbG9tYXRpYyBjb21wbGV4aXR5ICgyNykgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoicmVwb3J0c1xcc2FyaWYtZ2VuZXJhdG9yLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlU2FyaWZSZXBvcnQiLCJsaW5lIjozOCwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9LHsiY29sdW1uIjowLCJjb21wbGV4aXR5IjoyMCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImV4dHJhY3REZXBlbmRlbmNpZXNcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDIwKSBleGNlZWRzIG1heGltdW0gdGhyZXNob2xkIG9mIDE1LiIsImZpbGUiOiJyZXBvcnRzXFxzYm9tLWdlbmVyYXRvci5qcyIsImZ1bmN0aW9uX25hbWUiOiJleHRyYWN0RGVwZW5kZW5jaWVzIiwibGluZSI6MjAsInJ1bGUiOiJBU1RfSElHSF9DT01QTEVYSVRZIiwic2V2ZXJpdHkiOiJNRURJVU0iLCJ0aHJlc2hvbGQiOjE1fSx7ImNvbHVtbiI6MCwiY29tcGxleGl0eSI6MTA3LCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmVyaWZ5QXNzdXJhbmNlQXJ0aWZhY3RcIiBjeWNsb21hdGljIGNvbXBsZXhpdHkgKDEwNykgZXhjZWVkcyBtYXhpbXVtIHRocmVzaG9sZCBvZiAxNS4iLCJmaWxlIjoidmVyaWZpZXJcXGNhc3RsZS12ZXJpZnkuanMiLCJmdW5jdGlvbl9uYW1lIjoidmVyaWZ5QXNzdXJhbmNlQXJ0aWZhY3QiLCJsaW5lIjo0OCwicnVsZSI6IkFTVF9ISUdIX0NPTVBMRVhJVFkiLCJzZXZlcml0eSI6Ik1FRElVTSIsInRocmVzaG9sZCI6MTV9XSwib3ZlcnNpemVkX2ZpbGVzIjpbeyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRmlsZSBcImFuYWx5emVyc1xcYXN0LXByb2JlLmpzXCIgZXhjZWVkcyBBU1Qgbm9kZSBsaW1pdCAoMjQxNiA+IDE1MDAgbm9kZXMpLiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImxpbmUiOjEsIm5vZGVfY291bnQiOjI0MTYsInJ1bGUiOiJBU1RfRklMRV9PVkVSU0laRUQiLCJzZXZlcml0eSI6Ik1FRElVTSJ9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZpbGUgXCJhbmFseXplcnNcXGRvbS1zZW1hbnRpY3MtcHJvYmUuanNcIiBleGNlZWRzIEFTVCBub2RlIGxpbWl0ICgxNzM1ID4gMTUwMCBub2RlcykuIiwiZmlsZSI6ImFuYWx5emVyc1xcZG9tLXNlbWFudGljcy1wcm9iZS5qcyIsImxpbmUiOjEsIm5vZGVfY291bnQiOjE3MzUsInJ1bGUiOiJBU1RfRklMRV9PVkVSU0laRUQiLCJzZXZlcml0eSI6Ik1FRElVTSJ9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZpbGUgXCJjbGlcXGJpbi5qc1wiIGV4Y2VlZHMgQVNUIG5vZGUgbGltaXQgKDIyMjcgPiAxNTAwIG5vZGVzKS4iLCJmaWxlIjoiY2xpXFxiaW4uanMiLCJsaW5lIjoxLCJub2RlX2NvdW50IjoyMjI3LCJydWxlIjoiQVNUX0ZJTEVfT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJNRURJVU0ifSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGaWxlIFwiaW5kZXguanNcIiBleGNlZWRzIEFTVCBub2RlIGxpbWl0ICgxNzE2ID4gMTUwMCBub2RlcykuIiwiZmlsZSI6ImluZGV4LmpzIiwibGluZSI6MSwibm9kZV9jb3VudCI6MTcxNiwicnVsZSI6IkFTVF9GSUxFX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTUVESVVNIn0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRmlsZSBcInZlcmlmaWVyXFxjYXN0bGUtdmVyaWZ5LmpzXCIgZXhjZWVkcyBBU1Qgbm9kZSBsaW1pdCAoMTY0OSA+IDE1MDAgbm9kZXMpLiIsImZpbGUiOiJ2ZXJpZmllclxcY2FzdGxlLXZlcmlmeS5qcyIsImxpbmUiOjEsIm5vZGVfY291bnQiOjE2NDksInJ1bGUiOiJBU1RfRklMRV9PVkVSU0laRUQiLCJzZXZlcml0eSI6Ik1FRElVTSJ9XSwib3ZlcnNpemVkX2Z1bmN0aW9ucyI6W3siY29sdW1uIjoxOSwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImFub255bW91c1wiIHNpemUgKDE3NiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJhbmFseXplcnNcXGFzdC1wcm9iZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJhbm9ueW1vdXMiLCJsaW5lIjoyMzMsIm5vZGVfY291bnQiOjE3NiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MjMsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBzaXplICg2NDMgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJmdW5jdGlvbl9uYW1lIjoiYW5vbnltb3VzIiwibGluZSI6NDE2LCJub2RlX2NvdW50Ijo2NDMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2YWxpZGF0ZVBhdGhXaXRoaW5Xb3Jrc3BhY2VcIiBzaXplICgxOTIgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxzZWN1cml0eS1ndWFyZC5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2YWxpZGF0ZVBhdGhXaXRoaW5Xb3Jrc3BhY2UiLCJsaW5lIjozMCwibm9kZV9jb3VudCI6MTkyLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwic2FmZURpc2NvdmVyRmlsZXNcIiBzaXplICg0OTggbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxzZWN1cml0eS1ndWFyZC5qcyIsImZ1bmN0aW9uX25hbWUiOiJzYWZlRGlzY292ZXJGaWxlcyIsImxpbmUiOjg1LCJub2RlX2NvdW50Ijo0OTgsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjIsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ0cmF2ZXJzZVwiIHNpemUgKDMyMyBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJhbmFseXplcnNcXHNlY3VyaXR5LWd1YXJkLmpzIiwiZnVuY3Rpb25fbmFtZSI6InRyYXZlcnNlIiwibGluZSI6MTA0LCJub2RlX2NvdW50IjozMjMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVHYXRlQXVkaXRSZWNvcmRcIiBzaXplICgyODkgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiYXVkaXRcXGdhdGUtYXVkaXQtdHJhaWwuanMiLCJmdW5jdGlvbl9uYW1lIjoiY3JlYXRlR2F0ZUF1ZGl0UmVjb3JkIiwibGluZSI6MjQsIm5vZGVfY291bnQiOjI4OSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInBhcnNlQXJnc1wiIHNpemUgKDY2MSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjbGlcXGJpbi5qcyIsImZ1bmN0aW9uX25hbWUiOiJwYXJzZUFyZ3MiLCJsaW5lIjo2Miwibm9kZV9jb3VudCI6NjYxLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwicnVuQ2xpXCIgc2l6ZSAoMTQ0MiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjbGlcXGJpbi5qcyIsImZ1bmN0aW9uX25hbWUiOiJydW5DbGkiLCJsaW5lIjoxNTUsIm5vZGVfY291bnQiOjE0NDIsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJsb2FkQ2FzdGxlR2F0ZUNvbmZpZ1wiIHNpemUgKDIyNCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjb25maWdcXGNvbmZpZy1sb2FkZXIuanMiLCJmdW5jdGlvbl9uYW1lIjoibG9hZENhc3RsZUdhdGVDb25maWciLCJsaW5lIjo0Nywibm9kZV9jb3VudCI6MjI0LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY2Fub25pY2FsaXplXCIgc2l6ZSAoMjM5IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xcY2Fub25pY2FsaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJjYW5vbmljYWxpemUiLCJsaW5lIjoxOCwibm9kZV9jb3VudCI6MjM5LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmVyaWZ5RHNzZUVudmVsb3BlXCIgc2l6ZSAoMjM5IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xcZHNzZS5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2ZXJpZnlEc3NlRW52ZWxvcGUiLCJsaW5lIjo3NCwibm9kZV9jb3VudCI6MjM5LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlS2V5QmFja3VwXCIgc2l6ZSAoMjU5IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xca2V5LWJhY2t1cC5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVLZXlCYWNrdXAiLCJsaW5lIjoyOCwibm9kZV9jb3VudCI6MjU5LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwicmVzdG9yZUtleUJhY2t1cFwiIHNpemUgKDMxOCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJjcnlwdG9cXGtleS1iYWNrdXAuanMiLCJmdW5jdGlvbl9uYW1lIjoicmVzdG9yZUtleUJhY2t1cCIsImxpbmUiOjkzLCJub2RlX2NvdW50IjozMTgsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVSZXZvY2F0aW9uTWFuaWZlc3RcIiBzaXplICgyMzggbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY3J5cHRvXFxrZXktcmV2b2NhdGlvbi5qcyIsImZ1bmN0aW9uX25hbWUiOiJjcmVhdGVSZXZvY2F0aW9uTWFuaWZlc3QiLCJsaW5lIjozNSwibm9kZV9jb3VudCI6MjM4LCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmFsaWRhdGVSZXZvY2F0aW9uTWFuaWZlc3RcIiBzaXplICgxOTMgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiY3J5cHRvXFxrZXktcmV2b2NhdGlvbi5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2YWxpZGF0ZVJldm9jYXRpb25NYW5pZmVzdCIsImxpbmUiOjEwMSwibm9kZV9jb3VudCI6MTkzLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY2hlY2tLZXlSZXZvY2F0aW9uU3RhdHVzXCIgc2l6ZSAoMzE2IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImNyeXB0b1xca2V5LXJldm9jYXRpb24uanMiLCJmdW5jdGlvbl9uYW1lIjoiY2hlY2tLZXlSZXZvY2F0aW9uU3RhdHVzIiwibGluZSI6MTUxLCJub2RlX2NvdW50IjozMTYsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJldmFsdWF0ZUdhdGVEZWNpc2lvblwiIHNpemUgKDgwMCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJlbmdpbmVcXGdhdGUtZGVjaXNpb24tZW5naW5lLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImV2YWx1YXRlR2F0ZURlY2lzaW9uIiwibGluZSI6NDEsIm5vZGVfY291bnQiOjgwMCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImdlbmVyYXRlUmVsZWFzZUNlcnRpZmljYXRlXCIgc2l6ZSAoNjgyIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImVuZ2luZVxccmVsZWFzZS1hdXRob3JpemVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImdlbmVyYXRlUmVsZWFzZUNlcnRpZmljYXRlIiwibGluZSI6MzcsIm5vZGVfY291bnQiOjY4MiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZlcmlmeVJlbGVhc2VDZXJ0aWZpY2F0ZVwiIHNpemUgKDMyNiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJlbmdpbmVcXHJlbGVhc2UtYXV0aG9yaXplci5qcyIsImZ1bmN0aW9uX25hbWUiOiJ2ZXJpZnlSZWxlYXNlQ2VydGlmaWNhdGUiLCJsaW5lIjoxNjcsIm5vZGVfY291bnQiOjMyNiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MjMsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJhbm9ueW1vdXNcIiBzaXplICgyMTEgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZXZpZGVuY2VcXGFkYXB0ZXJzXFxvc3YtYWRhcHRlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJhbm9ueW1vdXMiLCJsaW5lIjo3Mywibm9kZV9jb3VudCI6MjExLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiY3JlYXRlQm91bmRFdmlkZW5jZUFydGlmYWN0XCIgc2l6ZSAoNDczIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImV2aWRlbmNlXFxldmlkZW5jZS1iaW5kaW5nLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNyZWF0ZUJvdW5kRXZpZGVuY2VBcnRpZmFjdCIsImxpbmUiOjQxLCJub2RlX2NvdW50Ijo0NzMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJjcmVhdGVFdmlkZW5jZVBhY2thZ2VcIiBzaXplICgxOTQgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZXZpZGVuY2VcXGV2aWRlbmNlLXBhY2thZ2UuanMiLCJmdW5jdGlvbl9uYW1lIjoiY3JlYXRlRXZpZGVuY2VQYWNrYWdlIiwibGluZSI6MjEsIm5vZGVfY291bnQiOjE5NCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNvbXB1dGVEaXJlY3RvcnlUcmVlSGFzaFwiIHNpemUgKDE5NSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJldmlkZW5jZVxcZ2l0LXJlc29sdmVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNvbXB1dGVEaXJlY3RvcnlUcmVlSGFzaCIsImxpbmUiOjIyLCJub2RlX2NvdW50IjoxOTUsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJyZXNvbHZlR2l0UHJvdmVuYW5jZVwiIHNpemUgKDI4MiBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJldmlkZW5jZVxcZ2l0LXJlc29sdmVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6InJlc29sdmVHaXRQcm92ZW5hbmNlIiwibGluZSI6NjgsIm5vZGVfY291bnQiOjI4MiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcIm1hcEV2YWx1YXRpb25Ub0ZyYW1ld29ya3NcIiBzaXplICg0NzEgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoiZ292ZXJuYW5jZVxcZnJhbWV3b3JrLW1hcHBlci5qcyIsImZ1bmN0aW9uX25hbWUiOiJtYXBFdmFsdWF0aW9uVG9GcmFtZXdvcmtzIiwibGluZSI6MjUsIm5vZGVfY291bnQiOjQ3MSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImV4ZWN1dGVDYXN0bGVHYXRlXCIgc2l6ZSAoOTQzIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6ImluZGV4LmpzIiwiZnVuY3Rpb25fbmFtZSI6ImV4ZWN1dGVDYXN0bGVHYXRlIiwibGluZSI6OTEsIm5vZGVfY291bnQiOjk0MywicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNyZWF0ZVBvbGljeUFydGlmYWN0XCIgc2l6ZSAoMjE0IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InBvbGljeVxccG9saWN5LWFydGlmYWN0LmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNyZWF0ZVBvbGljeUFydGlmYWN0IiwibGluZSI6MjQsIm5vZGVfY291bnQiOjIxNCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZlcmlmeVBvbGljeUFydGlmYWN0XCIgc2l6ZSAoMTYyIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InBvbGljeVxccG9saWN5LWFydGlmYWN0LmpzIiwiZnVuY3Rpb25fbmFtZSI6InZlcmlmeVBvbGljeUFydGlmYWN0IiwibGluZSI6ODMsIm5vZGVfY291bnQiOjE2MiwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInJlc29sdmVHYXRlUG9saWN5XCIgc2l6ZSAoMzI5IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InBvbGljeVxccG9saWN5LXJlc29sdmVyLmpzIiwiZnVuY3Rpb25fbmFtZSI6InJlc29sdmVHYXRlUG9saWN5IiwibGluZSI6NDAsIm5vZGVfY291bnQiOjMyOSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcInZhbGlkYXRlR2F0ZVBvbGljeVwiIHNpemUgKDY4NCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHBvbGljeS12YWxpZGF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoidmFsaWRhdGVHYXRlUG9saWN5IiwibGluZSI6NTEsIm5vZGVfY291bnQiOjY4NCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImNyZWF0ZVdhaXZlclwiIHNpemUgKDIxMCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHdhaXZlci1tYW5hZ2VyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImNyZWF0ZVdhaXZlciIsImxpbmUiOjMzLCJub2RlX2NvdW50IjoyMTAsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJ2YWxpZGF0ZVdhaXZlclwiIHNpemUgKDQ4MSBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHdhaXZlci1tYW5hZ2VyLmpzIiwiZnVuY3Rpb25fbmFtZSI6InZhbGlkYXRlV2FpdmVyIiwibGluZSI6OTIsIm5vZGVfY291bnQiOjQ4MSwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImFwcGx5V2FpdmVyc1wiIHNpemUgKDE4MCBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJwb2xpY3lcXHdhaXZlci1tYW5hZ2VyLmpzIiwiZnVuY3Rpb25fbmFtZSI6ImFwcGx5V2FpdmVycyIsImxpbmUiOjIxMSwibm9kZV9jb3VudCI6MTgwLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwiZ2VuZXJhdGVDb21wbGlhbmNlUmVwb3J0SHRtbFwiIHNpemUgKDQwMyBub2RlcykgZXhjZWVkcyB0aHJlc2hvbGQgb2YgMTUwIG5vZGVzLiIsImZpbGUiOiJyZXBvcnRzXFxjb21wbGlhbmNlLXJlcG9ydC1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZ2VuZXJhdGVDb21wbGlhbmNlUmVwb3J0SHRtbCIsImxpbmUiOjEzLCJub2RlX2NvdW50Ijo0MDMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZVNhcmlmUmVwb3J0XCIgc2l6ZSAoNDQ0IG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InJlcG9ydHNcXHNhcmlmLWdlbmVyYXRvci5qcyIsImZ1bmN0aW9uX25hbWUiOiJnZW5lcmF0ZVNhcmlmUmVwb3J0IiwibGluZSI6MzgsIm5vZGVfY291bnQiOjQ0NCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImV4dHJhY3REZXBlbmRlbmNpZXNcIiBzaXplICgzMDMgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicmVwb3J0c1xcc2JvbS1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZXh0cmFjdERlcGVuZGVuY2llcyIsImxpbmUiOjIwLCJub2RlX2NvdW50IjozMDMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH0seyJjb2x1bW4iOjAsImRlc2NyaXB0aW9uIjoiRnVuY3Rpb24gXCJnZW5lcmF0ZUN5Y2xvbmVEeFNib21cIiBzaXplICgyNTQgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicmVwb3J0c1xcc2JvbS1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZ2VuZXJhdGVDeWNsb25lRHhTYm9tIiwibGluZSI6ODMsIm5vZGVfY291bnQiOjI1NCwicnVsZSI6IkFTVF9GVU5DVElPTl9PVkVSU0laRUQiLCJzZXZlcml0eSI6IkxPVyIsInRocmVzaG9sZCI6MTUwfSx7ImNvbHVtbiI6MCwiZGVzY3JpcHRpb24iOiJGdW5jdGlvbiBcImdlbmVyYXRlU3BkeFNib21cIiBzaXplICgxNzIgbm9kZXMpIGV4Y2VlZHMgdGhyZXNob2xkIG9mIDE1MCBub2Rlcy4iLCJmaWxlIjoicmVwb3J0c1xcc2JvbS1nZW5lcmF0b3IuanMiLCJmdW5jdGlvbl9uYW1lIjoiZ2VuZXJhdGVTcGR4U2JvbSIsImxpbmUiOjE1MCwibm9kZV9jb3VudCI6MTcyLCJydWxlIjoiQVNUX0ZVTkNUSU9OX09WRVJTSVpFRCIsInNldmVyaXR5IjoiTE9XIiwidGhyZXNob2xkIjoxNTB9LHsiY29sdW1uIjowLCJkZXNjcmlwdGlvbiI6IkZ1bmN0aW9uIFwidmVyaWZ5QXNzdXJhbmNlQXJ0aWZhY3RcIiBzaXplICgxNTUzIG5vZGVzKSBleGNlZWRzIHRocmVzaG9sZCBvZiAxNTAgbm9kZXMuIiwiZmlsZSI6InZlcmlmaWVyXFxjYXN0bGUtdmVyaWZ5LmpzIiwiZnVuY3Rpb25fbmFtZSI6InZlcmlmeUFzc3VyYW5jZUFydGlmYWN0IiwibGluZSI6NDgsIm5vZGVfY291bnQiOjE1NTMsInJ1bGUiOiJBU1RfRlVOQ1RJT05fT1ZFUlNJWkVEIiwic2V2ZXJpdHkiOiJMT1ciLCJ0aHJlc2hvbGQiOjE1MH1dLCJ1bnNhZmVfZG9tX3NpbmtzIjpbXX0sIkNhc3RsZURvbVNlbWFudGljc1Byb2JlIjp7ImFyaWFfdmlvbGF0aW9ucyI6W10sImNvbG9yX2NvbnRyYXN0X3Zpb2xhdGlvbnMiOltdLCJoZWFkaW5nX2hpZXJhcmNoeV92aW9sYXRpb25zIjpbXSwia2V5Ym9hcmRfZm9jdXNfdmlvbGF0aW9ucyI6W10sIm1pc3NpbmdfYWx0X2ltYWdlcyI6W10sIm1pc3NpbmdfbGFuZG1hcmtzIjpbXSwibWlzc2luZ19sYW5nIjpbXSwibWlzc2luZ19zZW9fbWV0YSI6W10sIm1pc3Npbmdfdmlld3BvcnQiOltdfSwiQ2FzdGxlR2l0SGlzdG9yeVByb2JlIjp7Imhpc3RvcmljYWxfc2VjcmV0cyI6W119LCJDYXN0bGVNYWludGFpbmFiaWxpdHlQcm9iZSI6eyJleGNlc3NpdmVfbmVzdGluZyI6W3siZGVwdGgiOjYsImRlc2NyaXB0aW9uIjoiRGVlcCBjb250cm9sIG5lc3RpbmcgZGV0ZWN0ZWQgKGRlcHRoOiA2KS4iLCJmaWxlIjoiYW5hbHl6ZXJzXFxhc3QtcHJvYmUuanMiLCJsaW5lIjo1MTIsInJ1bGUiOiJFWENFU1NJVkVfTkVTVElORyIsInNldmVyaXR5IjoiTE9XIn0seyJkZXB0aCI6NywiZGVzY3JpcHRpb24iOiJEZWVwIGNvbnRyb2wgbmVzdGluZyBkZXRlY3RlZCAoZGVwdGg6IDcpLiIsImZpbGUiOiJ2ZXJpZmllclxcY2FzdGxlLXZlcmlmeS5qcyIsImxpbmUiOjI4MCwicnVsZSI6IkVYQ0VTU0lWRV9ORVNUSU5HIiwic2V2ZXJpdHkiOiJMT1cifV0sImxlZ2FjeV9pbWFnZV9mb3JtYXRzIjpbXSwibG9ja2ZpbGVfaXNzdWVzIjpbXSwibWlzc2luZ19pbWFnZV9kaW1lbnNpb25zIjpbXSwibW9ub2xpdGhpY19maWxlcyI6W10sIndpbGRjYXJkX2RlcGVuZGVuY2llcyI6W119LCJDYXN0bGVTZWN1cml0eVByb2JlIjp7ImRhbmdlcm91c19wYXR0ZXJucyI6W10sImluc2VjdXJlX3RyYW5zcG9ydCI6W10sInNlY3JldHMiOltdLCJzZWN1cml0eV9oZWFkZXJzIjpbXX19LCJnYXRlX2V2aWRlbmNlIjp7IkdCLTAxIjpmYWxzZX0sImdvdmVybmFuY2UiOnsiY2FzdGxlX2dhdGVfdmVyc2lvbiI6IjEuMC4wLWNhbmRpZGF0ZSIsImNxc19zcGVjaWZpY2F0aW9uX3ZlcnNpb24iOiIxLjEuMCIsImVuZ2luZV92ZXJzaW9uIjoiMS4wLjAiLCJwb2xpY3lfaGFzaCI6IjE2Y2ExZTFiYjczZGQ0NTkyNzY0NjdkMDY5Y2JkNjJiMDZjNWIwOGMzNTdiN2Q2MTYyNmFkYjhjODE5ODc1NTAiLCJwb2xpY3lfdmVyc2lvbiI6IjEuMC4wLXJhdGlmaWVkIn0sIm5vbmNlIjoiNTA2YjNmMWYyNmJiMjgxNDhmZjY1OTU1ZDkwZjlhMGEiLCJzY2FubmVycyI6eyJwcm9iZXNfZXhlY3V0ZWQiOlt7ImR1cmF0aW9uX21zIjo0NSwiZXJyb3JzIjpbXSwiZmlsZXNfc2Nhbm5lZCI6NTMsInBheWxvYWRfc2hhMjU2IjoiNzlkNmMzOWI4ODhhN2RlNDA5Y2QzNmU3YzI3MGYyYWE1ODJiNmQ5ZjU2NzA1YjJjZGRjYjdkY2U2ODJjYjEwNCIsInByb2JlX25hbWUiOiJDYXN0bGVTZWN1cml0eVByb2JlIiwicHJvYmVfdmVyc2lvbiI6IjEuMC4wIn0seyJkdXJhdGlvbl9tcyI6NiwiZXJyb3JzIjpbXSwiZmlsZXNfc2Nhbm5lZCI6MCwicGF5bG9hZF9zaGEyNTYiOiI5YTVhMjRjMWMzNzJjZWUwMWZjM2RmNmQxYzU4NjdiNmQ3ZjM4ZTFmNDM5OGE2ZjhkZTIyMTNjYzBiY2VjZWU5IiwicHJvYmVfbmFtZSI6IkNhc3RsZURvbVNlbWFudGljc1Byb2JlIiwicHJvYmVfdmVyc2lvbiI6IjIuMC4wIn0seyJkdXJhdGlvbl9tcyI6MjEsImVycm9ycyI6W10sImZpbGVzX3NjYW5uZWQiOjUzLCJwYXlsb2FkX3NoYTI1NiI6Ijg3MWE5ZTgyNjczYjFlYTk2ZjhmZDM0MzdjNjk1OGRiZGExMzU5MDE1Nzc3NDg1NjBiODI1NWUzNDNjY2RiZmEiLCJwcm9iZV9uYW1lIjoiQ2FzdGxlTWFpbnRhaW5hYmlsaXR5UHJvYmUiLCJwcm9iZV92ZXJzaW9uIjoiMS4wLjAifSx7ImR1cmF0aW9uX21zIjoxNDIsImVycm9ycyI6W10sImZpbGVzX3NjYW5uZWQiOjQ1LCJwYXlsb2FkX3NoYTI1NiI6ImY5MGI1N2IzMTAxMGU5ODk3OTg1NWI5ODZkNWVjOGEzODYzOWQ1NjI0YjZjNjQ1NGM4OWIxODlkNGZjNzQ3NDkiLCJwcm9iZV9uYW1lIjoiQ2FzdGxlQXN0UHJvYmUiLCJwcm9iZV92ZXJzaW9uIjoiMi4wLjAifSx7ImR1cmF0aW9uX21zIjozMTksImVycm9ycyI6W10sImZpbGVzX3NjYW5uZWQiOjAsInBheWxvYWRfc2hhMjU2IjoiMjkxMDVjNmM3MjAyMTJkZjk2ZjkyZTFjZDNhNjYwNWM2ODYzY2Y5YWI2MmNhZjkxMGZiYzllNDNkZjgxZjZmMiIsInByb2JlX25hbWUiOiJDYXN0bGVHaXRIaXN0b3J5UHJvYmUiLCJwcm9iZV92ZXJzaW9uIjoiMS4wLjAifV19LCJzY2hlbWFfdmVyc2lvbiI6IjIuMC4wLWFzc3VyYW5jZSIsInRhcmdldF9zeXN0ZW0iOnsiYnJhbmNoIjoidW5rbm93biIsImNvbW1pdF9zaGEiOiI0ZTYxZjQzNzA0NTYwYzA5MDM4MTU4NWQxNzFiYzk0ZGQ1NGZlOThlIiwiZW52aXJvbm1lbnQiOiJwcm9kdWN0aW9uIiwiZ2l0X3RyZWVfaGFzaCI6IjY0NTcyZWEyMGMzYTIwNDQ5YzBjNDliNjE5MTA3NWI1ZjczNTRkZWY5MTVlZDA2MTFkZmRkOTU4NjVjNmU0NGEiLCJpc19kaXJ0eSI6ZmFsc2UsIm5hbWUiOiJjYXN0bGUtZ2F0ZS1lbmdpbmUiLCJyZXBvc2l0b3J5X3VybCI6ImxvY2FsOi8vY2FzdGxlLWdhdGUifSwidGltZXN0YW1wIjoiMjAyNi0wOC0xOFQyMTo1NzoxOS4xNzBaIn0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2Nhc3RsZWdhdGUuZ3J1cG9jYXN0aWxsby5jb20vYXNzdXJhbmNlL3YxIiwic3ViamVjdCI6W3siZGlnZXN0Ijp7InNoYTI1NiI6IjRlNjFmNDM3MDQ1NjBjMDkwMzgxNTg1ZDE3MWJjOTRkZDU0ZmU5OGUifSwibmFtZSI6ImxvY2FsOi8vY2FzdGxlLWdhdGUifV19",
+      "signatures": [
+        {
+          "keyid": "ed25519:3d1aa227ca0a2c14",
+          "sig": "nUVK5pAVQvYKU1xgfc3/13mBHK3ygHLtx60oC9zDmDwiSa3RKbRtjGl8q/MBdANGhh1SJ1RBfx22IolCmaxVCg=="
+        }
+      ]
+    }
+  }
+}

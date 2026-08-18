@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.0.0-assurance",
+  "certificate_id": "REL-CERT-C1-1787090239256",
+  "authorization_status": "AUTHORIZED_FOR_RELEASE",
+  "issued_at": "2026-08-18T21:57:19.256Z",
+  "nonce": "42621b7672544b1d8baa107523b2a851",
+  "target_system": {
+    "name": "castle-gate-engine",
+    "environment": "production",
+    "commit_sha": "4e61f43704560c090381585d171bc94dd54fe98e",
+    "repository_url": "local://castle-gate"
+  },
+  "governance": {
+    "cqs_specification_version": "1.1.0",
+    "gate_policy_version": "1.0.0-ratified",
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION",
+    "authority_class": [
+      "Technical Lead"
+    ],
+    "policy_reference": {
+      "policy_id": "POL-C1",
+      "policy_sha256": "e15a29e2089c3e73673bd8d29af3db692c88925bfcea0dfb116906530e70350b"
+    }
+  },
+  "evaluation_reference": {
+    "evaluation_id": "EVAL-4e61f43704560c09",
+    "gate_decision_id": "GATE-DEC-C1-1787090239167",
+    "audit_trail_reference": "AUD-GATE-1787090239167",
+    "evidence_package_hash": "c653157bc154c4a94b38f4304f1bf1e694934028a3b5d16b924222956b977e79",
+    "previous_evaluation": {
+      "evaluation_id": "EVAL-1787090228243",
+      "certificate_digest": "22d72c4c94ecdb22517c7d3d0bdb561c6bfd3114f8ed3a48840fde294c49be44",
+      "commit_sha": "unspecified_sha"
+    }
+  },
+  "applied_waivers": [],
+  "metrics_summary": {
+    "cqs_raw_score": 72.72727272727273,
+    "cqs_display_score": 72.73,
+    "final_verdict": "CONDITIONAL_APPROVAL",
+    "gate_breakers_status": "CLEARED"
+  },
+  "post_verification_obligation": {
+    "required": false,
+    "verification_window_hours": 48,
+    "status": "NOT_REQUIRED"
+  },
+  "integrity": {
+    "canonical_algorithm": "RFC-8785-JCS",
+    "digest_algorithm": "SHA-256",
+    "certificate_digest": "fd713d515a4cbb0bff68cde1a47af770479c17ab66a2a41f027b8ccff1e4528c",
+    "signature_mode": "ED25519_ASYMMETRIC_SIGNED",
+    "signing_authority": "Grupo Castillo Release Gate Authority",
+    "pki_signature_extension": {
+      "enabled": true,
+      "algorithm": "ed25519",
+      "key_id": "ed25519:3d1aa227ca0a2c14",
+      "signature_base64": "vYlXzpTT3ea70ZQEMJSr3ZQ0NgCuvcJnIgnJfgrfiHNqYDxbPID8nh/ML1wUwY9VIHpzuQtIVfIHQFMBP6fVAA==",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMMyfpPLjNFdIgy4fuLES3av/UGGXMrlzx5O7xGz3/fs=\n-----END PUBLIC KEY-----\n",
+      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787090239256"
+    }
+  }
+}
