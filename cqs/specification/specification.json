@@ -1,0 +1,73 @@
+{
+  "$schema": "https://specs.castle-engineering.io/schemas/cqs-v1.1.json",
+  "specification_id": "CQS-SPEC-v1.1",
+  "name": "Castle Quality System (CQS) v1.1 Specification",
+  "version": "1.1.0",
+  "status": "RATIFIED_FROZEN",
+  "authority_principle": "La metodología es la autoridad; el software únicamente la ejecuta.",
+  "classification": "Internal Engineering Standard",
+  "organization": "Grupo Castillo / Castle Engineering Architecture Board",
+  "hierarchy": {
+    "levels": [
+      "Atomic Controls (c_i)",
+      "Subcriteria (Sub_j)",
+      "Official Domains (Dom_k)",
+      "Global CQS Score (CQS_raw)"
+    ]
+  },
+  "domains": [
+    {
+      "code": "PER",
+      "name": "Performance",
+      "nominal_weight": 20.0,
+      "subcriteria_count": 5,
+      "controls_count": 14
+    },
+    {
+      "code": "SEC",
+      "name": "Security & Privacy",
+      "nominal_weight": 20.0,
+      "subcriteria_count": 5,
+      "controls_count": 18
+    },
+    {
+      "code": "ACC",
+      "name": "Accessibility & Inclusivity",
+      "nominal_weight": 15.0,
+      "subcriteria_count": 4,
+      "controls_count": 9
+    },
+    {
+      "code": "SEO",
+      "name": "Technical SEO & Discoverability",
+      "nominal_weight": 15.0,
+      "subcriteria_count": 4,
+      "controls_count": 10
+    },
+    {
+      "code": "UX",
+      "name": "User Experience & Interface Quality",
+      "nominal_weight": 15.0,
+      "subcriteria_count": 4,
+      "controls_count": 8
+    },
+    {
+      "code": "REL",
+      "name": "Reliability & Architecture",
+      "nominal_weight": 10.0,
+      "subcriteria_count": 2,
+      "controls_count": 4
+    },
+    {
+      "code": "MNT",
+      "name": "Maintainability & Code Quality",
+      "nominal_weight": 5.0,
+      "subcriteria_count": 2,
+      "controls_count": 4
+    }
+  ],
+  "nominal_weight_total": 100.0,
+  "normative_result_statuses": ["PASS", "FAIL", "N/A", "UNEXECUTED"],
+  "gate_breakers": ["GB-01", "GB-02", "GB-03", "GB-04", "GB-05"],
+  "test_04_status": "Pending / UNEXECUTED"
+}

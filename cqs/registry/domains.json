@@ -1,0 +1,354 @@
+{
+  "domains": {
+    "PER": {
+      "code": "PER",
+      "name": "Performance",
+      "nominal_weight": 20.0,
+      "subcriteria": [
+        "PER-01",
+        "PER-02",
+        "PER-03",
+        "PER-04",
+        "PER-05"
+      ]
+    },
+    "SEC": {
+      "code": "SEC",
+      "name": "Security & Privacy",
+      "nominal_weight": 20.0,
+      "subcriteria": [
+        "SEC-01",
+        "SEC-02",
+        "SEC-03",
+        "SEC-04",
+        "SEC-05"
+      ]
+    },
+    "ACC": {
+      "code": "ACC",
+      "name": "Accessibility & Inclusivity",
+      "nominal_weight": 15.0,
+      "subcriteria": [
+        "ACC-01",
+        "ACC-02",
+        "ACC-03",
+        "ACC-04"
+      ]
+    },
+    "SEO": {
+      "code": "SEO",
+      "name": "Technical SEO & Discoverability",
+      "nominal_weight": 15.0,
+      "subcriteria": [
+        "SEO-01",
+        "SEO-02",
+        "SEO-03",
+        "SEO-04"
+      ]
+    },
+    "UX": {
+      "code": "UX",
+      "name": "User Experience & Interface Quality",
+      "nominal_weight": 15.0,
+      "subcriteria": [
+        "UX-01",
+        "UX-02",
+        "UX-03",
+        "UX-04"
+      ]
+    },
+    "REL": {
+      "code": "REL",
+      "name": "Reliability & Architecture",
+      "nominal_weight": 10.0,
+      "subcriteria": [
+        "REL-01",
+        "REL-02"
+      ]
+    },
+    "MNT": {
+      "code": "MNT",
+      "name": "Maintainability & Code Quality",
+      "nominal_weight": 5.0,
+      "subcriteria": [
+        "MNT-01",
+        "MNT-02"
+      ]
+    }
+  },
+  "subcriteria": {
+    "PER-01": {
+      "code": "PER-01",
+      "domain": "PER",
+      "name": "LCP",
+      "nominal_weight": 4.0,
+      "controls": [
+        "PER-01.1",
+        "PER-01.2"
+      ]
+    },
+    "PER-02": {
+      "code": "PER-02",
+      "domain": "PER",
+      "name": "INP",
+      "nominal_weight": 4.0,
+      "controls": [
+        "PER-02.1",
+        "PER-02.2"
+      ]
+    },
+    "PER-03": {
+      "code": "PER-03",
+      "domain": "PER",
+      "name": "CLS",
+      "nominal_weight": 4.0,
+      "controls": [
+        "PER-03.1",
+        "PER-03.2"
+      ]
+    },
+    "PER-04": {
+      "code": "PER-04",
+      "domain": "PER",
+      "name": "Asset Optimization",
+      "nominal_weight": 4.0,
+      "controls": [
+        "PER-04.1",
+        "PER-04.2",
+        "PER-04.3",
+        "PER-04.4"
+      ]
+    },
+    "PER-05": {
+      "code": "PER-05",
+      "domain": "PER",
+      "name": "Caching-Minification",
+      "nominal_weight": 4.0,
+      "controls": [
+        "PER-05.1",
+        "PER-05.2"
+      ]
+    },
+    "SEC-01": {
+      "code": "SEC-01",
+      "domain": "SEC",
+      "name": "SSL/TLS",
+      "nominal_weight": 4.0,
+      "controls": [
+        "SEC-01.1",
+        "SEC-01.2"
+      ]
+    },
+    "SEC-02": {
+      "code": "SEC-02",
+      "domain": "SEC",
+      "name": "Security Headers",
+      "nominal_weight": 4.0,
+      "controls": [
+        "SEC-02.1",
+        "SEC-02.2",
+        "SEC-02.3",
+        "SEC-02.4",
+        "SEC-02.5",
+        "SEC-02.6"
+      ]
+    },
+    "SEC-03": {
+      "code": "SEC-03",
+      "domain": "SEC",
+      "name": "Endpoint-Abuse Protection",
+      "nominal_weight": 4.0,
+      "controls": [
+        "SEC-03.1",
+        "SEC-03.2"
+      ]
+    },
+    "SEC-04": {
+      "code": "SEC-04",
+      "domain": "SEC",
+      "name": "OWASP Mitigation",
+      "nominal_weight": 4.0,
+      "controls": [
+        "SEC-04.1",
+        "SEC-04.2",
+        "SEC-04.3",
+        "SEC-04.4",
+        "SEC-04.5"
+      ]
+    },
+    "SEC-05": {
+      "code": "SEC-05",
+      "domain": "SEC",
+      "name": "Information Disclosure",
+      "nominal_weight": 4.0,
+      "controls": [
+        "SEC-05.1",
+        "SEC-05.2",
+        "SEC-05.3"
+      ]
+    },
+    "ACC-01": {
+      "code": "ACC-01",
+      "domain": "ACC",
+      "name": "Semantic Hierarchy",
+      "nominal_weight": 3.75,
+      "controls": [
+        "ACC-01.1",
+        "ACC-01.2"
+      ]
+    },
+    "ACC-02": {
+      "code": "ACC-02",
+      "domain": "ACC",
+      "name": "Keyboard-Focus",
+      "nominal_weight": 3.75,
+      "controls": [
+        "ACC-02.1",
+        "ACC-02.2"
+      ]
+    },
+    "ACC-03": {
+      "code": "ACC-03",
+      "domain": "ACC",
+      "name": "Contrast",
+      "nominal_weight": 3.75,
+      "controls": [
+        "ACC-03.1",
+        "ACC-03.2"
+      ]
+    },
+    "ACC-04": {
+      "code": "ACC-04",
+      "domain": "ACC",
+      "name": "Interactive-ARIA",
+      "nominal_weight": 3.75,
+      "controls": [
+        "ACC-04.1",
+        "ACC-04.2",
+        "ACC-04.3"
+      ]
+    },
+    "SEO-01": {
+      "code": "SEO-01",
+      "domain": "SEO",
+      "name": "Indexability",
+      "nominal_weight": 3.75,
+      "controls": [
+        "SEO-01.1",
+        "SEO-01.2"
+      ]
+    },
+    "SEO-02": {
+      "code": "SEO-02",
+      "domain": "SEO",
+      "name": "Dynamic Meta-Canonicals",
+      "nominal_weight": 3.75,
+      "controls": [
+        "SEO-02.1",
+        "SEO-02.2",
+        "SEO-02.3"
+      ]
+    },
+    "SEO-03": {
+      "code": "SEO-03",
+      "domain": "SEO",
+      "name": "Heading Hierarchy",
+      "nominal_weight": 3.75,
+      "controls": [
+        "SEO-03.1",
+        "SEO-03.2"
+      ]
+    },
+    "SEO-04": {
+      "code": "SEO-04",
+      "domain": "SEO",
+      "name": "Schema Markup",
+      "nominal_weight": 3.75,
+      "controls": [
+        "SEO-04.1",
+        "SEO-04.2",
+        "SEO-04.3"
+      ]
+    },
+    "UX-01": {
+      "code": "UX-01",
+      "domain": "UX",
+      "name": "Responsiveness",
+      "nominal_weight": 3.75,
+      "controls": [
+        "UX-01.1",
+        "UX-01.2"
+      ]
+    },
+    "UX-02": {
+      "code": "UX-02",
+      "domain": "UX",
+      "name": "Tap Targets",
+      "nominal_weight": 3.75,
+      "controls": [
+        "UX-02.1",
+        "UX-02.2"
+      ]
+    },
+    "UX-03": {
+      "code": "UX-03",
+      "domain": "UX",
+      "name": "Critical Flow",
+      "nominal_weight": 3.75,
+      "controls": [
+        "UX-03.1",
+        "UX-03.2"
+      ]
+    },
+    "UX-04": {
+      "code": "UX-04",
+      "domain": "UX",
+      "name": "Error States",
+      "nominal_weight": 3.75,
+      "controls": [
+        "UX-04.1",
+        "UX-04.2"
+      ]
+    },
+    "REL-01": {
+      "code": "REL-01",
+      "domain": "REL",
+      "name": "Availability",
+      "nominal_weight": 5.0,
+      "controls": [
+        "REL-01.1",
+        "REL-01.2"
+      ]
+    },
+    "REL-02": {
+      "code": "REL-02",
+      "domain": "REL",
+      "name": "Error Handling",
+      "nominal_weight": 5.0,
+      "controls": [
+        "REL-02.1",
+        "REL-02.2"
+      ]
+    },
+    "MNT-01": {
+      "code": "MNT-01",
+      "domain": "MNT",
+      "name": "Modularity-Code Hygiene",
+      "nominal_weight": 2.5,
+      "controls": [
+        "MNT-01.1",
+        "MNT-01.2"
+      ]
+    },
+    "MNT-02": {
+      "code": "MNT-02",
+      "domain": "MNT",
+      "name": "Dependency Hygiene",
+      "nominal_weight": 2.5,
+      "controls": [
+        "MNT-02.1",
+        "MNT-02.2"
+      ]
+    }
+  }
+}

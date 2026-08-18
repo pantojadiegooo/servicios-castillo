@@ -1,0 +1,78 @@
+{
+  "specification": "Castle Gate Regulatory & Industry Framework Mapping v1.0.0",
+  "disclaimer": "Mapping indicates traceability and structural alignment between CQS v1.1 atomic controls and international/national standards. 'MAPPED' status does NOT constitute official legal certification or regulatory clearance.",
+  "frameworks": {
+    "OWASP_ASVS_v4": {
+      "name": "OWASP Application Security Verification Standard v4.0.3",
+      "authority": "OWASP Foundation",
+      "controls": {
+        "SEC-01.1": { "asvs_id": "V9.1.1", "description": "TLS 1.2+ mandatory on all connections" },
+        "SEC-01.2": { "asvs_id": "V9.1.2", "description": "Strict HTTPS enforcement & cleartext prevention" },
+        "SEC-02.1": { "asvs_id": "V14.4.1", "description": "Content-Security-Policy (CSP) headers" },
+        "SEC-02.2": { "asvs_id": "V14.4.2", "description": "X-Frame-Options clickjacking mitigation" },
+        "SEC-02.3": { "asvs_id": "V14.4.3", "description": "Strict-Transport-Security (HSTS)" },
+        "SEC-02.4": { "asvs_id": "V14.4.4", "description": "X-Content-Type-Options nosniff" },
+        "SEC-04.1": { "asvs_id": "V5.3.1", "description": "Output encoding and DOM XSS prevention" },
+        "SEC-04.2": { "asvs_id": "V4.2.1", "description": "Cross-Site Request Forgery (CSRF) tokens" },
+        "SEC-04.3": { "asvs_id": "V5.3.4", "description": "SQL / Query injection parameterization" },
+        "SEC-05.1": { "asvs_id": "V2.10.1", "description": "Zero plaintext hardcoded secrets or API keys" },
+        "MNT-02.1": { "asvs_id": "V14.2.1", "description": "Dependency lockfile & manifest integrity" },
+        "MNT-02.2": { "asvs_id": "V14.2.2", "description": "Third-party component vulnerability auditing" }
+      }
+    },
+    "CWE": {
+      "name": "Common Weakness Enumeration",
+      "authority": "MITRE Corporation",
+      "controls": {
+        "SEC-01.2": { "cwe_id": "CWE-319", "name": "Cleartext Transmission of Sensitive Information" },
+        "SEC-02.2": { "cwe_id": "CWE-1021", "name": "Improper Restriction of Rendered UI Layers (Clickjacking)" },
+        "SEC-04.1": { "cwe_id": "CWE-79", "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')" },
+        "SEC-04.2": { "cwe_id": "CWE-352", "name": "Cross-Site Request Forgery (CSRF)" },
+        "SEC-04.3": { "cwe_id": "CWE-89", "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')" },
+        "SEC-05.1": { "cwe_id": "CWE-798", "name": "Use of Hard-coded Credentials" },
+        "SEC-05.2": { "cwe_id": "CWE-200", "name": "Exposure of Sensitive Information to an Unauthorized Actor" },
+        "MNT-01.1": { "cwe_id": "CWE-1120", "name": "Excessive Code Complexity" },
+        "MNT-02.2": { "cwe_id": "CWE-1395", "name": "Dependency on Vulnerable Third-Party Component" }
+      }
+    },
+    "NIST_SSDF_v1_1": {
+      "name": "NIST Secure Software Development Framework (SP 800-218)",
+      "authority": "NIST",
+      "controls": {
+        "SEC-05.1": { "ssdf_practice": "PO.1.3", "task": "Protect software integrity and prevent credential exposure" },
+        "SEC-04.1": { "ssdf_practice": "PW.5.1", "task": "Analyze human-readable code for injection vulnerabilities" },
+        "MNT-02.1": { "ssdf_practice": "PW.4.1", "task": "Acquire well-secured components with verified lockfiles" },
+        "MNT-02.2": { "ssdf_practice": "PW.4.4", "task": "Continuously identify and mitigate vulnerabilities in components" },
+        "MNT-01.1": { "ssdf_practice": "PW.1.2", "task": "Follow secure coding practices and maintainability guidelines" }
+      }
+    },
+    "MEXICAN_REGULATORY": {
+      "name": "Mexican Financial & Privacy Compliance Alignments",
+      "frameworks": {
+        "LFPDPPP": {
+          "name": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares (Art. 19)",
+          "controls": {
+            "SEC-01.2": "Cifrado en tránsito de datos personales",
+            "SEC-05.1": "Control de confidencialidad y prevención de fugas de credenciales de acceso a bases de datos personales",
+            "SEC-05.2": "Protección contra divulgación de metadatos o identificadores personales"
+          }
+        },
+        "NOM_151_SCFI_2016": {
+          "name": "NOM-151-SCFI-2016 (Conservación de Mensajes de Datos y Digitalización de Documentos)",
+          "controls": {
+            "EVIDENCE_CRYPTO": "Uso de resúmenes criptográficos SHA-256 canónicos y firmas asimétricas para constancia de integridad",
+            "EVIDENCE_LEDGER": "Cadena inmutable de evidencias (Evaluación N -> Evaluación N-1)"
+          }
+        },
+        "CNBV_CUB_Art_142": {
+          "name": "Circular Única de Bancos (CNBV) — Requisitos de Seguridad de la Información (Art. 142)",
+          "controls": {
+            "SEC-01.2": "Cifrado mandatorio en comunicaciones de canales electrónicos",
+            "SEC-04.1": "Pruebas SAST y mitigación de vectores de inyección en software transaccional",
+            "MNT-02.2": "Control y mitigación de componentes de software de terceros vulnerables"
+          }
+        }
+      }
+    }
+  }
+}

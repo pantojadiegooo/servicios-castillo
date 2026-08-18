@@ -1,0 +1,142 @@
+{
+  "$schema": "https://castle-quality-system.org/schemas/policy-ratification-register-v1.json",
+  "document_type": "Castle Gate Policy Human Ratification Register",
+  "policy_version": "1.0.0-ratified",
+  "status": "APPROVED / RATIFIED",
+  "cqs_reference_version": "1.1.0-candidate (FROZEN / SINGLE SOURCE OF TRUTH)",
+  "governance_register": {
+    "hr_gate_01": {
+      "parameter": "minimum_cqs_score",
+      "ratified_scale": {
+        "C1": 70.0,
+        "C2": 78.0,
+        "C3": 85.0,
+        "C4": 90.0,
+        "C5": 95.0,
+        "C6": 98.0
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Monotonic score progression ratified to enforce risk-appropriate thresholds from foundation to mission-critical."
+    },
+    "hr_gate_02": {
+      "parameter": "required_controls",
+      "ratified_subsets": {
+        "C1": 12,
+        "C2": 21,
+        "C3": 33,
+        "C4": 60,
+        "C5": 65,
+        "C6": 65
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Exact control IDs explicitly enumerated across all tiers. 65/65 controls mandated on C5 and C6."
+    },
+    "hr_gate_03": {
+      "parameter": "required_domains",
+      "ratified_domains": {
+        "C1": ["PER", "SEC", "ACC", "SEO", "UX", "REL"],
+        "C2": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"],
+        "C3": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"],
+        "C4": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"],
+        "C5": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"],
+        "C6": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"]
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Exclusion of MNT in C1 approved for static brochure presence; all 7 domains mandatory for C2 through C6."
+    },
+    "hr_gate_04": {
+      "parameter": "required_evidence_types",
+      "ratified_types": {
+        "C1": ["lab", "code_audit"],
+        "C2": ["lab", "code_audit", "infrastructure"],
+        "C3": ["lab", "code_audit", "infrastructure", "runtime"],
+        "C4": ["lab", "code_audit", "infrastructure", "runtime", "field", "automated_test"],
+        "C5": ["lab", "code_audit", "infrastructure", "runtime", "field", "automated_test"],
+        "C6": ["lab", "code_audit", "infrastructure", "runtime", "field", "automated_test"]
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Gate consumes external evidence. Real-user field telemetry and CI tests mandated from C4 upwards."
+    },
+    "hr_gate_05": {
+      "parameter": "allow_unexecuted_controls",
+      "ratified_partition": {
+        "C1": true,
+        "C2": true,
+        "C3": false,
+        "C4": false,
+        "C5": false,
+        "C6": false
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "UNEXECUTED != N/A != PASS != FAIL. Unexecuted required controls trigger EVIDENCE_PENDING block on C3..C6."
+    },
+    "hr_gate_06": {
+      "parameter": "allow_conditional_approval",
+      "ratified_partition": {
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": false,
+        "C5": false,
+        "C6": false
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Zero waivers permitted on C4..C6. Waivers can never override Gate Breakers GB-01..GB-05."
+    },
+    "hr_gate_07": {
+      "parameter": "approval_roles_required",
+      "ratified_classes": {
+        "C1": "AUTH_CLASS_1_PEER_LEAD",
+        "C2": "AUTH_CLASS_2_MULTI_DISCIPLINE",
+        "C3": "AUTH_CLASS_3_TRIAD_SIGN_OFF",
+        "C4": "AUTH_CLASS_4_STAFF_TRIAD",
+        "C5": "AUTH_CLASS_5_EXECUTIVE_SECURITY",
+        "C6": "AUTH_CLASS_6_GOVERNANCE_BOARD"
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Authority classes decouple governance requirements from arbitrary corporate organizational charts."
+    },
+    "hr_gate_08": {
+      "parameter": "remediation_window_hours",
+      "ratified_windows": {
+        "C1": 168,
+        "C2": 120,
+        "C3": 72,
+        "C4": 48,
+        "C5": 24,
+        "C6": 12
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Strictly monotonic decreasing remediation windows enforced."
+    },
+    "hr_gate_09": {
+      "parameter": "post_verification_required",
+      "ratified_rules": {
+        "C1": false,
+        "C2": false,
+        "C3": true,
+        "C4": true,
+        "C5": true,
+        "C6": true
+      },
+      "technical_status": "RATIFIED",
+      "governance_decision": "APPROVED",
+      "authority_notes": "Post-release telemetry verification mandated for transactional and enterprise tiers (C3..C6)."
+    }
+  },
+  "ratification_metadata": {
+    "human_authority": "Grupo Castillo Technical Direction & Architecture Authority",
+    "ratification_status": "APPROVED",
+    "ratification_timestamp": "2026-08-13T18:41:21-06:00",
+    "ratification_signature": "APPROVED_BY_GRUPO_CASTILLO_TECHNICAL_DIRECTOR",
+    "notes": "Formally ratified by human technical authority in Phase 4.3."
+  }
+}

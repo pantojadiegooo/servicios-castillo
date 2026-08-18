@@ -1,0 +1,41 @@
+name: 'Castle Security & Quality Gate'
+description: 'Deterministic Multi-Domain Quality & Security Gate for Software Releases (C1 to C6)'
+author: 'Grupo Castillo Engineering'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  level:
+    description: 'Target Gate Policy level to enforce (C1, C2, C3, C4, C5, C6)'
+    required: true
+    default: 'C2'
+  directory:
+    description: 'Path to source code directory to scan'
+    required: false
+    default: '.'
+  output-dir:
+    description: 'Directory to store generated compliance artifacts'
+    required: false
+    default: '.castle'
+  environment:
+    description: 'Target deployment environment (production, staging, development)'
+    required: false
+    default: 'production'
+  project-name:
+    description: 'Override target project name in audit reports'
+    required: false
+
+outputs:
+  gate-decision:
+    description: 'Gate decision outcome: PASSED, BLOCKED, or REQUIRES_REMEDIATION'
+  cqs-score:
+    description: 'Calculated CQS score (0.00 to 100.00)'
+  exit-code:
+    description: 'POSIX exit code (0, 1, 2)'
+  certificate-path:
+    description: 'Path to the generated release-certificate.json (if PASSED)'
+
+runs:
+  using: 'node20'
+  main: 'bin/castle-gate.js'

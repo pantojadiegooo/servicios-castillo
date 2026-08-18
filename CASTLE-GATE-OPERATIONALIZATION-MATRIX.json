@@ -1,0 +1,135 @@
+{
+  "specification": "Castle Security & Quality Gate Operationalization Readiness Matrix",
+  "version": "1.0.0",
+  "audit_type": "OPERATIONALIZATION_READINESS_AUDIT",
+  "audit_timestamp": "2026-08-13T18:45:00Z",
+  "governance_status": "AUDITED_FOR_OPERATIONALIZATION",
+  "components": [
+    {
+      "component": "CQS Measurement & Scoring Engine",
+      "status": "IMPLEMENTED",
+      "files": [
+        "cqs/scoring/scoring-model.js",
+        "cqs/engine/evaluator.js",
+        "cqs/engine/validator.js",
+        "cqs/registry/controls.json",
+        "cqs/registry/domains.json"
+      ],
+      "current_capability": "Evaluates 65 atomic controls across 7 domains with IEEE 754 double precision, N/A divisor pruning, and Gate Breaker detection.",
+      "missing_capability": "None for core scoring. Fully deterministic and validated.",
+      "dependencies": ["Node.js built-ins"],
+      "risk": "LOW",
+      "implementation_priority": "MAINTAIN_FROZEN"
+    },
+    {
+      "component": "Evidence Package Manager",
+      "status": "IMPLEMENTED",
+      "files": [
+        "castle-gate/evidence/evidence-package.js"
+      ],
+      "current_capability": "Creates structured packages with SHA-256 checksums, timestamps, source repo, commit SHA, and provenance metadata.",
+      "missing_capability": "Automated ingestion parsers for external test runners (Lighthouse JSON, OWASP ZAP, SSL Labs, CrUX API).",
+      "dependencies": ["crypto"],
+      "risk": "LOW",
+      "implementation_priority": "MEDIUM (Add intake adapters in Phase 6)"
+    },
+    {
+      "component": "Ratified Policy Engine & Matrix",
+      "status": "IMPLEMENTED",
+      "files": [
+        "castle-gate/policy/policy-resolver.js",
+        "castle-gate/policy/policy-validator.js",
+        "castle-gate/policy/CASTLE-GATE-POLICY-MATRIX-RATIFIED.json"
+      ],
+      "current_capability": "Resolves and validates C1 to C6 ratified policies across all 16 formal schema fields without template mutation.",
+      "missing_capability": "None. Fully operational and verified.",
+      "dependencies": ["fs", "path"],
+      "risk": "LOW",
+      "implementation_priority": "ACTIVE"
+    },
+    {
+      "component": "Gate Decision Engine",
+      "status": "IMPLEMENTED",
+      "files": [
+        "castle-gate/engine/gate-decision-engine.js",
+        "castle-gate/engine/gate-states.js"
+      ],
+      "current_capability": "Consumes CQS result, evaluates Gate Breakers, score thresholds, UNEXECUTED rules, and issues deterministic release decisions.",
+      "missing_capability": "Direct evaluation of required_controls subset match (presently validated via validator/matrix; runtime subset diffing can be explicitly emitted in blocker details).",
+      "dependencies": ["policy-resolver", "gate-states"],
+      "risk": "LOW",
+      "implementation_priority": "ACTIVE"
+    },
+    {
+      "component": "Audit Trail Generator",
+      "status": "IMPLEMENTED",
+      "files": [
+        "castle-gate/audit/gate-audit-trail.js"
+      ],
+      "current_capability": "Generates immutable JSON audit record linking Evidence -> Control -> Subcriterion -> Domain -> Score -> Gate Decision.",
+      "missing_capability": "Persistent append-only file export / ledger storage backend.",
+      "dependencies": ["crypto"],
+      "risk": "LOW",
+      "implementation_priority": "ACTIVE"
+    },
+    {
+      "component": "Remediation Tracker",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "files": [
+        "castle-gate/remediation/remediation-tracker.js"
+      ],
+      "current_capability": "In-memory RemediationSession class records multi-cycle history, tracks resolved blockers, and snapshots decisions.",
+      "missing_capability": "Disk persistence (JSON ledger / SQLite), deadline expiration monitoring, and automated transition to BLOCKED on timeout.",
+      "dependencies": ["remediation-tracker.js"],
+      "risk": "MEDIUM",
+      "implementation_priority": "HIGH (Operationalization requirement)"
+    },
+    {
+      "component": "Approval & Waiver Governance Module",
+      "status": "SPECIFICATION_ONLY",
+      "files": [
+        "castle-gate/policy/CASTLE-GATE-POLICY-HUMAN-RATIFICATION-REGISTER.json",
+        "castle-gate/policy/CASTLE-GATE-POLICY-MATRIX-RATIFIED.json"
+      ],
+      "current_capability": "Policy schema defines approval_authority_class and waiver restrictions (C1..C3 allowed, C4..C6 barred, GB never waivable).",
+      "missing_capability": "Formal runtime sign-off artifact generator (e.g. `approval-signature.js`), signature verification, and waiver registration object.",
+      "dependencies": ["crypto"],
+      "risk": "MEDIUM",
+      "implementation_priority": "HIGH"
+    },
+    {
+      "component": "Release Authorization & Enforcement Gate",
+      "status": "SPECIFICATION_ONLY",
+      "files": [
+        "castle-gate/engine/gate-decision-engine.js"
+      ],
+      "current_capability": "Produces release verdict (`PASSED`, `BLOCKED`, `CONDITIONAL`, `REQUIRES_REMEDIATION`, `EVIDENCE_PENDING`).",
+      "missing_capability": "Cryptographic Release Authorization Token / Manifest (`release-certificate.json`) and CI/CD exit-code enforcement runner.",
+      "dependencies": ["gate-decision-engine"],
+      "risk": "HIGH",
+      "implementation_priority": "HIGH (Core operational delivery)"
+    },
+    {
+      "component": "Post-Verification Pipeline Runner",
+      "status": "SPECIFICATION_ONLY",
+      "files": [
+        "castle-gate/policy/CASTLE-GATE-POLICY-MATRIX-RATIFIED.json"
+      ],
+      "current_capability": "Policy mandates post_verification_required: true for C3..C6.",
+      "missing_capability": "Post-deployment ingestion workflow that compares staging release snapshot with production 48h telemetry snapshot.",
+      "dependencies": ["evidence-package", "gate-decision-engine"],
+      "risk": "MEDIUM",
+      "implementation_priority": "MEDIUM"
+    },
+    {
+      "component": "CLI & CI/CD Pipeline Orchestrator",
+      "status": "MISSING",
+      "files": [],
+      "current_capability": "None (execution currently triggered via programmatic Node.js API / unit tests).",
+      "missing_capability": "CLI entrypoint (`bin/castle-gate.js`), exit code mappings (0 for PASS, 1 for BLOCK, 2 for CONDITIONAL/REMEDIATION), GitHub Actions workflow template.",
+      "dependencies": ["castle-gate/index.js"],
+      "risk": "HIGH",
+      "implementation_priority": "HIGH (Essential for operational delivery)"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@grupo-castillo/castle-gate",
+  "version": "1.0.0",
+  "description": "Deterministic Multi-Domain Quality & Security Gate Engine for Software Releases",
+  "main": "castle-gate/index.js",
+  "bin": {
+    "castle-gate": "bin/castle-gate.js",
+    "castle-verify": "bin/castle-verify.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin/",
+    "castle-gate/",
+    "cqs/",
+    "README.md",
+    "LICENSE",
+    "action.yml"
+  ],
+  "scripts": {
+    "test": "node tests/productization-suite-test.js",
+    "test:assurance": "node tests/crypto-signing-test.js && node tests/verifier-standalone-test.js && node tests/fail-closed-sca-test.js && node tests/ast-analyzer-test.js && node tests/git-history-secrets-test.js && node tests/sarif-sbom-test.js && node tests/waivers-governance-test.js && node tests/evidence-chain-test.js && node tests/determinism-suite-test.js && node tests/adversarial-suite.js && node tests/dogfooding-verification-test.js",
+    "test:all": "node tests/cqs-integrity-test.js && node tests/gate-architecture-test.js && node tests/policy-infrastructure-test.js && node tests/policy-matrix-test.js && node tests/policy-ratification-proposal-test.js && node tests/policy-ratification-traceability-test.js && node tests/policy-ratification-decision-test.js && node tests/operationalization-readiness-test.js && node tests/operational-tooling-test.js && node tests/castle-gate-bypass-test-suite.js && node tests/native-probes-test.js && node tests/phase-8-independent-audit-runner.js && node tests/productization-suite-test.js && npm run test:assurance"
+  },
+  "keywords": [
+    "quality-gate",
+    "release-management",
+    "cqs",
+    "security-gate",
+    "devsecops",
+    "compliance",
+    "grupo-castillo"
+  ],
+  "author": "Grupo Castillo Engineering <engineering@grupocastillo.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "acorn": "^8.18.0"
+  },
+  "devDependencies": {
+    "@babel/parser": "^8.0.4",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "axe-core": "^4.13.0",
+    "jsdom": "^30.0.1"
+  }
+}

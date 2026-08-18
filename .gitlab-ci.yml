@@ -1,0 +1,33 @@
+# Castle Gate Verifiable Release Assurance — GitLab CI Pipeline
+image: node:20-alpine
+
+stages:
+  - assurance
+  - verify
+
+variables:
+  GIT_DEPTH: 0
+
+castle_gate_assurance:
+  stage: assurance
+  before_script:
+    - apk add --no-cache git
+    - npm ci
+  script:
+    - mkdir -p .castle
+    - node bin/castle-gate.js keygen --output-dir ./.castle --project gitlab-pipeline
+    - node bin/castle-gate.js scan --dir . --level C2 --project "$CI_PROJECT_NAME" --env production --commit "$CI_COMMIT_SHA" --output-dir ./.castle --key ./.castle/gitlab-pipeline-private.pem --pubkey ./.castle/gitlab-pipeline-public.pem
+  artifacts:
+    when: always
+    paths:
+      - .castle/
+    reports:
+      sast: .castle/sarif.json
+      cyclonedx: .castle/sbom-cyclonedx.json
+
+castle_verify_gate:
+  stage: verify
+  dependencies:
+    - castle_gate_assurance
+  script:
+    - node bin/castle-verify.js --evidence ./.castle/evidence.json --key ./.castle/gitlab-pipeline-public.pem --sarif ./.castle/sarif.json --sbom ./.castle/sbom-cyclonedx.json --report ./.castle/compliance-report.html --commit "$CI_COMMIT_SHA"

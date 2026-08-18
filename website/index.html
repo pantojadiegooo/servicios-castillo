@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Castillo | Ingeniería, Calidad y Gobernanza de Releases con Castle Gate</title>
+  <meta name="description" content="Grupo Castillo construye sistemas y establece una capa verificable de calidad, seguridad y gobernanza con Castle Gate y la metodología CQS v1.1. 100% Offline, Zero-Deps y certificados criptográficos SHA-256.">
+  <meta name="keywords" content="Grupo Castillo, Castle Gate, CQS v1.1, Release Gate, Gobernanza de Software, Calidad de Código, CI/CD, Seguridad Higiénica, DevSecOps">
+  <meta name="author" content="Grupo Castillo Engineering">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://grupocastillo.tech/">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://grupocastillo.tech/">
+  <meta property="og:title" content="Grupo Castillo | Gobernanza Determinista de Releases con Castle Gate">
+  <meta property="og:description" content="Establecemos una capa verificable de calidad y seguridad técnica que autoriza o veta releases en CI/CD con 65 controles CQS v1.1.">
+  <meta property="og:site_name" content="Grupo Castillo">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Grupo Castillo | Castle Security & Quality Gate">
+  <meta name="twitter:description" content="Gobernanza continua y autorización determinista de releases en CI/CD.">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Castle Gate",
+    "operatingSystem": "Cross-platform (Node.js >=18.0.0)",
+    "applicationCategory": "DeveloperApplication",
+    "creator": {
+      "@type": "Organization",
+      "name": "Grupo Castillo"
+    },
+    "description": "Deterministic Multi-Domain Quality & Security Gate Engine for Software Releases",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "350"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Navigation Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo" aria-label="Grupo Castillo Inicio">
+        <div class="logo-symbol">C</div>
+        <span>GRUPO CASTILLO</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-label="Abrir menú de navegación">
+        ☰
+      </button>
+
+      <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Navegación Principal">
+        <ul class="nav-links">
+          <li><a href="#castle-gate" class="nav-link">Castle Gate</a></li>
+          <li><a href="#ecosistema" class="nav-link">Ecosistema</a></li>
+          <li><a href="#checkup" class="nav-link">Castle Checkup</a></li>
+          <li><a href="#metodologia" class="nav-link">Metodología CQS</a></li>
+          <li><a href="#pricing" class="nav-link">Precios</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#contacto" class="btn btn-cyan btn-sm">Solicitar Castle Checkup</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge badge-cyan">
+            <span class="badge-dot"></span> ENGINE v1.0.0 RELEASE READY & FROZEN
+          </div>
+          <h1 id="hero-title" class="hero-title">
+            Grupo Castillo construye sistemas y establece una capa verificable de <span class="highlight">calidad, seguridad y gobernanza.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Combinamos ingeniería de precisión con Castle Gate y la metodología CQS v1.1 para auditar repositorios, prevenir bloqueos y autorizar releases de software con evidencia criptográfica inalterable.
+          </p>
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-cyan">Solicitar Castle Checkup</a>
+            <a href="#demo" class="btn btn-secondary">Ver Castle Gate en acción</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <strong>65</strong>
+              <span>Controles CQS v1.1</span>
+            </div>
+            <div class="metric-item">
+              <strong>0-Deps</strong>
+              <span>100% Offline / Local</span>
+            </div>
+            <div class="metric-item">
+              <strong>&lt; 500ms</strong>
+              <span>Decisión en CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Terminal Simulator -->
+        <div class="hero-terminal" id="demo">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+              </div>
+              <div class="terminal-title">bash — castle-gate v1.0.0</div>
+              <div class="badge badge-pass" style="font-size: 0.65rem; padding: 2px 8px;">OFFLINE VERIFIED</div>
+            </div>
+            <div class="terminal-body" id="terminal-body" aria-live="polite">
+              <div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>
+            </div>
+            <div class="terminal-footer">
+              <span class="t-muted" style="font-size: 0.74rem;">Simulación determinista en tiempo real</span>
+              <div style="display: flex; gap: 8px;">
+                <button id="btn-reset-demo" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 6px 12px;">Reiniciar</button>
+                <button id="btn-run-demo" class="btn btn-cyan btn-sm" style="font-size: 0.75rem; padding: 6px 12px;">Ejecutar Demo en Vivo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASTLE GATE PRODUCT SECTION -->
+    <section id="castle-gate" class="section section-divider" aria-labelledby="castle-gate-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-cyan">PRODUCTO TECNOLÓGICO PROPIO</div>
+          <h2 id="castle-gate-title" class="section-title">Castle Security & Quality Gate</h2>
+          <p class="section-desc">
+            Transforma la higiene técnica y la seguridad de un repositorio en una decisión de release matemática, determinista e inmutable.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card glass-panel">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Castle Native Probes</h3>
+            <p class="card-desc">
+              Sensores nativos integrados en memoria que auditan fugas de secretos (AWS, Stripe, GitHub PAT), enlaces HTTP no cifrados, dependencias y consistencia de lockfiles sin dependencias externas.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--accent-cyan);">Security & DOM Probes</span>
+              <span class="badge badge-pass">0 Dependencias</span>
+            </div>
+          </article>
+
+          <article class="card glass-panel">
+            <div class="card-icon">🛡️</div>
+            <h3 class="card-title">Gate Breakers (Veto Inmediato)</h3>
+            <p class="card-desc">
+              Reglas de corte estricto no negociables. Si un commit contiene una credencial expuesta o viola una política crítica, el release se veta inmediatamente con Exit Code 1 en tu pipeline.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--status-blocked);">Exit Code 1 (HALT)</span>
+              <span class="badge">Veto Inmediato</span>
+            </div>
+          </article>
+
+          <article class="card glass-panel">
+            <div class="card-icon">📜</div>
+            <h3 class="card-title">Release Certificate Inmutable</h3>
+            <p class="card-desc">
+              Al cumplir la política pactada, el motor emite un certificado digital sellado con digest SHA-256 auditable, verificable con el comando <code>verify-cert</code>.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--status-pass);">SHA-256 Digest</span>
+              <span class="badge badge-pass">Auditable</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- C1 -> C6 Policy Stepper -->
+        <div style="margin-top: 64px;">
+          <h3 style="text-align: center; font-size: 1.45rem; margin-bottom: 8px;">Niveles Progresivos de Política: C1 a C6</h3>
+          <p style="text-align: center; font-size: 0.92rem; color: var(--text-muted); margin-bottom: 28px;">
+            Rigor y exigencia técnica creciente sobre el mismo motor de evaluación determinista.
+          </p>
+
+          <div class="matrix-stepper">
+            <div class="step-card glass-panel">
+              <div class="step-num">C1</div>
+              <div class="step-name">Foundation</div>
+              <div class="step-threshold">Score &ge; 60.00 | 0 Secretos</div>
+            </div>
+            <div class="step-card glass-panel">
+              <div class="step-num">C2</div>
+              <div class="step-name">Standard</div>
+              <div class="step-threshold">Score &ge; 78.00 | Lockfiles</div>
+            </div>
+            <div class="step-card glass-panel">
+              <div class="step-num">C3</div>
+              <div class="step-name">Professional</div>
+              <div class="step-threshold">Score &ge; 85.00 | Performance</div>
+            </div>
+            <div class="step-card glass-panel">
+              <div class="step-num">C4</div>
+              <div class="step-name">Advanced</div>
+              <div class="step-threshold">Score &ge; 90.00 | Arquitectura</div>
+            </div>
+            <div class="step-card glass-panel">
+              <div class="step-num">C5</div>
+              <div class="step-name">Enterprise</div>
+              <div class="step-threshold">Score &ge; 95.00 | Multicapa</div>
+            </div>
+            <div class="step-card glass-panel">
+              <div class="step-num">C6</div>
+              <div class="step-name">Ultimate</div>
+              <div class="step-threshold">Score = 100.00 | 65 Controles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASTLE CHECKUP SECTION (PRIMARY ENTRY ANCHOR) -->
+    <section id="checkup" class="section section-divider" aria-labelledby="checkup-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-cyan">PUNTO DE ENTRADA COMERCIAL</div>
+          <h2 id="checkup-title" class="section-title">Castle Checkup</h2>
+          <p class="section-desc">
+            "¿Cuál es el estado técnico actual de mi software y qué debo corregir?" Radiografía exhaustiva en 72 horas con plan de remediación priorizado.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 48px; max-width: 1000px; margin: 0 auto; border-color: rgba(0, 210, 255, 0.3);">
+          <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.65rem; margin-bottom: 18px;">Diagnóstico Integral en 72 Horas</h3>
+              <ul style="list-style: none; margin-bottom: 28px;">
+                <li style="margin-bottom: 14px; display: flex; gap: 12px; font-size: 0.96rem; color: var(--text-secondary);">
+                  <span style="color: var(--accent-cyan); font-weight: bold; font-family: var(--font-mono);">01</span>
+                  <span>Evaluación estática de 65 controles CQS v1.1 en 7 dominios técnicos.</span>
+                </li>
+                <li style="margin-bottom: 14px; display: flex; gap: 12px; font-size: 0.96rem; color: var(--text-secondary);">
+                  <span style="color: var(--accent-cyan); font-weight: bold; font-family: var(--font-mono);">02</span>
+                  <span>Detección de Gate Breakers críticos (claves privadas, links HTTP no seguros).</span>
+                </li>
+                <li style="margin-bottom: 14px; display: flex; gap: 12px; font-size: 0.96rem; color: var(--text-secondary);">
+                  <span style="color: var(--accent-cyan); font-weight: bold; font-family: var(--font-mono);">03</span>
+                  <span>Entrega de Reporte HTML autónomo y dictamen de Gate Readiness C1/C2.</span>
+                </li>
+                <li style="margin-bottom: 14px; display: flex; gap: 12px; font-size: 0.96rem; color: var(--text-secondary);">
+                  <span style="color: var(--accent-cyan); font-weight: bold; font-family: var(--font-mono);">04</span>
+                  <span>Sesión virtual de 1 hora de devolución con un Consultor Senior de Grupo Castillo.</span>
+                </li>
+              </ul>
+              <div style="padding: 16px 20px; background: rgba(0, 229, 153, 0.08); border-left: 3px solid var(--status-pass); border-radius: var(--radius-xs); font-size: 0.88rem; color: var(--text-primary);">
+                <strong>Garantía Comercial 100%:</strong> El valor invertido en Checkup se acredita en su totalidad hacia la licencia anual de Castle Gate.
+              </div>
+            </div>
+
+            <div class="glass-panel" style="text-align: center; padding: 36px 28px; background: rgba(10, 13, 20, 0.85);">
+              <span class="badge badge-cyan" style="margin-bottom: 14px;">PROPUESTA DE REFERENCIA</span>
+              <div class="price-val" style="font-size: 2.8rem; margin: 12px 0;">$350 - $750</div>
+              <p class="price-sub">USD | Pago Único (100% Acreditable)</p>
+              <a href="#contacto" class="btn btn-cyan" style="width: 100%; margin-top: 14px;">Solicitar Castle Checkup</a>
+              <span style="display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 14px;">1 Repositorio • Entrega en 72h • 100% Remoto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM & SERVICE ARCHITECTURE SECTION -->
+    <section id="ecosistema" class="section section-divider" aria-labelledby="ecosystem-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">SISTEMA INTEGRADO</div>
+          <h2 id="ecosystem-title" class="section-title">Ecosistema de Servicios de Gobernanza</h2>
+          <p class="section-desc">
+            Una arquitectura de servicios cohesiva diseñada para acompañar a tu equipo desde el diagnóstico inicial hasta la supervisión continua.
+          </p>
+        </div>
+
+        <!-- Visual Flow Architecture -->
+        <div class="ecosystem-diagram">
+          <div class="flow-main-track">
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE CHECKUP</div>
+              <div class="flow-node-sub">Diagnóstico Ágil (72h)</div>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE GATE</div>
+              <div class="flow-node-sub">Gobernanza en CI/CD</div>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-node primary">
+              <div class="flow-node-title">CASTLE CARE</div>
+              <div class="flow-node-sub">Supervisión Continua</div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 10px 0;">
+            ▼ Rutas e Intervenciones Especializadas ▼
+          </div>
+
+          <div class="flow-branches">
+            <div class="branch-node glass-panel">
+              <h5>CASTLE AUDIT</h5>
+              <p>Investigación profunda de arquitectura y Due Diligence (M&A)</p>
+            </div>
+            <div class="branch-node glass-panel">
+              <h5>CASTLE RESCUE</h5>
+              <p>Ingeniería directa de remediación de código y desbloqueo de releases</p>
+            </div>
+            <div class="branch-node glass-panel">
+              <h5>CASTLE EMERGENCY</h5>
+              <p>Intervención prioritaria (&lt; 4h) ante fugas agudas o pipeline roto</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Cards Grid -->
+        <div class="cards-grid" style="margin-top: 48px;">
+          <article class="card glass-panel">
+            <div class="card-icon">🔍</div>
+            <h3 class="card-title">Castle Audit</h3>
+            <p class="card-desc">
+              Revisión técnica de alta fidelidad para plataformas complejas o procesos de adquisición. Mapeo de acoplamiento, deuda técnica oculta y análisis de riesgos.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.82rem; color: var(--text-muted);">1 a 2 semanas</span>
+              <a href="#contacto" class="btn btn-secondary btn-sm">Cotizar Audit</a>
+            </div>
+          </article>
+
+          <article class="card glass-panel">
+            <div class="card-icon">🛠️</div>
+            <h3 class="card-title">Castle Rescue</h3>
+            <p class="card-desc">
+              Ingenieros de Grupo Castillo intervienen directamente en tu repositorio para purgar secretos, corregir lockfiles y elevar el score CQS hasta autorizar el release.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.82rem; color: var(--text-muted);">Pull Requests Listos</span>
+              <a href="#contacto" class="btn btn-secondary btn-sm">Solicitar Rescue</a>
+            </div>
+          </article>
+
+          <article class="card glass-panel">
+            <div class="card-icon">🚨</div>
+            <h3 class="card-title">Castle Emergency</h3>
+            <p class="card-desc">
+              Respuesta crítica ante fugas agudas de credenciales (AWS/Stripe) en producción o pipelines totalmente bloqueados con SLA de atención menor a 4 horas.
+            </p>
+            <div class="card-footer">
+              <span class="mono" style="font-size: 0.82rem; color: var(--status-blocked);">Atención Inmediata</span>
+              <a href="#contacto" class="btn btn-secondary btn-sm">Contacto Urgente</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY / CQS v1.1 SECTION -->
+    <section id="metodologia" class="section section-divider" aria-labelledby="methodology-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-cyan">METODOLOGÍA RATIFICADA</div>
+          <h2 id="methodology-title" class="section-title">Castle Quality System (CQS v1.1)</h2>
+          <p class="section-desc">
+            Marco formal de 65 controles y 7 dominios técnicos independientes que evalúa la madurez de un repositorio sobre 100.00 puntos nominales.
+          </p>
+        </div>
+
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-01 (15 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Arquitectura & Estructura</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Organización modular, convenciones y separación estricta de capas.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-02 (20 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Seguridad Higiénica</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Cero claves privadas en código, sanitización estática y transporte HTTPS.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-03 (15 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Semántica & Vistas</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Estructura HTML5 válida, meta tags responsive y accesibilidad WCAG.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-04 (15 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Mantenibilidad & Locks</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Consistencia de package.json, scripts limpios y fijación de lockfiles.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-05 (15 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Resiliencia & Errores</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Control de excepciones, validaciones de entrada y manejo de fallos.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-06 (10 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Rendimiento & Carga</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Auditorías Lighthouse JSON, optimización de bundles y recursos.</p>
+          </div>
+          <div class="card glass-panel">
+            <span class="mono" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">DOM-07 (10 pts)</span>
+            <h4 style="margin: 8px 0; font-size: 1.15rem;">Gobernanza & Release</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Generación de Evidence Package y sellado de certificados SHA-256.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIVE POSITIONING & DIFFERENTIATION -->
+    <section class="section section-divider" aria-labelledby="differentiation-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">POSICIONAMIENTO TÉCNICO</div>
+          <h2 id="differentiation-title" class="section-title">Posicionamiento y Diferenciación</h2>
+          <p class="section-desc">
+            Castle Gate no reemplaza analizadores de sintaxis profunda ni bases de CVEs. Actúa como el árbitro de gobernanza determinista que toma la decisión final de release.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="overflow-x: auto; padding: 4px;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-medium); background: var(--bg-tertiary);">
+                <th style="padding: 18px 22px;">Dimensión</th>
+                <th style="padding: 18px 22px;">SonarQube / SAST</th>
+                <th style="padding: 18px 22px;">Snyk / CVEs</th>
+                <th style="padding: 18px 22px; color: var(--accent-cyan);">Castle Gate v1.0.0</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 16px 22px; font-weight: 600;">Propósito Central</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Análisis estático profundo AST</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Base de datos dinámica de CVEs</td>
+                <td style="padding: 16px 22px; font-weight: 600; color: var(--accent-cyan);">Gobernanza y Decisión de Release</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 16px 22px; font-weight: 600;">Conectividad & Privacidad</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Servidor dedicado / Nube</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Requiere conexión a internet</td>
+                <td style="padding: 16px 22px; font-weight: 600; color: var(--status-pass);">100% Offline / Zero-Deps</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 16px 22px; font-weight: 600;">Velocidad en CI/CD</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Varios minutos en pipeline</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">Llamadas remotas de red</td>
+                <td style="padding: 16px 22px; font-weight: 600; color: var(--accent-cyan);">&lt; 500 ms en memoria</td>
+              </tr>
+              <tr>
+                <td style="padding: 16px 22px; font-weight: 600;">Certificado de Release</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">No emite certificado sellado</td>
+                <td style="padding: 16px 22px; color: var(--text-secondary);">No emite certificado sellado</td>
+                <td style="padding: 16px 22px; font-weight: 600; color: var(--status-pass);">Digest SHA-256 Inalterable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SHEET SECTION -->
+    <section id="pricing" class="section section-divider" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">TRANSPARENCIA COMERCIAL</div>
+          <h2 id="pricing-title" class="section-title">Precios de Referencia (LATAM)</h2>
+          <p class="section-desc">
+            Inversión calculada por valor técnico entregado. Todos los montos corresponden a propuestas comerciales sujetas a ratificación.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card glass-panel">
+            <h3 style="font-size: 1.35rem;">Castle Checkup</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Diagnóstico inicial de 72 horas</p>
+            <div class="price-val">$350 - $750</div>
+            <p class="price-sub">USD | Pago único (100% Acreditable)</p>
+            <ul class="pricing-features">
+              <li>1 Repositorio analizado</li>
+              <li>65 Controles CQS v1.1 evaluados</li>
+              <li>Compliance Report HTML interactivo</li>
+              <li>Sesión de devolución técnica (1h)</li>
+            </ul>
+            <a href="#contacto" class="btn btn-secondary">Solicitar Checkup</a>
+          </div>
+
+          <div class="pricing-card glass-panel featured">
+            <div class="pricing-badge badge badge-cyan">RECOMENDADO</div>
+            <h3 style="font-size: 1.35rem;">Piloto Controlado C1/C2</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Validación completa y CI/CD</p>
+            <div class="price-val">$900 - $1,500</div>
+            <p class="price-sub">USD | Pago único (50% Acreditable)</p>
+            <ul class="pricing-features">
+              <li>1 Repositorio comercial</li>
+              <li>Integración en GitHub / GitLab CI</li>
+              <li>Acompañamiento en remediación</li>
+              <li>Release Certificate SHA-256</li>
+              <li>Pilot Closure Report formal</li>
+            </ul>
+            <a href="#contacto" class="btn btn-cyan">Iniciar Piloto</a>
+          </div>
+
+          <div class="pricing-card glass-panel">
+            <h3 style="font-size: 1.35rem;">Castle Care Pro</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Gobernanza mensual continua</p>
+            <div class="price-val">$700 - $1,000</div>
+            <p class="price-sub">USD / mes | Suscripción recurrente</p>
+            <ul class="pricing-features">
+              <li>Hasta 3 Repositorios supervisados</li>
+              <li>Auditorías periódicas de releases</li>
+              <li>2 Mesas técnicas mensuales</li>
+              <li>4h de ingeniería Rescue incluidas</li>
+            </ul>
+            <a href="#contacto" class="btn btn-secondary">Contratar Care</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section section-divider" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">DUDAS TÉCNICAS</div>
+          <h2 id="faq-title" class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-desc">
+            Respuestas claras sobre la privacidad, funcionamiento e integración de Castle Gate.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item glass-panel">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿Castle Gate transfiere nuestro código fuente a servidores externos?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p><strong>No, bajo ninguna circunstancia.</strong> Castle Gate es un motor 100% offline con cero dependencias runtime externas. Todo el análisis se ejecuta localmente en la memoria de tu equipo o en los runners privados de tu pipeline de CI/CD. Ningún archivo, clave o fragmento de código sale de tu infraestructura.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿Reemplaza Castle Gate a SonarQube o Snyk?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>No. SonarQube realiza análisis estático de sintaxis y Snyk rastrea bases de datos de vulnerabilidades. Castle Gate actúa como la capa de gobernanza y corte de entrega en CI/CD que evalúa la higiene técnica bajo CQS v1.1 y emite un Release Certificate sellado con SHA-256 para autorizar o vetar el despliegue.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿El Release Certificate es una certificación legal tipo SOC 2 o ISO 27001?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>No. El Release Certificate es un comprobante técnico interno y determinista que acredita de forma inmutable que ese commit específico cumplió con las reglas de la política pactada (ej. C1 o C2). Sirve como evidencia auditable para tus procesos internos y revisiones de clientes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question" aria-expanded="false">
+              <span>¿Cuánto demora un escaneo de Castle Gate en nuestro pipeline?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Menos de 500 milisegundos para repositorios promedio. No añade demoras perceptibles a tus tiempos de compilación ni afecta la productividad de tus desarrolladores.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CONVERSION FORM -->
+    <section id="contacto" class="section section-divider" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-wrapper glass-panel">
+          <div class="contact-info">
+            <div class="badge badge-cyan">CONVERSIÓN COMERCIAL</div>
+            <h3 id="contact-title">Inicia la Gobernanza Técnica de tus Releases</h3>
+            <p style="margin-bottom: 24px; color: var(--text-secondary);">
+              Agenda una sesión técnica con ingenieros de Grupo Castillo para realizar un diagnóstico inicial de tu repositorio o probar Castle Gate en tu pipeline.
+            </p>
+            <div style="margin-top: 32px;">
+              <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Contacto Corporativo</div>
+              <div class="mono" style="color: var(--accent-cyan); font-size: 1rem;">engineering@grupocastillo.com</div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Grupo Castillo Engineering • Operaciones Comerciales</div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <div id="form-feedback" aria-live="polite"></div>
+            <form id="contact-form" action="#" method="POST">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label for="client-name" class="form-label">Nombre y Apellido *</label>
+                  <input type="text" id="client-name" name="name" class="form-control" placeholder="Ej. Carlos Mendoza" required>
+                </div>
+                <div class="form-group">
+                  <label for="client-email" class="form-label">Correo Corporativo *</label>
+                  <input type="email" id="client-email" name="email" class="form-control" placeholder="carlos@empresa.com" required>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label for="client-company" class="form-label">Empresa / Organización *</label>
+                  <input type="text" id="client-company" name="company" class="form-control" placeholder="Nombre de la empresa" required>
+                </div>
+                <div class="form-group">
+                  <label for="client-service" class="form-label">Servicio de Interés</label>
+                  <select id="client-service" name="service" class="form-control">
+                    <option value="Castle Checkup ($350-$750 USD)">Castle Checkup (Diagnóstico Ágil)</option>
+                    <option value="Piloto Controlado C1/C2 ($900-$1,500 USD)">Piloto Controlado C1/C2</option>
+                    <option value="Castle Audit (Auditoría Profunda)">Castle Audit (Investigación Profunda)</option>
+                    <option value="Castle Rescue (Desbloqueo Release)">Castle Rescue (Remediación)</option>
+                    <option value="Castle Care (Suscripción Mensual)">Castle Care (Gobernanza Recurrente)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="client-message" class="form-label">Detalles del Repositorio o Necesidad</label>
+                <textarea id="client-message" name="message" class="form-control" placeholder="Stack tecnológico (Node.js, React, etc.), frecuencia de releases o problemas que deseas resolver..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-cyan" style="width: 100%;">Enviar Solicitud de Diagnóstico</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer section-divider" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <div class="logo-symbol">C</div>
+            <span>GRUPO CASTILLO</span>
+          </div>
+          <p class="footer-desc">
+            Proveedor de ingeniería de software, metodología técnica de calidad y gobernanza determinista de releases con Castle Gate y CQS v1.1.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tecnología</h4>
+          <ul class="footer-links">
+            <li><a href="#castle-gate">Castle Gate CLI</a></li>
+            <li><a href="#metodologia">Metodología CQS v1.1</a></li>
+            <li><a href="#castle-gate">Native Probes</a></li>
+            <li><a href="#castle-gate">Release Certificates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="#checkup">Castle Checkup</a></li>
+            <li><a href="#ecosistema">Castle Audit</a></li>
+            <li><a href="#ecosistema">Castle Rescue</a></li>
+            <li><a href="#ecosistema">Castle Care</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Gobernanza</h4>
+          <ul class="footer-links">
+            <li><a href="#pricing">Precios de Referencia</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto">Contacto Comercial</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Grupo Castillo Engineering. Todos los derechos reservados.</div>
+        <div class="mono" style="font-size: 0.78rem;">Engine: @grupo-castillo/castle-gate v1.0.0 • CQS v1.1 Frozen</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

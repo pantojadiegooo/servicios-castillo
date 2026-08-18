@@ -1,0 +1,81 @@
+name: Castle Gate Verifiable Release Assurance
+
+on:
+  push:
+    branches: [ main, release/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  software-assurance:
+    name: Castle Gate Release Assurance [Level C2]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full git history for commit secrets analysis
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Assurance Keypair (or load from CI Secrets)
+        run: |
+          mkdir -p .castle
+          node bin/castle-gate.js keygen --output-dir ./.castle --project castle-ci
+
+      - name: Execute Castle Gate Assurance Scan [Level C2]
+        id: castle_gate
+        run: |
+          node bin/castle-gate.js scan \
+            --dir . \
+            --level C2 \
+            --project "${{ github.repository }}" \
+            --env production \
+            --commit "${{ github.sha }}" \
+            --output-dir ./.castle \
+            --key ./.castle/castle-ci-private.pem \
+            --pubkey ./.castle/castle-ci-public.pem
+
+      - name: Verify Signed Release Evidence Offline (castle-verify)
+        if: always() && steps.castle_gate.outcome != 'cancelled'
+        run: |
+          node bin/castle-verify.js \
+            --evidence ./.castle/evidence.json \
+            --key ./.castle/castle-ci-public.pem \
+            --sarif ./.castle/sarif.json \
+            --sbom ./.castle/sbom-cyclonedx.json \
+            --report ./.castle/compliance-report.html \
+            --commit "${{ github.sha }}"
+
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        if: always() && hashFiles('.castle/sarif.json') != ''
+        with:
+          sarif_file: .castle/sarif.json
+          category: castle-gate-sast
+
+      - name: Archive Software Assurance Evidence & Certificates
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: castle-gate-assurance-bundle
+          path: |
+            .castle/evidence.json
+            .castle/release-certificate.json
+            .castle/sarif.json
+            .castle/sbom-cyclonedx.json
+            .castle/compliance-report.html
+            .castle/castle-ci-public.pem
+          retention-days: 90

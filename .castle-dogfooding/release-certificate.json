@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.0.0-assurance",
+  "certificate_id": "REL-CERT-C1-1787088673924",
+  "authorization_status": "AUTHORIZED_FOR_RELEASE",
+  "issued_at": "2026-08-18T21:31:13.924Z",
+  "nonce": "54f188528b2c9b728ff658707b3a885d",
+  "target_system": {
+    "name": "servicios-castillo",
+    "environment": "production",
+    "commit_sha": "unspecified_sha",
+    "repository_url": "local://website"
+  },
+  "governance": {
+    "cqs_specification_version": "1.1.0",
+    "gate_policy_version": "1.0.0-ratified",
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION",
+    "authority_class": [
+      "Technical Lead"
+    ],
+    "policy_reference": {
+      "policy_id": "POL-C1",
+      "policy_sha256": "e15a29e2089c3e73673bd8d29af3db692c88925bfcea0dfb116906530e70350b"
+    }
+  },
+  "evaluation_reference": {
+    "evaluation_id": "EVAL-1787088673840",
+    "gate_decision_id": "GATE-DEC-C1-1787088673846",
+    "audit_trail_reference": "AUD-GATE-1787088673847",
+    "evidence_package_hash": "47f52e00c9729945a5574ca3479409def38bb571156daecb77d027224e2bce73",
+    "previous_evaluation": null
+  },
+  "applied_waivers": [],
+  "metrics_summary": {
+    "cqs_raw_score": 93.125,
+    "cqs_display_score": 93.13,
+    "final_verdict": "PASS_RELEASE",
+    "gate_breakers_status": "CLEARED"
+  },
+  "post_verification_obligation": {
+    "required": false,
+    "verification_window_hours": 48,
+    "status": "NOT_REQUIRED"
+  },
+  "integrity": {
+    "canonical_algorithm": "RFC-8785-JCS",
+    "digest_algorithm": "SHA-256",
+    "certificate_digest": "2718b0189dd0281a369bf53fdf87ac1be09045086ac36d3ce424122650eb25bb",
+    "signature_mode": "ED25519_ASYMMETRIC_SIGNED",
+    "signing_authority": "Grupo Castillo Release Gate Authority",
+    "pki_signature_extension": {
+      "enabled": true,
+      "algorithm": "ed25519",
+      "key_id": "ed25519:3eda6a0a826e3c03",
+      "signature_base64": "51XXfDj1xMfiWurUY3MvQrG/GFjkyVLiPnb/b6lSpUfS5/J4z4JlMvfBrmiIsckPHb6cuoCKx8hPwyTRsYXaBQ==",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAxno6qxr4n7YVaJ/J0Q9q9dei5S8d0IIDqJa0rUvY1ck=\n-----END PUBLIC KEY-----\n",
+      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787088673924"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "specification": "Castle Security & Quality Gate Level Taxonomy",
+  "version": "1.0.0-candidate",
+  "status": "DRAFT_TAXONOMY",
+  "authority_reference": "Castle Engineering Architecture Board",
+  "levels": {
+    "C1": {
+      "code": "C1",
+      "name": "FOUNDATION",
+      "tier_rank": 1,
+      "target_profile": "Basic digital presence, simple static brochure sites, low operational risk projects.",
+      "description": "Establishes baseline engineering hygiene and release safety. Represents the minimum gate threshold."
+    },
+    "C2": {
+      "code": "C2",
+      "name": "STANDARD",
+      "tier_rank": 2,
+      "target_profile": "Standard commercial websites, corporate portals, content-driven dynamic platforms.",
+      "description": "Expanded evaluation depth across security headers, technical SEO, and Core Web Vitals."
+    },
+    "C3": {
+      "code": "C3",
+      "name": "PROFESSIONAL",
+      "tier_rank": 3,
+      "target_profile": "E-commerce platforms, lead generation engines, high-conversion transactional apps.",
+      "description": "Rigorous verification where conversion flows, user data capture, accessibility, and performance are business-critical."
+    },
+    "C4": {
+      "code": "C4",
+      "name": "ADVANCED",
+      "tier_rank": 4,
+      "target_profile": "Enterprise SaaS, multi-tenant web applications, data-intensive customer portals.",
+      "description": "High exigency with deep automated and runtime evidence, stringent security boundaries, and strict resilience."
+    },
+    "C5": {
+      "code": "C5",
+      "name": "CRITICAL",
+      "tier_rank": 5,
+      "target_profile": "Mission-critical operations, financial transactions, confidential personal data processing.",
+      "description": "Elevated verification rigor with multi-layered fault isolation, failover readiness, and zero-compromise security posture."
+    },
+    "C6": {
+      "code": "C6",
+      "name": "ULTIMATE",
+      "tier_rank": 6,
+      "target_profile": "Flagship enterprise platforms, high-concurrency distributed systems, maximum security tier.",
+      "description": "Peak quality and security gate tier within the Castle ecosystem. Zero tolerance for defects or unverified evidence."
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version_transitions": {
+    "editorial_change": {
+      "impact": "none",
+      "requires_new_version": false,
+      "description": "Editorial or typographical clarification with zero semantic impact on normative criteria."
+    },
+    "control_definition_clarification": {
+      "impact": "minor",
+      "requires_new_version": true,
+      "target_version_level": "revision",
+      "description": "Refinement or clarification of a control evaluation condition without changing its scope."
+    },
+    "control_addition_or_removal": {
+      "impact": "breaking",
+      "requires_new_version": true,
+      "target_version_level": "minor_or_major",
+      "description": "Addition or deletion of any atomic control breaks the 65-control invariant and mandates a new CQS version."
+    },
+    "weight_reallocation": {
+      "impact": "breaking",
+      "requires_new_version": true,
+      "target_version_level": "minor_or_major",
+      "description": "Modification of nominal weights at control, subcriterion, or domain level mandates a new CQS version."
+    },
+    "normative_threshold_change": {
+      "impact": "breaking",
+      "requires_new_version": true,
+      "target_version_level": "minor_or_major",
+      "description": "Altering PASS/FAIL thresholds (e.g. changing LCP from 2.5s to 2.0s) mandates a new CQS version."
+    }
+  }
+}

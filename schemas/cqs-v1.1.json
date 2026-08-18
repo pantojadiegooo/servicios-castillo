@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://specs.castle-engineering.io/schemas/cqs-v1.1.json",
+  "title": "Castle Quality Score (CQS) Evaluation Schema v1.1",
+  "description": "Formal schema for recording and validating Castle Quality Score evaluations across the 7 official domains and 24 subcriteria, domain weights, atomic controls, gate breakers, and risk assessments.",
+  "type": "object",
+  "required": [
+    "evaluation_id",
+    "specification_version",
+    "status",
+    "target_system",
+    "timestamp",
+    "auditor",
+    "domains",
+    "gate_breakers",
+    "risk_assessment",
+    "summary"
+  ],
+  "properties": {
+    "evaluation_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the evaluation record."
+    },
+    "specification_version": {
+      "type": "string",
+      "const": "1.1.0-candidate",
+      "description": "CES / CQS specification version."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Candidate", "Ratified", "Archived"],
+      "default": "Candidate"
+    },
+    "target_system": {
+      "type": "object",
+      "required": ["name", "version", "environment", "architecture_type"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "environment": {
+          "type": "string",
+          "enum": ["production", "staging", "development", "local"]
+        },
+        "architecture_type": {
+          "type": "string",
+          "enum": ["static-brochure", "single-region-dynamic", "distributed-or-multi-region", "microservices-enterprise"]
+        },
+        "url": { "type": "string", "format": "uri" },
+        "repository": { "type": "string" }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "auditor": {
+      "type": "object",
+      "required": ["name", "role"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "organization": { "type": "string" }
+      }
+    },
+    "domains": {
+      "type": "object",
+      "required": ["PER", "SEC", "ACC", "SEO", "UX", "REL", "MNT"],
+      "properties": {
+        "PER": { "$ref": "#/$defs/domain_per" },
+        "SEC": { "$ref": "#/$defs/domain_sec" },
+        "ACC": { "$ref": "#/$defs/domain_acc" },
+        "SEO": { "$ref": "#/$defs/domain_seo" },
+        "UX": { "$ref": "#/$defs/domain_ux" },
+        "REL": { "$ref": "#/$defs/domain_rel" },
+        "MNT": { "$ref": "#/$defs/domain_mnt" }
+      },
+      "additionalProperties": false
+    },
+    "gate_breakers": {
+      "type": "object",
+      "required": ["status", "evaluated_gates"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["CLEARED", "BLOCKED"]
+        },
+        "evaluated_gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "name", "triggered", "details"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": ["GB-01", "GB-02", "GB-03", "GB-04", "GB-05"]
+              },
+              "name": { "type": "string" },
+              "triggered": { "type": "boolean" },
+              "details": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "risk_assessment": {
+      "type": "object",
+      "required": ["risk_index", "tier", "critical_items_count", "calculated_aggregate_risk"],
+      "properties": {
+        "risk_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["LOW", "MODERATE", "HIGH", "CRITICAL"]
+        },
+        "critical_items_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "calculated_aggregate_risk": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "control_code", "likelihood", "impact", "exposure", "calculated_risk", "remediation_target"],
+            "properties": {
+              "id": { "type": "string" },
+              "control_code": { "type": "string" },
+              "likelihood": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "exposure": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "calculated_risk": { "type": "number", "minimum": 0, "maximum": 100 },
+              "remediation_target": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "cqs_raw_score",
+        "cqs_display_score",
+        "total_nominal_weight",
+        "total_applicable_weight",
+        "total_excluded_weight",
+        "gate_status",
+        "final_verdict"
+      ],
+      "properties": {
+        "cqs_raw_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Double-precision calculated CQS score."
+        },
+        "cqs_display_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Presentation rounded CQS score (2 decimal places)."
+        },
+        "total_nominal_weight": {
+          "type": "number",
+          "const": 100.0
+        },
+        "total_applicable_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100.0
+        },
+        "total_excluded_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100.0
+        },
+        "gate_status": {
+          "type": "string",
+          "enum": ["CLEARED", "BLOCKED"]
+        },
+        "final_verdict": {
+          "type": "string",
+          "enum": ["PASS_RELEASE", "CONDITIONAL_APPROVAL", "FAIL_BLOCKED"]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "control_status": {
+      "type": "string",
+      "enum": ["PASS", "PARTIAL", "FAIL", "NOT_APPLICABLE"]
+    },
+    "atomic_control": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "status", "score", "evidence"],
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "nominal_weight": { "type": "number", "minimum": 0 },
+        "status": { "$ref": "#/$defs/control_status" },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evidence": { "type": "string" },
+        "normative_reference": { "type": "string" }
+      }
+    },
+    "subcriterion": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "applicable_weight", "status", "score", "controls"],
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "nominal_weight": { "type": "number", "minimum": 0 },
+        "applicable_weight": { "type": "number", "minimum": 0 },
+        "status": {
+          "type": "string",
+          "enum": ["ACTIVE", "NOT_APPLICABLE"]
+        },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "controls": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/atomic_control" }
+        }
+      }
+    },
+    "domain_per": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "PER" },
+        "name": { "type": "string", "const": "Performance" },
+        "nominal_weight": { "type": "number", "const": 20.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["PER-01", "PER-02", "PER-03", "PER-04", "PER-05"],
+          "properties": {
+            "PER-01": { "$ref": "#/$defs/subcriterion" },
+            "PER-02": { "$ref": "#/$defs/subcriterion" },
+            "PER-03": { "$ref": "#/$defs/subcriterion" },
+            "PER-04": { "$ref": "#/$defs/subcriterion" },
+            "PER-05": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_sec": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "SEC" },
+        "name": { "type": "string", "const": "Security & Privacy" },
+        "nominal_weight": { "type": "number", "const": 20.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["SEC-01", "SEC-02", "SEC-03", "SEC-04", "SEC-05"],
+          "properties": {
+            "SEC-01": { "$ref": "#/$defs/subcriterion" },
+            "SEC-02": { "$ref": "#/$defs/subcriterion" },
+            "SEC-03": { "$ref": "#/$defs/subcriterion" },
+            "SEC-04": { "$ref": "#/$defs/subcriterion" },
+            "SEC-05": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_acc": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "ACC" },
+        "name": { "type": "string", "const": "Accessibility & Inclusivity" },
+        "nominal_weight": { "type": "number", "const": 15.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["ACC-01", "ACC-02", "ACC-03", "ACC-04"],
+          "properties": {
+            "ACC-01": { "$ref": "#/$defs/subcriterion" },
+            "ACC-02": { "$ref": "#/$defs/subcriterion" },
+            "ACC-03": { "$ref": "#/$defs/subcriterion" },
+            "ACC-04": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_seo": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "SEO" },
+        "name": { "type": "string", "const": "Technical SEO & Discoverability" },
+        "nominal_weight": { "type": "number", "const": 15.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["SEO-01", "SEO-02", "SEO-03", "SEO-04"],
+          "properties": {
+            "SEO-01": { "$ref": "#/$defs/subcriterion" },
+            "SEO-02": { "$ref": "#/$defs/subcriterion" },
+            "SEO-03": { "$ref": "#/$defs/subcriterion" },
+            "SEO-04": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_ux": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "UX" },
+        "name": { "type": "string", "const": "User Experience & Interface Quality" },
+        "nominal_weight": { "type": "number", "const": 15.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["UX-01", "UX-02", "UX-03", "UX-04"],
+          "properties": {
+            "UX-01": { "$ref": "#/$defs/subcriterion" },
+            "UX-02": { "$ref": "#/$defs/subcriterion" },
+            "UX-03": { "$ref": "#/$defs/subcriterion" },
+            "UX-04": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_rel": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "REL" },
+        "name": { "type": "string", "const": "Reliability & Architecture" },
+        "nominal_weight": { "type": "number", "const": 10.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["REL-01", "REL-02"],
+          "properties": {
+            "REL-01": { "$ref": "#/$defs/subcriterion" },
+            "REL-02": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    },
+    "domain_mnt": {
+      "type": "object",
+      "required": ["code", "name", "nominal_weight", "subcriteria"],
+      "properties": {
+        "code": { "type": "string", "const": "MNT" },
+        "name": { "type": "string", "const": "Maintainability & Code Quality" },
+        "nominal_weight": { "type": "number", "const": 5.0 },
+        "subcriteria": {
+          "type": "object",
+          "required": ["MNT-01", "MNT-02"],
+          "properties": {
+            "MNT-01": { "$ref": "#/$defs/subcriterion" },
+            "MNT-02": { "$ref": "#/$defs/subcriterion" }
+          }
+        }
+      }
+    }
+  }
+}

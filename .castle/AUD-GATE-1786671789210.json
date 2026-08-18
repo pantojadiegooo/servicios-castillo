@@ -1,0 +1,653 @@
+{
+  "audit_record_id": "AUD-GATE-1786671789210",
+  "recorded_at": "2026-08-14T01:43:09.210Z",
+  "governance_metadata": {
+    "cqs_specification_version": "1.1.0-candidate",
+    "cqs_methodology_status": "FROZEN",
+    "gate_version": "1.0.0-candidate",
+    "gate_policy_version": "1.0.0-ratified",
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION"
+  },
+  "target_system": {
+    "name": "Target System",
+    "environment": "production"
+  },
+  "auditor": {
+    "name": "Automated Collector",
+    "organization": "Grupo Castillo"
+  },
+  "evidence_provenance": {
+    "project_id": "Target System",
+    "environment": "production",
+    "collected_by": "automated_collector",
+    "source_repo": "unspecified_repo",
+    "commit_sha": "unspecified_sha",
+    "timestamp": "2026-08-14T01:43:09.205Z",
+    "payload_sha256": "042d41b9be980ba38a27d23ebe8ca6cb44901de48b9f909a14a9b2f70ce1457c"
+  },
+  "cqs_evaluation_summary": {
+    "evaluation_id": "EVAL-1786671789208",
+    "raw_score": 100,
+    "display_score": 100,
+    "nominal_weight": 100,
+    "applicable_weight": 100,
+    "excluded_weight": 0,
+    "cqs_verdict": "FAIL_BLOCKED"
+  },
+  "gate_decision_summary": {
+    "decision_id": "GATE-DEC-C1-1786671789209",
+    "gate_state": "BLOCKED",
+    "blockers_count": 1,
+    "blockers": [
+      {
+        "type": "GATE_BREAKER",
+        "code": "GB-01",
+        "name": "Insecure Transport / Plaintext Transmission",
+        "details": "Plaintext HTTP accepted on login endpoint",
+        "severity": "CRITICAL_RELEASE_VETO"
+      }
+    ],
+    "required_actions": [
+      "Remediate triggered Gate Breaker: [GB-01] Insecure Transport / Plaintext Transmission"
+    ],
+    "decision_rationale": "Release blocked by 1 active Gate Breaker(s). Mandatory veto enforced."
+  },
+  "remediation_history": null,
+  "full_traceability_chain": {
+    "evidence_package_id": "EVP-1786671789205-042d41b9",
+    "cqs_evaluation_id": "EVAL-1786671789208",
+    "domains": [
+      {
+        "domain_code": "PER",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "PER-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-03",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-03.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-03.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-04.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              },
+              {
+                "control_id": "PER-04.4",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "PER-05",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "PER-05.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "PER-05.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "SEC",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "SEC-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.4",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-02.5",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.4
+              },
+              {
+                "control_id": "SEC-02.6",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.4
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-03",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-03.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-03.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-04.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.4",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              },
+              {
+                "control_id": "SEC-04.5",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.8
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEC-05",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEC-05.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2
+              },
+              {
+                "control_id": "SEC-05.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              },
+              {
+                "control_id": "SEC-05.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "ACC",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "ACC-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "ACC-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "ACC-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-03",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "ACC-03.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "ACC-03.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "ACC-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "ACC-04.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "ACC-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "ACC-04.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "SEO",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "SEO-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEO-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEO-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-02.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-03",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEO-03.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-03.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "SEO-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "SEO-04.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "SEO-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              },
+              {
+                "control_id": "SEO-04.3",
+                "status": "PASS",
+                "score": 1,
+                "weight": 0.9375
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "UX",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "UX-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "UX-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "UX-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-03",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "UX-03.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-03.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "UX-04",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "UX-04.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              },
+              {
+                "control_id": "UX-04.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.875
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "REL",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "REL-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "REL-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2.5
+              },
+              {
+                "control_id": "REL-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2.5
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "REL-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "REL-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2.5
+              },
+              {
+                "control_id": "REL-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "domain_code": "MNT",
+        "domain_score": 1,
+        "subcriteria": [
+          {
+            "subcriterion_code": "MNT-01",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "MNT-01.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.25
+              },
+              {
+                "control_id": "MNT-01.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.25
+              }
+            ]
+          },
+          {
+            "subcriterion_code": "MNT-02",
+            "subcriterion_score": 1,
+            "controls": [
+              {
+                "control_id": "MNT-02.1",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.25
+              },
+              {
+                "control_id": "MNT-02.2",
+                "status": "PASS",
+                "score": 1,
+                "weight": 1.25
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gate_decision_id": "GATE-DEC-C1-1786671789209",
+    "final_gate_state": "BLOCKED"
+  }
+}

@@ -1,0 +1,56 @@
+name: Castle Security & Quality Release Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  castle-gate-evaluation:
+    name: Castle Gate Release Control
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Execute Automated Unit & Security Tests
+        run: npm test
+
+      - name: Run Performance & Quality Audits
+        run: |
+          mkdir -p .castle-evidence
+          # Collect automated telemetry from test runner or tools
+          # e.g., node scripts/collect-evidence.js > .castle-evidence/raw-evidence.json
+
+      - name: Evaluate Castle Security & Quality Gate (Level C2)
+        id: castle_gate
+        run: |
+          node castle-gate/cli/bin.js evaluate \
+            --level C2 \
+            --evidence .castle-evidence/raw-evidence.json \
+            --output-dir ./dist-gate-artifacts \
+            --project "${{ github.repository }}" \
+            --commit "${{ github.sha }}"
+
+      - name: Upload Gate Audit Trail & Release Certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: castle-gate-release-artifacts
+          path: dist-gate-artifacts/
+
+      - name: Deploy to Production
+        if: success()
+        run: |
+          echo "Release authorized. Proceeding to production deployment."
+          # npm run deploy

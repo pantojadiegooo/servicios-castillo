@@ -1,0 +1,192 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Castle Gate Assurance Engine",
+          "version": "1.0.0-candidate",
+          "informationUri": "https://grupocastillo.com/castle-gate",
+          "rules": [
+            {
+              "id": "AST_FUNCTION_OVERSIZED",
+              "name": "AST_FUNCTION_OVERSIZED",
+              "shortDescription": {
+                "text": "Function \"initTerminalDemo\" size (208 nodes) exceeds threshold of 150 nodes."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleAstProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "INVALID_HEADING_HIERARCHY",
+              "name": "INVALID_HEADING_HIERARCHY",
+              "shortDescription": {
+                "text": "H1 count: 1, hierarchy sequence: 1 -> 2 -> 3 -> 3 -> 3 -> 3 -> 2 -> 3 -> 2 -> 5 -> 5 -> 5 -> 3 -> 3 -> 3 -> 2 -> 4 -> 4 -> 4 -> 4 -> 4 -> 4 -> 4 -> 2 -> 2 -> 3 -> 3 -> 3 -> 2 -> 3 -> 4 -> 4 -> 4"
+              },
+              "fullDescription": {
+                "text": "Detected by CastleDomSemanticsProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            },
+            {
+              "id": "MONOLITHIC_FILE",
+              "name": "MONOLITHIC_FILE",
+              "shortDescription": {
+                "text": "File exceeds 800 lines of code (1000 lines)."
+              },
+              "fullDescription": {
+                "text": "Detected by CastleMaintainabilityProbe (Associated CQS Control: N/A)"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "quality",
+                  "governance",
+                  "castle-gate"
+                ],
+                "precision": "high"
+              }
+            }
+          ]
+        }
+      },
+      "automationDetails": {
+        "id": "EVAL-1787088673840"
+      },
+      "results": [
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"initTerminalDemo\" size (208 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "AST_FUNCTION_OVERSIZED",
+          "level": "note",
+          "message": {
+            "text": "Function \"initContactForm\" size (156 nodes) exceeds threshold of 150 nodes."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "INVALID_HEADING_HIERARCHY",
+          "level": "note",
+          "message": {
+            "text": "H1 count: 1, hierarchy sequence: 1 -> 2 -> 3 -> 3 -> 3 -> 3 -> 2 -> 3 -> 2 -> 5 -> 5 -> 5 -> 3 -> 3 -> 3 -> 2 -> 4 -> 4 -> 4 -> 4 -> 4 -> 4 -> 4 -> 2 -> 2 -> 3 -> 3 -> 3 -> 2 -> 3 -> 4 -> 4 -> 4"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "index.html",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "LOW",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        },
+        {
+          "ruleId": "MONOLITHIC_FILE",
+          "level": "warning",
+          "message": {
+            "text": "File exceeds 800 lines of code (1000 lines)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "styles.css",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ],
+          "properties": {
+            "severity": "MEDIUM",
+            "cqs_control_id": null,
+            "details": {}
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "schema_version": "2.0.0-assurance",
+  "evaluation_id": "EVAL-1787088695035",
+  "nonce": "b2ee5640b9bad017f02a2cfaac9cbf39",
+  "timestamp": "2026-08-18T21:31:35.039Z",
+  "target_system": {
+    "name": "cli-scan-proj",
+    "environment": "production",
+    "repository_url": "local://cli-scan-proj",
+    "commit_sha": "LOCAL-TREE-b34524ca0bd3a1e9",
+    "git_tree_hash": "b34524ca0bd3a1e98a9aa55f4eb7ea4fe3b9406e4e30e2a9d33d8af0c385e194",
+    "branch": "unknown",
+    "is_dirty": false
+  },
+  "governance": {
+    "cqs_specification_version": "1.1.0",
+    "policy_version": "1.0.0-ratified",
+    "policy_hash": "16ca1e1bb73dd459276467d069cbd62b06c5b08c357b7d61626adb8c81987550",
+    "engine_version": "1.0.0",
+    "castle_gate_version": "1.0.0-candidate"
+  },
+  "assessment": {
+    "gate_level": "C1",
+    "gate_level_name": "FOUNDATION",
+    "gate_decision": "PASSED",
+    "cqs_raw_score": 100,
+    "cqs_display_score": 100,
+    "cqs_verdict": "PASS_RELEASE",
+    "gate_breakers_status": "CLEARED"
+  },
+  "controls": {
+    "SEC-05.1": {
+      "status": "PASS",
+      "details": "No hardcoded credentials, API keys, or committed .env files detected.",
+      "findings": []
+    },
+    "SEC-04.1": {
+      "status": "PASS",
+      "details": "No dangerous eval(), document.write(), or javascript: URIs detected.",
+      "findings": []
+    },
+    "SEC-01.2": {
+      "status": "PASS",
+      "details": "No unencrypted external HTTP links detected in production code.",
+      "findings": []
+    },
+    "SEC-02.1": {
+      "status": "UNEXECUTED",
+      "details": "No static Content-Security-Policy or server headers configuration detected in code (requires runtime probe or server config).",
+      "findings": []
+    },
+    "ACC-01.1": {
+      "status": "PASS",
+      "details": "All HTML documents contain proper <main>, <header>, and <footer> landmarks.",
+      "findings": []
+    },
+    "ACC-01.2": {
+      "status": "PASS",
+      "details": "Valid heading hierarchy (single H1 and sequential depth).",
+      "findings": []
+    },
+    "ACC-02.1": {
+      "status": "PASS",
+      "details": "Natural focus order preserved (zero positive tabindex violations).",
+      "findings": []
+    },
+    "ACC-03.1": {
+      "status": "PASS",
+      "details": "WCAG 2.1 AA compliant color contrast (>=4.5:1), alt text present on all images, and html lang specified.",
+      "findings": []
+    },
+    "ACC-04.1": {
+      "status": "PASS",
+      "details": "All ARIA attributes and roles are valid.",
+      "findings": []
+    },
+    "UX-01.1": {
+      "status": "PASS",
+      "details": "Responsive viewport meta tag present in all HTML documents.",
+      "findings": []
+    },
+    "SEO-02.1": {
+      "status": "PASS",
+      "details": "All HTML documents define <title> and meta description.",
+      "findings": []
+    },
+    "MNT-01.1": {
+      "status": "PASS",
+      "details": "No monolithic files (> 800 lines) or excessive nesting (> 5 levels) detected.",
+      "findings": []
+    },
+    "MNT-02.1": {
+      "status": "N/A",
+      "details": "No package.json manifest found in repository.",
+      "findings": []
+    },
+    "PER-04.2": {
+      "status": "PASS",
+      "details": "Explicit width and height dimensions defined on image tags.",
+      "findings": []
+    },
+    "REL-02.1": {
+      "status": "PASS",
+      "details": "AST verified zero silent/empty catch blocks in codebase.",
+      "findings": []
+    }
+  },
+  "gate_evidence": {
+    "GB-01": false
+  },
+  "findings": {
+    "CastleSecurityProbe": {
+      "secrets": [],
+      "dangerous_patterns": [],
+      "insecure_transport": [],
+      "security_headers": []
+    },
+    "CastleDomSemanticsProbe": {
+      "missing_landmarks": [],
+      "heading_hierarchy_violations": [],
+      "missing_alt_images": [],
+      "missing_lang": [],
+      "missing_viewport": [],
+      "missing_seo_meta": [],
+      "color_contrast_violations": [],
+      "aria_violations": [],
+      "keyboard_focus_violations": []
+    },
+    "CastleMaintainabilityProbe": {
+      "monolithic_files": [],
+      "excessive_nesting": [],
+      "lockfile_issues": [],
+      "wildcard_dependencies": [],
+      "missing_image_dimensions": [],
+      "legacy_image_formats": []
+    },
+    "CastleAstProbe": {
+      "debugger_statements": [],
+      "eval_invocations": [],
+      "unsafe_dom_sinks": [],
+      "empty_catch_blocks": [],
+      "high_complexity_functions": [],
+      "oversized_functions": [],
+      "oversized_files": [],
+      "circular_imports": []
+    },
+    "CastleGitHistoryProbe": {
+      "historical_secrets": []
+    }
+  },
+  "scanners": {
+    "probes_executed": [
+      {
+        "probe_name": "CastleSecurityProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 1,
+        "duration_ms": 16,
+        "payload_sha256": "c50b051f8d3bdb0a777573ad90c27092ad25af87f283409245d5faeba8fb813f",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleDomSemanticsProbe",
+        "probe_version": "2.0.0",
+        "files_scanned": 1,
+        "duration_ms": 1,
+        "payload_sha256": "f6fae9dadd2f5c2f30d2da64298d1f2a47f43cde2295473e572997b7303d88ad",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleMaintainabilityProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 1,
+        "duration_ms": 1,
+        "payload_sha256": "c17b5e2d50e8dd09d1572d606f738918aa5795645d735b8d09431cc67bbaefb7",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleAstProbe",
+        "probe_version": "2.0.0",
+        "files_scanned": 0,
+        "duration_ms": 0,
+        "payload_sha256": "53de13eac8c0a7bade866972b9f8f018bd6677469abf9d532effb5744b6eac07",
+        "errors": []
+      },
+      {
+        "probe_name": "CastleGitHistoryProbe",
+        "probe_version": "1.0.0",
+        "files_scanned": 0,
+        "duration_ms": 83,
+        "payload_sha256": "29105c6c720212df96f92e1cd3a6605c6863cf9ab62caf910fbc9e43df81f6f2",
+        "errors": []
+      }
+    ]
+  },
+  "artifacts": {
+    "compliance_report_html_sha256": "e754623cba9b7ad30844dfa0b1538784b4b347fdbbadf45170b91a0dd23e5af4",
+    "compliance_report_json_sha256": null,
+    "sarif_sha256": "4dcd003a1eb84382549a9639f6d56aadb2374e73c6ffe37c071f88a073316936",
+    "sbom_cyclonedx_sha256": "46f906eff0e86daefb97683dd4bbb565d0f5dffc5795537f8ef73e64a2bb71e3"
+  },
+  "integrity": {
+    "canonical_algorithm": "RFC-8785-JCS",
+    "payload_sha256": "a9de6418cce670df5cf580ac4555b6180019a21fdd85d59298f4a47518808403",
+    "signed": false,
+    "signature": null,
+    "dsse_envelope": null
+  }
+}

@@ -1,0 +1,35 @@
+# Castle Gate Verifiable Release Assurance — Azure DevOps Pipeline
+trigger:
+  - main
+  - release/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+    fetchDepth: 0
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm ci
+      mkdir -p .castle
+      node bin/castle-gate.js keygen --output-dir ./.castle --project azure-pipeline
+      node bin/castle-gate.js scan --dir . --level C2 --project "$(Build.Repository.Name)" --env production --commit "$(Build.SourceVersion)" --output-dir ./.castle --key ./.castle/azure-pipeline-private.pem --pubkey ./.castle/azure-pipeline-public.pem
+    displayName: 'Run Castle Gate Release Assurance Scan'
+
+  - script: |
+      node bin/castle-verify.js --evidence ./.castle/evidence.json --key ./.castle/azure-pipeline-public.pem --sarif ./.castle/sarif.json --sbom ./.castle/sbom-cyclonedx.json --report ./.castle/compliance-report.html --commit "$(Build.SourceVersion)"
+    displayName: 'Independent Verifier (castle-verify)'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '.castle'
+      ArtifactName: 'castle-gate-assurance-bundle'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Publish Software Assurance Artifacts'
