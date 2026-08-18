@@ -22,8 +22,8 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
         <p class="eyebrow" style="margin-bottom: 1.5rem; justify-content: center;">
           FIRMA DE INGENIERÍA DIGITAL &amp; GOBERNANZA TÉCNICA
         </p>
-        <h1 style="font-size: clamp(2.3rem, 4.2vw, 3.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem;">
-          Construimos, evaluamos, corregimos y protegemos <span style="color: var(--cyan);">sistemas digitales confiables.</span>
+        <h1 style="font-size: clamp(2.1rem, 3.8vw, 3.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.5rem;">
+          Tu sitio, tu código, tus cuentas — <span style="color: var(--cyan);">siempre.</span> Desarrollo web y gobernanza técnica sin las prácticas que te han hecho desconfiar de otras agencias.
         </h1>
         <p class="lede" style="font-size: 1.15rem; color: var(--steel-light); line-height: 1.7; margin-bottom: 2.25rem; max-width: 72ch; margin-left: auto; margin-right: auto;">
           Desarrollo web de alto rendimiento con titularidad absoluta del código para el cliente, intervención técnica en sistemas existentes y tecnología propia para la gobernanza de releases.
@@ -93,7 +93,8 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1rem;">
               Supervisión de disponibilidad, parches mensuales de seguridad y re-certificación periódica mediante pólizas Castle Care.
             </p>
-            <a href="/servicios/care.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Pólizas Care →</a>
+            <span style="display: block; font-family: var(--f-mono); font-size: 0.82rem; color: var(--paper); margin-bottom: 0.75rem;">Desde $3,500 MXN <span style="color: var(--steel-soft);">/ mes</span></span>
+            <a href="/servicios/care.html" style="font-size: 0.8rem; color: var(--cyan); text-decoration: none; font-weight: 600;">Ver Planes Care →</a>
           </div>
 
         </div>
@@ -183,6 +184,14 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Transferimos el repositorio Git, el hosting y el dominio a tus cuentas directas. El cliente conserva el 100% de titularidad con 30 días de garantía técnica.
             </p>
+            <details style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--steel-light); line-height: 1.6;">
+              <summary style="cursor: pointer; color: var(--cyan); font-family: var(--f-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em;">¿Qué cubre la garantía de 30 días?</summary>
+              <div style="margin-top: 0.6rem; padding-left: 0.25rem;">
+                <p style="margin: 0 0 0.5rem 0;"><strong style="color: var(--paper);">Cubre (sin costo):</strong> cualquier error, bug o falla de funcionamiento en lo entregado y aprobado en el SOW — formularios, botones, responsive, errores de despliegue. Corrección sin costo y sin límite de reportes dentro de los 30 días.</p>
+                <p style="margin: 0 0 0.5rem 0;"><strong style="color: var(--paper);">No cubre:</strong> cambios de contenido, diseño o alcance fuera del SOW original; fallas causadas por terceros (dominio, hosting o integraciones que administre el cliente); ni modificaciones realizadas después de la entrega por el cliente o un tercero.</p>
+                <p style="margin: 0;"><strong style="color: var(--paper);">Cierre:</strong> al día 30 se entrega un reporte de cierre documentando qué se corrigió.</p>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -246,12 +255,12 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
         <div class="glass-panel reveal" style="padding: 2.5rem; border-color: rgba(0, 210, 255, 0.25); background: linear-gradient(135deg, rgba(6, 8, 12, 0.95) 0%, rgba(18, 48, 74, 0.3) 100%);">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
             <div>
-              <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">CASO INTERNO VIVO DE REFERENCIA</span>
+              <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">VALIDACIÓN INTERNA — DOGFOODING</span>
               <h2 style="font-size: 1.8rem; margin: 0 0 0.5rem 0; color: var(--paper);">
-                Plataforma Digital Grupo Castillo — Caso de Referencia
+                Este sitio, evaluado con nuestra propia metodología
               </h2>
               <p style="font-size: 0.95rem; color: var(--steel-light); margin: 0; max-width: 65ch; line-height: 1.6;">
-                Nuestra propia plataforma web es el primer caso de validación estricta: 23 rutas estáticas SSG, 7 componentes visuales interactivos y 100% de controles CQS v1.1 aprobados con 0 errores y 0 vulnerabilidades.
+                Aplicamos Castle Gate sobre nuestra propia plataforma antes de ofrecerlo a clientes. Este es el resultado: 23 rutas estáticas SSG, 7 componentes visuales interactivos y 100% de controles CQS v1.1 aprobados con 0 errores y 0 vulnerabilidades. <em style="color: var(--steel-soft);">Esta es una validación interna, no un caso de cliente externo.</em>
               </p>
             </div>
             <div style="text-align: right;">
@@ -306,7 +315,8 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">$7,500 MXN • Multisección</span>
             <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Arquitectura corporativa completa para catálogos y múltiples servicios.</p>
           </div>
-          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #EAB308;">
+          <div class="card glass-panel" style="padding: 1.5rem; border-top: 3px solid #EAB308; border-color: rgba(0, 210, 255, 0.3); border-top: 3px solid #EAB308;">
+            <span class="badge badge-cyan" style="font-size: 0.6rem; padding: 1px 6px; margin-bottom: 0.4rem; display: inline-block;">MÁS ELEGIDO</span>
             <h3 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--paper);">Castle Gold</h3>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan);">$12,500 MXN • Con Blog/CMS</span>
             <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.5; margin-top: 0.5rem; margin-bottom: 0;">Plataforma integral de alta presencia con blog autogestionable y SEO.</p>
@@ -329,7 +339,27 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
       </div>
     </section>
 
-    <!-- 08 — PREGUNTAS FRECUENTES -->
+    <!-- 08 — EQUIPO Y LIDERAZGO -->
+    <section class="section section-dim" id="equipo">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Equipo</p>
+          <h2>Equipo y Liderazgo</h2>
+        </div>
+
+        <div style="max-width: 420px; margin: 0 auto;">
+          <div class="card glass-panel reveal" style="padding: 2.25rem; text-align: center; border-color: rgba(0, 210, 255, 0.25);">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--cyan);">
+              AC
+            </div>
+            <h3 style="font-size: 1.35rem; margin: 0 0 0.35rem 0; color: var(--paper);">Alberto Castillo</h3>
+            <span style="font-family: var(--f-mono); font-size: 0.85rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">SEO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 — PREGUNTAS FRECUENTES -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
@@ -342,6 +372,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
               <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Combinamos desarrollo web de alto rendimiento con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control absoluto." />
               <FAQItem question="¿El código y las cuentas nos pertenecen?" answer="Sí. Todo el código fuente original entregado, repositorios y configuraciones de hosting quedan registrados bajo la titularidad exclusiva del cliente conforme a contrato." />
               <FAQItem question="¿Qué es el diagnóstico Castle Checkup?" answer="Es un servicio ágil de evaluación técnica donde auditamos tu repositorio bajo controles CQS v1.1 en 72h hábiles para detectar fugas de claves y bloqueos de calidad, con bonificación del 100% hacia la contratación de cualquier desarrollo o servicio de ingeniería." />
+              <FAQItem question="¿Pueden quedarse con mi dominio o mis cuentas si dejo de contratarlos?" answer="No. El dominio, hosting y repositorio se registran desde el día uno a tu nombre, nunca al nuestro. Puedes cambiar de proveedor en cualquier momento sin perder nada." />
             </div>
           </div>
           <div class="reveal">
@@ -355,7 +386,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
       </div>
     </section>
 
-    <!-- 09 — CTA BAND FINAL -->
+    <!-- 10 — CTA BAND FINAL -->
     <CTABand
       title="Hablemos de tu proyecto o repositorio."
       description="Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial guiado."
