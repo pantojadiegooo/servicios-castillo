@@ -89,6 +89,14 @@ function parseArgs(args) {
   };
 
   if (args.length === 0) return parsed;
+  if (args[0] === '--help' || args[0] === '-h') {
+    parsed.command = 'help';
+    return parsed;
+  }
+  if (args[0] === '--version' || args[0] === '-v') {
+    parsed.command = 'version';
+    return parsed;
+  }
   parsed.command = args[0];
 
   for (let i = 1; i < args.length; i++) {

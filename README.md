@@ -123,14 +123,19 @@ Castle Gate maps CQS v1.1 evaluation results to international frameworks:
 
 ---
 
-## 7. Threat Model & Security Policy
+## 7. Governance, Assurance Scope & Threat Model
 
-For detailed attacker models, cryptographic proofs, and vulnerability disclosure procedures, refer to:
-* [SECURITY-THREAT-MODEL.md](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY-THREAT-MODEL.md)
-* [SECURITY.md](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY.md)
+For detailed documentation on cryptographic trust chains, governance, and assurance boundaries:
+* [Assurance Scope & Evaluation Model](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/security/ASSURANCE_SCOPE.md)
+* [CQS Versioning Process & Freeze Governance](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/governance/CQS-VERSIONING-PROCESS.md)
+* [Official Claims & Anti-Claims Register](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md)
+* [Release Handoff & Architecture Dossier](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/RELEASE_HANDOFF_v1.0.0.md)
+* [Threat Model & Invariant Protections](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY-THREAT-MODEL.md)
+* [Vulnerability Disclosure Policy](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY.md)
 
 ---
 
 ## 8. License
 
 Copyright © 2026 Grupo Castillo Security & Software Architecture. All rights reserved.
+See [LICENSE](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/LICENSE) for terms.
