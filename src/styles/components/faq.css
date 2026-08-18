@@ -53,19 +53,25 @@
   font-size: 0.92rem;
 }
 
-/* Light section (dimmed) FAQs */
+/* Light section (dimmed) FAQs — WCAG AAA High Contrast */
 .section-dim .faq details {
-  border-top-color: var(--line-dark);
+  border-top-color: rgba(15, 23, 42, 0.16);
 }
 .section-dim .faq details:last-child {
-  border-bottom-color: var(--line-dark);
+  border-bottom-color: rgba(15, 23, 42, 0.16);
 }
 .section-dim .faq summary {
-  color: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
 }
 .section-dim .faq summary:hover {
-  color: var(--cyan);
+  color: #0E7490;
+}
+.section-dim .faq summary::after {
+  color: #0E7490;
 }
 .section-dim .faq p {
-  color: var(--steel-light);
+  color: #334155;
+  font-size: 0.92rem;
+  line-height: 1.65;
 }

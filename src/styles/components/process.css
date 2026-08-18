@@ -46,6 +46,29 @@
   line-height: 1.6;
 }
 
+/* Dimmed section process list */
+.section-dim .process-row {
+  border-top-color: rgba(15, 23, 42, 0.16);
+}
+.section-dim .process-row:last-child {
+  border-bottom-color: rgba(15, 23, 42, 0.16);
+}
+.section-dim .process-row:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+.section-dim .process-code {
+  color: #0E7490;
+}
+.section-dim .process-row h3 {
+  color: var(--ink);
+}
+.section-dim .process-row:hover h3 {
+  color: #087EA4;
+}
+.section-dim .process-row p {
+  color: #334155;
+}
+
 @media (max-width: 640px) {
   .process-row {
     grid-template-columns: 60px 1fr;

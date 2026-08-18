@@ -28,7 +28,19 @@
 }
 
 .section-dim p {
-  color: var(--steel);
+  color: #334155;
+}
+
+.section-dim strong {
+  color: var(--ink);
+}
+
+.section-dim .eyebrow {
+  color: #0E7490;
+}
+
+.section-dim .eyebrow::before {
+  background: #0E7490;
 }
 
 .section-head {
@@ -52,7 +64,7 @@
 }
 
 .section-dim .section-head p {
-  color: var(--steel);
+  color: #334155;
 }
 
 hr.rule {

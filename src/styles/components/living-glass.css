@@ -297,6 +297,7 @@
   border-collapse: collapse;
   text-align: left;
   font-size: 0.9rem;
+  color: var(--steel-light);
 }
 
 .comparison-table th {
@@ -310,6 +311,12 @@
 .comparison-table td {
   padding: 16px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--steel-light);
+}
+
+.comparison-table td strong,
+.comparison-table td[style*="font-weight: 600"] {
+  color: var(--paper);
 }
 
 /* Responsive Breakpoints (375px, 390px, 430px, 768px, 1024px, 1440px+) */

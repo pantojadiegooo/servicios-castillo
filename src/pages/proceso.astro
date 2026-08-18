@@ -6,8 +6,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
-  title="Proceso de 9 Etapas — Metodología de Grupo Castillo"
-  description="De Discover a Evolve: conoce las 9 etapas estructuradas de ingeniería, rendimiento, accesibilidad y gobernanza en cada proyecto."
+  title="Proceso de Trabajo — Metodología de 3 Fases | Grupo Castillo"
+  description="Conoce el proceso de ingeniería de Grupo Castillo en 3 fases: Alcance y Contrato, Ingeniería y Validación CQS, y Handoff con Soberanía Total para el cliente."
   canonical="https://servicios-castillo.vercel.app/proceso.html"
   ogUrl="https://servicios-castillo.vercel.app/proceso.html"
 >
@@ -17,12 +17,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       <InnerHeroVisual type="proceso" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="/index.html">Inicio</a> / Proceso</p>
-        <h1>Un sistema de ingeniería, no una lista de deseos.</h1>
-        <p>Cada desarrollo, auditoría o intervención recorre un proceso estructurado en nueve etapas continuas para asegurar entregas previsibles y sin sorpresas.</p>
+        <div class="badge badge-cyan">METODOLOGÍA DE INGENIERÍA</div>
+        <h1>Un proceso predecible, transparente y sin sorpresas</h1>
+        <p>Cada proyecto de desarrollo web, auditoría técnica o intervención avanza a través de tres fases estructuradas con entregables delimitados y titularidad para el cliente.</p>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ESQUEMÁTICA VISUAL -->
+    <section class="section" style="padding-bottom: 2rem;">
       <div class="container">
         <div class="reveal">
           <GateSchematic compact={true} />
@@ -30,80 +32,131 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
       </div>
     </section>
 
-    <section class="section section-dim">
+    <!-- LAS 3 FASES DE INGENIERÍA -->
+    <section class="section section-dim" style="padding-top: 2rem;">
       <div class="container">
-        <div class="process-list reveal">
-          <div class="process-row">
-            <span class="process-code">01</span>
-            <div>
-              <h3>DISCOVER — Descubrimiento &amp; Alcance</h3>
-              <p>Entendemos los objetivos del negocio, el usuario objetivo y los requerimientos funcionales. Definimos el alcance por escrito antes de iniciar.</p>
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Fases Operativas</p>
+          <h2>Estructura del Proyecto en Tres Fases</h2>
+          <p>Un flujo secuencial y documentado desde la definición inicial hasta la transferencia final.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.75rem; align-items: stretch;">
+          
+          <!-- FASE 01 -->
+          <div class="card glass-panel" style="padding: 2.25rem; display: flex; flex-direction: column; background: rgba(14, 18, 27, 0.9);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 1.35rem; color: var(--cyan); font-weight: 800;">FASE 01</span>
+              <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); background: rgba(0,210,255,0.08); padding: 2px 8px; border-radius: 4px;">3–5 días hábiles</span>
             </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Alcance &amp; Contrato</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              Definición y formalización del proyecto antes de escribir código. Eliminamos ambigüedades mediante acuerdos técnicos delimitados por escrito.
+            </p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0; margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.84rem; color: var(--steel-light);">
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Levantamiento de Requerimientos:</strong> Diagnóstico de objetivos, inventario de rutas y contenidos necesarios.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Definición de Entregables:</strong> Especificación detallada de secciones, formularios, integraciones y alcance visual.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">SOW &amp; Contrato Formal:</strong> Propuesta con presupuesto fijo, calendario y número de rondas de revisión pactadas.
+              </li>
+            </ul>
           </div>
-          <div class="process-row">
-            <span class="process-code">02</span>
-            <div>
-              <h3>DESIGN — Arquitectura &amp; Experiencia UX/UI</h3>
-              <p>Diseñamos la estructura de información, prototipos accesibles y la arquitectura de componentes antes de escribir código.</p>
+
+          <!-- FASE 02 -->
+          <div class="card glass-panel" style="padding: 2.25rem; display: flex; flex-direction: column; background: rgba(14, 18, 27, 0.9); border-color: rgba(0, 210, 255, 0.35);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 1.35rem; color: var(--cyan); font-weight: 800;">FASE 02</span>
+              <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); background: rgba(0,210,255,0.12); padding: 2px 8px; border-radius: 4px;">Según paquete (3 a 20+ días)</span>
             </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Ingeniería &amp; Validación CQS</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              Construcción modular o intervención técnica quirúrgica. Cada entrega se valida de forma estricta antes de presentarse al cliente.
+            </p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0; margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.84rem; color: var(--steel-light);">
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Desarrollo o Intervención:</strong> Construcción con código limpio, arquitectura estática y diseño adaptativo a medida.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Validación y Pruebas (QA):</strong> Pruebas funcionales de formularios, responsividad multiplataforma y velocidad de carga.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Evaluación CQS / Castle Gate:</strong> Inspección de seguridad, veto de secretos expuestos y accesibilidad WCAG AA.
+              </li>
+            </ul>
           </div>
-          <div class="process-row">
-            <span class="process-code">03</span>
-            <div>
-              <h3>BUILD — Desarrollo Modular &amp; Limpio</h3>
-              <p>Construimos la solución utilizando arquitectura estática o modular, HTML5 semántico, CSS estructurado y JS nativo sin sobreingeniería.</p>
+
+          <!-- FASE 03 -->
+          <div class="card glass-panel" style="padding: 2.25rem; display: flex; flex-direction: column; background: rgba(14, 18, 27, 0.9);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+              <span style="font-family: var(--f-mono); font-size: 1.35rem; color: var(--cyan); font-weight: 800;">FASE 03</span>
+              <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); background: rgba(0,210,255,0.08); padding: 2px 8px; border-radius: 4px;">1–2 días hábiles</span>
             </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Handoff &amp; Soberanía Total</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin-bottom: 1.5rem;">
+              Publicación en producción y entrega total de activos. El cliente mantiene el control exclusivo de su código, hosting y dominios.
+            </p>
+            
+            <ul style="list-style: none; padding: 0; margin: 0; margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.84rem; color: var(--steel-light);">
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Entrega y Publicación:</strong> Despliegue en producción con configuración de dominio propio y certificados SSL.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Documentación y Transferencia:</strong> Entrega del repositorio Git, cuentas de hosting y titularidad 100% al cliente.
+              </li>
+              <li style="padding-top: 0.6rem; border-top: 1px dashed var(--line-dark);">
+                <strong style="color: var(--paper);">Continuidad y Soporte:</strong> Garantía de estabilidad inicial y acompañamiento mensual con Castle Care cuando aplique.
+              </li>
+            </ul>
           </div>
-          <div class="process-row">
-            <span class="process-code">04</span>
-            <div>
-              <h3>TEST — QA Funcional &amp; Multiplataforma</h3>
-              <p>Probamos flujos de formularios, responsividad en pantallas de 375px a 1440px+ y comportamiento interactivo.</p>
-            </div>
-          </div>
-          <div class="process-row">
-            <span class="process-code">05</span>
-            <div>
-              <h3>AUDIT — Inspección de Calidad y Dependencias</h3>
-              <p>Sometemos el código a análisis de seguridad de dependencias (`npm audit`), verificación de tipos y auditoría de accesibilidad WCAG 2.2 AA.</p>
-            </div>
-          </div>
-          <div class="process-row">
-            <span class="process-code">06</span>
-            <div>
-              <h3>GATE — Filtro de Validación Castillo Gate</h3>
-              <p>Punto de control estricto. Si la solución no supera las métricas de aprobación en seguridad, velocidad, SEO y accesibilidad, el release no se autoriza.</p>
-            </div>
-          </div>
-          <div class="process-row">
-            <span class="process-code">07</span>
-            <div>
-              <h3>LAUNCH — Despliegue en Producción</h3>
-              <p>Publicación de la plataforma en hosting de alta disponibilidad con dominios, SSL y cabeceras de seguridad configuradas.</p>
-            </div>
-          </div>
-          <div class="process-row">
-            <span class="process-code">08</span>
-            <div>
-              <h3>VERIFY — Verificación Post-Lanzamiento</h3>
-              <p>Comprobación en vivo del comportamiento en producción, indexabilidad en motores de búsqueda y flujo de notificaciones.</p>
-            </div>
-          </div>
-          <div class="process-row">
-            <span class="process-code">09</span>
-            <div>
-              <h3>EVOLVE — Mantenimiento &amp; Gobernanza Continua</h3>
-              <p>Acompañamiento operativo, supervisión de uptime, soporte de remediación directa y gobernanza continua a través de los planes Castle Care.</p>
-            </div>
-          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALLES COMPLEMENTARIOS DE METODOLOGÍA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: center; gap: 3.5rem;">
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Garantía de Soberanía</p>
+          <h2>Cero retención de activos tecnológicos</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            A diferencia de agencias que retienen los accesos a servidores o atan al cliente a plataformas propietarias, en Grupo Castillo cada entrega se transfiere a tus cuentas directas.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65;">
+            Eres el titular legal y técnico absoluto de tu código fuente, tus dominios y tu infraestructura desde el momento del handoff.
+          </p>
+        </div>
+
+        <div class="glass-panel reveal" style="padding: 2.25rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.3);">
+          <h3 style="font-size: 1.15rem; color: var(--paper); margin-bottom: 1rem;">Compromisos de Cada Proyecto:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 0.65rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">01.</strong> Alcance, entregables y rondas de revisión estipuladas por escrito.
+            </li>
+            <li style="padding-bottom: 0.65rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">02.</strong> Validación con Castle Gate antes de autorizar cualquier release.
+            </li>
+            <li style="padding-bottom: 0.65rem; border-bottom: 1px dashed var(--line-dark);">
+              <strong style="color: var(--cyan);">03.</strong> Transferencia completa de repositorios y cuentas de infraestructura.
+            </li>
+            <li>
+              <strong style="color: var(--cyan);">04.</strong> Garantía de estabilidad técnica con soporte posterior disponible.
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
     <CTABand
-      title="¿Listo para iniciar la Fase 1 (Discover) de tu proyecto?"
-      description="Cuéntanos tus necesidades o utiliza nuestro diagnóstico comercial para ubicar el alcance correcto."
-      ctaLabel="Iniciar Diagnóstico"
+      title="Hablemos de tu proyecto o repositorio."
+      description="Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial guiado."
+      ctaLabel="Iniciar Diagnóstico Castillo"
       ctaHref="/diagnostico.html"
     />
 

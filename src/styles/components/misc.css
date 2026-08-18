@@ -15,13 +15,13 @@
 /* Legibilidad en tarjetas de proyecto claras */
 .project-case h2,
 .project-case h3 {
-  color: var(--ink);
+  color: var(--paper);
 }
 .project-case .case-steps dt {
-  color: var(--gold-dark);
+  color: var(--cyan);
 }
 .project-case .case-steps dd {
-  color: var(--steel);
+  color: var(--steel-light);
 }
 
 @media (max-width: 480px) {
