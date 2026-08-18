@@ -51,7 +51,7 @@ runTest('GATE-01', 'Gate consume directamente el CQS Engine existente sin bypass
   });
 
   assert.ok(gateExec.cqs_result, 'Gate must contain CQS evaluation result');
-  assert.strictEqual(gateExec.cqs_result.specification_version, '1.1.0-candidate');
+  assert.strictEqual(gateExec.cqs_result.specification_version, '1.1.0');
   assert.strictEqual(gateExec.gate_decision.gate_level, 'C1');
   assert.ok(gateExec.gate_decision.cqs_summary, 'Gate decision must consume CQS summary');
 });
@@ -292,7 +292,7 @@ runTest('GATE-12', 'Valores UNSPECIFIED en políticas no generan reglas ni penal
 
   // When minimum_cqs_score is UNSPECIFIED, the gate does not fail an evaluation on arbitrary score
   const cqsRes = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-MOCK-001',
     summary: {
       cqs_raw_score: 88.5,

@@ -1,6 +1,6 @@
 # Castle Engineering Specification (CES)
 
-**Document Version:** 1.1.0-candidate  
+**Document Version:** 1.1.0  
 **Status:** Candidate Specification (C1–C6 Draft)  
 **Classification:** Internal Engineering Standard  
 **Maintainer:** Castle Engineering Architecture Board  
@@ -60,7 +60,7 @@ Regardless of the calculated numerical CQS, any triggered Gate-Breaker results i
 
 ## 5. Specification Governance & Calibration Status
 
-* **CES Governance:** Candidate Specification (`1.1.0-candidate`).
+* **CES Governance:** Candidate Specification (`1.1.0`).
 * **Domain Structure (C1–C6 Draft):** Draft Status across all 7 official domains.
 * **Calibration Test Scenarios (TEST 01–03):** Provisional Calibration Data.
 * **Enterprise Calibration (TEST 04):** Pending / UNEXECUTED (Do not execute in this environment).

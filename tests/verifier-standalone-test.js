@@ -40,7 +40,7 @@ const dummyDecision = {
   gate_level_name: 'Staging Standard',
   gate_state: 'PASSED',
   versioning: {
-    cqs_specification_version: '1.1.0-candidate (FROZEN)',
+    cqs_specification_version: '1.1.0 (FROZEN)',
     gate_policy_version: '1.0.0-ratified',
     evaluation_id: 'EVAL-001'
   },
@@ -59,7 +59,7 @@ const dummyDecision = {
 
 const dummyCqs = {
   evaluation_id: 'EVAL-001',
-  specification_version: '1.1.0-candidate (FROZEN)',
+  specification_version: '1.1.0 (FROZEN)',
   target_system: { name: 'CoreApp', environment: 'production' },
   summary: {
     cqs_raw_score: 95.0,

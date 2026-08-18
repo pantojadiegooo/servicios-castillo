@@ -91,7 +91,7 @@ runTest('POLICY-MATRIX-03', 'Todos los parámetros no ratificados permanecen est
 // -----------------------------------------------------------------------------
 runTest('POLICY-MATRIX-04', 'UNSPECIFIED no genera decisiones ni penalizaciones automáticas arbitrarias.', () => {
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-MATRIX-04',
     summary: {
       cqs_raw_score: 85.0,

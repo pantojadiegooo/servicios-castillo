@@ -97,7 +97,7 @@ The repository is fully prepared for the **Grupo Castillo Architecture Board** t
 
 ## 6. Core Integrity Verification
 
-* **CQS Methodology Version:** `1.1.0-candidate (FROZEN)`
+* **CQS Methodology Version:** `1.1.0 (FROZEN)`
 * **Total Atomic Controls:** `65`
 * **Total Official Domains:** `7`
 * **Total Nominal Weight:** `100.00`

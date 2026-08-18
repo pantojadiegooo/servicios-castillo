@@ -166,7 +166,7 @@ function validateCqsIntegrity(customRegistry = null) {
 
   return {
     integrity: isPass ? 'PASS' : 'FAIL',
-    specification_version: invariantsData ? invariantsData.specification_version : '1.1.0-candidate',
+    specification_version: invariantsData ? invariantsData.specification_version : '1.1.0',
     status: isPass ? 'VALIDATED' : 'INVALID',
     metrics: {
       total_controls: controls.length,

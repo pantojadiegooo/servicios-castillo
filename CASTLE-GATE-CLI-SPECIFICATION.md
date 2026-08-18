@@ -79,7 +79,7 @@ USAGE:
 
 SAMPLE OUTPUT:
   Castle Gate Engine:   1.0.0
-  CQS Specification:    1.1.0-candidate (FROZEN)
+  CQS Specification:    1.1.0 (FROZEN)
   Policy Matrix:        1.0.0-ratified
 ```
 

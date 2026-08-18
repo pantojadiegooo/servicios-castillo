@@ -85,7 +85,7 @@ const inTotoStatement = createInTotoStatement({
   subjectName: 'git@github.com:grupo-castillo/sample-app.git',
   commitSha: 'a1b2c3d4e5f60718293a4b5c6d7e8f9012345678',
   predicate: {
-    cqs_version: '1.1.0-candidate (FROZEN)',
+    cqs_version: '1.1.0 (FROZEN)',
     gate_level: 'C2',
     decision: 'PASSED',
     score: 94.44

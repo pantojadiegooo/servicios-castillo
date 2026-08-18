@@ -205,7 +205,7 @@ runTest('RATIF-14', 'Gate Breakers GB-01..GB-05 son invariantes y obligatorios e
 // -----------------------------------------------------------------------------
 runTest('RATIF-15', 'Gate Decision Engine evalúa deterministamente con la matriz ratificada.', () => {
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-RATIF-TEST',
     summary: {
       cqs_raw_score: 91.2,

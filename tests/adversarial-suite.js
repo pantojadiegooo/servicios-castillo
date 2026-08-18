@@ -182,7 +182,7 @@ const dummyDecisionPass = {
   gate_level: 'C2',
   gate_level_name: 'Staging Standard',
   gate_state: 'PASSED',
-  versioning: { cqs_specification_version: '1.1.0-candidate (FROZEN)', gate_policy_version: '1.0.0-ratified', evaluation_id: 'EVAL-ADV' },
+  versioning: { cqs_specification_version: '1.1.0 (FROZEN)', gate_policy_version: '1.0.0-ratified', evaluation_id: 'EVAL-ADV' },
   cqs_summary: { raw_score: 95.0, display_score: 95.0, verdict: 'PASS_RELEASE' }
 };
 const dummyCqsPass = {

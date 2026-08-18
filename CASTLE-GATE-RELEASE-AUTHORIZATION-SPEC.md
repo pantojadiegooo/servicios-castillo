@@ -28,7 +28,7 @@
     "commit_sha": "a1b2c3d4e5f6..."
   },
   "governance": {
-    "cqs_specification_version": "1.1.0-candidate",
+    "cqs_specification_version": "1.1.0",
     "gate_policy_version": "1.0.0-ratified",
     "gate_level": "C2",
     "gate_level_name": "STANDARD",

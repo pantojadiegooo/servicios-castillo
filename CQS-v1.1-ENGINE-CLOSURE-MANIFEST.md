@@ -9,7 +9,7 @@
 ## 1. System Identity
 
 * **System Name:** `Castle Quality System (CQS) v1.1 Engine`
-* **Release Target:** `1.1.0-candidate`
+* **Release Target:** `1.1.0`
 * **Implementation Status:** `TECHNICALLY CONFORMANT`
 * **Methodology Status:** `FROZEN`
 * **Governing Principle:** *“La metodología es la autoridad; el software únicamente la ejecuta.”*

@@ -123,7 +123,7 @@ function initTerminalDemo() {
     if (isRunning) return;
     isRunning = true;
     runDemoBtn.disabled = true;
-    runDemoBtn.textContent = 'Ejecutando escaneo...';
+    runDemoBtn.textContent = 'Reproduciendo simulación...';
     clearContainer(terminalBody);
 
     DEMO_STEPS.forEach((step, index) => {
@@ -133,7 +133,7 @@ function initTerminalDemo() {
         if (index === DEMO_STEPS.length - 1) {
           isRunning = false;
           runDemoBtn.disabled = false;
-          runDemoBtn.textContent = 'Reiniciar Demostración';
+          runDemoBtn.textContent = 'Reiniciar Simulación';
         }
       }, step.delay);
       timeouts.push(t);
@@ -151,9 +151,9 @@ function initTerminalDemo() {
       clearTimeouts();
       isRunning = false;
       clearContainer(terminalBody);
-      appendHtmlSafely(terminalBody, '<div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>');
+      appendHtmlSafely(terminalBody, '<div class="terminal-line t-muted">// Simulación interactiva basada en el transcript real de ejecución del CLI en CI/CD.</div>');
       runDemoBtn.disabled = false;
-      runDemoBtn.textContent = 'Ejecutar Demo en Vivo';
+      runDemoBtn.textContent = 'Reproducir Simulación';
     });
   }
 }

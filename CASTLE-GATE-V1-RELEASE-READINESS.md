@@ -18,7 +18,7 @@ El desarrollo del núcleo de **Castle Security & Quality Gate (`@grupo-castillo/
 
 * **Castle Gate Engine:** `1.0.0`
 * **NPM Package Identifier:** `@grupo-castillo/castle-gate` (v1.0.0)
-* **CQS Methodology Specification:** `1.1.0-candidate (FROZEN)`
+* **CQS Methodology Specification:** `1.1.0 (FROZEN)`
 * **Policy Matrix Baseline:** `1.0.0-ratified`
 * **Release Certificate Schema:** `1.0.0`
 * **Native Probes:** `SecurityProbe`, `DomSemanticsProbe`, `MaintainabilityProbe` (v1.0.0)

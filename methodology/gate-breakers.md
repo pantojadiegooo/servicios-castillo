@@ -1,6 +1,6 @@
 # Castle Gate-Breakers Protocol
 
-**Specification Version:** 1.1.0-candidate  
+**Specification Version:** 1.1.0  
 **Classification:** Quality & Security Governance  
 **Status:** Candidate  
 

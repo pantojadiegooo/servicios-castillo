@@ -48,7 +48,7 @@ const mockGateDecisionV1 = {
   gate_level_name: 'STANDARD',
   policy_applied: policyC2,
   versioning: {
-    cqs_specification_version: '1.1.0-candidate (FROZEN)',
+    cqs_specification_version: '1.1.0 (FROZEN)',
     gate_policy_version: policyC2.policy_version,
     evaluation_id: 'EVAL-TEST-001'
   },

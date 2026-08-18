@@ -7,7 +7,7 @@
     "ratified_by": "Grupo Castillo Technical Direction & Architecture Authority",
     "ratification_status": "APPROVED",
     "ratification_timestamp": "2026-08-13T18:41:21-06:00",
-    "cqs_reference_version": "1.1.0-candidate (FROZEN / SINGLE SOURCE OF TRUTH)",
+    "cqs_reference_version": "1.1.0 (FROZEN / SINGLE SOURCE OF TRUTH)",
     "decision_reference": "HR-GATE-01_to_09_RATIFIED",
     "predecessor_proposal": "PROPOSAL-GATE-POL-2026-02-AUDITED"
   },

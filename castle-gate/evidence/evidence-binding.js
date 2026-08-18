@@ -63,7 +63,7 @@ function createBoundEvidenceArtifact(params) {
   });
 
   const policyHash = canonicalHash(effective_policy);
-  const cqsVersion = (cqs_result && cqs_result.specification_version) || '1.1.0-candidate (FROZEN)';
+  const cqsVersion = (cqs_result && cqs_result.specification_version) || '1.1.0 (FROZEN)';
 
   const rawBoundData = {
     schema_version: EVIDENCE_SCHEMA_VERSION,

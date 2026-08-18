@@ -24,7 +24,7 @@
     },
     "specification_version": {
       "type": "string",
-      "const": "1.1.0-candidate",
+      "const": "1.1.0",
       "description": "CES / CQS specification version."
     },
     "status": {

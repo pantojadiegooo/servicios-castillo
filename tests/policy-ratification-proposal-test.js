@@ -153,7 +153,7 @@ runTest('TEST-PROP-09', 'Aprobación condicional permitida en C1..C3 y estrictam
 // -----------------------------------------------------------------------------
 runTest('TEST-PROP-10', 'Gate Decision Engine evalúa deterministamente con las políticas propuestas.', () => {
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-PROP-TEST',
     summary: {
       cqs_raw_score: 86.5,
@@ -189,7 +189,7 @@ runTest('TEST-PROP-10', 'Gate Decision Engine evalúa deterministamente con las 
 // -----------------------------------------------------------------------------
 runTest('TEST-PROP-11', 'Gate Breaker bloquea la entrega incluso con score 100.0 bajo la propuesta.', () => {
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-PROP-GB',
     summary: {
       cqs_raw_score: 100.0,

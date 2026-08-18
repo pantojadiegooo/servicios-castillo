@@ -166,7 +166,7 @@ runTest('OPS-07', 'Remediation Tracker gestiona ciclos multi-etapa y preserva hi
   assert.strictEqual(session.getHistory().total_cycles, 0);
 
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-01',
     summary: { cqs_display_score: 72.0, final_verdict: 'FAIL_REMEDIATION' }
   };

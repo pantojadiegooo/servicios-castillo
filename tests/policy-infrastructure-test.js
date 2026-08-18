@@ -57,7 +57,7 @@ runTest('POLICY-07', 'Valores UNSPECIFIED en políticas no generan penalizacione
   assert.strictEqual(policyC1.rules.minimum_cqs_score, 'UNSPECIFIED');
 
   const cqsEval = {
-    specification_version: '1.1.0-candidate',
+    specification_version: '1.1.0',
     evaluation_id: 'EVAL-POLICY-07',
     summary: {
       cqs_raw_score: 82.5,

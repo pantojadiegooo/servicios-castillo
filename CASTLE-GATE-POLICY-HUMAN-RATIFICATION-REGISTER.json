@@ -3,7 +3,7 @@
   "document_type": "Castle Gate Policy Human Ratification Register",
   "policy_version": "1.0.0-ratified",
   "status": "APPROVED / RATIFIED",
-  "cqs_reference_version": "1.1.0-candidate (FROZEN / SINGLE SOURCE OF TRUTH)",
+  "cqs_reference_version": "1.1.0 (FROZEN / SINGLE SOURCE OF TRUTH)",
   "governance_register": {
     "hr_gate_01": {
       "parameter": "minimum_cqs_score",

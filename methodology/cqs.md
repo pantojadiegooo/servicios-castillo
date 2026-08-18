@@ -1,6 +1,6 @@
 # Castle Quality Score (CQS v1.1) — Methodology & Mathematical Specification
 
-**Specification Version:** 1.1.0-candidate  
+**Specification Version:** 1.1.0  
 **Classification:** Engineering Evaluation Methodology  
 **Status:** Candidate (C1–C6 Draft)  
 

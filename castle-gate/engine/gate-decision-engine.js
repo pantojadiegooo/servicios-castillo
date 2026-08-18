@@ -183,7 +183,7 @@ function evaluateGateDecision(params) {
     gate_state: gateState,
     versioning: {
       cqs_specification_version: cqs_evaluation_result.specification_version,
-      cqs_engine_version: '1.1.0-candidate',
+      cqs_engine_version: '1.1.0',
       gate_version: GATE_VERSION,
       gate_policy_version: policy.policy_version,
       evaluation_id: cqs_evaluation_result.evaluation_id,

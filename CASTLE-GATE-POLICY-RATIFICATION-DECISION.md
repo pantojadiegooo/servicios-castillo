@@ -69,7 +69,7 @@ By explicit authority and technical direction of **Grupo Castillo**, the propose
 ================================================================================
                      CQS v1.1 METHODOLOGY INVARIANTS
 ================================================================================
-Methodology Version:     1.1.0-candidate (FROZEN / SINGLE SOURCE OF TRUTH)
+Methodology Version:     1.1.0 (FROZEN / SINGLE SOURCE OF TRUTH)
 Atomic Controls:         65 / 65 Verified (24 EXPLICITLY_APPROVED, 41 DERIVED, 0 NEW_PROPOSAL)
 Official Domains:        7 / 7 Verified (PER, SEC, ACC, SEO, UX, REL, MNT)
 Nominal Weight Sum:      100.00 Verified

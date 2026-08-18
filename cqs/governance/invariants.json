@@ -1,6 +1,6 @@
 {
-  "specification_version": "1.1.0-candidate",
-  "status": "FROZEN",
+  "specification_version": "1.1.0",
+  "status": "RATIFIED_FROZEN",
   "authority_principle": "La metodología es la autoridad; el software únicamente la ejecuta.",
   "invariants": {
     "total_controls": 65,

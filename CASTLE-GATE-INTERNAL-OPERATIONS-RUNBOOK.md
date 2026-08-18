@@ -91,7 +91,7 @@ Antes de proponer Castle Gate, el consultor técnico debe evaluar:
 ## 5. Gestión y Conservación de Evidencia
 
 * **Qué debe conservar Grupo Castillo:**
-  * Versión exacta del motor (`1.0.0`) y de CQS (`1.1.0-candidate`).
+  * Versión exacta del motor (`1.0.0`) y de CQS (`1.1.0`).
   * Copia del `release-certificate.json` emitido y su SHA-256 digest.
   * Registro de fecha, commit hash y nivel de Gate acordado.
 * **Política de Confidencialidad:** **Nunca almacenar código fuente ni secretos del cliente.** El análisis se realiza localmente en el entorno del cliente.

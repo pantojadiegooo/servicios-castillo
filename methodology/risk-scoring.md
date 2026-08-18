@@ -1,6 +1,6 @@
 # Castle Risk Scoring Methodology
 
-**Specification Version:** 1.1.0-candidate  
+**Specification Version:** 1.1.0  
 **Classification:** Risk Governance & Assessment  
 **Status:** Candidate  
 

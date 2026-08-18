@@ -25,7 +25,7 @@ The `release-certificate.json` is the definitive, immutable release passport gen
   },
   "engine_metadata": {
     "castle_gate_version": "1.0.0",
-    "cqs_specification_version": "1.1.0-candidate (FROZEN)",
+    "cqs_specification_version": "1.1.0 (FROZEN)",
     "policy_matrix_version": "1.0.0-ratified",
     "execution_duration_ms": 22
   },

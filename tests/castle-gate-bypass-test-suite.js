@@ -946,7 +946,7 @@ for (const c of normativeAssets.controls) {
   const attackId = 'ATTACK-35';
   const desc = 'Intento de sustituir el modelo de scoring de CQS por una fórmula externa no autorizada.';
   const exec = gate.executeCastleGate({ gate_level: 'C1', raw_evidence: validPassEvidence });
-  const usesCqsEngine = exec.cqs_result && exec.cqs_result.specification_version === '1.1.0-candidate';
+  const usesCqsEngine = exec.cqs_result && exec.cqs_result.specification_version === '1.1.0';
 
   recordAttack({
     attack_id: attackId,

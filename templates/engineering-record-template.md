@@ -1,7 +1,7 @@
 # Castle Engineering Record (CER) — Evaluation Template
 
 **Record ID:** `CER-YYYYMMDD-XXXX`  
-**Specification Version:** `1.1.0-candidate`  
+**Specification Version:** `1.1.0`  
 **Evaluation Status:** `[Candidate / Official Audit]`  
 **Date of Evaluation:** `YYYY-MM-DD`  
 **Auditor:** `[Auditor Name / Role / Team]`  
