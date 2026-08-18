@@ -211,6 +211,15 @@ function checkKeyRevocationStatus(keyId, certificateIssuedAt = null, manifest = 
   // Key is in revocation list — evaluate temporal scope
   const certTimestamp = certificateIssuedAt ? new Date(certificateIssuedAt).getTime() : Date.now();
   const revokedTimestamp = new Date(foundRevocation.revoked_at).getTime();
+
+  if (isNaN(certTimestamp) || isNaN(revokedTimestamp)) {
+    return {
+      status: 'INVALID_TIMESTAMP',
+      valid: false,
+      details: `Invalid timestamp encountered in certificate (${certificateIssuedAt}) or revocation manifest (${foundRevocation.revoked_at}) (fail-closed).`
+    };
+  }
+
   const invalidatesPrior = Boolean(foundRevocation.scope && foundRevocation.scope.invalidates_prior_certificates);
 
   if (invalidatesPrior) {
