@@ -124,8 +124,12 @@ assert.strictEqual(continuity.valid, true);
 assert.strictEqual(continuity.total_entries, 3);
 console.log('[PASS] Physical Evidence Ledger continuity verified across 3 separate OS processes (E1 -> E2 -> E3).');
 
-// Cleanup
-fs.rmSync(testScratchDir, { recursive: true, force: true });
+// Cleanup (with retry for Windows file handle release)
+try {
+  fs.rmSync(testScratchDir, { recursive: true, force: true, maxRetries: 3, retryDelay: 200 });
+} catch (e) {
+  // Ignored on locked temp dir
+}
 
 console.log('\n================================================================');
 console.log('ALL CROSS-PROCESS LEDGER TESTS PASSED (100% PERSISTED)');
