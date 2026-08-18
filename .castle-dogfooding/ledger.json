@@ -7,5 +7,14 @@
     "evidence_sha256": "2718b0189dd0281a369bf53fdf87ac1be09045086ac36d3ce424122650eb25bb",
     "timestamp": "2026-08-18T21:31:13.924Z",
     "entry_hash": "92b579bc17363293cf17c70e4ad351819c92ecd6e5908402e97dc9c702f7cc85"
+  },
+  {
+    "entry_index": 1,
+    "evaluation_id": "EVAL-9a096c67de2be2c6",
+    "commit_sha": "9a096c67de2be2c6c733a772908296513a4c256d",
+    "parent_hash": "92b579bc17363293cf17c70e4ad351819c92ecd6e5908402e97dc9c702f7cc85",
+    "evidence_sha256": "dcad530101c2eb9f5539a602176caf2c4e54527785ce55b37e0f3d5a81ba1a04",
+    "timestamp": "2026-08-18T21:38:38.236Z",
+    "entry_hash": "3a7e6e81ffab29dfa8b200c8844ca1905ca950b6faf82026833834360df480ef"
   }
 ]

@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0.0-assurance",
-  "certificate_id": "REL-CERT-C1-1787088673924",
+  "certificate_id": "REL-CERT-C1-1787089118236",
   "authorization_status": "AUTHORIZED_FOR_RELEASE",
-  "issued_at": "2026-08-18T21:31:13.924Z",
-  "nonce": "54f188528b2c9b728ff658707b3a885d",
+  "issued_at": "2026-08-18T21:38:38.236Z",
+  "nonce": "67b22bd6babc416675fb190c32c06870",
   "target_system": {
     "name": "servicios-castillo",
     "environment": "production",
-    "commit_sha": "unspecified_sha",
+    "commit_sha": "9a096c67de2be2c6c733a772908296513a4c256d",
     "repository_url": "local://website"
   },
   "governance": {
@@ -24,11 +24,15 @@
     }
   },
   "evaluation_reference": {
-    "evaluation_id": "EVAL-1787088673840",
-    "gate_decision_id": "GATE-DEC-C1-1787088673846",
-    "audit_trail_reference": "AUD-GATE-1787088673847",
+    "evaluation_id": "EVAL-9a096c67de2be2c6",
+    "gate_decision_id": "GATE-DEC-C1-1787089118156",
+    "audit_trail_reference": "AUD-GATE-1787089118156",
     "evidence_package_hash": "47f52e00c9729945a5574ca3479409def38bb571156daecb77d027224e2bce73",
-    "previous_evaluation": null
+    "previous_evaluation": {
+      "evaluation_id": "EVAL-1787088673840",
+      "certificate_digest": "92b579bc17363293cf17c70e4ad351819c92ecd6e5908402e97dc9c702f7cc85",
+      "commit_sha": "unspecified_sha"
+    }
   },
   "applied_waivers": [],
   "metrics_summary": {
@@ -45,16 +49,16 @@
   "integrity": {
     "canonical_algorithm": "RFC-8785-JCS",
     "digest_algorithm": "SHA-256",
-    "certificate_digest": "2718b0189dd0281a369bf53fdf87ac1be09045086ac36d3ce424122650eb25bb",
+    "certificate_digest": "dcad530101c2eb9f5539a602176caf2c4e54527785ce55b37e0f3d5a81ba1a04",
     "signature_mode": "ED25519_ASYMMETRIC_SIGNED",
     "signing_authority": "Grupo Castillo Release Gate Authority",
     "pki_signature_extension": {
       "enabled": true,
       "algorithm": "ed25519",
-      "key_id": "ed25519:3eda6a0a826e3c03",
-      "signature_base64": "51XXfDj1xMfiWurUY3MvQrG/GFjkyVLiPnb/b6lSpUfS5/J4z4JlMvfBrmiIsckPHb6cuoCKx8hPwyTRsYXaBQ==",
-      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAxno6qxr4n7YVaJ/J0Q9q9dei5S8d0IIDqJa0rUvY1ck=\n-----END PUBLIC KEY-----\n",
-      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787088673924"
+      "key_id": "ed25519:186f93e7f2d0a75f",
+      "signature_base64": "shdWd3FGz4A97BK7q+a+u5/Gf1z6v8rqntUX/zFSmUgYuytjawJraMmkccWVt+FouGbFv6RAZgmaLfU3iD2UAg==",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA1zs6Pe8RRMx9YKnkFsDSm21meBrS3pLokoNSW50MUdY=\n-----END PUBLIC KEY-----\n",
+      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787089118236"
     }
   }
 }
