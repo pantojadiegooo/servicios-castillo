@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="¿Por qué elegir Castle Web? | Soberanía, Transparencia y Tecnología Propia | Grupo Castillo"
+  description="Conoce nuestro modelo de ingeniería: 100% titularidad del código, dominios y cuentas a tu nombre, sin retenciones ni dependencias artificiales."
+  canonical="https://servicios-castillo.vercel.app/porque-elegirnos.html"
+  ogUrl="https://servicios-castillo.vercel.app/porque-elegirnos.html"
+>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <InnerHeroVisual type="nosotros" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / ¿Por qué Elegirnos?</p>
+        <div class="badge badge-cyan">FILOSOFÍA COMERCIAL &amp; SOBERANÍA TÉCNICA</div>
+        <h1>La tecnología que construimos para ti sigue siendo tuya</h1>
+        <p>Desarrollo web y gobernanza técnica bajo un principio simple: titularidad jurídica del cliente, código limpio y cero dependencias forzadas.</p>
+      </div>
+    </section>
+
+    <!-- 01 — EL PROBLEMA REAL -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Diagnóstico de la Industria</p>
+          <h2>El problema no siempre es el código</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            En la industria del software y desarrollo web, el mayor riesgo para un negocio rara vez es únicamente la calidad estética de su sitio. Con frecuencia, el riesgo crítico aparece en la administración y control de sus activos: quién figura como dueño del dominio, quién tiene la clave de la base de datos y qué ocurre si decides cambiar de proveedor.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Existen esquemas de servicio donde el cliente paga por un desarrollo pero descubre meses después que no tiene acceso al repositorio Git, que el dominio está a nombre de la agencia o que existen mensualidades forzosas para evitar que su plataforma sea desconectada.
+          </p>
+        </div>
+
+        <div class="glass-panel reveal" style="padding: 2.25rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35);">
+          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1rem;">Riesgos frecuentes al contratar desarrollo:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark); display: flex; gap: 0.75rem;">
+              <span style="color: var(--cyan); font-weight: bold;">✕</span>
+              <span>Dominio registrado a nombre de terceros sin acceso administrativo directo.</span>
+            </li>
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark); display: flex; gap: 0.75rem;">
+              <span style="color: var(--cyan); font-weight: bold;">✕</span>
+              <span>Código fuente retenido en servidores privados sin entrega de repositorio.</span>
+            </li>
+            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark); display: flex; gap: 0.75rem;">
+              <span style="color: var(--cyan); font-weight: bold;">✕</span>
+              <span>Mensualidades opacas bajo el argumento de mantenimiento técnico no documentado.</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="color: var(--cyan); font-weight: bold;">✕</span>
+              <span>Dificultad o cobros extraordinarios cuando el cliente solicita migrar a otro equipo.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — LAS PRÁCTICAS QUE RECHAZAMOS -->
+    <section class="section section-dim" id="practicas-que-rechazamos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Transparencia Operativa</p>
+          <h2>Las prácticas de la industria que rechazamos</h2>
+          <p>Construimos sobre reglas claras que eliminan fricciones comerciales y dependencia artificial.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">01 • PROPIEDAD</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Cero Retención de Dominios</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              El dominio se registra directamente en el registrador a nombre del cliente. Nunca actuamos como intermediarios obligatorios ni retenemos accesos DNS.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">02 • CÓDIGO</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">100% Titularidad en Repositorio</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Entregamos el código fuente completo en un repositorio Git transferido a tu organización. El código desarrollado es tu propiedad intelectual conforme a contrato.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">03 • INFRAESTRUCTURA</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Cuentas Directas del Cliente</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              El hosting, las cuentas de nube y las pasarelas de pago se configuran en cuentas a nombre del cliente, asegurando autonomía operativa y auditoría directa.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">04 • PRECIOS</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Precios Públicos y Fijos</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Publicamos los precios de nuestros paquetes y servicios técnicos. Cada proyecto cuenta con Declaración de Trabajo (SOW) y cotización cerrada antes de comenzar.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">05 • DOCUMENTACIÓN</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Entrega Documentada (Handoff)</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Entregamos manuales técnicos de compilación, inventario de variables de entorno y guías para que cualquier desarrollador pueda continuar el trabajo sin fricciones.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">06 • CONTINUIDAD</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Libertad sin Plazos Forzosos</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Nuestras pólizas mensuales Castle Care son opcionales y cancelables en cualquier momento. Si decides dar soporte interno o cambiar de equipo, conservas todo sin penalizaciones.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — NUESTRO PRINCIPIO: LO QUE CONSTRUIMOS PARA TI SIGUE SIENDO TUYO -->
+    <section class="section" id="principio-soberania">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Compromiso de Soberanía</p>
+          <h2>Lo que construimos para ti sigue siendo tuyo</h2>
+          <p>Cuatro garantías operativas para que tu empresa conserve siempre el control total de sus activos.</p>
+        </div>
+
+        <div class="grid grid-4 reveal" style="gap: 1.25rem;">
+          
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid var(--cyan);">
+            <div style="font-family: var(--f-mono); font-size: 1.3rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">01</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Tu Dominio</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Comprado en tu registrador preferido, con tus datos de contacto y administración exclusiva de registros DNS.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid var(--cyan);">
+            <div style="font-family: var(--f-mono); font-size: 1.3rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">02</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Tu Código</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Todo el código fuente original compilable, assets y configuraciones residen en tu organización de GitHub o GitLab.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid var(--cyan);">
+            <div style="font-family: var(--f-mono); font-size: 1.3rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">03</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Tus Cuentas</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Plataformas de hosting (Vercel, AWS, Cloudflare) y analítica configuradas directamente a tu nombre.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid var(--cyan);">
+            <div style="font-family: var(--f-mono); font-size: 1.3rem; color: var(--cyan); font-weight: 800; margin-bottom: 0.5rem;">04</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Tu Salida</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Arquitectura estática y modular sin ataduras propietarias. Puedes migrar de servidor o proveedor en cualquier momento.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — CASTLE WEB VS MODELOS TRADICIONALES -->
+    <section class="section section-dim" id="comparativa-modelos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Comparativa de Modelos</p>
+          <h2>Cómo se compara nuestro modelo</h2>
+          <p>Transparencia en la forma de operar frente a modelos tradicionales de desarrollo.</p>
+        </div>
+
+        <div class="comparison-table-wrap reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Criterio de Servicio</th>
+                <th>Freelancer</th>
+                <th>Agencia Tradicional</th>
+                <th style="color: var(--cyan);">Castle Web</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 600;">Precios públicos y fijos</td>
+                <td style="color: var(--steel-soft);">Variable sin estandarización</td>
+                <td style="color: var(--steel-soft);">Cotización opaca / Variable</td>
+                <td style="color: var(--cyan); font-weight: bold; font-family: var(--f-mono);">Públicos en catálogo ($2,800 a $40,000+)</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Titularidad de código</td>
+                <td style="color: var(--steel-soft);">Depende del acuerdo informal</td>
+                <td style="color: var(--steel-soft);">Frecuentemente retenido en plantillas</td>
+                <td style="color: var(--success); font-weight: bold;">100% Cliente por contrato</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Dominio y hosting</td>
+                <td style="color: var(--steel-soft);">Frecuentemente a nombre del desarrollador</td>
+                <td style="color: var(--steel-soft);">Bajo cuentas maestras de la agencia</td>
+                <td style="color: var(--success); font-weight: bold;">A nombre del cliente desde día 1</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Repositorio Git transferido</td>
+                <td style="color: var(--steel-soft);">Rara vez estandarizado</td>
+                <td style="color: var(--steel-soft);">Acceso restringido o no disponible</td>
+                <td style="color: var(--success); font-weight: bold;">Transferido formalmente en Handoff</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Metodología y entregables</td>
+                <td style="color: var(--steel-soft);">Informal según disponibilidad</td>
+                <td style="color: var(--steel-soft);">Procesos lentos con ejecutivos de cuenta</td>
+                <td style="color: var(--success); font-weight: bold;">3 Fases con SOW y entregables por escrito</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Gobernanza y control de calidad</td>
+                <td style="color: var(--steel-soft);">Pruebas manuales visuales</td>
+                <td style="color: var(--steel-soft);">Revisiones cosméticas</td>
+                <td style="color: var(--cyan); font-weight: bold;">Castle Gate + CQS v1.1 automatizado</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Evidencia verificable</td>
+                <td style="color: var(--steel-soft);">Promesa verbal</td>
+                <td style="color: var(--steel-soft);">Reportes comerciales</td>
+                <td style="color: var(--success); font-weight: bold;">Certificado SHA-256 inmutable</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Garantía post-entrega</td>
+                <td style="color: var(--steel-soft);">Sujeta a disponibilidad futura</td>
+                <td style="color: var(--steel-soft);">Pólizas forzosas de permanencia</td>
+                <td style="color: var(--success); font-weight: bold;">30 días incluida + Castle Care sin plazo forzoso</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 600;">Dependencia artificial del proveedor</td>
+                <td style="color: var(--steel-soft);">Riesgo de abandono del proyecto</td>
+                <td style="color: var(--steel-soft);">Dependencia comercial continua</td>
+                <td style="color: var(--success); font-weight: bold;">Cero retención por diseño</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — QUÉ PASA CUANDO TERMINA EL PROYECTO (EL HANDOFF) -->
+    <section class="section" id="handoff-proceso">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Transferencia Formal</p>
+          <h2>Qué pasa cuando termina el desarrollo</h2>
+          <p>Concluir un proyecto no significa perder acceso. El proceso de entrega está diseñado para transferir el control total.</p>
+        </div>
+
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">PASO 01</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Validación y Aprobación</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Comprobamos que cada ruta y funcionalidad pactada en el SOW supere la Definition of Done y los controles CQS v1.1.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem; border-color: rgba(0, 210, 255, 0.35);">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">PASO 02</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Transferencia de Activos</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Transferimos la titularidad del repositorio Git, credenciales maestras de hosting y configuración de DNS a tus cuentas directas.
+            </p>
+          </div>
+
+          <div class="card glass-panel" style="padding: 2rem;">
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem;">PASO 03</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Garantía y Continuidad</h3>
+            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
+              Se activan 30 días de garantía técnica para corrección de bugs sin costo y cuentas con la opción de suscribir Castle Care cuando lo requieras.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — NO TE PEDIMOS QUE CONFÍES CIEGAMENTE (PUENTE A CASTLE GATE) -->
+    <section class="section section-dark" id="verificacion-tecnica">
+      <div class="container">
+        <div class="two-col" style="align-items: center; gap: 3.5rem;">
+          
+          <div class="reveal">
+            <div class="badge badge-cyan" style="margin-bottom: 1rem;">VERIFICACIÓN DETERMINISTA</div>
+            <h2 style="font-size: 2.1rem; line-height: 1.2; margin-bottom: 1.25rem;">
+              No te pedimos que confíes ciegamente: puedes verificarlo
+            </h2>
+            <p style="font-size: 1rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+              No basta con que un proveedor afirme que su código es seguro y limpio. Desarrollamos <strong>Castle Gate</strong> para que la calidad técnica sea medible y auditable de forma automatizada en cada liberación.
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">✓</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">65 Controles en 7 Dominios Técnicos:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">Evaluación de secretos expuestos, dependencias, accesibilidad WCAG AA, rendimiento y configuración de producción.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">✓</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">Ejecución Offline y Privacidad:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">El análisis se ejecuta 100% en la memoria de tu equipo o runner sin enviar código fuente a servidores externos.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: bold; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">✓</span>
+                <div>
+                  <strong style="color: var(--paper); font-size: 0.9rem;">Certificado Sellado con SHA-256:</strong>
+                  <span style="font-size: 0.85rem; color: var(--steel-light); display: block;">Emisión de evidencia digital inmutable vinculada al commit exacto del release.</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="/castle-gate.html" class="btn btn-primary">Conoce Castle Gate &amp; CQS v1.1 →</a>
+          </div>
+
+          <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.9); border-color: rgba(0, 210, 255, 0.25);">
+            <div class="badge badge-pass" style="margin-bottom: 1rem;">EVIDENCIA DETERMINISTA</div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--paper);">El flujo de evaluación:</h3>
+            <div style="font-family: var(--f-mono); font-size: 0.82rem; color: var(--steel-light); line-height: 1.9;">
+              <div>1. <strong style="color: var(--paper);">Sensors</strong> → Extracción estática de artefactos</div>
+              <div>2. <strong style="color: var(--paper);">Adapters</strong> → Normalización de métricas y AST</div>
+              <div>3. <strong style="color: var(--paper);">CQS v1.1</strong> → Evaluación de 65 controles</div>
+              <div>4. <strong style="color: var(--paper);">Policy</strong> → Aplicación de umbrales C1–C6</div>
+              <div>5. <strong style="color: var(--paper);">Decision</strong> → PASS (0) o VETO (1)</div>
+              <div>6. <strong style="color: var(--paper);">Evidence</strong> → Reporte JSON + Certificado SHA-256</div>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.82rem; color: var(--steel-soft);">
+              Gobernanza objetiva antes de que cualquier release toque producción.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — POR QUÉ EXISTIMOS -->
+    <section class="section">
+      <div class="container" style="max-width: 800px; text-align: center;">
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Nuestra Razón de Ser</p>
+          <h2 style="font-size: 2rem; margin-bottom: 1.25rem;">Tecnología construida con respeto hacia quien la financia</h2>
+          <p style="font-size: 1.05rem; color: var(--steel-light); line-height: 1.7; margin-bottom: 2rem;">
+            Grupo Castillo nació con un objetivo concreto: ofrecer ingeniería de software y desarrollo web de alto rendimiento sin reproducir las prácticas comerciales opacas que hacen que los clientes desconfíen de sus proveedores. Creemos en contratos claros, precios públicos, transferencias completas y código verificado con evidencia determinista.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/paquetes.html" class="btn btn-primary">Ver Catálogo de Paquetes</a>
+            <a href="/nosotros.html" class="btn btn-outline">Conoce a Nuestra Firma</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 — CTA DUAL -->
+    <CTABand
+      title="Elige el camino adecuado para tu proyecto."
+      description="Explora nuestros 6 paquetes de desarrollo web con precio cerrado o inicia una auditoría técnica de tu código actual."
+      ctaLabel="Explorar Paquetes Web"
+      ctaHref="/paquetes.html"
+    />
+
+  </main>
+</BaseLayout>

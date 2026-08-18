@@ -7,8 +7,8 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
 ---
 
 <BaseLayout
-  title="Contacto y Diagnóstico Inicial — Grupo Castillo"
-  description="Cotiza tu desarrollo o solicita un diagnóstico técnico Castle Checkup para tu repositorio o sitio web. Respuesta en menos de 24 horas hábiles."
+  title="Contacto y Cotización Directa — Grupo Castillo"
+  description="Cotiza tu desarrollo web, plataforma o solicita una evaluación técnica de código. Respuesta y propuesta por escrito en menos de 24 horas hábiles."
   canonical="https://servicios-castillo.vercel.app/contacto.html"
   ogUrl="https://servicios-castillo.vercel.app/contacto.html"
 >
@@ -18,202 +18,334 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="/index.html">Inicio</a> / Contacto &amp; Cotización</p>
-        <div class="badge badge-cyan">CANAL DIRECTO • RESPUESTA &lt; 24H</div>
-        <h1>Iniciemos tu Proyecto Digital</h1>
-        <p>Cuéntanos sobre tu negocio o sitio web actual. Te enviamos una evaluación técnica y propuesta de trabajo en menos de 24 horas hábiles.</p>
+        <div class="badge badge-cyan">CANAL DIRECTO • RESPUESTA &lt; 24H HÁBILES</div>
+        <h1>Iniciemos tu Proyecto o Evaluación Técnica</h1>
+        <p>Cuéntanos sobre tus requerimientos o sitio actual. Te responderemos con una propuesta formal de alcance y presupuesto por escrito en menos de 24 horas hábiles.</p>
       </div>
     </section>
 
-    <!-- ORIENTACIÓN PREVIA DIAGNÓSTICO -->
-    <section class="section" style="padding-top: 1rem; padding-bottom: 1.5rem;">
-      <div class="container" style="max-width: 920px;">
-        <div class="glass-panel reveal" style="padding: 1.25rem 1.75rem; border-left: 3px solid var(--cyan); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: rgba(14, 18, 27, 0.75);">
+    <!-- FORMULARIO PRINCIPAL ADAPTATIVO -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 900px;">
+        
+        <!-- BANNER DE DIAGNÓSTICO GUIADO ALTERNATIVO -->
+        <div class="glass-panel reveal" style="padding: 1.25rem 1.75rem; border: 1px solid rgba(0, 210, 255, 0.3); background: linear-gradient(135deg, rgba(14, 18, 27, 0.95) 0%, rgba(18, 48, 74, 0.3) 100%); margin-bottom: 2.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
           <div>
-            <strong style="color: var(--paper); font-size: 0.95rem;">¿No tienes certeza de cuál paquete o servicio elegir?</strong>
-            <p style="color: var(--steel-light); font-size: 0.82rem; margin: 0.2rem 0 0 0;">Utiliza nuestro Diagnóstico Castillo para obtener una recomendación técnica en menos de 2 minutos.</p>
+            <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px; margin-bottom: 0.25rem;">TRIAGE COMERCIAL</span>
+            <strong style="display: block; color: var(--paper); font-size: 0.95rem;">¿No tienes certeza de cuál servicio o paquete elegir?</strong>
+            <p style="color: var(--steel-light); font-size: 0.82rem; margin: 0; line-height: 1.5;">Responde 3 preguntas guiadas en nuestro Diagnóstico para recibir una recomendación automática.</p>
           </div>
-          <a href="/diagnostico.html" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.8rem;">Iniciar Diagnóstico →</a>
+          <a href="/diagnostico.html" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.82rem; white-space: nowrap;">Iniciar Diagnóstico Guiado →</a>
         </div>
-      </div>
-    </section>
 
-    <section class="section" style="padding-top: 0.5rem;">
-      <div class="container">
-        <!-- Formulario centrado -->
-        <div class="reveal" style="max-width: 920px; margin: 0 auto 4rem auto;">
-          <form id="contact-form" class="form-grid" action={formEndpoint} method="POST">
-            <div class="field">
-              <label for="nombre">Nombre Completo o Empresa</label>
-              <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Ej. Ana Martínez / Grupo Alpha">
+        <!-- TARJETA DEL FORMULARIO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.9); border-color: rgba(0, 210, 255, 0.25);">
+          
+          <!-- INDICADOR DINÁMICO DE PRELLENADO (SI VIENE DE PAQUETE O DIAGNÓSTICO) -->
+          <div id="prefill-alert" style="display: none; margin-bottom: 1.75rem; padding: 0.85rem 1.25rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--paper);">
+            <strong style="color: var(--cyan);">Solicitud contextualizada:</strong> <span id="prefill-text">Cotización para paquete seleccionado.</span>
+          </div>
+
+          <!-- SELECTOR VISUAL DE INTENCIÓN (PASO 1) -->
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-family: var(--f-mono); font-size: 0.82rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">
+              1. ¿Cuál es el objetivo principal de tu consulta?
+            </label>
+            <div class="grid grid-2" id="intent-selector" style="gap: 0.85rem;">
+              
+              <button type="button" class="intent-btn active" data-intent="construir" style="text-align: left; padding: 1rem 1.15rem; background: #07090E; border: 1px solid rgba(0, 210, 255, 0.5); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <strong style="display: block; color: var(--paper); font-size: 0.92rem; margin-bottom: 0.2rem;">🚀 Construir un Nuevo Sitio o Sistema</strong>
+                <span style="font-size: 0.78rem; color: var(--steel-light); display: block; line-height: 1.4;">Crear una landing page, sitio corporativo, blog autogestionable o software a la medida.</span>
+              </button>
+
+              <button type="button" class="intent-btn" data-intent="revisar" style="text-align: left; padding: 1rem 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <strong style="display: block; color: var(--paper); font-size: 0.92rem; margin-bottom: 0.2rem;">🔍 Evaluar / Auditar Código Existente</strong>
+                <span style="font-size: 0.78rem; color: var(--steel-light); display: block; line-height: 1.4;">Diagnóstico ágil Castle Checkup (72h) o auditoría profunda de seguridad y arquitectura.</span>
+              </button>
+
+              <button type="button" class="intent-btn" data-intent="problema" style="text-align: left; padding: 1rem 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <strong style="display: block; color: var(--paper); font-size: 0.92rem; margin-bottom: 0.2rem;">🚨 Intervención / Rescate Técnico</strong>
+                <span style="font-size: 0.78rem; color: var(--steel-light); display: block; line-height: 1.4;">Corregir fallas en producción, reparar pipelines, parchar CVEs o recuperar control de activos.</span>
+              </button>
+
+              <button type="button" class="intent-btn" data-intent="mantenimiento" style="text-align: left; padding: 1rem 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;">
+                <strong style="display: block; color: var(--paper); font-size: 0.92rem; margin-bottom: 0.2rem;">🛡️ Mantenimiento Continuo (Castle Care)</strong>
+                <span style="font-size: 0.78rem; color: var(--steel-light); display: block; line-height: 1.4;">Supervisión de uptime, parches de seguridad periódicos y soporte mensual de ingeniería.</span>
+              </button>
+
             </div>
+          </div>
+
+          <!-- FORMULARIO PRINCIPAL -->
+          <form id="contact-form" class="form-grid" action={formEndpoint} method="POST">
+            
+            <!-- CAMPO OCULTO DE INTENCIÓN -->
+            <input type="hidden" id="intencion_comercial" name="intencion_comercial" value="construir">
+            <input type="hidden" id="paquete_origen" name="paquete_origen" value="">
+
             <div class="field">
-              <label for="email">Correo Electrónico</label>
+              <label for="nombre">Nombre Completo <span style="color: var(--cyan);">*</span></label>
+              <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Ej. Ana Martínez">
+            </div>
+
+            <div class="field">
+              <label for="empresa">Empresa u Organización <span class="hint">(opcional)</span></label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Ej. Alpha Consulting">
+            </div>
+
+            <div class="field">
+              <label for="email">Correo Electrónico Corporativo o Personal <span style="color: var(--cyan);">*</span></label>
               <input type="email" id="email" name="email" required autocomplete="email" placeholder="correo@empresa.com">
             </div>
+
             <div class="field">
-              <label for="whatsapp">Teléfono / WhatsApp <span class="hint">(opcional)</span></label>
+              <label for="whatsapp">Teléfono o WhatsApp <span class="hint">(opcional pero recomendado)</span></label>
               <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="+52 55 1234 5678">
             </div>
+
             <div class="field">
-              <label for="necesidad">¿Qué necesita tu negocio?</label>
-              <select id="necesidad" name="necesidad" required>
-                <option value="">Selecciona una opción</option>
-                <option value="iron">Presencia Digital Básica (Castle Iron - $2,800 MXN)</option>
-                <option value="bronze">Landing Comercial (Castle Bronze - $4,500 MXN)</option>
-                <option value="silver">Sitio Corporativo Multi-página (Castle Silver - $7,500 MXN)</option>
-                <option value="gold">Crecimiento con Blog / CMS (Castle Gold - $12,500 MXN)</option>
-                <option value="platinum">Plataforma Integrada & Pagos (Castle Platinum - $24,500 MXN)</option>
-                <option value="proyecto-avanzado">Proyecto Avanzado a la Medida (Desde $40,000 MXN)</option>
-                <option value="checkup">Diagnóstico Ágil de Repositorio (Castle Checkup - $8,900 MXN)</option>
-                <option value="audit">Auditoría Profunda de Arquitectura (Castle Audit - Desde $19,900 MXN)</option>
-                <option value="rescue">Intervención y Rescate de Código (Castle Rescue - Desde $6,900 MXN)</option>
-                <option value="urgencia">Atención Prioritaria Inmediata (Castle Emergency - Desde $5,900 MXN)</option>
-                <option value="cuidado">Mantenimiento y Gobernanza Mensual (Castle Care - Desde $3,500/mes)</option>
-                <option value="gate-licencia">Licenciamiento de Castle Gate CLI (Gobernanza CI/CD)</option>
-                <option value="transformar">Migración y Modernización de Plataforma Obsoleta</option>
-                <option value="otro">Otro requerimiento técnico</option>
+              <label for="tipo_proyecto">Servicio o Paquete de Interés <span style="color: var(--cyan);">*</span></label>
+              <select id="tipo_proyecto" name="tipo_proyecto" required>
+                <optgroup label="Desarrollo Web (Paquetes)">
+                  <option value="Castle Iron ($2,800 MXN)">Castle Iron — $2,800 MXN (Landing Esencial)</option>
+                  <option value="Castle Bronze ($4,500 MXN)">Castle Bronze — $4,500 MXN (Presencia PyME)</option>
+                  <option value="Castle Silver ($7,500 MXN)">Castle Silver — $7,500 MXN (Multi-sección)</option>
+                  <option value="Castle Gold ($12,500 MXN)" selected>Castle Gold — $12,500 MXN (Más Elegido • Con Blog/CMS)</option>
+                  <option value="Castle Platinum ($24,500 MXN)">Castle Platinum — $24,500 MXN (Integrado / Pagos)</option>
+                  <option value="Castle Diamond ($40,000+ MXN)">Castle Diamond — $40,000+ MXN (Software a la Medida)</option>
+                </optgroup>
+                <optgroup label="Evaluación &amp; Auditoría">
+                  <option value="Castle Checkup ($8,900 MXN)">Castle Checkup — $8,900 MXN (Diagnóstico 72h • 100% Bonificable)</option>
+                  <option value="Castle Audit ($19,900 MXN)">Castle Audit — Desde $19,900 MXN (Due Diligence Completo)</option>
+                </optgroup>
+                <optgroup label="Intervención &amp; Rescate">
+                  <option value="Castle Rescue ($6,900 MXN)">Castle Rescue — Desde $6,900 MXN (Intervención de Código)</option>
+                  <option value="Castle Emergency ($5,900 MXN)">Castle Emergency — Desde $5,900 MXN (Atención de Contingencias)</option>
+                </optgroup>
+                <optgroup label="Mantenimiento &amp; Gobernanza">
+                  <option value="Castle Care ($3,500 MXN/mes)">Castle Care — Desde $3,500 MXN / mes (Continuidad)</option>
+                  <option value="Castle Gate CLI ($9,900 MXN/año)">Castle Gate CLI — $9,900 MXN / año (Gobernanza CQS v1.1)</option>
+                  <option value="Otro requerimiento">Otro requerimiento técnico</option>
+                </optgroup>
               </select>
             </div>
+
             <div class="field">
-              <label for="presupuesto">Presupuesto Estimado / Paquete</label>
+              <label for="presupuesto">Rango de Inversión Orientativo</label>
               <select id="presupuesto" name="presupuesto">
-                <option value="">Selecciona un rango aproximado (MXN)</option>
-                <option value="iron">$2,800 MXN (~$165 USD) — Castle Iron</option>
-                <option value="bronze">$4,500 MXN (~$265 USD) — Castle Bronze</option>
-                <option value="silver">$7,500 MXN (~$440 USD) — Castle Silver</option>
-                <option value="gold">$12,500 MXN (~$735 USD) — Castle Gold</option>
-                <option value="platinum">$24,500 MXN (~$1,440 USD) — Castle Platinum</option>
-                <option value="avanzado">$40,000 MXN o más — Proyectos Avanzados a la Medida</option>
-                <option value="checkup">$8,900 MXN (~$525 USD) — Castle Checkup 72h</option>
-                <option value="rescue">$6,900 – $24,900 MXN — Castle Rescue</option>
-                <option value="audit">$19,900 – $39,900 MXN — Castle Audit</option>
-                <option value="emergency">Desde $5,900 MXN — Castle Emergency</option>
-                <option value="care-essential">$3,500 MXN / mes (~$205 USD) — Care Essential</option>
-                <option value="care-pro">$7,900 MXN / mes (~$465 USD) — Care Pro</option>
-                <option value="care-enterprise">$17,900 MXN / mes (~$1,050 USD) — Care Enterprise</option>
-                <option value="gate-c1">$9,900 MXN / año — Castle Gate C1 Foundation</option>
-                <option value="gate-c2">$16,900 MXN / año — Castle Gate C2 Standard</option>
-                <option value="gate-c3">$26,900 MXN / año — Castle Gate C3 Professional</option>
-                <option value="por-definir">Requiero asesoría previa</option>
+                <option value="">Selecciona un rango estimado</option>
+                <option value="hasta-5k">Hasta $5,000 MXN (Iron / Bronze)</option>
+                <option value="5k-15k" selected>$5,000 – $15,000 MXN (Silver / Gold)</option>
+                <option value="15k-30k">$15,000 – $30,000 MXN (Platinum)</option>
+                <option value="mas-40k">Más de $40,000 MXN (Diamond / Proyectos Avanzados)</option>
+                <option value="checkup">$8,900 MXN (Diagnóstico Checkup 72h)</option>
+                <option value="care-mensual">$3,500 – $17,900 MXN / mes (Castle Care)</option>
+                <option value="por-definir">Por definir / Deseo asesoría previa</option>
               </select>
             </div>
-            <div class="field">
-              <label for="plazo">Plazo Deseado de Entrega</label>
-              <select id="plazo" name="plazo">
-                <option value="">Selecciona una prioridad</option>
-                <option value="urgente">Lo antes posible (1 a 2 semanas)</option>
-                <option value="normal">Estándar (2 a 4 semanas)</option>
-                <option value="planificado">Sin prisa / Planificación a futuro</option>
-              </select>
-            </div>
+
             <div class="field full">
-              <label for="descripcion">Detalles de tu Proyecto o Repositorio</label>
-              <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Cuéntanos brevemente de tu negocio, los objetivos de tu web o la dirección URL / stack de tu proyecto."></textarea>
+              <label for="descripcion">Detalles de tu requerimiento o URL actual <span style="color: var(--cyan);">*</span></label>
+              <textarea id="descripcion" name="descripcion" rows="3" required placeholder="Cuéntanos brevemente qué necesitas resolver, las secciones clave que imaginas o la URL de tu sitio/repositorio si deseas una revisión previa."></textarea>
             </div>
+
             <div class="field full" style="text-align: center; margin-top: 1rem;">
-              <button class="btn btn-primary" type="submit" style="width: 100%; max-width: 320px; margin: 0 auto;">Solicitar Propuesta</button>
-              <p style="font-size:.8rem; color:var(--steel-soft); margin-top:.75rem;">Tu información es confidencial. Te respondemos en menos de 24 horas hábiles.</p>
+              <button class="btn btn-primary" type="submit" style="width: 100%; max-width: 340px; margin: 0 auto; padding: 0.85rem 1.5rem; font-size: 0.95rem;">
+                Enviar Solicitud de Cotización →
+              </button>
+              <p style="font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.85rem;">
+                Toda información se maneja bajo confidencialidad estricta. Te enviamos una propuesta formal en menos de 24 horas hábiles.
+              </p>
             </div>
+
           </form>
 
-          <script is:inline>
-            (function() {
-              const params = new URLSearchParams(window.location.search);
-              const necParam = params.get('necesidad');
-              const paqParam = params.get('paquete');
-              const necSelect = document.getElementById('necesidad');
-              const presSelect = document.getElementById('presupuesto');
-              
-              if (necParam && necSelect) {
-                if (necSelect.querySelector('option[value="' + necParam + '"]')) {
-                  necSelect.value = necParam;
-                } else if (necParam === 'crear' || necParam === 'proyecto-avanzado') {
-                  necSelect.value = 'proyecto-avanzado';
-                }
-              }
-              
-              if (paqParam) {
-                const pLower = paqParam.toLowerCase();
-                if (presSelect) {
-                  if (pLower.includes('iron')) presSelect.value = 'iron';
-                  else if (pLower.includes('bronze')) presSelect.value = 'bronze';
-                  else if (pLower.includes('silver')) presSelect.value = 'silver';
-                  else if (pLower.includes('gold')) presSelect.value = 'gold';
-                  else if (pLower.includes('platinum')) presSelect.value = 'platinum';
-                  else if (pLower.includes('diamond') || pLower.includes('avanzado')) presSelect.value = 'avanzado';
-                  else if (pLower.includes('checkup')) presSelect.value = 'checkup';
-                  else if (pLower.includes('rescue')) presSelect.value = 'rescue';
-                  else if (pLower.includes('audit')) presSelect.value = 'audit';
-                  else if (pLower.includes('emergency')) presSelect.value = 'emergency';
-                  else if (pLower.includes('care')) presSelect.value = 'care-essential';
-                }
-                if (necSelect && !necParam) {
-                  if (pLower.includes('iron')) necSelect.value = 'iron';
-                  else if (pLower.includes('bronze')) necSelect.value = 'bronze';
-                  else if (pLower.includes('silver')) necSelect.value = 'silver';
-                  else if (pLower.includes('gold')) necSelect.value = 'gold';
-                  else if (pLower.includes('platinum')) necSelect.value = 'platinum';
-                  else if (pLower.includes('diamond') || pLower.includes('avanzado')) necSelect.value = 'proyecto-avanzado';
-                }
-              }
-            })();
-          </script>
-
-          <p style="font-size:.78rem; color:var(--steel-soft); margin-top:1.5rem; text-align:center;">Tu solicitud llega directamente a los ingenieros de Grupo Castillo.</p>
         </div>
 
-        <!-- ¿Qué ocurre después de enviar? -->
-        <div class="reveal" style="max-width: 920px; margin: 0 auto;">
-          <div class="gate-report wide" style="background: var(--ink-card); border: 1px solid var(--line-dark); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-            <div class="gate-report-head" style="font-size: 1.25rem; color: var(--cyan); border-bottom: 1px solid var(--line-dark); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-              <strong>¿Qué ocurre después de enviar?</strong>
+        <!-- ¿QUÉ OCURRE DESPUÉS DE ENVIAR? -->
+        <div class="reveal" style="margin-top: 3rem;">
+          <div class="glass-panel" style="padding: 2.25rem; background: var(--ink-card); border: 1px solid var(--line-dark); border-radius: var(--radius-lg);">
+            <div style="font-size: 1.15rem; color: var(--cyan); border-bottom: 1px solid var(--line-dark); padding-bottom: 0.75rem; margin-bottom: 1.5rem; font-weight: 700;">
+              ¿Qué ocurre después de enviar tu solicitud?
             </div>
-            <div class="grid grid-3" style="gap: 2rem;">
+            
+            <div class="grid grid-3" style="gap: 1.75rem;">
               <div>
-                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: bold;">01</div>
-                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Revisión Técnica</h4>
-                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Analizamos la información de tu proyecto o inspeccionamos tu URL actual bajo criterios de optimización.</p>
+                <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); margin-bottom: 0.4rem; font-weight: bold;">01</div>
+                <h4 style="font-size: 0.92rem; color: var(--paper); margin-bottom: 0.4rem; font-weight: 600;">Revisión Técnica (&lt; 24h)</h4>
+                <p style="font-size: 0.84rem; color: var(--steel-light); line-height: 1.55; margin: 0;">Un ingeniero de Grupo Castillo analiza tu solicitud o inspecciona tu URL para estructurar el alcance.</p>
               </div>
               <div>
-                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: bold;">02</div>
-                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Propuesta Clara</h4>
-                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Te enviamos por correo una propuesta detallada de alcance, paquete recomendado y presupuesto por escrito.</p>
+                <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); margin-bottom: 0.4rem; font-weight: bold;">02</div>
+                <h4 style="font-size: 0.92rem; color: var(--paper); margin-bottom: 0.4rem; font-weight: 600;">Propuesta por Escrito</h4>
+                <p style="font-size: 0.84rem; color: var(--steel-light); line-height: 1.55; margin: 0;">Recibes por correo un desglose claro de entregables, paquete recomendado y presupuesto fijo.</p>
               </div>
               <div>
-                <div style="font-family: var(--f-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: bold;">03</div>
-                <h4 style="font-size: 0.95rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 600;">Etapa Discover</h4>
-                <p style="font-size: 0.85rem; color: var(--steel-light); line-height: 1.6; margin: 0;">Si apruebas la propuesta, agendamos una llamada de 15 minutos para iniciar la fase formal de planificación.</p>
+                <div style="font-family: var(--f-mono); font-size: 1.4rem; color: var(--cyan); margin-bottom: 0.4rem; font-weight: bold;">03</div>
+                <h4 style="font-size: 0.92rem; color: var(--paper); margin-bottom: 0.4rem; font-weight: 600;">Sesión Discover (15 min)</h4>
+                <p style="font-size: 0.84rem; color: var(--steel-light); line-height: 1.55; margin: 0;">Si la propuesta te resulta adecuada, agendamos una llamada ágil para acordar contrato e inicio.</p>
               </div>
             </div>
 
-            <div style="margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-              <p style="font-size: .85rem; color: var(--steel-soft); margin: 0;">¿Prefieres explorar primero los paquetes?</p>
-              <a href="/paquetes.html" class="btn btn-outline" style="padding: 0.55rem 1.25rem; font-size: 0.8rem; height: auto;">Ver comparativa de Castle Packages →</a>
+            <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <p style="font-size: 0.82rem; color: var(--steel-soft); margin: 0;">¿Deseas comparar antes los 6 paquetes web?</p>
+              <a href="/paquetes.html" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.78rem;">Ver Catálogo de Paquetes →</a>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- SCRIPT DE INTERACCIÓN Y PRELLENADO INTELIGENTE -->
+    <script is:inline>
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const paqParam = params.get('paquete');
+        const necParam = params.get('necesidad');
+        const presParam = params.get('presupuesto');
+        
+        const tipoSelect = document.getElementById('tipo_proyecto');
+        const presSelect = document.getElementById('presupuesto');
+        const prefillAlert = document.getElementById('prefill-alert');
+        const prefillText = document.getElementById('prefill-text');
+        const intencionInput = document.getElementById('intencion_comercial');
+        const paqueteOrigenInput = document.getElementById('paquete_origen');
+        const intentButtons = document.querySelectorAll('.intent-btn');
+
+        // FUNCIÓN PARA ACTIVAR PESTAÑA VISUAL
+        function setIntent(intentName) {
+          intencionInput.value = intentName;
+          intentButtons.forEach(btn => {
+            if (btn.getAttribute('data-intent') === intentName) {
+              btn.style.borderColor = 'rgba(0, 210, 255, 0.6)';
+              btn.style.background = '#0d131f';
+            } else {
+              btn.style.borderColor = 'var(--line-dark)';
+              btn.style.background = '#07090E';
+            }
+          });
+        }
+
+        // LISTENERS PARA SELECTOR DE INTENCIÓN
+        intentButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            const intent = this.getAttribute('data-intent');
+            setIntent(intent);
+
+            // AUTO-ADAPTAR SELECTS
+            if (intent === 'construir') {
+              tipoSelect.value = 'Castle Gold ($12,500 MXN)';
+              presSelect.value = '5k-15k';
+            } else if (intent === 'revisar') {
+              tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
+              presSelect.value = 'checkup';
+            } else if (intent === 'problema') {
+              tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
+              presSelect.value = '5k-15k';
+            } else if (intent === 'mantenimiento') {
+              tipoSelect.value = 'Castle Care ($3,500 MXN/mes)';
+              presSelect.value = 'care-mensual';
+            }
+          });
+        });
+
+        // PARSEO DE PARÁMETROS URL
+        if (paqParam || necParam) {
+          const rawTarget = paqParam || necParam;
+          const target = rawTarget.toLowerCase();
+          paqueteOrigenInput.value = rawTarget;
+
+          let detectedIntent = 'construir';
+          let matchedOption = '';
+
+          if (target.includes('iron')) {
+            matchedOption = 'Castle Iron ($2,800 MXN)';
+            presSelect.value = 'hasta-5k';
+            detectedIntent = 'construir';
+          } else if (target.includes('bronze')) {
+            matchedOption = 'Castle Bronze ($4,500 MXN)';
+            presSelect.value = 'hasta-5k';
+            detectedIntent = 'construir';
+          } else if (target.includes('silver')) {
+            matchedOption = 'Castle Silver ($7,500 MXN)';
+            presSelect.value = '5k-15k';
+            detectedIntent = 'construir';
+          } else if (target.includes('gold')) {
+            matchedOption = 'Castle Gold ($12,500 MXN)';
+            presSelect.value = '5k-15k';
+            detectedIntent = 'construir';
+          } else if (target.includes('platinum')) {
+            matchedOption = 'Castle Platinum ($24,500 MXN)';
+            presSelect.value = '15k-30k';
+            detectedIntent = 'construir';
+          } else if (target.includes('diamond') || target.includes('avanzado')) {
+            matchedOption = 'Castle Diamond ($40,000+ MXN)';
+            presSelect.value = 'mas-40k';
+            detectedIntent = 'construir';
+          } else if (target.includes('checkup')) {
+            matchedOption = 'Castle Checkup ($8,900 MXN)';
+            presSelect.value = 'checkup';
+            detectedIntent = 'revisar';
+          } else if (target.includes('audit')) {
+            matchedOption = 'Castle Audit ($19,900 MXN)';
+            presSelect.value = '15k-30k';
+            detectedIntent = 'revisar';
+          } else if (target.includes('rescue')) {
+            matchedOption = 'Castle Rescue ($6,900 MXN)';
+            presSelect.value = '5k-15k';
+            detectedIntent = 'problema';
+          } else if (target.includes('emergency') || target.includes('urgencia')) {
+            matchedOption = 'Castle Emergency ($5,900 MXN)';
+            presSelect.value = '5k-15k';
+            detectedIntent = 'problema';
+          } else if (target.includes('care') || target.includes('mantenimiento') || target.includes('cuidado')) {
+            matchedOption = 'Castle Care ($3,500 MXN/mes)';
+            presSelect.value = 'care-mensual';
+            detectedIntent = 'mantenimiento';
+          } else if (target.includes('gate')) {
+            matchedOption = 'Castle Gate CLI ($9,900 MXN/año)';
+            presSelect.value = '5k-15k';
+            detectedIntent = 'revisar';
+          }
+
+          if (matchedOption) {
+            tipoSelect.value = matchedOption;
+          }
+
+          setIntent(detectedIntent);
+
+          // MOSTRAR BANNER DE PRELLENADO
+          prefillAlert.style.display = 'block';
+          prefillText.innerText = 'Has seleccionado ' + rawTarget + '. El formulario ha sido configurado para acelerar tu solicitud.';
+        }
+
+        if (presParam && presSelect) {
+          presSelect.value = presParam;
+        }
+      })();
+    </script>
+
+    <!-- FAQ SECTION -->
     <section class="section section-dim" id="faq">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Preguntas Frecuentes</p>
-          <h2>Todo claro antes de iniciar.</h2>
+          <p class="eyebrow">Preguntas Frecuentes sobre Cotizaciones</p>
+          <h2>Todo claro antes de iniciar</h2>
         </div>
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿En cuánto tiempo recibiré respuesta?" answer="Analizamos cada solicitud en menos de 24 horas hábiles. Te enviaremos un correo con la evaluación inicial y las opciones recomendadas." />
-              <FAQItem question="¿Debo tener todo el contenido listo para empezar?" answer="No necesariamente. Te orientamos en la estructura de contenidos durante la fase inicial Discover y organizamos la información de tu negocio." />
+              <FAQItem question="¿Debo tener todo el contenido listo para empezar?" answer="No necesariamente. Te orientamos en la estructura de contenidos durante la fase inicial y organizamos la información de tu negocio." />
               <FAQItem question="¿Puedo solicitar solo un diagnóstico técnico Checkup?" answer="Sí, absolutamente. Castle Checkup ($8,900 MXN) y Castle Audit son servicios independientes para diagnosticar problemas de carga, secretos o seguridad sin compromiso de contratar otro servicio." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Los presupuestos tienen algún costo?" answer="No. La evaluación inicial y el desglose de cotización son completamente gratuitos y sin compromiso comercial." />
-              <FAQItem question="¿Qué pasa si mi presupuesto es ajustado?" answer="Te asesoramos para comenzar con Castle Iron ($2,800 MXN) o Castle Bronze ($4,500 MXN) que ofrecen calidad y velocidad sin comprometer tu inversión." />
-              <FAQItem question="¿Cómo se valida la calidad del trabajo?" answer="Todo proyecto, independientemente del presupuesto, debe aprobar las pruebas de rendimiento, accesibilidad y seguridad de nuestro protocolo Castillo Quality Gate." />
+              <FAQItem open={true} question="¿Las cotizaciones tienen algún costo?" answer="No. La evaluación inicial y el desglose de cotización son completamente gratuitos y sin compromiso comercial." />
+              <FAQItem question="¿Puedo cambiar de paquete o alcance tras la revisión?" answer="Sí. El formulario establece un punto de partida; en la propuesta formal podemos afinar módulos o acordar fases escalonadas." />
+              <FAQItem question="¿El código y las cuentas me pertenecerán al finalizar?" answer="Sí, 100%. Todo desarrollo se entrega en tu propio repositorio Git con dominios y cuentas a tu nombre bajo contrato formal." />
             </div>
           </div>
         </div>
