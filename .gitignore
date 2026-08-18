@@ -1,0 +1,20 @@
+# Dependency Directories
+node_modules/
+
+# Castle Cryptographic Key Protection (Prevents accidental key leaks)
+*.pem
+*.key
+*.enc.json
+.castle/*.pem
+.castle/backup/
+
+# Test Scratch Directories
+.test-*
+.test-cross-process-scratch/
+.test-crypto-hardening-scratch/
+.test-scratch-phase10/
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+*.log

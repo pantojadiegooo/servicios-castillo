@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0.0-assurance",
-  "evaluation_id": "EVAL-1787089185588",
-  "nonce": "053791821e3ff366362ba8462ae3a608",
-  "timestamp": "2026-08-18T21:39:45.594Z",
+  "evaluation_id": "EVAL-1787089550468",
+  "nonce": "945d10ed5a34093878adb2528dc5feca",
+  "timestamp": "2026-08-18T21:45:50.472Z",
   "target_system": {
     "name": "cli-scan-proj",
     "environment": "production",
     "repository_url": "local://cli-scan-proj",
-    "commit_sha": "dd42fe97138402e2ff555aa49c7d23d46dba9111",
+    "commit_sha": "f3cf7b4eb99509121fecb65a8dcba6af9671d71b",
     "git_tree_hash": "b34524ca0bd3a1e98a9aa55f4eb7ea4fe3b9406e4e30e2a9d33d8af0c385e194",
     "branch": "unknown",
     "is_dirty": false
@@ -154,7 +154,7 @@
         "probe_name": "CastleSecurityProbe",
         "probe_version": "1.0.0",
         "files_scanned": 1,
-        "duration_ms": 11,
+        "duration_ms": 13,
         "payload_sha256": "c50b051f8d3bdb0a777573ad90c27092ad25af87f283409245d5faeba8fb813f",
         "errors": []
       },
@@ -162,7 +162,7 @@
         "probe_name": "CastleDomSemanticsProbe",
         "probe_version": "2.0.0",
         "files_scanned": 1,
-        "duration_ms": 1,
+        "duration_ms": 2,
         "payload_sha256": "f6fae9dadd2f5c2f30d2da64298d1f2a47f43cde2295473e572997b7303d88ad",
         "errors": []
       },
@@ -186,7 +186,7 @@
         "probe_name": "CastleGitHistoryProbe",
         "probe_version": "1.0.0",
         "files_scanned": 0,
-        "duration_ms": 324,
+        "duration_ms": 313,
         "payload_sha256": "29105c6c720212df96f92e1cd3a6605c6863cf9ab62caf910fbc9e43df81f6f2",
         "errors": []
       }
@@ -195,12 +195,12 @@
   "artifacts": {
     "compliance_report_html_sha256": "e754623cba9b7ad30844dfa0b1538784b4b347fdbbadf45170b91a0dd23e5af4",
     "compliance_report_json_sha256": null,
-    "sarif_sha256": "ea0cff40ce29a220e1a6adc5766233706489d0d0abd7bb1d6fee99210f83cfb5",
+    "sarif_sha256": "3318cd68b281eb67328b93826d643250c94fdbdce1fb7634465a10d7dad3f7b9",
     "sbom_cyclonedx_sha256": "46f906eff0e86daefb97683dd4bbb565d0f5dffc5795537f8ef73e64a2bb71e3"
   },
   "integrity": {
     "canonical_algorithm": "RFC-8785-JCS",
-    "payload_sha256": "5d0ba07e14f87e01d6b56f3025c11c461d2973f12c80ffdd531131d0260d62a9",
+    "payload_sha256": "c089eb5ea17641233deb7f238730ecc975468dafba20ac9c7a67bdcaa4a983ce",
     "signed": false,
     "signature": null,
     "dsse_envelope": null

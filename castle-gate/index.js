@@ -25,6 +25,9 @@ const { canonicalize, canonicalHash } = require('./crypto/canonicalizer');
 const { generateKeyPair, deriveKeyId, saveKeyPair, loadKey } = require('./crypto/signing-key');
 const { signPayload, verifySignature } = require('./crypto/signer');
 const { createDsseEnvelope, verifyDsseEnvelope, createInTotoStatement } = require('./crypto/dsse');
+const { TrustAnchorStore } = require('./crypto/trust-anchor');
+const { createRevocationManifest, validateRevocationManifest, checkKeyRevocationStatus } = require('./crypto/key-revocation');
+const { createKeyBackup, restoreKeyBackup, saveKeyBackupToFile } = require('./crypto/key-backup');
 const { createEvidencePackage } = require('./evidence/evidence-package');
 const { createBoundEvidenceArtifact, EVIDENCE_SCHEMA_VERSION } = require('./evidence/evidence-binding');
 const { resolveGitProvenance } = require('./evidence/git-resolver');
@@ -348,6 +351,13 @@ module.exports = {
   createDsseEnvelope,
   verifyDsseEnvelope,
   createInTotoStatement,
+  TrustAnchorStore,
+  createRevocationManifest,
+  validateRevocationManifest,
+  checkKeyRevocationStatus,
+  createKeyBackup,
+  restoreKeyBackup,
+  saveKeyBackupToFile,
   EvidenceLedger,
 
   // Independent Verifier

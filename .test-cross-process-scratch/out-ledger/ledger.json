@@ -4,26 +4,26 @@
     "evaluation_id": "EVAL-aaaaaaaaaaaaaaaa",
     "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "parent_hash": "0000000000000000000000000000000000000000000000000000000000000000",
-    "evidence_sha256": "0bff6ad61a2566682d49befd941c51d8bc603c9e88628de2c6dc33fe8df04c1e",
-    "timestamp": "2026-08-18T21:40:08.127Z",
-    "entry_hash": "41ec82d949fff51d73946b806f2c5c03761de38c07a21772f4789caf4b0b57ed"
+    "evidence_sha256": "5d25624a9bed4209d3157d0f2e34114ade3b621fcdc3f4b49c1ecf2f825fcc5f",
+    "timestamp": "2026-08-18T21:45:55.135Z",
+    "entry_hash": "b310fe1541684acf2e2be163921cfc5ced6f845307c127b5b3c0d54cc6cdb3b3"
   },
   {
     "entry_index": 1,
     "evaluation_id": "EVAL-bbbbbbbbbbbbbbbb",
     "commit_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-    "parent_hash": "41ec82d949fff51d73946b806f2c5c03761de38c07a21772f4789caf4b0b57ed",
-    "evidence_sha256": "b7cc08db3f54dc1afcc35d7977ab9e02226bc35b8f9ebd278fc0191ac91e06ff",
-    "timestamp": "2026-08-18T21:40:09.779Z",
-    "entry_hash": "fdd1eedf2538cd55ef13fc896e42dfc64a811f303430e37cd7c4de11f4320c23"
+    "parent_hash": "b310fe1541684acf2e2be163921cfc5ced6f845307c127b5b3c0d54cc6cdb3b3",
+    "evidence_sha256": "5a61928538ef625d34385f2ec9157132ba29a38b100cb657601886fe5e68f047",
+    "timestamp": "2026-08-18T21:45:56.768Z",
+    "entry_hash": "4d714324aa1d06fb476403fd7371e15a449e84ed2dec9125a01e3d9313da105e"
   },
   {
     "entry_index": 2,
     "evaluation_id": "EVAL-cccccccccccccccc",
     "commit_sha": "cccccccccccccccccccccccccccccccccccccccc",
-    "parent_hash": "fdd1eedf2538cd55ef13fc896e42dfc64a811f303430e37cd7c4de11f4320c23",
-    "evidence_sha256": "393dda863af3f22d601e5ace23bd77cf11fdda24e3d60f99c1e1ceca42ac663f",
-    "timestamp": "2026-08-18T21:40:11.402Z",
-    "entry_hash": "269f6e293844939619db8dd1dda02e53b795e2fe2ffa4557864cf19cfc801c08"
+    "parent_hash": "4d714324aa1d06fb476403fd7371e15a449e84ed2dec9125a01e3d9313da105e",
+    "evidence_sha256": "90dde25805e08a19c1cd361973a57536575cba855e2ff628004ab02076d6d0b9",
+    "timestamp": "2026-08-18T21:45:58.401Z",
+    "entry_hash": "df3b47dd432c68ef813e7908260452bc2acee977ab1859a8217316935dd64541"
   }
 ]

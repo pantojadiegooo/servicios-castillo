@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0.0-assurance",
   "evaluation_id": "EVAL-cccccccccccccccc",
-  "nonce": "75a6ad526e6d33cd4d05ca484e9efbef",
-  "timestamp": "2026-08-18T21:40:11.330Z",
+  "nonce": "a894120012f3493a64d7dba7dc01ac42",
+  "timestamp": "2026-08-18T21:45:58.324Z",
   "target_system": {
     "name": "CrossProcessApp",
     "environment": "production",
@@ -200,7 +200,7 @@
         "probe_name": "CastleGitHistoryProbe",
         "probe_version": "1.0.0",
         "files_scanned": 0,
-        "duration_ms": 293,
+        "duration_ms": 295,
         "payload_sha256": "29105c6c720212df96f92e1cd3a6605c6863cf9ab62caf910fbc9e43df81f6f2",
         "errors": []
       }
@@ -214,7 +214,7 @@
   },
   "integrity": {
     "canonical_algorithm": "RFC-8785-JCS",
-    "payload_sha256": "39b715f6095599cb177008bece56ba5b95dd63d084283ea504f6916056e1377a",
+    "payload_sha256": "4a4298016833cde6bdbba15e072bc70fb59993608117484624365e4acb2952fb",
     "signed": false,
     "signature": null,
     "dsse_envelope": null

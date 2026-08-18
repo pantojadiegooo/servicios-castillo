@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0-assurance",
-  "certificate_id": "REL-CERT-C1-1787089211402",
+  "certificate_id": "REL-CERT-C1-1787089558401",
   "authorization_status": "AUTHORIZED_FOR_RELEASE",
-  "issued_at": "2026-08-18T21:40:11.402Z",
-  "nonce": "b1cc962fdcb7f69e9fd68ca00081b09f",
+  "issued_at": "2026-08-18T21:45:58.401Z",
+  "nonce": "8f3a6eca34a3eeb5999469ab05c25924",
   "target_system": {
     "name": "CrossProcessApp",
     "environment": "production",
@@ -25,12 +25,12 @@
   },
   "evaluation_reference": {
     "evaluation_id": "EVAL-cccccccccccccccc",
-    "gate_decision_id": "GATE-DEC-C1-1787089211328",
-    "audit_trail_reference": "AUD-GATE-1787089211328",
+    "gate_decision_id": "GATE-DEC-C1-1787089558322",
+    "audit_trail_reference": "AUD-GATE-1787089558322",
     "evidence_package_hash": "6ea5d798e3bd81f508c864d1b0701eee4c68e456e47c3fde6a78be2fc219f827",
     "previous_evaluation": {
       "evaluation_id": "EVAL-bbbbbbbbbbbbbbbb",
-      "certificate_digest": "fdd1eedf2538cd55ef13fc896e42dfc64a811f303430e37cd7c4de11f4320c23",
+      "certificate_digest": "4d714324aa1d06fb476403fd7371e15a449e84ed2dec9125a01e3d9313da105e",
       "commit_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
     }
   },
@@ -49,7 +49,7 @@
   "integrity": {
     "canonical_algorithm": "RFC-8785-JCS",
     "digest_algorithm": "SHA-256",
-    "certificate_digest": "393dda863af3f22d601e5ace23bd77cf11fdda24e3d60f99c1e1ceca42ac663f",
+    "certificate_digest": "90dde25805e08a19c1cd361973a57536575cba855e2ff628004ab02076d6d0b9",
     "signature_mode": "CANONICAL_RFC8785_DIGEST",
     "signing_authority": "Grupo Castillo Release Gate Authority",
     "pki_signature_extension": {
@@ -58,7 +58,7 @@
       "key_id": null,
       "signature_base64": null,
       "public_key_pem": null,
-      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787089211402"
+      "public_verifier_url": "https://verify.grupocastillo.com/cert/REL-CERT-C1-1787089558401"
     }
   }
 }
