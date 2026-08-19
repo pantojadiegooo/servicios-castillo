@@ -9,114 +9,297 @@ const { className = "" } = Astro.props;
 <div class={`terminal-window ${className}`} id="castle-terminal-demo">
   <div class="terminal-header">
     <div class="terminal-dots">
-      <div class="terminal-dot red"></div>
-      <div class="terminal-dot yellow"></div>
-      <div class="terminal-dot green"></div>
+      <div class="terminal-dot red" title="Cerrar"></div>
+      <div class="terminal-dot yellow" title="Minimizar"></div>
+      <div class="terminal-dot green" title="Maximizar"></div>
     </div>
-    <div class="terminal-title">bash — castle-gate-runner v1.0.1 (CI/CD Execution)</div>
-    <div class="badge badge-pass" style="font-size: 0.65rem; padding: 2px 8px;">OFFLINE VERIFIED</div>
+    <div class="terminal-title">
+      <span>bash — castle-gate-runner v1.1.0 (CI/CD Local Memory Execution)</span>
+    </div>
+    <div class="terminal-header-badge">
+      <span class="badge-dot"></span>
+      <span>LOCAL RUNNER • v1.1.0</span>
+    </div>
   </div>
+
   <div class="terminal-body" id="terminal-body" aria-live="polite">
-    <div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>
+    <div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo determinista en memoria.</div>
   </div>
+
   <div class="terminal-footer">
-    <span class="t-muted" style="font-size: 0.74rem;">Simulación determinista en tiempo real</span>
-    <div style="display: flex; gap: 8px;">
+    <div class="term-footer-tag">
+      <span class="tag-icon">⚡</span>
+      <span>100% In-Memory Local Runner • Zero External Telemetry</span>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
       <button id="btn-reset-demo" class="btn btn-outline" style="font-size: 0.75rem; padding: 4px 10px; height: auto;">Reiniciar</button>
-      <button id="btn-run-demo" class="btn btn-gold" style="font-size: 0.75rem; padding: 4px 12px; height: auto;">Ejecutar Demo en Vivo</button>
+      <button id="btn-run-demo" class="btn-term-run" type="button">
+        <span>Ejecutar Demo en Vivo</span>
+      </button>
     </div>
   </div>
 </div>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    const terminalWindow = document.getElementById('castle-terminal-demo');
     const terminalBody = document.getElementById('terminal-body');
     const runDemoBtn = document.getElementById('btn-run-demo');
     const resetDemoBtn = document.getElementById('btn-reset-demo');
 
-    if (!terminalBody || !runDemoBtn) return;
-
-    const demoSteps = [
-      {
-        delay: 350,
-        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>'
-      },
-      {
-        delay: 800,
-        content: '<div class="terminal-line t-muted">Auditing 24 files across 7 CQS v1.1 domains in memory...</div>'
-      },
-      {
-        delay: 1400,
-        content: '<div class="terminal-line t-blocked">[GATE DECISION]: BLOCKED (Exit Code 1)</div><div class="terminal-line t-warn">  └─ [GB-01] Gate Breaker Active: 1 critical secret detected (AWS Secret Key in config.js:14)</div><div class="terminal-line t-muted">  └─ Current Score: 52.40 / 100.00 | Compliance Report: .castle/compliance-report.html</div>'
-      },
-      {
-        delay: 2600,
-        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd"># Remediating: Extracted AWS_SECRET_KEY to process.env and updated package-lock.json</span></div>'
-      },
-      {
-        delay: 3400,
-        content: '<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>'
-      },
-      {
-        delay: 4000,
-        content: '<div class="terminal-line t-muted">Re-evaluating CQS v1.1 rules (184ms)...</div>'
-      },
-      {
-        delay: 4600,
-        content: '<div class="terminal-line t-pass">[GATE DECISION]: PASSED (Exit Code 0)</div><div class="terminal-line t-pass">  └─ Gate Breakers: CLEARED (0 Active) | Score: 88.89 / 100.00 (Threshold: 60.00)</div><div class="terminal-line t-muted">  └─ Release Certificate Issued: .castle/release-certificate.json</div>'
-      },
-      {
-        delay: 5400,
-        content: '<div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner verify-cert --cert .castle/release-certificate.json</span></div>'
-      },
-      {
-        delay: 6000,
-        content: '<div class="terminal-line t-pass">[CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>'
-      }
-    ];
+    if (!terminalWindow || !terminalBody || !runDemoBtn) return;
 
     let isRunning = false;
     let timeouts = [];
+    let animationFrames = [];
 
-    function clearAllTimeouts() {
+    function clearAllTimers() {
       timeouts.forEach(t => clearTimeout(t));
       timeouts = [];
+      animationFrames.forEach(af => cancelAnimationFrame(af));
+      animationFrames = [];
+      terminalWindow.classList.remove('flash-blocked', 'flash-passed');
     }
+
+    function generateAsciiProgress(percent, width = 18) {
+      const filledCount = Math.round((percent / 100) * width);
+      const emptyCount = width - filledCount;
+      const filled = '█'.repeat(filledCount);
+      const empty = '░'.repeat(emptyCount);
+      return `[${filled}${empty}] ${percent}%`;
+    }
+
+    function countUpNumber(elem, targetVal, durationMs = 600) {
+      if (!elem) return;
+      const startTime = performance.now();
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        const ease = 1 - (1 - progress) * (1 - progress);
+        const current = (ease * targetVal).toFixed(2);
+        elem.textContent = current;
+        if (progress < 1) {
+          const af = requestAnimationFrame(update);
+          animationFrames.push(af);
+        } else {
+          elem.textContent = targetVal.toFixed(2);
+        }
+      }
+      const af = requestAnimationFrame(update);
+      animationFrames.push(af);
+    }
+
+    function runProgressBar(elemId, durationMs = 450, onDone) {
+      const elem = document.getElementById(elemId);
+      if (!elem) {
+        if (onDone) onDone();
+        return;
+      }
+      const startTime = performance.now();
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        const percent = Math.round(progress * 100);
+        elem.textContent = generateAsciiProgress(percent, 16);
+        if (progress < 1) {
+          const af = requestAnimationFrame(tick);
+          animationFrames.push(af);
+        } else {
+          elem.textContent = generateAsciiProgress(100, 16);
+          if (onDone) onDone();
+        }
+      }
+      const af = requestAnimationFrame(tick);
+      animationFrames.push(af);
+    }
+
+    const fullFinalOutput = `
+      <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>
+      <div class="terminal-line t-cyan">[INIT] Auditing 24 files across 7 CQS v1.1 domains in memory...</div>
+      <div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar">[████████████████] 100%</span> <span class="t-muted">Probes complete</span></span></div>
+      <div class="term-domains-grid">
+        <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL ✗]</div>
+        <div class="terminal-line t-warn">│   └─ [GB-01/P0] Secret Detected: AWS Secret Key in config.js:14</div>
+        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+      </div>
+      <div class="terminal-line t-muted">  └─ Composite Score: <span class="t-warn">52.40 / 100.00</span> (Required: 60.00%) | Artifact: .castle/compliance-report.html</div>
+      <div class="terminal-line t-blocked" style="font-weight:700;">[GATE DECISION]: BLOCKED (Exit Code 1) — Release Vetoed by C1 Policy</div>
+      
+      <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">$</span> <span class="t-cmd"># Remediating: Extracted AWS_SECRET_KEY to process.env and updated package-lock.json</span></div>
+      <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">git commit -m "fix(security): sanitize AWS credentials from codebase"</span></div>
+
+      <div class="terminal-line" style="margin-top:8px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>
+      <div class="terminal-line t-cyan">[INIT] Re-evaluating 7 CQS v1.1 domains in memory...</div>
+      <div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar">[████████████████] 100%</span> <span class="t-muted">Probes complete (142ms)</span></span></div>
+      <div class="term-domains-grid">
+        <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS ✓]</div>
+      </div>
+      <div class="terminal-line t-pass" style="font-weight:700;">[GATE DECISION]: PASSED (Exit Code 0) — Release Authorized for C1</div>
+      <div class="terminal-line t-muted">  └─ Gate Breakers: <span class="t-pass">CLEARED (0 Active)</span> | Score: <span class="t-pass">88.89</span> / 100.00 (Threshold: 60.00%)</div>
+
+      <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner verify-cert --cert .castle/release-certificate.json</span></div>
+      <div class="terminal-cert-box">
+        <div class="terminal-cert-header">
+          <span>CASTLE QUALITY &amp; SECURITY GATE (CQS v1.1) • RELEASE CERTIFICATE</span>
+          <span class="t-pass">AUTHENTICATED ✓</span>
+        </div>
+        <div class="terminal-cert-body">
+          <div class="terminal-cert-row"><span class="terminal-cert-label">Validation ID:</span><span class="terminal-cert-val t-cyan">CG-2026-68D04F</span></div>
+          <div class="terminal-cert-row"><span class="terminal-cert-label">Policy Level:</span><span class="terminal-cert-val">C1 Foundation (Score: 88.89 / 100.00 — Threshold: 60.00%)</span></div>
+          <div class="terminal-cert-row"><span class="terminal-cert-label">Target Commit:</span><span class="terminal-cert-val">367e84b54ef8db5958f79719c8bf956daf87af82</span></div>
+          <div class="terminal-cert-row"><span class="terminal-cert-label">SHA-256 Digest:</span><span class="terminal-cert-val t-muted">e5fce5791c89012a4b88d3e914029fa2b731804e4c9ab9e083c2718fa9587421</span></div>
+          <div class="terminal-cert-row" style="margin-top:4px;"><span class="terminal-cert-label">Status:</span><span class="terminal-cert-val t-pass" style="font-weight:700;">RELEASE AUTHORIZED FOR DEPLOYMENT (Exit Code 0)</span></div>
+        </div>
+      </div>
+      <div class="terminal-line t-pass" style="font-weight:600;">[CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>
+    `;
 
     function startDemo() {
       if (isRunning) return;
+      
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        terminalBody.innerHTML = fullFinalOutput;
+        runDemoBtn.disabled = false;
+        runDemoBtn.innerHTML = '<span>Reiniciar Demostración</span>';
+        return;
+      }
+
       isRunning = true;
       runDemoBtn.disabled = true;
-      runDemoBtn.textContent = "Ejecutando...";
-      terminalBody.innerHTML = "";
+      runDemoBtn.innerHTML = '<span class="term-spinner"></span> <span>Evaluando en memoria...</span>';
+      terminalBody.innerHTML = '';
 
-      demoSteps.forEach((step, index) => {
-        const t = setTimeout(() => {
-          terminalBody.innerHTML += step.content;
-          terminalBody.scrollTop = terminalBody.scrollHeight;
-          if (index === demoSteps.length - 1) {
-            isRunning = false;
-            runDemoBtn.disabled = false;
-            runDemoBtn.textContent = "Reiniciar Demostración";
-          }
-        }, step.delay);
-        timeouts.push(t);
-      });
+      function appendContent(html) {
+        terminalBody.insertAdjacentHTML('beforeend', html);
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }
+
+      // Step 1: Command 1 (0ms)
+      appendContent('<div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span><span class="terminal-cursor"></span></div>');
+
+      // Step 2: Init & Progress (450ms)
+      const t1 = setTimeout(() => {
+        const cursor = terminalBody.querySelector('.terminal-cursor');
+        if (cursor) cursor.remove();
+
+        appendContent('<div class="terminal-line t-cyan">[INIT] Auditing 24 files across 7 CQS v1.1 domains in memory...</div>');
+        appendContent('<div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar" id="prog-bar-1">[░░░░░░░░░░░░░░░░] 0%</span> <span class="t-muted">Scanning AST probes...</span></span></div>');
+        
+        runProgressBar('prog-bar-1', 500);
+      }, 450);
+      timeouts.push(t1);
+
+      // Step 3: Gate Breaker Active & Blocked Decision (1250ms)
+      const t2 = setTimeout(() => {
+        terminalWindow.classList.add('flash-blocked');
+        const tf = setTimeout(() => terminalWindow.classList.remove('flash-blocked'), 400);
+        timeouts.push(tf);
+
+        appendContent(`
+          <div class="term-domains-grid">
+            <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL ✗]</div>
+            <div class="terminal-line t-warn">│   └─ [GB-01/P0] Secret Detected: AWS Secret Key in config.js:14</div>
+            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+          </div>
+          <div class="terminal-line t-muted">  └─ Composite Score: <span class="t-warn">52.40 / 100.00</span> (Required: 60.00%) | Artifact: .castle/compliance-report.html</div>
+          <div class="terminal-line t-blocked" style="font-weight:700;">[GATE DECISION]: BLOCKED (Exit Code 1) — Release Vetoed by C1 Policy</div>
+        `);
+      }, 1250);
+      timeouts.push(t2);
+
+      // Step 4: Remediation (2400ms)
+      const t3 = setTimeout(() => {
+        appendContent(`
+          <div class="terminal-line" style="margin-top:12px;"><span class="t-prompt">$</span> <span class="t-cmd"># Remediating: Extracted AWS_SECRET_KEY to process.env and updated package-lock.json</span></div>
+          <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">git commit -m "fix(security): sanitize AWS credentials from codebase"</span></div>
+        `);
+      }, 2400);
+      timeouts.push(t3);
+
+      // Step 5: Command 2 (3300ms)
+      const t4 = setTimeout(() => {
+        appendContent(`
+          <div class="terminal-line" style="margin-top:8px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner scan --dir ./api-service --level C1</span></div>
+          <div class="terminal-line t-cyan">[INIT] Re-evaluating 7 CQS v1.1 domains in memory...</div>
+          <div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar" id="prog-bar-2">[░░░░░░░░░░░░░░░░] 0%</span> <span class="t-muted">Probes complete (142ms)</span></span></div>
+        `);
+        runProgressBar('prog-bar-2', 450);
+      }, 3300);
+      timeouts.push(t4);
+
+      // Step 6: Domains Passed & Score Countup (4100ms)
+      const t5 = setTimeout(() => {
+        terminalWindow.classList.add('flash-passed');
+        const tf = setTimeout(() => terminalWindow.classList.remove('flash-passed'), 450);
+        timeouts.push(tf);
+
+        appendContent(`
+          <div class="term-domains-grid">
+            <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS ✓]</div>
+          </div>
+          <div class="terminal-line t-pass" style="font-weight:700;">[GATE DECISION]: PASSED (Exit Code 0) — Release Authorized for C1</div>
+          <div class="terminal-line t-muted">  └─ Gate Breakers: <span class="t-pass">CLEARED (0 Active)</span> | Score: <span class="t-pass" id="score-counter">0.00</span> / 100.00 (Threshold: 60.00%)</div>
+        `);
+
+        countUpNumber(document.getElementById('score-counter'), 88.89, 700);
+      }, 4100);
+      timeouts.push(t5);
+
+      // Step 7: Release Certificate Verification (5200ms)
+      const t6 = setTimeout(() => {
+        appendContent(`
+          <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">$</span> <span class="t-cmd">./bin/castle-gate-runner verify-cert --cert .castle/release-certificate.json</span></div>
+          <div class="terminal-cert-box">
+            <div class="terminal-cert-header">
+              <span>CASTLE QUALITY &amp; SECURITY GATE (CQS v1.1) • RELEASE CERTIFICATE</span>
+              <span class="t-pass">AUTHENTICATED ✓</span>
+            </div>
+            <div class="terminal-cert-body">
+              <div class="terminal-cert-row"><span class="terminal-cert-label">Validation ID:</span><span class="terminal-cert-val t-cyan">CG-2026-68D04F</span></div>
+              <div class="terminal-cert-row"><span class="terminal-cert-label">Policy Level:</span><span class="terminal-cert-val">C1 Foundation (Score: 88.89 / 100.00 — Threshold: 60.00%)</span></div>
+              <div class="terminal-cert-row"><span class="terminal-cert-label">Target Commit:</span><span class="terminal-cert-val">367e84b54ef8db5958f79719c8bf956daf87af82</span></div>
+              <div class="terminal-cert-row"><span class="terminal-cert-label">SHA-256 Digest:</span><span class="terminal-cert-val t-muted">e5fce5791c89012a4b88d3e914029fa2b731804e4c9ab9e083c2718fa9587421</span></div>
+              <div class="terminal-cert-row" style="margin-top:4px;"><span class="terminal-cert-label">Status:</span><span class="terminal-cert-val t-pass" style="font-weight:700;">RELEASE AUTHORIZED FOR DEPLOYMENT (Exit Code 0)</span></div>
+            </div>
+          </div>
+          <div class="terminal-line t-pass" style="font-weight:600;">[CERTIFICATE VALID]: SHA-256 Digest matches EvidencePackage. Release Authorized.</div>
+        `);
+
+        isRunning = false;
+        runDemoBtn.disabled = false;
+        runDemoBtn.innerHTML = '<span>Reiniciar Demostración</span>';
+      }, 5200);
+      timeouts.push(t6);
     }
 
     runDemoBtn.addEventListener('click', () => {
-      clearAllTimeouts();
+      clearAllTimers();
       isRunning = false;
       startDemo();
     });
 
     if (resetDemoBtn) {
       resetDemoBtn.addEventListener('click', () => {
-        clearAllTimeouts();
+        clearAllTimers();
         isRunning = false;
-        terminalBody.innerHTML = '<div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo real.</div>';
+        terminalBody.innerHTML = '<div class="terminal-line t-muted">// Terminal lista. Haz clic en "Ejecutar Demo en Vivo" para ver el flujo determinista en memoria.</div>';
         runDemoBtn.disabled = false;
-        runDemoBtn.textContent = "Ejecutar Demo en Vivo";
+        runDemoBtn.innerHTML = '<span>Ejecutar Demo en Vivo</span>';
       });
     }
   });
