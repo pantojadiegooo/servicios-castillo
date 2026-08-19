@@ -71,6 +71,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <script is:inline>
       (function() {
         const formPredelivery = document.getElementById('publish-predelivery-form');
+        const getApiUrl = (path) => (window.__CASTILLO_API_URL__ || '') + path;
 
         formPredelivery.addEventListener('submit', async function(e) {
           e.preventDefault();
@@ -80,7 +81,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           const score = Number(document.getElementById('pd-score').value) || 100;
 
           try {
-            const res = await fetch('/api/predelivery/publish', {
+            const res = await fetch(getApiUrl('/api/predelivery/publish'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer eng_token_demo' },
               body: JSON.stringify({

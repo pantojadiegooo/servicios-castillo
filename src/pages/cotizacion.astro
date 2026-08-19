@@ -234,13 +234,15 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           });
         }
 
+        const getApiUrl = (path) => (window.__CASTILLO_API_URL__ || '') + path;
+
         acceptForm.addEventListener('submit', async function(e) {
           e.preventDefault();
           const name = document.getElementById('signer-name').value.trim();
           const email = document.getElementById('signer-email').value.trim();
 
           try {
-            await fetch(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`, {
+            await fetch(getApiUrl(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ acceptedByName: name, acceptedByEmail: email })

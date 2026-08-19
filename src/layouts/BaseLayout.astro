@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { title, description, canonical, ogUrl } = Astro.props;
+const publicApiUrl = import.meta.env.PUBLIC_API_URL || '';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -51,6 +52,9 @@ const jsonLd = {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script is:inline define:vars={{ publicApiUrl }}>
+  window.__CASTILLO_API_URL__ = publicApiUrl;
+</script>
 <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
