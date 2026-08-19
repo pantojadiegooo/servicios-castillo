@@ -205,20 +205,25 @@ function verifyAssuranceArtifact(params) {
 
   // Step 6: Independent Trust Anchor Validation
   let trustAnchorStoreInstance = trustAnchorStore || null;
-  if (!trustAnchorStoreInstance && trustAnchorPath && fs.existsSync(trustAnchorPath)) {
-    try {
-      trustAnchorStoreInstance = TrustAnchorStore.loadFromFile(trustAnchorPath);
-    } catch (err) {
+  if (!trustAnchorStoreInstance && trustAnchorPath) {
+    if (!fs.existsSync(trustAnchorPath)) {
       status = 'INVALID';
-      diagnostics.push(`Failed to load independent trust anchor from "${trustAnchorPath}": ${err.message}`);
+      diagnostics.push(`Trust anchor file not found: "${trustAnchorPath}" (fail-closed).`);
+    } else {
+      try {
+        trustAnchorStoreInstance = TrustAnchorStore.loadFromFile(trustAnchorPath);
+      } catch (err) {
+        status = 'INVALID';
+        diagnostics.push(`Failed to load independent trust anchor from "${trustAnchorPath}": ${err.message}`);
+      }
     }
   }
 
   let trustAnchorResult = { checked: false, trusted: true };
-  if (trustAnchorStoreInstance || requireTrustAnchor) {
+  if (trustAnchorStoreInstance || requireTrustAnchor || trustAnchorPath) {
     if (!trustAnchorStoreInstance) {
       status = 'INVALID';
-      diagnostics.push('Independent trust anchor is required by policy, but no trust anchor store was found (fail-closed).');
+      diagnostics.push('Independent trust anchor is required by policy, but no trust anchor store was loaded (fail-closed).');
       trustAnchorResult = { checked: true, trusted: false, reason: 'TRUST_ANCHOR_MISSING' };
     } else {
       const anchorCheck = trustAnchorStoreInstance.isKeyTrusted(pubKey || (integrity && integrity.pki_signature_extension && integrity.pki_signature_extension.public_key_pem), signingKeyId);
@@ -235,19 +240,24 @@ function verifyAssuranceArtifact(params) {
   // Step 7: Key Revocation Status Evaluation
   let revocationResult = { checked: false, status: 'UNCHECKED' };
   let effectiveRevocationManifest = revocationManifest || null;
-  if (!effectiveRevocationManifest && revocationManifestPath && fs.existsSync(revocationManifestPath)) {
-    try {
-      effectiveRevocationManifest = JSON.parse(fs.readFileSync(revocationManifestPath, 'utf8'));
-    } catch (err) {
+  if (!effectiveRevocationManifest && revocationManifestPath) {
+    if (!fs.existsSync(revocationManifestPath)) {
       status = 'INVALID';
-      diagnostics.push(`Failed to load key revocation manifest from "${revocationManifestPath}": ${err.message}`);
+      diagnostics.push(`Revocation manifest file not found: "${revocationManifestPath}" (fail-closed).`);
+    } else {
+      try {
+        effectiveRevocationManifest = JSON.parse(fs.readFileSync(revocationManifestPath, 'utf8'));
+      } catch (err) {
+        status = 'INVALID';
+        diagnostics.push(`Failed to load key revocation manifest from "${revocationManifestPath}": ${err.message}`);
+      }
     }
   }
 
-  if (signingKeyId && (effectiveRevocationManifest || requireRevocationCheck)) {
+  if (signingKeyId && (effectiveRevocationManifest || requireRevocationCheck || revocationManifestPath)) {
     const certIssuedAt = unverifiedPayload.issued_at || (unverifiedPayload.provenance && unverifiedPayload.provenance.timestamp);
     const revCheck = checkKeyRevocationStatus(signingKeyId, certIssuedAt, effectiveRevocationManifest, {
-      requireManifest: requireRevocationCheck
+      requireManifest: requireRevocationCheck || Boolean(revocationManifestPath)
     });
 
     revocationResult = { checked: true, ...revCheck };

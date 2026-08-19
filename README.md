@@ -84,12 +84,22 @@ castle-gate scan \
 
 ### 3. Independently Verify Release Offline (`castle-verify`)
 Downstream consumers or air-gapped deployment gates can verify authenticity:
+
 ```bash
+# Basic Cryptographic Verification
 castle-verify \
   --cert ./.castle/release-certificate.json \
   --key ./.castle/MyProject-public.pem \
   --report ./.castle/compliance-report.html \
   --commit "1234567890abcdef1234567890abcdef12345678"
+
+# Strict Verification with Independent Trust Anchor & Revocation Enforcement
+castle-verify \
+  --cert ./.castle/release-certificate.json \
+  --trust-anchor ./trust-anchors.json \
+  --require-trust-anchor \
+  --revocations ./revocations.json \
+  --require-revocation-check
 
 # Output: [CERTIFICATE VALID] Evaluation EVAL-... authorized for release on "PaymentService" (Exit Code 0)
 ```
@@ -126,16 +136,17 @@ Castle Gate maps CQS v1.1 evaluation results to international frameworks:
 ## 7. Governance, Assurance Scope & Threat Model
 
 For detailed documentation on cryptographic trust chains, governance, and assurance boundaries:
-* [Assurance Scope & Evaluation Model](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/security/ASSURANCE_SCOPE.md)
-* [CQS Versioning Process & Freeze Governance](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/governance/CQS-VERSIONING-PROCESS.md)
-* [Official Claims & Anti-Claims Register](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md)
-* [Release Handoff & Architecture Dossier](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/RELEASE_HANDOFF_v1.0.0.md)
-* [Threat Model & Invariant Protections](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY-THREAT-MODEL.md)
-* [Vulnerability Disclosure Policy](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/SECURITY.md)
+* [Assurance Scope & Evaluation Model](./docs/security/ASSURANCE_SCOPE.md)
+* [CQS Versioning Process & Freeze Governance](./docs/governance/CQS-VERSIONING-PROCESS.md)
+* [Official Claims & Anti-Claims Register](./CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md)
+* [Release Handoff & Architecture Dossier](./docs/RELEASE_HANDOFF_v1.0.0.md)
+* [Threat Model & Invariant Protections](./SECURITY-THREAT-MODEL.md)
+* [Vulnerability Disclosure Policy](./SECURITY.md)
 
 ---
 
 ## 8. License
 
 Copyright © 2026 Grupo Castillo Security & Software Architecture. All rights reserved.
-See [LICENSE](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/LICENSE) for terms.
+See [LICENSE](./LICENSE) for terms.
+

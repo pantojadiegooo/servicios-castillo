@@ -77,7 +77,9 @@ function parseArgs(args) {
     keyPath: null,
     pubkeyPath: null,
     trustAnchorPath: null,
+    requireTrustAnchor: false,
     revocationsPath: null,
+    requireRevocationCheck: false,
     passphrase: null,
     outPath: null,
     waiversPath: null,
@@ -105,6 +107,10 @@ function parseArgs(args) {
       parsed.command = 'help';
     } else if (arg === '--version' || arg === '-v') {
       parsed.command = 'version';
+    } else if (arg === '--require-trust-anchor') {
+      parsed.requireTrustAnchor = true;
+    } else if (arg === '--require-revocation-check') {
+      parsed.requireRevocationCheck = true;
     } else if ((arg === '--level' || arg === '-l') && args[i + 1]) {
       parsed.level = args[++i].toUpperCase();
     } else if ((arg === '--dir' || arg === '-d') && args[i + 1]) {
@@ -133,7 +139,7 @@ function parseArgs(args) {
       parsed.pubkeyPath = args[++i];
     } else if (arg === '--trust-anchor' && args[i + 1]) {
       parsed.trustAnchorPath = args[++i];
-    } else if (arg === '--revocations' && args[i + 1]) {
+    } else if ((arg === '--revocations' || arg === '--revocation-manifest') && args[i + 1]) {
       parsed.revocationsPath = args[++i];
     } else if (arg === '--passphrase' && args[i + 1]) {
       parsed.passphrase = args[++i];
@@ -143,6 +149,7 @@ function parseArgs(args) {
       parsed.waiversPath = args[++i];
     } else if (arg === '--sarif' && args[i + 1]) {
       parsed.sarifPath = args[++i];
+
     } else if (arg === '--sbom' && args[i + 1]) {
       parsed.sbomPath = args[++i];
     } else if (arg === '--sign') {
@@ -280,7 +287,9 @@ function runCli(rawArgs) {
       artifactPath: targetFile,
       publicKeyPem: pubKeyPem,
       trustAnchorPath: args.trustAnchorPath,
+      requireTrustAnchor: args.requireTrustAnchor,
       revocationManifestPath: args.revocationsPath,
+      requireRevocationCheck: args.requireRevocationCheck,
       expectedCommit: args.commit
     });
 

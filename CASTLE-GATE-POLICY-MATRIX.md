@@ -1,5 +1,5 @@
-# Castle Security & Quality Gate (C1→C6) — Policy Matrix Specification
-**Document Version:** `1.0.0-candidate`  
+# Castle Security & Quality Gate — Policy Matrix & Exception Register
+**Document Version:** `1.0.1`  
 **Classification:** Normative Policy Matrix Standard  
 **Underlying Engine:** `CQS v1.1 Engine (FROZEN / SINGLE SOURCE OF TRUTH)`  
 **Authority Reference:** Castle Engineering Architecture Board  

@@ -83,8 +83,8 @@ function createBoundEvidenceArtifact(params) {
       cqs_specification_version: cqsVersion,
       policy_version: effective_policy.policy_version || effective_policy.version || '1.0.0-ratified',
       policy_hash: policyHash,
-      engine_version: '1.0.0',
-      castle_gate_version: gate_decision.versioning ? gate_decision.versioning.gate_version : '1.0.0-candidate'
+      engine_version: '1.0.1',
+      castle_gate_version: gate_decision.versioning ? gate_decision.versioning.gate_version : '1.0.1'
     },
     assessment: {
       gate_level: gate_decision.gate_level || 'UNSPECIFIED',

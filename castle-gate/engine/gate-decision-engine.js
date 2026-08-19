@@ -25,7 +25,7 @@ const {
 
 const { resolveGatePolicy } = require('../policy/policy-resolver');
 
-const GATE_VERSION = '1.0.0-candidate';
+const GATE_VERSION = '1.0.1';
 
 /**
  * Evaluates delivery release readiness for a target system.

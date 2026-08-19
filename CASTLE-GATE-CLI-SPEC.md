@@ -1,7 +1,7 @@
-# Castle Security & Quality Gate — CLI Specification
+# Castle Security & Quality Gate — CLI Interface & Invariant Specification
 **Document ID:** `SPEC-GATE-CLI-2026-01`  
 **Command:** `node castle-gate/cli/bin.js`  
-**Operational Version:** `1.0.0-candidate`  
+**Operational Version:** `1.0.1`  
 
 ---
 

@@ -1,5 +1,5 @@
-# Castle Security & Quality Gate (C1→C6) — Architectural Specification
-**Document Version:** `1.0.0-candidate`  
+# Castle Security & Quality Gate — Core Architecture Specification
+**Document Version:** `1.0.1`  
 **Classification:** Core Governance & Delivery Architecture Standard  
 **Underlying Engine:** `CQS v1.1 Engine (FROZEN / SINGLE SOURCE OF TRUTH)`  
 **Maintainer:** Castle Engineering Architecture Board

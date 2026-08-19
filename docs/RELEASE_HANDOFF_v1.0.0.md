@@ -31,9 +31,9 @@ La metodología CQS v1.1 constituye la única fuente de verdad normativa para la
 | **Estado Normativo** | **`RATIFIED_FROZEN`** | Congelado |
 
 - **Artefactos Normativos:**
-  - Especificación formal: [`cqs/specification/specification.json`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/cqs/specification/specification.json)
-  - Invariantes matemáticos: [`cqs/governance/invariants.json`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/cqs/governance/invariants.json)
-  - Proceso de evolución futura: [`docs/governance/CQS-VERSIONING-PROCESS.md`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/governance/CQS-VERSIONING-PROCESS.md)
+  - Especificación formal: [`cqs/specification/specification.json`](../cqs/specification/specification.json)
+  - Invariantes matemáticos: [`cqs/governance/invariants.json`](../cqs/governance/invariants.json)
+  - Proceso de evolución futura: [`docs/governance/CQS-VERSIONING-PROCESS.md`](./governance/CQS-VERSIONING-PROCESS.md)
 
 ---
 
@@ -43,10 +43,10 @@ La arquitectura de confianza de Castle Gate garantiza verificabilidad offline e 
 
 1. **Canonicidad de Datos:** Normalización estricta bajo **RFC 8785 JSON Canonicalization Scheme (JCS)** sobre todos los payloads de evidencia, políticas, waivers y certificados.
 2. **Firmas Digitales Asimétricas:** Criptografía de curva elíptica **Ed25519** para autenticación de autoría.
-3. **Independent Trust Anchor:** Desacoplado del sistema evaluado y distribuido canónicamente en [`castle-gate/trust-anchors.json`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/castle-gate/trust-anchors.json), protegiendo contra ataques de compromiso de sitio y sustitución de claves.
+3. **Independent Trust Anchor:** Desacoplado del sistema evaluado y distribuido canónicamente en [`castle-gate/trust-anchors.json`](../castle-gate/trust-anchors.json), protegiendo contra ataques de compromiso de sitio y sustitución de claves.
 4. **Ciclo de Vida de Revocación de Claves:** Manifiestos de revocación firmados con alcance temporal (`issued_at` vs `revoked_at`) y soporte para preservación de validez histórica o revocación retroactiva.
 5. **Respaldo Seguro y Recuperación de Desastres:** Cifrado autenticado **AES-256-GCM** derivado mediante **PBKDF2-HMAC-SHA512** (100,000 iteraciones) con exclusión estricta en `.gitignore`.
-6. **Verificador Independiente:** Herramienta CLI offline [`castle-gate/verifier/castle-verify.js`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/castle-gate/verifier/castle-verify.js).
+6. **Verificador Independiente:** Herramienta CLI offline [`castle-gate/verifier/castle-verify.js`](../castle-gate/verifier/castle-verify.js).
 
 ---
 
@@ -63,17 +63,17 @@ La arquitectura de confianza de Castle Gate garantiza verificabilidad offline e 
 - **Certificado de Self-Dogfooding:**
   - Target: `castle-gate-engine` (`./castle-gate`, 151 archivos).
   - CQS Score: **72.73 / 100.00** (`CONDITIONAL_APPROVAL`, Compuerta C1 Foundation **PASSED**, Exit Code 0).
-  - Certificado emitido: [`.castle-self-dogfooding/release-certificate.json`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/.castle-self-dogfooding/release-certificate.json) vinculado al commit real y verificado criptográficamente.
+  - Certificado emitido: [`.castle-self-dogfooding/release-certificate.json`](../.castle-self-dogfooding/release-certificate.json) vinculado al commit real y verificado criptográficamente.
 
 ---
 
 ## 5. Alcance de Assurance y Delimitación de Responsabilidad
 
-Conforme a lo ratificado en [`docs/security/ASSURANCE_SCOPE.md`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/docs/security/ASSURANCE_SCOPE.md):
+Conforme a lo ratificado en [`docs/security/ASSURANCE_SCOPE.md`](./security/ASSURANCE_SCOPE.md):
 
 - **Naturaleza de las Pruebas:** Evaluaciones automatizadas, algorítmicas, determinísticas, adversariales y asistidas por inteligencia artificial realizadas sobre el código fuente y artefactos del repositorio.
 - **Límites de Assurance:** Las evaluaciones internas **NO constituyen un pentest humano independiente, ni una auditoría externa certificada (ej. ISO 27001 / SOC 2 / CREST), ni una garantía de seguridad absoluta**.
-- **Matriz de Comunicación:** Todo claim comercial debe respetar estrictamente [`CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md`](file:///C:/Users/panto/.gemini/antigravity/scratch/castle-engineering/CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md).
+- **Matriz de Comunicación:** Todo claim comercial debe respetar estrictamente [`CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md`](../CASTLE-GATE-CLAIMS-AND-ANTI-CLAIMS-v1.0.md).
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "name": "@grupo-castillo/castle-gate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deterministic Multi-Domain Quality & Security Gate Engine for Software Releases",
   "main": "castle-gate/index.js",
   "bin": {

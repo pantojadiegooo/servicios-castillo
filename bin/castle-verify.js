@@ -20,23 +20,27 @@ const { verifyAssuranceArtifact } = require('../castle-gate/verifier/castle-veri
 
 function printUsage() {
   console.log(`
-Castle Gate Independent Verifier (castle-verify v1.0.0)
+Castle Gate Independent Verifier (castle-verify v1.0.1)
 Cryptographic Offline Software Assurance Verification Tool | Grupo Castillo
 
 USAGE:
-  castle-verify --artifact <file> [--key <pubkey.pem>] [options]
-  castle-verify <file> [--key <pubkey.pem>]
+  castle-verify --artifact <file> [options]
+  castle-verify <file> [options]
 
 OPTIONS:
-  --artifact, -a <file>     Path to evidence.json, release-certificate.json, or dsse.json.
-  --key, -k <file>          Path to Ed25519 public key (.pem) for asymmetric signature verification.
-  --commit <sha>            Expected Git commit SHA to assert against evidence binding.
-  --policy-hash <hash>      Expected canonical policy SHA-256 hash.
-  --html <file>             Path to compliance-report.html to verify report integrity binding.
-  --sarif <file>            Path to sarif.json to verify SARIF integrity binding.
-  --sbom <file>             Path to sbom.json to verify SBOM integrity binding.
-  --json                    Output verification verdict and diagnostics in JSON format.
-  --help, -h                Displays this help screen.
+  --artifact, -a <file>         Path to evidence.json, release-certificate.json, or dsse.json.
+  --key, -k <file>              Path to Ed25519 public key (.pem) for asymmetric signature verification.
+  --trust-anchor, --anchor <f>  Path to independent trust-anchors.json store.
+  --require-trust-anchor        Enforce fail-closed check that signing key is anchored in a trusted root.
+  --revocations, --rev-manifest <f> Path to signed key revocation manifest JSON.
+  --require-revocation-check    Enforce fail-closed check against key revocation manifest.
+  --commit <sha>                Expected Git commit SHA to assert against evidence binding.
+  --policy-hash <hash>          Expected canonical policy SHA-256 hash.
+  --html, --report <file>       Path to compliance-report.html to verify report integrity binding.
+  --sarif <file>                Path to sarif.json to verify SARIF integrity binding.
+  --sbom <file>                 Path to sbom.json to verify SBOM integrity binding.
+  --json                        Output verification verdict and diagnostics in JSON format.
+  --help, -h                    Displays this help screen.
 
 EXIT CODES:
   0 = VALID
@@ -49,13 +53,18 @@ function parseArgs(argv) {
   const parsed = {
     artifactPath: null,
     publicKeyPath: null,
+    trustAnchorPath: null,
+    requireTrustAnchor: false,
+    revocationManifestPath: null,
+    requireRevocationCheck: false,
     expectedCommit: null,
     expectedPolicyHash: null,
     reportHtmlPath: null,
     sarifPath: null,
     sbomPath: null,
     jsonOutput: false,
-    help: false
+    help: false,
+    cliError: null
   };
 
   for (let i = 0; i < argv.length; i++) {
@@ -64,22 +73,68 @@ function parseArgs(argv) {
       parsed.help = true;
     } else if (arg === '--json') {
       parsed.jsonOutput = true;
-    } else if ((arg === '--artifact' || arg === '-a' || arg === '--cert' || arg === '--evidence') && argv[i + 1]) {
-      parsed.artifactPath = argv[++i];
-    } else if ((arg === '--key' || arg === '-k') && argv[i + 1]) {
-      parsed.publicKeyPath = argv[++i];
-    } else if (arg === '--commit' && argv[i + 1]) {
-      parsed.expectedCommit = argv[++i];
-    } else if ((arg === '--policy-hash' || arg === '--policy') && argv[i + 1]) {
-      parsed.expectedPolicyHash = argv[++i];
-    } else if ((arg === '--html' || arg === '--report') && argv[i + 1]) {
-      parsed.reportHtmlPath = argv[++i];
-    } else if (arg === '--sarif' && argv[i + 1]) {
-      parsed.sarifPath = argv[++i];
-    } else if (arg === '--sbom' && argv[i + 1]) {
-      parsed.sbomPath = argv[++i];
+    } else if (arg === '--require-trust-anchor') {
+      parsed.requireTrustAnchor = true;
+    } else if (arg === '--require-revocation-check') {
+      parsed.requireRevocationCheck = true;
+    } else if (arg === '--artifact' || arg === '-a' || arg === '--cert' || arg === '--evidence') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.artifactPath = argv[++i];
+      }
+    } else if (arg === '--key' || arg === '-k') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.publicKeyPath = argv[++i];
+      }
+    } else if (arg === '--trust-anchor' || arg === '--anchor') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.trustAnchorPath = argv[++i];
+      }
+    } else if (arg === '--revocations' || arg === '--revocation-manifest' || arg === '--rev-manifest') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.revocationManifestPath = argv[++i];
+      }
+    } else if (arg === '--commit') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.expectedCommit = argv[++i];
+      }
+    } else if (arg === '--policy-hash' || arg === '--policy') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.expectedPolicyHash = argv[++i];
+      }
+    } else if (arg === '--html' || arg === '--report') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.reportHtmlPath = argv[++i];
+      }
+    } else if (arg === '--sarif') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.sarifPath = argv[++i];
+      }
+    } else if (arg === '--sbom') {
+      if (i + 1 >= argv.length || argv[i + 1].startsWith('-')) {
+        parsed.cliError = `Missing required value for ${arg}`;
+      } else {
+        parsed.sbomPath = argv[++i];
+      }
     } else if (!arg.startsWith('-') && !parsed.artifactPath) {
       parsed.artifactPath = arg;
+    } else if (arg.startsWith('-')) {
+      parsed.cliError = `Unknown option: ${arg}`;
     }
   }
 
@@ -94,6 +149,11 @@ function main() {
     process.exit(args.help ? 0 : 3);
   }
 
+  if (args.cliError) {
+    console.error(`[CLI ERROR] ${args.cliError}`);
+    process.exit(3);
+  }
+
   if (!args.artifactPath) {
     console.error('[CLI ERROR] Missing required argument: --artifact <file>');
     process.exit(3);
@@ -102,6 +162,10 @@ function main() {
   const result = verifyAssuranceArtifact({
     artifactPath: args.artifactPath,
     publicKeyPath: args.publicKeyPath,
+    trustAnchorPath: args.trustAnchorPath,
+    requireTrustAnchor: args.requireTrustAnchor,
+    revocationManifestPath: args.revocationManifestPath,
+    requireRevocationCheck: args.requireRevocationCheck,
     expectedCommit: args.expectedCommit,
     expectedPolicyHash: args.expectedPolicyHash,
     reportHtmlPath: args.reportHtmlPath,
@@ -115,15 +179,19 @@ function main() {
     console.log('================================================================');
     console.log('Castle Gate — Independent Cryptographic Assurance Verification');
     console.log('================================================================');
-    console.log(`Target Artifact:    ${args.artifactPath}`);
-    if (args.publicKeyPath) console.log(`Public Key:         ${args.publicKeyPath}`);
+    console.log(`Target Artifact:        ${args.artifactPath}`);
+    if (args.publicKeyPath) console.log(`Public Key:             ${args.publicKeyPath}`);
+    if (args.trustAnchorPath) console.log(`Trust Anchor Store:     ${args.trustAnchorPath}`);
+    if (args.revocationManifestPath) console.log(`Revocation Manifest:    ${args.revocationManifestPath}`);
+    if (args.requireTrustAnchor) console.log(`Trust Anchor Enforced:  YES`);
+    if (args.requireRevocationCheck) console.log(`Revocation Enforced:    YES`);
     if (result.metadata) {
-      console.log(`Evaluation ID:      ${result.metadata.evaluation_id || 'N/A'}`);
-      console.log(`Target System:      ${result.metadata.target_project} (${result.metadata.environment})`);
-      console.log(`Commit SHA:         ${result.metadata.commit_sha || 'N/A'}`);
-      console.log(`Gate Level:         ${result.metadata.gate_level || 'N/A'}`);
-      console.log(`Gate Decision:      ${result.metadata.gate_decision || 'N/A'}`);
-      console.log(`CQS Score:          ${result.metadata.cqs_score !== null ? result.metadata.cqs_score : 'N/A'}`);
+      console.log(`Evaluation ID:          ${result.metadata.evaluation_id || 'N/A'}`);
+      console.log(`Target System:          ${result.metadata.target_project} (${result.metadata.environment})`);
+      console.log(`Commit SHA:             ${result.metadata.commit_sha || 'N/A'}`);
+      console.log(`Gate Level:             ${result.metadata.gate_level || 'N/A'}`);
+      console.log(`Gate Decision:          ${result.metadata.gate_decision || 'N/A'}`);
+      console.log(`CQS Score:              ${result.metadata.cqs_score !== null ? result.metadata.cqs_score : 'N/A'}`);
     }
     console.log('----------------------------------------------------------------');
     console.log('DIAGNOSTIC LOG:');
@@ -145,5 +213,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  parseArgs,
   main
 };
+

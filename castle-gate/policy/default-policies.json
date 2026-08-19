@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json-schema.grupocastillo.com/schemas/castle-gate-policies-v1.0.json",
   "specification": "Castle Security & Quality Gate Default Policy Matrix",
-  "version": "1.0.0-candidate",
+  "version": "1.0.1",
   "status": "PROPOSED_POLICY_TEMPLATES",
   "governance_note": "Specific numeric thresholds, required control subsets, evidence types, and approval matrices remain UNSPECIFIED until formal governance ratification. No arbitrary thresholds are assumed.",
   "policies": {
