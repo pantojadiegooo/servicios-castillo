@@ -729,6 +729,15 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             tradeCard.style.display = 'none';
           }
 
+          // PERSISTENCIA TEMPORAL DE SESIÓN (SIN COOKIES)
+          try {
+            sessionStorage.setItem('castle_diag_selection', JSON.stringify({
+              paquete: primary.paqueteParam,
+              necesidad: primary.necesidadParam,
+              title: primary.title
+            }));
+          } catch (e) {}
+
           // ENLACE A FORMULARIO DE CONTACTO PRELLENADO
           const contactUrl = '/contacto.html?paquete=' + encodeURIComponent(primary.paqueteParam) + '&necesidad=' + encodeURIComponent(primary.necesidadParam);
           document.getElementById('res-cta-contact').href = contactUrl;

@@ -30,7 +30,9 @@
 }
 
 .footer-grid h4,
-.footer-col h4 {
+.footer-grid h3,
+.footer-col h4,
+.footer-col h3 {
   color: var(--paper);
   font-size: 0.78rem;
   font-family: var(--f-mono);
