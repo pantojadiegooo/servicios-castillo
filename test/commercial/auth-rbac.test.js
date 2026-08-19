@@ -9,12 +9,15 @@ import assert from 'node:assert/strict';
 import { createDatabase } from '../../src/commercial/db/database.js';
 import { AuditService } from '../../src/commercial/services/audit.service.js';
 import { AuthService } from '../../src/commercial/services/auth.service.js';
+import { ProjectService } from '../../src/commercial/services/project.service.js';
+import { CommercialApiRouter } from '../../src/commercial/api/router.js';
 import { ROLES, hasCapability, CAPABILITIES } from '../../src/commercial/core/roles.js';
 
 test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
   const db = createDatabase(':memory:');
   const auditService = new AuditService(db);
   const authService = new AuthService(db, auditService);
+  const projectService = new ProjectService(db, auditService);
 
   // 1. Crear cliente y proyecto de prueba
   db.prepare(`
@@ -50,7 +53,7 @@ test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
   assert.equal(session.email, 'ana@innova.com');
   assert.equal(session.role, ROLES.CLIENTE);
 
-  // 6. Validar Aislamiento RLS: Acceso permitido a su propio proyecto
+  // 6. Validar Aislamiento a Nivel de Aplicación: Acceso permitido a su propio proyecto
   assert.doesNotThrow(() => {
     authService.enforceProjectIsolation(session, 'GC-Q-2026-000100');
   });
@@ -66,7 +69,7 @@ test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
     VALUES ('GC-Q-2026-000200', 'cli_test_2', 'silver', 'BUILD_PACKAGE', 'Sitio Beta', 'QUOTED')
   `).run();
 
-  // 8. Validar Aislamiento RLS: Acceso DENEGADO a proyecto ajeno
+  // 8. Validar Aislamiento a Nivel de Aplicación: Acceso DENEGADO a proyecto ajeno
   assert.throws(() => {
     authService.enforceProjectIsolation(session, 'GC-Q-2026-000200');
   }, /Aislamiento de proyecto activo/);
@@ -85,4 +88,32 @@ test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
   assert.equal(hasCapability(ROLES.INGENIERO, CAPABILITIES.VERIFY_PAYMENT_MANUAL), false);
   assert.equal(hasCapability(ROLES.ADMINISTRACION, CAPABILITIES.VERIFY_PAYMENT_MANUAL), true);
   assert.equal(hasCapability(ROLES.ADMINISTRACION, CAPABILITIES.AUTHORIZE_STATE_TRANSITION), true);
+
+  // 11. Revocación de sesión
+  authService.revokeSession(verifyRes.sessionToken);
+  assert.equal(authService.validateSession(verifyRes.sessionToken), null, 'Token revocado debe retornar null');
+
+  // 12. Token inválido
+  assert.equal(authService.validateSession('token_totalmente_invalido'), null);
+
+  // 13. Ingeniero no puede autorizar transiciones de estado directamente
+  const engineerActor = { userId: 'usr_eng_01', role: ROLES.INGENIERO, ip: '127.0.0.1' };
+  assert.throws(() => {
+    projectService.transitionState('GC-Q-2026-000100', 'CANCELLED', engineerActor, 'Intento de cancelación por ingeniero');
+  }, /El rol INGENIERO solo puede proponer/);
+
+  // 14. Cliente no puede ejecutar transiciones administrativas
+  const clientActor = { userId: 'cli_test_1', role: ROLES.CLIENTE, ip: '127.0.0.1' };
+  assert.throws(() => {
+    projectService.transitionState('GC-Q-2026-000100', 'CANCELLED', clientActor, 'Intento de cancelación por cliente');
+  }, /El rol CLIENTE no tiene autorización/);
+
+  // 15. Extracción de token de sesión vía Cookie HttpOnly en Router
+  const router = new CommercialApiRouter({ authService, projectService });
+  const mockReqBearer = { headers: { authorization: 'Bearer token_123' } };
+  assert.equal(router.extractSessionToken(mockReqBearer), 'token_123');
+
+  const mockReqCookie = { headers: { cookie: 'other=abc; gc_session=cookie_token_456; pref=dark' } };
+  assert.equal(router.extractSessionToken(mockReqCookie), 'cookie_token_456');
 });
+

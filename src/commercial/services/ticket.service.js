@@ -4,8 +4,8 @@
  * ============================================================================
  * Implementa la gestión integral de tickets de soporte con identificador
  * GC-T-YYYY-XXXXXX, severidades congeladas S1 a S4, SLAs calculados,
- * estados simplificados para clientes, y cierre exclusivo por confirmación
- * del cliente ("Problema resuelto").
+ * aislamiento de incidentes críticos S1 en garantía y cierre exclusivo por
+ * confirmación del cliente ("Problema resuelto").
  */
 
 import { randomBytes } from 'node:crypto';
@@ -123,14 +123,22 @@ export class TicketService {
       JSON.stringify(evidenceUrls)
     );
 
-    // Si es una severidad crítica S1 en un proyecto en garantía, transicionar proyecto a INCIDENT_OPEN
+    // Solo una severidad crítica S1 en un proyecto en estado WARRANTY activa INCIDENT_OPEN
     if (sevConfig.code === 'S1' && project.state === PROJECT_STATES.WARRANTY) {
-      this.projectService.transitionState(
+      this.db.prepare(`
+        UPDATE projects SET state = ?, updated_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now') WHERE id = ?
+      `).run(PROJECT_STATES.INCIDENT_OPEN, projectId);
+
+      this.auditService.logEvent({
         projectId,
-        PROJECT_STATES.INCIDENT_OPEN,
-        actor,
-        `Apertura de ticket crítico ${ticketId} (${title}). Activada contingencia en garantía.`
-      );
+        actorId: actor.userId,
+        actorRole: actor.role,
+        actorIp: actor.ip,
+        action: 'STATE_TRANSITION',
+        fromState: PROJECT_STATES.WARRANTY,
+        toState: PROJECT_STATES.INCIDENT_OPEN,
+        rationale: `Apertura de incidente crítico S1 (${ticketId}: "${title}"). Proyecto pasa a contingencia INCIDENT_OPEN.`
+      });
     }
 
     this.auditService.logEvent({
@@ -203,6 +211,8 @@ export class TicketService {
   /**
    * El ingeniero o administración marca el ticket como resuelto técnicamente.
    * Transiciona el estado del cliente a "Resuelto" a la espera de confirmación.
+   * Si no quedan otros incidentes S1 activos, retorna el proyecto de INCIDENT_OPEN a WARRANTY.
+   *
    * @param {string} ticketId
    * @param {string} resolutionNotes
    * @param {object} actor
@@ -224,7 +234,7 @@ export class TicketService {
     // Agregar nota de resolución en el historial
     this.addMessage(ticketId, `[RESOLUCIÓN TÉCNICA]: ${resolutionNotes}`, [], false, actor);
 
-    // Si el proyecto estaba en INCIDENT_OPEN y no quedan otros incidentes abiertos, retornar a WARRANTY
+    // Si el proyecto estaba en INCIDENT_OPEN, verificar si quedan otros incidentes S1 activos
     const project = this.projectService.getProjectById(ticket.project_id);
     if (project && project.state === PROJECT_STATES.INCIDENT_OPEN) {
       const activeS1 = this.db.prepare(`
@@ -233,12 +243,20 @@ export class TicketService {
       `).get(ticket.project_id);
 
       if (activeS1 && activeS1.count === 0) {
-        this.projectService.transitionState(
-          ticket.project_id,
-          PROJECT_STATES.WARRANTY,
-          actor,
-          `Incidente crítico ${ticketId} solventado. Proyecto retoma estado WARRANTY.`
-        );
+        this.db.prepare(`
+          UPDATE projects SET state = ?, updated_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now') WHERE id = ?
+        `).run(PROJECT_STATES.WARRANTY, ticket.project_id);
+
+        this.auditService.logEvent({
+          projectId: ticket.project_id,
+          actorId: actor.userId,
+          actorRole: actor.role,
+          actorIp: actor.ip,
+          action: 'STATE_TRANSITION',
+          fromState: PROJECT_STATES.INCIDENT_OPEN,
+          toState: PROJECT_STATES.WARRANTY,
+          rationale: `Todos los incidentes críticos S1 han sido solventados. El proyecto retorna al periodo de WARRANTY.`
+        });
       }
     }
 

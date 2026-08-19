@@ -2,10 +2,10 @@
  * ============================================================================
  * GRUPO CASTILLO — ROLES Y CONTROL DE ACCESO (RBAC) (v1.1)
  * ============================================================================
- * Define los tres roles fundamentales:
+ * Define los tres roles fundamentales y sus capacidades estrictas:
  * - CLIENTE: Consulta de su propio proyecto, pagos, aprobaciones, tickets.
- * - INGENIERO: Proyectos asignados, ejecución, hitos, staging, QA, tickets asignados.
- * - ADMINISTRACION: Control global, finanzas, asignaciones, transiciones, gobernanza.
+ * - INGENIERO: Proyectos asignados, ejecución técnica, hitos, staging, resolución de tickets.
+ * - ADMINISTRACION: Control global, finanzas, asignaciones, autorizaciones de estado, gobernanza.
  */
 
 export const ROLES = {
@@ -30,8 +30,11 @@ export const CAPABILITIES = {
   // Hitos y Entregables
   UPDATE_MILESTONE_PROGRESS: 'UPDATE_MILESTONE_PROGRESS',
   APPROVE_MILESTONE: 'APPROVE_MILESTONE',
+  PREPARE_PREDELIVERY_STAGING: 'PREPARE_PREDELIVERY_STAGING',
+  AUTHORIZE_PREDELIVERY: 'AUTHORIZE_PREDELIVERY',
   APPROVE_PREDELIVERY: 'APPROVE_PREDELIVERY',
   REPORT_PREDELIVERY_OBSERVATIONS: 'REPORT_PREDELIVERY_OBSERVATIONS',
+  AUTHORIZE_DELIVERY: 'AUTHORIZE_DELIVERY',
   CONFIRM_DELIVERY_RECEIPT: 'CONFIRM_DELIVERY_RECEIPT',
 
   // Finanzas y Pagos
@@ -74,6 +77,8 @@ const ROLE_PERMISSIONS = {
     CAPABILITIES.VIEW_ASSIGNED_PROJECTS,
     CAPABILITIES.PROPOSE_STATE_TRANSITION,
     CAPABILITIES.UPDATE_MILESTONE_PROGRESS,
+    CAPABILITIES.PREPARE_PREDELIVERY_STAGING,
+    CAPABILITIES.CREATE_TICKET,
     CAPABILITIES.REPLY_TICKET,
     CAPABILITIES.RESOLVE_TICKET,
     CAPABILITIES.UPLOAD_EVIDENCE,

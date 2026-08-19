@@ -61,6 +61,16 @@ test('Casos Negativos & Seguridad — Regla NO START infranqueable', () => {
   assert.throws(() => {
     projectService.activateProject(projectId, 'usr_admin_01', 'usr_eng_01');
   }, /El pago inicial .* no ha sido confirmado/);
+
+  // Intento 4: Ingeniero intentando activar directamente
+  assert.throws(() => {
+    projectService.transitionState(
+      projectId,
+      PROJECT_STATES.ACTIVE,
+      { userId: 'usr_eng_01', role: ROLES.INGENIERO },
+      'Ingeniero activando'
+    );
+  }, /El rol INGENIERO solo puede proponer/);
 });
 
 test('Casos Negativos — Cotización expirada tras 15 días naturales', () => {

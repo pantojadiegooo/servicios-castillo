@@ -4,10 +4,11 @@
  * ============================================================================
  * Despacha todas las peticiones HTTP del Portal de Clientes, Panel Administrativo,
  * Panel de Ingeniería y Webhooks de Pasarelas de Pago.
- * Implementa CORS seguro, verificación de sesiones, RBAC y aislamiento RLS.
+ * Implementa CORS seguro, sesiones seguras en cookies HttpOnly y Bearer tokens,
+ * control de acceso por roles (RBAC) y aislamiento multi-tenant a nivel de aplicación.
  */
 
-import { ROLES, hasCapability, CAPABILITIES } from '../core/roles.js';
+import { ROLES } from '../core/roles.js';
 
 export class CommercialApiRouter {
   /**
@@ -37,6 +38,30 @@ export class CommercialApiRouter {
   }
 
   /**
+   * Extrae el token de sesión de la cabecera Cookie o Authorization.
+   * @param {import('node:http').IncomingMessage} req
+   * @returns {string|null}
+   */
+  extractSessionToken(req) {
+    // 1. Intentar desde cabecera Authorization (Bearer <token>)
+    const authHeader = req.headers['authorization'] || '';
+    if (authHeader.startsWith('Bearer ')) {
+      return authHeader.substring(7).trim();
+    }
+
+    // 2. Intentar desde Cookie HttpOnly (gc_session=<token>)
+    const cookieHeader = req.headers['cookie'] || '';
+    if (cookieHeader) {
+      const match = cookieHeader.match(/(?:^|;\s*)gc_session=([^;]+)/);
+      if (match && match[1]) {
+        return decodeURIComponent(match[1].trim());
+      }
+    }
+
+    return null;
+  }
+
+  /**
    * Manejador central de peticiones HTTP.
    * @param {import('node:http').IncomingMessage} req
    * @param {import('node:http').ServerResponse} res
@@ -49,9 +74,10 @@ export class CommercialApiRouter {
     const actorIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1';
 
     // Headers CORS y Seguridad
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, stripe-signature, x-signature');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, stripe-signature, x-signature, x-request-id');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
 
@@ -71,9 +97,8 @@ export class CommercialApiRouter {
       }
     }
 
-    // Extracción de contexto de sesión
-    const authHeader = req.headers['authorization'] || '';
-    const sessionToken = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : null;
+    // Extracción de contexto de sesión seguro
+    const sessionToken = this.extractSessionToken(req);
     const session = sessionToken ? this.authService.validateSession(sessionToken) : null;
 
     try {
@@ -88,7 +113,19 @@ export class CommercialApiRouter {
 
       if (pathname === '/api/auth/verify' && method === 'POST') {
         const result = this.authService.verifyOtp(body.email, body.otp, actorIp);
+
+        // Fijar cookie HttpOnly para máxima seguridad en navegadores
+        res.setHeader('Set-Cookie', `gc_session=${result.sessionToken}; Path=/; HttpOnly; SameSite=Strict; Max-Age=86400`);
         this.sendJson(res, 200, result);
+        return;
+      }
+
+      if (pathname === '/api/auth/logout' && method === 'POST') {
+        if (sessionToken) {
+          this.authService.revokeSession(sessionToken);
+        }
+        res.setHeader('Set-Cookie', 'gc_session=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0');
+        this.sendJson(res, 200, { success: true, message: 'Sesión finalizada exitosamente' });
         return;
       }
 
@@ -104,6 +141,21 @@ export class CommercialApiRouter {
       if (pathname === '/api/webhooks/stripe' && method === 'POST') {
         const signature = req.headers['stripe-signature'];
         const result = this.paymentService.processStripeWebhook(body, rawBody, signature);
+        this.sendJson(res, 200, result);
+        return;
+      }
+
+      if (pathname === '/api/webhooks/mercadopago' && method === 'POST') {
+        const xSignature = req.headers['x-signature'];
+        const xRequestId = req.headers['x-request-id'];
+        const dataId = body.data?.id || body.id || parsedUrl.searchParams.get('data.id') || parsedUrl.searchParams.get('id');
+
+        const result = this.paymentService.processMercadoPagoWebhook({
+          payload: body,
+          dataId: String(dataId || ''),
+          xRequestId: String(xRequestId || ''),
+          xSignatureHeader: String(xSignature || '')
+        });
         this.sendJson(res, 200, result);
         return;
       }
@@ -157,7 +209,7 @@ export class CommercialApiRouter {
       }
 
       // ----------------------------------------------------------------------
-      // 4. RUTAS DE PROYECTOS Y EXPEDIENTES (RLS Enforced)
+      // 4. RUTAS DE PROYECTOS Y EXPEDIENTES (Application-Level Tenant Isolation)
       // ----------------------------------------------------------------------
       if (pathname.match(/^\/api\/projects\/([^/]+)$/) && method === 'GET') {
         const projectId = pathname.split('/')[3];
@@ -202,10 +254,6 @@ export class CommercialApiRouter {
         if (!session) return this.sendJson(res, 401, { error: 'Se requiere autenticación' });
         this.authService.enforceProjectIsolation(session, projectId);
 
-        if (!hasCapability(session.role, CAPABILITIES.AUTHORIZE_STATE_TRANSITION) && session.role !== ROLES.INGENIERO) {
-          return this.sendJson(res, 403, { error: 'No tienes permisos para transicionar estados' });
-        }
-
         const result = this.projectService.transitionState(
           projectId,
           body.toState,
@@ -244,9 +292,20 @@ export class CommercialApiRouter {
           castleGateValidationId: body.castleGateValidationId,
           castleGateScore: body.castleGateScore,
           castleGateCert: body.castleGateCert,
-          engineerId: session.userId,
+          actorId: session.userId,
+          actorRole: session.role,
           actorIp
         });
+        this.sendJson(res, 200, result);
+        return;
+      }
+
+      if (pathname.match(/^\/api\/predelivery\/([^/]+)\/authorize$/) && method === 'POST') {
+        const projectId = pathname.split('/')[3];
+        if (!session || session.role !== ROLES.ADMINISTRACION) {
+          return this.sendJson(res, 403, { error: 'Solo Administración puede autorizar la preentrega' });
+        }
+        const result = this.preDeliveryService.authorizePreDelivery(projectId, session.userId, actorIp);
         this.sendJson(res, 200, result);
         return;
       }

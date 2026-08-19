@@ -3,8 +3,9 @@
  * GRUPO CASTILLO — SERVICIO FINANCIERO Y PASARELAS DE PAGO (v1.1)
  * ============================================================================
  * Procesa pagos mediante Stripe, Mercado Pago y Transferencia SPEI.
- * Implementa validación criptográfica de webhooks, idempotencia, protección
- * contra repetición (replay), conciliación administrativa y gestión de chargebacks.
+ * Implementa validación criptográfica independiente para cada pasarela (HMAC SHA-256),
+ * protección contra ataques de repetición (replay), idempotencia por event_id,
+ * conciliación administrativa y gestión de chargebacks.
  */
 
 import { createHmac } from 'node:crypto';
@@ -100,8 +101,13 @@ export class PaymentService {
     };
   }
 
+  // ==========================================================================
+  // 1. PASARELA STRIPE — VALIDACIÓN Y PROCESAMIENTO
+  // ==========================================================================
+
   /**
    * Valida la firma HMAC del webhook de Stripe.
+   * Header format: t=1492774577,v1=5257a869e7ecebeda32affa62cd...
    * @param {string} rawBody
    * @param {string} signatureHeader
    * @returns {boolean}
@@ -109,10 +115,9 @@ export class PaymentService {
   verifyStripeSignature(rawBody, signatureHeader) {
     if (!signatureHeader || !rawBody) return false;
 
-    // Header format: t=1492774577,v1=5257a869e7ecebeda32affa62cd...
     const parts = signatureHeader.split(',').reduce((acc, item) => {
       const [k, v] = item.split('=');
-      acc[k] = v;
+      if (k && v) acc[k.trim()] = v.trim();
       return acc;
     }, {});
 
@@ -199,6 +204,113 @@ export class PaymentService {
     }
 
     return { success: true, processedEvent: event.type, eventId };
+  }
+
+  // ==========================================================================
+  // 2. PASARELA MERCADO PAGO — VALIDACIÓN OFICIAL (x-signature) Y PROCESAMIENTO
+  // ==========================================================================
+
+  /**
+   * Valida la firma HMAC oficial de Mercado Pago (x-signature con ts y v1).
+   * Header format: ts=1700000000,v1=5257a869e7ecebeda32affa62cd...
+   * Manifest format: id:[data.id];request-id:[x-request-id];ts:[ts];
+   *
+   * @param {string} dataId - ID del recurso notificado (ej. data.id o id de la URL)
+   * @param {string} xRequestId - Cabecera x-request-id
+   * @param {string} xSignatureHeader - Cabecera x-signature
+   * @returns {boolean}
+   */
+  verifyMercadoPagoSignature(dataId, xRequestId, xSignatureHeader) {
+    if (!xSignatureHeader || !dataId) return false;
+
+    const parts = xSignatureHeader.split(',').reduce((acc, item) => {
+      const [k, v] = item.split('=');
+      if (k && v) acc[k.trim()] = v.trim();
+      return acc;
+    }, {});
+
+    const ts = parts.ts;
+    const v1 = parts.v1;
+    if (!ts || !v1) return false;
+
+    // Verificar ventana de tiempo de 10 minutos (anti-replay)
+    const ageSeconds = Math.floor(Date.now() / 1000) - parseInt(ts, 10);
+    if (ageSeconds > 600 || ageSeconds < -60) return false;
+
+    // Manifest oficial de Mercado Pago: id:[data.id];request-id:[x-request-id];ts:[ts];
+    const manifest = `id:${dataId};request-id:${xRequestId || ''};ts:${ts};`;
+    const expectedHash = createHmac('sha256', this.mpWebhookSecret)
+      .update(manifest)
+      .digest('hex');
+
+    return v1 === expectedHash;
+  }
+
+  /**
+   * Procesa una notificación oficial de webhook de Mercado Pago.
+   * @param {object} params
+   * @param {object} params.payload - Cuerpo JSON de la notificación
+   * @param {string} params.dataId - Identificador del recurso (payment id)
+   * @param {string} params.xRequestId - Cabecera x-request-id
+   * @param {string} params.xSignatureHeader - Cabecera x-signature
+   * @returns {object}
+   */
+  processMercadoPagoWebhook({ payload, dataId, xRequestId, xSignatureHeader }) {
+    if (!this.verifyMercadoPagoSignature(dataId, xRequestId, xSignatureHeader)) {
+      throw new Error('Firma de webhook de Mercado Pago inválida (x-signature)');
+    }
+
+    const eventId = `mp_${dataId}_${payload.action || 'payment'}`;
+
+    // Idempotencia
+    const existing = this.db.prepare('SELECT * FROM webhook_events WHERE id = ?').get(eventId);
+    if (existing) {
+      return { success: true, message: 'Evento de Mercado Pago ya procesado previamente (Idempotencia).', eventId };
+    }
+
+    // Registrar evento de webhook
+    this.db.prepare(`
+      INSERT INTO webhook_events (id, provider, event_type, payload_json)
+      VALUES (?, 'MERCADO_PAGO', ?, ?)
+    `).run(eventId, payload.action || 'payment.updated', JSON.stringify(payload));
+
+    const paymentData = payload.data || payload;
+    const externalPaymentId = String(dataId);
+    const paymentRecordId = payload.metadata?.payment_id || payload.additional_info?.payment_id;
+
+    if (paymentRecordId) {
+      const payment = this.db.prepare('SELECT * FROM payments WHERE id = ?').get(paymentRecordId);
+      if (!payment) throw new Error(`Orden de pago asociada ${paymentRecordId} no encontrada`);
+
+      // Validación de moneda y estado
+      const currency = paymentData.currency_id || 'MXN';
+      if (currency !== 'MXN') {
+        throw new Error(`Moneda de pago inválida: ${currency}. Solo se admite MXN.`);
+      }
+
+      const status = paymentData.status;
+      if (status === 'approved') {
+        const paidAt = new Date().toISOString();
+        this.db.prepare(`
+          UPDATE payments
+          SET status = 'PAID', payment_method = 'MERCADO_PAGO',
+              external_transaction_id = ?, paid_at = ?
+          WHERE id = ?
+        `).run(externalPaymentId, paidAt, paymentRecordId);
+
+        this.auditService.logEvent({
+          projectId: payment.project_id,
+          actorId: 'MERCADO_PAGO_WEBHOOK',
+          actorRole: 'SYSTEM_GATEWAY',
+          action: 'PAYMENT_CONFIRMED_MERCADO_PAGO',
+          rationale: `Pago electrónico de $${payment.total_mxn} MXN confirmado vía Mercado Pago (ID: ${externalPaymentId})`
+        });
+      } else if (status === 'rejected' || status === 'cancelled') {
+        this.db.prepare("UPDATE payments SET status = 'FAILED' WHERE id = ?").run(paymentRecordId);
+      }
+    }
+
+    return { success: true, processedEvent: payload.action || 'payment', eventId };
   }
 
   /**

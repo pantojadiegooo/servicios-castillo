@@ -3,8 +3,8 @@
  * GRUPO CASTILLO — SERVICIO DE AUTENTICACIÓN Y SEGURIDAD (v1.1)
  * ============================================================================
  * Implementa autenticación passwordless (OTP de 6 dígitos con validez de 10 min),
- * gestión de sesiones seguras mediante tokens criptográficos, rate-limiting,
- * y validación estricta de aislamiento multi-tenant por rol y proyecto (RLS).
+ * gestión de sesiones seguras mediante tokens criptográficos y cookies HttpOnly,
+ * rate-limiting y aislamiento multi-tenant estricto a nivel de aplicación.
  */
 
 import { randomInt, randomBytes, createHash } from 'node:crypto';
@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   /**
-   * Genera un hash SHA-256 seguro de un token o contraseña efímera.
+   * Genera un hash SHA-256 seguro de un token o código numérico.
    * @param {string} token
    * @returns {string}
    */
@@ -95,11 +95,9 @@ export class AuthService {
       rationale: `Solicitud de código de verificación OTP para ${cleanEmail}`
     });
 
-    // En producción se despacha vía correo transaccional (Resend/SendGrid)
     return {
       success: true,
       message: 'Código de acceso seguro enviado. Válido por 10 minutos.',
-      // debugOtp para entornos de desarrollo / test
       debugOtp: process.env.NODE_ENV !== 'production' ? plainOtp : undefined
     };
   }
@@ -158,7 +156,7 @@ export class AuthService {
       userId = internalUser.id;
       userName = `${internalUser.name} ${internalUser.last_name}`;
     } else {
-      // Buscar o inferir cliente
+      // Buscar cliente
       const clientStmt = this.db.prepare('SELECT * FROM clients WHERE contact_email = ?');
       const client = clientStmt.get(cleanEmail);
       if (client) {
@@ -169,7 +167,7 @@ export class AuthService {
       }
     }
 
-    // Crear sesión
+    // Crear sesión criptográfica
     const rawSessionToken = randomBytes(32).toString('hex');
     const sessionTokenHash = AuthService.hashToken(rawSessionToken);
     const sessionId = `ses_${randomBytes(8).toString('hex')}`;
@@ -228,18 +226,26 @@ export class AuthService {
   }
 
   /**
-   * Cierra y revoca una sesión activa.
+   * Cierra y revoca una sesión activa en la base de datos.
    * @param {string} sessionToken
    */
-  logout(sessionToken) {
+  revokeSession(sessionToken) {
     if (!sessionToken) return;
     const tokenHash = AuthService.hashToken(sessionToken.trim());
     this.db.prepare('DELETE FROM sessions WHERE session_token_hash = ?').run(tokenHash);
   }
 
   /**
-   * Regla de Aislamiento Estricto Multi-Tenant (RLS).
-   * Lanza un error de seguridad si el usuario intenta acceder a un proyecto ajeno.
+   * Alias de compatibilidad para revocar sesión.
+   * @param {string} sessionToken
+   */
+  logout(sessionToken) {
+    this.revokeSession(sessionToken);
+  }
+
+  /**
+   * Aislamiento Multi-Tenant a nivel de aplicación (Application-Level Tenant Isolation).
+   * Lanza una excepción si un usuario no autorizado intenta acceder a un expediente ajeno.
    * @param {object} session
    * @param {string} projectId
    */
@@ -249,7 +255,7 @@ export class AuthService {
     }
 
     if (session.role === ROLES.ADMINISTRACION) {
-      return; // Administración tiene acceso global
+      return; // Administración ostenta acceso global para supervisión y gobernanza
     }
 
     const projStmt = this.db.prepare(`

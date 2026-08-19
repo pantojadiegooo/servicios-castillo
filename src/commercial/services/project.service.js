@@ -1,20 +1,15 @@
 /**
  * ============================================================================
- * GRUPO CASTILLO — SERVICIO DE GESTIÓN DE PROYECTOS Y GOBERNANZA (v1.1)
+ * GRUPO CASTILLO — SERVICIO DE PROYECTOS Y EXPEDIENTES (v1.1)
  * ============================================================================
- * Implementa el control riguroso de la máquina de estados, el enforcement
- * server-side de la Regla NO START, el cálculo dinámico de progreso por hitos,
- * el protocolo escalonado de Proyecto Hielo y la reactivación formal.
+ * Administra el ciclo de vida del proyecto comercial, la aplicación estricta
+ * de la Regla NO START, transiciones deterministas con autorización por rol,
+ * el recálculo matemático de progreso y el Protocolo de Proyecto Hielo.
  */
 
-import {
-  PROJECT_STATES,
-  isTransitionAllowed,
-  validateNoStartRule,
-  getPackageTrackingTimeline
-} from '../core/state-machine.js';
+import { PROJECT_STATES, isTransitionAllowed, validateNoStartRule, getPackageTrackingTimeline } from '../core/state-machine.js';
+import { ROLES, hasCapability, CAPABILITIES } from '../core/roles.js';
 import { calculateProjectProgress, MILESTONE_STATUS } from '../core/progress-calculator.js';
-import { ROLES } from '../core/roles.js';
 
 export class ProjectService {
   /**
@@ -27,12 +22,12 @@ export class ProjectService {
   }
 
   /**
-   * Obtiene el expediente completo de un proyecto con cliente, cotización, hitos, pagos y tickets.
+   * Obtiene la vista completa del expediente de un proyecto.
    * @param {string} projectId
    * @returns {object|null}
    */
   getProjectById(projectId) {
-    const projStmt = this.db.prepare(`
+    const projectStmt = this.db.prepare(`
       SELECT p.*, c.business_name, c.contact_name, c.contact_email, c.contact_phone, c.rfc_tax_id,
              u.name as engineer_name, u.last_name as engineer_last_name, u.job_title as engineer_job_title,
              u.department as engineer_department, u.photo_url as engineer_photo_url
@@ -41,27 +36,53 @@ export class ProjectService {
       LEFT JOIN internal_users u ON p.assigned_engineer_id = u.id
       WHERE p.id = ?
     `);
-    const project = projStmt.get(projectId);
+    const project = projectStmt.get(projectId);
     if (!project) return null;
 
-    const milestones = this.db.prepare('SELECT * FROM milestones WHERE project_id = ? ORDER BY code ASC').all(projectId);
-    const payments = this.db.prepare('SELECT * FROM payments WHERE project_id = ? ORDER BY created_at ASC').all(projectId);
-    const quotation = this.db.prepare('SELECT * FROM quotation_versions WHERE project_id = ? ORDER BY version_number DESC LIMIT 1').get(projectId);
-    const contract = this.db.prepare('SELECT * FROM contracts WHERE project_id = ?').get(projectId);
-    const tickets = this.db.prepare('SELECT * FROM tickets WHERE project_id = ? ORDER BY created_at DESC').all(projectId);
-    const preDelivery = this.db.prepare('SELECT * FROM pre_deliveries WHERE project_id = ? ORDER BY created_at DESC LIMIT 1').get(projectId);
+    // Obtener versión activa de cotización
+    const quotation = this.db.prepare(`
+      SELECT * FROM quotation_versions WHERE project_id = ? ORDER BY version_number DESC LIMIT 1
+    `).get(projectId);
 
+    // Obtener contrato
+    const contract = this.db.prepare(`
+      SELECT * FROM contracts WHERE project_id = ?
+    `).get(projectId);
+
+    // Obtener hitos
+    const milestones = this.db.prepare(`
+      SELECT * FROM milestones WHERE project_id = ? ORDER BY code ASC
+    `).all(projectId);
+
+    // Obtener pagos
+    const payments = this.db.prepare(`
+      SELECT * FROM payments WHERE project_id = ? ORDER BY created_at ASC
+    `).all(projectId);
+
+    // Obtener preentregas
+    const preDelivery = this.db.prepare(`
+      SELECT * FROM pre_deliveries WHERE project_id = ? ORDER BY created_at DESC LIMIT 1
+    `).get(projectId);
+
+    // Obtener tickets
+    const tickets = this.db.prepare(`
+      SELECT * FROM tickets WHERE project_id = ? ORDER BY created_at DESC
+    `).all(projectId);
+
+    // Calcular progreso matemático
     const progressData = calculateProjectProgress(milestones);
+
+    // Obtener timeline visual
     const timeline = getPackageTrackingTimeline(project.state);
 
     return {
       ...project,
-      milestones,
-      payments,
       quotation,
       contract,
-      tickets,
+      milestones,
+      payments,
       preDelivery,
+      tickets,
       progress: progressData,
       timeline
     };
@@ -160,7 +181,7 @@ export class ProjectService {
   }
 
   /**
-   * Ejecuta una transición de estado con validación de RBAC y registro de auditoría.
+   * Ejecuta una transición de estado con validación estricta de RBAC y registro de auditoría.
    * @param {string} projectId
    * @param {string} toState
    * @param {object} actor - { userId, role, ip }
@@ -179,6 +200,37 @@ export class ProjectService {
 
     if (!isTransitionAllowed(project.state, toState)) {
       throw new Error(`Transición no permitida de ${project.state} a ${toState}`);
+    }
+
+    // ------------------------------------------------------------------------
+    // ENFORCEMENT ESTRICTO DE CAPACIDADES RBAC POR TRANSICIÓN
+    // ------------------------------------------------------------------------
+    if (actor.role === ROLES.CLIENTE) {
+      // El rol CLIENTE únicamente puede transicionar estados específicos de su flujo:
+      // - PREDELIVERY -> BALANCE_PENDING (Aprobación de preentrega)
+      // - PREDELIVERY -> DEVELOPMENT (Observaciones de preentrega)
+      // - DELIVERY_READY -> WARRANTY (Confirmación de recepción del handoff)
+      // - PROJECT_FROZEN -> REACTIVATION_PENDING (Solicitud de reactivación)
+      const allowedClientTransitions = [
+        PROJECT_STATES.BALANCE_PENDING,
+        PROJECT_STATES.DEVELOPMENT,
+        PROJECT_STATES.WARRANTY,
+        PROJECT_STATES.REACTIVATION_PENDING
+      ];
+
+      if (!allowedClientTransitions.includes(toState)) {
+        throw new Error(`El rol CLIENTE no tiene autorización para ejecutar la transición de estado hacia ${toState}`);
+      }
+    } else if (actor.role === ROLES.INGENIERO) {
+      // El rol INGENIERO no puede autorizar transiciones de estado directamente en producción.
+      // Su capacidad se limita a proponer estados o actualizar hitos técnicos.
+      // La autorización administrativa de PLANNING, DEVELOPMENT, QA, PREDELIVERY, etc. es de ADMINISTRACION.
+      throw new Error(`El rol INGENIERO solo puede proponer avances de hitos técnicos; la autorización del cambio de estado hacia ${toState} requiere rol ADMINISTRACION`);
+    } else if (actor.role === ROLES.ADMINISTRACION) {
+      // ADMINISTRACION ostenta autorización para transiciones legalmente permitidas
+      if (!hasCapability(ROLES.ADMINISTRACION, CAPABILITIES.AUTHORIZE_STATE_TRANSITION)) {
+        throw new Error('Permisos administrativos insuficientes para autorizar la transición');
+      }
     }
 
     // Si transiciona a ACTIVE, forzar validación de NO START

@@ -3,7 +3,8 @@
  * GRUPO CASTILLO — SERVICIO DE PREENTREGA Y REVISIÓN EN STAGING (v1.1)
  * ============================================================================
  * Gestiona el entorno de preentrega, la vinculación de evidencia Castle Gate
- * (CQS v1.1), la aprobación formal del cliente y el flujo trazable de observaciones.
+ * (CQS v1.1), la autorización administrativa hacia PREDELIVERY, la aprobación
+ * formal del cliente y el flujo trazable de observaciones.
  */
 
 import { randomBytes } from 'node:crypto';
@@ -23,15 +24,18 @@ export class PreDeliveryService {
   }
 
   /**
-   * Publica el entorno de preentrega en staging para revisión del cliente.
-   * Transiciona el proyecto de QA a PREDELIVERY.
+   * Publica o actualiza la evidencia técnica del entorno de staging con certificación Castle Gate.
+   * Si es ejecutado por ADMINISTRACION, autoriza simultáneamente la transición QA -> PREDELIVERY.
+   * Si es ejecutado por INGENIERO, registra la evidencia técnica y requiere posterior autorización Admin.
+   *
    * @param {object} params
    * @param {string} params.projectId
    * @param {string} params.stagingUrl
    * @param {string} [params.castleGateValidationId]
    * @param {number} [params.castleGateScore]
    * @param {object} [params.castleGateCert]
-   * @param {string} params.engineerId
+   * @param {string} params.actorId
+   * @param {string} [params.actorRole=ROLES.INGENIERO]
    * @param {string} [params.actorIp]
    * @returns {object}
    */
@@ -41,7 +45,8 @@ export class PreDeliveryService {
     castleGateValidationId = null,
     castleGateScore = 100,
     castleGateCert = null,
-    engineerId,
+    actorId,
+    actorRole = ROLES.INGENIERO,
     actorIp = null
   }) {
     if (!stagingUrl) throw new Error('Se requiere la URL del entorno de staging');
@@ -65,19 +70,60 @@ export class PreDeliveryService {
       castleGateCert ? JSON.stringify(castleGateCert) : null
     );
 
-    // Transición QA -> PREDELIVERY
-    this.projectService.transitionState(
+    this.auditService.logEvent({
       projectId,
-      PROJECT_STATES.PREDELIVERY,
-      { userId: engineerId, role: ROLES.INGENIERO, ip: actorIp },
-      `Entorno de staging publicado (${stagingUrl}) con validación Castle Gate ${castleGateValidationId || 'CQS PASS'}. Listo para revisión del cliente.`
-    );
+      actorId,
+      actorRole,
+      actorIp,
+      action: 'PREDELIVERY_STAGING_REGISTERED',
+      rationale: `Evidencia de staging registrada (${stagingUrl}) con certificación Castle Gate ${castleGateValidationId || 'CQS PASS'} (Score: ${castleGateScore}/100)`
+    });
+
+    // Si el actor es ADMINISTRACION, autorizar inmediatamente la transición a PREDELIVERY
+    if (actorRole === ROLES.ADMINISTRACION) {
+      this.projectService.transitionState(
+        projectId,
+        PROJECT_STATES.PREDELIVERY,
+        { userId: actorId, role: ROLES.ADMINISTRACION, ip: actorIp },
+        `Entorno de staging aprobado y publicado formalmente para revisión del cliente con certificación Castle Gate ${castleGateValidationId || 'CQS PASS'}.`
+      );
+    }
 
     return {
       success: true,
       preDeliveryId,
       projectId,
       stagingUrl,
+      state: actorRole === ROLES.ADMINISTRACION ? PROJECT_STATES.PREDELIVERY : project.state,
+      isAuthorized: actorRole === ROLES.ADMINISTRACION
+    };
+  }
+
+  /**
+   * Administración autoriza formalmente la transición QA -> PREDELIVERY.
+   * @param {string} projectId
+   * @param {string} adminId
+   * @param {string} [actorIp]
+   * @returns {object}
+   */
+  authorizePreDelivery(projectId, adminId, actorIp = null) {
+    const project = this.projectService.getProjectById(projectId);
+    if (!project) throw new Error('Proyecto no encontrado');
+
+    if (!project.preDelivery) {
+      throw new Error('No se puede autorizar la preentrega sin un entorno de staging previamente desplegado.');
+    }
+
+    this.projectService.transitionState(
+      projectId,
+      PROJECT_STATES.PREDELIVERY,
+      { userId: adminId, role: ROLES.ADMINISTRACION, ip: actorIp },
+      `Autorización administrativa de preentrega. Notificando formalmente al cliente para su revisión en staging.`
+    );
+
+    return {
+      success: true,
+      projectId,
       state: PROJECT_STATES.PREDELIVERY
     };
   }
@@ -121,7 +167,7 @@ export class PreDeliveryService {
       `).run(paymentId, projectId, balanceSubtotal, balanceTax, balanceTotal);
     }
 
-    // Transición PREDELIVERY -> BALANCE_PENDING
+    // Transición PREDELIVERY -> BALANCE_PENDING autorizada por el cliente
     this.projectService.transitionState(
       projectId,
       PROJECT_STATES.BALANCE_PENDING,
@@ -167,7 +213,7 @@ export class PreDeliveryService {
       WHERE project_id = ?
     `).run(decisionAt, notes.trim(), JSON.stringify(evidenceUrls), projectId);
 
-    // Transición PREDELIVERY -> DEVELOPMENT
+    // Transición PREDELIVERY -> DEVELOPMENT autorizada por el cliente
     this.projectService.transitionState(
       projectId,
       PROJECT_STATES.DEVELOPMENT,
