@@ -12,7 +12,10 @@
     "check": "astro check",
     "astro": "astro",
     "castle-gate": "node ./bin/castle-gate.js",
-    "test:gate": "node ./test/castle-gate.test.js"
+    "commercial:server": "node ./bin/commercial-api.js",
+    "test:gate": "node ./test/castle-gate.test.js",
+    "test:commercial": "node ./test/commercial/run-all-commercial-tests.js",
+    "test": "node ./test/castle-gate.test.js && node ./test/commercial/run-all-commercial-tests.js"
   },
   "dependencies": {
     "astro": "^7.2.0"
