@@ -9,6 +9,7 @@
 ### SOW IDENTIFIER: GC-SOW-2026-[XXXX]
 
 **Fecha de Emisión:** [Día] de [Mes] de 202[X]  
+**Vigencia de la Cotización / SOW:** 15 días naturales a partir de la fecha de emisión  
 **Proyecto:** [Nombre del Proyecto / Aplicación]  
 **Cliente:** [Nombre del Cliente]  
 **Líder Técnico Asignado:** [Ingeniero Líder Grupo Castillo]  
@@ -17,21 +18,22 @@
 
 ### 1. SERVICIO O PAQUETE CONTRATADO
 
-Marcar la modalidad aplicable:
+Marcar la modalidad aplicable conforme al catálogo comercial oficial:
 
 - [ ] **Paquete Build:**
-  - [ ] Castle Iron (1 Página • Landing Arquitectónica • $14,900 MXN)
-  - [ ] Castle Bronze (3-5 Páginas • Presencia Corporativa • $24,900 MXN)
-  - [ ] Castle Silver (6-10 Páginas • Arquitectura Multisección • $39,900 MXN)
-  - [ ] Castle Gold (11-18 Páginas • Plataforma Corporativa Completa • $59,900 MXN)
-  - [ ] Castle Platinum (19-28 Páginas • Infraestructura & Alta Escala • $89,900 MXN)
-  - [ ] Castle Diamond (Custom Scope • Arquitectura Insignia a Medida • Desde $140,000 MXN)
+  - [ ] Castle Iron (1 Página • Landing Esencial • $2,800 MXN)
+  - [ ] Castle Bronze (Hasta 5 Secciones • Conversión PyME • $4,500 MXN)
+  - [ ] Castle Silver (Hasta 5 Páginas • Presencia Corporativa • $7,500 MXN)
+  - [ ] Castle Gold (8 a 10 Páginas • Plataforma Corporativa con Blog/CMS • $12,500 MXN)
+  - [ ] Castle Platinum (Hasta 15 Páginas • Integración Pagos/CRM & Hardening • $24,500 MXN)
+  - [ ] Castle Diamond (Custom Scope • Software & Arquitectura Insignia a Medida • Desde $40,000 MXN)
 - [ ] **Servicio Profesional Especializado:**
-  - [ ] Castle Checkup (Diagnóstico Técnico Profundo • $8,900 MXN)
-  - [ ] Castle Audit (Auditoría Integral de Calidad, Rendimiento y Seguridad • $28,000 MXN)
-  - [ ] Castle Rescue (Intervención de Rescate y Estabilización • $48,000 MXN)
-  - [ ] Castle Emergency (Respuesta Crítica en Caliente • $18,500 MXN)
-  - [ ] Castle Care (Póliza de Gobernanza y Mantenimiento Mensual • Desde $6,500 MXN/mes)
+  - [ ] Castle Checkup (Diagnóstico Técnico Profundo 72h • $8,900 MXN)
+  - [ ] Castle Audit (Auditoría Integral de Arquitectura, Rendimiento y Seguridad • Desde $19,900 MXN)
+  - [ ] Castle Rescue (Intervención de Rescate Técnico y Estabilización • Desde $6,900 MXN)
+  - [ ] Castle Emergency (Respuesta Crítica en Caliente 24/7 • Desde $5,900 MXN)
+  - [ ] Castle Care (Póliza de Gobernanza y Mantenimiento Mensual • Desde $3,500 MXN/mes)
+  - [ ] Castle Gate CLI (Licencia Anual de Gobernanza CQS v1.1 • $9,900 MXN/año)
 
 ---
 

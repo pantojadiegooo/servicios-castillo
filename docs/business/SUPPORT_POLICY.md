@@ -17,30 +17,30 @@ Grupo Castillo ofrece un modelo de soporte estructurado para acompañar la evolu
 │  1. GARANTÍA BÁSICA (30 Días - Incluida en todo proyecto)              │
 │     • Corrección de defectos directos sin costo adicional.             │
 │                                                                        │
-│  2. ASISTENCIA TÉCNICA POR EVENTO (Ad-hoc)                             │
-│     • Tarifa por hora de ingeniería: $1,200 MXN/hora (Mínimo 2 horas). │
+│  2. ASISTENCIA TÉCNICA POR EVENTO (Ad-hoc / Rescue)                    │
+│     • Intervención técnica puntual: Desde $6,900 MXN.                  │
 │                                                                        │
-│  3. PÓLIZA CONTINUA CASTLE CARE (Retainer Mensual - Desde $6,500 MXN)  │
-│     • Monitoreo de disponibilidad (Uptime) y renovación de SSL.        │
-│     • Actualización de dependencias y parches de seguridad mensuales.  │
-│     • Re-certificación periódica con Castle Gate (CQS v1.1).           │
-│     • Hasta 4 horas mensuales para cambios menores de contenido.       │
+│  3. PÓLIZA CONTINUA CASTLE CARE (Retainer Mensual - Desde $3,500 MXN)  │
+│     • Essential ($3,500 MXN/mes): Uptime, SSL, dependencias, parches.  │
+│     • Pro ($7,900 MXN/mes): Monitoreo proactivo, 4h ingeniería directa.│
+│     • Enterprise ($17,900 MXN/mes): Gobernanza C4/C6, SLA crítico.     │
 │                                                                        │
-│  4. RESPUESTA CRÍTICA CASTLE EMERGENCY ($18,500 MXN por evento)        │
-│     • Activación inmediata con SLA de atención $\le 2$ horas.          │
+│  4. RESPUESTA CRÍTICA CASTLE EMERGENCY (Desde $5,900 MXN por evento)   │
+│     • Activación prioritaria con SLA de atención $\le 2$ horas (24/7). │
 │     • Contención de caídas críticas, hackeos o incidentes de DNS.      │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### 2. MATRIZ DE TIEMPOS DE RESPUESTA (SLA)
+### 2. MATRIZ DE TIEMPOS DE RESPUESTA (SLA) Y SEVERIDADES CONGELADAS
 
 | Nivel de Severidad | Definición del Incidente | Póliza Estándar / Garantía | Póliza Castle Care | Castle Emergency |
 | :--- | :--- | :---: | :---: | :---: |
-| **S1 — Crítico** | Sitio web totalmente inaccesible o formulario principal inoperable en producción. | $\le 4$ horas hábiles | $\le 2$ horas hábiles | $\le 2$ horas (24/7) |
-| **S2 — Alto** | Degradación importante de rendimiento o falla en una sección secundaria. | $\le 8$ horas hábiles | $\le 4$ horas hábiles | N/A |
-| **S3 — Medio / Menor** | Solicitud de cambio de contenido, ajuste visual o actualización cosmética. | $\le 24$ horas hábiles | $\le 8$ horas hábiles | N/A |
+| **S1 — Crítica** | Sitio web totalmente inaccesible o formulario/pasarela principal inoperable en producción. | $\le 4$ horas hábiles | $\le 2$ horas hábiles | $\le 2$ horas (24/7) |
+| **S2 — Alta** | Degradación importante de funcionalidad o falla en secciones dinámicas sin bloqueo total. | $\le 8$ horas hábiles | $\le 4$ horas hábiles | $\le 4$ horas (24/7) |
+| **S3 — Normal** | Degradación menor, fallas no bloqueantes o inconsistencias de layout secundarias. | $\le 24$ horas hábiles | $\le 8$ horas hábiles | N/A |
+| **S4 — Baja** | Solicitud de cambio menor de contenido, ajuste visual cosmético o consultas técnicas. | $\le 48$ horas hábiles | $\le 12$ horas hábiles | N/A |
 
 ---
 

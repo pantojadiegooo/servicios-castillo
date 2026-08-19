@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Panel Administrativo y Gobernanza — Grupo Castillo"
+  description="Panel de control directivo para emisión de cotizaciones, activación de proyectos con Regla NO START, conciliación financiera y auditoría."
+  canonical="https://servicios-castillo.vercel.app/admin.html"
+  ogUrl="https://servicios-castillo.vercel.app/admin.html"
+>
+  <main id="main">
+    <section class="page-hero">
+      <InnerHeroVisual type="diagnostico" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Panel Administrativo</p>
+        <div class="badge badge-cyan">DIRECCIÓN &amp; GOBERNANZA EJECUTIVA</div>
+        <h1>Panel de Administración Comercial</h1>
+        <p>Control centralizado de expedientes, validación estricta de pagos, auditoría inmutable y gobernanza de entregas.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 1140px;">
+
+        <!-- MÉTRICAS PRINCIPALES -->
+        <div class="grid grid-3" style="gap: 1.25rem; margin-bottom: 2rem;">
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <div style="font-size: 0.8rem; color: var(--steel-light); font-family: var(--f-mono);">PROYECTOS EN EJECUCIÓN</div>
+            <div style="font-size: 2rem; font-weight: bold; color: var(--cyan); margin-top: 0.25rem;" id="adm-metric-active">0</div>
+          </div>
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <div style="font-size: 0.8rem; color: var(--steel-light); font-family: var(--f-mono);">PAGOS POR CONCILIAR (SPEI)</div>
+            <div style="font-size: 2rem; font-weight: bold; color: var(--warning); margin-top: 0.25rem;" id="adm-metric-pending-pay">0</div>
+          </div>
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <div style="font-size: 0.8rem; color: var(--steel-light); font-family: var(--f-mono);">TICKETS DE SOPORTE ABIERTOS</div>
+            <div style="font-size: 2rem; font-weight: bold; color: var(--paper); margin-top: 0.25rem;" id="adm-metric-tickets">0</div>
+          </div>
+        </div>
+
+        <!-- EMISIÓN DE NUEVA COTIZACIÓN OFICIAL -->
+        <div class="glass-panel" style="padding: 2rem; margin-bottom: 2.5rem; border-color: rgba(0, 210, 255, 0.3);">
+          <h2 style="font-size: 1.2rem; color: var(--cyan); margin-bottom: 1.25rem;">+ Emitir Nueva Cotización Oficial (GC-Q-YYYY-XXXXXX)</h2>
+          
+          <form id="new-quote-form" class="form-grid">
+            <div class="field">
+              <label for="q-business">Empresa / Razón Social *</label>
+              <input type="text" id="q-business" required placeholder="Ej. Innova Soft S.A. de C.V." />
+            </div>
+            <div class="field">
+              <label for="q-contact">Nombre de Contacto *</label>
+              <input type="text" id="q-contact" required placeholder="Ej. Ana Martínez" />
+            </div>
+            <div class="field">
+              <label for="q-email">Correo Corporativo *</label>
+              <input type="email" id="q-email" required placeholder="ana@innovasoft.com" />
+            </div>
+            <div class="field">
+              <label for="q-service">Paquete o Servicio Oficial *</label>
+              <select id="q-service" required>
+                <optgroup label="Paquetes Build">
+                  <option value="IRON">Castle Iron — $2,800 MXN</option>
+                  <option value="BRONZE">Castle Bronze — $4,500 MXN</option>
+                  <option value="SILVER">Castle Silver — $7,500 MXN</option>
+                  <option value="GOLD" selected>Castle Gold — $12,500 MXN</option>
+                  <option value="PLATINUM">Castle Platinum — $24,500 MXN</option>
+                  <option value="DIAMOND">Castle Diamond — $40,000+ MXN</option>
+                </optgroup>
+                <optgroup label="Servicios Especializados">
+                  <option value="CHECKUP">Castle Checkup — $8,900 MXN</option>
+                  <option value="AUDIT">Castle Audit — Desde $19,900 MXN</option>
+                  <option value="RESCUE">Castle Rescue — Desde $6,900 MXN</option>
+                  <option value="EMERGENCY">Castle Emergency — Desde $5,900 MXN</option>
+                  <option value="CARE">Castle Care — Desde $3,500 MXN/mes</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="field">
+              <label for="q-proj-name">Nombre del Proyecto *</label>
+              <input type="text" id="q-proj-name" required placeholder="Ej. Portal Corporativo Innova" />
+            </div>
+            <div class="field">
+              <label for="q-custom-price">Monto Subtotal Personalizado (Opcional)</label>
+              <input type="number" id="q-custom-price" placeholder="Dejar vacío para tarifa de catálogo" />
+            </div>
+            <div class="field full">
+              <label for="q-scope-text">Descripción Detallada del Alcance *</label>
+              <textarea id="q-scope-text" rows="3" required placeholder="Detalla el alcance, páginas incluidas, integraciones y requerimientos técnicos."></textarea>
+            </div>
+            <div class="field full" style="text-align: right;">
+              <button type="submit" class="btn btn-primary">Generar Cotización v1.0 (Vigencia 15 días) →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TABLA DE EXPEDIENTES Y PROYECTOS -->
+        <div class="glass-panel" style="padding: 2rem; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Expedientes y Proyectos en Gestión</h2>
+          <div style="overflow-x: auto;">
+            <table class="comparison-table" style="width: 100%; font-size: 0.85rem;">
+              <thead>
+                <tr>
+                  <th>ID Proyecto</th>
+                  <th>Proyecto / Cliente</th>
+                  <th>Paquete</th>
+                  <th>Estado</th>
+                  <th>Ingeniero</th>
+                  <th>Progreso</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="projects-table-body">
+                <!-- Inyectado dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CONCILIACIÓN DE PAGOS PENDIENTES (SPEI) -->
+        <div class="glass-panel" style="padding: 2rem; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Conciliación Financiera (Transferencias SPEI)</h2>
+          <div id="pending-payments-container">
+            <!-- Pagos pendientes inyectados dinámicamente -->
+          </div>
+        </div>
+
+        <!-- BITÁCORA DE AUDITORÍA INMUTABLE -->
+        <div class="glass-panel" style="padding: 2rem;">
+          <h2 style="font-size: 1.2rem; color: var(--cyan); margin-bottom: 1.25rem;">Bitácora de Auditoría Append-Only (Trazabilidad)</h2>
+          <div id="audit-log-container" style="max-height: 320px; overflow-y: auto; font-family: var(--f-mono); font-size: 0.78rem; background: #07090E; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--line-dark);">
+            <!-- Registros de auditoría -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script is:inline>
+      (function() {
+        const formNewQuote = document.getElementById('new-quote-form');
+
+        // Manejar creación de cotización
+        formNewQuote.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const businessName = document.getElementById('q-business').value.trim();
+          const contactName = document.getElementById('q-contact').value.trim();
+          const contactEmail = document.getElementById('q-email').value.trim();
+          const serviceCode = document.getElementById('q-service').value;
+          const projectName = document.getElementById('q-proj-name').value.trim();
+          const customSubtotal = Number(document.getElementById('q-custom-price').value) || null;
+          const scopeDescription = document.getElementById('q-scope-text').value.trim();
+
+          try {
+            const res = await fetch('/api/quotations', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer admin_token_demo' },
+              body: JSON.stringify({
+                businessName, contactName, contactEmail, serviceCode,
+                projectName, scopeDescription, customSubtotalMxn: customSubtotal
+              })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              alert(`¡Cotización oficial ${data.projectId} emitida con éxito! Vigencia de 15 días naturales registrada.`);
+              window.location.href = `/cotizacion.html?id=${encodeURIComponent(data.projectId)}`;
+            } else {
+              alert(data.error || 'Error al emitir cotización');
+            }
+          } catch (err) {
+            alert('Cotización emitida (modo demostrativo local). Redirigiendo a visualización...');
+            window.location.href = `/cotizacion.html?id=GC-Q-2026-000042`;
+          }
+        });
+
+        async function loadAdminData() {
+          try {
+            const res = await fetch('/api/admin/dashboard', {
+              headers: { 'Authorization': 'Bearer admin_token_demo' }
+            });
+            if (!res.ok) {
+              loadDemoAdminData();
+              return;
+            }
+            const data = await res.json();
+            renderAdminDashboard(data);
+          } catch (e) {
+            loadDemoAdminData();
+          }
+        }
+
+        function renderAdminDashboard(data) {
+          document.getElementById('adm-metric-active').innerText = data.metrics?.activeProjects || '1';
+          document.getElementById('adm-metric-pending-pay').innerText = data.metrics?.pendingPaymentsCount || '0';
+          document.getElementById('adm-metric-tickets').innerText = data.metrics?.openTicketsCount || '0';
+
+          const tbody = document.getElementById('projects-table-body');
+          if (data.projects) {
+            tbody.innerHTML = data.projects.map(p => `
+              <tr>
+                <td style="font-family: var(--f-mono); color: var(--cyan);">${p.id}</td>
+                <td><strong>${p.name}</strong><br/><span style="font-size: 0.78rem; color: var(--steel-soft);">${p.business_name}</span></td>
+                <td><span class="badge" style="font-size: 0.7rem;">${p.service_package_id.toUpperCase()}</span></td>
+                <td><strong style="color: var(--paper);">${p.state}</strong></td>
+                <td>${p.engineer_name ? `Ing. ${p.engineer_name}` : '<em style="color: var(--warning);">Sin asignar</em>'}</td>
+                <td><strong style="color: var(--cyan); font-family: var(--f-mono);">${p.progress_percentage}%</strong></td>
+                <td>
+                  <a href="/portal.html?project=${p.id}" class="btn btn-outline" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Ver Portal →</a>
+                </td>
+              </tr>
+            `).join('');
+          }
+
+          const auditContainer = document.getElementById('audit-log-container');
+          if (data.recentAudit) {
+            auditContainer.innerHTML = data.recentAudit.map(a => `
+              <div style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px dashed rgba(255,255,255,0.06);">
+                <span style="color: var(--cyan);">[${a.created_at.replace('T', ' ').substring(0, 19)}]</span>
+                <span style="color: var(--warning);">${a.actor_role}</span>
+                <span style="color: var(--paper);">${a.action}</span>: ${a.rationale}
+              </div>
+            `).join('');
+          }
+        }
+
+        function loadDemoAdminData() {
+          renderAdminDashboard({
+            metrics: { activeProjects: 1, pendingPaymentsCount: 0, openTicketsCount: 0 },
+            projects: [
+              {
+                id: 'GC-Q-2026-000042',
+                name: 'Plataforma Corporativa Living Glass',
+                business_name: 'Alpha Consulting S.A.',
+                service_package_id: 'gold',
+                state: 'DEVELOPMENT',
+                engineer_name: 'Alejandro Morales',
+                progress_percentage: 60
+              }
+            ],
+            recentAudit: [
+              {
+                created_at: new Date().toISOString(),
+                actor_role: 'ADMINISTRACION',
+                action: 'PROJECT_ACTIVATED_NO_START_CLEARED',
+                rationale: 'Regla NO START validada con éxito (Cotización + Contrato + Anticipo 50% confirmado).'
+              }
+            ]
+          });
+        }
+
+        loadAdminData();
+      })();
+    </script>
+  </main>
+</BaseLayout>

@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Visualización y Aceptación de Cotización Oficial — Grupo Castillo"
+  description="Revisa el alcance técnico, hitos, condiciones financieras y formaliza la aceptación de tu cotización oficial de Grupo Castillo."
+  canonical="https://servicios-castillo.vercel.app/cotizacion.html"
+  ogUrl="https://servicios-castillo.vercel.app/cotizacion.html"
+>
+  <main id="main">
+    <section class="page-hero">
+      <InnerHeroVisual type="contacto" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Cotización Oficial</p>
+        <div class="badge badge-cyan">EXPEDIENTE DIGITAL • DOCUMENTO OFICIAL</div>
+        <h1 id="quotation-hero-title">Cotización Oficial de Servicios</h1>
+        <p>Validez legal, alcance delimitado por escrito y titularidad del 100% del código fuente para el cliente.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 960px;">
+
+        <!-- BÚSQUEDA DE COTIZACIÓN SI NO VIENE EN QUERY -->
+        <div id="search-box" class="glass-panel reveal" style="padding: 2rem; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.15rem; color: var(--cyan); margin-bottom: 1rem;">Consultar Cotización por Identificador</h2>
+          <form id="search-form" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Ej. GC-Q-2026-000042"
+              pattern="^GC-Q-\d{4}-\d{6}$"
+              required
+              style="flex: 1; min-width: 260px; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-family: var(--f-mono);"
+            />
+            <button type="submit" class="btn btn-primary">Cargar Cotización →</button>
+          </form>
+        </div>
+
+        <!-- CONTENEDOR PRINCIPAL DE LA COTIZACIÓN -->
+        <div id="quotation-card" class="glass-panel reveal" style="display: none; padding: 2.5rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(0, 210, 255, 0.25);">
+          
+          <!-- CABECERA DE LA COTIZACIÓN -->
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--line-dark); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
+            <div>
+              <span class="badge badge-cyan" style="font-size: 0.75rem; font-family: var(--f-mono);" id="q-id">GC-Q-2026-000042</span>
+              <h2 style="font-size: 1.6rem; color: var(--paper); margin: 0.5rem 0 0.25rem 0;" id="q-project-name">Nombre del Proyecto</h2>
+              <p style="color: var(--steel-light); font-size: 0.88rem; margin: 0;" id="q-client-name">Cliente: Empresa / Titular</p>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.8rem; color: var(--steel-soft); font-family: var(--f-mono);">VIGENCIA HASTA:</div>
+              <div style="font-size: 1.05rem; color: var(--warning); font-family: var(--f-mono); font-weight: bold;" id="q-valid-until">15 Días Naturales</div>
+              <div style="font-size: 0.75rem; color: var(--steel-soft); margin-top: 0.25rem;" id="q-version">Versión: v1.0</div>
+            </div>
+          </div>
+
+          <!-- RESUMEN DE ALCANCE Y ESPECIFICACIONES -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.05rem; color: var(--cyan); text-transform: uppercase; font-family: var(--f-mono); margin-bottom: 0.75rem;">1. Alcance de Ingeniería y Entregables</h3>
+            <div id="q-scope" style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6; background: rgba(7, 9, 14, 0.6); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--line-dark);">
+              Descripción del alcance.
+            </div>
+          </div>
+
+          <!-- HITOS Y CRONOGRAMA -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1.05rem; color: var(--cyan); text-transform: uppercase; font-family: var(--f-mono); margin-bottom: 0.75rem;">2. Cronograma de Hitos y Entregables</h3>
+            <div class="grid grid-2" style="gap: 1rem;">
+              <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
+                <strong style="color: var(--cyan); font-family: var(--f-mono);">H1 (25%):</strong> Arquitectura de información, wireframe y tokens de diseño.
+              </div>
+              <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
+                <strong style="color: var(--cyan); font-family: var(--f-mono);">H2 (35%):</strong> Maquetación interactiva y componentes en entorno staging.
+              </div>
+              <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
+                <strong style="color: var(--cyan); font-family: var(--f-mono);">H3 (20%):</strong> Integración de contenidos definitivos, formularios y SEO.
+              </div>
+              <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
+                <strong style="color: var(--cyan); font-family: var(--f-mono);">H4 (20%):</strong> Auditoría Castle Gate (CQS v1.1), despliegue a producción y Handoff final.
+              </div>
+            </div>
+          </div>
+
+          <!-- DESGLOSE FINANCIERO -->
+          <div style="margin-bottom: 2rem; background: rgba(7, 9, 14, 0.8); border: 1px solid rgba(0, 210, 255, 0.2); padding: 1.5rem; border-radius: var(--radius-sm);">
+            <h3 style="font-size: 1.05rem; color: var(--paper); margin-bottom: 1rem;">3. Desglose Financiero y Esquema de Pagos</h3>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--steel-light);">
+              <span>Subtotal Neto:</span>
+              <span id="q-subtotal" style="font-family: var(--f-mono); color: var(--paper);">$0.00 MXN</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--steel-light);">
+              <span>IVA (16% Parametrizable):</span>
+              <span id="q-tax" style="font-family: var(--f-mono); color: var(--paper);">$0.00 MXN</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--line-dark); font-size: 1.25rem; font-weight: bold; color: var(--cyan);">
+              <span>Inversión Total:</span>
+              <span id="q-total" style="font-family: var(--f-mono);">$0.00 MXN</span>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--line-dark); font-size: 0.85rem; color: var(--steel-light);">
+              • <strong>Anticipo Requerido (50%):</strong> <span id="q-deposit" style="font-family: var(--f-mono); color: var(--success); font-weight: bold;">$0.00 MXN</span> (Para reserva de capacidad e inicio de trabajos).<br/>
+              • <strong>Finiquito contra Entrega (50%):</strong> <span id="q-balance" style="font-family: var(--f-mono);">$0.00 MXN</span> (Tras validación de preentrega con Castle Gate).
+            </div>
+          </div>
+
+          <!-- VINCULACIÓN AL CONTRATO MARCO Y SOBERANÍA -->
+          <div style="font-size: 0.82rem; color: var(--steel-soft); line-height: 1.5; margin-bottom: 2rem;">
+            * Esta cotización constituye la Declaración de Trabajo (SOW) y Condiciones Particulares vinculadas al Contrato Marco de Prestación de Servicios (MSA GC-MSA-2026). Incluye 30 días naturales de garantía operativa post-entrega y 100% de titularidad exclusiva del código fuente, dominio e infraestructura para el cliente.
+          </div>
+
+          <!-- ACCIONES DE ACEPTACIÓN FORMAL -->
+          <div id="acceptance-section" style="border-top: 1px solid var(--line-dark); padding-top: 1.75rem;">
+            <div id="already-accepted-alert" style="display: none; padding: 1rem; background: rgba(0, 229, 153, 0.1); border-left: 3px solid var(--success); color: var(--paper); font-size: 0.9rem;">
+              ✓ <strong>Cotización formalmente aceptada</strong> el <span id="accepted-date"></span>. Estado del proyecto: <span id="accepted-state" style="font-family: var(--f-mono); color: var(--cyan);"></span>.
+              <div style="margin-top: 0.75rem;">
+                <a href="/portal.html" class="btn btn-primary" style="font-size: 0.85rem;">Ir al Portal del Cliente →</a>
+              </div>
+            </div>
+
+            <form id="accept-form" style="display: block;">
+              <h3 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 1rem;">Formalizar Aceptación de la Propuesta</h3>
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                  <label style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Nombre Completo del Representante *</label>
+                  <input type="text" id="signer-name" required placeholder="Ej. Ana Martínez" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Correo Corporativo Autorizado *</label>
+                  <input type="email" id="signer-email" required placeholder="representante@empresa.com" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
+                </div>
+              </div>
+              <div style="margin-bottom: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.84rem; color: var(--steel-light); cursor: pointer;">
+                  <input type="checkbox" id="terms-check" required />
+                  <span>Confirmo la aceptación del alcance, cronograma e importes de este SOW conforme a los términos del Contrato Marco GC-MSA-2026.</span>
+                </label>
+              </div>
+              <button type="submit" id="btn-accept" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 1rem;">
+                ✓ Aceptar Cotización y Proceder al Pago del Anticipo
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <script is:inline>
+      (function() {
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const quotationCard = document.getElementById('quotation-card');
+        const acceptForm = document.getElementById('accept-form');
+        const alreadyAcceptedAlert = document.getElementById('already-accepted-alert');
+
+        let currentProjectId = null;
+
+        // Leer parámetro ?id= de URL
+        const params = new URLSearchParams(window.location.search);
+        const urlId = params.get('id');
+        if (urlId) {
+          searchInput.value = urlId;
+          loadQuotation(urlId);
+        }
+
+        searchForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const id = searchInput.value.trim();
+          if (id) loadQuotation(id);
+        });
+
+        async function loadQuotation(id) {
+          try {
+            // Consulta directa a la API local o simulación en frontend
+            const res = await fetch(`/api/quotations/${encodeURIComponent(id)}`);
+            if (!res.ok) {
+              // Fallback demostrativo si no está levantado el servidor backend
+              displayDemoQuotation(id);
+              return;
+            }
+            const data = await res.json();
+            if (data.quotation) {
+              renderQuotation(data.quotation);
+            }
+          } catch (e) {
+            displayDemoQuotation(id);
+          }
+        }
+
+        function renderQuotation(q) {
+          currentProjectId = q.project_id;
+          document.getElementById('q-id').innerText = q.project_id;
+          document.getElementById('q-project-name').innerText = q.project_name || 'Desarrollo de Plataforma Web';
+          document.getElementById('q-client-name').innerText = 'Cliente: ' + (q.business_name || q.contact_name);
+          document.getElementById('q-valid-until').innerText = new Date(q.valid_until_date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+          document.getElementById('q-version').innerText = 'Versión: v' + q.version_number;
+          document.getElementById('q-scope').innerText = q.scope_description;
+
+          document.getElementById('q-subtotal').innerText = '$' + Number(q.subtotal_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-tax').innerText = '$' + Number(q.tax_amount_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-total').innerText = '$' + Number(q.total_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-deposit').innerText = '$' + (Number(q.total_mxn) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-balance').innerText = '$' + (Number(q.total_mxn) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          if (q.is_accepted === 1) {
+            acceptForm.style.display = 'none';
+            alreadyAcceptedAlert.style.display = 'block';
+            document.getElementById('accepted-date').innerText = new Date(q.accepted_at).toLocaleString('es-MX');
+            document.getElementById('accepted-state').innerText = q.project_state || 'PAYMENT_PENDING';
+          } else {
+            acceptForm.style.display = 'block';
+            alreadyAcceptedAlert.style.display = 'none';
+          }
+
+          quotationCard.style.display = 'block';
+          quotationCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayDemoQuotation(id) {
+          renderQuotation({
+            project_id: id || 'GC-Q-2026-000042',
+            project_name: 'Plataforma Corporativa Living Glass',
+            business_name: 'Cliente Corporativo',
+            contact_name: 'Representante Autorizado',
+            valid_until_date: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString(),
+            version_number: 1,
+            scope_description: 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.',
+            subtotal_mxn: 12500,
+            tax_amount_mxn: 2000,
+            total_mxn: 14500,
+            is_accepted: 0
+          });
+        }
+
+        acceptForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const name = document.getElementById('signer-name').value.trim();
+          const email = document.getElementById('signer-email').value.trim();
+
+          try {
+            await fetch(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ acceptedByName: name, acceptedByEmail: email })
+            });
+            alert('¡Cotización aceptada con éxito! Redirigiendo al portal para completar el anticipo...');
+            window.location.href = `/portal.html?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+          } catch (err) {
+            alert('¡Cotización aceptada con éxito! Redirigiendo al portal...');
+            window.location.href = `/portal.html?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+          }
+        });
+      })();
+    </script>
+  </main>
+</BaseLayout>

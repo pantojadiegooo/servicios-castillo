@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Panel de Ingeniería y Control Técnico — Grupo Castillo"
+  description="Panel de trabajo para ingenieros asignados: gestión de hitos, staging, aseguramiento de calidad CQS v1.1 y resolución de tickets."
+  canonical="https://servicios-castillo.vercel.app/ingenieria.html"
+  ogUrl="https://servicios-castillo.vercel.app/ingenieria.html"
+>
+  <main id="main">
+    <section class="page-hero">
+      <InnerHeroVisual type="diagnostico" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Panel de Ingeniería</p>
+        <div class="badge badge-cyan">PRÁCTICA TÉCNICA • EJECUCIÓN &amp; GOBERNANZA CQS</div>
+        <h1>Panel de Ingeniería de Software</h1>
+        <p>Control de entregables por hitos, despliegues en staging, certificación Castle Gate y soporte técnico.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 1040px;">
+
+        <!-- PROYECTOS ASIGNADOS -->
+        <div class="glass-panel reveal" style="padding: 2rem; margin-bottom: 2rem;">
+          <h2 style="font-size: 1.25rem; color: var(--cyan); margin-bottom: 1.25rem;">Proyectos Asignados a mi Cargo</h2>
+          <div id="eng-projects-container">
+            <!-- Proyectos asignados inyectados dinámicamente -->
+          </div>
+        </div>
+
+        <!-- PUBLICACIÓN DE PREENTREGA EN STAGING -->
+        <div class="glass-panel reveal" style="padding: 2rem; margin-bottom: 2rem; border-color: rgba(0, 210, 255, 0.3);">
+          <h2 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Publicar Preentrega en Staging (Paso a PREDELIVERY)</h2>
+          <form id="publish-predelivery-form" class="form-grid">
+            <div class="field">
+              <label for="pd-proj-id">ID del Proyecto *</label>
+              <input type="text" id="pd-proj-id" required placeholder="GC-Q-2026-000042" />
+            </div>
+            <div class="field">
+              <label for="pd-staging-url">URL del Entorno Staging *</label>
+              <input type="url" id="pd-staging-url" required placeholder="https://staging-proyecto.vercel.app" />
+            </div>
+            <div class="field">
+              <label for="pd-validation-id">Validation ID Castle Gate *</label>
+              <input type="text" id="pd-validation-id" required placeholder="CG-2026-CA45B1" />
+            </div>
+            <div class="field">
+              <label for="pd-score">Puntuación CQS v1.1 *</label>
+              <input type="number" id="pd-score" required value="100" min="90" max="100" />
+            </div>
+            <div class="field full" style="text-align: right;">
+              <button type="submit" class="btn btn-primary">✓ Publicar Preentrega y Notificar al Cliente →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TICKETS TÉCNICOS ASIGNADOS -->
+        <div class="glass-panel reveal" style="padding: 2rem;">
+          <h2 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Tickets Técnicos de Soporte y Garantía Asignados</h2>
+          <div id="eng-tickets-container">
+            <!-- Tickets asignados -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script is:inline>
+      (function() {
+        const formPredelivery = document.getElementById('publish-predelivery-form');
+
+        formPredelivery.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const projectId = document.getElementById('pd-proj-id').value.trim();
+          const stagingUrl = document.getElementById('pd-staging-url').value.trim();
+          const validationId = document.getElementById('pd-validation-id').value.trim();
+          const score = Number(document.getElementById('pd-score').value) || 100;
+
+          try {
+            const res = await fetch('/api/predelivery/publish', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer eng_token_demo' },
+              body: JSON.stringify({
+                projectId, stagingUrl, castleGateValidationId: validationId,
+                castleGateScore: score, engineerId: 'usr_eng_01'
+              })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              alert(`¡Preentrega para ${projectId} publicada con éxito! Estado transicionado a PREDELIVERY.`);
+            } else {
+              alert(data.error || 'Error al publicar preentrega');
+            }
+          } catch (err) {
+            alert(`Preentrega publicada con éxito (modo local). Estado transicionado a PREDELIVERY.`);
+          }
+        });
+
+        function renderEngineerDashboard() {
+          const container = document.getElementById('eng-projects-container');
+          container.innerHTML = `
+            <div style="padding: 1.5rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div>
+                  <span class="badge badge-cyan" style="font-family: var(--f-mono);">GC-Q-2026-000042</span>
+                  <h3 style="font-size: 1.2rem; color: var(--paper); margin: 0.35rem 0 0 0;">Plataforma Corporativa Living Glass</h3>
+                  <span style="font-size: 0.8rem; color: var(--steel-soft);">Cliente: Alpha Consulting S.A.</span>
+                </div>
+                <span class="badge" style="background: rgba(0, 210, 255, 0.15); color: var(--cyan); border: 1px solid var(--cyan);">DEVELOPMENT</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--steel-light); margin-bottom: 1rem;">
+                Progreso actual: <strong>60%</strong> (Hitos H1 y H2 completados).
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <a href="/portal.html?project=GC-Q-2026-000042" class="btn btn-outline" style="font-size: 0.75rem;">Ver Vista Cliente →</a>
+              </div>
+            </div>
+          `;
+
+          const tContainer = document.getElementById('eng-tickets-container');
+          tContainer.innerHTML = `
+            <div style="padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);">
+              No hay tickets pendientes asignados a tu guardia.
+            </div>
+          `;
+        }
+
+        renderEngineerDashboard();
+      })();
+    </script>
+  </main>
+</BaseLayout>

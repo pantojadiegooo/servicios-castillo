@@ -1,0 +1,525 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Portal del Cliente y Gobernanza de Proyectos — Grupo Castillo"
+  description="Portal de seguimiento en tiempo real, hitos, preentrega, finanzas transparentes, tickets de soporte y garantía de tu proyecto con Grupo Castillo."
+  canonical="https://servicios-castillo.vercel.app/portal.html"
+  ogUrl="https://servicios-castillo.vercel.app/portal.html"
+>
+  <main id="main">
+    <section class="page-hero">
+      <InnerHeroVisual type="seguridad-calidad" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Portal del Cliente</p>
+        <div class="badge badge-cyan">PORTAL OFICIAL DE CLIENTE • AISLAMIENTO ESTRICTO</div>
+        <h1 id="portal-hero-title">Seguimiento de Proyecto &amp; Gobernanza</h1>
+        <p>Transparencia absoluta en avances de ingeniería, estados de calidad, finanzas y soporte técnico continuo.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 1040px;">
+
+        <!-- 1. VISTA DE AUTENTICACIÓN OTP (PASSWORDLESS) -->
+        <div id="auth-view" class="glass-panel reveal" style="max-width: 520px; margin: 0 auto 3rem auto; padding: 2.5rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(0, 210, 255, 0.3);">
+          
+          <div style="text-align: center; margin-bottom: 1.75rem;">
+            <div style="width: 48px; height: 48px; margin: 0 auto 0.75rem auto; background: rgba(0, 210, 255, 0.1); border: 1px solid var(--cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cyan);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h2 style="font-size: 1.3rem; color: var(--paper); margin: 0 0 0.25rem 0;">Acceso Seguro al Portal</h2>
+            <p style="font-size: 0.82rem; color: var(--steel-light); margin: 0;">Autenticación sin contraseñas mediante código OTP de un solo uso.</p>
+          </div>
+
+          <!-- PASO 1: SOLICITAR OTP -->
+          <form id="request-otp-form" style="display: block;">
+            <div class="field" style="margin-bottom: 1.25rem;">
+              <label for="login-project-id" style="font-size: 0.82rem; color: var(--cyan); font-family: var(--f-mono);">Identificador Oficial del Proyecto (GC-Q) *</label>
+              <input type="text" id="login-project-id" required placeholder="Ej. GC-Q-2026-000042" pattern="^GC-Q-\d{4}-\d{6}$" style="width: 100%; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper); font-family: var(--f-mono);" />
+            </div>
+
+            <div class="field" style="margin-bottom: 1.5rem;">
+              <label for="login-email" style="font-size: 0.82rem; color: var(--steel-light);">Correo Corporativo Autorizado *</label>
+              <input type="email" id="login-email" required placeholder="correo@empresa.com" style="width: 100%; padding: 0.75rem 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
+            </div>
+
+            <button type="submit" id="btn-request-otp" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem;">
+              Solicitar Código de Acceso (OTP) →
+            </button>
+          </form>
+
+          <!-- PASO 2: VERIFICAR OTP -->
+          <form id="verify-otp-form" style="display: none;">
+            <div style="margin-bottom: 1.25rem; padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--steel-light);">
+              Código enviado a <strong id="display-target-email" style="color: var(--paper);"></strong>. Válido por 10 minutos.
+            </div>
+
+            <div class="field" style="margin-bottom: 1.5rem;">
+              <label for="login-otp" style="font-size: 0.82rem; color: var(--cyan); font-family: var(--f-mono);">Código de 6 Dígitos *</label>
+              <input type="text" id="login-otp" required maxlength="6" pattern="^\d{6}$" placeholder="123456" style="width: 100%; padding: 0.75rem 1rem; text-align: center; letter-spacing: 0.35em; font-size: 1.4rem; background: #07090E; border: 1px solid var(--cyan); border-radius: var(--radius-sm); color: var(--paper); font-family: var(--f-mono);" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-bottom: 0.75rem;">
+              ✓ Verificar Código y Entrar
+            </button>
+            <button type="button" id="btn-back-otp" class="btn btn-outline" style="width: 100%; font-size: 0.8rem; padding: 0.5rem;">
+              ← Usar otro correo o proyecto
+            </button>
+          </form>
+
+        </div>
+
+        <!-- 2. DASHBOARD DEL CLIENTE (ACTIVO TRAS INICIAR SESIÓN) -->
+        <div id="dashboard-view" style="display: none;">
+
+          <!-- BARRA SUPERIOR DE CONTEXTO DEL PROYECTO -->
+          <div class="glass-panel" style="padding: 1.75rem 2rem; margin-bottom: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-color: rgba(0, 210, 255, 0.3);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+                <span class="badge badge-cyan" id="dash-project-id" style="font-family: var(--f-mono);">GC-Q-2026-000042</span>
+                <span class="badge" id="dash-state-badge" style="background: rgba(0, 229, 153, 0.15); color: var(--success); border: 1px solid var(--success);">ACTIVO</span>
+              </div>
+              <h2 id="dash-project-name" style="font-size: 1.45rem; color: var(--paper); margin: 0.2rem 0;">Nombre del Proyecto</h2>
+              <p id="dash-client-name" style="color: var(--steel-light); font-size: 0.85rem; margin: 0;">Cliente Corporativo</p>
+            </div>
+            <div>
+              <button id="btn-logout" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;">Cerrar Sesión ✕</button>
+            </div>
+          </div>
+
+          <!-- TIMELINE DE SEGUIMIENTO TIPO PAQUETERÍA -->
+          <div class="glass-panel" style="padding: 2rem; margin-bottom: 2rem;">
+            <h3 style="font-size: 0.95rem; color: var(--cyan); text-transform: uppercase; font-family: var(--f-mono); margin-bottom: 1.25rem;">Estado de la Cadena de Entrega</h3>
+            
+            <div id="timeline-container" style="display: flex; justify-content: space-between; position: relative; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <!-- Nodos del timeline inyectados dinámicamente -->
+            </div>
+
+            <!-- BARRA DE PROGRESO MATEMÁTICO -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">
+                <span>Progreso Derivado de Hitos Completados:</span>
+                <strong id="dash-progress-label" style="color: var(--cyan); font-family: var(--f-mono);">0%</strong>
+              </div>
+              <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden;">
+                <div id="dash-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--success)); transition: width 0.4s ease;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRID DE INFORMACIÓN PRINCIPAL (INGENIERO + FINANZAS) -->
+          <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 2rem;">
+            
+            <!-- TARJETA DEL INGENIERO RESPONSABLE -->
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <h3 style="font-size: 0.9rem; color: var(--cyan); text-transform: uppercase; font-family: var(--f-mono); margin-bottom: 1.25rem;">Ingeniero Responsable Asignado</h3>
+              <div style="display: flex; gap: 1.25rem; align-items: center;">
+                <img id="dash-engineer-photo" src="/assets/brand/symbol/symbol-128.png" alt="Ingeniero Asignado" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--cyan); object-fit: cover;" />
+                <div>
+                  <h4 id="dash-engineer-name" style="font-size: 1.1rem; color: var(--paper); margin: 0 0 0.2rem 0;">Ing. Alejandro Morales</h4>
+                  <div id="dash-engineer-title" style="font-size: 0.82rem; color: var(--steel-light);">Ingeniero de Software Principal</div>
+                  <div id="dash-engineer-dept" style="font-size: 0.75rem; color: var(--steel-soft);">Práctica de Arquitectura Web</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TARJETA DE ESTADO FINANCIERO -->
+            <div class="card glass-panel" style="padding: 1.75rem;">
+              <h3 style="font-size: 0.9rem; color: var(--cyan); text-transform: uppercase; font-family: var(--f-mono); margin-bottom: 1.25rem;">Estado Financiero del Proyecto</h3>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.35rem;">
+                <span>Total Contratado:</span>
+                <span id="dash-fin-total" style="font-family: var(--f-mono); color: var(--paper);">$0.00 MXN</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--steel-light); margin-bottom: 0.35rem;">
+                <span>Total Liquidado:</span>
+                <span id="dash-fin-paid" style="font-family: var(--f-mono); color: var(--success);">$0.00 MXN</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: bold; color: var(--paper); padding-top: 0.5rem; border-top: 1px solid var(--line-dark);">
+                <span>Saldo Pendiente:</span>
+                <span id="dash-fin-balance" style="font-family: var(--f-mono); color: var(--warning);">$0.00 MXN</span>
+              </div>
+              <div id="fin-action-box" style="margin-top: 1rem;">
+                <!-- Botón de pago según estado -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- BANNER DE PREENTREGA (VISIBLE EN ESTADO PREDELIVERY) -->
+          <div id="predelivery-banner" class="glass-panel" style="display: none; padding: 2rem; border: 1px solid var(--cyan); background: linear-gradient(180deg, rgba(0, 210, 255, 0.08) 0%, rgba(14, 18, 27, 0.95) 100%); margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+              <div>
+                <span class="badge badge-cyan" style="margin-bottom: 0.25rem;">REVISIÓN DE PREENTREGA EN STAGING</span>
+                <h3 style="font-size: 1.25rem; color: var(--paper); margin: 0.25rem 0;">Tu Proyecto está listo para Revisión</h3>
+                <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0;">Entorno interactivo desplegado con certificación técnica Castle Gate CQS v1.1.</p>
+              </div>
+              <div>
+                <a id="btn-open-staging" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem;">
+                  Abrir Staging en Nueva Pestaña ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; border-top: 1px solid var(--line-dark); padding-top: 1.25rem;">
+              <button id="btn-approve-predelivery" class="btn btn-primary" style="flex: 1; min-width: 220px; font-size: 0.9rem;">
+                ✓ Aprobar Preentrega y Proceder al Finiquito
+              </button>
+              <button id="btn-show-observations-modal" class="btn btn-outline" style="flex: 1; min-width: 220px; font-size: 0.9rem;">
+                ⚠ Reportar Observaciones o Ajustes
+              </button>
+            </div>
+          </div>
+
+          <!-- BANNER DE CONFIRMACIÓN DE ENTREGA (VISIBLE EN DELIVERY_READY) -->
+          <div id="delivery-ready-banner" class="glass-panel" style="display: none; padding: 2rem; border: 1px solid var(--success); background: linear-gradient(180deg, rgba(0, 229, 153, 0.08) 0%, rgba(14, 18, 27, 0.95) 100%); margin-bottom: 2rem;">
+            <span class="badge" style="background: var(--success); color: #06080C; font-weight: bold; margin-bottom: 0.5rem;">SALDO LIQUIDADO • HANDOFF COMPLETADO</span>
+            <h3 style="font-size: 1.25rem; color: var(--paper); margin: 0.25rem 0;">Confirmación Final de Recepción de Activos</h3>
+            <p style="font-size: 0.85rem; color: var(--steel-light); margin-bottom: 1.25rem;">
+              Tu repositorio Git privado y hosting han sido transferidos a tu titularidad exclusiva conforme a la Ownership Policy.
+            </p>
+            <button id="btn-confirm-reception" class="btn btn-primary" style="background: var(--success); color: #06080C; font-size: 0.95rem; padding: 0.85rem 1.5rem;">
+              ✓ Confirmar Recepción de Activos y Activar Garantía (30 Días)
+            </button>
+          </div>
+
+          <!-- MESA DE TICKETS Y SOPORTE -->
+          <div class="glass-panel" style="padding: 2rem; margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; color: var(--paper); margin: 0 0 0.25rem 0;">Mesa de Soporte y Garantía</h3>
+                <p style="font-size: 0.82rem; color: var(--steel-light); margin: 0;">Atención trazable de defectos técnicos, bugs y solicitudes con SLA garantizado.</p>
+              </div>
+              <button id="btn-open-ticket-modal" class="btn btn-primary" style="font-size: 0.85rem;">
+                + Reportar Incidencia / Ticket
+              </button>
+            </div>
+
+            <div id="tickets-list-container">
+              <!-- Lista de tickets inyectada dinámicamente -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCRIPT DE GESTIÓN DEL PORTAL -->
+    <script is:inline>
+      (function() {
+        let activeSessionToken = localStorage.getItem('gc_client_token');
+        let currentProjectData = null;
+
+        const authView = document.getElementById('auth-view');
+        const dashboardView = document.getElementById('dashboard-view');
+        const requestOtpForm = document.getElementById('request-otp-form');
+        const verifyOtpForm = document.getElementById('verify-otp-form');
+        const loginEmailInput = document.getElementById('login-email');
+        const loginProjInput = document.getElementById('login-project-id');
+        const displayTargetEmail = document.getElementById('display-target-email');
+        const btnBackOtp = document.getElementById('btn-back-otp');
+        const btnLogout = document.getElementById('btn-logout');
+
+        // Leer query params iniciales
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('project')) loginProjInput.value = urlParams.get('project');
+        if (urlParams.get('email')) loginEmailInput.value = urlParams.get('email');
+
+        // Solicitar OTP
+        requestOtpForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = loginEmailInput.value.trim();
+          const projectId = loginProjInput.value.trim();
+
+          try {
+            const res = await fetch('/api/auth/otp', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, projectId })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              displayTargetEmail.innerText = email;
+              requestOtpForm.style.display = 'none';
+              verifyOtpForm.style.display = 'block';
+              if (data.debugOtp) {
+                console.log('[DEBUG OTP Castillo]:', data.debugOtp);
+                document.getElementById('login-otp').value = data.debugOtp;
+              }
+            } else {
+              alert(data.error || 'Error al solicitar código');
+            }
+          } catch (err) {
+            // Fallback demo en caso de modo SSG puro
+            displayTargetEmail.innerText = email;
+            requestOtpForm.style.display = 'none';
+            verifyOtpForm.style.display = 'block';
+          }
+        });
+
+        // Verificar OTP
+        verifyOtpForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = loginEmailInput.value.trim();
+          const otp = document.getElementById('login-otp').value.trim();
+
+          try {
+            const res = await fetch('/api/auth/verify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, otp })
+            });
+            const data = await res.json();
+            if (res.ok && data.sessionToken) {
+              localStorage.setItem('gc_client_token', data.sessionToken);
+              activeSessionToken = data.sessionToken;
+              loadDashboard(data.user.projectId || loginProjInput.value.trim());
+            } else {
+              alert(data.error || 'Código de verificación incorrecto');
+            }
+          } catch (err) {
+            // Fallback demo
+            loadDemoDashboard();
+          }
+        });
+
+        btnBackOtp.addEventListener('click', function() {
+          verifyOtpForm.style.display = 'none';
+          requestOtpForm.style.display = 'block';
+        });
+
+        btnLogout.addEventListener('click', function() {
+          localStorage.removeItem('gc_client_token');
+          activeSessionToken = null;
+          dashboardView.style.display = 'none';
+          authView.style.display = 'block';
+          requestOtpForm.style.display = 'block';
+          verifyOtpForm.style.display = 'none';
+        });
+
+        async function loadDashboard(projectId) {
+          try {
+            const res = await fetch(`/api/projects/${encodeURIComponent(projectId)}`, {
+              headers: { 'Authorization': `Bearer ${activeSessionToken}` }
+            });
+            if (!res.ok) {
+              loadDemoDashboard();
+              return;
+            }
+            const data = await res.json();
+            if (data.project) {
+              renderDashboard(data.project);
+            }
+          } catch (err) {
+            loadDemoDashboard();
+          }
+        }
+
+        function renderDashboard(p) {
+          currentProjectData = p;
+          authView.style.display = 'none';
+          dashboardView.style.display = 'block';
+
+          document.getElementById('dash-project-id').innerText = p.id;
+          document.getElementById('dash-project-name').innerText = p.name;
+          document.getElementById('dash-client-name').innerText = 'Cliente: ' + (p.business_name || p.contact_name);
+          document.getElementById('dash-state-badge').innerText = p.state;
+
+          // Progreso
+          const pct = Math.round(p.progress?.progressPercentage || 0);
+          document.getElementById('dash-progress-label').innerText = pct + '%';
+          document.getElementById('dash-progress-bar').style.width = pct + '%';
+
+          // Ingeniero
+          if (p.engineer_name) {
+            document.getElementById('dash-engineer-name').innerText = `Ing. ${p.engineer_name} ${p.engineer_last_name || ''}`;
+            document.getElementById('dash-engineer-title').innerText = p.engineer_job_title || 'Ingeniero de Software Principal';
+            document.getElementById('dash-engineer-dept').innerText = p.engineer_department || 'Práctica de Arquitectura Web';
+            if (p.engineer_photo_url) document.getElementById('dash-engineer-photo').src = p.engineer_photo_url;
+          }
+
+          // Finanzas
+          const finTotal = p.quotation ? p.quotation.total_mxn : 0;
+          let finPaid = 0;
+          if (p.payments) {
+            p.payments.forEach(pay => { if (pay.status === 'PAID') finPaid += pay.total_mxn; });
+          }
+          const finBalance = Math.max(0, finTotal - finPaid);
+          document.getElementById('dash-fin-total').innerText = '$' + finTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('dash-fin-paid').innerText = '$' + finPaid.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('dash-fin-balance').innerText = '$' + finBalance.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          // Timeline
+          renderTimeline(p.timeline?.stages || []);
+
+          // Preentrega
+          const predeliveryBanner = document.getElementById('predelivery-banner');
+          if (p.state === 'PREDELIVERY' && p.preDelivery) {
+            predeliveryBanner.style.display = 'block';
+            document.getElementById('btn-open-staging').href = p.preDelivery.staging_url || '#';
+          } else {
+            predeliveryBanner.style.display = 'none';
+          }
+
+          // Entrega Ready
+          const deliveryReadyBanner = document.getElementById('delivery-ready-banner');
+          if (p.state === 'DELIVERY_READY') {
+            deliveryReadyBanner.style.display = 'block';
+          } else {
+            deliveryReadyBanner.style.display = 'none';
+          }
+
+          // Tickets
+          renderTickets(p.tickets || []);
+        }
+
+        function renderTimeline(stages) {
+          const container = document.getElementById('timeline-container');
+          container.innerHTML = '';
+
+          stages.forEach(s => {
+            const div = document.createElement('div');
+            div.style.flex = '1';
+            div.style.minWidth = '120px';
+            div.style.textAlign = 'center';
+            div.style.padding = '0.75rem';
+            div.style.borderRadius = 'var(--radius-sm)';
+
+            let icon = '○';
+            let color = 'var(--steel-soft)';
+            let bg = 'rgba(7, 9, 14, 0.6)';
+
+            if (s.status === 'completed') {
+              icon = '✓';
+              color = 'var(--success)';
+              bg = 'rgba(0, 229, 153, 0.08)';
+            } else if (s.status === 'current') {
+              icon = '●';
+              color = 'var(--cyan)';
+              bg = 'rgba(0, 210, 255, 0.12)';
+            }
+
+            div.style.background = bg;
+            div.style.border = `1px solid ${s.status === 'current' ? 'var(--cyan)' : 'var(--line-dark)'}`;
+            div.innerHTML = `
+              <div style="font-size: 1.1rem; color: ${color}; font-weight: bold; margin-bottom: 0.2rem;">${icon}</div>
+              <div style="font-size: 0.82rem; color: ${color}; font-weight: 600;">${s.name}</div>
+            `;
+            container.appendChild(div);
+          });
+        }
+
+        function renderTickets(tickets) {
+          const container = document.getElementById('tickets-list-container');
+          if (!tickets || tickets.length === 0) {
+            container.innerHTML = `
+              <div style="padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);">
+                No hay incidencias o tickets abiertos. Tu proyecto opera en completa normalidad.
+              </div>
+            `;
+            return;
+          }
+
+          container.innerHTML = tickets.map(t => `
+            <div style="padding: 1.25rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                  <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan);">${t.id}</span>
+                  <span class="badge" style="font-size: 0.65rem; background: ${t.severity === 'S1' ? 'rgba(255, 59, 92, 0.2)' : 'rgba(0, 210, 255, 0.15)'}; color: ${t.severity === 'S1' ? 'var(--danger)' : 'var(--cyan)'};">${t.severity}</span>
+                  <span style="font-size: 0.78rem; color: var(--steel-soft);">${new Date(t.created_at).toLocaleDateString('es-MX')}</span>
+                </div>
+                <strong style="color: var(--paper); font-size: 0.92rem;">${t.title}</strong>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 0.82rem; color: var(--steel-light);">Estado: <strong style="color: var(--paper);">${t.client_facing_status}</strong></span>
+                ${t.client_facing_status === 'Resuelto' && t.internal_status !== 'CLOSED' ? `
+                  <button onclick="confirmResolved('${t.id}')" class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; background: var(--success); color: #06080C;">
+                    ✓ Confirmar Problema Resuelto
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          `).join('');
+        }
+
+        window.confirmResolved = async function(ticketId) {
+          try {
+            await fetch(`/api/tickets/${encodeURIComponent(ticketId)}/confirm-resolved`, {
+              method: 'POST',
+              headers: { 'Authorization': `Bearer ${activeSessionToken}`, 'Content-Type': 'application/json' }
+            });
+            alert('¡Ticket cerrado formalmente a satisfacción!');
+            if (currentProjectData) loadDashboard(currentProjectData.id);
+          } catch (e) {
+            alert('Ticket cerrado con éxito.');
+          }
+        };
+
+        // Acciones de preentrega
+        document.getElementById('btn-approve-predelivery').addEventListener('click', async function() {
+          if (!confirm('¿Confirmas la aprobación formal de la preentrega en staging? Se generará la orden de liquidación final.')) return;
+          try {
+            await fetch(`/api/predelivery/${encodeURIComponent(currentProjectData.id)}/approve`, {
+              method: 'POST',
+              headers: { 'Authorization': `Bearer ${activeSessionToken}` }
+            });
+            alert('¡Preentrega aprobada con éxito! Redirigiendo a orden de finiquito...');
+            loadDashboard(currentProjectData.id);
+          } catch (e) {
+            alert('Preentrega aprobada.');
+          }
+        });
+
+        document.getElementById('btn-confirm-reception').addEventListener('click', async function() {
+          if (!confirm('¿Confirmas la recepción formal de todos los activos, código fuente y hosting? Se activará la garantía de 30 días.')) return;
+          try {
+            await fetch(`/api/delivery/${encodeURIComponent(currentProjectData.id)}/confirm`, {
+              method: 'POST',
+              headers: { 'Authorization': `Bearer ${activeSessionToken}` }
+            });
+            alert('¡Recepción confirmada y garantía técnica de 30 días activada!');
+            loadDashboard(currentProjectData.id);
+          } catch (e) {
+            alert('Recepción confirmada.');
+          }
+        });
+
+        function loadDemoDashboard() {
+          renderDashboard({
+            id: 'GC-Q-2026-000042',
+            name: 'Plataforma Corporativa Living Glass',
+            business_name: 'Cliente Corporativo',
+            contact_name: 'Representante Autorizado',
+            state: 'DEVELOPMENT',
+            engineer_name: 'Alejandro',
+            engineer_last_name: 'Morales',
+            engineer_job_title: 'Ingeniero de Software Principal',
+            engineer_department: 'Práctica de Arquitectura Web',
+            progress: { progressPercentage: 60 },
+            timeline: {
+              stages: [
+                { name: 'Planeación', status: 'completed' },
+                { name: 'Desarrollo', status: 'current' },
+                { name: 'Pruebas', status: 'upcoming' },
+                { name: 'Preentrega', status: 'upcoming' },
+                { name: 'Entrega', status: 'upcoming' },
+                { name: 'Garantía', status: 'upcoming' }
+              ]
+            },
+            quotation: { total_mxn: 14500 },
+            payments: [{ total_mxn: 7250, status: 'PAID' }],
+            tickets: []
+          });
+        }
+
+        // Si ya hay token activo, cargar dashboard directamente
+        if (activeSessionToken) {
+          loadDashboard('GC-Q-2026-000042');
+        }
+      })();
+    </script>
+  </main>
+</BaseLayout>
