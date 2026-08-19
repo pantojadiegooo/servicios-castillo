@@ -38,7 +38,7 @@ export class DocumentService {
   constructor(db, auditService, storageDir = null) {
     this.db = db;
     this.auditService = auditService;
-    this.storageDir = storageDir || resolve(process.cwd(), '.castle', 'vault');
+    this.storageDir = storageDir || process.env.STORAGE_DIR || resolve(process.cwd(), '.castle', 'vault');
 
     if (!existsSync(this.storageDir)) {
       mkdirSync(this.storageDir, { recursive: true });

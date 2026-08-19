@@ -11,3 +11,4 @@ import './payments-webhooks.test.js';
 import './tickets-warranty.test.js';
 import './commercial-workflow-e2e.test.js';
 import './security-and-negative-cases.test.js';
+import './render-persistence.test.js';

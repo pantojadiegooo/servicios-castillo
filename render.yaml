@@ -1,0 +1,43 @@
+# ==============================================================================
+# GRUPO CASTILLO — RENDER BLUEPRINT SPECIFICATION (v1.1)
+# ==============================================================================
+# Despliegue de API Comercial en Render Web Service con Persistent Disk.
+# Permite conservar SQLite (.castle/commercial.sqlite) y Bóveda (.castle/vault)
+# de forma 100% persistente y desacoplada del frontend estático en Vercel.
+
+services:
+  - type: web
+    name: castillo-commercial-api
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    disk:
+      name: castle-data
+      mountPath: /opt/render/project/src/.castle
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_PATH
+        value: /opt/render/project/src/.castle/commercial.sqlite
+      - key: STORAGE_DIR
+        value: /opt/render/project/src/.castle/vault
+      - key: CORS_ORIGIN
+        value: https://www.grupocastillo.mx
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false

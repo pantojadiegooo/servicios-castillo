@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "astro": "astro",
+    "start": "node ./bin/commercial-api.js",
     "castle-gate": "node ./bin/castle-gate.js",
     "commercial:server": "node ./bin/commercial-api.js",
     "test:gate": "node ./test/castle-gate.test.js",

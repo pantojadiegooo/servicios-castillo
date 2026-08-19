@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const SCHEMA_PATH = resolve(__dirname, 'schema.sql');
-const DEFAULT_DB_PATH = resolve(process.cwd(), '.castle', 'commercial.sqlite');
+const DEFAULT_DB_PATH = process.env.DB_PATH || resolve(process.cwd(), '.castle', 'commercial.sqlite');
 
 /**
  * Inicializa y configura una instancia de base de datos SQLite.

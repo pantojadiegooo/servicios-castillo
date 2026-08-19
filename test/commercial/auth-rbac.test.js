@@ -13,7 +13,7 @@ import { ProjectService } from '../../src/commercial/services/project.service.js
 import { CommercialApiRouter } from '../../src/commercial/api/router.js';
 import { ROLES, hasCapability, CAPABILITIES } from '../../src/commercial/core/roles.js';
 
-test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
+test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', async () => {
   const db = createDatabase(':memory:');
   const auditService = new AuditService(db);
   const authService = new AuthService(db, auditService);
@@ -115,5 +115,22 @@ test('Auth & RBAC — Flujo OTP passwordless y aislamiento de proyecto', () => {
 
   const mockReqCookie = { headers: { cookie: 'other=abc; gc_session=cookie_token_456; pref=dark' } };
   assert.equal(router.extractSessionToken(mockReqCookie), 'cookie_token_456');
-});
 
+  // 16. Health check responde 200 con status ok y database ok
+  let healthStatusCode = 0;
+  let healthBody = null;
+  const mockHealthRes = {
+    setHeader: () => {},
+    writeHead: (code) => { healthStatusCode = code; },
+    end: (data) => { healthBody = JSON.parse(data); }
+  };
+  await router.handleRequest({ url: '/health', method: 'GET', headers: {} }, mockHealthRes);
+  assert.equal(healthStatusCode, 200);
+  assert.equal(healthBody.status, 'ok');
+  assert.equal(healthBody.database, 'ok');
+
+  await router.handleRequest({ url: '/api/health', method: 'GET', headers: {} }, mockHealthRes);
+  assert.equal(healthStatusCode, 200);
+  assert.equal(healthBody.status, 'ok');
+  assert.equal(healthBody.database, 'ok');
+});

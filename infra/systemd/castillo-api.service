@@ -1,0 +1,33 @@
+[Unit]
+Description=Grupo Castillo — API Comercial y Expediente Digital
+Documentation=https://github.com/pantojadiegooo/servicios-castillo
+After=network.target
+
+[Service]
+Type=simple
+User=castillo-api
+Group=castillo-api
+WorkingDirectory=/var/www/servicios-castillo
+EnvironmentFile=/etc/castillo/commercial.env
+ExecStart=/usr/bin/node bin/commercial-api.js
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=15
+
+# Límites de Recursos y Sandboxing de Seguridad
+LimitNOFILE=65536
+LimitNPROC=4096
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+ReadWritePaths=/var/www/servicios-castillo/.castle
+
+# Registro de Salida y Errores a Journald
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=castillo-api
+
+[Install]
+WantedBy=multi-user.target

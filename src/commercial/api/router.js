@@ -71,15 +71,21 @@ export class CommercialApiRouter {
     const parsedUrl = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
     const pathname = parsedUrl.pathname;
     const method = (req.method || 'GET').toUpperCase();
-    const actorIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '127.0.0.1';
+    const actorIp = req.headers?.['x-forwarded-for'] || req.socket?.remoteAddress || '127.0.0.1';
 
-    // Headers CORS y Seguridad
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
+    // Headers CORS y Seguridad (Restringido al dominio oficial)
+    const origin = req.headers?.origin;
+    const configuredOrigin = process.env.CORS_ORIGIN || 'https://www.grupocastillo.mx';
+    const isDev = process.env.NODE_ENV !== 'production';
+    const allowedOrigin = (!origin || isDev || origin === configuredOrigin) ? (origin || configuredOrigin) : configuredOrigin;
+
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, stripe-signature, x-signature, x-request-id');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
 
     if (method === 'OPTIONS') {
       res.writeHead(204);
@@ -88,10 +94,10 @@ export class CommercialApiRouter {
     }
 
     let body = {};
-    if (rawBody && (req.headers['content-type'] || '').includes('application/json')) {
+    if (rawBody && (req.headers?.['content-type'] || '').includes('application/json')) {
       try {
         body = JSON.parse(rawBody);
-      } catch (e) {
+      } catch {
         this.sendJson(res, 400, { error: 'Formato JSON inválido en el cuerpo de la petición' });
         return;
       }
@@ -102,6 +108,29 @@ export class CommercialApiRouter {
     const session = sessionToken ? this.authService.validateSession(sessionToken) : null;
 
     try {
+      // ----------------------------------------------------------------------
+      // 0. HEALTH CHECK (Monitoreo de disponibilidad y conectividad de base de datos)
+      // ----------------------------------------------------------------------
+      if ((pathname === '/health' || pathname === '/api/health') && method === 'GET') {
+        let dbOk = false;
+        try {
+          if (this.projectService?.db) {
+            this.projectService.db.prepare('SELECT 1').get();
+            dbOk = true;
+          }
+        } catch {
+          dbOk = false;
+        }
+        this.sendJson(res, dbOk ? 200 : 503, {
+          status: dbOk ? 'ok' : 'degraded',
+          database: dbOk ? 'ok' : 'error',
+          uptimeSeconds: Math.floor(process.uptime()),
+          timestamp: new Date().toISOString(),
+          version: '1.1.0'
+        });
+        return;
+      }
+
       // ----------------------------------------------------------------------
       // 1. RUTAS DE AUTENTICACIÓN
       // ----------------------------------------------------------------------

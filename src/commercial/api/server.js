@@ -32,7 +32,7 @@ export function createCommercialServer(dbInstance = null, options = {}) {
   const preDeliveryService = new PreDeliveryService(db, auditService, projectService);
   const deliveryService = new DeliveryService(db, auditService, projectService);
   const ticketService = new TicketService(db, auditService, projectService);
-  const documentService = new DocumentService(db, auditService, options.storageDir);
+  const documentService = new DocumentService(db, auditService, options.storageDir || process.env.STORAGE_DIR);
 
   const router = new CommercialApiRouter({
     authService,
@@ -75,10 +75,10 @@ export function createCommercialServer(dbInstance = null, options = {}) {
   };
 }
 
-export function startCommercialServer(port = 4321, dbPath = undefined) {
+export function startCommercialServer(port = 4321, dbPath = undefined, host = process.env.HOST || '0.0.0.0') {
   const { server } = createCommercialServer(dbPath ? getDatabase(dbPath) : undefined);
-  server.listen(port, () => {
-    console.log(`[Castillo Commercial API] Servidor activo en http://localhost:${port}`);
+  server.listen(port, host, () => {
+    console.log(`[Castillo Commercial API] Servidor activo en http://${host}:${port}`);
   });
   return server;
 }
