@@ -28,7 +28,7 @@ const { className = "" } = Astro.props;
 
   <div class="terminal-footer">
     <div class="term-footer-tag">
-      <span class="tag-icon">⚡</span>
+      <span class="tag-icon"></span>
       <span>100% In-Memory Local Runner • Zero External Telemetry</span>
     </div>
     <div style="display: flex; gap: 8px; align-items: center;">
@@ -118,10 +118,10 @@ const { className = "" } = Astro.props;
       <div class="terminal-line t-cyan">[INIT] Auditing 24 files across 7 CQS v1.1 domains in memory...</div>
       <div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar">[████████████████] 100%</span> <span class="t-muted">Probes complete</span></span></div>
       <div class="term-domains-grid">
-        <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL ✗]</div>
+        <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL]</div>
         <div class="terminal-line t-warn">│   └─ [GB-01/P0] Secret Detected: AWS Secret Key in config.js:14</div>
-        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS]</div>
+        <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS]</div>
       </div>
       <div class="terminal-line t-muted">  └─ Composite Score: <span class="t-warn">52.40 / 100.00</span> (Required: 60.00%) | Artifact: .castle/compliance-report.html</div>
       <div class="terminal-line t-blocked" style="font-weight:700;">[GATE DECISION]: BLOCKED (Exit Code 1) — Release Vetoed by C1 Policy</div>
@@ -133,13 +133,13 @@ const { className = "" } = Astro.props;
       <div class="terminal-line t-cyan">[INIT] Re-evaluating 7 CQS v1.1 domains in memory...</div>
       <div class="terminal-line"><span class="term-progress-wrap">[AUDIT] <span class="term-progress-bar">[████████████████] 100%</span> <span class="t-muted">Probes complete (142ms)</span></span></div>
       <div class="term-domains-grid">
-        <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS ✓]</div>
-        <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS ✓]</div>
+        <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS]</div>
+        <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS]</div>
+        <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS]</div>
+        <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS]</div>
+        <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS]</div>
+        <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS]</div>
+        <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS]</div>
       </div>
       <div class="terminal-line t-pass" style="font-weight:700;">[GATE DECISION]: PASSED (Exit Code 0) — Release Authorized for C1</div>
       <div class="terminal-line t-muted">  └─ Gate Breakers: <span class="t-pass">CLEARED (0 Active)</span> | Score: <span class="t-pass">88.89</span> / 100.00 (Threshold: 60.00%)</div>
@@ -148,7 +148,7 @@ const { className = "" } = Astro.props;
       <div class="terminal-cert-box">
         <div class="terminal-cert-header">
           <span>CASTLE QUALITY &amp; SECURITY GATE (CQS v1.1) • RELEASE CERTIFICATE</span>
-          <span class="t-pass">AUTHENTICATED ✓</span>
+          <span class="t-pass">AUTHENTICATED [OK]</span>
         </div>
         <div class="terminal-cert-body">
           <div class="terminal-cert-row"><span class="terminal-cert-label">Validation ID:</span><span class="terminal-cert-val t-cyan">CG-2026-68D04F</span></div>
@@ -205,10 +205,10 @@ const { className = "" } = Astro.props;
 
         appendContent(`
           <div class="term-domains-grid">
-            <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL ✗]</div>
+            <div class="terminal-line t-blocked">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) .....  0.00 / 25.00 [FAIL]</div>
             <div class="terminal-line t-warn">│   └─ [GB-01/P0] Secret Detected: AWS Secret Key in config.js:14</div>
-            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 20.00 / 20.00 [PASS]</div>
+            <div class="terminal-line t-pass">└─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS]</div>
           </div>
           <div class="terminal-line t-muted">  └─ Composite Score: <span class="t-warn">52.40 / 100.00</span> (Required: 60.00%) | Artifact: .castle/compliance-report.html</div>
           <div class="terminal-line t-blocked" style="font-weight:700;">[GATE DECISION]: BLOCKED (Exit Code 1) — Release Vetoed by C1 Policy</div>
@@ -244,13 +244,13 @@ const { className = "" } = Astro.props;
 
         appendContent(`
           <div class="term-domains-grid">
-            <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS ✓]</div>
-            <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS ✓]</div>
+            <div class="terminal-line t-pass">├─ [DOM-01] Detección de Secretos &amp; Credenciales (25%) ..... 25.00 / 25.00 [PASS]</div>
+            <div class="terminal-line t-pass">├─ [DOM-02] Dependencias &amp; Cadena de Suministro (20%) .... 18.00 / 20.00 [PASS]</div>
+            <div class="terminal-line t-pass">├─ [DOM-03] Calidad de Código Estático (15%) ............ 15.00 / 15.00 [PASS]</div>
+            <div class="terminal-line t-pass">├─ [DOM-04] Accesibilidad WCAG AA (15%) ................. 12.00 / 15.00 [PASS]</div>
+            <div class="terminal-line t-pass">├─ [DOM-05] Rendimiento &amp; Web Vitals (10%) ..............  8.89 / 10.00 [PASS]</div>
+            <div class="terminal-line t-pass">├─ [DOM-06] Higiene de Producción (10%) .................  7.00 / 10.00 [PASS]</div>
+            <div class="terminal-line t-pass">└─ [DOM-07] SEO &amp; Gobernanza (5%) .......................  3.00 /  5.00 [PASS]</div>
           </div>
           <div class="terminal-line t-pass" style="font-weight:700;">[GATE DECISION]: PASSED (Exit Code 0) — Release Authorized for C1</div>
           <div class="terminal-line t-muted">  └─ Gate Breakers: <span class="t-pass">CLEARED (0 Active)</span> | Score: <span class="t-pass" id="score-counter">0.00</span> / 100.00 (Threshold: 60.00%)</div>
@@ -267,7 +267,7 @@ const { className = "" } = Astro.props;
           <div class="terminal-cert-box">
             <div class="terminal-cert-header">
               <span>CASTLE QUALITY &amp; SECURITY GATE (CQS v1.1) • RELEASE CERTIFICATE</span>
-              <span class="t-pass">AUTHENTICATED ✓</span>
+              <span class="t-pass">AUTHENTICATED [OK]</span>
             </div>
             <div class="terminal-cert-body">
               <div class="terminal-cert-row"><span class="terminal-cert-label">Validation ID:</span><span class="terminal-cert-val t-cyan">CG-2026-68D04F</span></div>

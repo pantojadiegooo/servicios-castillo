@@ -63,7 +63,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-bottom: 0.75rem;">
-              ✓ Verificar Código y Entrar
+              Verificar Código y Entrar
             </button>
             <button type="button" id="btn-back-otp" class="btn btn-outline" style="width: 100%; font-size: 0.8rem; padding: 0.5rem;">
               ← Usar otro correo o proyecto
@@ -86,7 +86,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               <p id="dash-client-name" style="color: var(--steel-light); font-size: 0.85rem; margin: 0;">Cliente Corporativo</p>
             </div>
             <div>
-              <button id="btn-logout" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;">Cerrar Sesión ✕</button>
+              <button id="btn-logout" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;">Cerrar Sesión</button>
             </div>
           </div>
 
@@ -165,10 +165,10 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; border-top: 1px solid var(--line-dark); padding-top: 1.25rem;">
               <button id="btn-approve-predelivery" class="btn btn-primary" style="flex: 1; min-width: 220px; font-size: 0.9rem;">
-                ✓ Aprobar Preentrega y Proceder al Finiquito
+                Aprobar Preentrega y Proceder al Finiquito
               </button>
               <button id="btn-show-observations-modal" class="btn btn-outline" style="flex: 1; min-width: 220px; font-size: 0.9rem;">
-                ⚠ Reportar Observaciones o Ajustes
+                Reportar Observaciones o Ajustes
               </button>
             </div>
           </div>
@@ -181,7 +181,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               Tu repositorio Git privado y hosting han sido transferidos a tu titularidad exclusiva conforme a la Ownership Policy.
             </p>
             <button id="btn-confirm-reception" class="btn btn-primary" style="background: var(--success); color: #06080C; font-size: 0.95rem; padding: 0.85rem 1.5rem;">
-              ✓ Confirmar Recepción de Activos y Activar Garantía (30 Días)
+              Confirmar Recepción de Activos y Activar Garantía (30 Días)
             </button>
           </div>
 
@@ -395,7 +395,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             let bg = 'rgba(7, 9, 14, 0.6)';
 
             if (s.status === 'completed') {
-              icon = '✓';
+              icon = 'OK';
               color = 'var(--success)';
               bg = 'rgba(0, 229, 153, 0.08)';
             } else if (s.status === 'current') {
@@ -439,7 +439,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
                 <span style="font-size: 0.82rem; color: var(--steel-light);">Estado: <strong style="color: var(--paper);">${t.client_facing_status}</strong></span>
                 ${t.client_facing_status === 'Resuelto' && t.internal_status !== 'CLOSED' ? `
                   <button onclick="confirmResolved('${t.id}')" class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; background: var(--success); color: #06080C;">
-                    ✓ Confirmar Problema Resuelto
+                    Confirmar Problema Resuelto
                   </button>
                 ` : ''}
               </div>

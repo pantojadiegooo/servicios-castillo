@@ -23,7 +23,7 @@ export function generateHtmlReport(result, cert) {
             `).join('')}
           </ul>
         </div>`
-      : `<p style="margin: 8px 0 0 0; font-size: 12px; color: #00E599;">✓ All controls satisfied nominal baseline without findings.</p>`;
+      : `<p style="margin: 8px 0 0 0; font-size: 12px; color: #00E599;">All controls satisfied nominal baseline without findings.</p>`;
 
     return `
       <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">

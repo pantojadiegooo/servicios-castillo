@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+---
+
+<BaseLayout
+  title="Aviso de Privacidad Integral — Grupo Castillo"
+  description="Aviso de Privacidad Integral de Grupo Castillo conforme a la LFPDPPP mexicana para servicios comerciales e iniciativa Castle Impact."
+  canonical="https://servicios-castillo.vercel.app/privacidad.html"
+  ogUrl="https://servicios-castillo.vercel.app/privacidad.html"
+>
+  <main id="main">
+
+    <section class="page-hero">
+      <InnerHeroVisual type="terminos" />
+      <div class="container page-hero-inner">
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Aviso de Privacidad</p>
+        <div class="badge badge-cyan">MARCO LEGAL INSTITUCIONAL</div>
+        <h1>Aviso de Privacidad Integral</h1>
+        <p>Tratamiento legítimo, controlado e informado de datos personales recabados en la prestación de servicios de ingeniería, evaluación técnica y la iniciativa pro bono Castle Impact.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <div class="glass-panel reveal" style="padding: 3rem; line-height: 1.7; color: var(--steel-light);">
+          
+          <div style="padding: 1rem; background: rgba(0, 210, 255, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-bottom: 2rem; font-size: 0.85rem;">
+            <strong>Nota Institucional:</strong> El presente documento ha sido redactado conforme a los principios de licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad previstos en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).
+          </div>
+
+          <h2 style="font-size: 1.3rem; color: var(--paper); margin-bottom: 0.75rem;">1. Identidad y Domicilio del Responsable</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <strong>Grupo Castillo</strong>, con canal institucional de contacto en <span style="font-family: var(--f-mono); color: var(--cyan);">engineering@grupocastillo.com</span> y portal oficial en <a href="https://servicios-castillo.vercel.app/" style="color: var(--cyan);">https://servicios-castillo.vercel.app/</a>, es el responsable del tratamiento y protección de sus datos personales.
+          </p>
+
+          <h2 style="font-size: 1.3rem; color: var(--paper); margin-bottom: 0.75rem;">2. Datos Personales Recabados y Categorías</h2>
+          <p style="margin-bottom: 1rem; font-size: 0.95rem;">
+            En estricto apego al principio de <strong>minimización de datos</strong>, únicamente recabamos la información indispensable:
+          </p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <li><strong>Servicios Comerciales:</strong> Nombre completo, correo corporativo, cargo, empresa, número telefónico y detalles técnicos de arquitectura.</li>
+            <li><strong>Iniciativa Castle Impact:</strong> Nombre de la organización, datos del representante o enlace técnico, correo de contacto, misión institucional y necesidad tecnológica.</li>
+            <li><strong>Rol de Encargado Técnico (Procesador):</strong> En intervenciones sobre sistemas de organizaciones aliadas, Grupo Castillo actúa como procesador técnico bajo directrices de la organización. <em>Se prohíbe el almacenamiento de datos sensibles de beneficiarios individuales o personas vulnerables.</em></li>
+          </ul>
+
+          <h2 style="font-size: 1.3rem; color: var(--paper); margin-bottom: 0.75rem;">3. Finalidades del Tratamiento</h2>
+          <p style="margin-bottom: 0.75rem; font-size: 0.95rem;"><strong>Finalidades Primarias:</strong></p>
+          <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <li>Atender solicitudes comerciales de diagnóstico, checkup o desarrollo.</li>
+            <li>Evaluar la viabilidad técnica de las postulaciones a Castle Impact.</li>
+            <li>Formalizar Acuerdos de Participación y coordinar sesiones de transferencia técnica.</li>
+            <li>Facturación y cumplimiento contractual conforme a las leyes fiscales mexicanas.</li>
+          </ul>
+
+          <h2 style="font-size: 1.3rem; color: var(--paper); margin-bottom: 0.75rem;">4. Derechos ARCO</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Tienes derecho a Acceder, Rectificar, Cancelar u Oponerte al tratamiento de tus datos personales. Para ejercer tus derechos ARCO, envía un correo a <span style="font-family: var(--f-mono); color: var(--cyan);">engineering@grupocastillo.com</span> o completa el formulario de contacto en <a href="/contacto.html" style="color: var(--cyan);">/contacto.html</a>.
+          </p>
+
+          <h2 style="font-size: 1.3rem; color: var(--paper); margin-bottom: 0.75rem;">5. Cero Cookies Invasivas y Seguridad Técnica</h2>
+          <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Este sitio web público no utiliza cookies de rastreo publicitario de terceros ni telemetría invasiva. Todos los sensores de Castle Gate operan 100% en memoria en runners privados del cliente.
+          </p>
+
+          <div style="padding: 1rem; background: rgba(255, 184, 0, 0.08); border-left: 3px solid var(--warning); border-radius: var(--radius-sm); margin-top: 2rem; font-size: 0.85rem;">
+            <strong>Aviso de Validez Legal:</strong> Este texto constituye una versión técnica estructurada preparada para revisión jurídica conforme al marco mexicano aplicable. La versión definitiva está sujeta a ratificación legal previa.
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <CTABand
+      title="¿Tienes dudas sobre el manejo de información de tu proyecto?"
+      description="Escríbenos directamente y te orientamos con absoluta transparencia."
+      ctaLabel="Ir al Formulario de Contacto"
+      ctaHref="/contacto.html"
+    />
+
+  </main>
+</BaseLayout>
