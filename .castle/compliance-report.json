@@ -1,10 +1,10 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-8992F9",
+    "validation_id": "CG-2026-F09906",
     "protocol": "CQS_v1.1",
     "policy_level": "C6",
-    "target_release_sha": "8a0773e2d3a87a768b0aeb12b43779a7bc6cc224",
-    "evaluation_timestamp_utc": "2026-08-22T12:16:42.852Z",
+    "target_release_sha": "a1158239ab1789b9288da6f0da19e0342ed04ae0",
+    "evaluation_timestamp_utc": "2026-08-22T12:35:00.533Z",
     "status": "PASS",
     "exit_code": 0,
     "score": 100,
@@ -55,7 +55,7 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "60ed4b0b3d8a8e3491c6cd0640b089234e7bed34612378d7222e89527edf46d1"
+    "signature_digest_sha256": "260bd2e2e7b11f98b4a5ea8c4dbce9ae6ae4594c57db5fb049865afd4b8a19d0"
   },
   "evaluation": {
     "targetDir": "C:\\Users\\panto\\.gemini\\antigravity\\scratch\\castle-engineering",
@@ -75,7 +75,7 @@
         "gateBreakersActive": 0,
         "findings": [],
         "summary": {
-          "filesScanned": 179,
+          "filesScanned": 180,
           "secretsDetected": 0,
           "gateBreakers": 0
         }
@@ -101,7 +101,7 @@
         "gateBreakersActive": 0,
         "findings": [],
         "summary": {
-          "sourceFilesScanned": 88,
+          "sourceFilesScanned": 89,
           "assetsScanned": 74,
           "issuesCount": 0
         }

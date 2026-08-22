@@ -75,23 +75,31 @@
 .terminal-header-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(0, 229, 153, 0.1);
-  border: 1px solid rgba(0, 229, 153, 0.3);
+  justify-content: center;
+  gap: 6px;
+  background: rgba(0, 229, 153, 0.12);
+  border: 1px solid rgba(0, 229, 153, 0.35);
   color: #00E599;
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: 9999px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 .terminal-header-badge .badge-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #00E599;
   box-shadow: 0 0 6px #00E599;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .terminal-body {
@@ -125,10 +133,10 @@
 .t-cmd { color: #FFFFFF; font-weight: 600; }
 .t-pass { color: var(--success, #00E599); font-weight: 600; }
 .t-blocked { color: var(--danger, #FF4D4D); font-weight: 700; }
-.t-muted { color: var(--steel-soft, #94A3B8); }
+.t-muted { color: #CBD5E1; }
 .t-warn { color: var(--warning, #FFB800); }
 .t-cyan { color: var(--cyan, #00D2FF); }
-.t-dim { color: #64748B; }
+.t-dim { color: #94A3B8; }
 
 /* Blinking Block Cursor */
 .terminal-cursor {
