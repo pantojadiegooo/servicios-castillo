@@ -305,6 +305,74 @@ function runCli(rawArgs) {
     }
   }
 
+  if (args.command === 'evaluate') {
+    const level = args.level || 'C1';
+    if (!gate.VALID_GATE_LEVELS.includes(level)) {
+      console.error(`[CLI ERROR] Invalid gate level: "${level}". Valid levels: ${gate.VALID_GATE_LEVELS.join(', ')}`);
+      return 3;
+    }
+
+    if (!args.evidencePath || !fs.existsSync(args.evidencePath)) {
+      console.error(`[CLI ERROR] Evidence file not found or not specified: ${args.evidencePath}`);
+      return 3;
+    }
+
+    let rawEvidence = {};
+    try {
+      rawEvidence = JSON.parse(fs.readFileSync(args.evidencePath, 'utf8'));
+    } catch (e) {
+      console.error(`[CLI ERROR] Malformed evidence JSON: ${e.message}`);
+      return 3;
+    }
+
+    let gateEvidence = {};
+    if (args.gateEvidencePath) {
+      if (!fs.existsSync(args.gateEvidencePath)) {
+        console.error(`[CLI ERROR] Gate evidence file not found: ${args.gateEvidencePath}`);
+        return 3;
+      }
+      try {
+        gateEvidence = JSON.parse(fs.readFileSync(args.gateEvidencePath, 'utf8'));
+      } catch (e) {
+        console.error(`[CLI ERROR] Malformed gate evidence JSON: ${e.message}`);
+        return 3;
+      }
+    }
+
+    let policyOverride = null;
+    if (args.policyPath) {
+      if (!fs.existsSync(args.policyPath)) {
+        console.error(`[CLI ERROR] Policy file not found: ${args.policyPath}`);
+        return 3;
+      }
+      try {
+        policyOverride = JSON.parse(fs.readFileSync(args.policyPath, 'utf8'));
+      } catch (e) {
+        console.error(`[CLI ERROR] Malformed policy JSON: ${e.message}`);
+        return 3;
+      }
+    }
+
+    const execution = gate.executeCastleGate({
+      target_system: {
+        name: args.project || 'pre-collected-target',
+        environment: args.env || 'production'
+      },
+      gate_level: level,
+      raw_evidence: rawEvidence,
+      gate_evidence: gateEvidence,
+      policy_override: policyOverride,
+      commit_sha: args.commit,
+      output_dir: args.outputDir
+    });
+
+    if (args.jsonOutput) {
+      console.log(JSON.stringify(execution, null, 2));
+    }
+
+    return execution.exit_code;
+  }
+
   if (args.command === 'scan') {
     const targetDir = args.scanDir || '.';
     let config;

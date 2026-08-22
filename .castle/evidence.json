@@ -1,13 +1,13 @@
 {
   "schema_version": "2.0.0-assurance",
-  "evaluation_id": "EVAL-1787089550468",
-  "nonce": "945d10ed5a34093878adb2528dc5feca",
-  "timestamp": "2026-08-18T21:45:50.472Z",
+  "evaluation_id": "EVAL-1787387131197",
+  "nonce": "d0ae29a5eb0d8dcc1de548a070cd6217",
+  "timestamp": "2026-08-22T08:25:31.201Z",
   "target_system": {
     "name": "cli-scan-proj",
     "environment": "production",
     "repository_url": "local://cli-scan-proj",
-    "commit_sha": "f3cf7b4eb99509121fecb65a8dcba6af9671d71b",
+    "commit_sha": "367e84b54ef8db5958f79719c8bf956daf87af82",
     "git_tree_hash": "b34524ca0bd3a1e98a9aa55f4eb7ea4fe3b9406e4e30e2a9d33d8af0c385e194",
     "branch": "unknown",
     "is_dirty": false
@@ -16,8 +16,8 @@
     "cqs_specification_version": "1.1.0",
     "policy_version": "1.0.0-ratified",
     "policy_hash": "16ca1e1bb73dd459276467d069cbd62b06c5b08c357b7d61626adb8c81987550",
-    "engine_version": "1.0.0",
-    "castle_gate_version": "1.0.0-candidate"
+    "engine_version": "1.0.1",
+    "castle_gate_version": "1.0.1"
   },
   "assessment": {
     "gate_level": "C1",
@@ -154,7 +154,7 @@
         "probe_name": "CastleSecurityProbe",
         "probe_version": "1.0.0",
         "files_scanned": 1,
-        "duration_ms": 13,
+        "duration_ms": 11,
         "payload_sha256": "c50b051f8d3bdb0a777573ad90c27092ad25af87f283409245d5faeba8fb813f",
         "errors": []
       },
@@ -162,7 +162,7 @@
         "probe_name": "CastleDomSemanticsProbe",
         "probe_version": "2.0.0",
         "files_scanned": 1,
-        "duration_ms": 2,
+        "duration_ms": 1,
         "payload_sha256": "f6fae9dadd2f5c2f30d2da64298d1f2a47f43cde2295473e572997b7303d88ad",
         "errors": []
       },
@@ -170,7 +170,7 @@
         "probe_name": "CastleMaintainabilityProbe",
         "probe_version": "1.0.0",
         "files_scanned": 1,
-        "duration_ms": 1,
+        "duration_ms": 2,
         "payload_sha256": "c17b5e2d50e8dd09d1572d606f738918aa5795645d735b8d09431cc67bbaefb7",
         "errors": []
       },
@@ -178,7 +178,7 @@
         "probe_name": "CastleAstProbe",
         "probe_version": "2.0.0",
         "files_scanned": 0,
-        "duration_ms": 1,
+        "duration_ms": 0,
         "payload_sha256": "53de13eac8c0a7bade866972b9f8f018bd6677469abf9d532effb5744b6eac07",
         "errors": []
       },
@@ -186,7 +186,7 @@
         "probe_name": "CastleGitHistoryProbe",
         "probe_version": "1.0.0",
         "files_scanned": 0,
-        "duration_ms": 313,
+        "duration_ms": 342,
         "payload_sha256": "29105c6c720212df96f92e1cd3a6605c6863cf9ab62caf910fbc9e43df81f6f2",
         "errors": []
       }
@@ -195,12 +195,12 @@
   "artifacts": {
     "compliance_report_html_sha256": "e754623cba9b7ad30844dfa0b1538784b4b347fdbbadf45170b91a0dd23e5af4",
     "compliance_report_json_sha256": null,
-    "sarif_sha256": "3318cd68b281eb67328b93826d643250c94fdbdce1fb7634465a10d7dad3f7b9",
+    "sarif_sha256": "fe0d4cd1e6bd080071393759e7c8bfcde878979e32e00a9da2ae1f6155e72888",
     "sbom_cyclonedx_sha256": "46f906eff0e86daefb97683dd4bbb565d0f5dffc5795537f8ef73e64a2bb71e3"
   },
   "integrity": {
     "canonical_algorithm": "RFC-8785-JCS",
-    "payload_sha256": "c089eb5ea17641233deb7f238730ecc975468dafba20ac9c7a67bdcaa4a983ce",
+    "payload_sha256": "a248e2d94a8f06b21a0d7b68024bf48ddc745de71270ebbc9f4d038763f48b19",
     "signed": false,
     "signature": null,
     "dsse_envelope": null

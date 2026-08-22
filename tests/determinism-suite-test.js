@@ -177,7 +177,11 @@ console.log(`[PASS] 4. SARIF canonical hash identical across 100 runs: ${baselin
 console.log(`[PASS] 5. SBOM canonical hash identical across 100 runs: ${baselineSbomSha.substring(0, 16)}...`);
 
 // Cleanup
-fs.rmSync(testDir, { recursive: true, force: true });
+try {
+  fs.rmSync(testDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+} catch (cleanupErr) {
+  // Graceful ignore on Windows locked folder during process exit
+}
 
 console.log('\n================================================================');
 console.log('ALL DETERMINISM SUITE TESTS PASSED (100/100 RUNS 100% MATCH)');

@@ -216,7 +216,9 @@ function initContactForm() {
     clearContainer(formFeedback);
     const feedbackHtml = `
       <div class="glass-panel" style="padding: 32px 24px; border-color: var(--status-pass); text-align: center;">
-        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--status-pass-bg); border: 1px solid var(--status-pass); color: var(--status-pass); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 16px;">✓</div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--status-pass-bg); border: 1px solid var(--status-pass); color: var(--status-pass); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
         <h4 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 8px;">Solicitud Registrada con Éxito</h4>
         <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px;">
           Gracias <strong>${safeName}</strong>. Hemos registrado los datos de <strong>${safeCompany}</strong> para <strong>${safeService}</strong>.

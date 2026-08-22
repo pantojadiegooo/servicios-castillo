@@ -6,13 +6,13 @@
       "tool": {
         "driver": {
           "name": "Castle Gate Assurance Engine",
-          "version": "1.0.0-candidate",
+          "version": "1.0.1",
           "informationUri": "https://grupocastillo.com/castle-gate",
           "rules": []
         }
       },
       "automationDetails": {
-        "id": "EVAL-1787089550468"
+        "id": "EVAL-1787387131197"
       },
       "results": []
     }

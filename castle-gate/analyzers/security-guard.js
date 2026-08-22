@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DEFAULT_RESOURCE_LIMITS = Object.freeze({
-  MAX_FILE_SIZE_BYTES: 10 * 1024 * 1024,  // 10 MB per file (configurable)
+  MAX_FILE_SIZE_BYTES: 5 * 1024 * 1024,   // 5 MB per file (configurable)
   MAX_TOTAL_FILES: 5000,                  // 5000 files max per scan
   MAX_DIRECTORY_DEPTH: 20,                // 20 directory levels max
   SCANNER_TIMEOUT_MS: 30000,              // 30 seconds max per individual scanner
@@ -145,7 +145,7 @@ function safeDiscoverFiles(rootDir, options = {}) {
       }
 
       if (stat.isDirectory()) {
-        if (!ignoredDirs.has(entry.name)) {
+        if (!ignoredDirs.has(entry.name) && !entry.name.startsWith('.test-scratch') && !entry.name.startsWith('.audit-scratch')) {
           traverse(itemPath, currentDepth + 1);
         }
       } else if (stat.isFile()) {

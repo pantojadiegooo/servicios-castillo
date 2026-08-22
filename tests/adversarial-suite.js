@@ -425,7 +425,11 @@ assert.strictEqual(ledgerVerify.valid, false, 'Broken Merkle parent link must in
 console.log('[DEFENDED] ADV-20: Broken Merkle evidence chain tampering detected.');
 
 // Cleanup
-fs.rmSync(testScratchDir, { recursive: true, force: true });
+try {
+  fs.rmSync(testScratchDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+} catch (cleanupErr) {
+  // Graceful ignore on Windows locked file
+}
 
 console.log('\n================================================================');
 console.log('ALL 20 ADVERSARIAL ATTACK SCENARIOS SUCCESSFULLY DEFENDED (20/20 PASS)');

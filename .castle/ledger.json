@@ -43,5 +43,41 @@
     "evidence_sha256": "d4b75a7d83f7ce6bae3a1f1aae8c80a8d296815402474fa2c04854a2a020758b",
     "timestamp": "2026-08-18T21:45:50.651Z",
     "entry_hash": "83cf6eb010a9da123c2ab3573c216617a913e587204e36bae811b86f1cac4050"
+  },
+  {
+    "entry_index": 5,
+    "evaluation_id": "EVAL-1787386211419",
+    "commit_sha": "unspecified_sha",
+    "parent_hash": "83cf6eb010a9da123c2ab3573c216617a913e587204e36bae811b86f1cac4050",
+    "evidence_sha256": "0778f533ae2d434496f7c0ba538aa548e5a28b6656d738068828163d20c714c3",
+    "timestamp": "2026-08-22T08:10:11.580Z",
+    "entry_hash": "68d1f3c977940c56fd3704b9f007fa07ba63b23ecb19d5476c2bd37590e5d276"
+  },
+  {
+    "entry_index": 6,
+    "evaluation_id": "EVAL-1787386443546",
+    "commit_sha": "unspecified_sha",
+    "parent_hash": "68d1f3c977940c56fd3704b9f007fa07ba63b23ecb19d5476c2bd37590e5d276",
+    "evidence_sha256": "4ac046b68fc0b6d57f8d703234d486f72f09305d4ab8066cdf82dd70bb6d2bd8",
+    "timestamp": "2026-08-22T08:14:03.712Z",
+    "entry_hash": "be2690812276d44f1f2beeed169031ceaf152d464b675c79bfd986a381468a08"
+  },
+  {
+    "entry_index": 7,
+    "evaluation_id": "EVAL-1787386808115",
+    "commit_sha": "unspecified_sha",
+    "parent_hash": "be2690812276d44f1f2beeed169031ceaf152d464b675c79bfd986a381468a08",
+    "evidence_sha256": "5b39e068cda05d8a741b8347cb9b5ce4151734480fe972b4ba2c27141ba6949c",
+    "timestamp": "2026-08-22T08:20:08.280Z",
+    "entry_hash": "ad4b28e5492a47888d0332b57622a726f940058c3c795adb59c56bd27b4c84da"
+  },
+  {
+    "entry_index": 8,
+    "evaluation_id": "EVAL-1787387131197",
+    "commit_sha": "unspecified_sha",
+    "parent_hash": "ad4b28e5492a47888d0332b57622a726f940058c3c795adb59c56bd27b4c84da",
+    "evidence_sha256": "891d546329643ee339381c9919a5a04b5e9ea3a1948929703c4938d83645493c",
+    "timestamp": "2026-08-22T08:25:31.360Z",
+    "entry_hash": "a24b8ec1bfb7e3971836e2bbe11d743df627350bc4efefc3d65c0a4e76e97777"
   }
 ]

@@ -60,7 +60,7 @@
       </a>
 
       <button class="mobile-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-label="Abrir menú de navegación">
-        ☰
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
 
       <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Navegación Principal">
@@ -70,6 +70,7 @@
           <li><a href="#checkup" class="nav-link">Castle Checkup</a></li>
           <li><a href="#metodologia" class="nav-link">Metodología CQS</a></li>
           <li><a href="#pricing" class="nav-link">Precios</a></li>
+          <li><a href="castle-impact/" class="nav-link">Castle Impact</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
@@ -156,7 +157,9 @@
 
         <div class="cards-grid">
           <article class="card glass-panel">
-            <div class="card-icon">⚡</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
             <h3 class="card-title">Castle Native Probes</h3>
             <p class="card-desc">
               Sensores nativos integrados en memoria que auditan fugas de secretos (AWS, Stripe, GitHub PAT), enlaces HTTP no cifrados, dependencias y consistencia de lockfiles sin dependencias externas.
@@ -168,7 +171,9 @@
           </article>
 
           <article class="card glass-panel">
-            <div class="card-icon">🛡️</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
             <h3 class="card-title">Gate Breakers (Veto Inmediato)</h3>
             <p class="card-desc">
               Reglas de corte estricto no negociables. Si un commit contiene una credencial expuesta o viola una política crítica, el release se veta inmediatamente con Exit Code 1 en tu pipeline.
@@ -180,7 +185,9 @@
           </article>
 
           <article class="card glass-panel">
-            <div class="card-icon">📜</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
             <h3 class="card-title">Release Certificate Inmutable</h3>
             <p class="card-desc">
               Al cumplir la política pactada, el motor emite un certificado digital sellado con digest SHA-256 auditable, verificable con el comando <code>verify-cert</code>.
@@ -303,12 +310,16 @@
               <div class="flow-node-title">CASTLE CHECKUP</div>
               <div class="flow-node-sub">Diagnóstico Ágil (72h)</div>
             </div>
-            <div class="flow-arrow">➔</div>
+            <div class="flow-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
             <div class="flow-node primary">
               <div class="flow-node-title">CASTLE GATE</div>
               <div class="flow-node-sub">Gobernanza en CI/CD</div>
             </div>
-            <div class="flow-arrow">➔</div>
+            <div class="flow-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
             <div class="flow-node primary">
               <div class="flow-node-title">CASTLE CARE</div>
               <div class="flow-node-sub">Supervisión Continua</div>
@@ -316,7 +327,7 @@
           </div>
 
           <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 10px 0;">
-            ▼ Rutas e Intervenciones Especializadas ▼
+            [ Rutas e Intervenciones Especializadas ]
           </div>
 
           <div class="flow-branches">
@@ -338,7 +349,9 @@
         <!-- Detailed Cards Grid -->
         <div class="cards-grid" style="margin-top: 48px;">
           <article class="card glass-panel">
-            <div class="card-icon">🔍</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
             <h3 class="card-title">Castle Audit</h3>
             <p class="card-desc">
               Revisión técnica de alta fidelidad para plataformas complejas o procesos de adquisición. Mapeo de acoplamiento, deuda técnica oculta y análisis de riesgos.
@@ -350,7 +363,9 @@
           </article>
 
           <article class="card glass-panel">
-            <div class="card-icon">🛠️</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
             <h3 class="card-title">Castle Rescue</h3>
             <p class="card-desc">
               Ingenieros de Grupo Castillo intervienen directamente en tu repositorio para purgar secretos, corregir lockfiles y elevar el score CQS hasta autorizar el release.
@@ -362,7 +377,9 @@
           </article>
 
           <article class="card glass-panel">
-            <div class="card-icon">🚨</div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
             <h3 class="card-title">Castle Emergency</h3>
             <p class="card-desc">
               Respuesta crítica ante fugas agudas de credenciales (AWS/Stripe) en producción o pipelines totalmente bloqueados con SLA de atención menor a 4 horas.
@@ -690,10 +707,21 @@
         </div>
 
         <div class="footer-col">
-          <h4>Gobernanza</h4>
+          <h4>Iniciativas</h4>
           <ul class="footer-links">
-            <li><a href="#pricing">Precios de Referencia</a></li>
-            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="castle-impact/">Castle Impact</a></li>
+            <li><a href="castle-impact/#metodologia">Metodología Pro Bono</a></li>
+            <li><a href="castle-impact/#postulacion">Postulación</a></li>
+            <li><a href="acuerdo-impact/">Acuerdo de Participación</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal & Gobernanza</h4>
+          <ul class="footer-links">
+            <li><a href="privacidad/">Aviso de Privacidad</a></li>
+            <li><a href="terminos/">Términos y Condiciones</a></li>
+            <li><a href="acuerdo-impact/">Acuerdo Castle Impact</a></li>
             <li><a href="#contacto">Contacto Comercial</a></li>
           </ul>
         </div>
@@ -701,7 +729,7 @@
 
       <div class="footer-bottom">
         <div>&copy; 2026 Grupo Castillo Engineering. Todos los derechos reservados.</div>
-        <div class="mono" style="font-size: 0.78rem;">Engine: @grupo-castillo/castle-gate v1.0.0 • CQS v1.1 Frozen</div>
+        <div class="mono" style="font-size: 0.78rem;">Engine: @grupo-castillo/castle-gate v1.0.1 • CQS v1.1 Frozen</div>
       </div>
     </div>
   </footer>
