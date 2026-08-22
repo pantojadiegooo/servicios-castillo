@@ -46,13 +46,15 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
             <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Integración de Pasarela de Pagos:</strong> Configuración de Stripe / Mercado Pago tokenizado y seguro.</li>
             <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Conexión con CRM y Automatización:</strong> Sincronización mediante Webhooks / APIs hacia HubSpot, Mailchimp o bases de datos.</li>
             <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Hardening de Seguridad:</strong> Cabeceras de seguridad estrictas (CSP, HSTS, X-Content-Type-Options) y blindaje contra XSS.</li>
-            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Gobernanza Castle Gate C3/C4:</strong> Verificación de integridad SHA-256 de assets y bloqueo de regresiones en CI/CD.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Validación Castle Gate C1:</strong> Verificación de integridad SHA-256 de assets, hardening y ausencia de secretos en pipeline.</li>
           </ul>
 
           <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué NO incluye?</h3>
           <ul style="list-style: none; padding: 0; color: var(--steel-soft); font-size: 0.9rem; margin-bottom: 2rem;">
-            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06);">Desarrollo de software a la medida con roles de usuario multi-tenant (disponible en Proyectos Avanzados).</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06);">Desarrollo de software a la medida con roles de usuario complejos o lógica ERP (disponible en Software a Medida).</li>
             <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06);">Comisiones bancarias porcentuales por transacción cobradas por Stripe o Mercado Pago.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--paper);"><strong>Redacción de Contenidos:</strong> La redacción de contenidos desde cero NO está incluida en los $24,500 MXN. El cliente provee o valida los contenidos y catálogos base; la redacción desde cero está disponible como servicio adicional, sujeto a cotización.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Módulo Adicional:</strong> Estrategia de contenido y conversión disponible como servicio adicional, sujeto a cotización.</li>
           </ul>
 
           <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">¿Qué necesitamos del cliente?</h3>
@@ -63,12 +65,12 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
 
         <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
         <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
-          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">PROPUESTA DE LANZAMIENTO</span>
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">PROPUESTA OFICIAL</span>
           <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
             $24,500 MXN
           </div>
           <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
-            ~$1,440 USD (Pago Único)
+            Pago Único • Facturación en MXN
           </span>
 
           <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
@@ -77,8 +79,8 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               <strong style="color: var(--paper);">5 rondas formales</strong>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span>Plazo estimado:</span>
-              <strong style="color: var(--paper);">15 a 20 días hábiles</strong>
+              <span>Plazo objetivo:</span>
+              <strong style="color: var(--paper);">15 a 20 días hábiles *</strong>
             </div>
             <div style="display: flex; justify-content: space-between;">
               <span>Titularidad del código:</span>
@@ -87,10 +89,10 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
           </div>
 
           <a href="/contacto.html?paquete=Castle%20Platinum" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Solicitar Castle Platinum</a>
-          <a href="/paquetes.html#proyectos-avanzados" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver requerimientos a medida: Proyectos Avanzados →</a>
+          <a href="/paquetes/diamond.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Software a Medida: Castle Diamond →</a>
 
           <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
-            * Equivalente USD aproximado; la cotización y facturación contractual se realiza en MXN.
+            * Plazo estimado computable tras la recepción completa de contenidos y validación de arquitectura. Facturación formal en MXN.
           </p>
         </div>
 

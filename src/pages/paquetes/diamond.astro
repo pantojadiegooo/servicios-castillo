@@ -1,44 +1,124 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQItem from '../../components/FAQItem.astro';
 import CTABand from '../../components/CTABand.astro';
 import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
 ---
 
 <BaseLayout
-  title="Proyectos Avanzados — Grupo Castillo"
-  description="Los proyectos de software a la medida, portales y arquitecturas complejas de Grupo Castillo ahora forman parte de Proyectos Avanzados (Desde $40,000 MXN)."
-  canonical="https://servicios-castillo.vercel.app/paquetes.html#proyectos-avanzados"
-  ogUrl="https://servicios-castillo.vercel.app/paquetes.html#proyectos-avanzados"
+  title="Castle Diamond — Ingeniería de Software a la Medida y Proyectos Avanzados | Grupo Castillo"
+  description="Castle Diamond (Desde $40,000 MXN): Arquitectura de software personalizada, portales de clientes, módulos ERP/CRM, alta disponibilidad y gobernanza continua."
+  canonical="https://servicios-castillo.vercel.app/paquetes/diamond.html"
+  ogUrl="https://servicios-castillo.vercel.app/paquetes/diamond.html"
 >
-  <head slot="head">
-    <meta http-equiv="refresh" content="2; url=/paquetes.html#proyectos-avanzados" />
-  </head>
-
   <main id="main">
+
     <section class="page-hero">
       <InnerHeroVisual type="proyectos" />
-      <div class="container page-hero-inner" style="text-align: center; max-width: 780px;">
+      <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/paquetes.html">Paquetes</a> / Castle Diamond</p>
-        <div class="badge badge-cyan">REDIRECCIÓN COMERCIAL • ARQUITECTURA VIGENTE</div>
-        <h1>Castle Diamond — Proyectos Avanzados</h1>
-        <p style="font-size: 1.05rem; color: var(--steel-light); margin-top: 1rem; line-height: 1.6;">
-          Los desarrollos de software personalizado, portales privados e integraciones a la medida se gestionan bajo <strong>Castle Diamond / Proyectos Avanzados</strong> ($40,000+ MXN).
-        </p>
-        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="/paquetes.html#catalogo-sitios" class="btn btn-primary">Ver Catálogo de Paquetes →</a>
-          <a href="/contacto.html?necesidad=proyecto-avanzado" class="btn btn-outline">Cotizar Proyecto Directamente</a>
+        <div class="badge badge-cyan">SOFTWARE A MEDIDA • ARQUITECTURA AVANZADA</div>
+        <h1>Castle Diamond: Ingeniería de Software a la Medida</h1>
+        <p>Desarrollo de aplicaciones web complejas, portales privados para clientes o colaboradores, integraciones con sistemas ERP/CRM y arquitecturas de alto rendimiento.</p>
+      </div>
+    </section>
+
+    <!-- RESUMEN COMERCIAL Y FICHA TÉCNICA -->
+    <section class="section">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <!-- DETALLE DEL PAQUETE -->
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Definición del Servicio</p>
+          <h2>¿Para quién es Castle Diamond?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Diseñado para empresas y organizaciones cuyas operaciones exceden el alcance de un sitio web convencional y requieren lógica de negocio personalizada, flujos de autenticación multinivel o sincronización con bases de datos operativas.
+          </p>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Tipos de sistemas desarrollados</h3>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.5rem;">
+            Cada desarrollo se diseña desde la arquitectura fundamental para garantizar mantenibilidad, velocidad y seguridad determinista:
+          </p>
+
+          <ul class="check-list" style="list-style: none; padding: 0; margin-bottom: 2rem;">
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Portales de Clientes / Socios:</strong> Autenticación segura, tableros de control con permisos basados en roles (RBAC) y consulta de expedientes.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Módulos Operativos a Medida:</strong> Conexión con sistemas de inventario, cotizadores paramétricos e interfaces para ERPs internos o legados.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Arquitectura Edge &amp; API First:</strong> Microservicios ligeros, funciones serverless y bases de datos relacionales o vectoriales de baja latencia.</li>
+            <li style="padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--steel-light);"><strong>Gobernanza Castle Gate C4/C5:</strong> Pipeline de integración continua con certificación SHA-256 de releases y pruebas automatizadas.</li>
+          </ul>
+
+          <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Metodología de Trabajo por Sprints</h3>
+          <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.6;">
+            A diferencia de proyectos cerrados estándar, Castle Diamond se estructura en fases de descubrimiento de arquitectura, diseño de modelos de datos y sprints de entrega funcional continua con demostraciones periódicas.
+          </p>
         </div>
-        <p style="font-size: 0.8rem; color: var(--steel-soft); margin-top: 1.5rem;">
-          Redirigiendo automáticamente en unos segundos...
-        </p>
+
+        <!-- TARJETA LATERAL DE INVERSIÓN Y PROCESO -->
+        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35); position: sticky; top: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.75rem;">PROPUESTA A LA MEDIDA</span>
+          <div style="font-size: 2.25rem; font-family: var(--f-mono); font-weight: 800; color: var(--paper); line-height: 1.1;">
+            Desde $40,000 MXN
+          </div>
+          <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
+            Cotización por Alcance Técnico • Facturación en MXN
+          </span>
+
+          <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Esquema de entrega:</span>
+              <strong style="color: var(--paper);">Por Sprints de Ingeniería</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Evaluación previa:</span>
+              <strong style="color: var(--paper);">Arquitectura &amp; SOW Formal</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Titularidad del código:</span>
+              <strong style="color: var(--success);">100% del cliente</strong>
+            </div>
+          </div>
+
+          <a href="/contacto.html?paquete=Castle%20Diamond" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.75rem;">Cotizar Software a Medida</a>
+          <a href="/servicios/audit.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">¿Tienes un sistema existente? Ver Castle Audit →</a>
+
+          <p class="currency-disclaimer" style="margin-top: 1.25rem; font-size: 0.75rem;">
+            * El costo total y el cronograma se determinan tras la especificación de requerimientos técnicos (SOW). El cliente mantiene la propiedad intelectual total de todo el código desarrollado.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section-dim">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Preguntas Frecuentes sobre Castle Diamond</p>
+          <h2>Dudas de Ingeniería</h2>
+        </div>
+        <div class="two-col">
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Cómo se define el precio final del proyecto?" answer="Elaboramos un documento de alcance (SOW) detallando los módulos requeridos, integraciones y modelos de datos. El precio base arranca en $40,000 MXN y se cotiza con transparencia total." />
+              <FAQItem question="¿El software puede desplegarse en nuestros servidores?" answer="Sí. Desarrollamos con tecnologías portables estándar (Docker, Node, PostgreSQL, Edge) y desplegamos directamente en la nube o infraestructura privada que tu organización posea." />
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="faq">
+              <FAQItem open={true} question="¿Qué pasa si cambian los requerimientos durante el desarrollo?" answer="Al trabajar por sprints con entregables verificables, podemos reordenar prioridades del backlog técnico al inicio de cada ciclo sin desestabilizar el presupuesto acordado." />
+              <FAQItem question="¿Ofrecen soporte y evolución post-lanzamiento?" answer="Sí, a través de nuestro esquema Castle Care Enterprise ($17,900 MXN/mes) o bolsas de horas de ingeniería dedicada para desarrollo evolutivo continuo." />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <CTABand
-      title="¿Tienes un proyecto con lógica propia o requerimientos complejos?"
-      description="Cuéntanos tus necesidades de arquitectura para coordinar una evaluación técnica."
-      ctaLabel="Hablar con un Ingeniero"
-      ctaHref="/contacto.html?necesidad=proyecto-avanzado"
+      title="Construyamos la solución de software que tu operación requiere."
+      description="Coordina una llamada de evaluación técnica directamente con nuestro ingeniero líder."
+      ctaLabel="Iniciar Evaluación Técnica"
+      ctaHref="/contacto.html?paquete=Castle%20Diamond"
     />
+
   </main>
 </BaseLayout>

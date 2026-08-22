@@ -1,13 +1,13 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-39900C",
+    "validation_id": "CG-2026-8992F9",
     "protocol": "CQS_v1.1",
-    "policy_level": "C1",
-    "target_release_sha": "34271e39ffb21b02ea45124215e90750687d8b08",
-    "evaluation_timestamp_utc": "2026-08-22T08:38:09.209Z",
+    "policy_level": "C6",
+    "target_release_sha": "8a0773e2d3a87a768b0aeb12b43779a7bc6cc224",
+    "evaluation_timestamp_utc": "2026-08-22T12:16:42.852Z",
     "status": "PASS",
     "exit_code": 0,
-    "score": 98.5,
+    "score": 100,
     "secrets_detected": 0,
     "gate_breakers_active": 0,
     "domains_summary": {
@@ -25,9 +25,9 @@
       },
       "DOM-03": {
         "name": "Static Code Quality & Architecture",
-        "score": 90,
+        "score": 100,
         "status": "PASS",
-        "findingsCount": 1
+        "findingsCount": 0
       },
       "DOM-04": {
         "name": "Accessibility & Semantic HTML (WCAG AA)",
@@ -55,13 +55,13 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "14feddc8d169246afccf52ebc6d5e810c6fbd0d64be6b6c12a710870b1923713"
+    "signature_digest_sha256": "60ed4b0b3d8a8e3491c6cd0640b089234e7bed34612378d7222e89527edf46d1"
   },
   "evaluation": {
     "targetDir": "C:\\Users\\panto\\.gemini\\antigravity\\scratch\\castle-engineering",
-    "policyLevel": "C1",
-    "policyThreshold": 60,
-    "score": 98.5,
+    "policyLevel": "C6",
+    "policyThreshold": 98,
+    "score": 100,
     "status": "PASS",
     "exitCode": 0,
     "gateBreakersActive": 0,
@@ -75,7 +75,7 @@
         "gateBreakersActive": 0,
         "findings": [],
         "summary": {
-          "filesScanned": 181,
+          "filesScanned": 179,
           "secretsDetected": 0,
           "gateBreakers": 0
         }
@@ -96,23 +96,14 @@
       {
         "domainId": "DOM-03",
         "domainName": "Static Code Quality & Architecture",
-        "score": 90,
+        "score": 100,
         "status": "PASS",
         "gateBreakersActive": 0,
-        "findings": [
-          {
-            "id": "CODE-03-DEBUG",
-            "name": "Debugger Statement in Source",
-            "file": "src/pages/castle-gate.astro",
-            "rule": "Avoid committing active `debugger;` breakpoints in release code",
-            "severity": "MEDIUM",
-            "isGateBreaker": false
-          }
-        ],
+        "findings": [],
         "summary": {
           "sourceFilesScanned": 88,
           "assetsScanned": 74,
-          "issuesCount": 1
+          "issuesCount": 0
         }
       },
       {

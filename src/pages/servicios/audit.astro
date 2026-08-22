@@ -16,7 +16,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
     <section class="page-hero">
       <InnerHeroVisual type="audit" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Servicios</a> / Castle Audit</p>
+        <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Servicios de Ingeniería</a> / Castle Audit</p>
         <div class="badge badge-cyan">AUDITORÍA PROFUNDA • DUE DILIGENCE TÉCNICO</div>
         <h1>Castle Audit: Auditoría Exhaustiva de Software</h1>
         <p>Evaluación técnica integral de bases de código complejas, arquitecturas monolíticas o microservicios para procesos de inversión, fusiones o modernización tecnológica.</p>
@@ -38,15 +38,15 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
           <h3 style="font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--paper);">Modalidades y Niveles de Cobertura</h3>
           <div class="grid" style="gap: 1rem; margin-bottom: 1.5rem;">
             <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
-              <strong style="color: var(--cyan); font-family: var(--f-mono);">01. Standard Audit ($19,900 MXN / ~$1,170 USD):</strong>
+              <strong style="color: var(--cyan); font-family: var(--f-mono);">01. Standard Audit ($19,900 MXN):</strong>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0.25rem 0 0 0;">Hasta 2 repositorios o 50k líneas de código. Diagnóstico de arquitectura, dependencias y riesgos P0-P2 en 5 a 7 días hábiles.</p>
             </div>
             <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
-              <strong style="color: var(--paper); font-family: var(--f-mono);">02. Advanced Audit ($39,900 MXN / ~$2,350 USD):</strong>
+              <strong style="color: var(--paper); font-family: var(--f-mono);">02. Advanced Audit ($39,900 MXN):</strong>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0.25rem 0 0 0;">Hasta 5 repositorios o 150k líneas de código. Incluye análisis de flujo de datos, modelo de amenazas y plan de mitigación en 10 días hábiles.</p>
             </div>
             <div style="padding: 1rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm);">
-              <strong style="color: var(--paper); font-family: var(--f-mono);">03. Enterprise / Due Diligence ($74,900 MXN / ~$4,400 USD):</strong>
+              <strong style="color: var(--paper); font-family: var(--f-mono);">03. Enterprise / Due Diligence ($74,900 MXN):</strong>
               <p style="font-size: 0.85rem; color: var(--steel-light); margin: 0.25rem 0 0 0;">Alcance a medida para fondos de inversión, M&amp;A o corporativos. Dictamen ejecutivo formal de riesgo tecnológico y estimación de costos de reescritura.</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
             <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);"><strong>Matriz de Riesgos y Deuda Técnica (P0 a P3):</strong> Clasificación por severidad, impacto y esfuerzo.</li>
             <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);"><strong>Reporte de Dependencias y Licenciamiento:</strong> Detección de paquetes abandonados o licencias restrictivas.</li>
             <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);"><strong>Hoja de Ruta de Remediación (Roadmap):</strong> Plan paso a paso con prioridades de intervención.</li>
-            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);"><strong>Sesión Técnica de Presentación (2 horas):</strong> Explicación a fondo con el equipo técnico y directivo.</li>
+            <li style="padding: 8px 0; border-top: 1px dashed var(--line-dark); color: var(--steel-light);"><strong>Sesión Técnica de Presentación (2 horas):</strong> Explicación a fondo directamente con el Ingeniero Líder y directivos.</li>
           </ul>
         </div>
 
@@ -68,7 +68,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
             Desde $19,900 MXN
           </div>
           <span style="display: block; font-family: var(--f-mono); font-size: 0.88rem; color: var(--steel-soft); margin-top: 0.25rem; margin-bottom: 1.5rem;">
-            ~$1,170 USD (Nivel Standard)
+            Pago Único • Facturación en MXN
           </span>
 
           <div style="padding: 1rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
@@ -114,7 +114,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Pueden auditar sistemas heredados o monolitos antiguos?" answer="Sí. Nos especializamos en evaluar código heredado en Node.js, Python, PHP, Ruby, Java o Go para determinar si es viable refactorizar o reconstruir." />
-              <FAQItem question="¿Ustedes pueden ejecutar la remediación posterior?" answer="Sí, a través de Castle Rescue o un Proyecto Avanzado a la medida podemos ejecutar las correcciones de acuerdo a las prioridades del Roadmap." />
+              <FAQItem question="¿Ustedes pueden ejecutar la remediación posterior?" answer="Sí, a través de Castle Rescue o un desarrollo a la medida en Castle Diamond podemos ejecutar las correcciones de acuerdo a las prioridades del Roadmap." />
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
 
     <CTABand
       title="Toma decisiones con evidencia técnica transparente."
-      description="Coordina una llamada confidencial con los directores de ingeniería de Grupo Castillo."
+      description="Coordina una llamada confidencial directamente con el Ingeniero Líder de Grupo Castillo."
       ctaLabel="Cotizar Castle Audit"
       ctaHref="/contacto.html?necesidad=auditar"
     />

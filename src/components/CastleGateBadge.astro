@@ -19,7 +19,7 @@ const {
   class: extraClass = ''
 } = Astro.props;
 
-const ariaTitle = `Validado por Castle Security & Quality Gate — ${policyLevel} (ID: ${validationId})`;
+const ariaTitle = `Validado mediante Castle Gate — ${policyLevel} (ID: ${validationId})`;
 ---
 
 {variant === 'card' ? (
@@ -33,7 +33,7 @@ const ariaTitle = `Validado por Castle Security & Quality Gate — ${policyLevel
           </svg>
         </span>
         <span class="cg-mark-body">
-          <span class="cg-mark-title">Validado por Castle Security &amp; Quality Gate</span>
+          <span class="cg-mark-title">Validado mediante Castle Gate</span>
           <span class="cg-mark-sub">
             <span class="cg-mark-status-dot"></span>
             <strong>{policyLevel}</strong> • RELEASE PASS
@@ -77,7 +77,7 @@ const ariaTitle = `Validado por Castle Security & Quality Gate — ${policyLevel
       </svg>
     </span>
     <span class="cg-mark-body">
-      <span class="cg-mark-title">Validado por Castle Security &amp; Quality Gate</span>
+      <span class="cg-mark-title">Validado mediante Castle Gate</span>
       <span class="cg-mark-sub">
         <span class="cg-mark-status-dot"></span>
         <strong>{policyLevel}</strong>

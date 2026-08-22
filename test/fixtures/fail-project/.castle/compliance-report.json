@@ -1,10 +1,10 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-3030DA",
+    "validation_id": "CG-2026-8D33AC",
     "protocol": "CQS_v1.1",
     "policy_level": "C1",
-    "target_release_sha": "ac2d70417e67fcc4bd498a7c6f3a4318ee85e4b0",
-    "evaluation_timestamp_utc": "2026-08-18T09:35:07.570Z",
+    "target_release_sha": "8a0773e2d3a87a768b0aeb12b43779a7bc6cc224",
+    "evaluation_timestamp_utc": "2026-08-22T12:16:11.067Z",
     "status": "FAIL",
     "exit_code": 1,
     "score": 72.5,
@@ -55,10 +55,10 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "45475173c834e94ae2ed2bf2e827bad6a8c96c263d5f98e292c866e863b1758d"
+    "signature_digest_sha256": "8c1a3b29fb67f43b8d6288a599d78c164a9dac371b73dc703232902374f5d0fc"
   },
   "evaluation": {
-    "targetDir": "C:\\Users\\panto\\Downloads\\servicios-castillo\\test\\fixtures\\fail-project",
+    "targetDir": "C:\\Users\\panto\\.gemini\\antigravity\\scratch\\castle-engineering\\test\\fixtures\\fail-project",
     "policyLevel": "C1",
     "policyThreshold": 60,
     "score": 72.5,

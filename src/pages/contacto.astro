@@ -126,9 +126,10 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
                   <option value="Castle Platinum ($24,500 MXN)">Castle Platinum — $24,500 MXN (Integrado / Pagos)</option>
                   <option value="Castle Diamond ($40,000+ MXN)">Castle Diamond — $40,000+ MXN (Software a la Medida)</option>
                 </optgroup>
-                <optgroup label="Evaluación &amp; Auditoría">
+                <optgroup label="Servicios de Ingeniería &amp; Consultoría">
                   <option value="Castle Checkup ($8,900 MXN)">Castle Checkup — $8,900 MXN (Diagnóstico 72h • 100% Bonificable)</option>
                   <option value="Castle Audit ($19,900 MXN)">Castle Audit — Desde $19,900 MXN (Due Diligence Completo)</option>
+                  <option value="Consultoría Digital &amp; Roadmap">Consultoría Digital &amp; Roadmap Tecnológico (Sujeto a cotización)</option>
                 </optgroup>
                 <optgroup label="Intervención &amp; Rescate">
                   <option value="Castle Rescue ($6,900 MXN)">Castle Rescue — Desde $6,900 MXN (Intervención de Código)</option>
@@ -309,7 +310,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
             matchedOption = 'Castle Platinum ($24,500 MXN)';
             presSelect.value = '15k-30k';
             detectedIntent = 'construir';
-          } else if (target.includes('diamond') || target.includes('avanzado')) {
+          } else if (target.includes('diamond') || target.includes('avanzado') || target.includes('medida')) {
             matchedOption = 'Castle Diamond ($40,000+ MXN)';
             presSelect.value = 'mas-40k';
             detectedIntent = 'construir';
@@ -321,7 +322,11 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
             matchedOption = target.includes('audit') ? 'Castle Audit ($19,900 MXN)' : 'Castle Checkup ($8,900 MXN)';
             presSelect.value = target.includes('audit') ? '15k-30k' : 'checkup';
             detectedIntent = 'revisar';
-          } else if (target.includes('rescue')) {
+          } else if (target.includes('consultoria') || target.includes('roadmap')) {
+            matchedOption = 'Consultoría Digital & Roadmap';
+            presSelect.value = 'por-definir';
+            detectedIntent = 'revisar';
+          } else if (target.includes('rescue') || target.includes('mejorar')) {
             matchedOption = 'Castle Rescue ($6,900 MXN)';
             presSelect.value = '5k-15k';
             detectedIntent = 'problema';
