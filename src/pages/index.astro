@@ -351,11 +351,14 @@ import TechIcon from '../components/TechIcon.astro';
     <section class="section section-dark" id="stack-tecnologico" style="padding-top: 4.5rem; padding-bottom: 4.5rem; background: #04060A; border-top: 1px solid rgba(0, 210, 255, 0.15); border-bottom: 1px solid rgba(0, 210, 255, 0.15);">
       <div class="container">
         
-        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+        <div class="section-head reveal" style="text-align: center; max-width: 860px; margin: 0 auto 3rem auto;">
           <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Arquitectura de Grado de Producción</p>
           <h2 style="font-size: 2.2rem; color: var(--paper);">Stack tecnológico: sabemos con qué construimos y por qué</h2>
-          <p style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.65;">
-            No usamos constructores visuales pesados ni tecnologías obsoletas. Construimos sobre estándares abiertos, modernos y mantenibles por cualquier ingeniero del mercado.
+          <p style="color: var(--cyan); font-size: 1.15rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.5rem;">
+            “Seleccionamos la tecnología según el problema, no al revés.”
+          </p>
+          <p style="color: #E2E8F0; font-size: 1rem; line-height: 1.65; margin: 0;">
+            Trabajamos con arquitecturas modernas, abiertas y transferibles según las necesidades del proyecto. Sin constructores visuales pesados ni dependencias cautivas.
           </p>
         </div>
 
@@ -422,7 +425,13 @@ import TechIcon from '../components/TechIcon.astro';
                 <TechIcon name="nodejs" size={18} /> <span>Node.js</span>
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="express" size={18} /> <span>Express</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
                 <TechIcon name="flask" size={18} /> <span>Flask</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="fastapi" size={18} /> <span>FastAPI</span>
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
                 <TechIcon name="rest" size={18} /> <span>REST APIs</span>
@@ -438,7 +447,7 @@ import TechIcon from '../components/TechIcon.astro';
             <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">04 • BASES DE DATOS</span>
             <h3 style="font-size: 1.2rem; margin: 0.4rem 0 0.75rem 0; color: var(--paper); font-weight: 700;">Persistencia Relacional Robusta</h3>
             <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1.25rem;">
-              Motores relacionales probados para integridad de datos, transacciones ACID y backups automatizados.
+              Motores relacionales y almacenamiento estructurado para integridad de datos y transacciones ACID.
             </p>
             <div style="display: flex; gap: 0.55rem; flex-wrap: wrap;">
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
@@ -446,6 +455,15 @@ import TechIcon from '../components/TechIcon.astro';
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
                 <TechIcon name="sqlite" size={18} /> <span>SQLite</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="supabase" size={18} /> <span>Supabase</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="mysql" size={18} /> <span>MySQL</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="redis" size={18} /> <span>Redis</span>
               </span>
             </div>
           </div>
@@ -455,7 +473,7 @@ import TechIcon from '../components/TechIcon.astro';
             <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">05 • INFRAESTRUCTURA &amp; SERVIDORES</span>
             <h3 style="font-size: 1.2rem; margin: 0.4rem 0 0.75rem 0; color: var(--paper); font-weight: 700;">Hosting en Cuentas del Cliente</h3>
             <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1.25rem;">
-              Despliegues globales en Edge y servidores Linux dedicados sin intermediarios opacos.
+              Despliegues globales en Edge, contenedores y servidores dedicados sin intermediarios opacos.
             </p>
             <div style="display: flex; gap: 0.55rem; flex-wrap: wrap;">
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
@@ -469,6 +487,15 @@ import TechIcon from '../components/TechIcon.astro';
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
                 <TechIcon name="render" size={18} /> <span>Render</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="docker" size={18} /> <span>Docker</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="cloudflare" size={18} /> <span>Cloudflare</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
+                <TechIcon name="aws" size={18} /> <span>AWS</span>
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.4rem 0.75rem; border-radius: 6px; color: #F8FAFC; font-size: 0.84rem; font-weight: 500;">
                 <TechIcon name="vps" size={18} /> <span>VPS</span>
@@ -527,6 +554,9 @@ import TechIcon from '../components/TechIcon.astro';
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.45rem 0.9rem; border-radius: 6px; color: #F8FAFC; font-size: 0.86rem; font-weight: 500;">
                 <TechIcon name="mercadopago" size={20} /> <span>Mercado Pago</span>
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.45rem 0.9rem; border-radius: 6px; color: #F8FAFC; font-size: 0.86rem; font-weight: 500;">
+                <TechIcon name="paypal" size={20} /> <span>PayPal</span>
               </span>
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.45rem 0.9rem; border-radius: 6px; color: #F8FAFC; font-size: 0.86rem; font-weight: 500;">
                 <TechIcon name="whatsapp" size={20} /> <span>WhatsApp Cloud API</span>

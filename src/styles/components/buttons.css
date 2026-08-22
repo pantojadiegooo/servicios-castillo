@@ -177,15 +177,15 @@
 
 /* Section dim buttons */
 .section-dim .btn-outline {
-  border-color: rgba(74, 85, 104, 0.4);
-  color: var(--ink);
-  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--paper);
+  background: rgba(14, 18, 27, 0.6);
 }
 
 .section-dim .btn-outline:hover {
-  border-color: var(--ink);
-  color: var(--ink);
-  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(0, 210, 255, 0.1);
 }
 
 /* Responsive */

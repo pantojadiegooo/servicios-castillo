@@ -48,25 +48,25 @@
 
 /* Dimmed section process list */
 .section-dim .process-row {
-  border-top-color: rgba(15, 23, 42, 0.16);
+  border-top-color: var(--line-dark);
 }
 .section-dim .process-row:last-child {
-  border-bottom-color: rgba(15, 23, 42, 0.16);
+  border-bottom-color: var(--line-dark);
 }
 .section-dim .process-row:hover {
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(20, 26, 38, 0.4);
 }
 .section-dim .process-code {
-  color: #0E7490;
+  color: var(--cyan);
 }
 .section-dim .process-row h3 {
-  color: var(--ink);
+  color: var(--paper);
 }
 .section-dim .process-row:hover h3 {
-  color: #087EA4;
+  color: var(--cyan);
 }
 .section-dim .process-row p {
-  color: #334155;
+  color: #E2E8F0;
 }
 
 @media (max-width: 640px) {

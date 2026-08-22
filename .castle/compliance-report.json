@@ -1,10 +1,10 @@
 {
   "certificate": {
-    "validation_id": "CG-2026-F09906",
+    "validation_id": "CG-2026-E572EC",
     "protocol": "CQS_v1.1",
     "policy_level": "C6",
-    "target_release_sha": "a1158239ab1789b9288da6f0da19e0342ed04ae0",
-    "evaluation_timestamp_utc": "2026-08-22T12:35:00.533Z",
+    "target_release_sha": "8d0616983ec221dcb745f239d41bf75739450155",
+    "evaluation_timestamp_utc": "2026-08-22T12:47:03.999Z",
     "status": "PASS",
     "exit_code": 0,
     "score": 100,
@@ -55,7 +55,7 @@
       }
     },
     "ownership": "CLIENT_EXCLUSIVE",
-    "signature_digest_sha256": "260bd2e2e7b11f98b4a5ea8c4dbce9ae6ae4594c57db5fb049865afd4b8a19d0"
+    "signature_digest_sha256": "015d7c0df6822ce03ea896c865b4368c7bfdc3e9ce1b2c4b5d77a7b6405bee62"
   },
   "evaluation": {
     "targetDir": "C:\\Users\\panto\\.gemini\\antigravity\\scratch\\castle-engineering",

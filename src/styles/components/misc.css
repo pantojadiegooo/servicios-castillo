@@ -10,7 +10,7 @@
 
 .pill-row { display:flex; flex-wrap:wrap; gap:.6rem; }
 .pill { border:1px solid rgba(255,255,255,0.15); border-radius: 20px; padding:.4rem .9rem; font-size:.8rem; color:var(--steel-light); background: rgba(255,255,255,0.02); }
-.section-dim .pill, .card-light .pill, .card-light + .pill { border-color:#DAD7CE; color:var(--ink); background: transparent; }
+.section-dim .pill, .card-light .pill, .card-light + .pill { border-color: rgba(255, 255, 255, 0.15); color: #F8FAFC; background: rgba(14, 18, 27, 0.85); }
 
 /* Legibilidad en tarjetas de proyecto claras */
 .project-case h2,
