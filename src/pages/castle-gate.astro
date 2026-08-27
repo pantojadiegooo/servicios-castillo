@@ -19,42 +19,46 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     <section class="page-hero">
       <CastleGateEngineVisual />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/servicios.html">Tecnología</a> / Castle Gate</p>
-        <div class="badge badge-cyan">TECNOLOGÍA PROPIA • CQS v1.1 • RELEASE READY</div>
-        <h1>Castle Gate</h1>
+        <p class="eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
+          MOTOR DE GOBERNANZA &amp; EVALUACIÓN DETERMINISTA
+        </p>
+        <h1>Gobernanza de Código <span style="color: var(--cyan);">Castle Gate</span></h1>
         <p>Motor de gobernanza de software y validación determinista de releases. Diseñado para evaluar y vetar entregas que incumplan los controles de seguridad y calidad CQS v1.1 configurados en tu pipeline.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="/diagnostico.html" class="btn btn-cta-crystal" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">Iniciar Diagnóstico →</a>
+        </div>
       </div>
     </section>
 
     <!-- CAPA 1: EXPLICACIÓN EJECUTIVA PARA DIRECTORES Y FUNDADORES -->
-    <section class="section" style="padding-top: 1rem;">
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4.5rem;">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Capa Ejecutiva de Negocio</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Capa Ejecutiva de Negocio</p>
           <h2>¿Por qué tu empresa necesita gobernanza en sus entregas?</h2>
           <p>La seguridad y calidad del software no deben depender de la memoria de un programador o de revisiones manuales aisladas.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.75rem; margin-bottom: 3rem;">
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">RIESGO 01: FUGAS DE DATOS</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Prevención de Exposición de Secretos</h3>
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">RIESGO 01 • FUGAS DE DATOS</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Prevención de Exposición de Secretos</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Una clave de AWS o Stripe quemada en código puede costar miles de dólares en minutos. Castle Gate actúa como un árbitro que veta automáticamente el release antes de que el código salga de tu control.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">RIESGO 02: DEGRADACIÓN</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Control Determinista de Calidad</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">RIESGO 02 • DEGRADACIÓN</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Control Determinista de Calidad</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Establece umbrales mínimos de rendimiento, accesibilidad WCAG y calidad de código. Si una entrega no cumple la política ratificada por tu empresa, el despliegue no se autoriza.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">CERTEZA: AUDITORÍA</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Certificado de Release SHA-256</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">CERTEZA • AUDITORÍA</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper);">Certificado de Release SHA-256</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Cada entrega autorizada genera un Release Certificate con sello criptográfico SHA-256 verificable, proporcionando evidencia auditable para auditorías internas y clientes corporativos.
             </p>
@@ -64,36 +68,36 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     </section>
 
     <!-- CAPA 2: DETALLE TÉCNICO PARA CTOS, DEVOPS E INGENIEROS (CON TERMINAL EN VIVO) -->
-    <section class="section section-dim" id="detalle-tecnico">
+    <section class="section section-dim" id="detalle-tecnico" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
         
-        <div class="section-head reveal">
-          <p class="eyebrow">Capa de Ingeniería Técnica</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3.5rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Capa de Ingeniería Técnica</p>
           <h2>Especificación Técnica y Ejecución en Memoria</h2>
           <p>Castle Gate ejecuta su evaluación estática en la memoria del runner local sin enviar código ni telemetría a servidores externos.</p>
         </div>
 
-        <div class="two-col reveal" style="align-items: center; gap: 3.5rem; margin-bottom: 3.5rem;">
+        <div class="two-col reveal" style="align-items: center; gap: 3.5rem; margin-bottom: 4.5rem;">
           <div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--ink);">Flujo Determinista de Decisión:</h3>
-            <ol style="font-size: 0.92rem; color: #334155; padding-left: 1.25rem; line-height: 1.7; margin-bottom: 1.75rem;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--paper);">Flujo Determinista de Decisión:</h3>
+            <ol style="font-size: 0.92rem; color: var(--steel-light); padding-left: 1.25rem; line-height: 1.7; margin-bottom: 1.75rem;">
               <li style="margin-bottom: 0.5rem;">
-                <strong>Native Probes:</strong> Escaneo estático en memoria de patrones de credenciales privadas (AWS, Stripe, SSH, GitHub PAT).
+                <strong style="color: var(--paper);">Native Probes:</strong> Escaneo estático en memoria de patrones de credenciales privadas (AWS, Stripe, SSH, GitHub PAT).
               </li>
               <li style="margin-bottom: 0.5rem;">
-                <strong>Gate Breaker Check:</strong> Veto inmediato con <code>Exit Code 1</code> ante cualquier hallazgo bloqueante (P0).
+                <strong style="color: var(--paper);">Gate Breaker Check:</strong> Veto inmediato con <code style="color: var(--danger); font-family: var(--f-mono);">Exit Code 1</code> ante cualquier hallazgo bloqueante (P0).
               </li>
               <li style="margin-bottom: 0.5rem;">
-                <strong>Evaluación CQS v1.1:</strong> Ponderación nominal sobre 100.00 puntos en 7 dominios técnicos independientes.
+                <strong style="color: var(--paper);">Evaluación CQS v1.1:</strong> Ponderación nominal sobre 100.00 puntos en 7 dominios técnicos independientes.
               </li>
               <li>
-                <strong>Release Certificate SHA-256:</strong> Emisión de sello criptográfico con <code>Exit Code 0</code> autorizando el despliegue.
+                <strong style="color: var(--paper);">Release Certificate SHA-256:</strong> Emisión de sello criptográfico con <code style="color: var(--success); font-family: var(--f-mono);">Exit Code 0</code> autorizando el despliegue.
               </li>
             </ol>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="#licenciamiento" class="btn btn-primary">Ver Tarifas de Licenciamiento</a>
-              <a href="/servicios/checkup.html" class="btn btn-outline">Solicitar Checkup Inicial ($8,900 MXN)</a>
+              <a href="#licenciamiento" class="btn btn-primary" style="font-size: 0.85rem;">Ver Tarifas de Licenciamiento</a>
+              <a href="/servicios/checkup.html" class="btn btn-outline" style="font-size: 0.85rem;">Solicitar Checkup Inicial ($8,900 MXN)</a>
             </div>
           </div>
 
@@ -105,14 +109,17 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
 
         <!-- 7 DOMINIOS TÉCNICOS CQS V1.1 -->
         <div class="reveal">
-          <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--ink);">7 Dominios Técnicos • 65 Controles Nominales</h3>
-          <p style="text-align: center; font-size: 0.9rem; color: #334155; margin-bottom: 2rem;">
-            La metodología CQS v1.1 audita exhaustivamente cada dimensión crítica del ciclo de vida del software.
-          </p>
+          <div style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem auto;">
+            <p class="eyebrow" style="color: var(--cyan); justify-content: center; margin-bottom: 0.75rem;">Arquitectura de Controles</p>
+            <h3 style="font-size: 1.65rem; color: var(--paper); margin-bottom: 0.5rem;">7 Dominios Técnicos • 65 Controles Nominales</h3>
+            <p style="font-size: 0.95rem; color: var(--steel-light); margin: 0;">
+              La metodología CQS v1.1 audita exhaustivamente cada dimensión crítica del ciclo de vida del software.
+            </p>
+          </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
             <!-- DOM-01 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-01</span>
                 <div style="display:flex; gap:6px; align-items:center;">
@@ -127,7 +134,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-02 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-02</span>
                 <div style="display:flex; gap:6px; align-items:center;">
@@ -142,7 +149,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-03 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-03</span>
                 <div style="display:flex; gap:6px; align-items:center;">
@@ -157,7 +164,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-04 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-04</span>
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">15.00 PTS</span>
@@ -169,7 +176,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-05 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-05</span>
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">10.00 PTS</span>
@@ -181,7 +188,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-06 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-06</span>
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">10.00 PTS</span>
@@ -193,7 +200,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- DOM-07 -->
-            <div class="card glass-panel" style="padding: 1.75rem;">
+            <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid rgba(0, 210, 255, 0.4);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--cyan); font-weight:700;">DOM-07</span>
                 <span style="font-family:var(--f-mono); font-size:0.75rem; color:var(--steel-soft);">5.00 PTS</span>
@@ -210,10 +217,10 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     </section>
 
     <!-- MATRIZ DE POLÍTICAS C1 A C6 Y LICENCIAMIENTO ANUAL -->
-    <section class="section" id="licenciamiento">
+    <section class="section" id="licenciamiento" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Licenciamiento de Software</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Licenciamiento de Software</p>
           <h2>Matriz de Políticas C1 a C6 y Tarifas Anuales</h2>
           <p>Licenciamiento inicial de mercado para integración en runners privados de CI/CD.</p>
         </div>
@@ -221,78 +228,77 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
         <div class="matrix-stepper reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
           
           <!-- C1 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem;">
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C1</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Foundation</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$9,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$9,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$580 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 60.00 • 0 Secretos expuestos • Lockfiles requeridos</div>
           </div>
 
           <!-- C2 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem;">
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C2</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Standard</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$16,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$16,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$990 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 70.00 • Dependencias auditadas sin CVEs críticas • Viewport responsivo</div>
           </div>
 
           <!-- C3 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
-            <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px; margin-bottom: 0.25rem;">RECOMENDADO</span>
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C3</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Professional</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$26,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$26,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$1,580 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 80.00 • Estructura semántica HTML5 • URLs canónicas</div>
           </div>
 
           <!-- C4 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem;">
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C4</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Advanced</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$39,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$39,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$2,345 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 90.00 • Accesibilidad WCAG AA completa • Ciclo de vida rAF</div>
           </div>
 
           <!-- C5 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem;">
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C5</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Enterprise</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$54,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$54,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$3,225 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 95.00 • Cabeceras CSP estrictas • Cero advertencias críticas</div>
           </div>
 
           <!-- C6 -->
-          <div class="step-card glass-panel" style="padding: 1.75rem;">
+          <div class="step-card glass-panel" style="padding: 2rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <div class="step-num" style="font-size: 1.5rem; font-family: var(--f-mono); color: var(--cyan); font-weight: bold;">C6</div>
             <div class="step-name" style="font-size: 1.15rem; font-weight: 700; color: var(--paper); margin: 0.25rem 0;">Ultimate</div>
-            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem;">$74,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
+            <div style="font-family: var(--f-mono); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.25rem;">$74,900 MXN <span style="font-size: 0.75rem; color: var(--steel-soft); font-weight: normal;">/ año</span></div>
             <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--steel-soft); display: block; margin-bottom: 0.75rem;">~$4,400 USD / año</span>
             <div class="step-threshold" style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.45;">Score &ge; 98.00 • 100% de controles nominales CQS aprobados</div>
           </div>
 
         </div>
 
-        <p class="currency-disclaimer" style="text-align: center;">
+        <p class="currency-disclaimer" style="text-align: center; font-size: 0.8rem; color: var(--steel-soft);">
           * Tarifas anuales de lanzamiento expresadas en pesos mexicanos (MXN). Equivalente USD aproximado para fines informativos.
         </p>
       </div>
     </section>
 
     <!-- INTEGRACIÓN EN CI/CD -->
-    <section class="section section-dim" id="integracion">
+    <section class="section section-dim" id="integracion" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Integración en Pipelines CI/CD</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Integración en Pipelines CI/CD</p>
           <h2>Automatización Nativa en GitHub Actions y GitLab CI</h2>
           <p>Ejecuta el motor de gobernanza en la memoria de tu propio runner privado sin transmitir código hacia el exterior.</p>
         </div>
 
-        <div class="glass-panel reveal" style="padding: 2.5rem; max-width: 860px; margin: 0 auto; background: #040508;">
+        <div class="glass-panel reveal" style="padding: 2.5rem; max-width: 860px; margin: 0 auto; background: #040508; border-color: rgba(0, 210, 255, 0.25);">
           <div style="font-family: var(--f-mono); font-size: 0.88rem; line-height: 1.7; color: var(--steel-light);">
             <div style="color: var(--steel-soft); margin-bottom: 0.75rem;"># .github/workflows/castle-gate.yml</div>
             <div><span style="color: var(--cyan);">name:</span> <span style="color: #fff;">Castle Quality &amp; Security Gate</span></div>
@@ -313,10 +319,10 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     </section>
 
     <!-- PROTOCOLO Y MARCA DE VALIDACIÓN TÉCNICA (CQS v1.1) -->
-    <section class="section section-dark" id="validacion">
+    <section class="section section-dark" id="validacion" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Evidencia de Proceso • CQS v1.1</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Evidencia de Proceso • CQS v1.1</p>
           <h2>Marca Técnica de Validación</h2>
           <p>Mecanismo transparente para identificar releases que completaron satisfactoriamente la evaluación determinista de controles.</p>
         </div>
@@ -394,7 +400,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
           <div class="grid grid-3" style="gap: 1.5rem; align-items: start;">
             
             <!-- VARIANTE 1: FULL -->
-            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div class="card glass-panel" style="padding: 1.75rem; text-align: center; border-top: 3px solid var(--cyan);">
               <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--steel-soft); display: block; margin-bottom: 1rem;">VARIANTE 01 • ESTÁNDAR</span>
               <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
                 <CastleGateBadge variant="full" policyLevel="CQS v1.1" />
@@ -405,7 +411,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- VARIANTE 2: COMPACT / PILL -->
-            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div class="card glass-panel" style="padding: 1.75rem; text-align: center; border-top: 3px solid var(--cyan);">
               <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--steel-soft); display: block; margin-bottom: 1rem;">VARIANTE 02 • COMPACTA</span>
               <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
                 <CastleGateBadge variant="compact" policyLevel="CQS v1.1" />
@@ -416,7 +422,7 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
             </div>
 
             <!-- VARIANTE 3: DEMO REPOSITORIO PROPIO -->
-            <div class="card glass-panel" style="padding: 1.5rem; text-align: center;">
+            <div class="card glass-panel" style="padding: 1.75rem; text-align: center; border-top: 3px solid var(--cyan);">
               <span style="font-family: var(--f-mono); font-size: 0.72rem; color: var(--cyan); display: block; margin-bottom: 1rem;">DEMO • REPOSITORIO PROPIO</span>
               <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
                 <CastleGateBadge variant="full" validationId="CG-2026-E60998" releaseSha="e5fce57" isSelfValidation={true} />
@@ -440,23 +446,26 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="section section-dim" id="faq">
+    <section class="section section-dim" id="faq" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Preguntas Frecuentes sobre Castle Gate</p>
-          <h2>Dudas Técnicas y Operativas</h2>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Preguntas Frecuentes sobre Castle Gate</p>
+          <h2 style="font-size: 2.2rem; color: var(--paper);">Dudas Técnicas y Operativas</h2>
+          <p style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.65;">
+            Resolvemos las dudas de confidencialidad, integración y licenciamiento más comunes:
+          </p>
         </div>
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por qué Castle Gate evalúa localmente en memoria?" answer="Para proteger la privacidad del código fuente. Muchas organizaciones no pueden permitir que sus credenciales privadas o código fuente salgan hacia servidores de terceros. Castle Gate evalúa todo en la memoria del runner local sin transmitir datos hacia el exterior." />
+              <FAQItem question="¿Por qué Castle Gate evalúa localmente en memoria?" answer="Para proteger la privacidad del código fuente. Muchas organizaciones no pueden permitir que sus credenciales privadas o código fuente salgan hacia servidores de terceros. Castle Gate evalúa todo en la memoria del runner local sin transmitir datos hacia el exterior." />
               <FAQItem question="¿Qué pasa si mi pipeline se bloquea?" answer="El comando devuelve Exit Code 1 y genera un archivo compliance-report.html que detalla el archivo y la línea exacta donde está el secreto o bloqueo para que puedas remediarlo en minutos." />
               <FAQItem question="¿Qué significa la Marca de Validación en el software de un cliente?" answer="La marca identifica que un release específico superó la auditoría estática de controles CQS v1.1. No altera la propiedad del software (el código y dominio pertenecen 100% al cliente), no es una certificación regulatoria externa y su exhibición pública es totalmente voluntaria para el cliente." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Cómo pruebo Castle Gate en mi repositorio?" answer="El punto de entrada más ágil es solicitar un Castle Checkup ($8,900 MXN). Nuestro equipo realiza el escaneo inicial, te entrega el reporte interactivo y acredita el 100% del costo si contratas la licencia anual dentro de los 30 días posteriores." />
+              <FAQItem question="¿Cómo pruebo Castle Gate en mi repositorio?" answer="El punto de entrada más ágil es solicitar un Castle Checkup ($8,900 MXN). Nuestro equipo realiza el escaneo inicial, te entrega el reporte interactivo y acredita el 100% del costo si contratas la licencia anual dentro de los 30 días posteriores." />
               <FAQItem question="¿Puedo integrar Castle Gate en GitLab CI o Bitbucket?" answer="Sí, totalmente. El ejecutable del runner funciona como binario multiplataforma o contenedor compatible con cualquier sistema de integración continua basado en Linux, macOS o Windows (GitHub Actions, GitLab CI, Bitbucket Pipelines, etc.)." />
               <FAQItem question="¿Cuándo debe retirarse la marca de validación de un proyecto?" answer="La marca debe retirarse si el código del proyecto sufre modificaciones posteriores no auditadas por el pipeline de Castle Gate, si un release posterior arroja Exit Code 1 sin corregirse o si concluye el protocolo de gobernanza continua." />
             </div>
@@ -466,9 +475,9 @@ import CastleGateBadge from '../components/CastleGateBadge.astro';
     </section>
 
     <CTABand
-      title="Comienza con Castle Checkup."
+      title="Comienza con <span style='color: var(--cyan);'>Castle Checkup</span>"
       description="Obtén una radiografía completa de los 65 controles CQS de tu repositorio en menos de 72 horas hábiles."
-      ctaLabel="Solicitar Castle Checkup ($8,900 MXN)"
+      ctaLabel="Iniciar Diagnóstico"
       ctaHref="/contacto.html?necesidad=checkup"
     />
 
