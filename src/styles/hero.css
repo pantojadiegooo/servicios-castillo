@@ -163,7 +163,7 @@
   text-wrap: balance;
 }
 
-.page-hero p:not(.breadcrumb) {
+.page-hero p:not(.breadcrumb):not(.eyebrow) {
   color: var(--steel-light);
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   font-family: var(--f-body);
@@ -196,7 +196,7 @@
     margin-bottom: 0.65rem;
   }
 
-  .page-hero p:not(.breadcrumb) {
+  .page-hero p:not(.breadcrumb):not(.eyebrow) {
     font-size: 0.92rem;
     line-height: 1.55;
     max-width: 100%;

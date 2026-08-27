@@ -16,12 +16,13 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
     <section class="page-hero">
       <ModularAssemblyVisual />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Paquetes</p>
-        <div class="badge badge-cyan">CATÁLOGO DE DESARROLLO • 6 PAQUETES</div>
-        <h1>Paquetes de Desarrollo Web e Ingeniería</h1>
+        <p class="eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
+          CATÁLOGO DE DESARROLLO
+        </p>
+        <h1>Paquetes de <span style="color: var(--cyan);">Desarrollo Web e Ingeniería</span></h1>
         <p>Precios claros, alcance delimitado por escrito y titularidad del código para el cliente desde el primer día.</p>
-        <div style="margin-top: 1.25rem;">
-          <a href="/diagnostico.html" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1.2rem;">¿Incertidumbre sobre qué nivel elegir? Iniciar Diagnóstico →</a>
+        <div style="margin-top: 1.5rem;">
+          <a href="/diagnostico.html" class="btn btn-cta-crystal" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">Iniciar Diagnóstico →</a>
         </div>
       </div>
     </section>
@@ -29,8 +30,8 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
     <!-- LOS 6 PAQUETES -->
     <section class="section" id="catalogo-sitios" style="padding-top: 1rem;">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Catálogo Oficial</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Catálogo Oficial</p>
           <h2>Catálogo de 6 Paquetes</h2>
           <p>Desde presencia básica para profesionistas independientes hasta plataformas de software a la medida.</p>
         </div>
@@ -38,10 +39,10 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
         <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
           
           <!-- 1. CASTLE IRON -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--iron);">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 01 • ESENCIAL</span>
-              <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">3–5 DÍAS HÁBILES</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">3–5 DÍAS</span>
             </div>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Iron</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
@@ -49,7 +50,6 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$2,800 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Plazo objetivo: 3 a 5 días hábiles *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>Estructura One-Page (1 vista ágil)</li>
@@ -66,10 +66,10 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
           </div>
 
           <!-- 2. CASTLE BRONZE -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--bronze);">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 02 • CAPTACIÓN</span>
-              <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">5–7 DÍAS HÁBILES</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">5–7 DÍAS</span>
             </div>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Bronze</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
@@ -77,7 +77,6 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$4,500 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Plazo objetivo: 5 a 7 días hábiles *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>Hasta 5 secciones estructuradas</li>
@@ -94,10 +93,10 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
           </div>
 
           <!-- 3. CASTLE SILVER -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--silver);">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 03 • CORPORATIVO</span>
-              <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">7–10 DÍAS HÁBILES</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">7–10 DÍAS</span>
             </div>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Silver</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
@@ -105,7 +104,6 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$7,500 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Plazo objetivo: 7 a 10 días hábiles *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>Hasta 5 páginas completas independientes</li>
@@ -121,11 +119,11 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </div>
           </div>
 
-          <!-- 4. CASTLE GOLD (POPULAR) -->
-          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--glass-surface) 100%);">
+          <!-- 4. CASTLE GOLD -->
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid #FFD700;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 7px;">MÁS ELEGIDO</span>
-              <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">10–14 DÍAS HÁBILES</span>
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 04 • CRECIMIENTO</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">10–14 DÍAS</span>
             </div>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Gold</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
@@ -133,7 +131,6 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$12,500 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Plazo objetivo: 10 a 14 días hábiles *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>8 a 10 páginas completas</li>
@@ -151,10 +148,10 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
           </div>
 
           <!-- 5. CASTLE PLATINUM -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--platinum);">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 05 • INTEGRADO</span>
-              <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">15–20 DÍAS HÁBILES</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">15–20 DÍAS</span>
             </div>
             <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Platinum</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
@@ -162,7 +159,6 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$24,500 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Plazo objetivo: 15 a 20 días hábiles *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>Hasta 15 páginas y secciones dinámicas</li>
@@ -180,18 +176,17 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
           </div>
 
           <!-- 6. CASTLE DIAMOND / SOFTWARE A MEDIDA -->
-          <div class="card glass-panel" id="proyectos-avanzados" style="padding: 2.25rem;">
+          <div class="card glass-panel" id="proyectos-avanzados" style="padding: 2.25rem; border-top: 3px solid #00D2FF;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 06 • A MEDIDA</span>
-              <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 6px;">POR SPRINTS</span>
+              <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 06 • A MEDIDA</span>
+              <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em;">POR SPRINTS</span>
             </div>
-            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Diamond / Software a Medida</h3>
+            <h3 style="font-size: 1.4rem; margin: 0.25rem 0;">Castle Diamond</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); margin-bottom: 1.25rem; min-height: 2.8rem;">
               Ingeniería de software a la medida, portales de clientes, ERP/CRM e integraciones de alta disponibilidad.
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">Desde $40,000 MXN</div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Alcance detallado sujeto a evaluación técnica *</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.4rem;">
               <li>Arquitectura de software y base de datos a medida</li>
@@ -212,8 +207,8 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
         <!-- SECCIÓN DE ADD-ONS Y COMPLEMENTOS COMERCIALES -->
         <div class="glass-panel reveal" style="padding: 2rem; border-color: rgba(0, 210, 255, 0.2); background: rgba(14, 18, 27, 0.85); margin-bottom: 2.5rem;">
           <div style="margin-bottom: 1.25rem;">
-            <span class="badge badge-cyan" style="font-size: 0.7rem; margin-bottom: 0.35rem;">MÓDULOS Y SERVICIOS ADICIONALES</span>
-            <h3 style="font-size: 1.25rem; color: var(--paper); margin: 0.25rem 0 0.5rem 0;">Complementos y Add-ons para tus Proyectos</h3>
+            <h3 style="font-size: 1.4rem; color: var(--paper); margin: 0 0 0.35rem 0;">Complementos y Add-ons para tus Proyectos</h3>
+            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.65rem;">MÓDULOS Y SERVICIOS ADICIONALES</div>
             <p style="font-size: 0.86rem; color: var(--steel-light); margin: 0;">
               Amplía las capacidades de tu paquete sin comprometer la arquitectura estática, sin crear dependencias artificiales ni costos ocultos.
             </p>
@@ -253,10 +248,10 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
     </section>
 
     <!-- TABLA COMPARATIVA COMPLETA DE LOS 6 PAQUETES -->
-    <section class="section section-dim" id="comparativa">
+    <section class="section section-dim" id="comparativa" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Matriz de Características</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Matriz de Características</p>
           <h2>Comparativa Técnica de los 6 Paquetes</h2>
           <p>Transparencia en lo que incluye cada nivel de desarrollo.</p>
         </div>
@@ -269,7 +264,7 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
                 <th>Iron</th>
                 <th>Bronze</th>
                 <th>Silver</th>
-                <th style="color: var(--cyan);">Gold</th>
+                <th>Gold</th>
                 <th>Platinum</th>
                 <th>Diamond</th>
               </tr>
@@ -280,7 +275,7 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
                 <td style="font-family: var(--f-mono);">$2,800 MXN</td>
                 <td style="font-family: var(--f-mono);">$4,500 MXN</td>
                 <td style="font-family: var(--f-mono);">$7,500 MXN</td>
-                <td style="font-family: var(--f-mono); font-weight: bold; color: var(--cyan);">$12,500 MXN</td>
+                <td style="font-family: var(--f-mono);">$12,500 MXN</td>
                 <td style="font-family: var(--f-mono);">$24,500 MXN</td>
                 <td style="font-family: var(--f-mono);">$40,000+ MXN</td>
               </tr>
@@ -352,55 +347,40 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
                 <td>Auditoría interna básica</td>
                 <td>Auditoría interna básica</td>
                 <td>Auditoría interna + reporte resumido</td>
-                <td style="color: var(--cyan); font-weight: 600;">Auditoría interna + reporte resumido</td>
+                <td>Auditoría interna + reporte resumido</td>
                 <td>Release Certificate SHA-256 entregado</td>
                 <td>Release Certificate SHA-256 entregado</td>
               </tr>
             </tbody>
           </table>
-          <p style="font-size: 0.8rem; color: var(--steel-light); margin-top: 1rem; line-height: 1.5;">
-            * Castle Gate es nuestra tecnología interna de gobernanza de calidad y seguridad (CQS v1.1). No es una certificación regulatoria externa. <a href="/castle-gate.html" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">Ver especificación completa →</a>
-          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- ENLACE HACIA SERVICIOS TÉCNICOS Y CONTINUIDAD -->
-    <section class="section">
-      <div class="container">
-        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.7); border-color: rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
-          <div>
-            <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">¿BUSCAS ACOMPAÑAMIENTO O AUDITORÍA?</span>
-            <h3 style="font-size: 1.4rem; margin: 0.25rem 0 0.5rem 0;">Servicios de Diagnóstico, Rescate y Continuidad Mensual</h3>
-            <p style="font-size: 0.9rem; color: var(--steel-light); margin: 0;">
-              Explora nuestros servicios independientes: Castle Checkup ($8,900 MXN), Castle Audit, Castle Rescue y suscripciones mensuales Castle Care.
-            </p>
-          </div>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="/servicios.html" class="btn btn-primary">Ver Todos los Servicios →</a>
-            <a href="/servicios/care.html" class="btn btn-outline">Ver Planes Castle Care</a>
-          </div>
-        </div>
+        <p class="reveal" style="font-size: 0.82rem; color: var(--steel-soft); text-align: center; margin-top: 1.25rem; line-height: 1.5;">
+          * Castle Gate es nuestra tecnología interna de gobernanza de calidad y seguridad (CQS v1.1). No es una certificación regulatoria externa. <a href="/castle-gate.html" style="color: var(--cyan); text-decoration: underline; font-weight: 600;">Ver especificación completa →</a>
+        </p>
       </div>
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="section section-dim" id="faq">
+    <section class="section section-dim" id="faq" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Preguntas Frecuentes sobre Paquetes</p>
-          <h2>Todo claro antes de contratar</h2>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Preguntas Frecuentes sobre Paquetes</p>
+          <h2 style="font-size: 2.2rem; color: var(--paper);">Todo claro antes de contratar</h2>
+          <p style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.65;">
+            Resolvemos las dudas comerciales y operativas más comunes con total transparencia:
+          </p>
         </div>
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Cómo se realiza el proceso de pago?" answer="Trabajamos típicamente con un esquema de 50% de anticipo para iniciar la arquitectura y 50% contra entrega final tras completar las rondas de revisión formal." />
+              <FAQItem question="¿Cómo se realiza el proceso de pago?" answer="Trabajamos típicamente con un esquema de 50% de anticipo para iniciar la arquitectura y 50% contra entrega final tras completar las rondas de revisión formal." />
               <FAQItem question="¿El código nos pertenece conforme a contrato?" answer="Sí. Todo el código fuente entregado, repositorios y cuentas de hosting permanecen bajo la titularidad y control del cliente conforme al contrato de servicios." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Qué pasa si mis requerimientos no encajan exactamente en un paquete?" answer="Podemos cotizar módulos o páginas adicionales de forma proporcional o estructurar una propuesta a la medida en Castle Diamond." />
+              <FAQItem question="¿Qué pasa si mis requerimientos no encajan exactamente en un paquete?" answer="Podemos cotizar módulos o páginas adicionales de forma proporcional o estructurar una propuesta a la medida en Castle Diamond." />
               <FAQItem question="¿Qué soporte recibo después de la entrega?" answer="Todos los paquetes incluyen garantía de estabilidad inicial y puedes contratar Castle Care (desde $3,500 MXN/mes) para supervisión técnica y horas de rescate continuo." />
             </div>
           </div>
@@ -409,9 +389,9 @@ import ModularAssemblyVisual from '../components/ModularAssemblyVisual.astro';
     </section>
 
     <CTABand
-      title="¿Tienes dudas sobre qué paquete es el adecuado?"
+      title="¿Tienes dudas sobre qué paquete es el <span style='color: var(--cyan);'>adecuado</span>?"
       description="Utiliza nuestro diagnóstico interactivo o cuéntanos directamente sobre tu negocio."
-      ctaLabel="Iniciar Diagnóstico Castillo"
+      ctaLabel="Iniciar Diagnóstico"
       ctaHref="/diagnostico.html"
     />
 

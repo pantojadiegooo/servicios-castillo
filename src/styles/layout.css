@@ -57,13 +57,13 @@
   color: var(--paper);
 }
 
-.section-head p {
+.section-head p:not(.eyebrow) {
   color: #E2E8F0;
   font-size: var(--step-0);
   line-height: 1.6;
 }
 
-.section-dim .section-head p {
+.section-dim .section-head p:not(.eyebrow) {
   color: #E2E8F0;
 }
 
