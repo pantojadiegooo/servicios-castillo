@@ -1,3 +1,7 @@
+---
+import CastleGateBadge from './CastleGateBadge.astro';
+---
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -67,16 +71,8 @@
       <div class="footer-legal-left">
         <span>© 2026 Grupo Castillo · Servicios de Ingeniería de Software · Todos los derechos reservados.</span>
       </div>
-      <div class="footer-legal-center">
-        <a href="/aviso-de-privacidad.html">Aviso de Privacidad</a>
-        <span class="footer-legal-sep">·</span>
-        <a href="/terminos.html">Términos y Condiciones</a>
-      </div>
       <div class="footer-legal-right">
-        <a href="/castle-gate.html#validacion" class="footer-gate-badge" aria-label="Validación técnica Castle Gate CQS v1.1 PASS">
-          <span class="gate-dot"></span>
-          <span>Castle Gate · CQS v1.1 PASS</span>
-        </a>
+        <CastleGateBadge variant="compact" validationId="CG-2026-68D04F" releaseSha="3d61237" isSelfValidation={true} />
       </div>
     </div>
   </div>

@@ -155,14 +155,15 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         const acceptForm = document.getElementById('accept-form');
         const alreadyAcceptedAlert = document.getElementById('already-accepted-alert');
 
-        let currentProjectId = null;
-
-        // Leer parámetro ?id= de URL
+        // Leer parámetro ?id= o ?project= de URL
         const params = new URLSearchParams(window.location.search);
-        const urlId = params.get('id');
+        const urlId = params.get('id') || params.get('project');
+        const urlPackage = params.get('paquete') || params.get('package');
         if (urlId) {
           searchInput.value = urlId;
-          loadQuotation(urlId);
+          loadQuotation(urlId, urlPackage);
+        } else if (urlPackage) {
+          displayDemoQuotation('GC-Q-2026-000042', urlPackage);
         }
 
         searchForm.addEventListener('submit', function(e) {
@@ -171,13 +172,13 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           if (id) loadQuotation(id);
         });
 
-        async function loadQuotation(id) {
+        async function loadQuotation(id, packageHint) {
           try {
             // Consulta directa a la API local o simulación en frontend
             const res = await fetch(`/api/quotations/${encodeURIComponent(id)}`);
             if (!res.ok) {
               // Fallback demostrativo si no está levantado el servidor backend
-              displayDemoQuotation(id);
+              displayDemoQuotation(id, packageHint);
               return;
             }
             const data = await res.json();
@@ -185,7 +186,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               renderQuotation(data.quotation);
             }
           } catch (e) {
-            displayDemoQuotation(id);
+            displayDemoQuotation(id, packageHint);
           }
         }
 
@@ -218,18 +219,58 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           quotationCard.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function displayDemoQuotation(id) {
+        function displayDemoQuotation(id, packageHint) {
+          let subtotal = 12500;
+          let projName = 'Plataforma Corporativa Living Glass (Castle Gold)';
+          let scope = 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.';
+
+          if (packageHint) {
+            const p = packageHint.toLowerCase();
+            if (p.includes('iron')) {
+              subtotal = 2800;
+              projName = 'Presencia One-Page Esencial (Castle Iron)';
+              scope = 'Desarrollo de sitio One-Page ágil, enlace directo a WhatsApp, diseño responsivo optimizado y certificación Castle Gate C1.';
+            } else if (p.includes('bronze')) {
+              subtotal = 4500;
+              projName = 'Landing Page Comercial de Alta Conversión (Castle Bronze)';
+              scope = 'Desarrollo de landing comercial de hasta 5 secciones, formulario de captura, optimización de velocidad y certificación Castle Gate C1.';
+            } else if (p.includes('silver')) {
+              subtotal = 7500;
+              projName = 'Portal Web Corporativo Multi-página (Castle Silver)';
+              scope = 'Desarrollo de sitio web corporativo de hasta 5 páginas, estructura SEO on-page, diseño modular y certificación Castle Gate C1.';
+            } else if (p.includes('platinum')) {
+              subtotal = 24500;
+              projName = 'Plataforma Integrada con Pagos y CRM (Castle Platinum)';
+              scope = 'Desarrollo de plataforma web de hasta 15 páginas, integración de pasarelas de pago (Stripe/Mercado Pago), webhooks para CRM y hardening de seguridad.';
+            } else if (p.includes('diamond') || p.includes('medida') || p.includes('avanzado')) {
+              subtotal = 40000;
+              projName = 'Ingeniería de Software a la Medida (Castle Diamond)';
+              scope = 'Desarrollo de arquitectura de software personalizada por sprints, módulos operativos, portales con roles RBAC y gobernanza continua Castle Gate C4/C5.';
+            } else if (p.includes('checkup')) {
+              subtotal = 8900;
+              projName = 'Diagnóstico Técnico Ágil 72h (Castle Checkup)';
+              scope = 'Auditoría ágil de repositorio en 72 horas hábiles: escaneo de vulnerabilidades, fuga de credenciales, Core Web Vitals y sesión de entrega ejecutiva (100% bonificable).';
+            } else if (p.includes('audit')) {
+              subtotal = 19900;
+              projName = 'Auditoría Técnica Profunda y Due Diligence (Castle Audit)';
+              scope = 'Evaluación exhaustiva de arquitectura, modelo de riesgos de seguridad, análisis estático y roadmap de remediación con reporte ejecutivo.';
+            }
+          }
+
+          const tax = subtotal * 0.16;
+          const total = subtotal + tax;
+
           renderQuotation({
             project_id: id || 'GC-Q-2026-000042',
-            project_name: 'Plataforma Corporativa Living Glass',
+            project_name: projName,
             business_name: 'Cliente Corporativo',
             contact_name: 'Representante Autorizado',
             valid_until_date: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString(),
             version_number: 1,
-            scope_description: 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.',
-            subtotal_mxn: 12500,
-            tax_amount_mxn: 2000,
-            total_mxn: 14500,
+            scope_description: scope,
+            subtotal_mxn: subtotal,
+            tax_amount_mxn: tax,
+            total_mxn: total,
             is_accepted: 0
           });
         }

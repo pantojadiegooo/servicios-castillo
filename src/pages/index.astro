@@ -38,7 +38,7 @@ import TechIcon from '../components/TechIcon.astro';
 
         <!-- CTA PRINCIPAL ÚNICO -->
         <div class="hero-actions" style="display: flex; justify-content: center; align-items: center; margin-bottom: 2.75rem;">
-          <a class="btn btn-primary" href="/contacto.html" style="padding: 0.95rem 2.5rem; font-size: 1.05rem; font-weight: 700; box-shadow: 0 0 25px rgba(0, 210, 255, 0.25);">
+          <a class="btn btn-cta-crystal" href="/contacto.html" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">
             Iniciar Proyecto →
           </a>
         </div>
@@ -95,7 +95,7 @@ import TechIcon from '../components/TechIcon.astro';
           </div>
 
           <!-- 2. SOFTWARE A LA MEDIDA -->
-          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); border-color: rgba(0, 210, 255, 0.35); background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); background: rgba(14, 18, 27, 0.9);">
             <div style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.04em;">02 • SOFTWARE A LA MEDIDA</div>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper); font-weight: 700;">Sistemas &amp; Aplicaciones Web</h3>
             <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.65; margin-bottom: 1.25rem;">
@@ -127,7 +127,7 @@ import TechIcon from '../components/TechIcon.astro';
           </div>
 
           <!-- 4. SEGURIDAD Y GOBERNANZA -->
-          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.04em;">04 • SEGURIDAD &amp; CALIDAD</div>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper); font-weight: 700;">Seguridad, Auditoría &amp; Rescate</h3>
             <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.65; margin-bottom: 1.25rem;">
@@ -143,13 +143,21 @@ import TechIcon from '../components/TechIcon.astro';
           </div>
 
           <!-- 5. CONSULTORÍA DIGITAL -->
-          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); grid-column: span 2; background: rgba(14, 18, 27, 0.9);">
-            <div style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.04em;">05 • CONSULTORÍA ESTRATÉGICA</div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper); font-weight: 700;">Consultoría Digital &amp; Roadmap Tecnológico</h3>
-            <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.65; margin-bottom: 1.25rem;">
-              Acompañamos a directores generales y CTOs a definir la arquitectura correcta antes de gastar presupuesto. Evaluamos si conviene refactorizar un sistema heredado o construir desde cero, estructurando una hoja de ruta técnica realista.
-            </p>
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); grid-column: span 2; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.04em;">05 • CONSULTORÍA ESTRATÉGICA</div>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--paper); font-weight: 700;">Consultoría Digital &amp; Roadmap Tecnológico</h3>
+              <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.65; margin-bottom: 1.25rem;">
+                Acompañamos a directores generales y CTOs a definir la arquitectura correcta antes de gastar presupuesto. Evaluamos si conviene refactorizar un sistema heredado o construir desde cero, estructurando una hoja de ruta técnica realista.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 1.25rem 0; font-size: 0.86rem; line-height: 1.65; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.35rem 1rem;">
+                <li style="display: flex; gap: 0.5rem;"><span style="color: var(--cyan); font-weight: bold;">•</span> <span style="color: #CBD5E1;">Evaluación técnica de viabilidad y arquitectura</span></li>
+                <li style="display: flex; gap: 0.5rem;"><span style="color: var(--cyan); font-weight: bold;">•</span> <span style="color: #CBD5E1;">Auditoría de deuda técnica y refactorización</span></li>
+                <li style="display: flex; gap: 0.5rem;"><span style="color: var(--cyan); font-weight: bold;">•</span> <span style="color: #CBD5E1;">Planificación de migración sin interrupción</span></li>
+                <li style="display: flex; gap: 0.5rem;"><span style="color: var(--cyan); font-weight: bold;">•</span> <span style="color: #CBD5E1;">Sesiones estratégicas con el Ingeniero Líder</span></li>
+              </ul>
+            </div>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: auto;">
               <span style="font-size: 0.86rem; color: #CBD5E1;"><strong style="color: var(--paper);">Modalidad:</strong> Sesiones ejecutivas con el Ingeniero Líder</span>
               <span style="font-size: 0.86rem; color: #CBD5E1;"><strong style="color: var(--paper);">Cotización:</strong> Sujeto a alcance técnico</span>
               <a href="/servicios.html#consultoria-digital" class="btn btn-outline" style="padding: 0.45rem 1.1rem; font-size: 0.82rem; margin-left: auto;">Conocer Consultoría →</a>
@@ -178,100 +186,99 @@ import TechIcon from '../components/TechIcon.astro';
         <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
           
           <!-- IRON -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #71717A; background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #71717A; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
               <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Iron</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--paper);">$2,800 MXN</span>
             </div>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 0.75rem;">Plazo objetivo: 3–5 días hábiles</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               Presencia One-Page directa con enlace directo a WhatsApp para profesionistas y micronegocios.
             </p>
-            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15);">
-              <strong style="color: var(--paper);">Add-on recomendado:</strong> Configuración de SEO Local &amp; Google Business Profile.
+            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15); min-height: 48px; display: flex; align-items: center;">
+              <div><strong style="color: var(--paper);">Add-on recomendado:</strong> Configuración de SEO Local &amp; Google Business Profile.</div>
             </div>
-            <a href="/paquetes/iron.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Ficha Técnica Iron →</a>
+            <a href="/paquetes/iron.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Iron →</a>
           </div>
 
           <!-- BRONZE -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #CD7F32; background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #CD7F32; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
               <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Bronze</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--paper);">$4,500 MXN</span>
             </div>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 0.75rem;">Plazo objetivo: 5–7 días hábiles</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               Landing comercial de hasta 5 secciones estructuradas con formulario de captación para campañas.
             </p>
-            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15);">
-              <strong style="color: var(--paper);">Add-on recomendado:</strong> Configuración de SEO Local &amp; Analítica de conversión.
+            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15); min-height: 48px; display: flex; align-items: center;">
+              <div><strong style="color: var(--paper);">Add-on recomendado:</strong> Configuración de SEO Local &amp; Analítica de conversión.</div>
             </div>
-            <a href="/paquetes/bronze.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Ficha Técnica Bronze →</a>
+            <a href="/paquetes/bronze.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Bronze →</a>
           </div>
 
           <!-- SILVER -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #94A3B8; background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #94A3B8; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
               <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Silver</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--paper);">$7,500 MXN</span>
             </div>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 0.75rem;">Plazo objetivo: 7–10 días hábiles</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               Sitio web corporativo multi-página (hasta 5 vistas) para empresas con catálogo de servicios formal.
             </p>
-            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15);">
-              <strong style="color: var(--paper);">Add-on recomendado:</strong> Panel CMS Ligero de autoedición de contenidos.
+            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15); min-height: 48px; display: flex; align-items: center;">
+              <div><strong style="color: var(--paper);">Add-on recomendado:</strong> Panel CMS Ligero de autoedición de contenidos.</div>
             </div>
-            <a href="/paquetes/silver.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Ficha Técnica Silver →</a>
+            <a href="/paquetes/silver.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Silver →</a>
           </div>
 
-          <!-- GOLD (MÁS ELEGIDO) -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #FFD700; border-color: rgba(0, 210, 255, 0.4); background: linear-gradient(180deg, rgba(0, 210, 255, 0.07) 0%, rgba(14, 18, 27, 0.95) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-              <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 3px 8px; font-weight: 700;">MÁS ELEGIDO</span>
+          <!-- GOLD -->
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #FFD700; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+              <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Gold</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--paper);">$12,500 MXN</span>
             </div>
-            <h3 style="font-size: 1.2rem; margin: 0.2rem 0; color: var(--paper);">Castle Gold</h3>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 0.75rem;">Plazo objetivo: 10–14 días hábiles</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 0.75rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               8–10 páginas con Blog / CMS autogestionable y arquitectura SEO avanzada para posicionamiento orgánico.
             </p>
-            <div style="padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.78rem; color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.45;">
-              ℹ <strong style="color: var(--paper);">Nota de alcance:</strong> Insumos provistos por el cliente. Redacción completa desde cero disponible como servicio adicional.
+            <div style="padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.78rem; color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.45; min-height: 64px; display: flex; align-items: center;">
+              <div>ℹ <strong style="color: var(--paper);">Nota de alcance:</strong> Insumos provistos por el cliente. Redacción completa desde cero disponible como servicio adicional.</div>
             </div>
-            <a href="/paquetes/gold.html" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Ficha Técnica Gold →</a>
+            <a href="/paquetes/gold.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Gold →</a>
           </div>
 
           <!-- PLATINUM -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #E0E7FF; background: rgba(14, 18, 27, 0.9);">
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #E0E7FF; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
               <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Platinum</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--paper);">$24,500 MXN</span>
             </div>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 0.75rem;">Plazo objetivo: 15–20 días hábiles</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 0.75rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               Hasta 15 páginas con pasarelas de pago (Stripe / Mercado Pago), conexión a CRM y seguridad reforzada.
             </p>
-            <div style="padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.78rem; color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.45;">
-              ℹ <strong style="color: var(--paper);">Nota de alcance:</strong> Insumos provistos por el cliente. Redacción completa desde cero disponible como servicio adicional.
+            <div style="padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.78rem; color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.45; min-height: 64px; display: flex; align-items: center;">
+              <div>ℹ <strong style="color: var(--paper);">Nota de alcance:</strong> Insumos provistos por el cliente. Redacción completa desde cero disponible como servicio adicional.</div>
             </div>
-            <a href="/paquetes/platinum.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Ficha Técnica Platinum →</a>
+            <a href="/paquetes/platinum.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Platinum →</a>
           </div>
 
           <!-- DIAMOND / SOFTWARE A MEDIDA -->
-          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #00D2FF; border-color: rgba(0, 210, 255, 0.35); background: linear-gradient(180deg, rgba(0, 210, 255, 0.06) 0%, rgba(14, 18, 27, 0.95) 100%);">
+          <div class="card glass-panel" style="padding: 1.75rem; border-top: 3px solid #00D2FF; background: rgba(14, 18, 27, 0.9); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
               <h3 style="font-size: 1.2rem; margin: 0; color: var(--paper);">Castle Diamond</h3>
               <span style="font-family: var(--f-mono); font-size: 1.15rem; font-weight: 700; color: var(--cyan);">Desde $40,000 MXN</span>
             </div>
             <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; display: block; margin-bottom: 0.75rem; font-weight: 600;">Software a la Medida • Por Sprints</span>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem;">
+            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1;">
               Ingeniería de Software a Medida: ERP, CRM, portales RBAC, bases de datos complejas e integraciones personalizadas.
             </p>
-            <div style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 1.25rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255, 255, 255, 0.15);">
-              <strong style="color: var(--paper);">Metodología:</strong> Arquitectura modular, sprints de entrega y validación continua en Gate.
+            <div style="padding: 0.75rem; background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.78rem; color: #E2E8F0; margin-bottom: 1.25rem; line-height: 1.45; min-height: 64px; display: flex; align-items: center;">
+              <div>ℹ <strong style="color: var(--paper);">Metodología:</strong> Arquitectura modular, sprints de entrega, código transferible y validación continua en Gate.</div>
             </div>
-            <a href="/paquetes/diamond.html" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Ver Software a Medida →</a>
+            <a href="/paquetes/diamond.html" class="btn btn-outline" style="width: 100%; text-align: center; font-size: 0.82rem;">Ver Ficha Técnica Diamond →</a>
           </div>
 
         </div>
@@ -285,8 +292,8 @@ import TechIcon from '../components/TechIcon.astro';
         <div class="reveal" style="padding: 2.25rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-md);">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
             <div>
-              <span class="badge badge-cyan" style="font-size: 0.72rem; margin-bottom: 0.35rem;">SERVICIOS PUNTUALES &amp; CONTINUIDAD</span>
-              <h3 style="font-size: 1.35rem; color: var(--paper); margin: 0;">Servicios de Ingeniería Especializada</h3>
+              <h3 style="font-size: 1.35rem; color: var(--paper); margin: 0 0 0.35rem 0;">Servicios de Ingeniería Especializada</h3>
+              <span style="font-size: 0.72rem; color: var(--cyan); font-weight: 700; letter-spacing: 0.05em; display: block;">SERVICIOS PUNTUALES &amp; CONTINUIDAD</span>
             </div>
             <a href="/servicios.html" class="btn btn-outline" style="font-size: 0.84rem; padding: 0.45rem 1.1rem;">Ver Catálogo de Servicios →</a>
           </div>
@@ -294,7 +301,7 @@ import TechIcon from '../components/TechIcon.astro';
           <div class="grid grid-3" style="gap: 1.25rem;">
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: var(--cyan);">Castle Checkup</strong>
+                <strong style="color: var(--paper); font-weight: 700;">Castle Checkup</strong>
                 <span style="font-family: var(--f-mono); color: var(--paper); font-weight: 700;">$8,900 MXN</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Diagnóstico estático de 65 controles CQS en 72h. 100% acreditable hacia tu contratación posterior.</p>
@@ -302,7 +309,7 @@ import TechIcon from '../components/TechIcon.astro';
 
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: var(--paper);">Castle Audit</strong>
+                <strong style="color: var(--paper); font-weight: 700;">Castle Audit</strong>
                 <span style="font-family: var(--f-mono); color: var(--paper); font-weight: 700;">Desde $19,900 MXN</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Auditoría técnica profunda de arquitectura, modelo de riesgos y dependencias para Due Diligence.</p>
@@ -310,7 +317,7 @@ import TechIcon from '../components/TechIcon.astro';
 
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: var(--paper);">Castle Rescue</strong>
+                <strong style="color: var(--paper); font-weight: 700;">Castle Rescue</strong>
                 <span style="font-family: var(--f-mono); color: var(--paper); font-weight: 700;">Desde $6,900 MXN</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Intervención quirúrgica directa en Git para corregir secretos expuestos, parches y pipelines rotos.</p>
@@ -318,7 +325,7 @@ import TechIcon from '../components/TechIcon.astro';
 
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: #FF6B6B;">Castle Emergency</strong>
+                <strong style="color: var(--paper); font-weight: 700;">Castle Emergency</strong>
                 <span style="font-family: var(--f-mono); color: var(--paper); font-weight: 700;">Desde $5,900 MXN</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Protocolo de respuesta prioritaria ante sitios caídos, errores 500 o contingencias en producción.</p>
@@ -326,7 +333,7 @@ import TechIcon from '../components/TechIcon.astro';
 
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: var(--cyan);">Castle Care</strong>
+                <strong style="color: var(--paper); font-weight: 700;">Castle Care</strong>
                 <span style="font-family: var(--f-mono); color: var(--paper); font-weight: 700;">Desde $3,500 MXN/mes</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Póliza mensual sin ataduras: supervisión continua de disponibilidad, parches y horas Rescue incluidas.</p>
@@ -334,8 +341,8 @@ import TechIcon from '../components/TechIcon.astro';
 
             <div style="padding: 1.1rem; background: #07090E; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm);">
               <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                <strong style="color: var(--paper);">Consultoría &amp; Roadmap</strong>
-                <span style="font-family: var(--f-mono); color: #CBD5E1;">A cotizar</span>
+                <strong style="color: var(--paper); font-weight: 700;">Consultoría &amp; Roadmap</strong>
+                <span style="font-family: var(--f-mono); color: var(--steel-light); font-weight: 700;">A cotizar</span>
               </div>
               <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">Sesiones estratégicas de arquitectura tecnológica y toma de decisiones con el Ingeniero Líder.</p>
             </div>
@@ -355,7 +362,7 @@ import TechIcon from '../components/TechIcon.astro';
           <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Arquitectura de Grado de Producción</p>
           <h2 style="font-size: 2.2rem; color: var(--paper);">Stack tecnológico: sabemos con qué construimos y por qué</h2>
           <p style="color: var(--cyan); font-size: 1.15rem; font-weight: 600; line-height: 1.5; margin-bottom: 0.5rem;">
-            “Seleccionamos la tecnología según el problema, no al revés.”
+            “Seleccionamos la tecnología según el problema, no al contrario.”
           </p>
           <p style="color: #E2E8F0; font-size: 1rem; line-height: 1.65; margin: 0;">
             Trabajamos con arquitecturas modernas, abiertas y transferibles según las necesidades del proyecto. Sin constructores visuales pesados ni dependencias cautivas.
@@ -542,13 +549,15 @@ import TechIcon from '../components/TechIcon.astro';
           </div>
 
           <!-- 7. INTEGRACIONES -->
-          <div class="card glass-panel" style="padding: 1.75rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); grid-column: span 3;">
-            <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">07 • INTEGRACIONES COMERCIALES</span>
-            <h3 style="font-size: 1.2rem; margin: 0.4rem 0 0.75rem 0; color: var(--paper); font-weight: 700;">Cobros Tokenizados &amp; Mensajería Directa</h3>
-            <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin-bottom: 1.25rem;">
-              Conexión directa con pasarelas de pago internacionales y canales de conversión directa sin intermediarios.
-            </p>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <div class="card glass-panel" style="padding: 1.75rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); grid-column: span 3; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="max-width: 540px;">
+              <span style="font-family: var(--f-mono); font-size: 0.76rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;">07 • INTEGRACIONES COMERCIALES</span>
+              <h3 style="font-size: 1.2rem; margin: 0.4rem 0 0.5rem 0; color: var(--paper); font-weight: 700;">Cobros Tokenizados &amp; Mensajería Directa</h3>
+              <p style="font-size: 0.88rem; color: #E2E8F0; line-height: 1.6; margin: 0;">
+                Conexión directa con pasarelas de pago internacionales y canales de conversión directa sin intermediarios.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
               <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(8, 11, 16, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.45rem 0.9rem; border-radius: 6px; color: #F8FAFC; font-size: 0.86rem; font-weight: 500;">
                 <TechIcon name="stripe" size={20} /> <span>Stripe</span>
               </span>
@@ -650,7 +659,7 @@ import TechIcon from '../components/TechIcon.astro';
         <div class="two-col" style="align-items: center; gap: 3.5rem;">
           
           <div class="reveal">
-            <div class="badge badge-cyan" style="margin-bottom: 1rem;">GOBERNANZA DETERMINISTA DE RELEASES</div>
+            <span style="color: var(--cyan); font-family: var(--f-mono); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">GOBERNANZA DETERMINISTA DE RELEASES</span>
             <h2 style="font-size: 2.1rem; line-height: 1.2; margin-bottom: 1.25rem; color: var(--paper);">
               No solo decimos que entregamos calidad. Dejamos evidencia de cómo fue validada.
             </h2>
@@ -900,14 +909,14 @@ import TechIcon from '../components/TechIcon.astro';
           </p>
         </div>
 
-        <div class="glass-panel reveal" style="padding: 2rem; overflow-x: auto; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.15); border-color: rgba(0, 210, 255, 0.3); margin-bottom: 2rem; border-radius: var(--radius-md);">
+        <div class="glass-panel reveal" style="padding: 2rem; overflow-x: auto; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 2rem; border-radius: var(--radius-lg);">
           <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
             <thead>
               <tr style="border-bottom: 2px solid rgba(255, 255, 255, 0.15);">
                 <th style="padding: 1.1rem; color: var(--paper); font-family: var(--f-mono); font-size: 0.9rem;">Dimensión</th>
                 <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Agencia Tradicional</th>
                 <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Freelancer sin Proceso</th>
-                <th style="padding: 1.1rem; color: var(--cyan); font-weight: 800; background: rgba(0, 210, 255, 0.12); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);">Grupo Castillo</th>
+                <th style="padding: 1.1rem; color: var(--cyan); font-weight: 800;">Grupo Castillo</th>
               </tr>
             </thead>
             <tbody>
@@ -915,31 +924,31 @@ import TechIcon from '../components/TechIcon.astro';
                 <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Titularidad de Activos</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Retienen dominios y hosting en sus cuentas</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Cuentas informales o sin entregar repositorio</td>
-                <td style="padding: 1.1rem; color: #FFFFFF; font-weight: 600; background: rgba(0, 210, 255, 0.08); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);"><span style="color: #00E599; font-weight: 800;">✓</span> 100% a nombre del cliente desde el día 1</td>
+                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 100% a nombre del cliente desde el día 1</td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                 <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Arquitectura de Código</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Plantillas pesadas con decenas de plugins lentos</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Variable según conocimiento sin estándares fijos</td>
-                <td style="padding: 1.1rem; color: #FFFFFF; font-weight: 600; background: rgba(0, 210, 255, 0.08); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);"><span style="color: #00E599; font-weight: 800;">✓</span> Código estático moderno (Astro/TS) sin sobreingeniería</td>
+                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Código estático moderno (Astro/TS) sin sobreingeniería</td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                 <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Transparencia de Precios</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Cotizaciones opacas con mensualidades obligatorias</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Precios informales sin alcance delimitado</td>
-                <td style="padding: 1.1rem; color: #FFFFFF; font-weight: 600; background: rgba(0, 210, 255, 0.08); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);"><span style="color: #00E599; font-weight: 800;">✓</span> Precios públicos en MXN y contrato SOW cerrado</td>
+                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Precios públicos en MXN y contrato SOW cerrado</td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                 <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Validación de Seguridad</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Revisiones manuales sin evidencia auditable</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Generalmente ausente o superficial</td>
-                <td style="padding: 1.1rem; color: #FFFFFF; font-weight: 600; background: rgba(0, 210, 255, 0.08); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);"><span style="color: #00E599; font-weight: 800;">✓</span> 65 controles CQS v1.1 en Castle Gate (SHA-256)</td>
+                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 65 controles CQS v1.1 en Castle Gate (SHA-256)</td>
               </tr>
               <tr>
                 <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Interlocución</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Ejecutivos de cuenta sin conocimiento técnico</td>
                 <td style="padding: 1.1rem; color: #CBD5E1;">Directa, pero con riesgo de disponibilidad</td>
-                <td style="padding: 1.1rem; color: #FFFFFF; font-weight: 600; background: rgba(0, 210, 255, 0.08); border-left: 2px solid rgba(0, 210, 255, 0.4); border-right: 2px solid rgba(0, 210, 255, 0.4);"><span style="color: #00E599; font-weight: 800;">✓</span> Trato directo con el Ingeniero Líder + SOW formal</td>
+                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Trato directo con el Ingeniero Líder + SOW formal</td>
               </tr>
             </tbody>
           </table>
@@ -1018,7 +1027,7 @@ import TechIcon from '../components/TechIcon.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Combinamos desarrollo web y software a la medida con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control absoluto sin mensualidades forzosas." />
+              <FAQItem question="¿Por qué elegir a Grupo Castillo frente a una agencia convencional?" answer="Combinamos desarrollo web y software a la medida con rigor de ingeniería y tecnología propia de gobernanza (Castle Gate), asegurando que tu plataforma sea veloz, estructurada y quede bajo tu control absoluto sin mensualidades forzosas." />
               <FAQItem question="¿El código, el dominio y las cuentas nos pertenecen?" answer="Sí, 100%. Todo el código fuente original entregado, repositorios Git, registros de dominio y configuraciones de hosting quedan registrados bajo la titularidad exclusiva del cliente conforme a contrato." />
               <FAQItem question="¿Cómo funciona el esquema de pagos?" answer="En proyectos de desarrollo web y software a la medida trabajamos con un esquema estándar de 50% de anticipo al inicio tras firmar el SOW y 50% restante contra entrega final y validación en Gate. En servicios puntuales (Checkup, Rescue) se liquida el 100% al ordenar." />
               <FAQItem question="¿La redacción de textos está incluida en Gold y Platinum?" answer="No. Para mantener precios accesibles, los paquetes asumen que el cliente proporciona o valida los insumos base de su negocio. La redacción profesional desde cero está disponible como servicio adicional sujeto a cotización." />
@@ -1026,7 +1035,7 @@ import TechIcon from '../components/TechIcon.astro';
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Qué pasa si el responsable técnico no puede responder en el futuro?" answer="La continuidad de tu negocio está protegida por diseño: el 100% de los activos (dominio, repositorio Git, cuentas de hosting y certificados) están a tu nombre desde el inicio, con código estático estándar y documentación completa de entrega (Handoff), permitiendo que cualquier otro ingeniero calificado administre el sistema sin depender de nosotros." />
+              <FAQItem question="¿Qué pasa si el responsable técnico no puede responder en el futuro?" answer="La continuidad de tu negocio está protegida por diseño: el 100% de los activos (dominio, repositorio Git, cuentas de hosting y certificados) están a tu nombre desde el inicio, con código estático estándar y documentación completa de entrega (Handoff), permitiendo que cualquier otro ingeniero calificado administre el sistema sin depender de nosotros." />
               <FAQItem question="¿Qué cubre la garantía técnica de 30 días?" answer="Cubre sin costo la corrección de cualquier bug, error de responsividad o falla de despliegue en las rutas y funciones acordadas en el SOW original. No cubre cambios de alcance o diseño no contemplados inicialmente." />
               <FAQItem question="¿Qué es el diagnóstico Castle Checkup y cómo se acredita?" answer="Es un servicio ágil de evaluación técnica donde auditamos tu repositorio bajo controles CQS v1.1 en 72h hábiles para detectar fugas de claves y bloqueos de calidad. Los $8,900 MXN pagados se acreditan al 100% si contratas cualquier desarrollo dentro de los 30 días posteriores." />
               <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante las pólizas mensuales Castle Care ofrecemos supervisión continua de disponibilidad, parches de seguridad periódicos y horas mensuales de ingeniería directa incluidas según el nivel contratado (Care Core, Care Pro o Care Enterprise), sin plazos forzosos." />
@@ -1038,10 +1047,10 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         13 — CTA BAND FINAL & RUTAS DE CONTACTO
-         ========================================================================= -->
+     13 — CTA BAND FINAL & RUTAS DE CONTACTO
+     ========================================================================= -->
     <CTABand
-      title="Hablemos de tu proyecto web o software a la medida."
+      title='Hablemos de tu proyecto web o <span style="color: var(--cyan);">software a la medida</span>.'
       description="Cuéntanos tus requerimientos técnicos y te responderemos con una propuesta formal de presupuesto por escrito en menos de 24 horas hábiles."
       ctaLabel="Iniciar Proyecto"
       ctaHref="/contacto.html"
@@ -1080,11 +1089,16 @@ import TechIcon from '../components/TechIcon.astro';
           var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
           var timeoutId = setTimeout(function() {
             if (controller) controller.abort();
-          }, 8000);
+          }, 25000);
 
           fetch(apiUrl, { signal: controller ? controller.signal : undefined })
             .then(function(response) {
               clearTimeout(timeoutId);
+              if (response.status === 429) {
+                var err429 = new Error('RateLimitExceeded');
+                err429.isRateLimit = true;
+                throw err429;
+              }
               if (!response.ok) throw new Error('Status: ' + response.status);
               return response.json();
             })
@@ -1105,33 +1119,29 @@ import TechIcon from '../components/TechIcon.astro';
               if (perfScore !== null) {
                 scoreEl.innerHTML = perfScore + ' <span style="font-size:1rem;color:#CBD5E1;">/ 100</span>';
               } else {
-                scoreEl.innerText = 'No disponible temporalmente';
-                scoreEl.style.fontSize = '1.05rem';
-                scoreEl.style.color = '#CBD5E1';
+                scoreEl.innerHTML = '<span style="font-size:1rem;color:#CBD5E1;">Verificar en vivo</span>';
               }
 
               if (lcpValue) {
                 lcpEl.innerText = lcpValue;
               } else {
-                lcpEl.innerText = 'No disponible temporalmente';
-                lcpEl.style.fontSize = '1.05rem';
-                lcpEl.style.color = '#CBD5E1';
+                lcpEl.innerHTML = '<span style="font-size:1rem;color:#CBD5E1;">Verificar en vivo</span>';
               }
 
               var now = new Date();
               tsEl.innerText = 'Consulta en tiempo real: ' + now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' (' + now.toLocaleDateString('es-MX') + ')';
             })
-            .catch(function() {
+            .catch(function(err) {
               clearTimeout(timeoutId);
-              scoreEl.innerText = 'No disponible temporalmente';
-              scoreEl.style.fontSize = '1rem';
-              scoreEl.style.color = '#CBD5E1';
-              
-              lcpEl.innerText = 'No disponible temporalmente';
-              lcpEl.style.fontSize = '1rem';
-              lcpEl.style.color = '#CBD5E1';
-
-              tsEl.innerText = 'Consulta no disponible temporalmente (haz clic en el botón para verificar en Google)';
+              if (err && err.isRateLimit) {
+                scoreEl.innerHTML = '<span style="font-size:0.95rem;color:#CBD5E1;font-weight:600;">Verificar en vivo ↗</span>';
+                lcpEl.innerHTML = '<span style="font-size:0.95rem;color:#CBD5E1;font-weight:600;">Verificar en vivo ↗</span>';
+                tsEl.innerText = 'Cuota de API pública de Google agotada temporalmente (haz clic en el botón para auditoría en vivo)';
+              } else {
+                scoreEl.innerHTML = '<span style="font-size:0.95rem;color:#CBD5E1;">Verificar en vivo ↗</span>';
+                lcpEl.innerHTML = '<span style="font-size:0.95rem;color:#CBD5E1;">Verificar en vivo ↗</span>';
+                tsEl.innerText = 'Consulta en tiempo real: haz clic en el botón para verificar en Google PageSpeed Insights';
+              }
             });
         }
       })();

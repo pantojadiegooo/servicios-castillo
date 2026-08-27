@@ -119,9 +119,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               <div style="display: flex; gap: 1.25rem; align-items: center;">
                 <img id="dash-engineer-photo" src="/assets/brand/symbol/symbol-128.png" alt="Ingeniero Asignado" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--cyan); object-fit: cover;" />
                 <div>
-                  <h4 id="dash-engineer-name" style="font-size: 1.1rem; color: var(--paper); margin: 0 0 0.2rem 0;">Ing. Alejandro Morales</h4>
-                  <div id="dash-engineer-title" style="font-size: 0.82rem; color: var(--steel-light);">Ingeniero de Software Principal</div>
-                  <div id="dash-engineer-dept" style="font-size: 0.75rem; color: var(--steel-soft);">Práctica de Arquitectura Web</div>
+                  <h4 id="dash-engineer-name" style="font-size: 1.1rem; color: var(--paper); margin: 0 0 0.2rem 0;">Ing. Alberto Castillo</h4>
+                  <div id="dash-engineer-title" style="font-size: 0.82rem; color: var(--steel-light);">Director General &amp; Ingeniero Líder</div>
+                  <div id="dash-engineer-dept" style="font-size: 0.75rem; color: var(--steel-soft);">Práctica de Arquitectura Web &amp; Gobernanza</div>
                 </div>
               </div>
             </div>
@@ -496,10 +496,10 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             business_name: 'Cliente Corporativo',
             contact_name: 'Representante Autorizado',
             state: 'DEVELOPMENT',
-            engineer_name: 'Alejandro',
-            engineer_last_name: 'Morales',
-            engineer_job_title: 'Ingeniero de Software Principal',
-            engineer_department: 'Práctica de Arquitectura Web',
+            engineer_name: 'Alberto',
+            engineer_last_name: 'Castillo',
+            engineer_job_title: 'Director General & Ingeniero Líder',
+            engineer_department: 'Práctica de Arquitectura Web & Gobernanza',
             progress: { progressPercentage: 60 },
             timeline: {
               stages: [
@@ -514,6 +514,18 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             quotation: { total_mxn: 14500 },
             payments: [{ total_mxn: 7250, status: 'PAID' }],
             tickets: []
+          });
+        }
+
+        // Manejador seguro para botón de staging
+        const btnStaging = document.getElementById('btn-open-staging');
+        if (btnStaging) {
+          btnStaging.addEventListener('click', function(e) {
+            const currentHref = this.getAttribute('href');
+            if (!currentHref || currentHref === '#' || currentHref === 'javascript:void(0)') {
+              e.preventDefault();
+              alert('El entorno de pruebas interactivo (staging) se habilita formalmente al completar la fase de desarrollo y certificar el release en Castle Gate.');
+            }
           });
         }
 
