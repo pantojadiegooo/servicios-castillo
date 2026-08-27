@@ -13,45 +13,74 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
 >
   <main id="main">
 
+    <!-- 01. HERO SECTION -->
     <section class="page-hero">
       <ShieldedCastleVisual />
-      <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Nosotros</p>
-        <div class="badge badge-cyan">FILOSOFÍA DE INGENIERÍA &amp; PRINCIPIOS</div>
-        <h1>Quiénes Somos y Cómo Trabajamos</h1>
-        <p>Grupo Castillo es una firma de ingeniería de software y gobernanza tecnológica fundada bajo un principio central: construir sistemas confiables con transparencia y titularidad jurídica para el cliente.</p>
+      <div class="container page-hero-inner" style="max-width: 980px; text-align: center; margin: 0 auto;">
+        <p class="eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
+          FILOSOFÍA DE INGENIERÍA &amp; PRINCIPIOS
+        </p>
+        <h1 style="font-size: clamp(2.2rem, 1.8rem + 2vw, 3.4rem); line-height: 1.15; margin-bottom: 1.2rem;">
+          Quiénes Somos y <span style="color: var(--cyan);">Cómo Trabajamos</span>
+        </h1>
+        <p style="font-size: 1.1rem; line-height: 1.7; max-width: 780px; margin: 0 auto; color: #E2E8F0;">
+          Grupo Castillo es una firma de ingeniería de software y gobernanza tecnológica fundada bajo un principio central: construir sistemas confiables con transparencia y titularidad jurídica para el cliente.
+        </p>
+        <div style="margin-top: 1.5rem;">
+          <a href="/diagnostico.html" class="btn btn-cta-crystal" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">Iniciar Diagnóstico →</a>
+        </div>
       </div>
     </section>
 
-    <!-- 01 — POR QUÉ EXISTE GRUPO CASTILLO -->
-    <section class="section">
+    <!-- 02 — NACIMIENTO -->
+    <section class="section" id="nacimiento" style="padding-top: 1.5rem; padding-bottom: 4.5rem;">
       <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
         
         <div class="reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Propósito Fundamental</p>
-          <h2>Por qué existe Grupo Castillo</h2>
+          <p class="eyebrow" style="color: var(--cyan);">Nacimiento</p>
+          <h2>¿Qué es <span style="color: var(--cyan);">Grupo Castillo</span>?</h2>
           <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
-            El mercado del desarrollo web suele polarizarse entre dos extremos insatisfactorios: por un lado, agencias comerciales que construyen sobre plantillas pesadas y retienen los accesos del cliente; por otro, consultorías corporativas con tarifas inaccesibles para PyMEs y negocios en crecimiento.
+            Grupo Castillo nació de una idea sencilla: la tecnología debía servir para construir algo que permaneciera.
           </p>
           <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
-            Grupo Castillo existe para ofrecer una tercera vía: <strong>ingeniería de software rigurosa, accesible y transparente</strong>. Desarrollamos con código limpio, validamos releases mediante tecnología determinista propia (Castle Gate) y transferimos la titularidad y control de cada activo a nuestros clientes conforme a contrato.
+            No queríamos ser otra agencia dedicada a entregar páginas, sistemas o campañas y desaparecer. Queríamos construir una firma capaz de entender el problema completo, diseñar la solución correcta, ejecutarla con rigor y hacerse responsable de lo que deja detrás.
           </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 0;">
+            Así comenzó Grupo Castillo: como la búsqueda de unir ingeniería, criterio y visión de largo plazo en una misma forma de trabajar.
+          </p>
+          <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; border-left: 2px solid var(--cyan); background: rgba(0, 210, 255, 0.04); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <p style="font-family: var(--f-mono); font-size: 0.88rem; color: var(--paper); margin: 0; font-style: italic; line-height: 1.6;">
+              “No construimos tecnología que funcione hoy. Construimos tecnología que se pueda defender mañana.”
+            </p>
+          </div>
         </div>
 
-        <div class="glass-panel reveal" style="padding: 2.5rem; background: rgba(14, 18, 27, 0.85); border-color: rgba(0, 210, 255, 0.35);">
-          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1rem;">Nuestra Promesa de Servicio:</h3>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
-            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
-              <strong style="color: var(--cyan);">01.</strong> Contratos claros con alcance y número de revisiones delimitadas por escrito.
+        <div class="card glass-panel reveal" style="padding: 2.5rem; border-top: 3px solid var(--cyan);">
+          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Evolución de la Firma:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 1rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.35rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">01 — El origen</strong></div>
+              <p style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--steel-light);">
+                Antes de existir como firma, existía una pregunta: ¿por qué tantas organizaciones dependen de soluciones que no comprenden, no controlan y no pueden sostener por sí mismas?
+              </p>
+              <p style="margin: 0.25rem 0 0 0; line-height: 1.6; font-size: 0.88rem; color: var(--steel-light);">
+                De esa inquietud nació nuestra forma de entender la ingeniería.
+              </p>
             </li>
-            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
-              <strong style="color: var(--cyan);">02.</strong> Cero retención de código, dominios o cuentas de infraestructura.
+            <li style="padding-bottom: 1rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.35rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">02 — La evolución</strong></div>
+              <p style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--steel-light);">
+                Con el tiempo, esa pregunta se convirtió en capacidades concretas: desarrollo de software, infraestructura, ciberseguridad, arquitectura digital, auditoría y acompañamiento tecnológico.
+              </p>
+              <p style="margin: 0.25rem 0 0 0; line-height: 1.6; font-size: 0.88rem; color: var(--steel-light);">
+                Cada capacidad nueva nació de la misma necesidad — resolver el problema completo, no solo la parte visible.
+              </p>
             </li>
-            <li style="padding-bottom: 0.75rem; border-bottom: 1px dashed var(--line-dark);">
-              <strong style="color: var(--cyan);">03.</strong> Validación de calidad y accesibilidad previa a cualquier release.
-            </li>
-            <li>
-              <strong style="color: var(--cyan);">04.</strong> Confidencialidad estricta y tratamiento responsable de información.
+            <li style="display: flex; flex-direction: column; gap: 0.35rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">03 — Lo que somos hoy</strong></div>
+              <p style="margin: 0; line-height: 1.6; font-size: 0.88rem; color: var(--steel-light);">
+                Hoy, Grupo Castillo es una firma de ingeniería digital dedicada a construir y fortalecer activos tecnológicos.
+              </p>
             </li>
           </ul>
         </div>
@@ -59,53 +88,146 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
       </div>
     </section>
 
-    <!-- 02 — PRINCIPIOS DE INGENIERÍA -->
-    <section class="section section-dim" id="principios">
+    <!-- 03 — PROPÓSITO FUNDAMENTAL -->
+    <section class="section section-dim" id="proposito" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <div class="card glass-panel reveal" style="padding: 2.5rem; border-top: 3px solid var(--cyan);">
+          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Nuestra Promesa de Servicio</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">01 — Contratos claros</strong></div>
+              <span style="line-height: 1.6;">Alcance, entregables y número de revisiones delimitados por escrito, sin letras pequeñas.</span>
+            </li>
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">02 — Cero retención</strong></div>
+              <span style="line-height: 1.6;">De código, dominios o cuentas de infraestructura. Lo que construimos para ti, es tuyo desde el primer día.</span>
+            </li>
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">03 — Validación previa</strong></div>
+              <span style="line-height: 1.6;">Ningún release sale sin pasar por control de calidad y accesibilidad.</span>
+            </li>
+            <li style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">04 — Confidencialidad estricta</strong></div>
+              <span style="line-height: 1.6;">Tratamiento responsable de tu información, en todo momento.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Propósito Fundamental</p>
+          <h2>¿Por qué existe <span style="color: var(--cyan);">Grupo Castillo</span>?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            El mercado del desarrollo web suele polarizarse entre dos extremos igual de insatisfactorios: agencias comerciales que construyen sobre plantillas pesadas y retienen los accesos del cliente como forma de dependencia, o consultorías corporativas con tarifas inaccesibles para PyMEs y negocios en crecimiento.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 0;">
+            Grupo Castillo existe para ofrecer una tercera vía: ingeniería de software rigurosa, accesible y transparente. Desarrollamos con código limpio, validamos cada release mediante tecnología determinista propia (Castle Gate) y transferimos la titularidad y el control total de cada activo a nuestros clientes, conforme a contrato.
+          </p>
+          <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; border-left: 2px solid var(--cyan); background: rgba(0, 210, 255, 0.04); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <p style="font-family: var(--f-mono); font-size: 0.88rem; color: var(--paper); margin: 0; font-style: italic; line-height: 1.6;">
+              “La confianza no se pide. Se construye con evidencia, contrato y control en tus manos.”
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 — METAS FUNDAMENTALES -->
+    <section class="section" id="metas" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
+      <div class="container two-col" style="align-items: flex-start; gap: 3.5rem;">
+        
+        <div class="reveal">
+          <p class="eyebrow" style="color: var(--cyan);">Metas Fundamentales</p>
+          <h2>¿A dónde va <span style="color: var(--cyan);">Grupo Castillo</span>?</h2>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            Grupo Castillo no está construido para permanecer estático.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 1.25rem;">
+            La tecnología cambia. Las amenazas evolucionan. Las organizaciones crecen y los problemas se transforman con ellas. Por eso no medimos nuestro trabajo por lo que entregamos, sino por lo que sigue funcionando — y sigue defendiéndose — mucho después de la entrega.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--steel-light); line-height: 1.65; margin-bottom: 0;">
+            Nuestra meta es mantenernos en evolución constante: actualizar nuestras capacidades, perfeccionar nuestros procesos, incorporar nuevas tecnologías y elevar continuamente el estándar de lo que construimos.
+          </p>
+          <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; border-left: 2px solid var(--cyan); background: rgba(0, 210, 255, 0.04); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <p style="font-family: var(--f-mono); font-size: 0.88rem; color: var(--paper); margin: 0; font-style: italic; line-height: 1.6;">
+              “El día que dejemos de evolucionar, dejamos de ser Grupo Castillo.”
+            </p>
+          </div>
+        </div>
+
+        <div class="card glass-panel reveal" style="padding: 2.5rem; border-top: 3px solid var(--cyan);">
+          <h3 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Ejes de Evolución:</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.88rem; color: var(--steel-light);">
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">01 — Evolucionar</strong></div>
+              <span style="line-height: 1.6;">Actualizar constantemente nuestro conocimiento, herramientas y forma de trabajar, para nunca quedarnos detrás de la tecnología que ayudamos a construir.</span>
+            </li>
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">02 — Medir</strong></div>
+              <span style="line-height: 1.6;">No creemos en mejorar por intuición. Cada proceso, cada entrega, cada control se revisa con evidencia — y lo que no se puede medir, no se da por hecho que funciona.</span>
+            </li>
+            <li style="padding-bottom: 0.85rem; border-bottom: 1px dashed var(--line-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">03 — Anticipar</strong></div>
+              <span style="line-height: 1.6;">No esperamos a que el futuro nos obligue a reaccionar. Identificamos tendencias, riesgos y oportunidades antes de que se conviertan en problemas.</span>
+            </li>
+            <li style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <div><strong style="color: var(--cyan); font-family: var(--f-mono);">04 — Construir para permanecer</strong></div>
+              <span style="line-height: 1.6;">Lo que entregamos no termina el día de la entrega: son sistemas diseñados para crecer, mantenerse y defenderse con el paso del tiempo.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 — PRINCIPIOS DE INGENIERÍA -->
+    <section class="section section-dim" id="principios" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Cultura de Trabajo</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Cultura de Trabajo</p>
           <h2>Nuestros Principios Rectores</h2>
           <p>Las convicciones técnicas y éticas que guían cada decisión de diseño e implementación.</p>
         </div>
 
-        <div class="grid grid-3 reveal" style="gap: 1.75rem;">
+        <div class="grid grid-3 reveal" style="gap: 1.5rem;">
           
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Rigor Técnico sin Excesos</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Construimos interfaces veloces y sistemas mantenibles sin recurrir a frameworks inflados ni dependencias innecesarias que ralenticen la experiencia de usuario.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Titularidad del Cliente</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               No creamos dependencias artificiales. Todo el código, repositorios y cuentas se configuran a nombre del cliente para que conserve su libertad tecnológica conforme a contrato.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Evidencia sobre Suposiciones</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               No afirmamos que un software funciona bien; lo demostramos mediante pruebas automatizadas, optimización de Core Web Vitals y sellos de integridad SHA-256.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Privacidad y Menor Privilegio</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Nuestras herramientas de análisis operan de forma local en memoria. Solicitamos únicamente los accesos estrictamente necesarios para cumplir el alcance acordado.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Honestidad Comercial</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               No prometemos soluciones mágicas ni inventamos garantías regulatorias. Explicamos con claridad qué incluye cada paquete, qué no incluye y qué límites existen.
             </p>
           </div>
 
-          <div class="card glass-panel" style="padding: 2rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
             <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--paper);">Relaciones de Largo Plazo</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Buscamos ser el socio tecnológico de confianza de nuestros clientes, acompañando su evolución mediante esquemas de mantenimiento mensual y soporte técnico continuo.
@@ -116,56 +238,56 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
       </div>
     </section>
 
-    <!-- 03 — QUÉ ESPERAMOS Y QUÉ PUEDES ESPERAR -->
-    <section class="section">
+    <!-- 04 — QUÉ ESPERAMOS Y QUÉ PUEDES ESPERAR -->
+    <section class="section" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Acuerdo de Colaboración</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Acuerdo de Colaboración</p>
           <h2>Qué significa trabajar juntos</h2>
           <p>Una relación profesional fluida requiere compromisos mutuos claros desde el inicio.</p>
         </div>
 
-        <div class="two-col reveal" style="gap: 3rem;">
+        <div class="two-col reveal" style="gap: 2.5rem;">
           
-          <div class="glass-panel" style="padding: 2.25rem;">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--paper);">Lo que puedes esperar de nosotros:</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--paper);">Lo que puedes esperar de nosotros:</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; color: var(--steel-light);">
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Comunicación directa y técnica sin intermediarios innecesarios.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Cumplimiento estricto de los plazos acordados por escrito.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Código documentado y probado contra regresiones.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Reportes transparentes de estado y sesiones de retroalimentación formal.</span>
               </li>
             </ul>
           </div>
 
-          <div class="glass-panel" style="padding: 2.25rem;">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--paper);">Lo que necesitamos de nuestros clientes:</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: var(--steel-light);">
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--paper);">Lo que necesitamos de nuestros clientes:</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; color: var(--steel-light);">
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Disponibilidad oportuna de la información, textos y accesos requeridos.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Un responsable de proyecto designado para la toma de decisiones y aprobaciones.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Retroalimentación consolidada durante las rondas formales de revisión.</span>
               </li>
               <li style="display: flex; gap: 0.75rem;">
-                <span style="color: var(--cyan); font-weight: bold;"></span>
+                <span style="color: var(--cyan); font-weight: bold; flex-shrink: 0;">[+]</span>
                 <span>Respeto a los alcances y términos establecidos en la propuesta contractual.</span>
               </li>
             </ul>
@@ -175,68 +297,68 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
       </div>
     </section>
 
-    <!-- 04 — EQUIPO Y LIDERAZGO -->
-    <section class="section section-dim" id="equipo">
+    <!-- 05 — EQUIPO Y LIDERAZGO -->
+    <section class="section section-dim" id="equipo" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Liderazgo Técnico</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Liderazgo Técnico</p>
           <h2>Liderazgo &amp; Disciplina de Ingeniería</h2>
           <p>Un modelo de atención directa donde tratas directamente con el ingeniero responsable de tu arquitectura, respaldado por procesos rigurosos y deterministas.</p>
         </div>
 
-        <div style="max-width: 580px; margin: 0 auto 3rem auto;">
-          <div class="card glass-panel reveal" style="padding: 2.5rem; text-align: center; border-color: rgba(0, 210, 255, 0.25);">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; font-family: var(--f-mono); font-size: 1.25rem; font-weight: 700; color: var(--cyan);">
+        <div style="max-width: 640px; margin: 0 auto;">
+          <div class="card glass-panel reveal" style="padding: 2.75rem; text-align: center; background: #040608; border: 1px solid rgba(226, 232, 240, 0.15); border-top: 3px solid #CBD5E1; box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.85);">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #181D26 0%, #06080C 100%); border: 2px solid #E2E8F0; box-shadow: 0 0 24px rgba(226, 232, 240, 0.35), 0 0 6px rgba(255, 255, 255, 0.5), inset 0 0 12px rgba(226, 232, 240, 0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.35rem auto; font-family: var(--f-mono); font-size: 1.35rem; font-weight: 700; color: #F8FAFC; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);">
               AC
             </div>
             <h3 style="font-size: 1.45rem; margin: 0 0 0.35rem 0; color: var(--paper);">Alberto Castillo</h3>
-            <span style="font-family: var(--f-mono); font-size: 0.85rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; display: block; margin-bottom: 1.25rem;">Director General &amp; Ingeniero Líder</span>
-            <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0; text-align: left;">
-              Responsable de la dirección técnica, diseño de arquitectura y desarrollo de sistemas en Grupo Castillo. Promueve una ingeniería sin intermediarios comerciales donde cada proyecto se ejecuta bajo especificaciones deterministas (SOW), criterios de aceptación no negociables (DoD) y validación automatizada mediante Castle Gate.
+            <span style="font-family: var(--f-mono); font-size: 0.85rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; display: block; margin-bottom: 1.25rem;">Fundador &amp; Principal Engineer</span>
+            <p style="font-size: 0.9rem; color: var(--steel-light); line-height: 1.65; margin: 0; text-align: left;">
+              Dirige la arquitectura técnica y el desarrollo de sistemas en Grupo Castillo bajo una convicción simple: ingeniería sin intermediarios comerciales. No se limita a resolver problemas puntuales — los convierte en estándares reproducibles: especificaciones deterministas (SOW), criterios de aceptación no negociables (DoD) y validación automatizada mediante Castle Gate. Sin atajos, sin intermediarios comerciales, sin promesas que no se puedan comprobar.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 05 — POLÍTICA DE CONTINUIDAD OPERATIVA -->
-    <section class="section" id="continuidad">
+    <!-- 06 — POLÍTICA DE CONTINUIDAD OPERATIVA -->
+    <section class="section" id="continuidad" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow" style="color: var(--cyan);">Garantía de Soberanía</p>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Garantía de Soberanía</p>
           <h2>Política de Continuidad Operativa</h2>
           <p>¿Qué pasa si el responsable técnico no puede responder en el futuro? Diseñamos tu software para que nunca dependas exclusivamente de nosotros.</p>
         </div>
 
-        <div class="grid grid-2 reveal" style="gap: 2rem;">
+        <div class="grid grid-2 reveal" style="gap: 1.5rem;">
           
-          <div class="glass-panel" style="padding: 2rem; border-left: 3px solid var(--cyan);">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">PILAR 01: SOBERANÍA TOTAL</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">100% Titularidad y Repositorios Propios</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: 0.04em;">PILAR 01 • SOBERANÍA TOTAL</div>
+            <h3 style="font-size: 1.18rem; margin-bottom: 0.75rem; color: var(--paper);">100% Titularidad y Repositorios Propios</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Tu código, dominio y hosting viven en cuentas a tu nombre. Desde la entrega formal, tú posees las llaves maestras y el control legal total sin candados artificiales de proveedor.
             </p>
           </div>
 
-          <div class="glass-panel" style="padding: 2rem; border-left: 3px solid var(--cyan);">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">PILAR 02: ESTÁNDARES ABIERTOS</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Stack Estándar de la Industria</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: 0.04em;">PILAR 02 • ESTÁNDARES ABIERTOS</div>
+            <h3 style="font-size: 1.18rem; margin-bottom: 0.75rem; color: var(--paper);">Stack Estándar de la Industria</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Construimos sobre tecnologías abiertas y ampliamente adoptadas (Astro, TypeScript, Vanilla CSS, Git). Cualquier desarrollador calificado en el mercado puede clonar tu repositorio y continuar el desarrollo de inmediato.
             </p>
           </div>
 
-          <div class="glass-panel" style="padding: 2rem; border-left: 3px solid var(--cyan);">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">PILAR 03: DOCUMENTACIÓN EXHAUSTIVA</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Manual de Arquitectura y Despliegue</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: 0.04em;">PILAR 03 • DOCUMENTACIÓN EXHAUSTIVA</div>
+            <h3 style="font-size: 1.18rem; margin-bottom: 0.75rem; color: var(--paper);">Manual de Arquitectura y Despliegue</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Cada entrega incluye un <code>README.md</code> estructurado con comandos de compilación estándar (<code>npm run build</code>), catálogo de variables de entorno y mapa de arquitectura del sistema.
             </p>
           </div>
 
-          <div class="glass-panel" style="padding: 2rem; border-left: 3px solid var(--cyan);">
-            <div style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700;">PILAR 04: PROTOCOLO DE HANDOFF</div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--paper);">Entrega Determinista de Activos</h3>
+          <div class="card glass-panel" style="padding: 2.25rem; border-top: 3px solid var(--cyan); display: flex; flex-direction: column;">
+            <div style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--cyan); margin-bottom: 0.5rem; font-weight: 700; letter-spacing: 0.04em;">PILAR 04 • PROTOCOLO DE HANDOFF</div>
+            <h3 style="font-size: 1.18rem; margin-bottom: 0.75rem; color: var(--paper);">Entrega Determinista de Activos</h3>
             <p style="font-size: 0.88rem; color: var(--steel-light); line-height: 1.6; margin: 0;">
               Al concluir el proyecto, firmamos un acta de entrega técnica formal donde se valida el cumplimiento de la Definición de Hecho (DoD) y la transferencia total de credenciales y accesos.
             </p>
@@ -246,23 +368,26 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
       </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section class="section section-dim" id="faq">
+    <!-- 07 — FAQ SECTION -->
+    <section class="section section-dim" id="faq" style="padding-top: 4.5rem; padding-bottom: 4.5rem; border-top: 1px solid var(--line-dark);">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Preguntas sobre Nuestra Firma</p>
-          <h2>Transparencia institucional</h2>
+        <div class="section-head reveal" style="text-align: center; max-width: 820px; margin: 0 auto 3rem auto;">
+          <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Preguntas Frecuentes sobre Nuestra Firma</p>
+          <h2 style="font-size: 2.2rem; color: var(--paper);">Transparencia Institucional</h2>
+          <p style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.65;">
+            Resolvemos las dudas más comunes sobre nuestra metodología, modelo de trabajo y garantías contractuales.
+          </p>
         </div>
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Dónde opera Grupo Castillo?" answer="Operamos de forma remota y atendemos clientes en todo México y Latinoamérica, coordinando sesiones virtuales y entregas mediante repositorios seguros." />
+              <FAQItem question="¿Dónde opera Grupo Castillo?" answer="Operamos de forma remota y atendemos clientes en todo México y Latinoamérica, coordinando sesiones virtuales y entregas mediante repositorios seguros." />
               <FAQItem question="¿Emiten facturas fiscales (CFDI) en México?" answer="Sí, todos nuestros servicios y paquetes comerciales son facturables en moneda nacional (MXN) conforme a los requisitos fiscales aplicables." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Qué pasa si el responsable técnico no puede responder en el futuro?" answer="Tu código y arquitectura están diseñados para la soberanía total. Todo vive en tu repositorio Git bajo estándares abiertos de la industria (Astro/TypeScript) con documentación de despliegue completa. Cualquier ingeniero calificado puede tomar el relevo sin fricción." />
+              <FAQItem question="¿Qué pasa si el responsable técnico no puede responder en el futuro?" answer="Tu código y arquitectura están diseñados para la soberanía total. Todo vive en tu repositorio Git bajo estándares abiertos de la industria (Astro/TypeScript) con documentación de despliegue completa. Cualquier ingeniero calificado puede tomar el relevo sin fricción." />
               <FAQItem question="¿Cómo se resguarda la confidencialidad de la información?" answer="Formalizamos acuerdos mutuos de no divulgación (NDA) antes de acceder a repositorios o bases de datos y aplicamos principios de menor privilegio en el manejo de credenciales." />
             </div>
           </div>
@@ -270,11 +395,12 @@ import ShieldedCastleVisual from '../components/ShieldedCastleVisual.astro';
       </div>
     </section>
 
+    <!-- 08 — MINI HERO / CTA BAND FINAL -->
     <CTABand
-      title="Construyamos juntos una plataforma confiable para tu empresa."
-      description="Inicia la conversación directamente con el Ingeniero Líder de Grupo Castillo."
-      ctaLabel="Iniciar Contacto"
-      ctaHref="/contacto.html"
+      title="Construyamos juntos una <span style='color: var(--cyan);'>plataforma confiable</span> para tu empresa."
+      description="Inicia la conversación directamente con el Ingeniero Líder de Grupo Castillo o utiliza nuestro diagnóstico interactivo guiado."
+      ctaLabel="Iniciar Diagnóstico"
+      ctaHref="/diagnostico.html"
     />
 
   </main>
