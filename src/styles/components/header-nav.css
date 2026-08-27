@@ -116,6 +116,12 @@
   box-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
 }
 
+/* Active route indicator specific to Castle Impact */
+.main-nav a[href*="castle-impact"][aria-current="page"]::after {
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(0, 229, 153, 0.45);
+}
+
 /* Nav CTA */
 .nav-cta {
   background: var(--paper) !important;

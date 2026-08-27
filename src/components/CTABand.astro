@@ -1,16 +1,18 @@
 ---
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  accent?: "cyan" | "green";
 }
 
 const {
-  title = "Hablemos de tu proyecto o repositorio.",
-  description = "Cuéntanos qué necesita tu negocio o inicia con nuestro diagnóstico comercial interactivo.",
+  title = "",
+  description = "",
   ctaLabel = "Iniciar Diagnóstico Castillo.",
-  ctaHref = "/diagnostico.html"
+  ctaHref = "/diagnostico.html",
+  accent = "cyan"
 } = Astro.props;
 ---
 
@@ -23,9 +25,9 @@ const {
   </div>
 
   <div class="container" style="position: relative; z-index: 3;">
-    <h2 set:html={title} />
-    <p>{description}</p>
-    <a class="btn btn-cta-crystal" href={ctaHref} id="cta-crystal-btn">{ctaLabel}</a>
+    {title && <h2 set:html={title} class={!description ? "cta-title-standalone" : ""} />}
+    {description && <p>{description}</p>}
+    <a class={`btn btn-cta-crystal ${accent === 'green' ? 'btn-cta-crystal-green' : ''}`} href={ctaHref} id="cta-crystal-btn">{ctaLabel}</a>
   </div>
 </section>
 
@@ -101,6 +103,14 @@ const {
     letter-spacing: -0.02em;
     line-height: 1.2;
     text-wrap: balance;
+  }
+
+  .cta-band h2.cta-title-standalone {
+    font-size: clamp(1.4rem, 2.1vw, 1.85rem);
+    line-height: 1.35;
+    margin-bottom: 2rem;
+    max-width: 780px;
+    margin-inline: auto;
   }
 
   .cta-band p {

@@ -75,3 +75,13 @@
   font-size: 0.92rem;
   line-height: 1.65;
 }
+
+/* Green FAQ variant (Castle Impact) */
+.faq-green summary:hover,
+.section-dim .faq-green summary:hover {
+  color: var(--success);
+}
+.faq-green summary::after,
+.section-dim .faq-green summary::after {
+  color: var(--success);
+}

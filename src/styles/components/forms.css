@@ -33,14 +33,17 @@
   font-weight: 400;
 }
 
-.field input,
+.field input:not([type="checkbox"]):not([type="radio"]),
 .field select,
-.field textarea {
+.field textarea,
+.form-input:not([type="checkbox"]):not([type="radio"]),
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.form-group textarea {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   font-family: var(--f-body);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   padding: 0.85rem 1rem;
   min-height: 48px;
   border: 1px solid var(--line-dark);
@@ -52,6 +55,27 @@
     box-shadow var(--transition-fast), 
     background var(--transition-fast);
   accent-color: var(--cyan);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 16px !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  accent-color: var(--cyan);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: var(--f-body) !important;
+  font-size: 0.88rem !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  color: var(--steel-soft) !important;
+  opacity: 0.75;
 }
 
 .field textarea {

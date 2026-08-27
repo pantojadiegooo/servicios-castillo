@@ -160,7 +160,7 @@ p a:hover {
   content: "";
   width: 1.5em;
   height: 2px;
-  background: var(--cyan);
+  background: currentColor;
   display: inline-block;
   opacity: 0.85;
 }

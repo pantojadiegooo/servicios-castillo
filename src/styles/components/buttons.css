@@ -79,6 +79,23 @@
   transition-duration: 75ms;
 }
 
+/* CTA Crystal Button — Green Variant (Castle Impact) */
+.btn-cta-crystal.btn-cta-crystal-green {
+  border: 1px solid rgba(0, 229, 153, 0.65);
+  box-shadow: 0 0 16px rgba(0, 229, 153, 0.18), inset 0 0 12px rgba(0, 229, 153, 0.08);
+}
+
+.btn-cta-crystal.btn-cta-crystal-green:hover {
+  border-color: #00E599;
+  background: rgba(10, 24, 18, 0.9);
+  box-shadow: 0 0 28px rgba(0, 229, 153, 0.45), inset 0 0 16px rgba(0, 229, 153, 0.15);
+}
+
+.btn-cta-crystal.btn-cta-crystal-green:active {
+  background: rgba(8, 18, 14, 0.95);
+  box-shadow: 0 0 14px rgba(0, 229, 153, 0.25), inset 0 0 8px rgba(0, 229, 153, 0.1);
+}
+
 /* Primary Technical Button (High Contrast Crisp White / Platinum) */
 .btn-primary,
 .btn-gold {
