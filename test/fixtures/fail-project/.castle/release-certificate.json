@@ -1,9 +1,9 @@
 {
-  "validation_id": "CG-2026-CF800C",
+  "validation_id": "CG-2026-D4E25A",
   "protocol": "CQS_v1.1",
   "policy_level": "C1",
-  "target_release_sha": "3c64aba8e0cf641a5ed72432e81cf2354e73f12b",
-  "evaluation_timestamp_utc": "2026-08-29T19:53:14.880Z",
+  "target_release_sha": "18722d7b1fb19364369fc7aa5b7d19c18a48a22e",
+  "evaluation_timestamp_utc": "2026-08-29T20:35:12.922Z",
   "status": "FAIL",
   "exit_code": 1,
   "score": 72.5,
@@ -54,5 +54,5 @@
     }
   },
   "ownership": "CLIENT_EXCLUSIVE",
-  "signature_digest_sha256": "742048918d6aa17be597853dbf9815271c5ede68bc3742b193758f0d3a5d551b"
+  "signature_digest_sha256": "1b7a666afc620a80f4f45256f08abf51deb19fa1bd0a8a80fccd0c62f87eb098"
 }
