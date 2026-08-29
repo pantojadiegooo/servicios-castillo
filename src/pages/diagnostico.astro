@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
@@ -747,7 +747,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           } catch (e) {}
 
           // ENLACE A FORMULARIO DE CONTACTO PRELLENADO
-          const contactUrl = '/contacto.html?paquete=' + encodeURIComponent(primary.paqueteParam) + '&necesidad=' + encodeURIComponent(primary.necesidadParam);
+          const contactUrl = '/contacto?paquete=' + encodeURIComponent(primary.paqueteParam) + '&necesidad=' + encodeURIComponent(primary.necesidadParam);
           document.getElementById('res-cta-contact').href = contactUrl;
 
           // ENLACE A WHATSAPP

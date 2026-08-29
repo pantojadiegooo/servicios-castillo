@@ -1,9 +1,11 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
+import TechIcon from '../components/TechIcon.astro';
 
 const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/maewolbo';
+const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 ---
 
 <BaseLayout
@@ -17,7 +19,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
     <section class="page-hero">
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index">Inicio</a> / Contacto &amp; Cotización</p>
+        <p class="breadcrumb"><a href="/">Inicio</a> / Contacto &amp; Cotización</p>
         <div class="badge badge-cyan">CANAL DIRECTO • RESPUESTA &lt; 24H HÁBILES</div>
         <h1>Iniciemos tu Proyecto o Evaluación Técnica</h1>
         <p>Cuéntanos sobre tus requerimientos o sitio actual. Te responderemos con una propuesta formal de alcance y presupuesto por escrito en menos de 24 horas hábiles.</p>
@@ -27,7 +29,36 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
     <!-- FORMULARIO PRINCIPAL ADAPTATIVO -->
     <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
       <div class="container" style="max-width: 900px;">
-        
+
+        <!-- CANALES DIRECTOS DE ATENCIÓN Y PRESENCIA OFICIAL -->
+        <div class="glass-panel reveal" style="padding: 1.25rem 1.75rem; border: 1px solid var(--line-dark); background: rgba(14, 18, 27, 0.7); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+          <div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 0.25rem;">Canal Inmediato &amp; Redes Oficiales</span>
+            <p style="color: var(--steel-light); font-size: 0.85rem; margin: 0;">Atención directa de ingeniería y presencia digital oficial de Grupo Castillo.</p>
+          </div>
+          <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+            <a href="mailto:contacto@grupocastillo.lat" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>contacto@grupocastillo.lat</span>
+            </a>
+            <a href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <TechIcon name="whatsapp" size={16} />
+              <span>WhatsApp (+52 951 809 6110)</span>
+            </a>
+            <a href="https://www.instagram.com/grupocastillooo/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.85rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+              <TechIcon name="instagram" size={16} />
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61593987536435" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.85rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+              <TechIcon name="facebook" size={16} />
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+
         <!-- BANNER DE DIAGNÓSTICO GUIADO ALTERNATIVO -->
         <div class="glass-panel reveal" style="padding: 1.25rem 1.75rem; border: 1px solid rgba(0, 210, 255, 0.3); background: linear-gradient(135deg, rgba(14, 18, 27, 0.95) 0%, rgba(18, 48, 74, 0.3) 100%); margin-bottom: 2.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
           <div>

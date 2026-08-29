@@ -20,7 +20,7 @@
    **RFC / Identificación Fiscal:** [RFC / Tax ID]  
    **Domicilio Legal:** [Dirección Legal]  
    **Representante Legal:** [Nombre del Representante]  
-   **Correo de Notificaciones Técnicas y Administrativas:** contacto@grupocastillo.com  
+   **Correo de Notificaciones Técnicas y Administrativas:** contacto@grupocastillo.lat  
 
 2. **EL CLIENTE:**  
    **Razón Social / Titular:** [Nombre de la Empresa o Persona Física del Cliente]  

@@ -301,3 +301,18 @@ const { name, size = 18, class: className = "" } = Astro.props;
     <path d="M9.83 14.156h2.657c3.73 0 6.42-2.14 6.96-6.13.44-3.25-1.78-4.96-5.2-4.96H7.707a.784.784 0 0 0-.773.654L4.31 19.863l.766-4.637 1.07-6.49H9.83z" fill="#0079C1" opacity="0.85" />
   </svg>
 )}
+
+{name === "instagram" && (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+)}
+
+{name === "facebook" && (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+)}
+

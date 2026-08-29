@@ -1,5 +1,6 @@
 ---
 import CastleGateBadge from './CastleGateBadge.astro';
+import TechIcon from './TechIcon.astro';
 ---
 
 <footer class="site-footer">
@@ -16,6 +17,23 @@ import CastleGateBadge from './CastleGateBadge.astro';
         <p style="margin-top:.75rem; max-width:34ch;">Firma de ingeniería de software y gobernanza tecnológica. Desarrollo web de alto rendimiento, auditoría de código y gobernanza determinista de releases.</p>
         <div style="margin-top: 1rem;">
           <a href="/diagnostico" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.78rem;">¿Qué necesitas? Iniciar Diagnóstico →</a>
+        </div>
+        <div class="footer-social-strip" style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
+          <a href="https://www.instagram.com/grupocastillooo/" target="_blank" rel="noopener noreferrer" title="Instagram oficial de Grupo Castillo" aria-label="Instagram de Grupo Castillo" style="color: var(--steel-soft); display: inline-flex; align-items: center; transition: color var(--transition-fast);">
+            <TechIcon name="instagram" size={17} />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61593987536435" target="_blank" rel="noopener noreferrer" title="Facebook oficial de Grupo Castillo" aria-label="Facebook de Grupo Castillo" style="color: var(--steel-soft); display: inline-flex; align-items: center; transition: color var(--transition-fast);">
+            <TechIcon name="facebook" size={17} />
+          </a>
+          <a href="https://wa.me/529518096110" target="_blank" rel="noopener noreferrer" title="WhatsApp Business de Grupo Castillo (+52 951 809 6110)" aria-label="WhatsApp de Grupo Castillo" style="color: var(--steel-soft); display: inline-flex; align-items: center; transition: color var(--transition-fast);">
+            <TechIcon name="whatsapp" size={17} />
+          </a>
+          <a href="mailto:contacto@grupocastillo.lat" title="Correo corporativo: contacto@grupocastillo.lat" aria-label="Correo de Grupo Castillo" style="color: var(--steel-soft); display: inline-flex; align-items: center; transition: color var(--transition-fast);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
       <div>
@@ -61,6 +79,10 @@ import CastleGateBadge from './CastleGateBadge.astro';
           <li><a href="/proceso">Metodología de 9 Etapas</a></li>
           <li><a href="/proyectos">Casos de Referencia</a></li>
           <li><a href="/contacto">Contacto &amp; Cotización</a></li>
+          <li><a href="mailto:contacto@grupocastillo.lat">contacto@grupocastillo.lat</a></li>
+          <li><a href="https://wa.me/529518096110" target="_blank" rel="noopener noreferrer">WhatsApp (+52 951 809 6110)</a></li>
+          <li><a href="https://www.instagram.com/grupocastillooo/" target="_blank" rel="noopener noreferrer">Instagram Oficial</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61593987536435" target="_blank" rel="noopener noreferrer">Facebook Oficial</a></li>
           <li><a href="/aviso-de-privacidad">Aviso de Privacidad</a></li>
           <li><a href="/terminos">Términos y Condiciones</a></li>
         </ul>
