@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
@@ -11,15 +11,15 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 <BaseLayout
   title="Diagnóstico Comercial y Técnico — Orientación de Software | Grupo Castillo"
   description="Herramienta interactiva de orientación comercial: identifica en 3 preguntas el paquete web, servicio de intervención o gobernanza técnica adecuado para tu empresa."
-  canonical="https://servicios-castillo.vercel.app/diagnostico.html"
-  ogUrl="https://servicios-castillo.vercel.app/diagnostico.html"
+  canonical="https://grupocastillo.lat/diagnostico"
+  ogUrl="https://grupocastillo.lat/diagnostico"
 >
   <main id="main">
 
     <section class="page-hero">
       <InnerHeroVisual type="diagnostico" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Diagnóstico Comercial</p>
+        <p class="breadcrumb"><a href="/index">Inicio</a> / Diagnóstico Comercial</p>
         <div class="badge badge-cyan">TRIAGE INTERACTIVO • ORIENTACIÓN EN 2 MINUTOS</div>
         <h1>¿Qué solución técnica necesita realmente tu negocio?</h1>
         <p>No necesitas conocer nuestro catálogo para comenzar. Responde 3 preguntas guiadas y nuestro motor de decisión identificará el punto de partida adecuado para tu empresa.</p>
@@ -31,7 +31,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
       <div class="container" style="max-width: 880px;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; padding: 0.75rem 1.25rem; background: rgba(14, 18, 27, 0.6); border: 1px solid var(--line-dark); border-radius: var(--radius); font-size: 0.84rem;">
           <span style="color: var(--steel-light);">¿Ya sabes qué paquete o servicio necesitas?</span>
-          <a href="/contacto.html" style="color: var(--cyan); text-decoration: none; font-weight: 600;">Ir directamente al Formulario de Contacto →</a>
+          <a href="/contacto" style="color: var(--cyan); text-decoration: none; font-weight: 600;">Ir directamente al Formulario de Contacto →</a>
         </div>
       </div>
     </section>
@@ -419,7 +419,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
             <!-- CTAS DE ACCIÓN -->
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;">
-              <a href="/contacto.html" id="res-cta-contact" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">
+              <a href="/contacto" id="res-cta-contact" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">
                 Solicitar Propuesta para esta Solución →
               </a>
               <a href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER}`} id="res-cta-whatsapp" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.85rem 1.75rem; border-color: #25D366; color: #25D366;">
@@ -787,7 +787,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
       title="¿Prefieres hablar directamente con un ingeniero de Grupo Castillo?"
       description="Cuéntanos tus requerimientos por escrito y te enviamos una propuesta detallada en menos de 24 horas hábiles."
       ctaLabel="Ir a Contacto Directo"
-      ctaHref="/contacto.html"
+      ctaHref="/contacto"
     />
 
   </main>

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
@@ -6,14 +6,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 <BaseLayout
   title="Visualización y Aceptación de Cotización Oficial — Grupo Castillo"
   description="Revisa el alcance técnico, hitos, condiciones financieras y formaliza la aceptación de tu cotización oficial de Grupo Castillo."
-  canonical="https://servicios-castillo.vercel.app/cotizacion.html"
-  ogUrl="https://servicios-castillo.vercel.app/cotizacion.html"
+  canonical="https://grupocastillo.lat/cotizacion"
+  ogUrl="https://grupocastillo.lat/cotizacion"
 >
   <main id="main">
     <section class="page-hero">
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Cotización Oficial</p>
+        <p class="breadcrumb"><a href="/index">Inicio</a> / Cotización Oficial</p>
         <div class="badge badge-cyan">EXPEDIENTE DIGITAL • DOCUMENTO OFICIAL</div>
         <h1 id="quotation-hero-title">Cotización Oficial de Servicios</h1>
         <p>Validez legal, alcance delimitado por escrito y titularidad del 100% del código fuente para el cliente.</p>
@@ -114,7 +114,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             <div id="already-accepted-alert" style="display: none; padding: 1rem; background: rgba(0, 229, 153, 0.1); border-left: 3px solid var(--success); color: var(--paper); font-size: 0.9rem;">
               <strong>Cotización formalmente aceptada</strong> el <span id="accepted-date"></span>. Estado del proyecto: <span id="accepted-state" style="font-family: var(--f-mono); color: var(--cyan);"></span>.
               <div style="margin-top: 0.75rem;">
-                <a href="/portal.html" class="btn btn-primary" style="font-size: 0.85rem;">Ir al Portal del Cliente →</a>
+                <a href="/portal" class="btn btn-primary" style="font-size: 0.85rem;">Ir al Portal del Cliente →</a>
               </div>
             </div>
 

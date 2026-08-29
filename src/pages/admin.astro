@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
@@ -6,14 +6,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 <BaseLayout
   title="Panel Administrativo y Gobernanza — Grupo Castillo"
   description="Panel de control directivo para emisión de cotizaciones, activación de proyectos con Regla NO START, conciliación financiera y auditoría."
-  canonical="https://servicios-castillo.vercel.app/admin.html"
-  ogUrl="https://servicios-castillo.vercel.app/admin.html"
+  canonical="https://grupocastillo.lat/admin"
+  ogUrl="https://grupocastillo.lat/admin"
 >
   <main id="main">
     <section class="page-hero">
       <InnerHeroVisual type="diagnostico" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Panel Administrativo</p>
+        <p class="breadcrumb"><a href="/index">Inicio</a> / Panel Administrativo</p>
         <div class="badge badge-cyan">DIRECCIÓN &amp; GOBERNANZA EJECUTIVA</div>
         <h1>Panel de Administración Comercial</h1>
         <p>Control centralizado de expedientes, validación estricta de pagos, auditoría inmutable y gobernanza de entregas.</p>
@@ -206,7 +206,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
                 <td>${p.engineer_name ? `Ing. ${p.engineer_name}` : '<em style="color: var(--warning);">Sin asignar</em>'}</td>
                 <td><strong style="color: var(--cyan); font-family: var(--f-mono);">${p.progress_percentage}%</strong></td>
                 <td>
-                  <a href="/portal.html?project=${p.id}" class="btn btn-outline" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Ver Portal →</a>
+                  <a href="/portal?project=${p.id}" class="btn btn-outline" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Ver Portal →</a>
                 </td>
               </tr>
             `).join('');

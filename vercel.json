@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",
@@ -27,18 +28,19 @@
     }
   ],
   "redirects": [
-    { "source": "/auditoria.html", "destination": "/servicios/audit.html", "permanent": true },
-    { "source": "/auditoria", "destination": "/servicios/audit.html", "permanent": true },
-    { "source": "/cuidado.html", "destination": "/servicios/care.html", "permanent": true },
-    { "source": "/cuidado", "destination": "/servicios/care.html", "permanent": true },
-    { "source": "/intervencion.html", "destination": "/servicios/rescue.html", "permanent": true },
-    { "source": "/intervencion", "destination": "/servicios/rescue.html", "permanent": true },
-    { "source": "/transformacion.html", "destination": "/servicios.html", "permanent": true },
-    { "source": "/transformacion", "destination": "/servicios.html", "permanent": true },
-    { "source": "/seguridad-calidad.html", "destination": "/castle-gate.html", "permanent": true },
-    { "source": "/soluciones.html", "destination": "/servicios.html", "permanent": true },
-    { "source": "/soluciones", "destination": "/servicios.html", "permanent": true },
-    { "source": "/paquetes/diamond.html", "destination": "/paquetes.html#proyectos-avanzados", "permanent": true },
-    { "source": "/paquetes/diamond", "destination": "/paquetes.html#proyectos-avanzados", "permanent": true }
+    { "source": "/auditoria.html", "destination": "/servicios/audit", "permanent": true },
+    { "source": "/auditoria",      "destination": "/servicios/audit", "permanent": true },
+    { "source": "/cuidado.html",   "destination": "/servicios/care",  "permanent": true },
+    { "source": "/cuidado",        "destination": "/servicios/care",  "permanent": true },
+    { "source": "/intervencion.html", "destination": "/servicios/rescue", "permanent": true },
+    { "source": "/intervencion",      "destination": "/servicios/rescue", "permanent": true },
+    { "source": "/transformacion.html", "destination": "/servicios", "permanent": true },
+    { "source": "/transformacion",      "destination": "/servicios", "permanent": true },
+    { "source": "/seguridad-calidad.html", "destination": "/castle-gate", "permanent": true },
+    { "source": "/soluciones.html", "destination": "/servicios", "permanent": true },
+    { "source": "/soluciones",      "destination": "/servicios", "permanent": true },
+    { "source": "/paquetes/diamond.html", "destination": "/paquetes#proyectos-avanzados", "permanent": true },
+    { "source": "/paquetes/diamond",      "destination": "/paquetes#proyectos-avanzados", "permanent": true }
   ]
 }
+

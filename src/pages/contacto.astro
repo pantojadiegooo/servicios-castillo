@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
@@ -9,15 +9,15 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
 <BaseLayout
   title="Contacto y Cotización Directa — Grupo Castillo"
   description="Cotiza tu desarrollo web, plataforma o solicita una evaluación técnica de código. Respuesta y propuesta por escrito en menos de 24 horas hábiles."
-  canonical="https://servicios-castillo.vercel.app/contacto.html"
-  ogUrl="https://servicios-castillo.vercel.app/contacto.html"
+  canonical="https://grupocastillo.lat/contacto"
+  ogUrl="https://grupocastillo.lat/contacto"
 >
   <main id="main">
 
     <section class="page-hero">
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index.html">Inicio</a> / Contacto &amp; Cotización</p>
+        <p class="breadcrumb"><a href="/index">Inicio</a> / Contacto &amp; Cotización</p>
         <div class="badge badge-cyan">CANAL DIRECTO • RESPUESTA &lt; 24H HÁBILES</div>
         <h1>Iniciemos tu Proyecto o Evaluación Técnica</h1>
         <p>Cuéntanos sobre tus requerimientos o sitio actual. Te responderemos con una propuesta formal de alcance y presupuesto por escrito en menos de 24 horas hábiles.</p>
@@ -35,7 +35,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
             <strong style="display: block; color: var(--paper); font-size: 0.95rem;">¿No tienes certeza de cuál servicio o paquete elegir?</strong>
             <p style="color: var(--steel-light); font-size: 0.82rem; margin: 0; line-height: 1.5;">Responde 3 preguntas guiadas en nuestro Diagnóstico para recibir una recomendación automática.</p>
           </div>
-          <a href="/diagnostico.html" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.82rem; white-space: nowrap;">Iniciar Diagnóstico Guiado →</a>
+          <a href="/diagnostico" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.82rem; white-space: nowrap;">Iniciar Diagnóstico Guiado →</a>
         </div>
 
         <!-- TARJETA DEL FORMULARIO -->
@@ -201,7 +201,7 @@ const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.
 
           <div style="margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <p style="font-size: 0.82rem; color: var(--steel-soft); margin: 0;">¿Deseas comparar antes los 6 paquetes web?</p>
-            <a href="/paquetes.html" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.78rem;">Ver Catálogo de Paquetes →</a>
+            <a href="/paquetes" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.78rem;">Ver Catálogo de Paquetes →</a>
           </div>
         </div>
 

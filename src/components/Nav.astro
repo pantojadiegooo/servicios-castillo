@@ -1,11 +1,11 @@
 ---
 const navLinks = [
-  { href: "/index.html",             label: "Inicio",                  match: "index" },
-  { href: "/paquetes.html",          label: "Paquetes",                match: "paquetes" },
-  { href: "/servicios.html",         label: "Servicios",               match: "servicios" },
-  { href: "/castle-gate.html",       label: "Castle Gate",             match: "castle-gate" },
-  { href: "/castle-impact.html",     label: "Castle Impact",           match: "castle-impact" },
-  { href: "/nosotros.html",          label: "Nosotros",                match: "nosotros" },
+  { href: "/",              label: "Inicio",        match: "index" },
+  { href: "/paquetes",      label: "Paquetes",      match: "paquetes" },
+  { href: "/servicios",     label: "Servicios",     match: "servicios" },
+  { href: "/castle-gate",   label: "Castle Gate",   match: "castle-gate" },
+  { href: "/castle-impact", label: "Castle Impact", match: "castle-impact" },
+  { href: "/nosotros",      label: "Nosotros",      match: "nosotros" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/index.html" aria-label="Grupo Castillo — Inicio">
+    <a class="brand" href="/" aria-label="Grupo Castillo — Inicio">
       <svg class="brand-symbol" viewBox="40 18 122 166" width="22" height="30" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <path d="M60.20,27.54 L43.77,27.54 L43.77,177.54 L114.79,177.54 L60.20,27.54 Z" fill="#3E7C93"/>
         <path d="M123.25,174.46 L158.23,174.46 L158.23,24.46 L68.66,24.46 L123.25,174.46 Z" fill="#E8EAEC"/>
@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
           <li><a href={href} aria-current={isCurrent ? "page" : undefined}>{label}</a></li>
         );
       })}
-      <li><a class="nav-cta" href="/contacto.html">Iniciar Proyecto</a></li>
+      <li><a class="nav-cta" href="/contacto">Iniciar Proyecto</a></li>
       </ul>
     </nav>
   </div>
