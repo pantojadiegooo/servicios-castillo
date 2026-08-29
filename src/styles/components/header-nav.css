@@ -153,18 +153,25 @@
 /* Mobile Toggle */
 .nav-toggle {
   display: none;
-  background: transparent;
+  background: rgba(14, 18, 27, 0.75);
   border: 1px solid var(--line-dark);
   color: var(--paper);
-  padding: 8px;
+  padding: 8px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .nav-toggle svg {
   width: 20px;
   height: 20px;
   display: block;
+}
+
+.nav-toggle:hover,
+.nav-toggle:active {
+  border-color: var(--cyan);
+  background: rgba(0, 210, 255, 0.1);
 }
 
 /* Responsive Navigation */
@@ -181,25 +188,60 @@
     top: 72px;
     left: 0;
     right: 0;
-    background: #0a0d14;
-    border-bottom: 1px solid var(--line-dark);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-md);
+    background: rgba(8, 11, 16, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    padding: 1.5rem 1.25rem 1.75rem;
   }
 
   .main-nav.is-open,
   .main-nav.open {
     display: block;
+    animation: menu-reveal-mobile 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes menu-reveal-mobile {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .main-nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .main-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.94rem;
+  }
+
+  .main-nav a[aria-current="page"] {
+    background: rgba(0, 210, 255, 0.08);
+    border-left: 2px solid var(--cyan);
+    padding-left: 0.8rem;
+  }
+
+  .main-nav a[aria-current="page"]::after {
+    display: none;
   }
 
   .nav-cta {
     width: 100%;
     text-align: center;
+    margin-top: 0.85rem;
+    min-height: 46px !important;
   }
 }

@@ -92,4 +92,11 @@
   --transition-fast:    0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal:  0.22s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth:  0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Technical Calibre & Chassis Accents */
+  --line-calibre:       rgba(0, 210, 255, 0.14);
+  --line-crosshair:     rgba(0, 210, 255, 0.38);
+  --brass-accent:       rgba(205, 127, 50, 0.4);
+  --titanium-bevel:     inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  --glass-chassis-bg:   rgba(12, 16, 24, 0.88);
 }

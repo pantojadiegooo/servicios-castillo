@@ -63,3 +63,22 @@
   line-height: 1.6;
   margin-bottom: 1.75rem;
 }
+
+@media (max-width: 640px) {
+  .cta-band {
+    padding-block: 3.5rem;
+  }
+  .cta-band h2 {
+    font-size: clamp(1.45rem, 5.4vw, 1.95rem);
+    line-height: 1.2;
+  }
+  .cta-band p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    max-width: 40ch;
+  }
+  .cta-band .btn-cta-crystal {
+    width: 100%;
+    max-width: 340px;
+  }
+}

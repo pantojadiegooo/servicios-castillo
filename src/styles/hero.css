@@ -57,7 +57,7 @@
   .hero-container-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .hero-text-block {
@@ -75,10 +75,91 @@
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding-block: 4.5rem 3.5rem !important;
+  }
+
+  .hero-content-container {
+    position: relative;
+  }
+
+  .hero-content-container::before {
+    content: '';
+    position: absolute;
+    inset: -1.5rem -1rem;
+    background: radial-gradient(ellipse 85% 75% at 50% 40%, rgba(6, 8, 12, 0.94) 0%, rgba(6, 8, 12, 0.7) 65%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 6.4vw, 2.35rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.02em !important;
+    max-width: 20ch;
+    margin-inline: auto;
+    text-wrap: balance;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero .lede {
+    font-size: 0.96rem !important;
+    line-height: 1.62 !important;
+    max-width: 40ch;
+    margin-inline: auto;
+    color: #CBD5E1 !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .hero-actions {
+    margin-bottom: 2rem !important;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 340px;
+  }
+
   .hero-metrics {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-    padding: 1.25rem 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    padding: 0.85rem 0.5rem !important;
+    background: rgba(12, 16, 25, 0.78) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--line-dark) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  .hero-metrics > div {
+    text-align: center;
+    flex: 1;
+    padding: 0 0.25rem;
+  }
+
+  .hero-metrics > div:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-metrics strong {
+    font-size: 0.88rem !important;
+    line-height: 1.25;
+    margin-bottom: 2px;
+  }
+
+  .hero-metrics span {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    display: block;
+    color: #94A3B8 !important;
   }
 }
 
@@ -187,24 +268,37 @@
     min-height: var(--page-hero-height-mobile);
     height: auto;
     max-height: none;
-    padding: 2rem 1rem;
+    padding: 3rem 1.15rem 2.25rem;
+    position: relative;
+  }
+
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.4), transparent);
+    pointer-events: none;
   }
 
   .page-hero h1 {
-    font-size: clamp(1.5rem, 5.5vw, 2.1rem);
-    max-width: 100%;
+    font-size: clamp(1.55rem, 5.8vw, 2.15rem);
+    max-width: 20ch;
+    line-height: 1.18;
     margin-bottom: 0.65rem;
   }
 
   .page-hero p:not(.breadcrumb):not(.eyebrow) {
-    font-size: 0.92rem;
-    line-height: 1.55;
-    max-width: 100%;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    max-width: 44ch;
   }
 
   .page-hero .badge {
-    font-size: 0.65rem;
-    padding: 0.25rem 0.65rem;
+    font-size: 0.68rem;
+    padding: 0.28rem 0.75rem;
     margin-bottom: 0.65rem;
   }
 
