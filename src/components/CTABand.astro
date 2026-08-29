@@ -14,6 +14,34 @@ const {
   ctaHref = "/diagnostico",
   accent = "cyan"
 } = Astro.props;
+
+type TitlePart = {
+  text: string;
+  accent?: "cyan" | "success";
+};
+
+// CTABand titles are plain text with one optional, controlled color accent.
+// Unsupported markup remains text and is escaped by Astro.
+const titleParts: TitlePart[] = [];
+const accentPattern = /<span\s+style=(["'])color:\s*var\(--(cyan|success)\);?\1>([\s\S]*?)<\/span>/gi;
+let titleCursor = 0;
+let titleMatch: RegExpExecArray | null;
+
+while ((titleMatch = accentPattern.exec(title)) !== null) {
+  if (titleMatch.index > titleCursor) {
+    titleParts.push({ text: title.slice(titleCursor, titleMatch.index) });
+  }
+
+  titleParts.push({
+    text: titleMatch[3],
+    accent: titleMatch[2].toLowerCase() as "cyan" | "success"
+  });
+  titleCursor = titleMatch.index + titleMatch[0].length;
+}
+
+if (titleCursor < title.length) {
+  titleParts.push({ text: title.slice(titleCursor) });
+}
 ---
 
 <section class="cta-band">
@@ -25,7 +53,14 @@ const {
   </div>
 
   <div class="container" style="position: relative; z-index: 3;">
-    {title && <h2 set:html={title} class={!description ? "cta-title-standalone" : ""} />}
+    {title && (
+      <h2 class={!description ? "cta-title-standalone" : ""}>
+        {titleParts.map((part) => part.accent
+          ? <span style={`color: var(--${part.accent});`}>{part.text}</span>
+          : part.text
+        )}
+      </h2>
+    )}
     {description && <p>{description}</p>}
     <a class={`btn btn-cta-crystal ${accent === 'green' ? 'btn-cta-crystal-green' : ''}`} href={ctaHref} id="cta-crystal-btn">{ctaLabel}</a>
   </div>

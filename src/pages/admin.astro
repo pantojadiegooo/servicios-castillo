@@ -191,37 +191,98 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         }
 
         function renderAdminDashboard(data) {
-          document.getElementById('adm-metric-active').innerText = data.metrics?.activeProjects || '1';
-          document.getElementById('adm-metric-pending-pay').innerText = data.metrics?.pendingPaymentsCount || '0';
-          document.getElementById('adm-metric-tickets').innerText = data.metrics?.openTicketsCount || '0';
+          document.getElementById('adm-metric-active').textContent = String(data.metrics?.activeProjects ?? '1');
+          document.getElementById('adm-metric-pending-pay').textContent = String(data.metrics?.pendingPaymentsCount ?? '0');
+          document.getElementById('adm-metric-tickets').textContent = String(data.metrics?.openTicketsCount ?? '0');
 
           const tbody = document.getElementById('projects-table-body');
-          if (data.projects) {
-            tbody.innerHTML = data.projects.map(p => `
-              <tr>
-                <td style="font-family: var(--f-mono); color: var(--cyan);">${p.id}</td>
-                <td><strong>${p.name}</strong><br/><span style="font-size: 0.78rem; color: var(--steel-soft);">${p.business_name}</span></td>
-                <td><span class="badge" style="font-size: 0.7rem;">${p.service_package_id.toUpperCase()}</span></td>
-                <td><strong style="color: var(--paper);">${p.state}</strong></td>
-                <td>${p.engineer_name ? `Ing. ${p.engineer_name}` : '<em style="color: var(--warning);">Sin asignar</em>'}</td>
-                <td><strong style="color: var(--cyan); font-family: var(--f-mono);">${p.progress_percentage}%</strong></td>
-                <td>
-                  <a href="/portal?project=${p.id}" class="btn btn-outline" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Ver Portal →</a>
-                </td>
-              </tr>
-            `).join('');
-          }
+          const projectRows = (Array.isArray(data.projects) ? data.projects : []).map((projectData) => {
+            const project = projectData || {};
+            const row = document.createElement('tr');
+
+            const idCell = document.createElement('td');
+            idCell.style.cssText = 'font-family: var(--f-mono); color: var(--cyan);';
+            idCell.textContent = String(project.id ?? '');
+
+            const projectCell = document.createElement('td');
+            const projectName = document.createElement('strong');
+            projectName.textContent = String(project.name ?? '');
+            const businessName = document.createElement('span');
+            businessName.style.cssText = 'font-size: 0.78rem; color: var(--steel-soft);';
+            businessName.textContent = String(project.business_name ?? '');
+            projectCell.append(projectName, document.createElement('br'), businessName);
+
+            const packageCell = document.createElement('td');
+            const packageBadge = document.createElement('span');
+            packageBadge.className = 'badge';
+            packageBadge.style.fontSize = '0.7rem';
+            packageBadge.textContent = String(project.service_package_id ?? '').toUpperCase();
+            packageCell.appendChild(packageBadge);
+
+            const stateCell = document.createElement('td');
+            const state = document.createElement('strong');
+            state.style.color = 'var(--paper)';
+            state.textContent = String(project.state ?? '');
+            stateCell.appendChild(state);
+
+            const engineerCell = document.createElement('td');
+            if (project.engineer_name) {
+              engineerCell.textContent = `Ing. ${String(project.engineer_name)}`;
+            } else {
+              const unassigned = document.createElement('em');
+              unassigned.style.color = 'var(--warning)';
+              unassigned.textContent = 'Sin asignar';
+              engineerCell.appendChild(unassigned);
+            }
+
+            const progressCell = document.createElement('td');
+            const progress = document.createElement('strong');
+            progress.style.cssText = 'color: var(--cyan); font-family: var(--f-mono);';
+            progress.textContent = `${String(project.progress_percentage ?? 0)}%`;
+            progressCell.appendChild(progress);
+
+            const actionsCell = document.createElement('td');
+            const portalLink = document.createElement('a');
+            portalLink.href = `/portal?project=${encodeURIComponent(String(project.id ?? ''))}`;
+            portalLink.className = 'btn btn-outline';
+            portalLink.style.cssText = 'font-size: 0.72rem; padding: 0.25rem 0.6rem;';
+            portalLink.textContent = 'Ver Portal →';
+            actionsCell.appendChild(portalLink);
+
+            row.append(idCell, projectCell, packageCell, stateCell, engineerCell, progressCell, actionsCell);
+            return row;
+          });
+          tbody.replaceChildren(...projectRows);
 
           const auditContainer = document.getElementById('audit-log-container');
-          if (data.recentAudit) {
-            auditContainer.innerHTML = data.recentAudit.map(a => `
-              <div style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px dashed rgba(255,255,255,0.06);">
-                <span style="color: var(--cyan);">[${a.created_at.replace('T', ' ').substring(0, 19)}]</span>
-                <span style="color: var(--warning);">${a.actor_role}</span>
-                <span style="color: var(--paper);">${a.action}</span>: ${a.rationale}
-              </div>
-            `).join('');
-          }
+          const auditEntries = (Array.isArray(data.recentAudit) ? data.recentAudit : []).map((auditData) => {
+            const audit = auditData || {};
+            const entry = document.createElement('div');
+            entry.style.cssText = 'margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px dashed rgba(255,255,255,0.06);';
+
+            const timestamp = document.createElement('span');
+            timestamp.style.color = 'var(--cyan)';
+            timestamp.textContent = `[${String(audit.created_at ?? '').replace('T', ' ').substring(0, 19)}]`;
+
+            const role = document.createElement('span');
+            role.style.color = 'var(--warning)';
+            role.textContent = String(audit.actor_role ?? '');
+
+            const action = document.createElement('span');
+            action.style.color = 'var(--paper)';
+            action.textContent = String(audit.action ?? '');
+
+            entry.append(
+              timestamp,
+              document.createTextNode(' '),
+              role,
+              document.createTextNode(' '),
+              action,
+              document.createTextNode(`: ${String(audit.rationale ?? '')}`)
+            );
+            return entry;
+          });
+          auditContainer.replaceChildren(...auditEntries);
         }
 
         function loadDemoAdminData() {

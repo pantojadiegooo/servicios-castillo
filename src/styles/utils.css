@@ -5,6 +5,10 @@
   align-items: start;
 }
 
+.two-col > * {
+  min-width: 0;
+}
+
 @media (max-width: 860px) {
   .two-col {
     grid-template-columns: 1fr;

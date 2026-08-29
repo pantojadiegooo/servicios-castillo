@@ -27,7 +27,22 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         <div class="glass-panel reveal" style="padding: 2rem; margin-bottom: 2rem;">
           <h2 style="font-size: 1.25rem; color: var(--cyan); margin-bottom: 1.25rem;">Proyectos Asignados a mi Cargo</h2>
           <div id="eng-projects-container">
-            <!-- Proyectos asignados inyectados dinámicamente -->
+            <div style="padding: 1.5rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div>
+                  <span class="badge badge-cyan" style="font-family: var(--f-mono);">GC-Q-2026-000042</span>
+                  <h3 style="font-size: 1.2rem; color: var(--paper); margin: 0.35rem 0 0 0;">Plataforma Corporativa Living Glass</h3>
+                  <span style="font-size: 0.8rem; color: var(--steel-soft);">Cliente: Alpha Consulting S.A.</span>
+                </div>
+                <span class="badge" style="background: rgba(0, 210, 255, 0.15); color: var(--cyan); border: 1px solid var(--cyan);">DEVELOPMENT</span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--steel-light); margin-bottom: 1rem;">
+                Progreso actual: <strong>60%</strong> (Hitos H1 y H2 completados).
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <a href="/portal?project=GC-Q-2026-000042" class="btn btn-outline" style="font-size: 0.75rem;">Ver Vista Cliente →</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -61,7 +76,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         <div class="glass-panel reveal" style="padding: 2rem;">
           <h2 style="font-size: 1.2rem; color: var(--paper); margin-bottom: 1.25rem;">Tickets Técnicos de Soporte y Garantía Asignados</h2>
           <div id="eng-tickets-container">
-            <!-- Tickets asignados -->
+            <div style="padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);">
+              No hay tickets pendientes asignados a tu guardia.
+            </div>
           </div>
         </div>
 
@@ -100,36 +117,6 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           }
         });
 
-        function renderEngineerDashboard() {
-          const container = document.getElementById('eng-projects-container');
-          container.innerHTML = `
-            <div style="padding: 1.5rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 1rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <div>
-                  <span class="badge badge-cyan" style="font-family: var(--f-mono);">GC-Q-2026-000042</span>
-                  <h3 style="font-size: 1.2rem; color: var(--paper); margin: 0.35rem 0 0 0;">Plataforma Corporativa Living Glass</h3>
-                  <span style="font-size: 0.8rem; color: var(--steel-soft);">Cliente: Alpha Consulting S.A.</span>
-                </div>
-                <span class="badge" style="background: rgba(0, 210, 255, 0.15); color: var(--cyan); border: 1px solid var(--cyan);">DEVELOPMENT</span>
-              </div>
-              <div style="font-size: 0.85rem; color: var(--steel-light); margin-bottom: 1rem;">
-                Progreso actual: <strong>60%</strong> (Hitos H1 y H2 completados).
-              </div>
-              <div style="display: flex; gap: 0.5rem;">
-                <a href="/portal?project=GC-Q-2026-000042" class="btn btn-outline" style="font-size: 0.75rem;">Ver Vista Cliente →</a>
-              </div>
-            </div>
-          `;
-
-          const tContainer = document.getElementById('eng-tickets-container');
-          tContainer.innerHTML = `
-            <div style="padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);">
-              No hay tickets pendientes asignados a tu guardia.
-            </div>
-          `;
-        }
-
-        renderEngineerDashboard();
       })();
     </script>
   </main>

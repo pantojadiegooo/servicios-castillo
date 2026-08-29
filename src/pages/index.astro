@@ -706,54 +706,54 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         07 — MÉTRICAS EN VIVO Y VERIFICABLES (API GOOGLE PAGESPEED)
+         07 — CARACTERÍSTICAS TÉCNICAS VERIFICABLES EN EL REPOSITORIO
          ========================================================================= -->
     <section class="section section-dark" id="metricas-verificables" style="border-top: 1px solid rgba(0, 210, 255, 0.15); border-bottom: 1px solid rgba(0, 210, 255, 0.15); background: #04060A;">
       <div class="container">
         <div class="section-head reveal" style="text-align: center; max-width: 780px; margin: 0 auto 2.5rem auto;">
           <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Transparencia Técnica Demostrable</p>
-          <h2 style="font-size: 2.1rem; color: var(--paper);">Métricas verificables de nuestro propio sitio</h2>
+          <h2 style="font-size: 2.1rem; color: var(--paper);">Características verificables de nuestro propio sitio</h2>
           <p style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.65;">
-            No pedimos que creas en afirmaciones comerciales sin fundamento. Consulta el rendimiento de este dominio auditado por la API de Google PageSpeed Insights y comprueba su disponibilidad en tiempo real.
+            Esta sección describe únicamente propiedades comprobables en el código y la configuración del proyecto. No muestra mediciones en tiempo real ni resultados precargados de servicios externos.
           </p>
         </div>
 
         <div class="grid grid-4 reveal" style="gap: 1.25rem; margin-bottom: 2rem;">
           
-          <!-- METRICA 1: PERFORMANCE PAGESPEED -->
+          <!-- CARACTERÍSTICA 1: GENERACIÓN ESTÁTICA -->
           <div class="card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.25); background: rgba(14, 18, 27, 0.95);">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Google PageSpeed (Móvil)</span>
-            <div id="live-psi-score" style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: #00E599; line-height: 1.1; margin-bottom: 0.4rem;">
-              100 <span style="font-size:1rem;color:#CBD5E1;">/ 100</span>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Modo de entrega</span>
+            <div style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: #00E599; line-height: 1.1; margin-bottom: 0.4rem;">
+              Astro SSG
             </div>
-            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Puntuación de rendimiento sintético de laboratorio.</p>
+            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Las páginas se generan como archivos estáticos durante el build.</p>
           </div>
 
-          <!-- METRICA 2: LCP -->
+          <!-- CARACTERÍSTICA 2: ASSETS VERSIONADOS -->
           <div class="card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.25); background: rgba(14, 18, 27, 0.95);">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Largest Contentful Paint</span>
-            <div id="live-psi-lcp" style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: var(--cyan); line-height: 1.1; margin-bottom: 0.4rem;">
-              270 ms
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Assets del build</span>
+            <div style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: var(--cyan); line-height: 1.1; margin-bottom: 0.4rem;">
+              Hash + caché
             </div>
-            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Tiempo de despliegue del contenido principal (LCP).</p>
+            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Los assets de Astro con hash se publican con caché inmutable.</p>
           </div>
 
-          <!-- METRICA 3: DISPONIBILIDAD HTTP -->
+          <!-- CARACTERÍSTICA 3: ALCANCE DEL MONITOREO -->
           <div class="card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.25); background: rgba(14, 18, 27, 0.95);">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Disponibilidad HTTP Actual</span>
-            <div id="live-http-status" style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: #00E599; line-height: 1.1; margin-bottom: 0.4rem;">
-              ONLINE
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Monitoreo embebido</span>
+            <div style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: #EAB308; line-height: 1.1; margin-bottom: 0.4rem;">
+              No incluido
             </div>
-            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Respuesta de servidor en producción verificado.</p>
+            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">La página no sondea uptime ni presenta un estado de disponibilidad en vivo.</p>
           </div>
 
           <!-- METRICA 4: GOBERNANZA CQS V1.1 -->
           <div class="card glass-panel" style="padding: 1.75rem; border-color: rgba(0, 210, 255, 0.25); background: rgba(14, 18, 27, 0.95);">
-            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Castle Gate Runner</span>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem; font-weight: 600;">Resultado Castle Gate local</span>
             <div style="font-family: var(--f-mono); font-size: 2rem; font-weight: 800; color: var(--paper); line-height: 1.1; margin-bottom: 0.4rem;">
               100.00
             </div>
-            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">CQS v1.1 • ID: CG-2026-68D04F (0 Secretos).</p>
+            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.45;">Resultado reproducible desde los artefactos locales; no es una certificación externa.</p>
           </div>
 
         </div>
@@ -761,8 +761,8 @@ import TechIcon from '../components/TechIcon.astro';
         <!-- METADATOS Y ACCIÓN EXTERNA -->
         <div class="reveal" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; padding: 1.25rem 1.75rem; background: rgba(14, 18, 27, 0.9); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius);">
           <div style="font-size: 0.86rem; color: #CBD5E1; line-height: 1.55; max-width: 60ch;">
-            <strong style="color: var(--paper);">Tipo de medición:</strong> Consulta de laboratorio (Google PageSpeed API) • <span id="psi-timestamp" style="color: #F8FAFC;">Consultando timestamp...</span><br>
-            <em style="color: #94A3B8;">Nota metodológica: Representa una evaluación sintética de este sitio estático. No confundir métricas de laboratorio con datos de campo de usuarios reales.</em>
+            <strong style="color: var(--paper);">Fuente de evidencia:</strong> configuración de Astro/Vercel y artefactos locales versionados.<br>
+            <em style="color: #94A3B8;">PageSpeed Insights se ofrece como una prueba externa bajo demanda; sus resultados no se almacenan ni se muestran como métricas propias.</em>
           </div>
           <div style="display: flex; gap: 0.75rem; align-items: center;">
             <a
@@ -772,7 +772,7 @@ import TechIcon from '../components/TechIcon.astro';
               class="btn btn-outline"
               style="font-size: 0.84rem; padding: 0.55rem 1.25rem;"
             >
-              Verificar en PageSpeed Insights →
+              Ejecutar prueba externa en PageSpeed →
             </a>
           </div>
         </div>
@@ -1056,35 +1056,5 @@ import TechIcon from '../components/TechIcon.astro';
       ctaHref="/contacto"
     />
 
-    <!-- =========================================================================
-         SCRIPT DE CONSULTA REAL DE MÉTRICAS VERIFICABLES (GOOGLE PAGESPEED API)
-         ========================================================================= -->
-    <script is:inline>
-      (function initLiveMetrics() {
-        var tsEl = document.getElementById('psi-timestamp');
-        var httpEl = document.getElementById('live-http-status');
-
-        // 1. Verificación de disponibilidad HTTP local en tiempo real (segura y compatible con CSP)
-        if (httpEl) {
-          fetch(window.location.href, { method: 'HEAD', cache: 'no-store' })
-            .then(function(res) {
-              if (res.ok) {
-                httpEl.innerHTML = '<span style="color:#00E599;">ONLINE</span>';
-              } else {
-                httpEl.innerHTML = '<span style="color:#EAB308;">HTTP ' + res.status + '</span>';
-              }
-            })
-            .catch(function() {
-              httpEl.innerHTML = '<span style="color:#00E599;">ONLINE</span>';
-            });
-        }
-
-        // 2. Establecer el timestamp de la medición de auditoría de forma dinámica al cargar la página
-        if (tsEl) {
-          var now = new Date();
-          tsEl.innerText = 'Medición de auditoría estática verificada: ' + now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' }) + ' (' + now.toLocaleDateString('es-MX') + ')';
-        }
-      })();
-    </script>
   </main>
 </BaseLayout>

@@ -224,6 +224,17 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
         const btnLogout = document.getElementById('btn-logout');
 
         const getApiUrl = (path) => (window.__CASTILLO_API_URL__ || '') + path;
+        const getSafeHttpUrl = (value) => {
+          const normalizedValue = String(value ?? '').trim();
+          if (!normalizedValue) return null;
+
+          try {
+            const url = new URL(normalizedValue, window.location.origin);
+            return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : null;
+          } catch (error) {
+            return null;
+          }
+        };
 
         // Leer query params iniciales
         const urlParams = new URLSearchParams(window.location.search);
@@ -325,22 +336,24 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           authView.style.display = 'none';
           dashboardView.style.display = 'block';
 
-          document.getElementById('dash-project-id').innerText = p.id;
-          document.getElementById('dash-project-name').innerText = p.name;
-          document.getElementById('dash-client-name').innerText = 'Cliente: ' + (p.business_name || p.contact_name);
-          document.getElementById('dash-state-badge').innerText = p.state;
+          document.getElementById('dash-project-id').textContent = String(p.id ?? '');
+          document.getElementById('dash-project-name').textContent = String(p.name ?? '');
+          document.getElementById('dash-client-name').textContent = 'Cliente: ' + String(p.business_name || p.contact_name || '');
+          document.getElementById('dash-state-badge').textContent = String(p.state ?? '');
 
           // Progreso
-          const pct = Math.round(p.progress?.progressPercentage || 0);
-          document.getElementById('dash-progress-label').innerText = pct + '%';
+          const rawProgress = Number(p.progress?.progressPercentage);
+          const pct = Number.isFinite(rawProgress) ? Math.min(100, Math.max(0, Math.round(rawProgress))) : 0;
+          document.getElementById('dash-progress-label').textContent = pct + '%';
           document.getElementById('dash-progress-bar').style.width = pct + '%';
 
           // Ingeniero
           if (p.engineer_name) {
-            document.getElementById('dash-engineer-name').innerText = `Ing. ${p.engineer_name} ${p.engineer_last_name || ''}`;
-            document.getElementById('dash-engineer-title').innerText = p.engineer_job_title || 'Ingeniero de Software Principal';
-            document.getElementById('dash-engineer-dept').innerText = p.engineer_department || 'Práctica de Arquitectura Web';
-            if (p.engineer_photo_url) document.getElementById('dash-engineer-photo').src = p.engineer_photo_url;
+            document.getElementById('dash-engineer-name').textContent = `Ing. ${String(p.engineer_name)} ${String(p.engineer_last_name || '')}`;
+            document.getElementById('dash-engineer-title').textContent = String(p.engineer_job_title || 'Ingeniero de Software Principal');
+            document.getElementById('dash-engineer-dept').textContent = String(p.engineer_department || 'Práctica de Arquitectura Web');
+            const safePhotoUrl = getSafeHttpUrl(p.engineer_photo_url);
+            if (safePhotoUrl) document.getElementById('dash-engineer-photo').src = safePhotoUrl;
           }
 
           // Finanzas
@@ -350,9 +363,9 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             p.payments.forEach(pay => { if (pay.status === 'PAID') finPaid += pay.total_mxn; });
           }
           const finBalance = Math.max(0, finTotal - finPaid);
-          document.getElementById('dash-fin-total').innerText = '$' + finTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('dash-fin-paid').innerText = '$' + finPaid.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('dash-fin-balance').innerText = '$' + finBalance.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('dash-fin-total').textContent = '$' + finTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('dash-fin-paid').textContent = '$' + finPaid.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('dash-fin-balance').textContent = '$' + finBalance.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
 
           // Timeline
           renderTimeline(p.timeline?.stages || []);
@@ -361,7 +374,14 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           const predeliveryBanner = document.getElementById('predelivery-banner');
           if (p.state === 'PREDELIVERY' && p.preDelivery) {
             predeliveryBanner.style.display = 'block';
-            document.getElementById('btn-open-staging').href = p.preDelivery.staging_url || '#';
+            const stagingLink = document.getElementById('btn-open-staging');
+            const safeStagingUrl = getSafeHttpUrl(p.preDelivery.staging_url);
+            stagingLink.href = safeStagingUrl || '#';
+            if (safeStagingUrl) {
+              stagingLink.removeAttribute('aria-disabled');
+            } else {
+              stagingLink.setAttribute('aria-disabled', 'true');
+            }
           } else {
             predeliveryBanner.style.display = 'none';
           }
@@ -380,9 +400,8 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 
         function renderTimeline(stages) {
           const container = document.getElementById('timeline-container');
-          container.innerHTML = '';
-
-          stages.forEach(s => {
+          const stageNodes = (Array.isArray(stages) ? stages : []).map((stageData) => {
+            const stage = stageData || {};
             const div = document.createElement('div');
             div.style.flex = '1';
             div.style.minWidth = '120px';
@@ -394,60 +413,103 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             let color = 'var(--steel-soft)';
             let bg = 'rgba(7, 9, 14, 0.6)';
 
-            if (s.status === 'completed') {
+            if (stage.status === 'completed') {
               icon = 'OK';
               color = 'var(--success)';
               bg = 'rgba(0, 229, 153, 0.08)';
-            } else if (s.status === 'current') {
+            } else if (stage.status === 'current') {
               icon = '●';
               color = 'var(--cyan)';
               bg = 'rgba(0, 210, 255, 0.12)';
             }
 
             div.style.background = bg;
-            div.style.border = `1px solid ${s.status === 'current' ? 'var(--cyan)' : 'var(--line-dark)'}`;
-            div.innerHTML = `
-              <div style="font-size: 1.1rem; color: ${color}; font-weight: bold; margin-bottom: 0.2rem;">${icon}</div>
-              <div style="font-size: 0.82rem; color: ${color}; font-weight: 600;">${s.name}</div>
-            `;
-            container.appendChild(div);
+            div.style.border = `1px solid ${stage.status === 'current' ? 'var(--cyan)' : 'var(--line-dark)'}`;
+
+            const iconElement = document.createElement('div');
+            iconElement.style.cssText = `font-size: 1.1rem; color: ${color}; font-weight: bold; margin-bottom: 0.2rem;`;
+            iconElement.textContent = icon;
+
+            const nameElement = document.createElement('div');
+            nameElement.style.cssText = `font-size: 0.82rem; color: ${color}; font-weight: 600;`;
+            nameElement.textContent = String(stage.name ?? '');
+
+            div.append(iconElement, nameElement);
+            return div;
           });
+          container.replaceChildren(...stageNodes);
         }
 
         function renderTickets(tickets) {
           const container = document.getElementById('tickets-list-container');
-          if (!tickets || tickets.length === 0) {
-            container.innerHTML = `
-              <div style="padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);">
-                No hay incidencias o tickets abiertos. Tu proyecto opera en completa normalidad.
-              </div>
-            `;
+          const ticketList = Array.isArray(tickets) ? tickets : [];
+          if (ticketList.length === 0) {
+            const emptyState = document.createElement('div');
+            emptyState.style.cssText = 'padding: 1.5rem; text-align: center; color: var(--steel-soft); font-size: 0.85rem; border: 1px dashed var(--line-dark); border-radius: var(--radius-sm);';
+            emptyState.textContent = 'No hay incidencias o tickets abiertos. Tu proyecto opera en completa normalidad.';
+            container.replaceChildren(emptyState);
             return;
           }
 
-          container.innerHTML = tickets.map(t => `
-            <div style="padding: 1.25rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
-              <div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-                  <span style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan);">${t.id}</span>
-                  <span class="badge" style="font-size: 0.65rem; background: ${t.severity === 'S1' ? 'rgba(255, 59, 92, 0.2)' : 'rgba(0, 210, 255, 0.15)'}; color: ${t.severity === 'S1' ? 'var(--danger)' : 'var(--cyan)'};">${t.severity}</span>
-                  <span style="font-size: 0.78rem; color: var(--steel-soft);">${new Date(t.created_at).toLocaleDateString('es-MX')}</span>
-                </div>
-                <strong style="color: var(--paper); font-size: 0.92rem;">${t.title}</strong>
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <span style="font-size: 0.82rem; color: var(--steel-light);">Estado: <strong style="color: var(--paper);">${t.client_facing_status}</strong></span>
-                ${t.client_facing_status === 'Resuelto' && t.internal_status !== 'CLOSED' ? `
-                  <button onclick="confirmResolved('${t.id}')" class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem; background: var(--success); color: #06080C;">
-                    Confirmar Problema Resuelto
-                  </button>
-                ` : ''}
-              </div>
-            </div>
-          `).join('');
+          const ticketNodes = ticketList.map((ticketData) => {
+            const ticket = ticketData || {};
+            const ticketCard = document.createElement('div');
+            ticketCard.style.cssText = 'padding: 1.25rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); margin-bottom: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;';
+
+            const ticketSummary = document.createElement('div');
+            const ticketMeta = document.createElement('div');
+            ticketMeta.style.cssText = 'display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;';
+
+            const ticketId = document.createElement('span');
+            ticketId.style.cssText = 'font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan);';
+            ticketId.textContent = String(ticket.id ?? '');
+
+            const severity = document.createElement('span');
+            severity.className = 'badge';
+            severity.style.cssText = `font-size: 0.65rem; background: ${ticket.severity === 'S1' ? 'rgba(255, 59, 92, 0.2)' : 'rgba(0, 210, 255, 0.15)'}; color: ${ticket.severity === 'S1' ? 'var(--danger)' : 'var(--cyan)'};`;
+            severity.textContent = String(ticket.severity ?? '');
+
+            const created = document.createElement('span');
+            created.style.cssText = 'font-size: 0.78rem; color: var(--steel-soft);';
+            const createdDate = new Date(ticket.created_at);
+            created.textContent = Number.isNaN(createdDate.getTime()) ? '' : createdDate.toLocaleDateString('es-MX');
+
+            const title = document.createElement('strong');
+            title.style.cssText = 'color: var(--paper); font-size: 0.92rem;';
+            title.textContent = String(ticket.title ?? '');
+
+            ticketMeta.append(ticketId, severity, created);
+            ticketSummary.append(ticketMeta, title);
+
+            const ticketActions = document.createElement('div');
+            ticketActions.style.cssText = 'display: flex; align-items: center; gap: 0.75rem;';
+
+            const status = document.createElement('span');
+            status.style.cssText = 'font-size: 0.82rem; color: var(--steel-light);';
+            status.appendChild(document.createTextNode('Estado: '));
+            const statusValue = document.createElement('strong');
+            statusValue.style.color = 'var(--paper)';
+            statusValue.textContent = String(ticket.client_facing_status ?? '');
+            status.appendChild(statusValue);
+            ticketActions.appendChild(status);
+
+            if (ticket.client_facing_status === 'Resuelto' && ticket.internal_status !== 'CLOSED') {
+              const confirmButton = document.createElement('button');
+              confirmButton.type = 'button';
+              confirmButton.className = 'btn btn-primary';
+              confirmButton.style.cssText = 'font-size: 0.75rem; padding: 0.35rem 0.75rem; background: var(--success); color: #06080C;';
+              confirmButton.textContent = 'Confirmar Problema Resuelto';
+              confirmButton.addEventListener('click', () => confirmResolved(String(ticket.id ?? '')));
+              ticketActions.appendChild(confirmButton);
+            }
+
+            ticketCard.append(ticketSummary, ticketActions);
+            return ticketCard;
+          });
+          container.replaceChildren(...ticketNodes);
         }
 
-        window.confirmResolved = async function(ticketId) {
+        async function confirmResolved(ticketId) {
           try {
             await fetch(getApiUrl(`/api/tickets/${encodeURIComponent(ticketId)}/confirm-resolved`), {
               method: 'POST',
@@ -458,7 +520,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
           } catch (e) {
             alert('Ticket cerrado con éxito.');
           }
-        };
+        }
 
         // Acciones de preentrega
         document.getElementById('btn-approve-predelivery').addEventListener('click', async function() {

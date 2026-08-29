@@ -31,6 +31,13 @@ const jsonLd = {
     "https://www.facebook.com/profile.php?id=61593987536435"
   ]
 };
+
+// JSON-LD requires raw script content. Escape characters that could terminate
+// the script element if metadata ever stops being fully static.
+const serializedJsonLd = JSON.stringify(jsonLd)
+  .replace(/</g, '\\u003c')
+  .replace(/>/g, '\\u003e')
+  .replace(/&/g, '\\u0026');
 ---
 
 <!DOCTYPE html>
@@ -61,7 +68,7 @@ const jsonLd = {
 <script is:inline define:vars={{ publicApiUrl }}>
   window.__CASTILLO_API_URL__ = publicApiUrl;
 </script>
-<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline type="application/ld+json" set:html={serializedJsonLd} />
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
