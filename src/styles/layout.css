@@ -97,6 +97,9 @@ hr.rule {
   .grid-2, .grid-3, .grid-4, .grid-5 {
     grid-template-columns: 1fr;
   }
+  .grid > * {
+    grid-column: auto !important;
+  }
 }
 
 /* ===== 5-Card Centered Services Grid ===== */

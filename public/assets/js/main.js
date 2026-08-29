@@ -89,11 +89,11 @@
     }
   }
 
-  // Active nav link by pathname
-  var here = window.location.pathname.split("/").pop() || "index.html";
+  // Active nav link by pathname (clean URLs support)
+  var currentPath = window.location.pathname.replace(/\/$/, "") || "/";
   document.querySelectorAll(".main-nav a[href]").forEach(function (a) {
-    var href = a.getAttribute("href");
-    if (href === here || (here === "" && href === "/index.html")) {
+    var href = a.getAttribute("href").replace(/\/$/, "") || "/";
+    if (href === currentPath || (currentPath !== "/" && href !== "/" && currentPath.startsWith(href))) {
       a.setAttribute("aria-current", "page");
     }
   });

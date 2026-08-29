@@ -184,10 +184,10 @@
 
 @media (max-width: 640px) {
   .page-hero {
-    height: var(--page-hero-height-mobile);
     min-height: var(--page-hero-height-mobile);
-    max-height: var(--page-hero-height-mobile);
-    padding: 0 1rem;
+    height: auto;
+    max-height: none;
+    padding: 2rem 1rem;
   }
 
   .page-hero h1 {

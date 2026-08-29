@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
@@ -13,7 +13,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="page-hero">
       <InnerHeroVisual type="contacto" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index">Inicio</a> / Cotización Oficial</p>
+        <p class="breadcrumb"><a href="/">Inicio</a> / Cotización Oficial</p>
         <div class="badge badge-cyan">EXPEDIENTE DIGITAL • DOCUMENTO OFICIAL</div>
         <h1 id="quotation-hero-title">Cotización Oficial de Servicios</h1>
         <p>Validez legal, alcance delimitado por escrito y titularidad del 100% del código fuente para el cliente.</p>
@@ -30,6 +30,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             <input
               type="text"
               id="search-input"
+              aria-label="Identificador de Cotización"
               placeholder="Ej. GC-Q-2026-000042"
               pattern="^GC-Q-\d{4}-\d{6}$"
               required
@@ -122,11 +123,11 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               <h3 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 1rem;">Formalizar Aceptación de la Propuesta</h3>
               <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1.25rem;">
                 <div>
-                  <label style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Nombre Completo del Representante *</label>
+                  <label for="signer-name" style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Nombre Completo del Representante *</label>
                   <input type="text" id="signer-name" required placeholder="Ej. Ana Martínez" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
                 </div>
                 <div>
-                  <label style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Correo Corporativo Autorizado *</label>
+                  <label for="signer-email" style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Correo Corporativo Autorizado *</label>
                   <input type="email" id="signer-email" required placeholder="representante@empresa.com" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
                 </div>
               </div>
@@ -249,7 +250,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             } else if (p.includes('checkup')) {
               subtotal = 8900;
               projName = 'Diagnóstico Técnico Ágil 72h (Castle Checkup)';
-              scope = 'Auditoría ágil de repositorio en 72 horas hábiles: escaneo de vulnerabilidades, fuga de credenciales, Core Web Vitals y sesión de entrega ejecutiva (100% bonificable).';
+              scope = 'Auditoría ágil de repositorio en 72 horas: escaneo de vulnerabilidades, fuga de credenciales, Core Web Vitals y sesión de entrega ejecutiva (100% bonificable).';
             } else if (p.includes('audit')) {
               subtotal = 19900;
               projName = 'Auditoría Técnica Profunda y Due Diligence (Castle Audit)';
@@ -289,10 +290,10 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
               body: JSON.stringify({ acceptedByName: name, acceptedByEmail: email })
             });
             alert('¡Cotización aceptada con éxito! Redirigiendo al portal para completar el anticipo...');
-            window.location.href = `/portal.html?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+            window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
           } catch (err) {
             alert('¡Cotización aceptada con éxito! Redirigiendo al portal...');
-            window.location.href = `/portal.html?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+            window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
           }
         });
       })();

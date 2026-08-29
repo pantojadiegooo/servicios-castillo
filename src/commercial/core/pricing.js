@@ -149,7 +149,7 @@ export const SPECIALIZED_SERVICES = {
     priceMxn: 8900,
     priceUsdEstimate: 525,
     deliveryTimeHours: 72,
-    description: 'Diagnóstico estático de 65 controles CQS v1.1 en 72h hábiles con 100% de crédito bonificable hacia Gate anual',
+    description: 'Diagnóstico estático de 65 controles CQS v1.1 en 72h con 100% de crédito bonificable hacia Gate anual',
     creditTowardsGateDays: 30
   },
   AUDIT: {

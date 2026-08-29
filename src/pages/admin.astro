@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import InnerHeroVisual from '../components/InnerHeroVisual.astro';
 ---
@@ -13,7 +13,7 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
     <section class="page-hero">
       <InnerHeroVisual type="diagnostico" />
       <div class="container page-hero-inner">
-        <p class="breadcrumb"><a href="/index">Inicio</a> / Panel Administrativo</p>
+        <p class="breadcrumb"><a href="/">Inicio</a> / Panel Administrativo</p>
         <div class="badge badge-cyan">DIRECCIÓN &amp; GOBERNANZA EJECUTIVA</div>
         <h1>Panel de Administración Comercial</h1>
         <p>Control centralizado de expedientes, validación estricta de pagos, auditoría inmutable y gobernanza de entregas.</p>
@@ -164,13 +164,13 @@ import InnerHeroVisual from '../components/InnerHeroVisual.astro';
             const data = await res.json();
             if (res.ok) {
               alert(`¡Cotización oficial ${data.projectId} emitida con éxito! Vigencia de 15 días naturales registrada.`);
-              window.location.href = `/cotizacion.html?id=${encodeURIComponent(data.projectId)}`;
+              window.location.href = `/cotizacion?id=${encodeURIComponent(data.projectId)}`;
             } else {
               alert(data.error || 'Error al emitir cotización');
             }
           } catch (err) {
             alert('Cotización emitida (modo demostrativo local). Redirigiendo a visualización...');
-            window.location.href = `/cotizacion.html?id=GC-Q-2026-000042`;
+            window.location.href = `/cotizacion?id=GC-Q-2026-000042`;
           }
         });
 
