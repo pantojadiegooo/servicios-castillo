@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import '../styles/index.css';
 
 interface Props {
@@ -65,11 +66,35 @@ const serializedJsonLd = JSON.stringify(jsonLd)
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y5WFB6FCJ"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // 1. Google Consent Mode v2 — Estado default configurado antes de inicializar la etiqueta
+  var storedConsent = null;
+  try {
+    storedConsent = localStorage.getItem('gc_consent_state');
+  } catch(e) {}
+
+  if (storedConsent === 'granted') {
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+  } else {
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+  }
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y5WFB6FCJ"></script>
+<script is:inline>
   gtag('js', new Date());
 
   gtag('config', 'G-3Y5WFB6FCJ', {
@@ -133,6 +158,8 @@ const serializedJsonLd = JSON.stringify(jsonLd)
 <slot />
 
 <Footer />
+
+<ConsentBanner />
 
 <script is:inline src="/assets/js/main.js" defer></script>
 </body>

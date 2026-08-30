@@ -119,9 +119,13 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           <!-- FORMULARIO PRINCIPAL -->
           <form id="contact-form" class="form-grid" action={formEndpoint} method="POST">
             
-            <!-- CAMPO OCULTO DE INTENCIÓN -->
+            <!-- CAMPO OCULTO DE INTENCIÓN Y ANTISPAM (HONEYPOT) -->
             <input type="hidden" id="intencion_comercial" name="intencion_comercial" value="construir">
             <input type="hidden" id="paquete_origen" name="paquete_origen" value="">
+            <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
+              <label for="_gotcha_hp">No llenar este campo si eres humano</label>
+              <input type="text" id="_gotcha_hp" name="_gotcha" tabindex="-1" autocomplete="off" value="">
+            </div>
 
             <div class="field">
               <label for="nombre">Nombre Completo <span style="color: var(--cyan);">*</span></label>
@@ -408,6 +412,18 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Check honeypot for spam mitigation
+            const gotchaInput = form.querySelector('input[name="_gotcha"]');
+            if (gotchaInput && gotchaInput.value) {
+              form.style.display = 'none';
+              const prefillAlert = document.getElementById('prefill-alert');
+              if (prefillAlert) prefillAlert.style.display = 'none';
+              const intentSelector = document.getElementById('intent-selector-wrap');
+              if (intentSelector) intentSelector.style.display = 'none';
+              successMsg.style.display = 'block';
+              return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
             submitBtn.disabled = true;

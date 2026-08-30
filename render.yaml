@@ -28,7 +28,7 @@ services:
       - key: STORAGE_DIR
         value: /opt/render/project/src/.castle/vault
       - key: CORS_ORIGIN
-        value: https://www.grupocastillo.mx
+        value: https://grupocastillo.lat
       - key: SESSION_SECRET
         generateValue: true
       - key: STRIPE_WEBHOOK_SECRET

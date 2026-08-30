@@ -7,8 +7,8 @@
 
 El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo costo:
 
-* **Frontend Público y Portal:** Alojado en **Vercel Edge Network** (`www.grupocastillo.mx`), generado como sitio estático Astro (`dist/`).
-* **API Comercial y Expediente:** Alojado en **VPS Linux Persistente** (`api.grupocastillo.mx`) con **Node.js 24 LTS**, gestionado por **systemd** y expuesto vía **Nginx Reverse Proxy** con TLS 1.3.
+* **Frontend Público y Portal:** Alojado en **Vercel Edge Network** (`www.grupocastillo.lat`), generado como sitio estático Astro (`dist/`).
+* **API Comercial y Expediente:** Alojado en **VPS Linux Persistente** (`api.grupocastillo.lat`) con **Node.js 24 LTS**, gestionado por **systemd** y expuesto vía **Nginx Reverse Proxy** con TLS 1.3.
 * **Persistencia Relacional y Bóveda:** Base de datos nativa SQLite (`.castle/commercial.sqlite` en modo WAL) y almacenamiento local de documentos (`.castle/vault/<projectId>/`) sobre disco NVMe persistente.
 
 ```text
@@ -16,7 +16,7 @@ El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo co
                                               │
                      ┌────────────────────────┴────────────────────────┐
                      ▼                                                 ▼
-             www.grupocastillo.mx                             api.grupocastillo.mx
+             www.grupocastillo.lat                             api.grupocastillo.lat
                      │                                                 │
             Vercel Edge Network                                Nginx Reverse Proxy
                      │                                                 │ (Rate Limit + SSL)
@@ -36,8 +36,8 @@ El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo co
 * **Sistema Operativo:** Ubuntu 24.04 LTS (o Debian 12).
 * **Especificaciones Mínimas:** 1 vCPU, 2 GB RAM, 25 GB SSD/NVMe (ej. Hetzner CX22, DigitalOcean Basic Droplet o Linode).
 * **Dominio Configurado:**
-  - Registro `A` para `api.grupocastillo.mx` $\rightarrow$ IP elástica del VPS.
-  - Registro `CNAME` para `www.grupocastillo.mx` $\rightarrow$ `cname.vercel-dns.com`.
+  - Registro `A` para `api.grupocastillo.lat` $\rightarrow$ IP elástica del VPS.
+  - Registro `CNAME` para `www.grupocastillo.lat` $\rightarrow$ `cname.vercel-dns.com`.
 
 ---
 
@@ -73,20 +73,20 @@ sudo systemctl status castillo-api
 
 ### Paso 4: Obtener Certificado SSL / TLS con Let's Encrypt
 ```bash
-sudo certbot certonly --nginx -d api.grupocastillo.mx
+sudo certbot certonly --nginx -d api.grupocastillo.lat
 ```
 
 ### Paso 5: Configurar y Habilitar Nginx
 ```bash
-sudo cp infra/nginx/api.grupocastillo.mx.conf /etc/nginx/sites-available/
-sudo ln -s /etc/nginx/sites-available/api.grupocastillo.mx.conf /etc/nginx/sites-enabled/
+sudo cp infra/nginx/api.grupocastillo.lat.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/api.grupocastillo.lat.conf /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
 ### Paso 6: Verificación de Salud
 ```bash
-bash infra/scripts/healthcheck.sh https://api.grupocastillo.mx/api/health
+bash infra/scripts/healthcheck.sh https://api.grupocastillo.lat/api/health
 ```
 
 ---
@@ -129,7 +129,7 @@ bash infra/scripts/healthcheck.sh http://127.0.0.1:4321/api/health
 ## 7. Monitoreo Mínimo Viable (SLO)
 
 1. **Monitor de Disponibilidad (UptimeRobot / BetterStack):**
-   - URL: `https://api.grupocastillo.mx/api/health`
+   - URL: `https://api.grupocastillo.lat/api/health`
    - Intervalo: 1 minuto.
    - Condición de Éxito: HTTP 200 y JSON `"status":"healthy"`.
 2. **Alertas de Almacenamiento:** Monitorear que el espacio en disco en el VPS se mantenga por debajo del 80% de utilización.

@@ -1,0 +1,85 @@
+﻿---
+// src/components/ConsentBanner.astro
+---
+<div id="gc-consent-banner" role="region" aria-label="Preferencias de privacidad y telemetría" tabindex="-1" style="display: none; position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 9999; max-width: 440px; width: calc(100% - 2.5rem); background: rgba(14, 18, 27, 0.96); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: var(--radius-md); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1.35rem 1.5rem; transition: transform 0.25s ease, opacity 0.25s ease;">
+  <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem;">
+    <div style="color: var(--cyan); flex-shrink: 0; margin-top: 0.15rem;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    </div>
+    <div>
+      <h3 style="font-size: 0.95rem; color: var(--paper); margin: 0 0 0.25rem 0; font-weight: 700;">Privacidad y Telemetría Técnica</h3>
+      <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
+        Utilizamos telemetría anónima de Google Analytics 4 para evaluar rendimiento y estabilidad del sitio. No recopilamos datos personales ni usamos cookies de publicidad. Consulta nuestro <a href="/aviso-de-privacidad" style="color: var(--cyan); text-decoration: underline; text-underline-offset: 2px;">Aviso de Privacidad</a>.
+      </p>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap; margin-top: 1rem;">
+    <button type="button" id="gc-consent-reject" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.8rem; min-height: 38px;">
+      Solo Esenciales
+    </button>
+    <button type="button" id="gc-consent-accept" class="btn btn-primary" style="padding: 0.45rem 1.15rem; font-size: 0.8rem; min-height: 38px;">
+      Aceptar Métricas
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    var banner = document.getElementById('gc-consent-banner');
+    var btnAccept = document.getElementById('gc-consent-accept');
+    var btnReject = document.getElementById('gc-consent-reject');
+    var btnReopen = document.getElementById('btn-reopen-consent');
+
+    function applyConsent(state) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'analytics_storage': state === 'granted' ? 'granted' : 'denied',
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
+        });
+      }
+      try {
+        localStorage.setItem('gc_consent_state', state);
+      } catch(e) {}
+      if (banner) {
+        banner.style.display = 'none';
+      }
+    }
+
+    // Check existing stored consent
+    var stored = null;
+    try {
+      stored = localStorage.getItem('gc_consent_state');
+    } catch(e) {}
+
+    // If no decision made yet, show banner
+    if (!stored && banner) {
+      banner.style.display = 'block';
+    }
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', function() {
+        applyConsent('granted');
+      });
+    }
+
+    if (btnReject) {
+      btnReject.addEventListener('click', function() {
+        applyConsent('denied');
+      });
+    }
+
+    if (btnReopen) {
+      btnReopen.addEventListener('click', function() {
+        if (banner) {
+          banner.style.display = 'block';
+          banner.focus();
+        }
+      });
+    }
+  })();
+</script>

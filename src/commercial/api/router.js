@@ -75,7 +75,7 @@ export class CommercialApiRouter {
 
     // Headers CORS y Seguridad (Restringido al dominio oficial)
     const origin = req.headers?.origin;
-    const configuredOrigin = process.env.CORS_ORIGIN || 'https://www.grupocastillo.mx';
+    const configuredOrigin = process.env.CORS_ORIGIN || 'https://grupocastillo.lat';
     const isDev = process.env.NODE_ENV !== 'production';
     const allowedOrigin = (!origin || isDev || origin === configuredOrigin) ? (origin || configuredOrigin) : configuredOrigin;
 
