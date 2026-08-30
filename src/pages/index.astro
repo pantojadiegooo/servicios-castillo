@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
-import HeroCelestial from '../components/HeroCelestial.astro';
+import HeroCelestial from '../components/HeroCelestial.jsx';
 import CastleGateBadge from '../components/CastleGateBadge.astro';
 import TechIcon from '../components/TechIcon.astro';
 ---
@@ -19,7 +19,7 @@ import TechIcon from '../components/TechIcon.astro';
     <!-- =========================================================================
          01 — HERO CELESTIAL (INGENIERÍA DIGITAL • SOBERANÍA TOTAL)
          ========================================================================= -->
-    <HeroCelestial />
+    <HeroCelestial client:load />
 
     <!-- =========================================================================
          02 — QUÉ CONSTRUIMOS (CAPACIDADES REALES DE LA FIRMA)
