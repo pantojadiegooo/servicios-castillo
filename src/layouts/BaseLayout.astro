@@ -11,7 +11,6 @@ interface Props {
 }
 
 const { title, description, canonical, ogUrl } = Astro.props;
-const publicApiUrl = import.meta.env.PUBLIC_API_URL || '';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -65,10 +64,66 @@ const serializedJsonLd = JSON.stringify(jsonLd)
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script is:inline define:vars={{ publicApiUrl }}>
-  window.__CASTILLO_API_URL__ = publicApiUrl;
-</script>
 <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y5WFB6FCJ"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3Y5WFB6FCJ', {
+    send_page_view: true
+  });
+
+  // Global click event tracking via delegation
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(e) {
+      var anchor = e.target.closest('a');
+      if (!anchor) return;
+
+      var href = anchor.getAttribute('href') || '';
+      var text = (anchor.innerText || '').trim().substring(0, 50);
+
+      // WhatsApp tracking
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
+        gtag('event', 'whatsapp_click', {
+          contact_method: 'whatsapp',
+          cta_location: window.location.pathname,
+          cta_text: text
+        });
+      }
+      // Mailto tracking
+      else if (href.indexOf('mailto:') === 0) {
+        var email = href.substring(7);
+        gtag('event', 'email_click', {
+          contact_method: 'email',
+          email_address: email,
+          cta_location: window.location.pathname,
+          cta_text: text
+        });
+      }
+      // Phone tracking
+      else if (href.indexOf('tel:') === 0) {
+        var phone = href.substring(4);
+        gtag('event', 'phone_click', {
+          contact_method: 'phone',
+          phone_number: phone,
+          cta_location: window.location.pathname,
+          cta_text: text
+        });
+      }
+      // Quote CTA click tracking (packages, diagnostics, gate, contacto)
+      else if (href.indexOf('/contacto') !== -1 || href.indexOf('/paquetes') !== -1 || href.indexOf('/diagnostico') !== -1 || href.indexOf('/castle-gate') !== -1) {
+        gtag('event', 'quote_cta_click', {
+          cta_location: window.location.pathname,
+          cta_destination: href,
+          cta_text: text
+        });
+      }
+    });
+  });
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
