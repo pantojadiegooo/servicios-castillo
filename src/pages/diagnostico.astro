@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
@@ -237,26 +237,26 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               <div class="diag-options-grid" style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
                 
                 <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
-                  <input type="radio" name="scope_mantenimiento" value="care_core" checked style="margin-top: 0.2rem;">
+                  <input type="radio" name="scope_mantenimiento" value="care_basic" checked style="margin-top: 0.2rem;">
                   <div>
-                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Core ($3,500 MXN / mes)</strong>
-                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Supervisión continua de disponibilidad (uptime 24/7), respaldos automatizados y parches de seguridad esenciales.</span>
+                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Basic ($590 MXN / mes)</strong>
+                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Supervisión continua de disponibilidad (uptime 24/7), monitoreo SSL y parches de seguridad esenciales.</span>
                   </div>
                 </label>
 
                 <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.15rem; background: #07090E; border: 1px solid rgba(0, 210, 255, 0.4); border-radius: var(--radius-md); cursor: pointer;">
                   <input type="radio" name="scope_mantenimiento" value="care_pro" style="margin-top: 0.2rem;">
                   <div>
-                    <strong style="color: var(--cyan); font-size: 0.95rem;">Castle Care Pro ($7,900 MXN / mes)</strong>
-                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Supervisión avanzada, parches continuos y bolsa mensual de 6 horas de ingeniería directa para mejoras.</span>
+                    <strong style="color: var(--cyan); font-size: 0.95rem;">Castle Care Pro ($990 MXN / mes)</strong>
+                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Supervisión integral de hasta 3 sitios, actualización preventiva de dependencias y soporte técnico prioritario.</span>
                   </div>
                 </label>
 
                 <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
                   <input type="radio" name="scope_mantenimiento" value="care_enterprise" style="margin-top: 0.2rem;">
                   <div>
-                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Enterprise ($17,900 MXN / mes)</strong>
-                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Soporte prioritario de alta disponibilidad, 16 horas mensuales de ingeniería y monitoreo continuo de seguridad.</span>
+                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Enterprise ($1,890 MXN / mes)</strong>
+                    <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Gobernanza completa de hasta 10 proyectos, auditorías continuas y soporte multicanal dedicado.</span>
                   </div>
                 </label>
 
@@ -641,11 +641,11 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               primary = {
                 badge: 'CONTINUIDAD OPERATIVA • PÓLIZA PRO',
                 title: 'Castle Care Pro',
-                subtitle: 'Supervisión 24/7, parches continuos y 6 horas mensuales de ingeniería',
-                price: '$7,900 MXN / mes',
-                costNumeric: 7900,
-                reasoning: 'Para empresas en crecimiento que requieren soporte preventivo continuo y horas directas para mejoras mensuales sin plazo forzoso.',
-                notNeeded: 'No contrates personal interno a tiempo completo si tus necesidades mensuales de ajuste caben en una bolsa flexible.',
+                subtitle: 'Supervisión de hasta 3 sitios, actualización preventiva de dependencias y soporte prioritario',
+                price: '$990 MXN / mes',
+                costNumeric: 990,
+                reasoning: 'Para empresas en crecimiento que requieren supervisión continua, actualización periódica de dependencias y soporte técnico prioritario sin plazo forzoso.',
+                notNeeded: 'No contrates personal interno a tiempo completo si tus necesidades mensuales de supervisión y mantenimiento caben en un esquema flexible.',
                 paqueteParam: 'Castle Care Pro',
                 necesidadParam: 'care'
               };
@@ -653,24 +653,24 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               primary = {
                 badge: 'CONTINUIDAD OPERATIVA • ALTA DISPONIBILIDAD',
                 title: 'Castle Care Enterprise',
-                subtitle: 'Soporte prioritario 24/7 y 16 horas mensuales de ingeniería',
-                price: '$17,900 MXN / mes',
-                costNumeric: 17900,
-                reasoning: 'Para plataformas de misión crítica con alta concurrencia que requieren supervisión continua y capacidad de respuesta rápida ante contingencias.',
-                notNeeded: 'No sobrecargues a tu equipo con tareas de guardia si podemos asegurar el monitoreo continuo de infraestructura.',
+                subtitle: 'Gobernanza completa de hasta 10 proyectos y auditorías continuas con Castle Gate',
+                price: '$1,890 MXN / mes',
+                costNumeric: 1890,
+                reasoning: 'Para plataformas de misión crítica o múltiples repositorios que requieren supervisión continua, gobernanza técnica y auditorías automatizadas periódicas.',
+                notNeeded: 'No pongas en riesgo tus operaciones sin un esquema formal de supervisión y mantenimiento preventivo.',
                 paqueteParam: 'Castle Care Enterprise',
                 necesidadParam: 'care'
               };
             } else {
               primary = {
-                badge: 'CONTINUIDAD OPERATIVA • PÓLIZA CORE',
-                title: 'Castle Care Core',
-                subtitle: 'Monitoreo 24/7 de uptime, respaldos y parches de seguridad esenciales',
-                price: '$3,500 MXN / mes',
-                costNumeric: 3500,
+                badge: 'CONTINUIDAD OPERATIVA • PÓLIZA BÁSICA',
+                title: 'Castle Care Basic',
+                subtitle: 'Supervisión continua 24/7 de uptime, certificados SSL y parches de seguridad esenciales',
+                price: '$590 MXN / mes',
+                costNumeric: 590,
                 reasoning: 'Para asegurar la estabilidad permanente de tu sitio con monitoreo continuo y sin ataduras ni plazos forzosos.',
-                notNeeded: 'No dejes tu sitio sin supervisión técnica de caídas ni respaldos automatizados.',
-                paqueteParam: 'Castle Care Core',
+                notNeeded: 'No dejes tu sitio sin supervisión técnica de caídas ni parches preventivos.',
+                paqueteParam: 'Castle Care Basic',
                 necesidadParam: 'care'
               };
             }

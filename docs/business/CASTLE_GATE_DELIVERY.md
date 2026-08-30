@@ -55,7 +55,7 @@ Al momento del cierre técnico, el Cliente recibe en la raíz de su repositorio 
 
 3. **Sello Digital de Validación Técnica:**
    - Componente visual interactivo incorporable en el pie de página del producto.
-   - Enlaza a la página informativa oficial de verificación: `https://servicios-castillo.vercel.app/castle-gate.html#validacion`.
+   - Enlaza a la página informativa oficial de verificación: `https://grupocastillo.lat/castle-gate#validacion`.
 
 ---
 

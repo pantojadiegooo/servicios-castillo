@@ -20,10 +20,10 @@ Grupo Castillo ofrece un modelo de soporte estructurado para acompañar la evolu
 │  2. ASISTENCIA TÉCNICA POR EVENTO (Ad-hoc / Rescue)                    │
 │     • Intervención técnica puntual: Desde $6,900 MXN.                  │
 │                                                                        │
-│  3. PÓLIZA CONTINUA CASTLE CARE (Retainer Mensual - Desde $3,500 MXN)  │
-│     • Essential ($3,500 MXN/mes): Uptime, SSL, dependencias, parches.  │
-│     • Pro ($7,900 MXN/mes): Monitoreo proactivo, 4h ingeniería directa.│
-│     • Enterprise ($17,900 MXN/mes): Gobernanza C4/C6, SLA crítico.     │
+│  3. PÓLIZA CONTINUA CASTLE CARE (Retainer Mensual - Desde $590 MXN)    │
+│     • Basic ($590 MXN/mes): Uptime, SSL, dependencias, parches.        │
+│     • Pro ($990 MXN/mes): Monitoreo proactivo, soporte prioritario.    │
+│     • Enterprise ($1,890 MXN/mes): Gobernanza CQS, soporte multicanal. │
 │                                                                        │
 │  4. RESPUESTA CRÍTICA CASTLE EMERGENCY (Desde $5,900 MXN por evento)   │
 │     • Activación prioritaria con SLA de atención $\le 2$ horas (24/7). │

@@ -14,7 +14,7 @@
 | **Tipo de Proyecto** | Plataforma Corporativa Insignia / Proyecto Interno de Referencia |
 | **Nivel de Construcción Equivalente** | **Castle Diamond Build** (Arquitectura a Medida de Máxima Escala) |
 | **Repositorio** | `https://github.com/pantojadiegooo/servicios-castillo.git` |
-| **URL de Producción** | `https://servicios-castillo.vercel.app` |
+| **URL de Producción** | `https://grupocastillo.lat` |
 | **Fecha de Liberación de Release** | Agosto 2026 |
 
 ---

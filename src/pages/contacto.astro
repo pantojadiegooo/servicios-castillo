@@ -168,7 +168,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                   <option value="Castle Emergency ($5,900 MXN)">Castle Emergency — Desde $5,900 MXN (Atención de Contingencias)</option>
                 </optgroup>
                 <optgroup label="Mantenimiento &amp; Gobernanza">
-                  <option value="Castle Care ($3,500 MXN/mes)">Castle Care — Desde $3,500 MXN / mes (Continuidad)</option>
+                  <option value="Castle Care (Desde $590 MXN/mes)">Castle Care — Desde $590 MXN / mes (Continuidad)</option>
                   <option value="Castle Gate CLI ($9,900 MXN/año)">Castle Gate CLI — $9,900 MXN / año (Gobernanza CQS v1.1)</option>
                   <option value="Otro requerimiento">Otro requerimiento técnico</option>
                 </optgroup>
@@ -184,7 +184,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 <option value="15k-30k">$15,000 – $30,000 MXN (Platinum)</option>
                 <option value="mas-40k">Más de $40,000 MXN (Diamond / Proyectos Avanzados)</option>
                 <option value="checkup">$8,900 MXN (Diagnóstico Checkup 72h)</option>
-                <option value="care-mensual">$3,500 – $17,900 MXN / mes (Castle Care)</option>
+                <option value="care-mensual">$590 – $1,890 MXN / mes (Castle Care)</option>
                 <option value="por-definir">Por definir / Deseo asesoría previa</option>
               </select>
             </div>
@@ -311,7 +311,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
               presSelect.value = '5k-15k';
             } else if (intent === 'mantenimiento') {
-              tipoSelect.value = 'Castle Care ($3,500 MXN/mes)';
+              tipoSelect.value = 'Castle Care (Desde $590 MXN/mes)';
               presSelect.value = 'care-mensual';
             }
           });
@@ -377,7 +377,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('care') || target.includes('mantenimiento') || target.includes('cuidado')) {
-            matchedOption = 'Castle Care ($3,500 MXN/mes)';
+            matchedOption = 'Castle Care (Desde $590 MXN/mes)';
             presSelect.value = 'care-mensual';
             detectedIntent = 'mantenimiento';
           } else if (target.includes('gate') || target.includes('gobernanza')) {

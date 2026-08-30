@@ -2,7 +2,7 @@
 
 Unidad de soluciones digitales de **Grupo Castillo**. Plataforma web estática construida sobre **Astro**, diseñada bajo el **Castillo Security & Quality Gate**.
 
-- **Producción**: [https://servicios-castillo.vercel.app/](https://servicios-castillo.vercel.app/)
+- **Producción**: [https://grupocastillo.lat/](https://grupocastillo.lat/)
 - **Repositorio**: [https://github.com/pantojadiegooo/servicios-castillo](https://github.com/pantojadiegooo/servicios-castillo)
 
 ---

@@ -89,7 +89,7 @@ Queda terminantemente prohibido el uso de términos engañosos:
 ### 5. Destino de Interacción (Función del Enlace)
 
 El sello debe ser interactivo (`<a>`) y dirigir a la **página explicativa oficial**:
-* URL canónica: `https://servicios-castillo.vercel.app/castle-gate.html#validacion`
+* URL canónica: `https://grupocastillo.lat/castle-gate#validacion`
 * **Carácter estrictamente informativo:** La página destino tiene por función educar al usuario sobre los 65 controles CQS, los límites del protocolo y la verificación de releases. No funciona como embudo agresivo ni checkout forzado.
 
 ---
