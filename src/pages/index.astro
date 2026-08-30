@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
-import HeroEngineVisual from '../components/HeroEngineVisual.astro';
+import HeroCelestial from '../components/HeroCelestial.astro';
 import CastleGateBadge from '../components/CastleGateBadge.astro';
 import TechIcon from '../components/TechIcon.astro';
 ---
@@ -17,50 +17,9 @@ import TechIcon from '../components/TechIcon.astro';
   <main id="main">
 
     <!-- =========================================================================
-         01 — HERO (BENEFICIO COMERCIAL PRIMERO + SOBERANÍA TECNOLÓGICA)
+         01 — HERO CELESTIAL (INGENIERÍA DIGITAL • SOBERANÍA TOTAL)
          ========================================================================= -->
-    <section class="hero" style="position: relative; overflow: hidden; padding-top: 6rem; padding-bottom: 5rem; background: #06080C;">
-      <HeroEngineVisual />
-      <div class="container hero-content-container" style="position: relative; z-index: 4; max-width: 960px; margin: 0 auto; text-align: center;">
-        
-        <p class="eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
-          FIRMA DE INGENIERÍA DIGITAL &amp; SOBERANÍA TECNOLÓGICA
-        </p>
-
-        <h1 style="font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.35rem; color: var(--paper);">
-          Ingeniería digital para empresas.<br>
-          <span style="color: var(--cyan);">Web, software, infraestructura y seguridad</span> construidos para ser tuyos.
-        </h1>
-
-        <p class="lede" style="font-size: 1.15rem; color: #E2E8F0; line-height: 1.7; margin-bottom: 2.25rem; max-width: 74ch; margin-left: auto; margin-right: auto;">
-          <strong style="color: var(--paper);">Tu sitio. Tu código. Tus cuentas. Siempre.</strong> Desarrollamos plataformas web de alto rendimiento, sistemas a la medida y automatizaciones operativas con validación técnica determinista y 100% de titularidad jurídica.
-        </p>
-
-        <!-- CTA PRINCIPAL ÚNICO -->
-        <div class="hero-actions" style="display: flex; justify-content: center; align-items: center; margin-bottom: 2.75rem;">
-          <a class="btn btn-cta-crystal" href="/contacto" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">
-            Iniciar Proyecto →
-          </a>
-        </div>
-
-        <!-- PILLS DE CERTEZA TÉCNICA -->
-        <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(255, 255, 255, 0.12); max-width: 780px; margin: 0 auto;">
-          <div>
-            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--paper);">100% Titularidad</strong>
-            <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Código &amp; Cuentas Propias</span>
-          </div>
-          <div>
-            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--cyan);">Web &amp; Software</strong>
-            <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Desarrollo a la Medida</span>
-          </div>
-          <div>
-            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--paper);">Castle Gate</strong>
-            <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Gobernanza CQS v1.1</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <HeroCelestial />
 
     <!-- =========================================================================
          02 — QUÉ CONSTRUIMOS (CAPACIDADES REALES DE LA FIRMA)
