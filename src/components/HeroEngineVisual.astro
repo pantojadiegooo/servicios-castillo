@@ -694,7 +694,11 @@ const { className = "" } = Astro.props;
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new HeroEngineCinematic();
+    });
+  } else {
     new HeroEngineCinematic();
-  });
+  }
 </script>
