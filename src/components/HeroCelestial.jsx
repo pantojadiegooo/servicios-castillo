@@ -6,7 +6,7 @@ const LEAD_TEXT =
   "Tu sitio. Tu código. Tus cuentas. Siempre. Desarrollamos plataformas web y sistemas a la medida con validación técnica determinista.";
 
 // Misma paleta de 6 colores que usan las partículas del canvas.
-const PALETTE_HEX = ["#3B82F6", "#EF4444", "#FCD34D", "#22C55E", "#A855F7", "#FFFFFF"];
+const PALETTE_HEX = ["#346BF1", "#EF4444", "#FCD34D", "#22C55E", "#A855F7", "#FFFFFF"];
 
 export default function HeroCelestial() {
   const sectionRef = useRef(null);
@@ -29,7 +29,7 @@ export default function HeroCelestial() {
     let active = false;
     let particles = [];
     const pointer = pointerRef.current;
-    const palette = [[59,130,246],[239,68,68],[250,204,21],[34,197,94],[168,85,247],[255,255,255]];
+    const palette = [[52, 107, 241],[239,68,68],[250,204,21],[34,197,94],[168,85,247],[255,255,255]];
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -416,15 +416,15 @@ export default function HeroCelestial() {
         .hero__lead { max-width: 44rem; margin: 2rem auto 0; color: #FFFFFF; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.6; opacity: 0; transform: translateY(1.2rem); transition: opacity .5s ease .72s, transform .55s cubic-bezier(.16,1,.3,1) .72s; }
         .hero__action-shell { margin-top: clamp(2.5rem, 6vw, 4.5rem); opacity: 0; transform: translateY(1.6rem); transition: opacity .5s ease .92s, transform .6s cubic-bezier(.34,1.4,.64,1) .92s; }
         .hero__button { --mx: 0px; --my: 0px; --bx: 50%; --by: 50%; position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-width: min(23rem, 88vw); padding: 1.35rem 2.25rem; overflow: visible; border: none; border-radius: 999px; color: #FFFFFF; background: transparent; font-family: "Google Sans", "Product Sans", "Poppins", ui-sans-serif, system-ui, sans-serif; font-size: .9rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transform: translate(var(--mx), var(--my)); transition: transform .22s cubic-bezier(.2,.8,.2,1); cursor: pointer; }
-        .hero__button::before { content: ""; position: absolute; inset: -2px; z-index: 0; border-radius: 999px; padding: 2px; background: conic-gradient(from var(--angle), #4285F4, #9B72CB, #D96570, #F2A93B, #34A853, #4285F4); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: hero-aura-spin 3.2s linear infinite; }
-        .hero__button::after { content: ""; position: absolute; inset: -14px; z-index: -1; border-radius: 999px; background: conic-gradient(from var(--angle), rgba(66,133,244,.55), rgba(155,114,203,.55), rgba(217,101,112,.55), rgba(242,169,59,.55), rgba(52,168,83,.55), rgba(66,133,244,.55)); filter: blur(20px); opacity: .55; animation: hero-aura-spin 3.2s linear infinite; transition: opacity .3s ease, filter .3s ease; }
+        .hero__button::before { content: ""; position: absolute; inset: -2px; z-index: 0; border-radius: 999px; padding: 2px; background: conic-gradient(from var(--angle), #346BF1, #9B72CB, #D96570, #F2A93B, #34A853, #346BF1); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: hero-aura-spin 3.2s linear infinite; }
+        .hero__button::after { content: ""; position: absolute; inset: -14px; z-index: -1; border-radius: 999px; background: conic-gradient(from var(--angle), rgba(52, 107, 241, .55), rgba(155,114,203,.55), rgba(217,101,112,.55), rgba(242,169,59,.55), rgba(52,168,83,.55), rgba(52, 107, 241, .55)); filter: blur(20px); opacity: .55; animation: hero-aura-spin 3.2s linear infinite; transition: opacity .3s ease, filter .3s ease; }
         .hero__button:hover::after { opacity: .9; filter: blur(24px); }
         .hero__button:focus-visible { outline: 3px dashed #FFFFFF; outline-offset: 6px; }
         .hero__button > span:not(.hero__button-light) { position: relative; z-index: 2; }
         .hero__button-light { position: absolute; z-index: 1; width: 7rem; height: 7rem; left: var(--bx); top: var(--by); border-radius: 50%; background: rgba(255,255,255,.35); filter: blur(24px); transform: translate(-50%,-50%); opacity: .4; pointer-events: none; }
         .hero__hex { position: absolute; z-index: var(--z-geometry); width: clamp(8rem, 18vw, 16rem); aspect-ratio: .866; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(255,255,255,.03), transparent 56%); clip-path: polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%); pointer-events: none; }
         .hero__hex--left { left: -5rem; top: 16%; transform: rotate(20deg); border-color: rgba(168,85,247,.55); background: linear-gradient(135deg, rgba(168,85,247,.08), transparent 56%); box-shadow: 0 0 44px rgba(168,85,247,.22); }
-        .hero__hex--right { right: -4rem; bottom: 12%; transform: rotate(-16deg); border-color: rgba(59,130,246,.55); background: linear-gradient(135deg, rgba(59,130,246,.08), transparent 56%); box-shadow: 0 0 44px rgba(59,130,246,.22); }
+        .hero__hex--right { right: -4rem; bottom: 12%; transform: rotate(-16deg); border-color: rgba(52, 107, 241, .55); background: linear-gradient(135deg, rgba(52, 107, 241, .08), transparent 56%); box-shadow: 0 0 44px rgba(52, 107, 241, .22); }
         @keyframes hero-aura-spin { to { --angle: 360deg; } }
         @media (max-width: 640px) { .hero { min-height: 92svh; padding-inline: 1rem; clip-path: polygon(0 0, 100% 0, 100% 95%, 92% 100%, 8% 100%, 0 95%); } .hero__title { font-size: clamp(2.4rem, 13vw, 4.6rem); line-height: .92; } .hero__eyebrow { font-size: .6rem; letter-spacing: .12em; } .hero__lead { max-width: 30rem; } }
         @media (prefers-reduced-motion: reduce) { .hero *, .hero *::before, .hero *::after { animation: none !important; scroll-behavior: auto !important; transition-duration: .12s !important; } .hero__letter, .hero__lead, .hero__action-shell { opacity: 1 !important; transform: none !important; } .hero__button { transform: none !important; } .hero__button::before, .hero__button::after { animation: none !important; } }

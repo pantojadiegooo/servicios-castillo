@@ -93,7 +93,7 @@ textarea::placeholder {
 .field textarea:focus {
   outline: none;
   border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.18), 0 0 12px rgba(0, 210, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(52, 107, 241, 0.18), 0 0 12px rgba(52, 107, 241, 0.12);
   background: #151b28;
 }
 

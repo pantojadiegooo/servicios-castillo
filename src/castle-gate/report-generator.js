@@ -29,7 +29,7 @@ export function generateHtmlReport(result, cert) {
       <div style="background: #0E121B; border: 1px solid #222B3A; border-radius: 6px; padding: 16px; margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <span style="font-family: monospace; font-size: 11px; color: #00D2FF; font-weight: bold;">${d.domainId}</span>
+            <span style="font-family: monospace; font-size: 11px; color: #346BF1; font-weight: bold;">${d.domainId}</span>
             <h3 style="margin: 2px 0 0 0; font-size: 14px; color: #F8FAFC;">${d.domainName}</h3>
           </div>
           <div style="text-align: right;">
@@ -116,14 +116,14 @@ export function generateHtmlReport(result, cert) {
     <div class="header-card">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
         <div>
-          <span style="font-family: monospace; font-size: 11px; color: #00D2FF; letter-spacing: 0.08em; text-transform: uppercase;">
+          <span style="font-family: monospace; font-size: 11px; color: #346BF1; letter-spacing: 0.08em; text-transform: uppercase;">
             GRUPO CASTILLO • QUALITY &amp; SECURITY GATE (CQS v1.1)
           </span>
           <h1 style="margin: 4px 0 6px 0; font-size: 22px; color: #F8FAFC;">
             Release Compliance Report
           </h1>
           <div style="font-family: monospace; font-size: 12px; color: #94A3B8;">
-            ID: <strong style="color: #00D2FF;">${cert.validation_id}</strong> | 
+            ID: <strong style="color: #346BF1;">${cert.validation_id}</strong> | 
             Policy: <strong>${cert.policy_level}</strong> | 
             Timestamp: ${cert.evaluation_timestamp_utc}
           </div>
@@ -154,7 +154,7 @@ export function generateHtmlReport(result, cert) {
         </div>
         <div class="kpi-box">
           <div class="kpi-lbl">Domains Audited</div>
-          <div class="kpi-val" style="color: #00D2FF;">
+          <div class="kpi-val" style="color: #346BF1;">
             ${result.domains.length} / 7
           </div>
         </div>

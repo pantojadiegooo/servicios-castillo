@@ -30,7 +30,7 @@ const { className = "" } = Astro.props;
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 50% 48%, rgba(0, 210, 255, 0.12) 0%, rgba(6, 8, 12, 0.75) 50%, #06080c 85%),
+      radial-gradient(circle at 50% 48%, rgba(52, 107, 241, 0.12) 0%, rgba(6, 8, 12, 0.75) 50%, #06080c 85%),
       linear-gradient(180deg, rgba(6, 8, 12, 0.3) 0%, rgba(6, 8, 12, 0.95) 100%);
     z-index: 1;
     pointer-events: none;
@@ -282,9 +282,9 @@ const { className = "" } = Astro.props;
         ctx.lineTo(w + topOffX, h + topOffY);
         ctx.lineTo(w, h);
         ctx.closePath();
-        ctx.fillStyle = 'rgba(0, 210, 255, 0.02)';
+        ctx.fillStyle = 'rgba(52, 107, 241, 0.02)';
         ctx.fill();
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.08 + buildPulse * 0.1})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.08 + buildPulse * 0.1})`;
         ctx.setLineDash([3, 4]);
         ctx.stroke();
         ctx.setLineDash([]);
@@ -301,7 +301,7 @@ const { className = "" } = Astro.props;
       if (mod.isWire) {
         ctx.fillStyle = 'rgba(10, 14, 23, 0.75)';
         ctx.fill();
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.45 + buildPulse * 0.35})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.45 + buildPulse * 0.35})`;
         ctx.lineWidth = 1.0;
         ctx.stroke();
       } else {
@@ -321,10 +321,10 @@ const { className = "" } = Astro.props;
       ctx.closePath();
 
       ctx.fillStyle = mod.isWire 
-        ? `rgba(0, 210, 255, ${0.08 + buildPulse * 0.08})`
+        ? `rgba(52, 107, 241, ${0.08 + buildPulse * 0.08})`
         : 'rgba(20, 26, 38, 0.95)';
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + buildPulse * 0.45})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + buildPulse * 0.45})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
@@ -340,7 +340,7 @@ const { className = "" } = Astro.props;
         ? 'rgba(6, 9, 14, 0.8)'
         : 'rgba(8, 11, 16, 0.95)';
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.15 + buildPulse * 0.2})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.15 + buildPulse * 0.2})`;
       ctx.lineWidth = 0.8;
       ctx.stroke();
 
@@ -351,7 +351,7 @@ const { className = "" } = Astro.props;
         ctx.beginPath();
         ctx.moveTo(6, rowY);
         ctx.lineTo(w - 6, rowY);
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.12 + (r === 1 ? buildPulse * 0.25 : 0)})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.12 + (r === 1 ? buildPulse * 0.25 : 0)})`;
         ctx.lineWidth = 0.7;
         ctx.stroke();
       }
@@ -370,14 +370,14 @@ const { className = "" } = Astro.props;
       corners.forEach((c, idx) => {
         ctx.beginPath();
         ctx.arc(c.cx, c.cy, cornerRadius, 0, Math.PI * 2);
-        ctx.fillStyle = idx < 4 ? '#00D2FF' : 'rgba(0, 210, 255, 0.6)';
+        ctx.fillStyle = idx < 4 ? '#346BF1' : 'rgba(52, 107, 241, 0.6)';
         ctx.fill();
       });
 
       // G. TELEMETRY EMBOSSED IDENTIFIER
       if (w > 50) {
         ctx.font = '7px "JetBrains Mono", monospace';
-        ctx.fillStyle = `rgba(0, 210, 255, ${0.5 + buildPulse * 0.3})`;
+        ctx.fillStyle = `rgba(52, 107, 241, ${0.5 + buildPulse * 0.3})`;
         ctx.fillText(mod.tag, 6, h - 8);
 
         // Status beacon indicator
@@ -413,7 +413,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(cx + xOffset + panX, yStart + panY);
         this.ctx.lineTo(cx + xOffset * 1.8 + panX, yEnd + panY);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.035)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.035)';
         this.ctx.stroke();
       }
 
@@ -448,7 +448,7 @@ const { className = "" } = Astro.props;
         this.ctx.moveTo(p1x, p1y);
         this.ctx.lineTo(midX, midY);
         this.ctx.lineTo(p2x, p2y);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, ${conn.alpha})`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, ${conn.alpha})`;
         this.ctx.lineWidth = 0.9;
         this.ctx.stroke();
 
@@ -476,7 +476,7 @@ const { className = "" } = Astro.props;
           // Pulse halo
           this.ctx.beginPath();
           this.ctx.arc(pulseX, pulseY, 5, 0, Math.PI * 2);
-          this.ctx.fillStyle = 'rgba(0, 210, 255, 0.35)';
+          this.ctx.fillStyle = 'rgba(52, 107, 241, 0.35)';
           this.ctx.fill();
 
           // Pulse core
@@ -508,7 +508,7 @@ const { className = "" } = Astro.props;
         const pulse = Math.sin(this.time * 2 + p.phase) * 0.5 + 0.5;
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha + pulse * 0.25})`;
+        this.ctx.fillStyle = `rgba(52, 107, 241, ${p.alpha + pulse * 0.25})`;
         this.ctx.fill();
       });
     }

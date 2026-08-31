@@ -118,7 +118,7 @@ summary:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--cyan) !important;
   outline-offset: 3px !important;
-  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.22), 0 0 12px rgba(0, 210, 255, 0.25) !important;
+  box-shadow: 0 0 0 4px rgba(52, 107, 241, 0.22), 0 0 12px rgba(52, 107, 241, 0.25) !important;
   border-radius: 4px;
 }
 
@@ -132,7 +132,7 @@ a {
 p a {
   color: var(--cyan);
   text-decoration: underline;
-  text-decoration-color: rgba(0, 210, 255, 0.35);
+  text-decoration-color: rgba(52, 107, 241, 0.35);
   text-underline-offset: 3px;
   transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }

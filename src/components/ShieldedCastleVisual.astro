@@ -30,7 +30,7 @@ const { className = "" } = Astro.props;
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 50% 46%, rgba(0, 210, 255, 0.14) 0%, rgba(6, 8, 12, 0.75) 48%, #06080c 85%),
+      radial-gradient(circle at 50% 46%, rgba(52, 107, 241, 0.14) 0%, rgba(6, 8, 12, 0.75) 48%, #06080c 85%),
       linear-gradient(180deg, rgba(6, 8, 12, 0.25) 0%, rgba(6, 8, 12, 0.95) 100%);
     z-index: 1;
     pointer-events: none;
@@ -241,8 +241,8 @@ const { className = "" } = Astro.props;
 
       // Outer breathing glow
       const hexGrad = ctx.createRadialGradient(0, 0, radius * 0.4, 0, 0, radius * 1.4);
-      hexGrad.addColorStop(0, `rgba(0, 210, 255, ${0.14 + pulse * 0.06})`);
-      hexGrad.addColorStop(0.5, `rgba(0, 210, 255, ${0.04 + pulse * 0.02})`);
+      hexGrad.addColorStop(0, `rgba(52, 107, 241, ${0.14 + pulse * 0.06})`);
+      hexGrad.addColorStop(0.5, `rgba(52, 107, 241, ${0.04 + pulse * 0.02})`);
       hexGrad.addColorStop(1, 'transparent');
       ctx.fillStyle = hexGrad;
       ctx.beginPath();
@@ -259,7 +259,7 @@ const { className = "" } = Astro.props;
         else ctx.lineTo(hx, hy);
       }
       ctx.closePath();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.45 + pulse * 0.35})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.45 + pulse * 0.35})`;
       ctx.lineWidth = 1.6;
       ctx.stroke();
 
@@ -274,7 +274,7 @@ const { className = "" } = Astro.props;
         else ctx.lineTo(hx, hy);
       }
       ctx.closePath();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.18 + pulse * 0.15})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.18 + pulse * 0.15})`;
       ctx.setLineDash([8, 12]);
       ctx.lineWidth = 1.0;
       ctx.stroke();
@@ -289,7 +289,7 @@ const { className = "" } = Astro.props;
         // Corner bracket halo
         ctx.beginPath();
         ctx.arc(hx, hy, 4.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 210, 255, ${0.7 + pulse * 0.3})`;
+        ctx.fillStyle = `rgba(52, 107, 241, ${0.7 + pulse * 0.3})`;
         ctx.fill();
 
         ctx.beginPath();
@@ -312,7 +312,7 @@ const { className = "" } = Astro.props;
       ctx.save();
       ctx.rotate(time * 0.05);
       const r1 = baseRadius * 1.15;
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.22 + pulse * 0.15})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.22 + pulse * 0.15})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(0, 0, r1, 0, Math.PI * 2);
@@ -327,7 +327,7 @@ const { className = "" } = Astro.props;
         ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1);
         ctx.lineTo(Math.cos(ang) * (r1 - len), Math.sin(ang) * (r1 - len));
         ctx.strokeStyle = isMajor 
-          ? `rgba(0, 210, 255, ${0.65 + pulse * 0.25})`
+          ? `rgba(52, 107, 241, ${0.65 + pulse * 0.25})`
           : `rgba(255, 255, 255, 0.2)`;
         ctx.stroke();
       }
@@ -337,7 +337,7 @@ const { className = "" } = Astro.props;
       ctx.save();
       ctx.rotate(-time * 0.08);
       const r2 = baseRadius * 0.95;
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.2})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + pulse * 0.2})`;
       ctx.lineWidth = 1.2;
       ctx.setLineDash([10, 14]);
       ctx.beginPath();
@@ -350,7 +350,7 @@ const { className = "" } = Astro.props;
       const r3 = baseRadius * 0.75;
       ctx.beginPath();
       ctx.arc(0, 0, r3, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.45 + pulse * 0.3})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.45 + pulse * 0.3})`;
       ctx.lineWidth = 1.8;
       ctx.stroke();
 
@@ -371,7 +371,7 @@ const { className = "" } = Astro.props;
       ctx.beginPath();
       ctx.rect(-baseW / 2, 35 * s, baseW, baseH);
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.3 + pulse * 0.3})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.3 + pulse * 0.3})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
@@ -380,7 +380,7 @@ const { className = "" } = Astro.props;
         const bx = b * (24 * s);
         ctx.fillStyle = 'rgba(18, 26, 40, 0.95)';
         ctx.fillRect(bx - 8 * s, 30 * s, 16 * s, 8 * s);
-        ctx.strokeStyle = 'rgba(0, 210, 255, 0.4)';
+        ctx.strokeStyle = 'rgba(52, 107, 241, 0.4)';
         ctx.strokeRect(bx - 8 * s, 30 * s, 16 * s, 8 * s);
       }
 
@@ -392,21 +392,21 @@ const { className = "" } = Astro.props;
       ctx.beginPath();
       ctx.rect(leftTowerX - towerW / 2, -35 * s, towerW, towerH);
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.25})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + pulse * 0.25})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
       // Left Tower Crown Battlements
       ctx.fillStyle = 'rgba(22, 30, 46, 0.98)';
       ctx.fillRect(leftTowerX - towerW / 2 - 4 * s, -45 * s, towerW + 8 * s, 12 * s);
-      ctx.strokeStyle = '#00D2FF';
+      ctx.strokeStyle = '#346BF1';
       ctx.strokeRect(leftTowerX - towerW / 2 - 4 * s, -45 * s, towerW + 8 * s, 12 * s);
 
       // Left Vertical Energy Conduit
       ctx.beginPath();
       ctx.moveTo(leftTowerX, -30 * s);
       ctx.lineTo(leftTowerX, 60 * s);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.55 + pulse * 0.4})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.55 + pulse * 0.4})`;
       ctx.lineWidth = 2.0;
       ctx.stroke();
 
@@ -416,21 +416,21 @@ const { className = "" } = Astro.props;
       ctx.beginPath();
       ctx.rect(rightTowerX - towerW / 2, -35 * s, towerW, towerH);
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.25})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + pulse * 0.25})`;
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
       // Right Tower Crown Battlements
       ctx.fillStyle = 'rgba(22, 30, 46, 0.98)';
       ctx.fillRect(rightTowerX - towerW / 2 - 4 * s, -45 * s, towerW + 8 * s, 12 * s);
-      ctx.strokeStyle = '#00D2FF';
+      ctx.strokeStyle = '#346BF1';
       ctx.strokeRect(rightTowerX - towerW / 2 - 4 * s, -45 * s, towerW + 8 * s, 12 * s);
 
       // Right Vertical Energy Conduit
       ctx.beginPath();
       ctx.moveTo(rightTowerX, -30 * s);
       ctx.lineTo(rightTowerX, 60 * s);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.55 + pulse * 0.4})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.55 + pulse * 0.4})`;
       ctx.lineWidth = 2.0;
       ctx.stroke();
 
@@ -441,21 +441,21 @@ const { className = "" } = Astro.props;
       ctx.beginPath();
       ctx.rect(-keepW / 2, -75 * s, keepW, keepH);
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.5 + pulse * 0.35})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.5 + pulse * 0.35})`;
       ctx.lineWidth = 1.4;
       ctx.stroke();
 
       // Central Keep Crown
       ctx.fillStyle = 'rgba(24, 34, 52, 0.98)';
       ctx.fillRect(-keepW / 2 - 6 * s, -90 * s, keepW + 12 * s, 16 * s);
-      ctx.strokeStyle = '#00D2FF';
+      ctx.strokeStyle = '#346BF1';
       ctx.strokeRect(-keepW / 2 - 6 * s, -90 * s, keepW + 12 * s, 16 * s);
 
       // Central Vertical Power Bus
       ctx.beginPath();
       ctx.moveTo(0, -70 * s);
       ctx.lineTo(0, 55 * s);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.7 + pulse * 0.3})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.7 + pulse * 0.3})`;
       ctx.lineWidth = 2.5;
       ctx.stroke();
 
@@ -490,8 +490,8 @@ const { className = "" } = Astro.props;
 
       // Outer Shield Radiant Energy Flare
       const sGrad = ctx.createRadialGradient(0, 0, 10 * s, 0, 0, 65 * s);
-      sGrad.addColorStop(0, `rgba(0, 210, 255, ${0.35 + pulse * 0.15})`);
-      sGrad.addColorStop(0.4, `rgba(0, 210, 255, ${0.12 + pulse * 0.05})`);
+      sGrad.addColorStop(0, `rgba(52, 107, 241, ${0.35 + pulse * 0.15})`);
+      sGrad.addColorStop(0.4, `rgba(52, 107, 241, ${0.12 + pulse * 0.05})`);
       sGrad.addColorStop(1, 'transparent');
       ctx.fillStyle = sGrad;
       ctx.beginPath();
@@ -513,7 +513,7 @@ const { className = "" } = Astro.props;
 
       ctx.fillStyle = 'rgba(10, 16, 26, 0.94)';
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.8 + pulse * 0.2})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.8 + pulse * 0.2})`;
       ctx.lineWidth = 2.2;
       ctx.stroke();
 
@@ -561,8 +561,8 @@ const { className = "" } = Astro.props;
       const beamL = 45;
       const beamW = 22;
       const beamGrad = ctx.createRadialGradient(0, 0, 2, 0, beamL * 0.7, beamL);
-      beamGrad.addColorStop(0, 'rgba(0, 210, 255, 0.35)');
-      beamGrad.addColorStop(0.6, 'rgba(0, 210, 255, 0.08)');
+      beamGrad.addColorStop(0, 'rgba(52, 107, 241, 0.35)');
+      beamGrad.addColorStop(0.6, 'rgba(52, 107, 241, 0.08)');
       beamGrad.addColorStop(1, 'transparent');
 
       ctx.save();
@@ -585,7 +585,7 @@ const { className = "" } = Astro.props;
       ctx.closePath();
       ctx.fillStyle = '#0a0e17';
       ctx.fill();
-      ctx.strokeStyle = 'rgba(0, 210, 255, 0.75)';
+      ctx.strokeStyle = 'rgba(52, 107, 241, 0.75)';
       ctx.lineWidth = 1.0;
       ctx.stroke();
 
@@ -600,7 +600,7 @@ const { className = "" } = Astro.props;
       rotorPositions.forEach((r, idx) => {
         ctx.beginPath();
         ctx.arc(r.x, r.y, rSize, 0, Math.PI * 2);
-        ctx.fillStyle = idx === 2 ? '#00E599' : '#00D2FF';
+        ctx.fillStyle = idx === 2 ? '#00E599' : '#346BF1';
         ctx.fill();
       });
 
@@ -624,7 +624,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(cx, cy);
         this.ctx.lineTo(xBottom, this.height);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.04)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.04)';
         this.ctx.stroke();
       }
 
@@ -637,7 +637,7 @@ const { className = "" } = Astro.props;
             stream.y = -20;
           }
         }
-        this.ctx.fillStyle = `rgba(0, 210, 255, ${stream.alpha})`;
+        this.ctx.fillStyle = `rgba(52, 107, 241, ${stream.alpha})`;
         this.ctx.fillText(stream.text, stream.x + this.mouse.x * 0.5, stream.y);
       });
 
@@ -674,7 +674,7 @@ const { className = "" } = Astro.props;
         const pulse = Math.sin(this.time * 2 + p.phase) * 0.5 + 0.5;
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha + pulse * 0.25})`;
+        this.ctx.fillStyle = `rgba(52, 107, 241, ${p.alpha + pulse * 0.25})`;
         this.ctx.fill();
       });
     }

@@ -53,9 +53,9 @@
 
 .package-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 210, 255, 0.35);
+  border-color: rgba(52, 107, 241, 0.35);
   border-top-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 16px rgba(0, 210, 255, 0.06);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.65), 0 0 16px rgba(52, 107, 241, 0.06);
 }
 
 .package-card:active {
@@ -69,9 +69,9 @@
 }
 
 .package-card[data-tier="gold"] {
-  border-color: rgba(0, 210, 255, 0.4);
-  box-shadow: 0 0 0 1px rgba(0, 210, 255, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, var(--ink-card) 100%);
+  border-color: rgba(52, 107, 241, 0.4);
+  box-shadow: 0 0 0 1px rgba(52, 107, 241, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, rgba(52, 107, 241, 0.05) 0%, var(--ink-card) 100%);
 }
 
 .package-card[data-tier="gold"]:hover {

@@ -30,7 +30,7 @@ const { className = "" } = Astro.props;
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 50% 44%, rgba(0, 210, 255, 0.15) 0%, rgba(6, 8, 12, 0.75) 45%, #06080c 85%),
+      radial-gradient(circle at 50% 44%, rgba(52, 107, 241, 0.15) 0%, rgba(6, 8, 12, 0.75) 45%, #06080c 85%),
       linear-gradient(180deg, rgba(6, 8, 12, 0.2) 0%, rgba(6, 8, 12, 0.95) 100%);
     z-index: 1;
     pointer-events: none;
@@ -336,7 +336,7 @@ const { className = "" } = Astro.props;
       ctx.closePath();
       ctx.fillStyle = `rgba(18, 26, 40, 0.95)`;
       ctx.fill();
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.3 + pulse * 0.4})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.3 + pulse * 0.4})`;
       ctx.lineWidth = 1.0;
       ctx.stroke();
 
@@ -366,7 +366,7 @@ const { className = "" } = Astro.props;
         const lineY = 18 + l * 14;
         const isHighlight = l % 3 === 0;
         ctx.fillStyle = isHighlight 
-          ? `rgba(0, 210, 255, ${0.45 + pulse * 0.35})`
+          ? `rgba(52, 107, 241, ${0.45 + pulse * 0.35})`
           : `rgba(136, 148, 166, 0.22)`;
         ctx.fillText(block.codeLines[l], 8, lineY);
 
@@ -374,7 +374,7 @@ const { className = "" } = Astro.props;
         ctx.beginPath();
         ctx.moveTo(w - 24, lineY - 2);
         ctx.lineTo(w - 6, lineY - 2);
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.15 + (isHighlight ? pulse * 0.3 : 0)})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.15 + (isHighlight ? pulse * 0.3 : 0)})`;
         ctx.stroke();
       }
 
@@ -386,7 +386,7 @@ const { className = "" } = Astro.props;
           ctx.arc(10 + l * 8, ledY, 1.8, 0, Math.PI * 2);
           ctx.fillStyle = (l === 0) 
             ? `rgba(0, 229, 153, ${0.75 + pulse * 0.25})`
-            : `rgba(0, 210, 255, 0.65)`;
+            : `rgba(52, 107, 241, 0.65)`;
           ctx.fill();
         }
       }
@@ -399,8 +399,8 @@ const { className = "" } = Astro.props;
 
         // Radial beacon flare
         const bGrad = ctx.createRadialGradient(beaconX, beaconY, 1, beaconX, beaconY, bSize * 2.8);
-        bGrad.addColorStop(0, `rgba(0, 210, 255, ${0.7 + pulse * 0.3})`);
-        bGrad.addColorStop(0.5, `rgba(0, 210, 255, ${0.2 + pulse * 0.15})`);
+        bGrad.addColorStop(0, `rgba(52, 107, 241, ${0.7 + pulse * 0.3})`);
+        bGrad.addColorStop(0.5, `rgba(52, 107, 241, ${0.2 + pulse * 0.15})`);
         bGrad.addColorStop(1, 'transparent');
         ctx.fillStyle = bGrad;
         ctx.beginPath();
@@ -410,7 +410,7 @@ const { className = "" } = Astro.props;
         // Beacon Solid Box
         ctx.beginPath();
         ctx.rect(beaconX - bSize / 2, beaconY - bSize / 2, bSize, bSize);
-        ctx.fillStyle = '#00D2FF';
+        ctx.fillStyle = '#346BF1';
         ctx.fill();
         ctx.strokeStyle = '#FFFFFF';
         ctx.lineWidth = 1;
@@ -431,8 +431,8 @@ const { className = "" } = Astro.props;
 
       // 1. DEEP CYAN ATMOSPHERIC FLARE
       const gradBg = ctx.createRadialGradient(0, 0, baseR * 0.1, 0, 0, baseR * 2.6);
-      gradBg.addColorStop(0, `rgba(0, 210, 255, ${0.22 + pulse * 0.1})`);
-      gradBg.addColorStop(0.3, `rgba(0, 210, 255, ${0.08 + pulse * 0.04})`);
+      gradBg.addColorStop(0, `rgba(52, 107, 241, ${0.22 + pulse * 0.1})`);
+      gradBg.addColorStop(0.3, `rgba(52, 107, 241, ${0.08 + pulse * 0.04})`);
       gradBg.addColorStop(0.65, 'rgba(6, 8, 12, 0.45)');
       gradBg.addColorStop(1, 'transparent');
       ctx.fillStyle = gradBg;
@@ -448,7 +448,7 @@ const { className = "" } = Astro.props;
         ctx.beginPath();
         ctx.moveTo(Math.cos(ang) * (baseR * 0.6), Math.sin(ang) * (baseR * 0.6));
         ctx.lineTo(Math.cos(ang) * (baseR * 1.55), Math.sin(ang) * (baseR * 1.55));
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.12 + pulse * 0.1})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.12 + pulse * 0.1})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
@@ -457,7 +457,7 @@ const { className = "" } = Astro.props;
       // 3. OUTER TELEMETRY TICK RING (ROTATING SLOWLY CLOCKWISE)
       ctx.save();
       ctx.rotate(time * 0.07);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.25 + pulse * 0.15})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.25 + pulse * 0.15})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 1.28, 0, Math.PI * 2);
@@ -474,7 +474,7 @@ const { className = "" } = Astro.props;
         ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1);
         ctx.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2);
         ctx.strokeStyle = isMajor 
-          ? `rgba(0, 210, 255, ${0.65 + pulse * 0.3})`
+          ? `rgba(52, 107, 241, ${0.65 + pulse * 0.3})`
           : `rgba(255, 255, 255, 0.2)`;
         ctx.lineWidth = isMajor ? 1.5 : 0.8;
         ctx.stroke();
@@ -490,7 +490,7 @@ const { className = "" } = Astro.props;
         const endAng = startAng + (Math.PI * 2 / segments) * 0.68;
         ctx.beginPath();
         ctx.arc(0, 0, baseR * 1.06, startAng, endAng);
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.55 + pulse * 0.3})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.55 + pulse * 0.3})`;
         ctx.lineWidth = 2.8;
         ctx.stroke();
 
@@ -499,7 +499,7 @@ const { className = "" } = Astro.props;
         const vy = Math.sin(startAng) * baseR * 1.06;
         ctx.beginPath();
         ctx.arc(vx, vy, 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = '#00D2FF';
+        ctx.fillStyle = '#346BF1';
         ctx.fill();
         ctx.strokeStyle = '#FFFFFF';
         ctx.lineWidth = 0.8;
@@ -510,14 +510,14 @@ const { className = "" } = Astro.props;
       // 5. MAIN GLOWING NEON CORE RING
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 0.84, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.65 + pulse * 0.35})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.65 + pulse * 0.35})`;
       ctx.lineWidth = 2.2;
       ctx.stroke();
 
       // Neon halo glow
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 0.84, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.18 + pulse * 0.18})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.18 + pulse * 0.18})`;
       ctx.lineWidth = 10;
       ctx.stroke();
 
@@ -525,7 +525,7 @@ const { className = "" } = Astro.props;
       ctx.save();
       ctx.rotate(time * 0.11);
       const crossRadius = baseR * 0.62;
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.25})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + pulse * 0.25})`;
       ctx.lineWidth = 1.0;
       ctx.setLineDash([6, 8]);
       ctx.beginPath();
@@ -540,7 +540,7 @@ const { className = "" } = Astro.props;
         const by = Math.sin(bAng) * crossRadius;
         ctx.beginPath();
         ctx.arc(bx, by, 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 210, 255, ${0.8 + pulse * 0.2})`;
+        ctx.fillStyle = `rgba(52, 107, 241, ${0.8 + pulse * 0.2})`;
         ctx.fill();
       }
       ctx.restore();
@@ -548,8 +548,8 @@ const { className = "" } = Astro.props;
       // 7. CASTLE GATE CORE IRIS NUCLEUS
       const coreGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, baseR * 0.44);
       coreGrad.addColorStop(0, `rgba(255, 255, 255, ${0.9 + pulse * 0.1})`);
-      coreGrad.addColorStop(0.22, `rgba(0, 210, 255, ${0.85 + pulse * 0.15})`);
-      coreGrad.addColorStop(0.65, `rgba(0, 210, 255, ${0.25 + pulse * 0.15})`);
+      coreGrad.addColorStop(0.22, `rgba(52, 107, 241, ${0.85 + pulse * 0.15})`);
+      coreGrad.addColorStop(0.65, `rgba(52, 107, 241, ${0.25 + pulse * 0.15})`);
       coreGrad.addColorStop(1, 'transparent');
 
       ctx.fillStyle = coreGrad;
@@ -564,7 +564,7 @@ const { className = "" } = Astro.props;
 
       ctx.beginPath();
       ctx.arc(0, 0, 3, 0, Math.PI * 2);
-      ctx.fillStyle = '#00D2FF';
+      ctx.fillStyle = '#346BF1';
       ctx.fill();
 
       ctx.restore();
@@ -587,7 +587,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(cx, cy);
         this.ctx.lineTo(xBottom, this.height);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, 0.05)`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, 0.05)`;
         this.ctx.stroke();
       }
 
@@ -598,7 +598,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(0, yLine);
         this.ctx.lineTo(this.width, yLine);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.02 + r * 0.01})`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, ${0.02 + r * 0.01})`;
         this.ctx.stroke();
       }
 
@@ -613,7 +613,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(p0.x, p0.y);
         this.ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, ${c.alpha})`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, ${c.alpha})`;
         this.ctx.lineWidth = c.width;
         this.ctx.stroke();
 
@@ -631,7 +631,7 @@ const { className = "" } = Astro.props;
           // Glow halo
           this.ctx.beginPath();
           this.ctx.arc(pt.x, pt.y, pkt.size * 2.5, 0, Math.PI * 2);
-          this.ctx.fillStyle = `rgba(0, 210, 255, ${0.35 * pkt.glow})`;
+          this.ctx.fillStyle = `rgba(52, 107, 241, ${0.35 * pkt.glow})`;
           this.ctx.fill();
 
           // Packet core
@@ -675,7 +675,7 @@ const { className = "" } = Astro.props;
         const pulse = Math.sin(this.time * 2 + p.pulse) * 0.5 + 0.5;
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha + pulse * 0.25})`;
+        this.ctx.fillStyle = `rgba(52, 107, 241, ${p.alpha + pulse * 0.25})`;
         this.ctx.fill();
       });
     }

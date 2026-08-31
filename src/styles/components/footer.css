@@ -127,8 +127,8 @@
 }
 
 .footer-gate-badge:hover {
-  border-color: rgba(0, 210, 255, 0.4);
-  box-shadow: 0 0 12px rgba(0, 210, 255, 0.15);
+  border-color: rgba(52, 107, 241, 0.4);
+  box-shadow: 0 0 12px rgba(52, 107, 241, 0.15);
   color: #fff !important;
 }
 
@@ -151,8 +151,8 @@
   50% {
     opacity: 0.85;
     transform: scale(1.15);
-    background: #00D2FF;
-    box-shadow: 0 0 8px 2px rgba(0, 210, 255, 0.6);
+    background: #346BF1;
+    box-shadow: 0 0 8px 2px rgba(52, 107, 241, 0.6);
   }
 }
 

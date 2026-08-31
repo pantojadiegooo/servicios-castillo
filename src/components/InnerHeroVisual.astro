@@ -34,7 +34,7 @@ const { type } = Astro.props;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.12) 0%, rgba(6, 8, 12, 0.8) 55%, #06080C 90%);
+    background: radial-gradient(circle at 50% 50%, rgba(52, 107, 241, 0.12) 0%, rgba(6, 8, 12, 0.8) 55%, #06080C 90%);
   }
 
   .inner-hero-fallback-bg.theme-iron {
@@ -53,7 +53,7 @@ const { type } = Astro.props;
     background: radial-gradient(circle at 50% 50%, rgba(224, 231, 255, 0.15) 0%, rgba(6, 8, 12, 0.82) 55%, #06080C 90%);
   }
   .inner-hero-fallback-bg.theme-diamond {
-    background: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.18) 0%, rgba(6, 8, 12, 0.8) 55%, #06080C 90%);
+    background: radial-gradient(circle at 50% 50%, rgba(52, 107, 241, 0.18) 0%, rgba(6, 8, 12, 0.8) 55%, #06080C 90%);
   }
   .inner-hero-fallback-bg.theme-checkup,
   .inner-hero-fallback-bg.theme-emergency,
@@ -531,7 +531,7 @@ const { type } = Astro.props;
       // ==========================================
       // GLOBAL DEPTH LAYER 1: Perspective Grid Floor & Horizon
       // ==========================================
-      this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.035)';
+      this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.035)';
       this.ctx.lineWidth = 0.6;
       const step = isMobile ? 75 : 55;
 
@@ -564,7 +564,7 @@ const { type } = Astro.props;
         const twinkle = Math.sin(this.time * 2 + p.phase) * 0.5 + 0.5;
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(0, 210, 255, ${p.alpha * (0.3 + twinkle * 0.7)})`;
+        this.ctx.fillStyle = `rgba(52, 107, 241, ${p.alpha * (0.3 + twinkle * 0.7)})`;
         this.ctx.fill();
       });
 
@@ -619,14 +619,14 @@ const { type } = Astro.props;
           this.ctx.beginPath();
           this.ctx.arc(px1, py1, 3.5, 0, Math.PI * 2);
           this.ctx.fillStyle = '#F1F5F9';
-          this.ctx.shadowColor = '#00D2FF';
+          this.ctx.shadowColor = '#346BF1';
           this.ctx.shadowBlur = 8;
           this.ctx.fill();
           this.ctx.shadowBlur = 0;
         }
 
         // Structural Caliper Crosshairs
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.4)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.4)';
         this.ctx.lineWidth = 1.0;
         this.ctx.strokeRect(cx - 30, cy - 30, 60, 60);
         this.ctx.beginPath();
@@ -718,7 +718,7 @@ const { type } = Astro.props;
           this.ctx.beginPath();
           this.ctx.moveTo(panel.x + 12, panel.y + panel.h - 8);
           this.ctx.lineTo(panel.x + panel.w - 8, panel.y + 12);
-          this.ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 + osc * 0.35})`;
+          this.ctx.strokeStyle = `rgba(52, 107, 241, ${0.15 + osc * 0.35})`;
           this.ctx.lineWidth = 0.8;
           this.ctx.stroke();
         });
@@ -841,7 +841,7 @@ const { type } = Astro.props;
             const px = startX + (endX - startX) * pkt.pos;
             this.ctx.beginPath();
             this.ctx.arc(px, bus.y, 4, 0, Math.PI * 2);
-            this.ctx.fillStyle = pkt.isData ? '#38BDF8' : '#FFFFFF';
+            this.ctx.fillStyle = pkt.isData ? '#346BF1' : '#FFFFFF';
             this.ctx.shadowColor = '#818CF8';
             this.ctx.shadowBlur = 8;
             this.ctx.fill();
@@ -889,7 +889,7 @@ const { type } = Astro.props;
             }
           }
         }
-        this.ctx.strokeStyle = 'rgba(0, 229, 255, 0.35)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.35)';
         this.ctx.lineWidth = 1.2;
         this.ctx.stroke();
 
@@ -898,7 +898,7 @@ const { type } = Astro.props;
           this.ctx.beginPath();
           this.ctx.arc(v.x, v.y, 3.5 * v.scale, 0, Math.PI * 2);
           this.ctx.fillStyle = '#FFFFFF';
-          this.ctx.shadowColor = '#00E5FF';
+          this.ctx.shadowColor = '#346BF1';
           this.ctx.shadowBlur = 10;
           this.ctx.fill();
           this.ctx.shadowBlur = 0;
@@ -915,7 +915,7 @@ const { type } = Astro.props;
         [0.35, 0.65, 1.0].forEach((ratio) => {
           this.ctx.beginPath();
           this.ctx.arc(cx, cy, radarR * ratio, 0, Math.PI * 2);
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.25)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.25)';
           this.ctx.lineWidth = 1.2;
           this.ctx.stroke();
         });
@@ -924,7 +924,7 @@ const { type } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(cx - radarR, cy); this.ctx.lineTo(cx + radarR, cy);
         this.ctx.moveTo(cx, cy - radarR); this.ctx.lineTo(cx, cy + radarR);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.2)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.2)';
         this.ctx.lineWidth = 1.0;
         this.ctx.stroke();
 
@@ -934,7 +934,7 @@ const { type } = Astro.props;
         this.ctx.moveTo(cx, cy);
         this.ctx.arc(cx, cy, radarR, sweepAng - 0.45, sweepAng);
         this.ctx.closePath();
-        this.ctx.fillStyle = 'rgba(0, 210, 255, 0.16)';
+        this.ctx.fillStyle = 'rgba(52, 107, 241, 0.16)';
         this.ctx.fill();
 
         // Sweep Lead Line
@@ -954,7 +954,7 @@ const { type } = Astro.props;
 
           this.ctx.beginPath();
           this.ctx.arc(tx, ty, isScanned ? 4.5 : 2.5, 0, Math.PI * 2);
-          this.ctx.fillStyle = isScanned ? '#00E599' : 'rgba(0, 210, 255, 0.4)';
+          this.ctx.fillStyle = isScanned ? '#00E599' : 'rgba(52, 107, 241, 0.4)';
           this.ctx.fill();
 
           if (isScanned) {
@@ -979,7 +979,7 @@ const { type } = Astro.props;
           // Register Glass Panel
           this.ctx.fillStyle = 'rgba(15, 23, 42, 0.78)';
           this.ctx.fillRect(reg.x, reg.y, reg.w, reg.h);
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.3)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.3)';
           this.ctx.lineWidth = 1.2;
           this.ctx.strokeRect(reg.x, reg.y, reg.w, reg.h);
 
@@ -1022,7 +1022,7 @@ const { type } = Astro.props;
             if (x === 0) this.ctx.moveTo(startX + x, waveY);
             else this.ctx.lineTo(startX + x, waveY);
           }
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.45)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.45)';
           this.ctx.lineWidth = 1.6;
           this.ctx.stroke();
         });
@@ -1046,7 +1046,7 @@ const { type } = Astro.props;
           const pulse = Math.sin(this.time * ring.pulseSpeed * 40 + idx * 0.8) * 0.5 + 0.5;
           this.ctx.beginPath();
           this.ctx.arc(cx, cy, ring.radius, 0, Math.PI * 2);
-          this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.18 + pulse * 0.32})`;
+          this.ctx.strokeStyle = `rgba(52, 107, 241, ${0.18 + pulse * 0.32})`;
           this.ctx.lineWidth = 1.5;
           this.ctx.stroke();
 
@@ -1091,7 +1091,7 @@ const { type } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(startX, midY);
         this.ctx.lineTo(startX + totalW, midY);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.15)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.15)';
         this.ctx.lineWidth = 1.0;
         this.ctx.stroke();
 
@@ -1137,7 +1137,7 @@ const { type } = Astro.props;
           const radius = this.portalRings[idx] * maxR;
           this.ctx.beginPath();
           this.ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-          this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.12 + (1 - this.portalRings[idx]) * 0.45})`;
+          this.ctx.strokeStyle = `rgba(52, 107, 241, ${0.12 + (1 - this.portalRings[idx]) * 0.45})`;
           this.ctx.lineWidth = 1.5;
           this.ctx.stroke();
         });
@@ -1149,7 +1149,7 @@ const { type } = Astro.props;
           this.ctx.beginPath();
           this.ctx.moveTo(px1, py1);
           this.ctx.lineTo(cx, cy);
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.12)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.12)';
           this.ctx.lineWidth = 0.8;
           this.ctx.stroke();
 
@@ -1169,8 +1169,8 @@ const { type } = Astro.props;
         // Center Connection Nexus
         this.ctx.beginPath();
         this.ctx.arc(cx, cy, 10, 0, Math.PI * 2);
-        this.ctx.fillStyle = '#00D2FF';
-        this.ctx.shadowColor = '#00D2FF';
+        this.ctx.fillStyle = '#346BF1';
+        this.ctx.shadowColor = '#346BF1';
         this.ctx.shadowBlur = 16;
         this.ctx.fill();
         this.ctx.shadowBlur = 0;
@@ -1188,7 +1188,7 @@ const { type } = Astro.props;
           this.ctx.beginPath();
           this.ctx.moveTo(root.x, root.y);
           this.ctx.lineTo(target.x, target.y);
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.28)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.28)';
           this.ctx.lineWidth = 1.4;
           this.ctx.stroke();
 
@@ -1209,7 +1209,7 @@ const { type } = Astro.props;
         this.decisionNodes.forEach((node) => {
           this.ctx.beginPath();
           this.ctx.arc(node.x, node.y, node.type === 'root' ? 8 : 6, 0, Math.PI * 2);
-          this.ctx.fillStyle = node.type === 'root' ? '#00E599' : '#00D2FF';
+          this.ctx.fillStyle = node.type === 'root' ? '#00E599' : '#346BF1';
           this.ctx.fill();
 
           this.ctx.font = '8px "JetBrains Mono", monospace';
@@ -1239,7 +1239,7 @@ const { type } = Astro.props;
           if (line.verified) {
             this.ctx.beginPath();
             this.ctx.arc(line.x - 8, line.y, 2.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = isScanning ? '#00E599' : 'rgba(0, 210, 255, 0.4)';
+            this.ctx.fillStyle = isScanning ? '#00E599' : 'rgba(52, 107, 241, 0.4)';
             this.ctx.fill();
           }
         });
@@ -1254,7 +1254,7 @@ const { type } = Astro.props;
         this.ctx.strokeRect(sealX - 28, sealY - 28, 56, 56);
 
         // Corner registration brackets
-        this.ctx.strokeStyle = '#00D2FF';
+        this.ctx.strokeStyle = '#346BF1';
         this.ctx.lineWidth = 2.0;
         this.ctx.strokeRect(sealX - 31, sealY - 31, 7, 7);
         this.ctx.strokeRect(sealX + 24, sealY + 24, 7, 7);
@@ -1269,7 +1269,7 @@ const { type } = Astro.props;
         this.solOrbits.forEach((orbit) => {
           this.ctx.beginPath();
           this.ctx.arc(cx, cy, orbit.r, 0, Math.PI * 2);
-          this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.15)';
+          this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.15)';
           this.ctx.stroke();
 
           for (let i = 0; i < orbit.nodes; i++) {
@@ -1278,7 +1278,7 @@ const { type } = Astro.props;
             const ny = cy + Math.sin(angle) * orbit.r;
             this.ctx.beginPath();
             this.ctx.arc(nx, ny, 3.5, 0, Math.PI * 2);
-            this.ctx.fillStyle = '#00D2FF';
+            this.ctx.fillStyle = '#346BF1';
             this.ctx.fill();
           }
         });
@@ -1289,7 +1289,7 @@ const { type } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(startX, cy);
         this.ctx.lineTo(endX, cy);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.25)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.25)';
         this.ctx.lineWidth = 1.5;
         this.ctx.stroke();
 
@@ -1297,7 +1297,7 @@ const { type } = Astro.props;
           const sx = startX + (s / 8) * (endX - startX);
           this.ctx.beginPath();
           this.ctx.arc(sx, cy, 3.5, 0, Math.PI * 2);
-          this.ctx.fillStyle = s === Math.floor(this.time * 2) % 9 ? '#00E599' : 'rgba(0, 210, 255, 0.5)';
+          this.ctx.fillStyle = s === Math.floor(this.time * 2) % 9 ? '#00E599' : 'rgba(52, 107, 241, 0.5)';
           this.ctx.fill();
         }
       }
@@ -1312,7 +1312,7 @@ const { type } = Astro.props;
           else this.ctx.lineTo(sx, sy);
         }
         this.ctx.closePath();
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.45)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.45)';
         this.ctx.lineWidth = 1.5;
         this.ctx.stroke();
       }
@@ -1328,7 +1328,7 @@ const { type } = Astro.props;
           }
           this.ctx.beginPath();
           this.ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-          this.ctx.fillStyle = 'rgba(0, 210, 255, 0.65)';
+          this.ctx.fillStyle = 'rgba(52, 107, 241, 0.65)';
           this.ctx.fill();
         });
       }

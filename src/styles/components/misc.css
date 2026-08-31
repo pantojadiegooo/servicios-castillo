@@ -1,6 +1,6 @@
 /* ===== Badges / misc ===== */
-.badge{ display:inline-block; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; border:1px solid rgba(0, 210, 255, 0.35); color:var(--steel-light); padding:.3rem .6rem; border-radius:2px; background: rgba(0, 210, 255, 0.04); }
-.badge-demo{ border-color: var(--cyan); color:var(--cyan); background: rgba(0, 210, 255, 0.08); }
+.badge{ display:inline-block; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; border:1px solid rgba(52, 107, 241, 0.35); color:var(--steel-light); padding:.3rem .6rem; border-radius:2px; background: rgba(52, 107, 241, 0.04); }
+.badge-demo{ border-color: var(--cyan); color:var(--cyan); background: rgba(52, 107, 241, 0.08); }
 
 .project-case{ border:1px solid var(--line-dark); border-radius: var(--radius); padding:1.75rem; background: rgba(14, 18, 27, 0.85); color: var(--steel-light); }
 .project-case .case-steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:.75rem; margin-top:1rem; font-size:.78rem; }

@@ -279,7 +279,7 @@
     left: 15%;
     right: 15%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(52, 107, 241, 0.4), transparent);
     pointer-events: none;
   }
 
@@ -400,7 +400,7 @@
   left: 3%;
   width: clamp(120px, 14vw, 210px);
   height: clamp(138px, 16vw, 240px);
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(52, 107, 241, 0.04) 100%);
   border: 1px solid rgba(168, 85, 247, 0.35);
   filter: drop-shadow(0 0 28px rgba(168, 85, 247, 0.30));
   animation: hexFloatLeft 9s ease-in-out infinite;
@@ -411,9 +411,9 @@
   right: 3%;
   width: clamp(140px, 16vw, 230px);
   height: clamp(160px, 18vw, 265px);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(34, 197, 94, 0.04) 100%);
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  filter: drop-shadow(0 0 28px rgba(59, 130, 246, 0.30));
+  background: linear-gradient(135deg, rgba(52, 107, 241, 0.12) 0%, rgba(34, 197, 94, 0.04) 100%);
+  border: 1px solid rgba(52, 107, 241, 0.35);
+  filter: drop-shadow(0 0 28px rgba(52, 107, 241, 0.30));
   animation: hexFloatRight 11s ease-in-out infinite;
 }
 
@@ -455,8 +455,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #00D2FF;
-  box-shadow: 0 0 8px #00D2FF;
+  background: #346BF1;
+  box-shadow: 0 0 8px #346BF1;
   margin-right: 0.2rem;
 }
 
@@ -536,7 +536,7 @@
 }
 
 .hero__button:focus-visible {
-  outline: 2px solid #00D2FF;
+  outline: 2px solid #346BF1;
   outline-offset: 4px;
 }
 
@@ -547,12 +547,12 @@
   border-radius: 9999px;
   background: conic-gradient(
     from 0deg,
-    #3B82F6 0deg,
+    #346BF1 0deg,
     #8B5CF6 72deg,
     #F43F5E 144deg,
     #F59E0B 216deg,
     #10B981 288deg,
-    #3B82F6 360deg
+    #346BF1 360deg
   );
   filter: blur(12px);
   opacity: 0.30;
@@ -570,12 +570,12 @@
   border-radius: 9999px;
   background: conic-gradient(
     from 0deg,
-    #3B82F6 0deg,
+    #346BF1 0deg,
     #8B5CF6 72deg,
     #F43F5E 144deg,
     #F59E0B 216deg,
     #10B981 288deg,
-    #3B82F6 360deg
+    #346BF1 360deg
   );
   z-index: 2;
   pointer-events: none;
@@ -606,7 +606,7 @@
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(0, 210, 255, 0.25) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(52, 107, 241, 0.25) 40%, transparent 70%);
   filter: blur(14px);
   opacity: 0.22;
   pointer-events: none;
@@ -628,7 +628,7 @@
 }
 
 .hero__button-arrow {
-  color: #00D2FF;
+  color: #346BF1;
   position: relative;
   z-index: 5;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);

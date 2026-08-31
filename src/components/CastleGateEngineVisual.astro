@@ -30,7 +30,7 @@ const { className = "" } = Astro.props;
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 50% 45%, rgba(0, 210, 255, 0.16) 0%, rgba(6, 8, 12, 0.75) 48%, #06080c 85%),
+      radial-gradient(circle at 50% 45%, rgba(52, 107, 241, 0.16) 0%, rgba(6, 8, 12, 0.75) 48%, #06080c 85%),
       linear-gradient(180deg, rgba(6, 8, 12, 0.25) 0%, rgba(6, 8, 12, 0.95) 100%);
     z-index: 1;
     pointer-events: none;
@@ -387,8 +387,8 @@ const { className = "" } = Astro.props;
 
       // 1. RADIANT CORE FLARE (DEEP ATMOSPHERIC CYCLOTRON)
       const gradBg = ctx.createRadialGradient(0, 0, baseR * 0.1, 0, 0, baseR * 2.8);
-      gradBg.addColorStop(0, `rgba(0, 210, 255, ${0.3 + pulse * 0.12})`);
-      gradBg.addColorStop(0.3, `rgba(0, 210, 255, ${0.1 + pulse * 0.05})`);
+      gradBg.addColorStop(0, `rgba(52, 107, 241, ${0.3 + pulse * 0.12})`);
+      gradBg.addColorStop(0.3, `rgba(52, 107, 241, ${0.1 + pulse * 0.05})`);
       gradBg.addColorStop(0.65, 'rgba(6, 8, 12, 0.5)');
       gradBg.addColorStop(1, 'transparent');
       ctx.fillStyle = gradBg;
@@ -399,7 +399,7 @@ const { className = "" } = Astro.props;
       // 2. OUTER RETICLE GEAR WITH NOTCHES (CLOCKWISE)
       ctx.save();
       ctx.rotate(time * 0.08);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.35 + pulse * 0.2})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.35 + pulse * 0.2})`;
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 1.25, 0, Math.PI * 2);
@@ -416,7 +416,7 @@ const { className = "" } = Astro.props;
         ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1);
         ctx.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2);
         ctx.strokeStyle = isMajor 
-          ? `rgba(0, 210, 255, ${0.75 + pulse * 0.25})`
+          ? `rgba(52, 107, 241, ${0.75 + pulse * 0.25})`
           : `rgba(255, 255, 255, 0.25)`;
         ctx.lineWidth = isMajor ? 1.5 : 0.8;
         ctx.stroke();
@@ -432,7 +432,7 @@ const { className = "" } = Astro.props;
         const endAng = startAng + (Math.PI * 2 / segments) * 0.65;
         ctx.beginPath();
         ctx.arc(0, 0, baseR * 1.05, startAng, endAng);
-        ctx.strokeStyle = `rgba(0, 210, 255, ${0.6 + pulse * 0.3})`;
+        ctx.strokeStyle = `rgba(52, 107, 241, ${0.6 + pulse * 0.3})`;
         ctx.lineWidth = 2.6;
         ctx.stroke();
 
@@ -441,7 +441,7 @@ const { className = "" } = Astro.props;
         const vy = Math.sin(startAng) * baseR * 1.05;
         ctx.beginPath();
         ctx.arc(vx, vy, 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = '#00D2FF';
+        ctx.fillStyle = '#346BF1';
         ctx.fill();
         ctx.strokeStyle = '#FFFFFF';
         ctx.lineWidth = 0.8;
@@ -452,21 +452,21 @@ const { className = "" } = Astro.props;
       // 4. MAIN NEON VALIDATION REACTOR RING
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 0.85, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.7 + pulse * 0.3})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.7 + pulse * 0.3})`;
       ctx.lineWidth = 2.4;
       ctx.stroke();
 
       // Neon halo glow
       ctx.beginPath();
       ctx.arc(0, 0, baseR * 0.85, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0, 210, 255, ${0.2 + pulse * 0.15})`;
+      ctx.strokeStyle = `rgba(52, 107, 241, ${0.2 + pulse * 0.15})`;
       ctx.lineWidth = 12;
       ctx.stroke();
 
       // 5. CASTLE GATE CORE IRIS (EMERALD VALIDATION LOCK)
       const coreGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, baseR * 0.5);
       coreGrad.addColorStop(0, `rgba(255, 255, 255, ${0.95 + pulse * 0.05})`);
-      coreGrad.addColorStop(0.25, `rgba(0, 210, 255, ${0.85 + pulse * 0.15})`);
+      coreGrad.addColorStop(0.25, `rgba(52, 107, 241, ${0.85 + pulse * 0.15})`);
       coreGrad.addColorStop(0.65, `rgba(0, 229, 153, ${0.35 + pulse * 0.25})`);
       coreGrad.addColorStop(1, 'transparent');
 
@@ -509,7 +509,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(cx, cy);
         this.ctx.lineTo(xBottom, this.height);
-        this.ctx.strokeStyle = 'rgba(0, 210, 255, 0.04)';
+        this.ctx.strokeStyle = 'rgba(52, 107, 241, 0.04)';
         this.ctx.stroke();
       }
 
@@ -526,7 +526,7 @@ const { className = "" } = Astro.props;
         this.ctx.strokeRect(posX, posY, m.w, m.h);
 
         // Status beacon on top
-        this.ctx.fillStyle = '#00D2FF';
+        this.ctx.fillStyle = '#346BF1';
         this.ctx.fillRect(posX + m.w / 2 - 4, posY - 4, 8, 4);
       });
 
@@ -541,7 +541,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(p0.x, p0.y);
         this.ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, ${c.alpha})`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, ${c.alpha})`;
         this.ctx.lineWidth = isMobile ? 1.0 : 1.4;
         this.ctx.stroke();
 
@@ -557,12 +557,12 @@ const { className = "" } = Astro.props;
 
           const pt = this.getBezierPoint(pkt.progress, p0, p1, p2, p3);
           const isVal = pkt.validated && pkt.progress > 0.45;
-          const pktColor = isVal ? '#00E599' : '#00D2FF';
+          const pktColor = isVal ? '#00E599' : '#346BF1';
 
           // Photon Halo
           this.ctx.beginPath();
           this.ctx.arc(pt.x, pt.y, pkt.size * 2.5, 0, Math.PI * 2);
-          this.ctx.fillStyle = isVal ? 'rgba(0, 229, 153, 0.4)' : 'rgba(0, 210, 255, 0.4)';
+          this.ctx.fillStyle = isVal ? 'rgba(0, 229, 153, 0.4)' : 'rgba(52, 107, 241, 0.4)';
           this.ctx.fill();
 
           // Photon Core
@@ -592,7 +592,7 @@ const { className = "" } = Astro.props;
         this.ctx.beginPath();
         this.ctx.moveTo(v1.x, v1.y);
         this.ctx.lineTo(v2.x, v2.y);
-        this.ctx.strokeStyle = `rgba(0, 210, 255, ${Math.max(0.04, alpha)})`;
+        this.ctx.strokeStyle = `rgba(52, 107, 241, ${Math.max(0.04, alpha)})`;
         this.ctx.lineWidth = isFront ? 1.0 : 0.6;
         this.ctx.stroke();
       });
@@ -626,18 +626,18 @@ const { className = "" } = Astro.props;
           this.ctx.fill();
 
           // Panel Glowing Wireframe Border
-          this.ctx.strokeStyle = `rgba(0, 210, 255, ${0.45 + pulse * 0.4})`;
+          this.ctx.strokeStyle = `rgba(52, 107, 241, ${0.45 + pulse * 0.4})`;
           this.ctx.lineWidth = 1.0;
           this.ctx.stroke();
 
           // Corner Vertex LEDs
-          this.ctx.fillStyle = '#00D2FF';
+          this.ctx.fillStyle = '#346BF1';
           this.ctx.fillRect(-pw / 2 - 1, -ph / 2 - 1, 2.5, 2.5);
           this.ctx.fillRect(pw / 2 - 1, -ph / 2 - 1, 2.5, 2.5);
 
           // Telemetry Lines inside panel
           this.ctx.font = `${Math.max(6, Math.floor(7.5 * proj.scale))}px "JetBrains Mono", monospace`;
-          this.ctx.fillStyle = `rgba(0, 210, 255, ${0.75 + pulse * 0.25})`;
+          this.ctx.fillStyle = `rgba(52, 107, 241, ${0.75 + pulse * 0.25})`;
           this.ctx.fillText(panel.lines[0], -pw / 2 + 5, -ph / 2 + 10 * proj.scale);
 
           this.ctx.fillStyle = `rgba(136, 148, 166, ${0.65 * proj.scale})`;
@@ -672,8 +672,8 @@ const { className = "" } = Astro.props;
           p.isValidated = false;
         }
 
-        const photonColor = p.isValidated ? '#00E599' : '#00D2FF';
-        const haloColor = p.isValidated ? 'rgba(0, 229, 153, 0.45)' : 'rgba(0, 210, 255, 0.45)';
+        const photonColor = p.isValidated ? '#00E599' : '#346BF1';
+        const haloColor = p.isValidated ? 'rgba(0, 229, 153, 0.45)' : 'rgba(52, 107, 241, 0.45)';
 
         // Draw Photon Halo
         this.ctx.beginPath();
