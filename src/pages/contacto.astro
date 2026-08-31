@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQItem from '../components/FAQItem.astro';
 import HeroEngineVisual from '../components/HeroEngineVisual.astro';
@@ -156,7 +156,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                   <option value="Castle Silver ($7,500 MXN)">Castle Silver — $7,500 MXN (Multi-sección)</option>
                   <option value="Castle Gold ($12,500 MXN)" selected>Castle Gold — $12,500 MXN (Más Elegido • Con Blog/CMS)</option>
                   <option value="Castle Platinum ($24,500 MXN)">Castle Platinum — $24,500 MXN (Integrado / Pagos)</option>
-                  <option value="Castle Diamond ($40,000+ MXN)">Castle Diamond — $40,000+ MXN (Software a la Medida)</option>
+                  <option value="Castle Diamond (Desde $40,000 MXN)">Castle Diamond — Desde $40,000 MXN (Software a la Medida)</option>
                 </optgroup>
                 <optgroup label="Servicios de Ingeniería &amp; Consultoría">
                   <option value="Castle Checkup ($8,900 MXN)">Castle Checkup — $8,900 MXN (Diagnóstico 72h • 100% Bonificable)</option>
@@ -165,7 +165,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 </optgroup>
                 <optgroup label="Intervención &amp; Rescate">
                   <option value="Castle Rescue ($6,900 MXN)">Castle Rescue — Desde $6,900 MXN (Intervención de Código)</option>
-                  <option value="Castle Emergency ($5,900 MXN)">Castle Emergency — Desde $5,900 MXN (Atención de Contingencias)</option>
+                  <option value="Castle Emergency ($5,900 MXN)">Castle Emergency — $5,900 MXN (Atención de Contingencias)</option>
                 </optgroup>
                 <optgroup label="Mantenimiento &amp; Gobernanza">
                   <option value="Castle Care (Desde $590 MXN/mes)">Castle Care — Desde $590 MXN / mes (Continuidad)</option>
@@ -184,7 +184,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 <option value="15k-30k">$15,000 – $30,000 MXN (Platinum)</option>
                 <option value="mas-40k">Más de $40,000 MXN (Diamond / Proyectos Avanzados)</option>
                 <option value="checkup">$8,900 MXN (Diagnóstico Checkup 72h)</option>
-                <option value="care-mensual">$590 – $1,890 MXN / mes (Castle Care)</option>
+                <option value="care-mensual">$590 – $2,490 MXN / mes (Castle Care)</option>
                 <option value="por-definir">Por definir / Deseo asesoría previa</option>
               </select>
             </div>
@@ -353,7 +353,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             presSelect.value = '15k-30k';
             detectedIntent = 'construir';
           } else if (target.includes('diamond') || target.includes('avanzado') || target.includes('medida')) {
-            matchedOption = 'Castle Diamond ($40,000+ MXN)';
+            matchedOption = 'Castle Diamond (Desde $40,000 MXN)';
             presSelect.value = 'mas-40k';
             detectedIntent = 'construir';
           } else if (target.includes('checkup')) {

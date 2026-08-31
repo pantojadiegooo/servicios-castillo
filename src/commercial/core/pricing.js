@@ -194,7 +194,7 @@ export const SPECIALIZED_SERVICES = {
     plans: {
       basic: { name: 'Castle Care Basic', priceMxnMonthly: 590, priceUsdEstimate: 35 },
       pro: { name: 'Castle Care Pro', priceMxnMonthly: 990, priceUsdEstimate: 58 },
-      enterprise: { name: 'Castle Care Enterprise', priceMxnMonthly: 1890, priceUsdEstimate: 110 }
+      enterprise: { name: 'Castle Care Enterprise', priceMxnMonthly: 2490, priceUsdEstimate: 110 }
     },
     basePriceMxn: 590,
     description: 'Supervisión continua de uptime, actualización de dependencias, parches de seguridad y soporte de mantenimiento preventivo'

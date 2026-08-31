@@ -38,7 +38,7 @@ test('Pricing — Verificación de catálogo oficial de 6 paquetes y servicios',
   assert.equal(SPECIALIZED_SERVICES.CHECKUP.priceMxn, 8900);
   assert.equal(SPECIALIZED_SERVICES.CARE.plans.basic.priceMxnMonthly, 590);
   assert.equal(SPECIALIZED_SERVICES.CARE.plans.pro.priceMxnMonthly, 990);
-  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceMxnMonthly, 1890);
+  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceMxnMonthly, 2490);
   assert.equal(SPECIALIZED_SERVICES.EMERGENCY.basePriceMxn, 5900);
   assert.equal(SPECIALIZED_SERVICES.RESCUE.basePriceMxn, 6900);
   assert.equal(SPECIALIZED_SERVICES.GATE_CLI.priceMxnAnnual, 9900);

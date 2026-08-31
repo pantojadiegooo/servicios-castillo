@@ -28,8 +28,8 @@ test('disabled checkout keeps distinct, working contact routes without public St
 });
 
 test('approved MXN amounts are converted to cents without changing price', () => {
-  assert.deepEqual(Object.values(CARE_PLANS).map(plan => plan.amountMinor), [59000, 99000, 189000]);
-  assert.equal(formatCarePrice('enterprise'), '$1,890 MXN');
+  assert.deepEqual(Object.values(CARE_PLANS).map(plan => plan.amountMinor), [59000, 99000, 249000]);
+  assert.equal(formatCarePrice('enterprise'), '$2,490 MXN');
 });
 
 test('live checkout maps all three plans and the customer portal independently', () => {
