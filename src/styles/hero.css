@@ -1,17 +1,26 @@
 /* ===== Hero & Page Hero (Engineering Editorial & High Contrast) ===== */
 :root {
-  --page-hero-height-desktop: 520px;
-  --page-hero-height-tablet: 480px;
-  --page-hero-height-mobile: 450px;
+  --header-height: 65px;
 }
 
 .hero {
   background: var(--ink);
   color: var(--paper);
-  padding-block: clamp(4.5rem, 8vw, 7.5rem);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line-dark);
+  box-sizing: border-box;
+}
+
+.hero-home {
+  min-height: calc(100svh - var(--header-height, 65px));
+  min-height: calc(100dvh - var(--header-height, 65px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: clamp(2.5rem, 5vh, 4rem);
+  box-sizing: border-box;
 }
 
 .hero-container-grid {
@@ -165,11 +174,10 @@
 
 /* ===== UNIFIED SECONDARY PAGE HERO SYSTEM ===== */
 .page-hero {
-  background: #06080C;
+  background: #060a17;
   color: var(--paper);
-  height: var(--page-hero-height-desktop);
-  min-height: var(--page-hero-height-desktop);
-  max-height: var(--page-hero-height-desktop);
+  min-height: calc(100svh - var(--header-height, 65px));
+  min-height: calc(100dvh - var(--header-height, 65px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -256,18 +264,16 @@
 
 @media (max-width: 1024px) {
   .page-hero {
-    height: var(--page-hero-height-tablet);
-    min-height: var(--page-hero-height-tablet);
-    max-height: var(--page-hero-height-tablet);
+    min-height: calc(100svh - var(--header-height, 65px));
+    min-height: calc(100dvh - var(--header-height, 65px));
     padding: 0 1.25rem;
   }
 }
 
 @media (max-width: 640px) {
   .page-hero {
-    min-height: var(--page-hero-height-mobile);
-    height: auto;
-    max-height: none;
+    min-height: calc(100svh - var(--header-height, 65px));
+    min-height: calc(100dvh - var(--header-height, 65px));
     padding: 3rem 1.15rem 2.25rem;
     position: relative;
   }

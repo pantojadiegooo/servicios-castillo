@@ -16,14 +16,14 @@
     "commercial:server": "node ./bin/commercial-api.js",
     "test:gate": "node ./test/castle-gate.test.js",
     "test:commercial": "node ./test/commercial/run-all-commercial-tests.js",
-    "test": "node ./test/castle-gate.test.js && node ./test/commercial/run-all-commercial-tests.js && npm run test:care",
-    "test:care": "node --test ./test/care-checkout.test.js"
+    "test": "node ./test/castle-gate.test.js && node ./test/commercial/run-all-commercial-tests.js"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",
     "astro": "^7.2.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",

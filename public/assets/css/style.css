@@ -448,32 +448,40 @@ summary:focus-visible {
 }
 
 .page-hero {
-  background: var(--ink-surface);
+  background: #060a17;
   color: var(--paper);
-  padding-block: clamp(3.5rem, 6vw, 5.25rem);
+  min-height: calc(100svh - var(--header-height, 65px));
+  min-height: calc(100dvh - var(--header-height, 65px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid var(--line-dark);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
 }
 
 .page-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(36, 45, 61, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 45, 61, 0.35) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.28;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 30%, transparent 90%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 30%, transparent 90%);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.03), transparent 70%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .page-hero-inner {
   position: relative;
-  max-width: 820px;
-  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-hero h1 {

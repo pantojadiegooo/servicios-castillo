@@ -19,34 +19,34 @@ import TechIcon from '../components/TechIcon.astro';
     <!-- =========================================================================
          01 — HERO (BENEFICIO COMERCIAL PRIMERO + SOBERANÍA TECNOLÓGICA)
          ========================================================================= -->
-    <section class="hero" style="position: relative; overflow: hidden; padding-top: 6rem; padding-bottom: 5rem; background: #06080C;">
+    <section class="hero hero-home" id="hero" style="position: relative; overflow: hidden; min-height: calc(100svh - var(--header-height, 65px)); min-height: calc(100dvh - var(--header-height, 65px)); display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: clamp(2.5rem, 5vh, 4rem); padding-bottom: clamp(2.5rem, 5vh, 4rem); box-sizing: border-box; background: #06080C;">
       <HeroEngineVisual />
-      <div class="container hero-content-container" style="position: relative; z-index: 4; max-width: 960px; margin: 0 auto; text-align: center;">
+      <div class="container hero-content-container" style="position: relative; z-index: 4; max-width: 960px; margin: 0 auto; text-align: center; width: 100%;">
         
-        <p class="eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
+        <p class="eyebrow hero-eyebrow" style="margin-bottom: 1.25rem; justify-content: center; color: var(--cyan);">
           FIRMA DE INGENIERÍA DIGITAL &amp; SOBERANÍA TECNOLÓGICA
         </p>
 
         <h1 style="font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1.35rem; color: var(--paper);">
           Ingeniería digital para empresas.<br>
-          <span style="color: var(--cyan);">Web, software, infraestructura y seguridad</span> construidos para ser tuyos.
+          Web, software, infraestructura y seguridad construidos para ser <span style="color: var(--cyan);">tuyos.</span>
         </h1>
 
         <p class="lede" style="font-size: 1.15rem; color: #E2E8F0; line-height: 1.7; margin-bottom: 2.25rem; max-width: 74ch; margin-left: auto; margin-right: auto;">
-          <strong style="color: var(--paper);">Tu sitio. Tu código. Tus cuentas. Siempre.</strong> Desarrollamos plataformas web de alto rendimiento, sistemas a la medida y automatizaciones operativas con validación técnica determinista y 100% de titularidad jurídica.
+          <strong style="color: var(--paper);">Tu <span style="color: var(--cyan);">sitio</span>. Tu <span style="color: var(--cyan);">código</span>. Tus <span style="color: var(--cyan);">cuentas</span>. Para <span style="color: var(--cyan);">Siempre</span>.</strong> Desarrollamos plataformas web de alto rendimiento, sistemas a la medida y automatizaciones operativas con validación técnica determinista y 100% de titularidad jurídica.
         </p>
 
         <!-- CTA PRINCIPAL ÚNICO -->
         <div class="hero-actions" style="display: flex; justify-content: center; align-items: center; margin-bottom: 2.75rem;">
-          <a class="btn btn-cta-crystal" href="/contacto" style="font-size: 1.05rem; padding: 0.95rem 2.5rem;">
-            Iniciar Proyecto →
+          <a class="btn btn-cta-crystal hero-cta-btn" href="/contacto.html" id="hero-cta-btn">
+            Iniciar Proyecto <span class="cta-arrow" aria-hidden="true" style="color: #ffffff; display: inline-block; margin-left: 0.35rem;">→</span>
           </a>
         </div>
 
         <!-- PILLS DE CERTEZA TÉCNICA -->
         <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(255, 255, 255, 0.12); max-width: 780px; margin: 0 auto;">
           <div>
-            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--paper);">100% Titularidad</strong>
+            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--cyan);">100% Titularidad</strong>
             <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Código &amp; Cuentas Propias</span>
           </div>
           <div>
@@ -54,7 +54,7 @@ import TechIcon from '../components/TechIcon.astro';
             <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Desarrollo a la Medida</span>
           </div>
           <div>
-            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--paper);">Castle Gate</strong>
+            <strong style="display: block; font-size: 1.25rem; font-family: var(--f-mono); color: var(--cyan);">Castle Gate</strong>
             <span style="font-size: 0.76rem; color: #CBD5E1; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;">Gobernanza CQS v1.1</span>
           </div>
         </div>
@@ -1038,7 +1038,7 @@ import TechIcon from '../components/TechIcon.astro';
               <FAQItem question="¿Qué pasa si el responsable técnico no puede responder en el futuro?" answer="La continuidad de tu negocio está protegida por diseño: el 100% de los activos (dominio, repositorio Git, cuentas de hosting y certificados) están a tu nombre desde el inicio, con código estático estándar y documentación completa de entrega (Handoff), permitiendo que cualquier otro ingeniero calificado administre el sistema sin depender de nosotros." />
               <FAQItem question="¿Qué cubre la garantía técnica de 30 días?" answer="Cubre sin costo la corrección de cualquier bug, error de responsividad o falla de despliegue en las rutas y funciones acordadas en el SOW original. No cubre cambios de alcance o diseño no contemplados inicialmente." />
               <FAQItem question="¿Qué es el diagnóstico Castle Checkup y cómo se acredita?" answer="Es un servicio ágil de evaluación técnica donde auditamos tu repositorio bajo controles CQS v1.1 en 72 horas para detectar fugas de claves y bloqueos de calidad. Los $8,900 MXN pagados se acreditan al 100% si contratas cualquier desarrollo dentro de los 30 días posteriores." />
-              <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante las pólizas mensuales Castle Care ofrecemos supervisión continua de disponibilidad, parches de seguridad periódicos y mantenimiento preventivo según el nivel contratado (Care Basic, Care Pro o Care Enterprise), sin plazos forzosos." />
+              <FAQItem question="¿Qué soporte continuo ofrecen después del lanzamiento?" answer="Mediante las pólizas mensuales Castle Care ofrecemos supervisión continua de disponibilidad, parches de seguridad periódicos y horas mensuales de ingeniería directa incluidas según el nivel contratado (Care Core, Care Pro o Care Enterprise), sin plazos forzosos." />
             </div>
           </div>
         </div>

@@ -4,14 +4,14 @@
   align-items: center;
   justify-content: center;
   gap: 0.65em;
-  font-family: var(--f-body);
+  font-family: var(--f-body, sans-serif);
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 0.75rem 1.6rem;
   min-height: 48px;
   box-sizing: border-box;
-  border-radius: var(--radius);
+  border-radius: var(--radius, 8px);
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
@@ -19,11 +19,11 @@
   user-select: none;
   transform: translateZ(0);
   transition: 
-    transform var(--transition-fast), 
-    background var(--transition-fast), 
-    color var(--transition-fast), 
-    border-color var(--transition-fast), 
-    box-shadow var(--transition-fast);
+    transform var(--transition-fast, 0.18s), 
+    background var(--transition-fast, 0.18s), 
+    color var(--transition-fast, 0.18s), 
+    border-color var(--transition-fast, 0.18s), 
+    box-shadow var(--transition-fast, 0.18s);
 }
 
 .btn:hover {
@@ -35,68 +35,102 @@
   transition-duration: 75ms;
 }
 
-/* CTA Crystal Button (Semi-transparent Glass, Cyan Border Glow, Fixed in Place) */
-.btn-cta-crystal {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65em;
-  padding: 0.9rem 2.2rem;
-  min-height: 50px;
-  font-family: var(--f-body);
-  font-size: 0.95rem;
-  font-weight: 600;
+/* =========================================================================
+   UNIFIED DIMENSIONS FOR ALL "INICIAR PROYECTO" BUTTONS & CTA HERO/BAND
+   Desktop: 260px x 56px, 16px font, 700 weight, 16px 32px padding
+   Mobile: 100% (max 260px), 56px min-height, 16px 32px padding, centered
+   ========================================================================= */
+.btn-cta-crystal,
+.hero-cta-btn,
+.nav-cta,
+.cta-band .btn-cta-crystal {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 260px !important;
+  min-width: 260px !important;
+  max-width: 260px !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  padding: 16px 32px !important;
+  box-sizing: border-box !important;
+  font-family: var(--f-body, sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.01em !important;
+  border-radius: var(--radius, 8px) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 5 !important;
+  transform: none !important;
+}
+
+/* Dark Transparent Visual Style for Hero CTA and Final CTA Bands */
+.btn-cta-crystal,
+.hero-cta-btn,
+.hero-actions .btn,
+.hero-actions .btn-primary,
+.cta-band .btn-cta-crystal {
   color: #ffffff !important;
-  background: rgba(12, 18, 28, 0.88);
-  border: 1px solid rgba(52, 107, 241, 0.65);
-  border-top: 1px solid rgba(52, 107, 241, 0.9);
-  border-radius: var(--radius);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 0 18px rgba(52, 107, 241, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(6, 10, 23, 0.65) !important;
+  border: 1px solid rgba(52, 107, 241, 0.65) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 0 16px rgba(52, 107, 241, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
   transition: 
-    border-color var(--transition-normal), 
-    box-shadow var(--transition-normal), 
-    background var(--transition-normal),
-    filter var(--transition-fast);
-  position: relative;
-  /* CRITICAL: Physically fixed - no displacement */
-  transform: none !important;
+    border-color 0.2s ease, 
+    box-shadow 0.2s ease, 
+    background 0.2s ease,
+    filter 0.15s ease !important;
 }
 
-.btn-cta-crystal:hover {
+.btn-cta-crystal:hover,
+.hero-cta-btn:hover,
+.hero-actions .btn:hover,
+.hero-actions .btn-primary:hover,
+.cta-band .btn-cta-crystal:hover {
   transform: none !important;
-  border-color: #346BF1;
-  background: rgba(14, 24, 40, 0.95);
-  box-shadow: 0 0 28px rgba(52, 107, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-color: #346bf1 !important;
+  background: rgba(10, 18, 36, 0.85) !important;
+  box-shadow: 0 0 24px rgba(52, 107, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
   color: #ffffff !important;
 }
 
-.btn-cta-crystal:active {
+.btn-cta-crystal:active,
+.hero-cta-btn:active,
+.hero-actions .btn:active,
+.hero-actions .btn-primary:active,
+.cta-band .btn-cta-crystal:active {
   transform: none !important;
-  background: rgba(10, 16, 26, 0.98);
-  filter: brightness(1.15);
-  box-shadow: 0 0 14px rgba(52, 107, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transition-duration: 75ms;
+  background: rgba(4, 8, 18, 0.95) !important;
+  box-shadow: 0 0 12px rgba(52, 107, 241, 0.30) !important;
 }
 
-/* CTA Crystal Button — Green Variant (Castle Impact) */
-.btn-cta-crystal.btn-cta-crystal-green {
-  border: 1px solid rgba(0, 229, 153, 0.65);
-  box-shadow: 0 0 16px rgba(0, 229, 153, 0.18), inset 0 0 12px rgba(0, 229, 153, 0.08);
+/* Green Variant (Castle Impact) */
+.btn-cta-crystal.btn-cta-crystal-green,
+.cta-band.cta-band-green .btn-cta-crystal {
+  background: rgba(4, 16, 10, 0.65) !important;
+  border: 1px solid rgba(0, 229, 153, 0.65) !important;
+  box-shadow: 0 0 16px rgba(0, 229, 153, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
 }
 
-.btn-cta-crystal.btn-cta-crystal-green:hover {
-  border-color: #00E599;
-  background: rgba(10, 24, 18, 0.9);
-  box-shadow: 0 0 28px rgba(0, 229, 153, 0.45), inset 0 0 16px rgba(0, 229, 153, 0.15);
+.btn-cta-crystal.btn-cta-crystal-green:hover,
+.cta-band.cta-band-green .btn-cta-crystal:hover {
+  border-color: #00e599 !important;
+  background: rgba(6, 26, 16, 0.85) !important;
+  box-shadow: 0 0 24px rgba(0, 229, 153, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
 }
 
-.btn-cta-crystal.btn-cta-crystal-green:active {
-  background: rgba(8, 18, 14, 0.95);
-  box-shadow: 0 0 14px rgba(0, 229, 153, 0.25), inset 0 0 8px rgba(0, 229, 153, 0.1);
+.btn-cta-crystal.btn-cta-crystal-green:active,
+.cta-band.cta-band-green .btn-cta-crystal:active {
+  background: rgba(2, 10, 6, 0.95) !important;
+  box-shadow: 0 0 12px rgba(0, 229, 153, 0.30) !important;
 }
 
 /* Primary Technical Button (High Contrast Crisp White / Platinum) */
@@ -118,146 +152,118 @@
 
 .btn-primary:active,
 .btn-gold:active {
-  background: #e2e8f0;
+  background: #E2E8F0;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
-/* Cyan Precision Button */
+/* Cyan High-Tech Accent Button */
 .btn-cyan {
   background: var(--cyan);
-  color: #000;
-  border-color: rgba(52, 107, 241, 0.4);
-  box-shadow: 0 4px 16px rgba(52, 107, 241, 0.25);
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(0, 210, 255, 0.3);
 }
 
 .btn-cyan:hover {
-  background: #33dcff;
-  border-color: #346BF1;
-  box-shadow: 0 6px 24px rgba(52, 107, 241, 0.4), 0 0 12px rgba(52, 107, 241, 0.2);
+  background: #33DCFF;
+  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.45);
 }
 
 .btn-cyan:active {
-  background: #00bcd4;
-  box-shadow: 0 2px 8px rgba(52, 107, 241, 0.15);
+  background: #00BBE6;
+  box-shadow: 0 2px 6px rgba(0, 210, 255, 0.2);
 }
 
-/* Outline Glass Button */
+/* Dark Outline Button */
 .btn-outline {
-  border-color: var(--glass-border-bright);
+  background: rgba(14, 18, 27, 0.6);
+  border: 1px solid var(--line-dark);
   color: var(--paper);
-  background: rgba(20, 26, 38, 0.5);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-outline:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background: rgba(52, 107, 241, 0.08);
-  box-shadow: 0 4px 16px rgba(52, 107, 241, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(20, 26, 38, 0.85);
+  color: var(--paper);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .btn-outline:active {
-  background: rgba(52, 107, 241, 0.14);
-  box-shadow: 0 2px 6px rgba(52, 107, 241, 0.1);
+  background: rgba(10, 14, 20, 0.9);
 }
 
+/* Dark Solid Button */
 .btn-ink {
-  background: var(--ink-card);
+  background: var(--ink-deep);
   color: var(--paper);
   border: 1px solid var(--line-dark);
 }
 
 .btn-ink:hover {
-  background: var(--ink-hover);
-  border-color: var(--cyan);
-  color: var(--cyan);
-  box-shadow: 0 4px 14px rgba(52, 107, 241, 0.12);
+  background: var(--ink-card);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--paper);
 }
 
 .btn-ink:active {
-  background: #0d121c;
+  background: #020305;
 }
 
+/* Line / Ghost Button */
 .btn-line {
-  border-color: var(--line-dark);
+  background: transparent;
   color: var(--paper);
-  background: rgba(16, 20, 29, 0.6);
+  border: 1px solid var(--line-dark);
 }
 
 .btn-line:hover {
   background: var(--paper);
-  border-color: var(--paper);
   color: var(--ink);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+  border-color: var(--paper);
 }
 
 .btn-line:active {
-  background: #e2e8f0;
+  background: #E2E8F0;
 }
 
-/* Section dim buttons */
+/* Section Dimmable variants */
 .section-dim .btn-outline {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: var(--line-dark);
   color: var(--paper);
-  background: rgba(14, 18, 27, 0.6);
 }
 
 .section-dim .btn-outline:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background: rgba(52, 107, 241, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Final CTA Unification — Exact dimensions within each resolution without altering other buttons */
-.cta-band .btn-cta-crystal {
-  width: 280px;
-  height: 54px;
-  min-height: 54px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* Responsive Button Unification */
+/* Mobile Unified Rules for all Iniciar Proyecto & CTA buttons */
 @media (max-width: 640px) {
-  .btn,
-  .hero-actions .btn,
-  .form-grid .btn {
-    white-space: normal;
-    text-align: center;
-    width: min(100%, 340px);
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-inline: auto;
-  }
-
+  .btn-cta-crystal,
+  .hero-cta-btn,
+  .nav-cta,
   .cta-band .btn-cta-crystal {
-    width: min(100%, 340px);
-    height: 52px;
-    min-height: 52px;
-    padding: 0 1.25rem;
-    margin-inline: auto;
-    white-space: normal;
+    width: 100% !important;
+    max-width: 260px !important;
+    min-width: 0 !important;
+    min-height: 56px !important;
+    padding: 16px 32px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    box-sizing: border-box !important;
+    margin-inline: auto !important;
   }
 }
 
 @media (max-width: 480px) {
-  .btn:not(.btn-cta-crystal) {
-    padding: 0.82rem 1.35rem;
-    font-size: 0.9rem;
-    min-height: 46px;
+  .btn:not(.btn-cta-crystal):not(.hero-cta-btn):not(.nav-cta) {
+    white-space: normal;
+    text-align: center;
+    width: 100%;
   }
-}
 
-@media (max-width: 360px) {
-  .cta-band .btn-cta-crystal {
-    font-size: 0.88rem;
-    padding: 0 1rem;
+  .form-grid .btn {
+    width: 100%;
   }
 }
 
@@ -268,7 +274,10 @@
   .btn-cyan,
   .btn-outline,
   .btn-ink,
-  .btn-line {
+  .btn-line,
+  .btn-cta-crystal,
+  .hero-cta-btn,
+  .nav-cta {
     transform: none !important;
     transition: none !important;
   }

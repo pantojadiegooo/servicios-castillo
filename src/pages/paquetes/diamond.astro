@@ -1,9 +1,8 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQItem from '../../components/FAQItem.astro';
 import CTABand from '../../components/CTABand.astro';
-import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
-import { formatCarePrice } from '../../lib/care-checkout.js';
+import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
 ---
 
 <BaseLayout
@@ -15,7 +14,7 @@ import { formatCarePrice } from '../../lib/care-checkout.js';
   <main id="main">
 
     <section class="page-hero">
-      <InnerHeroVisual type="diamond" />
+      <HeroEngineVisual />
       <div class="container page-hero-inner">
         <p class="breadcrumb"><a href="/">Inicio</a> / <a href="/paquetes">Paquetes</a> / Castle Diamond</p>
         <div class="badge badge-cyan">SOFTWARE A MEDIDA • ARQUITECTURA AVANZADA</div>
@@ -120,7 +119,7 @@ import { formatCarePrice } from '../../lib/care-checkout.js';
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Qué pasa si cambian los requerimientos durante el desarrollo?" answer="Al trabajar por sprints con entregables verificables, podemos reordenar prioridades del backlog técnico al inicio de cada ciclo sin desestabilizar el presupuesto acordado." />
-              <FAQItem question="¿Ofrecen soporte y evolución post-lanzamiento?" answer={`Sí, a través de nuestro esquema Castle Care Enterprise (${formatCarePrice('enterprise')}/mes) o bolsas de horas de ingeniería dedicada para desarrollo evolutivo continuo.`} />
+              <FAQItem question="¿Ofrecen soporte y evolución post-lanzamiento?" answer="Sí, a través de nuestro esquema Castle Care Enterprise ($17,900 MXN/mes) o bolsas de horas de ingeniería dedicada para desarrollo evolutivo continuo." />
             </div>
           </div>
         </div>
