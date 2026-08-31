@@ -3,6 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQItem from '../../components/FAQItem.astro';
 import CTABand from '../../components/CTABand.astro';
 import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+import { formatCarePrice, getCareCheckoutConfig } from '../../lib/care-checkout.js';
+
+const checkout = getCareCheckoutConfig(import.meta.env, {
+  deployment: import.meta.env.VERCEL_ENV ?? (import.meta.env.DEV ? 'development' : 'production'),
+});
 ---
 
 <BaseLayout
@@ -24,7 +29,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
     </section>
 
     <!-- RESUMEN DEL SERVICIO Y COMPARATIVA DE PLANES -->
-    <section class="section">
+    <section class="section" id="planes-care">
       <div class="container">
         
         <div class="section-head reveal">
@@ -45,7 +50,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               Supervisión esencial de disponibilidad y parches de seguridad para sitios web corporativos.
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
-              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$590 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">{formatCarePrice('basic')} <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
               <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
@@ -55,7 +60,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               <li>Parches preventivos de seguridad</li>
               <li>Soporte técnico vía ticket estándar</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Basic</a>
+            <a class="btn btn-primary" href={checkout.plans.basic.href} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">{checkout.enabled ? 'Suscribirme a Basic' : 'Solicitar Basic'}</a>
           </div>
 
           <!-- 2. CARE PRO (POPULAR) -->
@@ -69,7 +74,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               Supervisión integral, actualización periódica de dependencias y soporte técnico prioritario.
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
-              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$990 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">{formatCarePrice('pro')} <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
               <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
@@ -79,7 +84,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               <li>Canal de soporte técnico prioritario</li>
               <li>Reporte mensual de métricas y rendimiento</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Care Pro</a>
+            <a class="btn btn-primary" href={checkout.plans.pro.href} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">{checkout.enabled ? 'Suscribirme a Pro' : 'Solicitar Pro'}</a>
           </div>
 
           <!-- 3. CARE ENTERPRISE -->
@@ -92,7 +97,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               Gobernanza completa, supervisión multi-proyecto y asesoría de ingeniería directa.
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
-              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$1,890 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
+              <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">{formatCarePrice('enterprise')} <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
               <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
             </div>
             <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
@@ -102,10 +107,19 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
               <li>Atención prioritaria y soporte multi-canal</li>
               <li>Auditorías continuas con Castle Gate CLI</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Enterprise</a>
+            <a class="btn btn-primary" href={checkout.plans.enterprise.href} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">{checkout.enabled ? 'Suscribirme a Enterprise' : 'Solicitar Enterprise'}</a>
           </div>
 
         </div>
+
+        {checkout.enabled && (
+          <div style="max-width: 800px; margin: 0 auto 2rem; text-align: center;">
+            {checkout.mode === 'test' && <p role="status"><strong>Entorno de pruebas: no se realizan cobros reales.</strong></p>}
+            <p>El cobro es mensual y recurrente. Al suscribirte continuarás en la página de pago de Stripe, donde podrás revisar el importe antes de confirmar.</p>
+            <p><a href="/terminos">Términos del servicio</a> · <a href="/aviso-de-privacidad">Aviso de privacidad</a></p>
+            <a class="btn btn-outline" href={checkout.portalUrl}>Gestionar mi suscripción</a>
+          </div>
+        )}
 
         <div style="padding: 1.25rem; background: rgba(52, 107, 241, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--steel-light); max-width: 800px; margin: 0 auto 3rem auto; text-align: center;">
           ℹ <em>Condición operativa:</em> Las suscripciones Castle Care se renuevan mes a mes y pueden cancelarse en cualquier momento con notificación previa antes de la fecha de corte.
@@ -141,8 +155,8 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
     <CTABand
       title="Asegura la salud y continuidad de tu software hoy."
       description="Suscríbete a Castle Care y delega la supervisión técnica en los expertos de Grupo Castillo."
-      ctaLabel="Suscribirme a Castle Care"
-      ctaHref="/contacto?necesidad=cuidado"
+      ctaLabel="Elegir mi plan Castle Care"
+      ctaHref="#planes-care"
     />
 
   </main>

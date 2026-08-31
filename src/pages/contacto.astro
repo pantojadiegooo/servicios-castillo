@@ -272,17 +272,19 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           } catch (e) {}
         }
         
-        const tipoSelect = document.getElementById('tipo_proyecto');
-        const presSelect = document.getElementById('presupuesto');
-        const prefillAlert = document.getElementById('prefill-alert');
-        const prefillText = document.getElementById('prefill-text');
-        const intencionInput = document.getElementById('intencion_comercial');
-        const paqueteOrigenInput = document.getElementById('paquete_origen');
-        const intentButtons = document.querySelectorAll('.intent-btn');
+        const tipoSelect = document.getElementById('tipo_proyecto') as HTMLSelectElement | null;
+        const presSelect = document.getElementById('presupuesto') as HTMLSelectElement | null;
+        const prefillAlert = document.getElementById('prefill-alert') as HTMLElement | null;
+        const prefillText = document.getElementById('prefill-text') as HTMLElement | null;
+        const intencionInput = document.getElementById('intencion_comercial') as HTMLInputElement | null;
+        const paqueteOrigenInput = document.getElementById('paquete_origen') as HTMLInputElement | null;
+        const intentButtons = document.querySelectorAll<HTMLElement>('.intent-btn');
 
         // FUNCIÓN PARA ACTIVAR PESTAÑA VISUAL
-        function setIntent(intentName) {
-          intencionInput.value = intentName;
+        function setIntent(intentName: string) {
+          if (intencionInput) {
+            intencionInput.value = intentName;
+          }
           intentButtons.forEach(btn => {
             if (btn.getAttribute('data-intent') === intentName) {
               btn.style.borderColor = 'rgba(52, 107, 241, 0.6)';
@@ -296,35 +298,39 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
         // LISTENERS PARA SELECTOR DE INTENCIÓN
         intentButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            const intent = this.getAttribute('data-intent');
+          btn.addEventListener('click', function(this: HTMLElement) {
+            const intent = this.getAttribute('data-intent') || 'construir';
             setIntent(intent);
 
             // AUTO-ADAPTAR SELECTS
-            if (intent === 'construir') {
-              tipoSelect.value = 'Castle Gold ($12,500 MXN)';
-              presSelect.value = '5k-15k';
-            } else if (intent === 'revisar') {
-              tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
-              presSelect.value = 'checkup';
-            } else if (intent === 'problema') {
-              tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
-              presSelect.value = '5k-15k';
-            } else if (intent === 'mantenimiento') {
-              tipoSelect.value = 'Castle Care (Desde $590 MXN/mes)';
-              presSelect.value = 'care-mensual';
+            if (tipoSelect && presSelect) {
+              if (intent === 'construir') {
+                tipoSelect.value = 'Castle Gold ($12,500 MXN)';
+                presSelect.value = '5k-15k';
+              } else if (intent === 'revisar') {
+                tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
+                presSelect.value = 'checkup';
+              } else if (intent === 'problema') {
+                tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
+                presSelect.value = '5k-15k';
+              } else if (intent === 'mantenimiento') {
+                tipoSelect.value = 'Castle Care (Desde $590 MXN/mes)';
+                presSelect.value = 'care-mensual';
+              }
             }
           });
         });
 
         // PARSEO DE PARÁMETROS URL
         if (paqParam || necParam) {
-          const rawTarget = paqParam || necParam;
+          const rawTarget = paqParam || necParam || '';
           const target = rawTarget.toLowerCase();
-          paqueteOrigenInput.value = rawTarget;
+          if (paqueteOrigenInput) {
+            paqueteOrigenInput.value = rawTarget;
+          }
 
           // Ocultar selector redundante si ya se especificó necesidad o paquete en la URL
-          const intentWrap = document.getElementById('intent-selector-wrap');
+          const intentWrap = document.getElementById('intent-selector-wrap') as HTMLElement | null;
           if (intentWrap) {
             intentWrap.style.display = 'none';
           }
@@ -334,71 +340,73 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
           if (target.includes('iron')) {
             matchedOption = 'Castle Iron ($2,800 MXN)';
-            presSelect.value = 'hasta-5k';
+            if (presSelect) presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('bronze')) {
             matchedOption = 'Castle Bronze ($4,500 MXN)';
-            presSelect.value = 'hasta-5k';
+            if (presSelect) presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('silver')) {
             matchedOption = 'Castle Silver ($7,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('gold')) {
             matchedOption = 'Castle Gold ($12,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('platinum')) {
             matchedOption = 'Castle Platinum ($24,500 MXN)';
-            presSelect.value = '15k-30k';
+            if (presSelect) presSelect.value = '15k-30k';
             detectedIntent = 'construir';
           } else if (target.includes('diamond') || target.includes('avanzado') || target.includes('medida')) {
             matchedOption = 'Castle Diamond ($40,000+ MXN)';
-            presSelect.value = 'mas-40k';
+            if (presSelect) presSelect.value = 'mas-40k';
             detectedIntent = 'construir';
           } else if (target.includes('checkup')) {
             matchedOption = 'Castle Checkup ($8,900 MXN)';
-            presSelect.value = 'checkup';
+            if (presSelect) presSelect.value = 'checkup';
             detectedIntent = 'revisar';
           } else if (target.includes('audit') || target === 'revisar') {
             matchedOption = target.includes('audit') ? 'Castle Audit ($19,900 MXN)' : 'Castle Checkup ($8,900 MXN)';
-            presSelect.value = target.includes('audit') ? '15k-30k' : 'checkup';
+            if (presSelect) presSelect.value = target.includes('audit') ? '15k-30k' : 'checkup';
             detectedIntent = 'revisar';
           } else if (target.includes('consultoria') || target.includes('roadmap')) {
             matchedOption = 'Consultoría Digital & Roadmap';
-            presSelect.value = 'por-definir';
+            if (presSelect) presSelect.value = 'por-definir';
             detectedIntent = 'revisar';
           } else if (target.includes('rescue') || target.includes('mejorar')) {
             matchedOption = 'Castle Rescue ($6,900 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('emergency') || target.includes('urgencia') || target === 'problema') {
             matchedOption = target.includes('emergency') ? 'Castle Emergency ($5,900 MXN)' : 'Castle Rescue ($6,900 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('care') || target.includes('mantenimiento') || target.includes('cuidado')) {
             matchedOption = 'Castle Care (Desde $590 MXN/mes)';
-            presSelect.value = 'care-mensual';
+            if (presSelect) presSelect.value = 'care-mensual';
             detectedIntent = 'mantenimiento';
           } else if (target.includes('gate') || target.includes('gobernanza')) {
             matchedOption = 'Castle Gate CLI ($9,900 MXN/año)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'revisar';
           } else if (target === 'construir') {
             matchedOption = 'Castle Gold ($12,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           }
 
-          if (matchedOption) {
+          if (matchedOption && tipoSelect) {
             tipoSelect.value = matchedOption;
           }
 
           setIntent(detectedIntent);
 
           // MOSTRAR BANNER DE PRELLENADO
-          prefillAlert.style.display = 'block';
-          prefillText.innerText = 'Has seleccionado ' + rawTarget + '. El formulario ha sido configurado para acelerar tu solicitud.';
+          if (prefillAlert && prefillText) {
+            prefillAlert.style.display = 'block';
+            prefillText.innerText = 'Has seleccionado ' + rawTarget + '. El formulario ha sido configurado para acelerar tu solicitud.';
+          }
         }
 
         if (presParam && presSelect) {
@@ -406,28 +414,30 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
         }
 
         // Intercept form submission for AJAX post and GA4 Lead event triggering
-        const form = document.getElementById('contact-form');
-        const successMsg = document.getElementById('form-success-message');
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const successMsg = document.getElementById('form-success-message') as HTMLElement | null;
         if (form && successMsg) {
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Check honeypot for spam mitigation
-            const gotchaInput = form.querySelector('input[name="_gotcha"]');
+            const gotchaInput = form.querySelector('input[name="_gotcha"]') as HTMLInputElement | null;
             if (gotchaInput && gotchaInput.value) {
               form.style.display = 'none';
-              const prefillAlert = document.getElementById('prefill-alert');
-              if (prefillAlert) prefillAlert.style.display = 'none';
+              const alertEl = document.getElementById('prefill-alert');
+              if (alertEl) alertEl.style.display = 'none';
               const intentSelector = document.getElementById('intent-selector-wrap');
               if (intentSelector) intentSelector.style.display = 'none';
               successMsg.style.display = 'block';
               return;
             }
 
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Enviando...';
+            const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+            const originalText = submitBtn ? submitBtn.innerText : 'Enviar Solicitud';
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerText = 'Enviando...';
+            }
 
             const formData = new FormData(form);
             fetch(form.action, {
@@ -438,16 +448,18 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             .then(function(res) {
               if (res.ok) {
                 form.style.display = 'none';
-                const prefillAlert = document.getElementById('prefill-alert');
-                if (prefillAlert) prefillAlert.style.display = 'none';
+                const alertEl = document.getElementById('prefill-alert');
+                if (alertEl) alertEl.style.display = 'none';
                 const intentSelector = document.getElementById('intent-selector-wrap');
                 if (intentSelector) intentSelector.style.display = 'none';
                 successMsg.style.display = 'block';
 
                 // GA4 generate_lead Event (with NO personal information!)
                 if (typeof window.gtag === 'function') {
-                  const selectedService = document.getElementById('tipo_proyecto').value;
-                  const intencion = document.getElementById('intencion_comercial').value;
+                  const serviceInput = document.getElementById('tipo_proyecto') as HTMLSelectElement | null;
+                  const intentInput = document.getElementById('intencion_comercial') as HTMLInputElement | null;
+                  const selectedService = serviceInput ? serviceInput.value : '';
+                  const intencion = intentInput ? intentInput.value : '';
                   window.gtag('event', 'generate_lead', {
                     cta_location: 'contacto',
                     package_name: selectedService,
@@ -457,14 +469,18 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 }
               } else {
                 alert('Hubo un problema al enviar tu solicitud. Por favor intenta de nuevo o escríbenos directamente a contacto@grupocastillo.lat.');
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalText;
+                if (submitBtn) {
+                  submitBtn.disabled = false;
+                  submitBtn.innerText = originalText;
+                }
               }
             })
             .catch(function() {
               alert('Error de conexión. Por favor verifica tu red o contáctanos por WhatsApp/Correo.');
-              submitBtn.disabled = false;
-              submitBtn.innerText = originalText;
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalText;
+              }
             });
           });
         }

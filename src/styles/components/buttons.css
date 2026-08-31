@@ -208,17 +208,56 @@
   background: rgba(52, 107, 241, 0.1);
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .btn {
-    white-space: normal;
-    text-align: center;
-    width: 100%;
-  }
+/* Final CTA Unification — Exact dimensions within each resolution without altering other buttons */
+.cta-band .btn-cta-crystal {
+  width: 280px;
+  height: 54px;
+  min-height: 54px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
 
+/* Responsive Button Unification */
+@media (max-width: 640px) {
+  .btn,
   .hero-actions .btn,
   .form-grid .btn {
-    width: 100%;
+    white-space: normal;
+    text-align: center;
+    width: min(100%, 340px);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-inline: auto;
+  }
+
+  .cta-band .btn-cta-crystal {
+    width: min(100%, 340px);
+    height: 52px;
+    min-height: 52px;
+    padding: 0 1.25rem;
+    margin-inline: auto;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn:not(.btn-cta-crystal) {
+    padding: 0.82rem 1.35rem;
+    font-size: 0.9rem;
+    min-height: 46px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cta-band .btn-cta-crystal {
+    font-size: 0.88rem;
+    padding: 0 1rem;
   }
 }
 

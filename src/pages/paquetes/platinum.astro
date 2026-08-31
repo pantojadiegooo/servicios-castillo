@@ -1,8 +1,9 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQItem from '../../components/FAQItem.astro';
 import CTABand from '../../components/CTABand.astro';
 import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
+import { formatCarePrice } from '../../lib/care-checkout.js';
 ---
 
 <BaseLayout
@@ -116,7 +117,7 @@ import InnerHeroVisual from '../../components/InnerHeroVisual.astro';
           <div class="reveal">
             <div class="faq">
               <FAQItem open={true} question="¿Qué nivel de Castle Gate se incluye?" answer="Incluye configuración y validación en pipeline bajo políticas C3/C4 Professional, asegurando que ningún release introduzca fallas de seguridad." />
-              <FAQItem question="¿Qué plan de mantenimiento se recomienda?" answer="Recomendamos Castle Care Pro ($7,900 MXN/mes) para supervisión técnica constante, soporte de pasarelas y 4 horas mensuales de ingeniería directa." />
+              <FAQItem question="¿Qué plan de mantenimiento se recomienda?" answer={`Recomendamos Castle Care Pro (${formatCarePrice('pro')}/mes) para supervisión técnica constante, soporte de pasarelas y 4 horas mensuales de ingeniería directa.`} />
             </div>
           </div>
         </div>
