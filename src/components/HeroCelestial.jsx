@@ -101,7 +101,7 @@ export default function HeroCelestial() {
     let height = 0;
     let dpi = 1;
     let frameId = null;
-    let isVisible = false;
+    let isVisible = true;
     let time = 0;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -145,6 +145,9 @@ export default function HeroCelestial() {
           particles[i].homeX = Math.random() * width;
           particles[i].homeY = Math.random() * height;
         }
+      }
+      if (reducedMotion) {
+        drawCelestial();
       }
     }
 
@@ -327,6 +330,8 @@ export default function HeroCelestial() {
 
         if (isHoveringTitle || needsUpdate) {
           charPhysicsFrame = requestAnimationFrame(updateCharPhysics);
+        } else {
+          charPhysicsFrame = null;
         }
       }
 
