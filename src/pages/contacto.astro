@@ -151,12 +151,12 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               <label for="tipo_proyecto">Servicio o Paquete de Interés <span style="color: var(--cyan);">*</span></label>
               <select id="tipo_proyecto" name="tipo_proyecto" required>
                 <optgroup label="Desarrollo Web (Paquetes)">
-                  <option value="Castle Iron ($2,800 MXN)">Castle Iron — $2,800 MXN (Landing Esencial)</option>
-                  <option value="Castle Bronze ($4,500 MXN)">Castle Bronze — $4,500 MXN (Presencia PyME)</option>
-                  <option value="Castle Silver ($7,500 MXN)">Castle Silver — $7,500 MXN (Multi-sección)</option>
-                  <option value="Castle Gold ($12,500 MXN)" selected>Castle Gold — $12,500 MXN (Más Elegido • Con Blog/CMS)</option>
-                  <option value="Castle Platinum ($24,500 MXN)">Castle Platinum — $24,500 MXN (Integrado / Pagos)</option>
-                  <option value="Castle Diamond (Desde $40,000 MXN)">Castle Diamond — Desde $40,000 MXN (Software a la Medida)</option>
+                  <option value="Castle Iron ($2,999 MXN)">Castle Iron — $2,999 MXN (Landing Esencial)</option>
+                  <option value="Castle Bronze ($4,900 MXN)">Castle Bronze — $4,900 MXN (Presencia PyME)</option>
+                  <option value="Castle Silver ($7,900 MXN)">Castle Silver — $7,900 MXN (Multi-sección)</option>
+                  <option value="Castle Gold ($12,900 MXN)" selected>Castle Gold — $12,900 MXN (Más Elegido • Con Blog/CMS)</option>
+                  <option value="Castle Platinum ($25,900 MXN)">Castle Platinum — $25,900 MXN (Integrado / Pagos)</option>
+                  <option value="Castle Diamond ($50,000 MXN)">Castle Diamond — $50,000 MXN (Software a la Medida)</option>
                 </optgroup>
                 <optgroup label="Servicios de Ingeniería &amp; Consultoría">
                   <option value="Castle Checkup ($8,900 MXN)">Castle Checkup — $8,900 MXN (Diagnóstico 72h • 100% Bonificable)</option>
@@ -182,7 +182,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 <option value="hasta-5k">Hasta $5,000 MXN (Iron / Bronze)</option>
                 <option value="5k-15k" selected>$5,000 – $15,000 MXN (Silver / Gold)</option>
                 <option value="15k-30k">$15,000 – $30,000 MXN (Platinum)</option>
-                <option value="mas-40k">Más de $40,000 MXN (Diamond / Proyectos Avanzados)</option>
+                <option value="mas-40k">$50,000 MXN o más (Diamond / Proyectos Avanzados)</option>
                 <option value="checkup">$8,900 MXN (Diagnóstico Checkup 72h)</option>
                 <option value="care-mensual">$590 – $2,490 MXN / mes (Castle Care)</option>
                 <option value="por-definir">Por definir / Deseo asesoría previa</option>
@@ -302,7 +302,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
             // AUTO-ADAPTAR SELECTS
             if (intent === 'construir') {
-              tipoSelect.value = 'Castle Gold ($12,500 MXN)';
+              tipoSelect.value = 'Castle Gold ($12,900 MXN)';
               presSelect.value = '5k-15k';
             } else if (intent === 'revisar') {
               tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
@@ -333,27 +333,27 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           let matchedOption = '';
 
           if (target.includes('iron')) {
-            matchedOption = 'Castle Iron ($2,800 MXN)';
+            matchedOption = 'Castle Iron ($2,999 MXN)';
             presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('bronze')) {
-            matchedOption = 'Castle Bronze ($4,500 MXN)';
+            matchedOption = 'Castle Bronze ($4,900 MXN)';
             presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('silver')) {
-            matchedOption = 'Castle Silver ($7,500 MXN)';
+            matchedOption = 'Castle Silver ($7,900 MXN)';
             presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('gold')) {
-            matchedOption = 'Castle Gold ($12,500 MXN)';
+            matchedOption = 'Castle Gold ($12,900 MXN)';
             presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('platinum')) {
-            matchedOption = 'Castle Platinum ($24,500 MXN)';
+            matchedOption = 'Castle Platinum ($25,900 MXN)';
             presSelect.value = '15k-30k';
             detectedIntent = 'construir';
           } else if (target.includes('diamond') || target.includes('avanzado') || target.includes('medida')) {
-            matchedOption = 'Castle Diamond (Desde $40,000 MXN)';
+            matchedOption = 'Castle Diamond ($50,000 MXN)';
             presSelect.value = 'mas-40k';
             detectedIntent = 'construir';
           } else if (target.includes('checkup')) {
@@ -385,7 +385,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             presSelect.value = '5k-15k';
             detectedIntent = 'revisar';
           } else if (target === 'construir') {
-            matchedOption = 'Castle Gold ($12,500 MXN)';
+            matchedOption = 'Castle Gold ($12,900 MXN)';
             presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           }

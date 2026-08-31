@@ -28,12 +28,12 @@ import {
 } from '../../src/commercial/core/id-generator.js';
 
 test('Pricing — Verificación de catálogo oficial de 6 paquetes y servicios', () => {
-  assert.equal(BUILD_PACKAGES.IRON.priceMxn, 2800);
-  assert.equal(BUILD_PACKAGES.BRONZE.priceMxn, 4500);
-  assert.equal(BUILD_PACKAGES.SILVER.priceMxn, 7500);
-  assert.equal(BUILD_PACKAGES.GOLD.priceMxn, 12500);
-  assert.equal(BUILD_PACKAGES.PLATINUM.priceMxn, 24500);
-  assert.equal(BUILD_PACKAGES.DIAMOND.priceMxn, 40000);
+  assert.equal(BUILD_PACKAGES.IRON.priceMxn, 2999);
+  assert.equal(BUILD_PACKAGES.BRONZE.priceMxn, 4900);
+  assert.equal(BUILD_PACKAGES.SILVER.priceMxn, 7900);
+  assert.equal(BUILD_PACKAGES.GOLD.priceMxn, 12900);
+  assert.equal(BUILD_PACKAGES.PLATINUM.priceMxn, 25900);
+  assert.equal(BUILD_PACKAGES.DIAMOND.priceMxn, 50000);
 
   assert.equal(SPECIALIZED_SERVICES.CHECKUP.priceMxn, 8900);
   assert.equal(SPECIALIZED_SERVICES.CARE.plans.basic.priceMxnMonthly, 590);
@@ -45,17 +45,17 @@ test('Pricing — Verificación de catálogo oficial de 6 paquetes y servicios',
 });
 
 test('Pricing — Cálculo de desglose financiero (Subtotal, IVA 16%, 50/50)', () => {
-  const breakdown = calculateFinancialBreakdown(12500, TAX_RATE_DEFAULT);
-  assert.equal(breakdown.subtotal, 12500);
+  const breakdown = calculateFinancialBreakdown(12900, TAX_RATE_DEFAULT);
+  assert.equal(breakdown.subtotal, 12900);
   assert.equal(breakdown.taxRate, 0.16);
-  assert.equal(breakdown.taxAmount, 2000);
-  assert.equal(breakdown.total, 14500);
-  assert.equal(breakdown.depositStandard50, 7250);
-  assert.equal(breakdown.balanceStandard50, 7250);
+  assert.equal(breakdown.taxAmount, 2064);
+  assert.equal(breakdown.total, 14964);
+  assert.equal(breakdown.depositStandard50, 7482);
+  assert.equal(breakdown.balanceStandard50, 7482);
 
   const resolved = resolveServicePricing('gold');
   assert.ok(resolved);
-  assert.equal(resolved.priceMxn, 12500);
+  assert.equal(resolved.priceMxn, 12900);
 });
 
 test('Progress Calculator — Derivación matemática de progreso por hitos', () => {

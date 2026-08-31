@@ -21,12 +21,12 @@
 Marcar la modalidad aplicable conforme al catálogo comercial oficial:
 
 - [ ] **Paquete Build:**
-  - [ ] Castle Iron (1 Página • Landing Esencial • $2,800 MXN)
-  - [ ] Castle Bronze (Hasta 5 Secciones • Conversión PyME • $4,500 MXN)
-  - [ ] Castle Silver (Hasta 5 Páginas • Presencia Corporativa • $7,500 MXN)
-  - [ ] Castle Gold (8 a 10 Páginas • Plataforma Corporativa con Blog/CMS • $12,500 MXN)
-  - [ ] Castle Platinum (Hasta 15 Páginas • Integración Pagos/CRM & Hardening • $24,500 MXN)
-  - [ ] Castle Diamond (Custom Scope • Software & Arquitectura Insignia a Medida • Desde $40,000 MXN)
+  - [ ] Castle Iron (1 Página • Landing Esencial • $2,999 MXN)
+  - [ ] Castle Bronze (Hasta 5 Secciones • Conversión PyME • $4,900 MXN)
+  - [ ] Castle Silver (Hasta 5 Páginas • Presencia Corporativa • $7,900 MXN)
+  - [ ] Castle Gold (8 a 10 Páginas • Plataforma Corporativa con Blog/CMS • $12,900 MXN)
+  - [ ] Castle Platinum (Hasta 15 Páginas • Integración Pagos/CRM & Hardening • $25,900 MXN)
+  - [ ] Castle Diamond (Custom Scope • Software & Arquitectura Insignia a Medida • $50,000 MXN)
 - [ ] **Servicio Profesional Especializado:**
   - [ ] Castle Checkup (Diagnóstico Técnico Profundo 72h • $8,900 MXN)
   - [ ] Castle Audit (Auditoría Integral de Arquitectura, Rendimiento y Seguridad • Desde $19,900 MXN)
