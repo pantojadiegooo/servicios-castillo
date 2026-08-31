@@ -9,9 +9,10 @@ interface Props {
   description: string;
   canonical: string;
   ogUrl: string;
+  noindex?: boolean;
 }
 
-const { title, description, canonical, ogUrl } = Astro.props;
+const { title, description, canonical, ogUrl, noindex = false } = Astro.props;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -47,6 +48,7 @@ const serializedJsonLd = JSON.stringify(jsonLd)
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex, nofollow">}
 <link rel="canonical" href={canonical}>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grupo Castillo">

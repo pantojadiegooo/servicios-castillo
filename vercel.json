@@ -63,6 +63,28 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.grupocastillo.lat"
+        }
+      ],
+      "destination": "https://grupocastillo.lat/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "servicios-castillo.vercel.app"
+        }
+      ],
+      "destination": "https://grupocastillo.lat/:path*",
+      "permanent": true
+    },
     { "source": "/auditoria.html", "destination": "/servicios/audit", "permanent": true },
     { "source": "/auditoria",      "destination": "/servicios/audit", "permanent": true },
     { "source": "/cuidado.html",   "destination": "/servicios/care",  "permanent": true },

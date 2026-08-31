@@ -7,7 +7,7 @@
 
 El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo costo:
 
-* **Frontend Público y Portal:** Alojado en **Vercel Edge Network** (`www.grupocastillo.lat`), generado como sitio estático Astro (`dist/`).
+* **Frontend Público y Portal:** Alojado en **Vercel Edge Network** (`grupocastillo.lat`, con `www.grupocastillo.lat` redirigiendo vía 308), generado como sitio estático Astro (`dist/`).
 * **API Comercial y Expediente:** Alojado en **VPS Linux Persistente** (`api.grupocastillo.lat`) con **Node.js 24 LTS**, gestionado por **systemd** y expuesto vía **Nginx Reverse Proxy** con TLS 1.3.
 * **Persistencia Relacional y Bóveda:** Base de datos nativa SQLite (`.castle/commercial.sqlite` en modo WAL) y almacenamiento local de documentos (`.castle/vault/<projectId>/`) sobre disco NVMe persistente.
 
@@ -16,17 +16,17 @@ El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo co
                                               │
                      ┌────────────────────────┴────────────────────────┐
                      ▼                                                 ▼
-             www.grupocastillo.lat                             api.grupocastillo.lat
-                     │                                                 │
-            Vercel Edge Network                                Nginx Reverse Proxy
-                     │                                                 │ (Rate Limit + SSL)
-          Astro SSG (Público + UI)                                     ▼
-         - /index.html                                          Node.js 24 Runtime
-         - /cotizacion.html                                     (bin/commercial-api.js)
-         - /portal.html                                                │
-         - /admin.html                                     ┌───────────┴───────────┐
-         - /ingenieria.html                                ▼                       ▼
-                                                .castle/commercial.sqlite   .castle/vault/
+             grupocastillo.lat                                 api.grupocastillo.lat
+        (www -> 308 redirect)                                          │
+                     │                                         Nginx Reverse Proxy
+            Vercel Edge Network                                (Rate Limit + SSL)
+                     │                                                 ▼
+          Astro SSG (Público + UI)                             Node.js 24 Runtime
+         - /index.html                                         (bin/commercial-api.js)
+         - /cotizacion.html                                            │
+         - /portal.html                                    ┌───────────┴───────────┐
+         - /admin.html                                     ▼                       ▼
+         - /ingenieria.html                     .castle/commercial.sqlite   .castle/vault/
 ```
 
 ---
@@ -37,7 +37,8 @@ El sistema opera bajo una arquitectura desacoplada de alto rendimiento y bajo co
 * **Especificaciones Mínimas:** 1 vCPU, 2 GB RAM, 25 GB SSD/NVMe (ej. Hetzner CX22, DigitalOcean Basic Droplet o Linode).
 * **Dominio Configurado:**
   - Registro `A` para `api.grupocastillo.lat` $\rightarrow$ IP elástica del VPS.
-  - Registro `CNAME` para `www.grupocastillo.lat` $\rightarrow$ `cname.vercel-dns.com`.
+  - Registro `A` / `ALIAS` para `grupocastillo.lat` $\rightarrow$ `76.76.21.21` (Vercel Edge).
+  - Registro `CNAME` para `www.grupocastillo.lat` $\rightarrow$ `cname.vercel-dns.com` (Redirección 308 a apex).
 
 ---
 
