@@ -110,8 +110,9 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             * Esta cotización constituye la Declaración de Trabajo (SOW) y Condiciones Particulares vinculadas al Contrato Marco de Prestación de Servicios (MSA GC-MSA-2026). Incluye 30 días naturales de garantía operativa post-entrega y 100% de titularidad exclusiva del código fuente, dominio e infraestructura para el cliente.
           </div>
 
-          <!-- ACCIONES DE ACEPTACIÓN FORMAL -->
+          <!-- ACCIONES DE ACEPTACIÓN FORMAL O DERIVACIÓN ORIENTATIVA -->
           <div id="acceptance-section" style="border-top: 1px solid var(--line-dark); padding-top: 1.75rem;">
+            <!-- ALERTA SI LA COTIZACIÓN REAL YA FUE ACEPTADA -->
             <div id="already-accepted-alert" style="display: none; padding: 1rem; background: rgba(0, 229, 153, 0.1); border-left: 3px solid var(--success); color: var(--paper); font-size: 0.9rem;">
               <strong>Cotización formalmente aceptada</strong> el <span id="accepted-date"></span>. Estado del proyecto: <span id="accepted-state" style="font-family: var(--f-mono); color: var(--cyan);"></span>.
               <div style="margin-top: 0.75rem;">
@@ -119,7 +120,29 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
               </div>
             </div>
 
-            <form id="accept-form" style="display: block;">
+            <!-- AVISO Y CTA PARA COTIZACIONES DEMO / ESTIMACIONES ORIENTATIVAS -->
+            <div id="demo-estimation-notice" style="display: none; padding: 1.5rem 1.75rem; background: rgba(52, 107, 241, 0.08); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); margin-top: 0.5rem;">
+              <div style="font-family: var(--f-mono); font-size: 0.75rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 0.35rem;">
+                Estimación Comercial Orientativa
+              </div>
+              <h4 style="font-size: 1.1rem; color: var(--paper); margin: 0 0 0.5rem 0; font-weight: 700;">
+                Esta es una referencia técnica y presupuestaria orientativa
+              </h4>
+              <p style="color: var(--steel-light); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                El presente cálculo financiero se genera con fines informativos a partir de nuestro catálogo público. No constituye una cotización vinculante con folio asignado ni permite formalización contractual directa sin validación previa de requerimientos.
+              </p>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <a id="demo-contact-cta" href="/contacto" class="btn btn-primary" style="padding: 0.75rem 1.35rem; font-size: 0.88rem;">
+                  Solicitar Cotización Formalizada en Contacto →
+                </a>
+                <a href="https://wa.me/529518096110" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.75rem 1.2rem; font-size: 0.88rem; border-color: #25D366; color: #25D366;">
+                  Consultar por WhatsApp (+52 951 809 6110)
+                </a>
+              </div>
+            </div>
+
+            <!-- FORMULARIO DE ACEPTACIÓN EXCLUSIVO PARA COTIZACIONES REALES VALIDADAS -->
+            <form id="accept-form" style="display: none;">
               <h3 style="font-size: 1.1rem; color: var(--paper); margin-bottom: 1rem;">Formalizar Aceptación de la Propuesta</h3>
               <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1.25rem;">
                 <div>
@@ -137,10 +160,18 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
                   <span>Confirmo la aceptación del alcance, cronograma e importes de este SOW conforme a los términos del Contrato Marco GC-MSA-2026.</span>
                 </label>
               </div>
+
+              <!-- CONTENEDOR DE ERROR ACCESIBLE (INLINE) -->
+              <div id="accept-error-message" role="alert" aria-live="assertive" style="display: none; padding: 1rem 1.25rem; background: rgba(255, 59, 92, 0.08); border: 1px solid rgba(255, 59, 92, 0.35); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.88rem; line-height: 1.55; margin-bottom: 1.25rem;">
+                <strong style="color: #FF4D4D; display: block; margin-bottom: 0.25rem;">No fue posible formalizar la aceptación</strong>
+                <span id="accept-error-text">El servidor no pudo procesar la solicitud en este momento. Por favor verifica tus datos o contáctanos directamente a contacto@grupocastillo.lat.</span>
+              </div>
+
               <button type="submit" id="btn-accept" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 1rem;">
                 Aceptar Cotización y Proceder al Pago del Anticipo
               </button>
             </form>
+
           </div>
 
         </div>
@@ -150,22 +181,45 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 
     <script is:inline>
       (function() {
-        let currentProjectId = 'GC-Q-2026-000042';
+        let currentProjectId = null;
+        let isRealQuotation = false;
+
         const searchForm = document.getElementById('search-form');
         const searchInput = document.getElementById('search-input');
         const quotationCard = document.getElementById('quotation-card');
         const acceptForm = document.getElementById('accept-form');
         const alreadyAcceptedAlert = document.getElementById('already-accepted-alert');
+        const demoNotice = document.getElementById('demo-estimation-notice');
+        const demoContactCta = document.getElementById('demo-contact-cta');
+        const acceptErrorMsg = document.getElementById('accept-error-message');
+        const acceptErrorText = document.getElementById('accept-error-text');
+
+        const getApiUrl = (path) => (window.__CASTILLO_API_URL__ || '') + path;
+
+        function showAcceptError(msg) {
+          if (acceptErrorMsg && acceptErrorText) {
+            acceptErrorText.textContent = msg;
+            acceptErrorMsg.style.display = 'block';
+            acceptErrorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+
+        function clearAcceptError() {
+          if (acceptErrorMsg) {
+            acceptErrorMsg.style.display = 'none';
+          }
+        }
 
         // Leer parámetro ?id= o ?project= de URL
         const params = new URLSearchParams(window.location.search);
         const urlId = params.get('id') || params.get('project');
         const urlPackage = params.get('paquete') || params.get('package');
+
         if (urlId) {
           searchInput.value = urlId;
           loadQuotation(urlId, urlPackage);
         } else if (urlPackage) {
-          displayDemoQuotation('GC-Q-2026-000042', urlPackage);
+          displayDemoQuotation(urlPackage);
         }
 
         searchForm.addEventListener('submit', function(e) {
@@ -175,42 +229,49 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
         });
 
         async function loadQuotation(id, packageHint) {
+          clearAcceptError();
           try {
-            // Consulta directa a la API local o simulación en frontend
-            const res = await fetch(`/api/quotations/${encodeURIComponent(id)}`);
+            const res = await fetch(getApiUrl(`/api/quotations/${encodeURIComponent(id)}`));
             if (!res.ok) {
-              // Fallback demostrativo si no está levantado el servidor backend
-              displayDemoQuotation(id, packageHint);
+              displayDemoQuotation(packageHint || id);
               return;
             }
             const data = await res.json();
-            if (data.quotation) {
-              renderQuotation(data.quotation);
+            if (data && data.quotation && data.quotation.project_id) {
+              renderRealQuotation(data.quotation);
+            } else {
+              displayDemoQuotation(packageHint || id);
             }
           } catch (e) {
-            displayDemoQuotation(id, packageHint);
+            displayDemoQuotation(packageHint || id);
           }
         }
 
-        function renderQuotation(q) {
+        function renderRealQuotation(q) {
           currentProjectId = q.project_id;
+          isRealQuotation = true;
+
           document.getElementById('q-id').innerText = q.project_id;
           document.getElementById('q-project-name').innerText = q.project_name || 'Desarrollo de Plataforma Web';
           document.getElementById('q-client-name').innerText = 'Cliente: ' + (q.business_name || q.contact_name);
-          document.getElementById('q-valid-until').innerText = new Date(q.valid_until_date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
-          document.getElementById('q-version').innerText = 'Versión: v' + q.version_number;
+          document.getElementById('q-valid-until').innerText = q.valid_until_date
+            ? new Date(q.valid_until_date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })
+            : '15 Días Naturales';
+          document.getElementById('q-version').innerText = 'Versión: v' + (q.version_number || '1.0');
           document.getElementById('q-scope').innerText = q.scope_description;
 
-          document.getElementById('q-subtotal').innerText = '$' + Number(q.subtotal_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-tax').innerText = '$' + Number(q.tax_amount_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-total').innerText = '$' + Number(q.total_mxn).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-deposit').innerText = '$' + (Number(q.total_mxn) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-balance').innerText = '$' + (Number(q.total_mxn) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-subtotal').innerText = '$' + Number(q.subtotal_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-tax').innerText = '$' + Number(q.tax_amount_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-total').innerText = '$' + Number(q.total_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-deposit').innerText = '$' + (Number(q.total_mxn || 0) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-balance').innerText = '$' + (Number(q.total_mxn || 0) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          if (demoNotice) demoNotice.style.display = 'none';
 
           if (q.is_accepted === 1) {
             acceptForm.style.display = 'none';
             alreadyAcceptedAlert.style.display = 'block';
-            document.getElementById('accepted-date').innerText = new Date(q.accepted_at).toLocaleString('es-MX');
+            document.getElementById('accepted-date').innerText = q.accepted_at ? new Date(q.accepted_at).toLocaleString('es-MX') : 'Fecha registrada';
             document.getElementById('accepted-state').innerText = q.project_state || 'PAYMENT_PENDING';
           } else {
             acceptForm.style.display = 'block';
@@ -221,69 +282,109 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           quotationCard.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function displayDemoQuotation(id, packageHint) {
+        function displayDemoQuotation(packageHint) {
+          currentProjectId = null;
+          isRealQuotation = false;
+
           let subtotal = 12500;
           let projName = 'Plataforma Corporativa Living Glass (Castle Gold)';
           let scope = 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.';
+          let packageParam = 'Castle Gold ($12,500 MXN)';
 
           if (packageHint) {
-            const p = packageHint.toLowerCase();
+            const p = String(packageHint).toLowerCase();
             if (p.includes('iron')) {
               subtotal = 2800;
               projName = 'Presencia One-Page Esencial (Castle Iron)';
               scope = 'Desarrollo de sitio One-Page ágil, enlace directo a WhatsApp, diseño responsivo optimizado y certificación Castle Gate C1.';
+              packageParam = 'Castle Iron ($2,800 MXN)';
             } else if (p.includes('bronze')) {
               subtotal = 4500;
               projName = 'Landing Page Comercial de Alta Conversión (Castle Bronze)';
               scope = 'Desarrollo de landing comercial de hasta 5 secciones, formulario de captura, optimización de velocidad y certificación Castle Gate C1.';
+              packageParam = 'Castle Bronze ($4,500 MXN)';
             } else if (p.includes('silver')) {
               subtotal = 7500;
               projName = 'Portal Web Corporativo Multi-página (Castle Silver)';
               scope = 'Desarrollo de sitio web corporativo de hasta 5 páginas, estructura SEO on-page, diseño modular y certificación Castle Gate C1.';
+              packageParam = 'Castle Silver ($7,500 MXN)';
             } else if (p.includes('platinum')) {
               subtotal = 24500;
               projName = 'Plataforma Integrada con Pagos y CRM (Castle Platinum)';
               scope = 'Desarrollo de plataforma web de hasta 15 páginas, integración de pasarelas de pago (Stripe/Mercado Pago), webhooks para CRM y hardening de seguridad.';
+              packageParam = 'Castle Platinum ($24,500 MXN)';
             } else if (p.includes('diamond') || p.includes('medida') || p.includes('avanzado')) {
               subtotal = 40000;
               projName = 'Ingeniería de Software a la Medida (Castle Diamond)';
               scope = 'Desarrollo de arquitectura de software personalizada por sprints, módulos operativos, portales con roles RBAC y gobernanza continua Castle Gate C4/C5.';
+              packageParam = 'Castle Diamond (Desde $40,000 MXN)';
             } else if (p.includes('checkup')) {
               subtotal = 8900;
               projName = 'Diagnóstico Técnico Ágil 72h (Castle Checkup)';
               scope = 'Auditoría ágil de repositorio en 72 horas: escaneo de vulnerabilidades, fuga de credenciales, Core Web Vitals y sesión de entrega ejecutiva (100% bonificable).';
+              packageParam = 'Castle Checkup ($8,900 MXN)';
             } else if (p.includes('audit')) {
               subtotal = 19900;
               projName = 'Auditoría Técnica Profunda y Due Diligence (Castle Audit)';
               scope = 'Evaluación exhaustiva de arquitectura, modelo de riesgos de seguridad, análisis estático y roadmap de remediación con reporte ejecutivo.';
+              packageParam = 'Castle Audit ($19,900 MXN)';
+            } else if (p.includes('emergency') || p.includes('urgencia')) {
+              subtotal = 5900;
+              projName = 'Atención de Contingencias Técnicas (Castle Emergency)';
+              scope = 'Intervención técnica inmediata para resolución de fallas críticas en producción y mitigación de riesgos.';
+              packageParam = 'Castle Emergency ($5,900 MXN)';
+            } else if (p.includes('rescue')) {
+              subtotal = 6900;
+              projName = 'Intervención y Rescate de Código (Castle Rescue)';
+              scope = 'Refactorización, estabilización y corrección de código heredado o con problemas de arquitectura.';
+              packageParam = 'Castle Rescue ($6,900 MXN)';
             }
           }
 
           const tax = subtotal * 0.16;
           const total = subtotal + tax;
 
-          renderQuotation({
-            project_id: id || 'GC-Q-2026-000042',
-            project_name: projName,
-            business_name: 'Cliente Corporativo',
-            contact_name: 'Representante Autorizado',
-            valid_until_date: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString(),
-            version_number: 1,
-            scope_description: scope,
-            subtotal_mxn: subtotal,
-            tax_amount_mxn: tax,
-            total_mxn: total,
-            is_accepted: 0
-          });
-        }
+          document.getElementById('q-id').innerText = 'ESTIMACIÓN ORIENTATIVA';
+          document.getElementById('q-project-name').innerText = projName;
+          document.getElementById('q-client-name').innerText = 'Estimación para Consulta Comercial';
+          document.getElementById('q-valid-until').innerText = 'Referencia Pública';
+          document.getElementById('q-version').innerText = 'Demostración v1.0';
+          document.getElementById('q-scope').innerText = scope;
 
-        const getApiUrl = (path) => (window.__CASTILLO_API_URL__ || '') + path;
+          document.getElementById('q-subtotal').innerText = '$' + Number(subtotal).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-tax').innerText = '$' + Number(tax).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-total').innerText = '$' + Number(total).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-deposit').innerText = '$' + (Number(total) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-balance').innerText = '$' + (Number(total) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          if (acceptForm) acceptForm.style.display = 'none';
+          if (alreadyAcceptedAlert) alreadyAcceptedAlert.style.display = 'none';
+          if (demoNotice) {
+            demoNotice.style.display = 'block';
+            if (demoContactCta) {
+              demoContactCta.href = `/contacto?paquete=${encodeURIComponent(packageParam)}`;
+            }
+          }
+
+          quotationCard.style.display = 'block';
+          quotationCard.scrollIntoView({ behavior: 'smooth' });
+        }
 
         acceptForm.addEventListener('submit', async function(e) {
           e.preventDefault();
-          const name = document.getElementById('signer-name').value.trim();
-          const email = document.getElementById('signer-email').value.trim();
+          clearAcceptError();
+
+          if (!isRealQuotation || !currentProjectId) {
+            showAcceptError('Esta es una estimación orientativa y no puede ser formalizada directamente. Por favor solicita una cotización formal en nuestro canal de contacto.');
+            return;
+          }
+
+          const nameInput = document.getElementById('signer-name');
+          const emailInput = document.getElementById('signer-email');
+          const name = nameInput ? nameInput.value.trim() : '';
+          const email = emailInput ? emailInput.value.trim() : '';
           const btnAccept = document.getElementById('btn-accept');
+          const originalText = btnAccept ? btnAccept.innerText : 'Aceptar Cotización y Proceder al Pago del Anticipo';
 
           if (btnAccept) {
             btnAccept.disabled = true;
@@ -291,14 +392,32 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           }
 
           try {
-            await fetch(getApiUrl(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`), {
+            const response = await fetch(getApiUrl(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ acceptedByName: name, acceptedByEmail: email })
             });
-            window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+
+            if (response.ok) {
+              window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+            } else {
+              let errDetail = 'El servidor no pudo procesar la aceptación formal de la cotización en este momento.';
+              try {
+                const errData = await response.json();
+                if (errData && errData.message) errDetail = errData.message;
+              } catch (_) {}
+              showAcceptError(errDetail + ' Por favor verifica tus datos o contáctanos directamente a contacto@grupocastillo.lat.');
+              if (btnAccept) {
+                btnAccept.disabled = false;
+                btnAccept.innerText = originalText;
+              }
+            }
           } catch (err) {
-            window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
+            showAcceptError('Error de conexión con el servidor. No se formalizó la cotización. Por favor reintenta o contáctanos a contacto@grupocastillo.lat o vía WhatsApp al +52 951 809 6110.');
+            if (btnAccept) {
+              btnAccept.disabled = false;
+              btnAccept.innerText = originalText;
+            }
           }
         });
       })();
