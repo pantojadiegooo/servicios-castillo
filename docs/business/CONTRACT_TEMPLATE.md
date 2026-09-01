@@ -68,7 +68,7 @@ El principio fundamental que rige toda entrega de Grupo Castillo es la **Titular
 2. **Esquema de Pago Estándar:**
    - **Anticipo de Inicio:** 50% al momento de la firma del SOW para inicio de desarrollo.
    - **Liquidación Final:** 50% a la entrega formal del release validado en staging/pre-producción antes de la transferencia definitiva de credenciales de producción.
-3. **Servicios Puntuales y Retainers:** Servicios como *Castle Checkup* o pólizas de soporte mensual (*Castle Care*) se facturan al 100% anticipado o mes corriente.
+3. **Servicios de Ingeniería y Retainers:** Servicios especializados (*Castle Checkup*, *Castle Emergency*, *Castle Rescue*, *Castle Audit*) se facturan al 100% anticipado para programación y reserva de ingeniería antes de comenzar. Las pólizas de soporte mensual (*Castle Care*) se facturan al 100% anticipado a mes corriente.
 
 ---
 

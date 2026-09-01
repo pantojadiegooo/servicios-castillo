@@ -208,3 +208,41 @@ test('Protocolo de Proyecto Hielo — Alertas escalonadas y reactivación formal
   assert.equal(reactApprove.state, PROJECT_STATES.DEVELOPMENT);
   assert.equal(reactApprove.newTargetDeliveryDate, '2026-10-15');
 });
+
+test('Casos Negativos & Cotización — Validación de servicios de ingeniería al 100% y paquetes al 50/50', () => {
+  const db = createDatabase(':memory:');
+  const auditService = new AuditService(db);
+  const quotationService = new QuotationService(db, auditService);
+
+  // Cotización de servicio de ingeniería (Castle Checkup) -> 100% anticipo, 0 saldo
+  const quoteCheckup = quotationService.createQuotation({
+    businessName: 'Checkup Client S.A.',
+    contactName: 'Laura Mendez',
+    contactEmail: 'laura@checkup.com',
+    serviceCode: 'CHECKUP',
+    projectName: 'Diagnóstico 72h',
+    scopeDescription: 'Evaluación estática de repositorio',
+    createdBy: 'usr_admin_01'
+  });
+  assert.equal(quoteCheckup.financial.subtotal, 8900);
+  assert.equal(quoteCheckup.financial.total, 10324);
+  assert.equal(quoteCheckup.financial.depositStandard50, 10324);
+  assert.equal(quoteCheckup.financial.balanceStandard50, 0);
+  assert.equal(quoteCheckup.financial.is100PercentUpfront, true);
+
+  // Cotización de paquete web (Castle Silver) -> 50% anticipo, 50% saldo
+  const quoteSilver = quotationService.createQuotation({
+    businessName: 'Silver Client S.A.',
+    contactName: 'Pablo Ruiz',
+    contactEmail: 'pablo@silver.com',
+    serviceCode: 'SILVER',
+    projectName: 'Sitio Corporativo 5 Páginas',
+    scopeDescription: 'Desarrollo web corporativo Astro',
+    createdBy: 'usr_admin_01'
+  });
+  assert.equal(quoteSilver.financial.subtotal, 7500);
+  assert.equal(quoteSilver.financial.total, 8700);
+  assert.equal(quoteSilver.financial.depositStandard50, 4350);
+  assert.equal(quoteSilver.financial.balanceStandard50, 4350);
+  assert.equal(quoteSilver.financial.is100PercentUpfront, false);
+});

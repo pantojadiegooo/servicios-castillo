@@ -23,7 +23,7 @@ Grupo Castillo ofrece un modelo de soporte estructurado para acompañar la evolu
 │  3. PÓLIZA CONTINUA CASTLE CARE (Retainer Mensual - Desde $590 MXN)    │
 │     • Basic ($590 MXN/mes): Uptime, SSL, dependencias, parches.        │
 │     • Pro ($990 MXN/mes): Monitoreo proactivo, soporte prioritario.    │
-│     • Enterprise ($2,490 MXN/mes): Gobernanza CQS, soporte multicanal. │
+│     • Enterprise ($1,890 MXN/mes): Gobernanza CQS, soporte multicanal. │
 │                                                                        │
 │  4. RESPUESTA CRÍTICA CASTLE EMERGENCY ($5,900 MXN por evento)         │
 │     • Activación prioritaria con SLA de atención $\le 2$ horas (24/7). │

@@ -24,7 +24,7 @@ export const BUILD_PACKAGES = {
       'Estructura One-Page (1 vista ágil)',
       'Enlace directo a WhatsApp',
       'Optimización de carga y rendimiento web',
-      'Certificado SSL y hosting incluido',
+      'Configuración de hosting y certificado SSL',
       '1 ronda de revisión formal',
       'Titularidad 100% del cliente'
     ],
@@ -149,6 +149,7 @@ export const SPECIALIZED_SERVICES = {
     priceMxn: 8900,
     priceUsdEstimate: 525,
     deliveryTimeHours: 72,
+    is100PercentUpfront: true,
     description: 'Diagnóstico estático de 65 controles CQS v1.1 en 72h con 100% de crédito bonificable hacia Gate anual',
     creditTowardsGateDays: 30
   },
@@ -159,9 +160,10 @@ export const SPECIALIZED_SERVICES = {
     tiers: {
       standard: { name: 'Standard Audit', priceMxn: 19900, priceUsdEstimate: 1170 },
       advanced: { name: 'Advanced Audit', priceMxn: 39900, priceUsdEstimate: 2350 },
-      enterprise: { name: 'Enterprise / Due Diligence', priceMxn: 74900, priceUsdEstimate: 4400 }
+      enterprise: { name: 'Enterprise / Due Diligence', isCustomQuote: true, description: 'Proyecto avanzado sujeto a cotización' }
     },
     basePriceMxn: 19900,
+    is100PercentUpfront: true,
     description: 'Auditoría exhaustiva de arquitectura, dependencias, deuda técnica y cumplimiento para Due Diligence o modernización'
   },
   RESCUE: {
@@ -171,9 +173,10 @@ export const SPECIALIZED_SERVICES = {
     tiers: {
       express: { name: 'Rescue Express', priceMxn: 6900, priceUsdEstimate: 405 },
       standard: { name: 'Rescue Standard', priceMxn: 12900, priceUsdEstimate: 760 },
-      complex: { name: 'Rescue Complex', priceMxn: 24900, priceUsdEstimate: 1465 }
+      complex: { name: 'Rescue Complex', isCustomQuote: true, description: 'Proyecto avanzado sujeto a cotización' }
     },
     basePriceMxn: 6900,
+    is100PercentUpfront: true,
     description: 'Intervención directa en código para sanear secretos expuestos, desbloquear pipelines rotos y reparar fallas críticas'
   },
   EMERGENCY: {
@@ -184,6 +187,7 @@ export const SPECIALIZED_SERVICES = {
     priceUsdEstimate: 345,
     slaHours: 2,
     is247: true,
+    is100PercentUpfront: true,
     description: 'Activación prioritaria 24/7 para contingencias activas, caídas de producción, brechas de seguridad y bloqueos críticos'
   },
   CARE: {
@@ -194,7 +198,7 @@ export const SPECIALIZED_SERVICES = {
     plans: {
       basic: { name: 'Castle Care Basic', priceMxnMonthly: 590, priceUsdEstimate: 35 },
       pro: { name: 'Castle Care Pro', priceMxnMonthly: 990, priceUsdEstimate: 58 },
-      enterprise: { name: 'Castle Care Enterprise', priceMxnMonthly: 2490, priceUsdEstimate: 110 }
+      enterprise: { name: 'Castle Care Enterprise', priceMxnMonthly: 1890, priceUsdEstimate: 110 }
     },
     basePriceMxn: 590,
     description: 'Supervisión continua de uptime, actualización de dependencias, parches de seguridad y soporte de mantenimiento preventivo'
@@ -214,16 +218,18 @@ export const SPECIALIZED_SERVICES = {
  * Calcula el desglose financiero exacto de una cotización o hito.
  * @param {number} subtotalMxn - Monto neto sin impuestos.
  * @param {number} [taxRate=TAX_RATE_DEFAULT] - Tasa de IVA aplicable (por defecto 0.16).
- * @returns {{ subtotal: number, taxRate: number, taxAmount: number, total: number, depositStandard50: number, balanceStandard50: number }}
+ * @param {boolean|object} [options=false] - Si es booleano o { is100PercentUpfront: true }, calcula 100% anticipo.
+ * @returns {{ subtotal: number, taxRate: number, taxAmount: number, total: number, depositStandard50: number, balanceStandard50: number, is100PercentUpfront: boolean }}
  */
-export function calculateFinancialBreakdown(subtotalMxn, taxRate = TAX_RATE_DEFAULT) {
+export function calculateFinancialBreakdown(subtotalMxn, taxRate = TAX_RATE_DEFAULT, options = false) {
   if (typeof subtotalMxn !== 'number' || isNaN(subtotalMxn) || subtotalMxn < 0) {
     throw new Error('El subtotal debe ser un número positivo válido');
   }
+  const is100PercentUpfront = typeof options === 'boolean' ? options : Boolean(options?.is100PercentUpfront);
   const taxAmount = Math.round(subtotalMxn * taxRate * 100) / 100;
   const total = Math.round((subtotalMxn + taxAmount) * 100) / 100;
-  const depositStandard50 = Math.round((total / 2) * 100) / 100;
-  const balanceStandard50 = Math.round((total - depositStandard50) * 100) / 100;
+  const depositStandard50 = is100PercentUpfront ? total : Math.round((total / 2) * 100) / 100;
+  const balanceStandard50 = is100PercentUpfront ? 0 : Math.round((total - depositStandard50) * 100) / 100;
 
   return {
     subtotal: subtotalMxn,
@@ -231,7 +237,8 @@ export function calculateFinancialBreakdown(subtotalMxn, taxRate = TAX_RATE_DEFA
     taxAmount,
     total,
     depositStandard50,
-    balanceStandard50
+    balanceStandard50,
+    is100PercentUpfront
   };
 }
 

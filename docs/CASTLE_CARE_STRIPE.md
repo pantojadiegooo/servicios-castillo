@@ -22,7 +22,7 @@ de pagos, que modela órdenes de proyecto y no este ciclo de suscripciones.
 | --- | ---: | ---: |
 | Castle Care Basic | 590 | 59000 |
 | Castle Care Pro | 990 | 99000 |
-| Castle Care Enterprise | 2490 | 249000 |
+| Castle Care Enterprise | 1890 | 189000 |
 
 No multiplicar por 100 dos veces. Moneda `mxn`, `recurring.interval=month`,
 `interval_count=1`, cantidad fija 1, sin prueba gratuita, alta ni descuentos

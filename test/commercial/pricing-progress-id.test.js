@@ -29,6 +29,7 @@ import {
 
 test('Pricing — Verificación de catálogo oficial de 6 paquetes y servicios', () => {
   assert.equal(BUILD_PACKAGES.IRON.priceMxn, 2800);
+  assert.ok(BUILD_PACKAGES.IRON.features.includes('Configuración de hosting y certificado SSL'));
   assert.equal(BUILD_PACKAGES.BRONZE.priceMxn, 4500);
   assert.equal(BUILD_PACKAGES.SILVER.priceMxn, 7500);
   assert.equal(BUILD_PACKAGES.GOLD.priceMxn, 12500);
@@ -36,22 +37,41 @@ test('Pricing — Verificación de catálogo oficial de 6 paquetes y servicios',
   assert.equal(BUILD_PACKAGES.DIAMOND.priceMxn, 40000);
 
   assert.equal(SPECIALIZED_SERVICES.CHECKUP.priceMxn, 8900);
+  assert.equal(SPECIALIZED_SERVICES.CHECKUP.is100PercentUpfront, true);
   assert.equal(SPECIALIZED_SERVICES.CARE.plans.basic.priceMxnMonthly, 590);
   assert.equal(SPECIALIZED_SERVICES.CARE.plans.pro.priceMxnMonthly, 990);
-  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceMxnMonthly, 2490);
+  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceMxnMonthly, 1890);
   assert.equal(SPECIALIZED_SERVICES.EMERGENCY.basePriceMxn, 5900);
+  assert.equal(SPECIALIZED_SERVICES.EMERGENCY.is100PercentUpfront, true);
   assert.equal(SPECIALIZED_SERVICES.RESCUE.basePriceMxn, 6900);
+  assert.equal(SPECIALIZED_SERVICES.RESCUE.is100PercentUpfront, true);
+  assert.equal(SPECIALIZED_SERVICES.RESCUE.tiers.complex.isCustomQuote, true);
+  assert.equal(SPECIALIZED_SERVICES.RESCUE.tiers.complex.priceMxn, undefined);
+  assert.equal(SPECIALIZED_SERVICES.AUDIT.tiers.enterprise.isCustomQuote, true);
+  assert.equal(SPECIALIZED_SERVICES.AUDIT.tiers.enterprise.priceMxn, undefined);
+  assert.equal(SPECIALIZED_SERVICES.AUDIT.is100PercentUpfront, true);
   assert.equal(SPECIALIZED_SERVICES.GATE_CLI.priceMxnAnnual, 9900);
 });
 
-test('Pricing — Cálculo de desglose financiero (Subtotal, IVA 16%, 50/50)', () => {
-  const breakdown = calculateFinancialBreakdown(12500, TAX_RATE_DEFAULT);
-  assert.equal(breakdown.subtotal, 12500);
-  assert.equal(breakdown.taxRate, 0.16);
-  assert.equal(breakdown.taxAmount, 2000);
-  assert.equal(breakdown.total, 14500);
-  assert.equal(breakdown.depositStandard50, 7250);
-  assert.equal(breakdown.balanceStandard50, 7250);
+test('Pricing — Cálculo de desglose financiero (50/50 paquetes vs 100% servicios de ingeniería)', () => {
+  // Paquete Web: 50% anticipo / 50% finiquito
+  const breakdownPackage = calculateFinancialBreakdown(12500, TAX_RATE_DEFAULT, false);
+  assert.equal(breakdownPackage.subtotal, 12500);
+  assert.equal(breakdownPackage.taxRate, 0.16);
+  assert.equal(breakdownPackage.taxAmount, 2000);
+  assert.equal(breakdownPackage.total, 14500);
+  assert.equal(breakdownPackage.depositStandard50, 7250);
+  assert.equal(breakdownPackage.balanceStandard50, 7250);
+  assert.equal(breakdownPackage.is100PercentUpfront, false);
+
+  // Servicio de Ingeniería: 100% anticipo / 0 saldo
+  const breakdownEngineering = calculateFinancialBreakdown(8900, TAX_RATE_DEFAULT, true);
+  assert.equal(breakdownEngineering.subtotal, 8900);
+  assert.equal(breakdownEngineering.taxAmount, 1424);
+  assert.equal(breakdownEngineering.total, 10324);
+  assert.equal(breakdownEngineering.depositStandard50, 10324);
+  assert.equal(breakdownEngineering.balanceStandard50, 0);
+  assert.equal(breakdownEngineering.is100PercentUpfront, true);
 
   const resolved = resolveServicePricing('gold');
   assert.ok(resolved);
@@ -107,4 +127,38 @@ test('ID Generator — Taxonomía estricta GC-Q y GC-T', () => {
   assert.equal(isValidQuotationId('GC-2026-000042'), false);
   assert.equal(isValidQuotationId('PROJ-123'), false);
   assert.equal(isValidTicketId('TICK-001'), false);
+  assert.equal(isValidQuotationId('INVALID-ID'), false);
+  assert.equal(isValidTicketId('GC-Q-2026-000001'), false);
+});
+
+test('Pricing — Integridad comercial de servicios especializados y cotizaciones orientativas', () => {
+  // 1. Care Enterprise = 1890 MXN/mes
+  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceMxnMonthly, 1890);
+  assert.equal(SPECIALIZED_SERVICES.CARE.plans.enterprise.priceUsdEstimate, 110);
+
+  // 2. Rescue y Audit avanzados no generan un precio fijo
+  assert.equal(SPECIALIZED_SERVICES.RESCUE.tiers.complex.priceMxn, undefined);
+  assert.equal(SPECIALIZED_SERVICES.RESCUE.tiers.complex.isCustomQuote, true);
+  assert.equal(SPECIALIZED_SERVICES.AUDIT.tiers.enterprise.priceMxn, undefined);
+  assert.equal(SPECIALIZED_SERVICES.AUDIT.tiers.enterprise.isCustomQuote, true);
+
+  // 3. Checkup, Emergency, Rescue y Audit calculan pago inicial del 100%
+  const checkup = resolveServicePricing('checkup');
+  assert.ok(checkup.is100PercentUpfront);
+  const emergency = resolveServicePricing('emergency');
+  assert.ok(emergency.is100PercentUpfront);
+  const rescue = resolveServicePricing('rescue');
+  assert.ok(rescue.is100PercentUpfront);
+  const audit = resolveServicePricing('audit');
+  assert.ok(audit.is100PercentUpfront);
+
+  // 4. Paquetes web conservan 50%/50%
+  for (const pkg of ['iron', 'bronze', 'silver', 'gold', 'platinum', 'diamond']) {
+    const p = resolveServicePricing(pkg);
+    assert.equal(p.is100PercentUpfront, undefined);
+    const breakdown = calculateFinancialBreakdown(p.priceMxn, TAX_RATE_DEFAULT, Boolean(p.is100PercentUpfront));
+    assert.equal(breakdown.is100PercentUpfront, false);
+    assert.equal(breakdown.depositStandard50, Math.round((breakdown.total / 2) * 100) / 100);
+    assert.equal(breakdown.balanceStandard50, Math.round((breakdown.total - breakdown.depositStandard50) * 100) / 100);
+  }
 });

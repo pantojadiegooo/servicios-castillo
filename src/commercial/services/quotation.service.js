@@ -68,7 +68,8 @@ export class QuotationService {
       subtotalMxn = customSubtotalMxn;
     }
 
-    const financial = calculateFinancialBreakdown(subtotalMxn, TAX_RATE_DEFAULT);
+    const is100Percent = Boolean(serviceInfo.is100PercentUpfront);
+    const financial = calculateFinancialBreakdown(subtotalMxn, TAX_RATE_DEFAULT, is100Percent);
 
     // 1. Obtener o crear cliente
     let client = this.db.prepare('SELECT * FROM clients WHERE contact_email = ?').get(contactEmail.trim().toLowerCase());

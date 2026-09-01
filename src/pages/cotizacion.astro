@@ -100,8 +100,9 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
               <span id="q-total" style="font-family: var(--f-mono);">$0.00 MXN</span>
             </div>
             <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--line-dark); font-size: 0.85rem; color: var(--steel-light);">
-              • <strong>Anticipo Requerido (50%):</strong> <span id="q-deposit" style="font-family: var(--f-mono); color: var(--success); font-weight: bold;">$0.00 MXN</span> (Para reserva de capacidad e inicio de trabajos).<br/>
-              • <strong>Finiquito contra Entrega (50%):</strong> <span id="q-balance" style="font-family: var(--f-mono);">$0.00 MXN</span> (Tras validación de preentrega con Castle Gate).
+              • <strong><span id="q-deposit-label">Anticipo Requerido (50%)</span>:</strong> <span id="q-deposit" style="font-family: var(--f-mono); color: var(--success); font-weight: bold;">$0.00 MXN</span> <span id="q-deposit-note">(Para reserva de capacidad e inicio de trabajos).</span><br/>
+              • <strong><span id="q-balance-label">Finiquito contra Entrega (50%)</span>:</strong> <span id="q-balance" style="font-family: var(--f-mono);">$0.00 MXN</span> <span id="q-balance-note">(Tras validación de preentrega con Castle Gate).</span>
+              <div id="q-terms-notice" style="font-size: 0.8rem; color: var(--cyan); margin-top: 0.5rem; display: none;"></div>
             </div>
           </div>
 
@@ -247,6 +248,51 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           }
         }
 
+        function updateTermsUI(isEngineering, isCare, isGate) {
+          const depositLabel = document.getElementById('q-deposit-label');
+          const depositNote = document.getElementById('q-deposit-note');
+          const balanceLabel = document.getElementById('q-balance-label');
+          const balanceNote = document.getElementById('q-balance-note');
+          const termsNotice = document.getElementById('q-terms-notice');
+
+          if (isCare) {
+            if (depositLabel) depositLabel.innerText = 'Cuota Mensual Estimada';
+            if (depositNote) depositNote.innerText = '(Póliza mensual recurrente sin plazo forzoso).';
+            if (balanceLabel) balanceLabel.innerText = 'Saldo Posterior';
+            if (balanceNote) balanceNote.innerText = '($0.00 MXN - Facturación mensual anticipada).';
+            if (termsNotice) {
+              termsNotice.style.display = 'block';
+              termsNotice.innerText = 'ℹ Castle Care se gestiona como suscripción recurrente con planes desde $590 MXN/mes (Basic $590, Pro $990, Enterprise $1,890 MXN/mes). No requiere anticipo de obra tradicional.';
+            }
+          } else if (isGate) {
+            if (depositLabel) depositLabel.innerText = 'Inversión Anual Base';
+            if (depositNote) depositNote.innerText = '(Licencia anual de runner CI/CD).';
+            if (balanceLabel) balanceLabel.innerText = 'Saldo Posterior';
+            if (balanceNote) balanceNote.innerText = '($0.00 MXN - Licencia anual liquidada al 100%).';
+            if (termsNotice) {
+              termsNotice.style.display = 'block';
+              termsNotice.innerText = 'ℹ Castle Gate CLI se contrata bajo licenciamiento anual desde $9,900 MXN/año según el nivel de política requerido (C1 a C6).';
+            }
+          } else if (isEngineering) {
+            if (depositLabel) depositLabel.innerText = 'Pago Único Requerido (100%)';
+            if (depositNote) depositNote.innerText = '(Liquidación total previa al inicio de ingeniería).';
+            if (balanceLabel) balanceLabel.innerText = 'Saldo Posterior (0%)';
+            if (balanceNote) balanceNote.innerText = '($0.00 MXN - Sin saldos pendientes contra entrega).';
+            if (termsNotice) {
+              termsNotice.style.display = 'block';
+              termsNotice.innerText = 'ℹ La capacidad de ingeniería se reserva después de confirmar el pago y recibir accesos e insumos necesarios.';
+            }
+          } else {
+            if (depositLabel) depositLabel.innerText = 'Anticipo Requerido (50%)';
+            if (depositNote) depositNote.innerText = '(Para reserva de capacidad e inicio de trabajos).';
+            if (balanceLabel) balanceLabel.innerText = 'Finiquito contra Entrega (50%)';
+            if (balanceNote) balanceNote.innerText = '(Tras validación de preentrega con Castle Gate).';
+            if (termsNotice) {
+              termsNotice.style.display = 'none';
+            }
+          }
+        }
+
         function renderRealQuotation(q) {
           currentProjectId = q.project_id;
           isRealQuotation = true;
@@ -260,11 +306,19 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           document.getElementById('q-version').innerText = 'Versión: v' + (q.version_number || '1.0');
           document.getElementById('q-scope').innerText = q.scope_description;
 
+          const serviceId = String(q.service_package_id || '').toLowerCase();
+          const isEngineering = ['checkup', 'emergency', 'rescue', 'audit'].includes(serviceId) || String(q.service_type || '').toUpperCase() === 'SPECIALIZED_SERVICE';
+          const totalVal = Number(q.total_mxn || 0);
+          const depositVal = isEngineering ? totalVal : Math.round((totalVal / 2) * 100) / 100;
+          const balanceVal = isEngineering ? 0 : Math.round((totalVal - depositVal) * 100) / 100;
+
           document.getElementById('q-subtotal').innerText = '$' + Number(q.subtotal_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-tax').innerText = '$' + Number(q.tax_amount_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-total').innerText = '$' + Number(q.total_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-deposit').innerText = '$' + (Number(q.total_mxn || 0) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-balance').innerText = '$' + (Number(q.total_mxn || 0) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-total').innerText = '$' + totalVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-deposit').innerText = '$' + depositVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-balance').innerText = '$' + balanceVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          updateTermsUI(isEngineering, false, false);
 
           if (demoNotice) demoNotice.style.display = 'none';
 
@@ -290,6 +344,10 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           let projName = 'Plataforma Corporativa Living Glass (Castle Gold)';
           let scope = 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.';
           let packageParam = 'Castle Gold ($12,500 MXN)';
+          let isEngineering = false;
+          let isCare = false;
+          let isGate = false;
+          let customCtaHref = null;
 
           if (packageHint) {
             const p = String(packageHint).toLowerCase();
@@ -323,26 +381,51 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
               projName = 'Diagnóstico Técnico Ágil 72h (Castle Checkup)';
               scope = 'Auditoría ágil de repositorio en 72 horas: escaneo de vulnerabilidades, fuga de credenciales, Core Web Vitals y sesión de entrega ejecutiva (100% bonificable).';
               packageParam = 'Castle Checkup ($8,900 MXN)';
+              isEngineering = true;
             } else if (p.includes('audit')) {
               subtotal = 19900;
               projName = 'Auditoría Técnica Profunda y Due Diligence (Castle Audit)';
               scope = 'Evaluación exhaustiva de arquitectura, modelo de riesgos de seguridad, análisis estático y roadmap de remediación con reporte ejecutivo.';
-              packageParam = 'Castle Audit ($19,900 MXN)';
+              packageParam = 'Castle Audit (Desde $19,900 MXN)';
+              isEngineering = true;
             } else if (p.includes('emergency') || p.includes('urgencia')) {
               subtotal = 5900;
               projName = 'Atención de Contingencias Técnicas (Castle Emergency)';
               scope = 'Intervención técnica inmediata para resolución de fallas críticas en producción y mitigación de riesgos.';
               packageParam = 'Castle Emergency ($5,900 MXN)';
+              isEngineering = true;
             } else if (p.includes('rescue')) {
               subtotal = 6900;
               projName = 'Intervención y Rescate de Código (Castle Rescue)';
               scope = 'Refactorización, estabilización y corrección de código heredado o con problemas de arquitectura.';
-              packageParam = 'Castle Rescue ($6,900 MXN)';
+              packageParam = 'Castle Rescue (Desde $6,900 MXN)';
+              isEngineering = true;
+            } else if (p.includes('care') || p.includes('cuidado') || p.includes('soporte') || p.includes('mantenimiento')) {
+              subtotal = 590;
+              projName = 'Póliza Mensual de Continuidad (Castle Care)';
+              scope = 'Supervisión continua 24/7 de disponibilidad, monitoreo SSL, actualización periódica de dependencias y soporte preventivo sin plazos forzosos (Planes: Basic $590, Pro $990, Enterprise $1,890 MXN/mes).';
+              packageParam = 'Castle Care (Desde $590 MXN/mes)';
+              isCare = true;
+              customCtaHref = `/contacto?necesidad=cuidado&paquete=${encodeURIComponent('Castle Care (Desde $590 MXN/mes)')}`;
+            } else if (p.includes('gate') || p.includes('cqs') || p.includes('cli') || p.includes('licencia') || p.includes('gobernanza')) {
+              subtotal = 9900;
+              projName = 'Licencia Anual Castle Gate CLI (CQS v1.1)';
+              scope = 'Licencia anual del motor de verificación determinista de 65 controles CQS v1.1 para integración en runners privados de CI/CD (Tarifa base desde $9,900 MXN/año con políticas C1 a C6).';
+              packageParam = 'Castle Gate CLI ($9,900 MXN/año)';
+              isGate = true;
+              customCtaHref = `/contacto?necesidad=gate&paquete=${encodeURIComponent('Castle Gate CLI ($9,900 MXN/año)')}`;
             }
           }
 
           const tax = subtotal * 0.16;
           const total = subtotal + tax;
+          let deposit = isEngineering ? total : Math.round((total / 2) * 100) / 100;
+          let balance = isEngineering ? 0 : Math.round((total - deposit) * 100) / 100;
+
+          if (isCare || isGate) {
+            deposit = isCare ? subtotal : total;
+            balance = 0;
+          }
 
           document.getElementById('q-id').innerText = 'ESTIMACIÓN ORIENTATIVA';
           document.getElementById('q-project-name').innerText = projName;
@@ -354,15 +437,17 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           document.getElementById('q-subtotal').innerText = '$' + Number(subtotal).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-tax').innerText = '$' + Number(tax).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-total').innerText = '$' + Number(total).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-deposit').innerText = '$' + (Number(total) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-balance').innerText = '$' + (Number(total) / 2).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-deposit').innerText = '$' + Number(deposit).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          document.getElementById('q-balance').innerText = '$' + Number(balance).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+
+          updateTermsUI(isEngineering, isCare, isGate);
 
           if (acceptForm) acceptForm.style.display = 'none';
           if (alreadyAcceptedAlert) alreadyAcceptedAlert.style.display = 'none';
           if (demoNotice) {
             demoNotice.style.display = 'block';
             if (demoContactCta) {
-              demoContactCta.href = `/contacto?paquete=${encodeURIComponent(packageParam)}`;
+              demoContactCta.href = customCtaHref || `/contacto?paquete=${encodeURIComponent(packageParam)}`;
             }
           }
 
