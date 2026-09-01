@@ -37,6 +37,10 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             <p style="color: var(--steel-light); font-size: 0.85rem; margin: 0;">Atención directa de ingeniería y presencia digital oficial de Grupo Castillo.</p>
           </div>
           <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+            <a href="tel:+529518096110" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <TechIcon name="phone" size={16} />
+              <span>Teléfono (+52 951 809 6110)</span>
+            </a>
             <a href="mailto:contacto@grupocastillo.lat" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.5rem;">
               <TechIcon name="mail" size={16} />
               <span>contacto@grupocastillo.lat</span>
@@ -139,12 +143,12 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
             <div class="field">
               <label for="email">Correo Electrónico Corporativo o Personal <span style="color: var(--cyan);">*</span></label>
-              <input type="email" id="email" name="email" required autocomplete="email" placeholder="correo@empresa.com">
+              <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" placeholder="correo@empresa.com">
             </div>
 
             <div class="field">
               <label for="whatsapp">Teléfono o WhatsApp <span class="hint">(opcional pero recomendado)</span></label>
-              <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="+52 951 809 6110">
+              <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="+52 951 809 6110">
             </div>
 
             <div class="field">
@@ -184,18 +188,24 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 <option value="15k-30k">$15,000 – $30,000 MXN (Platinum)</option>
                 <option value="mas-40k">$40,000 MXN o más (Diamond / Proyectos Avanzados)</option>
                 <option value="checkup">$8,900 MXN (Diagnóstico Checkup 72h)</option>
-                <option value="care-mensual">$590 – $2,490 MXN / mes (Castle Care)</option>
+                <option value="care-mensual">$590 – $1,890 MXN / mes (Castle Care)</option>
                 <option value="por-definir">Por definir / Deseo asesoría previa</option>
               </select>
             </div>
 
             <div class="field full">
               <label for="descripcion">Detalles de tu requerimiento o URL actual <span style="color: var(--cyan);">*</span></label>
-              <textarea id="descripcion" name="descripcion" rows="3" required placeholder="Cuéntanos brevemente qué necesitas resolver, las secciones clave que imaginas o la URL de tu sitio/repositorio si deseas una revisión previa."></textarea>
+              <textarea id="descripcion" name="descripcion" rows="3" required minlength="10" placeholder="Cuéntanos brevemente qué necesitas resolver, las secciones clave que imaginas o la URL de tu sitio/repositorio si deseas una revisión previa."></textarea>
+            </div>
+
+            <!-- CONTENEDOR DE ERROR ACCESIBLE (INLINE) -->
+            <div id="form-error-message" role="alert" aria-live="assertive" class="field full" style="display: none; padding: 1rem 1.25rem; background: rgba(255, 59, 92, 0.08); border: 1px solid rgba(255, 59, 92, 0.35); border-radius: var(--radius-sm); color: var(--paper); font-size: 0.88rem; line-height: 1.55;">
+              <strong style="color: #FF4D4D; display: block; margin-bottom: 0.25rem;">Atención: no fue posible procesar el envío</strong>
+              <span id="form-error-text">Por favor verifica los campos obligatorios o contáctanos directamente a contacto@grupocastillo.lat o vía WhatsApp al +52 951 809 6110.</span>
             </div>
 
             <div class="field full" style="text-align: center; margin-top: 1rem;">
-              <button class="btn btn-primary" type="submit" style="width: 100%; max-width: 340px; margin: 0 auto; padding: 0.85rem 1.5rem; font-size: 0.95rem;">
+              <button id="btn-submit-contact" class="btn btn-primary" type="submit" style="width: 100%; max-width: 340px; margin: 0 auto; padding: 0.85rem 1.5rem; font-size: 0.95rem;">
                 Enviar Solicitud de Cotización →
               </button>
               <p style="font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.85rem;">
@@ -205,14 +215,21 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
           </form>
 
-          <!-- MENSAJE DE ÉXITO DE ENVÍO -->
-          <div id="form-success-message" style="display: none; text-align: center; padding: 2rem 1rem; background: rgba(0, 229, 153, 0.04); border: 1px dashed rgba(0, 229, 153, 0.3); border-radius: var(--radius-md); margin-top: 1.5rem;">
-            <div style="font-size: 2.5rem; color: #00E599; margin-bottom: 0.75rem;">✓</div>
-            <h3 style="font-size: 1.25rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 700;">¡Solicitud de Cotización Recibida!</h3>
-            <p style="color: var(--steel-light); font-size: 0.88rem; line-height: 1.6; max-width: 480px; margin: 0 auto 1.5rem auto;">
+          <!-- MENSAJE DE ÉXITO DE ENVÍO ACCESIBLE -->
+          <div id="form-success-message" role="status" aria-live="polite" style="display: none; text-align: center; padding: 2.5rem 1.5rem; background: rgba(0, 229, 153, 0.05); border: 1px dashed rgba(0, 229, 153, 0.4); border-radius: var(--radius-md); margin-top: 1.5rem;">
+            <div style="font-size: 2.5rem; color: #00E599; margin-bottom: 0.75rem;" aria-hidden="true">✓</div>
+            <h3 id="form-success-title" tabindex="-1" style="font-size: 1.35rem; color: var(--paper); margin-bottom: 0.5rem; font-weight: 700; outline: none;">¡Solicitud de Cotización Recibida!</h3>
+            <p style="color: var(--steel-light); font-size: 0.9rem; line-height: 1.6; max-width: 520px; margin: 0 auto 1.75rem auto;">
               Un ingeniero de Grupo Castillo revisará tu caso en menos de 24 horas y te enviará una propuesta formal por correo electrónico.
             </p>
-            <button class="btn btn-outline" onclick="window.location.reload()" style="font-size: 0.8rem; padding: 0.5rem 1.25rem;">Enviar otra solicitud</button>
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+              <a href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1.25rem; border-color: #25D366; color: #25D366;">
+                Confirmar por WhatsApp (+52 951 809 6110)
+              </a>
+              <button type="button" class="btn btn-outline" onclick="window.location.reload()" style="font-size: 0.82rem; padding: 0.5rem 1.25rem;">
+                Enviar otra solicitud
+              </button>
+            </div>
           </div>
 
         </div>
@@ -373,7 +390,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('emergency') || target.includes('urgencia') || target === 'problema') {
-            matchedOption = target.includes('emergency') ? 'Castle Emergency ($5,900 MXN)' : 'Castle Rescue ($6,900 MXN)';
+            matchedOption = (target.includes('emergency') || target.includes('urgencia')) ? 'Castle Emergency ($5,900 MXN)' : 'Castle Rescue ($6,900 MXN)';
             presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('care') || target.includes('mantenimiento') || target.includes('cuidado')) {
@@ -405,14 +422,69 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           presSelect.value = presParam;
         }
 
-        // Intercept form submission for AJAX post and GA4 Lead event triggering
+        // Manejador de envío de formulario con validación, estados accesibles y mitigación antispam
         const form = document.getElementById('contact-form');
         const successMsg = document.getElementById('form-success-message');
+        const errorMsg = document.getElementById('form-error-message');
+        const errorText = document.getElementById('form-error-text');
+
+        function showError(msg) {
+          if (errorMsg && errorText) {
+            errorText.textContent = msg;
+            errorMsg.style.display = 'block';
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+
+        function clearError() {
+          if (errorMsg) {
+            errorMsg.style.display = 'none';
+          }
+        }
+
         if (form && successMsg) {
           form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Check honeypot for spam mitigation
+            clearError();
+
+            // Normalización y sanitización básica de entradas de texto
+            const nombreInput = form.querySelector('input[name="nombre"]');
+            const emailInput = form.querySelector('input[name="email"]');
+            const telInput = form.querySelector('input[name="whatsapp"]');
+            const empresaInput = form.querySelector('input[name="empresa"]');
+            const descInput = form.querySelector('textarea[name="descripcion"]');
+
+            if (nombreInput) nombreInput.value = nombreInput.value.trim();
+            if (emailInput) emailInput.value = emailInput.value.trim();
+            if (telInput) telInput.value = telInput.value.trim();
+            if (empresaInput) empresaInput.value = empresaInput.value.trim();
+            if (descInput) descInput.value = descInput.value.trim();
+
+            const nombre = nombreInput ? nombreInput.value : '';
+            const email = emailInput ? emailInput.value : '';
+            const desc = descInput ? descInput.value : '';
+
+            // Validaciones de cliente estructuradas
+            if (!nombre || nombre.length < 2) {
+              showError('Por favor ingresa tu nombre completo.');
+              if (nombreInput) nombreInput.focus();
+              return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+              showError('Por favor ingresa un correo electrónico válido (ejemplo: correo@empresa.com).');
+              if (emailInput) emailInput.focus();
+              return;
+            }
+
+            if (!desc || desc.length < 10) {
+              showError('Por favor describe brevemente tu requerimiento o comparte la URL de tu proyecto (mínimo 10 caracteres).');
+              if (descInput) descInput.focus();
+              return;
+            }
+
+            // Mitigación antispam no invasiva (Honeypot)
             const gotchaInput = form.querySelector('input[name="_gotcha"]');
             if (gotchaInput && gotchaInput.value) {
               form.style.display = 'none';
@@ -424,10 +496,13 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               return;
             }
 
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Enviando...';
+            const submitBtn = document.getElementById('btn-submit-contact') || form.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerText : 'Enviar Solicitud de Cotización →';
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerText = 'Enviando solicitud...';
+            }
+            form.setAttribute('aria-busy', 'true');
 
             const formData = new FormData(form);
             fetch(form.action, {
@@ -436,6 +511,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               headers: { 'Accept': 'application/json' }
             })
             .then(function(res) {
+              form.setAttribute('aria-busy', 'false');
               if (res.ok) {
                 form.style.display = 'none';
                 const prefillAlert = document.getElementById('prefill-alert');
@@ -444,10 +520,15 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 if (intentSelector) intentSelector.style.display = 'none';
                 successMsg.style.display = 'block';
 
-                // GA4 generate_lead Event (with NO personal information!)
+                const titleEl = document.getElementById('form-success-title');
+                if (titleEl) {
+                  titleEl.focus();
+                }
+
+                // Evento GA4 generate_lead (sin incluir datos personales)
                 if (typeof window.gtag === 'function') {
-                  const selectedService = document.getElementById('tipo_proyecto').value;
-                  const intencion = document.getElementById('intencion_comercial').value;
+                  const selectedService = document.getElementById('tipo_proyecto') ? document.getElementById('tipo_proyecto').value : '';
+                  const intencion = document.getElementById('intencion_comercial') ? document.getElementById('intencion_comercial').value : '';
                   window.gtag('event', 'generate_lead', {
                     cta_location: 'contacto',
                     package_name: selectedService,
@@ -456,15 +537,20 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                   });
                 }
               } else {
-                alert('Hubo un problema al enviar tu solicitud. Por favor intenta de nuevo o escríbenos directamente a contacto@grupocastillo.lat.');
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalText;
+                showError('El proveedor de recepción no pudo procesar la solicitud en este momento. Por favor verifica tus datos o contáctanos directamente a contacto@grupocastillo.lat o vía WhatsApp al +52 951 809 6110.');
+                if (submitBtn) {
+                  submitBtn.disabled = false;
+                  submitBtn.innerText = originalText;
+                }
               }
             })
             .catch(function() {
-              alert('Error de conexión. Por favor verifica tu red o contáctanos por WhatsApp/Correo.');
-              submitBtn.disabled = false;
-              submitBtn.innerText = originalText;
+              form.setAttribute('aria-busy', 'false');
+              showError('Error de conexión a la red. Por favor verifica tu conexión a internet o contáctanos directamente por WhatsApp (+52 951 809 6110) o al correo contacto@grupocastillo.lat.');
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalText;
+              }
             });
           });
         }

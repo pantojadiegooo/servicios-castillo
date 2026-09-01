@@ -255,7 +255,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 <label class="diag-option" style="display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.15rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-md); cursor: pointer;">
                   <input type="radio" name="scope_mantenimiento" value="care_enterprise" style="margin-top: 0.2rem;">
                   <div>
-                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Enterprise ($2,490 MXN / mes)</strong>
+                    <strong style="color: var(--paper); font-size: 0.95rem;">Castle Care Enterprise ($1,890 MXN / mes)</strong>
                     <span style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-top: 0.2rem;">Gobernanza completa de hasta 10 proyectos, auditorías continuas y soporte multicanal dedicado.</span>
                   </div>
                 </label>
@@ -480,15 +480,39 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
           document.getElementById('step-' + fromStep).style.display = 'none';
           currentStep = fromStep + 1;
-          document.getElementById('step-' + currentStep).style.display = 'block';
+          const nextStepEl = document.getElementById('step-' + currentStep);
+          if (nextStepEl) {
+            nextStepEl.style.display = 'block';
+            const heading = nextStepEl.querySelector('h2');
+            if (heading) {
+              heading.setAttribute('tabindex', '-1');
+              heading.focus();
+            }
+          }
           updateProgress();
+          const appEl = document.getElementById('diag-app');
+          if (appEl) {
+            window.scrollTo({ top: appEl.offsetTop - 80, behavior: 'smooth' });
+          }
         };
 
         window.diagPrev = function(fromStep) {
           document.getElementById('step-' + fromStep).style.display = 'none';
           currentStep = fromStep - 1;
-          document.getElementById('step-' + currentStep).style.display = 'block';
+          const prevStepEl = document.getElementById('step-' + currentStep);
+          if (prevStepEl) {
+            prevStepEl.style.display = 'block';
+            const heading = prevStepEl.querySelector('h2');
+            if (heading) {
+              heading.setAttribute('tabindex', '-1');
+              heading.focus();
+            }
+          }
           updateProgress();
+          const appEl = document.getElementById('diag-app');
+          if (appEl) {
+            window.scrollTo({ top: appEl.offsetTop - 80, behavior: 'smooth' });
+          }
         };
 
         // EVALUACIÓN DE REGLAS DE RECOMENDACIÓN
@@ -654,8 +678,8 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                 badge: 'CONTINUIDAD OPERATIVA • ALTA DISPONIBILIDAD',
                 title: 'Castle Care Enterprise',
                 subtitle: 'Gobernanza completa de hasta 10 proyectos y auditorías continuas con Castle Gate',
-                price: '$2,490 MXN / mes',
-                costNumeric: 2490,
+                price: '$1,890 MXN / mes',
+                costNumeric: 1890,
                 reasoning: 'Para plataformas de misión crítica o múltiples repositorios que requieren supervisión continua, gobernanza técnica y auditorías automatizadas periódicas.',
                 notNeeded: 'No pongas en riesgo tus operaciones sin un esquema formal de supervisión y mantenimiento preventivo.',
                 paqueteParam: 'Castle Care Enterprise',

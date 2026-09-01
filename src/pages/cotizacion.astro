@@ -128,7 +128,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
                 </div>
                 <div>
                   <label for="signer-email" style="display: block; font-size: 0.82rem; color: var(--steel-light); margin-bottom: 0.35rem;">Correo Corporativo Autorizado *</label>
-                  <input type="email" id="signer-email" required placeholder="representante@empresa.com" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
+                  <input type="email" id="signer-email" required autocomplete="email" inputmode="email" placeholder="representante@empresa.com" style="width: 100%; padding: 0.7rem 0.9rem; background: #07090E; border: 1px solid var(--line-dark); border-radius: var(--radius-sm); color: var(--paper);" />
                 </div>
               </div>
               <div style="margin-bottom: 1.25rem;">
@@ -150,6 +150,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 
     <script is:inline>
       (function() {
+        let currentProjectId = 'GC-Q-2026-000042';
         const searchForm = document.getElementById('search-form');
         const searchInput = document.getElementById('search-input');
         const quotationCard = document.getElementById('quotation-card');
@@ -282,6 +283,12 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           e.preventDefault();
           const name = document.getElementById('signer-name').value.trim();
           const email = document.getElementById('signer-email').value.trim();
+          const btnAccept = document.getElementById('btn-accept');
+
+          if (btnAccept) {
+            btnAccept.disabled = true;
+            btnAccept.innerText = 'Formalizando Aceptación...';
+          }
 
           try {
             await fetch(getApiUrl(`/api/quotations/${encodeURIComponent(currentProjectId)}/accept`), {
@@ -289,10 +296,8 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ acceptedByName: name, acceptedByEmail: email })
             });
-            alert('¡Cotización aceptada con éxito! Redirigiendo al portal para completar el anticipo...');
             window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
           } catch (err) {
-            alert('¡Cotización aceptada con éxito! Redirigiendo al portal...');
             window.location.href = `/portal?project=${encodeURIComponent(currentProjectId)}&email=${encodeURIComponent(email)}`;
           }
         });
