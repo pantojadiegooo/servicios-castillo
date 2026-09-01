@@ -125,3 +125,17 @@ textarea::placeholder {
   padding: 0.85rem 1.1rem;
   border: 1px solid rgba(255, 59, 92, 0.3);
 }
+
+@media (max-width: 768px) {
+  input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+  select,
+  textarea,
+  .field input:not([type="checkbox"]):not([type="radio"]),
+  .field select,
+  .field textarea,
+  .form-input:not([type="checkbox"]):not([type="radio"]),
+  .form-group input:not([type="checkbox"]):not([type="radio"]),
+  .form-group textarea {
+    font-size: 16px;
+  }
+}

@@ -111,7 +111,76 @@
   line-height: 1.45;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 768px) {
+  .gate-schematic {
+    overflow-x: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-block: 1rem;
+  }
+
+  .gate-track {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+    position: relative;
+    padding-top: 0;
+    padding-left: 2.25rem;
+    gap: 1.25rem;
+  }
+
+  .gate-track::before {
+    top: 12px;
+    bottom: 12px;
+    left: 11px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--line-dark) 0%, var(--cyan) 60%, var(--line-dark) 100%);
+  }
+
+  .gate-node {
+    flex: none;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    padding-inline: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gate-node:hover {
+    transform: translateX(2px);
+  }
+
+  .gate-dot {
+    position: absolute;
+    left: -2.25rem;
+    top: 0;
+    margin: 0;
+  }
+
+  .gate-node.is-gate .gate-dot {
+    top: -4px;
+    left: calc(-2.25rem - 4px);
+    margin-top: 0;
+  }
+
+  .gate-label {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .gate-sub {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 860px) {
   .gate-schematic::-webkit-scrollbar {
     height: 4px;
   }

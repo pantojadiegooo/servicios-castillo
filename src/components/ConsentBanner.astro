@@ -1,30 +1,138 @@
-﻿---
+---
 // src/components/ConsentBanner.astro
 ---
-<div id="gc-consent-banner" role="region" aria-label="Preferencias de privacidad y telemetría" tabindex="-1" style="display: none; position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 9999; max-width: 440px; width: calc(100% - 2.5rem); background: rgba(14, 18, 27, 0.96); border: 1px solid rgba(52, 107, 241, 0.3); border-radius: var(--radius-md); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1.35rem 1.5rem; transition: transform 0.25s ease, opacity 0.25s ease;">
-  <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem;">
-    <div style="color: var(--cyan); flex-shrink: 0; margin-top: 0.15rem;">
+<div
+  id="gc-consent-banner"
+  class="gc-consent-banner"
+  role="region"
+  aria-label="Preferencias de privacidad y telemetría"
+  tabindex="-1"
+  style="display: none;"
+>
+  <div class="gc-consent-header">
+    <div class="gc-consent-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
       </svg>
     </div>
-    <div>
-      <h3 style="font-size: 0.95rem; color: var(--paper); margin: 0 0 0.25rem 0; font-weight: 700;">Privacidad y Telemetría Técnica</h3>
-      <p style="font-size: 0.82rem; color: var(--steel-light); line-height: 1.55; margin: 0;">
-        Utilizamos telemetría anónima de Google Analytics 4 para evaluar rendimiento y estabilidad del sitio. No recopilamos datos personales ni usamos cookies de publicidad. Consulta nuestro <a href="/aviso-de-privacidad" style="color: var(--cyan); text-decoration: underline; text-underline-offset: 2px;">Aviso de Privacidad</a>.
+    <div class="gc-consent-content">
+      <h3 class="gc-consent-title">Privacidad y Telemetría Técnica</h3>
+      <p class="gc-consent-desc">
+        Utilizamos telemetría anónima de Google Analytics 4 para evaluar rendimiento y estabilidad del sitio. No recopilamos datos personales ni usamos cookies de publicidad. Consulta nuestro <a href="/aviso-de-privacidad" class="gc-consent-link">Aviso de Privacidad</a>.
       </p>
     </div>
   </div>
 
-  <div style="display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap; margin-top: 1rem;">
-    <button type="button" id="gc-consent-reject" class="btn btn-outline" style="padding: 0.45rem 1rem; font-size: 0.8rem; min-height: 38px;">
+  <div class="gc-consent-actions">
+    <button type="button" id="gc-consent-reject" class="btn btn-outline gc-consent-btn">
       Solo Esenciales
     </button>
-    <button type="button" id="gc-consent-accept" class="btn btn-primary" style="padding: 0.45rem 1.15rem; font-size: 0.8rem; min-height: 38px;">
+    <button type="button" id="gc-consent-accept" class="btn btn-primary gc-consent-btn">
       Aceptar Métricas
     </button>
   </div>
 </div>
+
+<style>
+  .gc-consent-banner {
+    position: fixed;
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));
+    right: 1.25rem;
+    z-index: 9999;
+    max-width: 440px;
+    width: calc(100% - 2.5rem);
+    max-height: calc(100svh - 2rem);
+    overflow-y: auto;
+    background: rgba(14, 18, 27, 0.96);
+    border: 1px solid rgba(52, 107, 241, 0.3);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.35rem 1.5rem;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .gc-consent-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .gc-consent-icon {
+    color: var(--cyan);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .gc-consent-title {
+    font-size: 0.95rem;
+    color: var(--paper);
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+  }
+
+  .gc-consent-desc {
+    font-size: 0.82rem;
+    color: var(--steel-light);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .gc-consent-link {
+    color: var(--cyan);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .gc-consent-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .gc-consent-btn {
+    padding: 0.55rem 1.15rem;
+    font-size: 0.82rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    .gc-consent-banner {
+      bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+      right: 0.75rem;
+      left: 0.75rem;
+      width: auto;
+      padding: 1rem 1.15rem;
+    }
+
+    .gc-consent-title {
+      font-size: 0.9rem;
+    }
+
+    .gc-consent-desc {
+      font-size: 0.78rem;
+    }
+
+    .gc-consent-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .gc-consent-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
 
 <script is:inline>
   (function() {

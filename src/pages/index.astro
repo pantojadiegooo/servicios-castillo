@@ -909,49 +909,57 @@ import TechIcon from '../components/TechIcon.astro';
           </p>
         </div>
 
-        <div class="glass-panel reveal" style="padding: 2rem; overflow-x: auto; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 2rem; border-radius: var(--radius-lg);">
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
-            <thead>
-              <tr style="border-bottom: 2px solid rgba(255, 255, 255, 0.15);">
-                <th style="padding: 1.1rem; color: var(--paper); font-family: var(--f-mono); font-size: 0.9rem;">Dimensión</th>
-                <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Agencia Tradicional</th>
-                <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Freelancer sin Proceso</th>
-                <th style="padding: 1.1rem; color: var(--cyan); font-weight: 800;">Grupo Castillo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Titularidad de Activos</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Retienen dominios y hosting en sus cuentas</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Cuentas informales o sin entregar repositorio</td>
-                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 100% a nombre del cliente desde el día 1</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Arquitectura de Código</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Plantillas pesadas con decenas de plugins lentos</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Variable según conocimiento sin estándares fijos</td>
-                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Código estático moderno (Astro/TS) sin sobreingeniería</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Transparencia de Precios</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Cotizaciones opacas con mensualidades obligatorias</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Precios informales sin alcance delimitado</td>
-                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Precios públicos en MXN y contrato SOW cerrado</td>
-              </tr>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Validación de Seguridad</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Revisiones manuales sin evidencia auditable</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Generalmente ausente o superficial</td>
-                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 65 controles CQS v1.1 en Castle Gate (SHA-256)</td>
-              </tr>
-              <tr>
-                <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Interlocución</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Ejecutivos de cuenta sin conocimiento técnico</td>
-                <td style="padding: 1.1rem; color: #CBD5E1;">Directa, pero con riesgo de disponibilidad</td>
-                <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Trato directo con el Ingeniero Líder + SOW formal</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="glass-panel reveal" style="padding: 2rem; background: rgba(14, 18, 27, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 2rem; border-radius: var(--radius-lg);">
+          <p class="table-scroll-hint">Desliza horizontalmente para consultar todas las columnas.</p>
+          <div
+            class="table-responsive"
+            role="region"
+            aria-label="Comparativa de Grupo Castillo, agencias y freelancers"
+            tabindex="0"
+          >
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 2px solid rgba(255, 255, 255, 0.15);">
+                  <th style="padding: 1.1rem; color: var(--paper); font-family: var(--f-mono); font-size: 0.9rem;">Dimensión</th>
+                  <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Agencia Tradicional</th>
+                  <th style="padding: 1.1rem; color: #E2E8F0; font-weight: 600;">Freelancer sin Proceso</th>
+                  <th style="padding: 1.1rem; color: var(--cyan); font-weight: 800;">Grupo Castillo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Titularidad de Activos</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Retienen dominios y hosting en sus cuentas</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Cuentas informales o sin entregar repositorio</td>
+                  <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 100% a nombre del cliente desde el día 1</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Arquitectura de Código</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Plantillas pesadas con decenas de plugins lentos</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Variable según conocimiento sin estándares fijos</td>
+                  <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Código estático moderno (Astro/TS) sin sobreingeniería</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Transparencia de Precios</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Cotizaciones opacas con mensualidades obligatorias</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Precios informales sin alcance delimitado</td>
+                  <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Precios públicos en MXN y contrato SOW cerrado</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Validación de Seguridad</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Revisiones manuales sin evidencia auditable</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Generalmente ausente o superficial</td>
+                  <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> 65 controles CQS v1.1 en Castle Gate (SHA-256)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1.1rem; font-weight: 700; color: var(--paper);">Interlocución</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Ejecutivos de cuenta sin conocimiento técnico</td>
+                  <td style="padding: 1.1rem; color: #CBD5E1;">Directa, pero con riesgo de disponibilidad</td>
+                  <td style="padding: 1.1rem; color: var(--cyan); font-weight: 600;"><span style="color: #00E599; font-weight: 800;">✓</span> Trato directo con el Ingeniero Líder + SOW formal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>

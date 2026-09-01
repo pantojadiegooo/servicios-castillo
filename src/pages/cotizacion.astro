@@ -214,7 +214,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
         // Leer parámetro ?id= o ?project= de URL
         const params = new URLSearchParams(window.location.search);
         const urlId = params.get('id') || params.get('project');
-        const urlPackage = params.get('paquete') || params.get('package');
+        const urlPackage = params.get('paquete') || params.get('package') || params.get('servicio') || params.get('service');
 
         if (urlId) {
           searchInput.value = urlId;

@@ -115,3 +115,32 @@
     will-change: auto !important;
   }
 }
+
+/* ===== Responsive Table Wrapper & Mobile Scroll Hint ===== */
+.table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive:focus-visible {
+  outline: 2px solid var(--primary, #346BF1);
+  outline-offset: 2px;
+}
+
+.table-scroll-hint {
+  display: none;
+  font-size: 0.8rem;
+  color: var(--steel-soft);
+  margin-bottom: 0.75rem;
+  font-family: var(--f-mono);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .table-scroll-hint {
+    display: block;
+  }
+}
