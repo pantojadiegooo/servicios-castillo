@@ -196,12 +196,30 @@ export const SPECIALIZED_SERVICES = {
     fullName: 'Póliza Mensual Castle Care',
     isMonthly: true,
     plans: {
-      basic: { name: 'Castle Care Basic', priceMxnMonthly: 590, priceUsdEstimate: 35 },
-      pro: { name: 'Castle Care Pro', priceMxnMonthly: 990, priceUsdEstimate: 58 },
-      enterprise: { name: 'Castle Care Enterprise', priceMxnMonthly: 1890, priceUsdEstimate: 110 }
+      basic: {
+        name: 'Castle Care Basic',
+        priceMxnMonthly: 590,
+        priceUsdEstimate: 35,
+        correctiveInterventionMinutes: 0,
+        description: 'Supervisión esencial de disponibilidad 24/7 y parches preventivos (sin tiempo de intervención incluido)'
+      },
+      pro: {
+        name: 'Castle Care Pro',
+        priceMxnMonthly: 990,
+        priceUsdEstimate: 58,
+        correctiveInterventionMinutes: 30,
+        description: 'Supervisión integral, actualización periódica de dependencias y hasta 30 minutos mensuales de intervención correctiva incluidos'
+      },
+      enterprise: {
+        name: 'Castle Care Enterprise',
+        priceMxnMonthly: 1890,
+        priceUsdEstimate: 110,
+        correctiveInterventionMinutes: 60,
+        description: 'Gobernanza completa multi-repositorio y hasta 60 minutos mensuales de intervención correctiva incluidos'
+      }
     },
     basePriceMxn: 590,
-    description: 'Supervisión continua de uptime, actualización de dependencias, parches de seguridad y soporte de mantenimiento preventivo'
+    description: 'Supervisión continua de uptime, actualización de dependencias, parches de seguridad y tiempo de intervención correctiva incluido'
   },
   GATE_CLI: {
     id: 'gate-cli',

@@ -16,7 +16,8 @@
     "commercial:server": "node ./bin/commercial-api.js",
     "test:gate": "node ./test/castle-gate.test.js",
     "test:commercial": "node ./test/commercial/run-all-commercial-tests.js",
-    "test": "node ./test/castle-gate.test.js && node ./test/commercial/run-all-commercial-tests.js"
+    "test:care": "node ./test/care-checkout.test.js",
+    "test": "node ./test/castle-gate.test.js && node ./test/commercial/run-all-commercial-tests.js && node ./test/care-checkout.test.js"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",

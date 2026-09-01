@@ -8,7 +8,8 @@ export const CARE_PLANS = Object.freeze(Object.fromEntries(
     name: plan.name,
     amountMxn: plan.priceMxnMonthly,
     amountMinor: Math.round(plan.priceMxnMonthly * 100),
-    envKey: `PUBLIC_CARE_${id.toUpperCase()}_PAYMENT_LINK`,
+    envKey: `PUBLIC_STRIPE_CARE_${id.toUpperCase()}_URL`,
+    legacyEnvKey: `PUBLIC_CARE_${id.toUpperCase()}_PAYMENT_LINK`,
   })]),
 ));
 
@@ -61,13 +62,15 @@ export function getCareCheckoutConfig(env = {}, { deployment = 'production' } = 
   }
 
   for (const plan of Object.values(plans)) {
-    plan.href = validateStripeUrl(env[plan.envKey], 'payment', mode, plan.envKey);
+    const rawUrl = env[plan.envKey] || env[plan.legacyEnvKey];
+    plan.href = validateStripeUrl(rawUrl, 'payment', mode, plan.envKey);
   }
   if (new Set(Object.values(plans).map(plan => plan.href)).size !== 3) {
     throw new Error('Castle Care: each plan must have its own Stripe Payment Link');
   }
+  const rawPortal = env.PUBLIC_STRIPE_CARE_PORTAL_URL || env.PUBLIC_CARE_CUSTOMER_PORTAL_URL;
   const portalUrl = validateStripeUrl(
-    env.PUBLIC_CARE_CUSTOMER_PORTAL_URL, 'portal', mode, 'PUBLIC_CARE_CUSTOMER_PORTAL_URL',
+    rawPortal, 'portal', mode, 'PUBLIC_STRIPE_CARE_PORTAL_URL',
   );
   return { enabled: true, mode, plans, portalUrl };
 }

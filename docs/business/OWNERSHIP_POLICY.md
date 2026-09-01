@@ -55,5 +55,5 @@ Grupo Castillo conserva la propiedad exclusiva de:
 ### 4. REGLAS SOBRE LA MARCA DE VALIDACIÓN CASTLE GATE
 
 1. **Evidencia de Proceso:** El sello o badge de validación *Castle Gate* entregado con el release certifica que el código cumplió con los controles CQS v1.1 al momento de su liberación.
-2. **Propiedad Intelectual del Sello:** La marca *Castle Gate* y el protocolo CQS v1.1 son marcas registradas de Grupo Castillo. El Cliente tiene derecho a exhibir el sello en su producto validado conforme a la [Especificación de la Marca de Validación](file:///docs/CASTLE_GATE_VALIDATION_MARK_SPEC.md).
+2. **Propiedad Intelectual del Sello:** Castle Gate y la metodología CQS v1.1 son tecnología y denominaciones comerciales de Grupo Castillo. El Cliente tiene derecho a exhibir el sello en su producto validado conforme a la [Especificación de la Marca de Validación](file:///docs/CASTLE_GATE_VALIDATION_MARK_SPEC.md).
 3. **Modificaciones Posteriores:** Si un tercero no autorizado modifica sustancialmente el código fuente de forma que introduzca fallos de seguridad o vulnere los controles CQS, el sello deberá ser actualizado o retirado para preservar la integridad de la evidencia.

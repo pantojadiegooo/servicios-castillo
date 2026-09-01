@@ -88,15 +88,15 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           <div style="margin-bottom: 2rem; background: rgba(7, 9, 14, 0.8); border: 1px solid rgba(52, 107, 241, 0.2); padding: 1.5rem; border-radius: var(--radius-sm);">
             <h3 style="font-size: 1.05rem; color: var(--paper); margin-bottom: 1rem;">3. Desglose Financiero y Esquema de Pagos</h3>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--steel-light);">
-              <span>Subtotal Neto:</span>
+              <span>Inversión Comercial Acordada:</span>
               <span id="q-subtotal" style="font-family: var(--f-mono); color: var(--paper);">$0.00 MXN</span>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--steel-light);">
-              <span>IVA (16% Parametrizable):</span>
+            <div id="q-tax-row" style="display: none; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--steel-light);">
+              <span>Impuestos / Desglose:</span>
               <span id="q-tax" style="font-family: var(--f-mono); color: var(--paper);">$0.00 MXN</span>
             </div>
             <div style="display: flex; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--line-dark); font-size: 1.25rem; font-weight: bold; color: var(--cyan);">
-              <span>Inversión Total:</span>
+              <span>Importe Total:</span>
               <span id="q-total" style="font-family: var(--f-mono);">$0.00 MXN</span>
             </div>
             <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--line-dark); font-size: 0.85rem; color: var(--steel-light);">
@@ -108,7 +108,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
 
           <!-- VINCULACIÓN AL CONTRATO MARCO Y SOBERANÍA -->
           <div style="font-size: 0.82rem; color: var(--steel-soft); line-height: 1.5; margin-bottom: 2rem;">
-            * Esta cotización constituye la Declaración de Trabajo (SOW) y Condiciones Particulares vinculadas al Contrato Marco de Prestación de Servicios (MSA GC-MSA-2026). Incluye 30 días naturales de garantía operativa post-entrega y 100% de titularidad exclusiva del código fuente, dominio e infraestructura para el cliente.
+            * Esta cotización constituye la Declaración de Trabajo (SOW) y Condiciones Particulares vinculadas al Contrato Marco de Prestación de Servicios (MSA GC-MSA-2026). Los precios se expresan en pesos mexicanos. Las condiciones de pago y los datos comerciales aplicables se confirman antes de formalizar cada contratación. Incluye 100% de titularidad exclusiva del código fuente, dominio e infraestructura para el cliente conforme a <a href="/terminos" style="color: var(--cyan); text-decoration: underline;">Términos del Servicio</a>.
           </div>
 
           <!-- ACCIONES DE ACEPTACIÓN FORMAL O DERIVACIÓN ORIENTATIVA -->
@@ -313,7 +313,14 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           const balanceVal = isEngineering ? 0 : Math.round((totalVal - depositVal) * 100) / 100;
 
           document.getElementById('q-subtotal').innerText = '$' + Number(q.subtotal_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-tax').innerText = '$' + Number(q.tax_amount_mxn || 0).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          const taxRow = document.getElementById('q-tax-row');
+          const taxVal = Number(q.tax_amount_mxn || 0);
+          if (taxVal > 0) {
+            if (taxRow) taxRow.style.display = 'flex';
+            document.getElementById('q-tax').innerText = '$' + taxVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
+          } else {
+            if (taxRow) taxRow.style.display = 'none';
+          }
           document.getElementById('q-total').innerText = '$' + totalVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-deposit').innerText = '$' + depositVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-balance').innerText = '$' + balanceVal.toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
@@ -353,8 +360,8 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             const p = String(packageHint).toLowerCase();
             if (p.includes('iron')) {
               subtotal = 2800;
-              projName = 'Presencia One-Page Esencial (Castle Iron)';
-              scope = 'Desarrollo de sitio One-Page ágil, enlace directo a WhatsApp, diseño responsivo optimizado y certificación Castle Gate C1.';
+              projName = 'Sitio Web Esencial de Alta Velocidad (Castle Iron)';
+              scope = 'Desarrollo de sitio web one-page esencial, arquitectura limpia, certificado SSL, optimización de carga y certificación Castle Gate C1.';
               packageParam = 'Castle Iron ($2,800 MXN)';
             } else if (p.includes('bronze')) {
               subtotal = 4500;
@@ -403,7 +410,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             } else if (p.includes('care') || p.includes('cuidado') || p.includes('soporte') || p.includes('mantenimiento')) {
               subtotal = 590;
               projName = 'Póliza Mensual de Continuidad (Castle Care)';
-              scope = 'Supervisión continua 24/7 de disponibilidad, monitoreo SSL, actualización periódica de dependencias y soporte preventivo sin plazos forzosos (Planes: Basic $590, Pro $990, Enterprise $1,890 MXN/mes).';
+              scope = 'Supervisión continua 24/7 de disponibilidad, monitoreo SSL, actualización periódica de dependencias y parches preventivos (Planes: Basic $590, Pro $990, Enterprise $1,890 MXN/mes).';
               packageParam = 'Castle Care (Desde $590 MXN/mes)';
               isCare = true;
               customCtaHref = `/contacto?necesidad=cuidado&paquete=${encodeURIComponent('Castle Care (Desde $590 MXN/mes)')}`;
@@ -417,8 +424,10 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             }
           }
 
-          const tax = subtotal * 0.16;
-          const total = subtotal + tax;
+          const taxRowDemo = document.getElementById('q-tax-row');
+          if (taxRowDemo) taxRowDemo.style.display = 'none';
+
+          const total = subtotal;
           let deposit = isEngineering ? total : Math.round((total / 2) * 100) / 100;
           let balance = isEngineering ? 0 : Math.round((total - deposit) * 100) / 100;
 
@@ -435,7 +444,6 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           document.getElementById('q-scope').innerText = scope;
 
           document.getElementById('q-subtotal').innerText = '$' + Number(subtotal).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
-          document.getElementById('q-tax').innerText = '$' + Number(tax).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-total').innerText = '$' + Number(total).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-deposit').innerText = '$' + Number(deposit).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';
           document.getElementById('q-balance').innerText = '$' + Number(balance).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + ' MXN';

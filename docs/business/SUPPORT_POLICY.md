@@ -46,5 +46,5 @@ Grupo Castillo ofrece un modelo de soporte estructurado para acompañar la evolu
 
 ### 3. CANALES OFICIALES DE SOPORTE
 
-- **Portal / Correo de Soporte:** `soporte@grupocastillo.com`
+- **Portal / Correo de Notificaciones:** `contacto@grupocastillo.lat`
 - **Línea de Emergencia (Solo clientes Castle Emergency / Care):** Canal directo dedicado vía Slack Connect o número de guardia asignado.

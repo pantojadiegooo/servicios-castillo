@@ -47,7 +47,7 @@ La garantía quedará sin efecto o requerirá cotización independiente en los s
 
 ### 3. TIEMPOS DE RESPUESTA Y PROCEDIMIENTO DE REPORTE
 
-- **Canal Oficial:** Envío de correo a `soporte@grupocastillo.com` con asunto `[GARANTÍA] Proyecto - Descripción del Bug`.
+- **Canal Oficial:** Envío de correo a `contacto@grupocastillo.lat` con asunto `[GARANTÍA] Proyecto - Descripción del Bug`.
 - **Tiempos de Atención:**
   - **Severidad Crítica (Sitio caído o formulario bloqueado):** Respuesta y diagnóstico en $\le 4$ horas hábiles; resolución en $\le 24$ horas.
   - **Severidad Media / Cosmética:** Respuesta en $\le 24$ horas hábiles; resolución en $\le 72$ horas.

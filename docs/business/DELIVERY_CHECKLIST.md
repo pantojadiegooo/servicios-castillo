@@ -79,8 +79,8 @@
 
 ### FASE 5: CIERRE COMERCIAL Y ACTIVACIÓN DE GARANTÍA
 
-- [ ] **5.1 Emisión y Liquidación de Factura Final:**
-  - [ ] Factura fiscal (CFDI) emitida por el 50% de finiquito o saldo restante.
+- [ ] **5.1 Liquidación Comercial de Cierre:**
+  - [ ] Comprobante de liquidación del 50% de finiquito o saldo restante según condiciones comerciales acordadas.
   - [ ] Comprobante de pago recibido y conciliado.
 - [ ] **5.2 Firma de Conformidad:**
   - [ ] Acta de Entrega y Aceptación Final firmada por el representante del cliente.

@@ -3,11 +3,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQItem from '../../components/FAQItem.astro';
 import CTABand from '../../components/CTABand.astro';
 import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
+import { getCareCheckoutConfig } from '../../lib/care-checkout.js';
+
+const checkoutConfig = getCareCheckoutConfig(import.meta.env, {
+  deployment: import.meta.env.MODE || 'production'
+});
 ---
 
 <BaseLayout
   title="Castle Care — Suscripción Mensual de Continuidad y Gobernanza Técnica | Grupo Castillo"
-  description="Planes Castle Care (Desde $590 MXN / mes): Supervisión continua de uptime, actualización de dependencias, parches de seguridad y mantenimiento técnico preventivo."
+  description="Planes Castle Care (Desde $590 MXN / mes): Supervisión continua de uptime, actualización de dependencias, parches de seguridad y tiempo de intervención correctiva incluido."
   canonical="https://grupocastillo.lat/servicios/care"
   ogUrl="https://grupocastillo.lat/servicios/care"
 >
@@ -30,13 +35,13 @@ import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
         <div class="section-head reveal">
           <p class="eyebrow" style="color: var(--cyan);">Niveles de Suscripción Mensual</p>
           <h2>Elige el plan adecuado para tu operación</h2>
-          <p>Mantenimiento preventivo, supervisión de disponibilidad y gobernanza técnica continua.</p>
+          <p>Mantenimiento preventivo, supervisión de disponibilidad y tiempo de intervención correctiva incluido.</p>
         </div>
 
         <div class="grid grid-3 reveal" style="gap: 1.5rem; margin-bottom: 3rem;">
           
           <!-- 1. CARE BASIC -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--steel-light); font-weight: 700;">NIVEL 01 • BÁSICO</span>
             </div>
@@ -46,20 +51,21 @@ import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$590 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
+              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Sin plazo forzoso</span>
             </div>
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.5rem;">
               <li>1 Repositorio / Sitio supervisado</li>
               <li>Supervisión de disponibilidad 24/7</li>
               <li>Monitoreo de certificados SSL</li>
               <li>Parches preventivos de seguridad</li>
               <li>Soporte técnico vía ticket estándar</li>
+              <li style="color: var(--steel-soft); font-style: italic;">Sin tiempo de intervención correctiva incluido</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Basic</a>
+            <a class="btn btn-primary" href={checkoutConfig.plans.basic.href} target={checkoutConfig.enabled ? "_blank" : undefined} rel={checkoutConfig.enabled ? "noopener noreferrer" : undefined} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Basic</a>
           </div>
 
           <!-- 2. CARE PRO (POPULAR) -->
-          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(52, 107, 241, 0.35); background: linear-gradient(180deg, rgba(52, 107, 241, 0.05) 0%, var(--glass-surface) 100%);">
+          <div class="card glass-panel" style="padding: 2.25rem; border-color: rgba(52, 107, 241, 0.35); background: linear-gradient(180deg, rgba(52, 107, 241, 0.05) 0%, var(--glass-surface) 100%); display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
               <span class="badge badge-cyan" style="font-size: 0.65rem; padding: 2px 7px;">RECOMENDADO</span>
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 02</span>
@@ -70,20 +76,21 @@ import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$990 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
+              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Sin plazo forzoso</span>
             </div>
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.5rem;">
               <li>Hasta 3 Repositorios / Sitios supervisados</li>
               <li>Supervisión de disponibilidad y salud técnica</li>
               <li>Actualización preventiva de dependencias</li>
+              <li><strong style="color: var(--cyan);">Hasta 30 minutos por mes</strong> de intervención correctiva incluidos</li>
               <li>Canal de soporte técnico prioritario</li>
               <li>Reporte mensual de métricas y rendimiento</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Care Pro</a>
+            <a class="btn btn-primary" href={checkoutConfig.plans.pro.href} target={checkoutConfig.enabled ? "_blank" : undefined} rel={checkoutConfig.enabled ? "noopener noreferrer" : undefined} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Care Pro</a>
           </div>
 
           <!-- 3. CARE ENTERPRISE -->
-          <div class="card glass-panel" style="padding: 2.25rem;">
+          <div class="card glass-panel" style="padding: 2.25rem; display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
               <span style="font-family: var(--f-mono); font-size: 0.8rem; color: var(--cyan); font-weight: 700;">NIVEL 03 • ALTA DISPONIBILIDAD</span>
             </div>
@@ -93,22 +100,35 @@ import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
             </p>
             <div class="package-price-wrap" style="margin-bottom: 1.25rem;">
               <div class="package-price" style="font-size: 1.4rem; font-family: var(--f-mono); font-weight: 700; color: var(--paper);">$1,890 MXN <span style="font-size: 0.8rem; color: var(--steel-soft); font-weight: normal;">/ mes</span></div>
-              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Facturación en MXN</span>
+              <span style="display: block; font-family: var(--f-mono); font-size: 0.78rem; color: var(--steel-soft); margin-top: 0.25rem;">Suscripción mensual • Sin plazo forzoso</span>
             </div>
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light);">
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--steel-light); display: flex; flex-direction: column; gap: 0.5rem;">
               <li>Hasta 10 Repositorios supervisados</li>
               <li>Supervisión continua de disponibilidad y seguridad</li>
               <li>Sesión periódica de revisión de arquitectura</li>
+              <li><strong style="color: var(--cyan);">Hasta 60 minutos por mes</strong> de intervención correctiva incluidos</li>
               <li>Atención prioritaria y soporte multi-canal</li>
               <li>Auditorías continuas con Castle Gate CLI</li>
             </ul>
-            <a class="btn btn-primary" href="/contacto?necesidad=cuidado" style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Enterprise</a>
+            <a class="btn btn-primary" href={checkoutConfig.plans.enterprise.href} target={checkoutConfig.enabled ? "_blank" : undefined} rel={checkoutConfig.enabled ? "noopener noreferrer" : undefined} style="width: 100%; text-align: center; font-size: 0.82rem; margin-top: auto;">Contratar Enterprise</a>
           </div>
 
         </div>
 
-        <div style="padding: 1.25rem; background: rgba(52, 107, 241, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--steel-light); max-width: 800px; margin: 0 auto 3rem auto; text-align: center;">
-          ℹ <em>Condición operativa:</em> Las suscripciones Castle Care se renuevan mes a mes y pueden cancelarse en cualquier momento con notificación previa antes de la fecha de corte.
+        <div style="padding: 1.5rem; background: rgba(52, 107, 241, 0.05); border-left: 3px solid var(--cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--steel-light); max-width: 840px; margin: 0 auto 3rem auto; line-height: 1.6;">
+          <p style="margin: 0 0 0.5rem 0; color: var(--paper); font-weight: 600;">
+            ℹ Pago mensual seguro procesado mediante Stripe. Puedes cancelar antes de tu siguiente fecha de renovación.
+          </p>
+          <p style="margin: 0; font-size: 0.82rem;">
+            El tiempo incluido cubre ajustes correctivos menores sobre el alcance existente. No es acumulable, no se convierte en saldo y no incluye nuevas funciones, rediseños, migraciones, incidentes críticos ni trabajos de Castle Rescue o Castle Emergency. Cualquier intervención adicional se diagnostica y cotiza antes de realizarse.
+          </p>
+          {checkoutConfig.portalUrl && (
+            <div style="margin-top: 1rem;">
+              <a href={checkoutConfig.portalUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.4rem 0.9rem;">
+                Administrar o cancelar suscripción en Stripe →
+              </a>
+            </div>
+          )}
         </div>
 
       </div>
@@ -124,13 +144,13 @@ import HeroEngineVisual from '../../components/HeroEngineVisual.astro';
         <div class="two-col">
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Existe plazo forzoso de permanencia?" answer="No. Las suscripciones Castle Care son mensuales y se pueden cancelar en cualquier momento avisando con 15 días de anticipación al siguiente corte de facturación." />
-              <FAQItem question="¿Para qué puedo usar las horas Rescue incluidas en Care Pro?" answer="Puedes usarlas para implementar nuevas secciones, reparar errores en librerías, optimizar imágenes, actualizar textos o sanear credenciales." />
+              <FAQItem open={true} question="¿Existe plazo forzoso de permanencia?" answer="No. Las suscripciones Castle Care son mensuales y se pueden cancelar en cualquier momento antes de tu siguiente fecha de renovación. La cancelación detiene el cobro del siguiente ciclo y el servicio permanece activo hasta finalizar el periodo ya pagado." />
+              <FAQItem question="¿Qué cubre el tiempo de intervención correctiva incluido?" answer="El tiempo incluido (hasta 30 minutos por mes en Care Pro y hasta 60 minutos por mes en Care Enterprise) cubre ajustes correctivos menores sobre el alcance existente. No es acumulable, no se convierte en saldo y no incluye nuevas funciones, rediseños, migraciones, incidentes críticos ni trabajos de Castle Rescue o Castle Emergency. Cualquier intervención adicional se diagnostica y cotiza antes de realizarse." />
             </div>
           </div>
           <div class="reveal">
             <div class="faq">
-              <FAQItem open={true} question="¿Qué pasa si en un mes requiero más horas de las incluidas?" answer="Si excedes tus horas incluidas, las horas adicionales de ingeniería se facturan con una tarifa preferencial con descuento de cliente suscriptor." />
+              <FAQItem open={true} question="¿Qué pasa si requiero soporte o ajustes adicionales?" answer="Cualquier intervención que exceda el tiempo de intervención correctiva incluido o que involucre nuevas funciones se evalúa técnicamente y se cotiza previamente antes de realizarse, o puede canalizarse mediante Castle Rescue o Castle Emergency según la urgencia." />
               <FAQItem question="¿Cómo se monitorea la disponibilidad?" answer="Configuramos sondas automatizadas que verifican el tiempo de respuesta HTTP y la validez de los certificados SSL cada 60 segundos." />
             </div>
           </div>
