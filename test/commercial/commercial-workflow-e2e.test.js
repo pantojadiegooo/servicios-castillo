@@ -46,7 +46,7 @@ test('E2E Lifecycle — Flujo comercial integral de 21 estados', () => {
     contactEmail: 'roberto@alphatech.com',
     contactPhone: '+52 55 9876 5432',
     rfc_tax_id: 'ATG200101XYZ',
-    serviceCode: 'GOLD', // Castle Gold $12,900 MXN
+    serviceCode: 'GOLD', // Castle Gold $12,500 MXN
     projectName: 'Plataforma Corporativa Alpha',
     scopeDescription: 'Desarrollo integral de plataforma web corporativa con Astro SSG y Living Glass UI.',
     createdBy: 'usr_admin_01'
@@ -55,8 +55,8 @@ test('E2E Lifecycle — Flujo comercial integral de 21 estados', () => {
   const projectId = quote.projectId;
   assert.ok(projectId.startsWith('GC-Q-2026-'));
   assert.equal(quote.state, PROJECT_STATES.QUOTED);
-  assert.equal(quote.financial.subtotal, 12900);
-  assert.equal(quote.financial.total, 14964);
+  assert.equal(quote.financial.subtotal, 12500);
+  assert.equal(quote.financial.total, 14500);
 
   // 2. ACEPTACIÓN DE COTIZACIÓN POR EL CLIENTE (QUOTED -> ACCEPTED -> PAYMENT_PENDING)
   const acceptRes = quotationService.acceptQuotation(projectId, {
@@ -77,11 +77,11 @@ test('E2E Lifecycle — Flujo comercial integral de 21 estados', () => {
   assert.equal(signContractRes.success, true);
   assert.ok(signContractRes.contractHashSha256);
 
-  // 4. PAGO DE ANTICIPO 50% ($7,482 MXN) Y VERIFICACIÓN ADMINISTRATIVA
+  // 4. PAGO DE ANTICIPO 50% ($7,250 MXN) Y VERIFICACIÓN ADMINISTRATIVA
   let project = projectService.getProjectById(projectId);
   const depositPayment = project.payments.find(p => p.concept === 'ANTICIPO_50');
   assert.ok(depositPayment);
-  assert.equal(depositPayment.total_mxn, 7482);
+  assert.equal(depositPayment.total_mxn, 7250);
 
   paymentService.submitBankTransferReceipt(depositPayment.id, 'https://vault.castillo.com/rec/spei_deposit.pdf', 'roberto@alphatech.com');
   paymentService.verifyPaymentManual(depositPayment.id, 'usr_admin_01');
@@ -150,11 +150,11 @@ test('E2E Lifecycle — Flujo comercial integral de 21 estados', () => {
   const pdApproveRes = preDeliveryService.approvePreDelivery(projectId, 'roberto@alphatech.com');
   assert.equal(pdApproveRes.state, PROJECT_STATES.BALANCE_PENDING);
 
-  // 11. LIQUIDACIÓN DEL 50% FINIQUITO ($7,482 MXN)
+  // 11. LIQUIDACIÓN DEL 50% FINIQUITO ($7,250 MXN)
   project = projectService.getProjectById(projectId);
   const finiquitoPayment = project.payments.find(p => p.concept === 'FINIQUITO_50');
   assert.ok(finiquitoPayment);
-  assert.equal(finiquitoPayment.total_mxn, 7482);
+  assert.equal(finiquitoPayment.total_mxn, 7250);
 
   paymentService.submitBankTransferReceipt(finiquitoPayment.id, 'https://vault.castillo.com/rec/spei_finiquito.pdf', 'roberto@alphatech.com');
   paymentService.verifyPaymentManual(finiquitoPayment.id, 'usr_admin_01');

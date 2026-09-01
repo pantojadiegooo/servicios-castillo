@@ -36,14 +36,14 @@ test('Pagos & Webhooks — Stripe HMAC, Idempotencia, SPEI y Chargebacks', () =>
     INSERT INTO quotation_versions (
       id, project_id, version_number, scope_description, subtotal_mxn,
       tax_rate, tax_amount_mxn, total_mxn, valid_until_date, digest_sha256, created_by
-    ) VALUES ('GC-Q-2026-000300-v1', 'GC-Q-2026-000300', 1, 'Alcance Gold', 12900, 0.16, 2064, 14964, '2026-09-01', 'hash_test', 'admin')
+    ) VALUES ('GC-Q-2026-000300-v1', 'GC-Q-2026-000300', 1, 'Alcance Gold', 12500, 0.16, 2000, 14500, '2026-09-01', 'hash_test', 'admin')
   `).run();
 
   db.prepare(`
     INSERT INTO payments (
       id, project_id, concept, subtotal_mxn, tax_amount_mxn, total_mxn,
       payment_method, status
-    ) VALUES ('pay_order_1', 'GC-Q-2026-000300', 'ANTICIPO_50', 6450, 1032, 7482, 'TRANSFERENCIA_SPEI', 'PENDING')
+    ) VALUES ('pay_order_1', 'GC-Q-2026-000300', 'ANTICIPO_50', 6250, 1000, 7250, 'TRANSFERENCIA_SPEI', 'PENDING')
   `).run();
 
   // 1. Transferencia SPEI -> Comprobante -> PENDING_VERIFICATION
@@ -56,17 +56,17 @@ test('Pagos & Webhooks — Stripe HMAC, Idempotencia, SPEI y Chargebacks', () =>
 
   let summary = paymentService.getProjectFinancialSummary('GC-Q-2026-000300');
   assert.equal(summary.totalPaid, 0);
-  assert.equal(summary.totalPendingVerification, 7482);
-  assert.equal(summary.remainingBalance, 14964);
+  assert.equal(summary.totalPendingVerification, 7250);
+  assert.equal(summary.remainingBalance, 14500);
 
   // 2. Conciliación manual administrativa -> PAID
   const verifyRes = paymentService.verifyPaymentManual('pay_order_1', 'usr_admin_01');
   assert.equal(verifyRes.status, 'PAID');
 
   summary = paymentService.getProjectFinancialSummary('GC-Q-2026-000300');
-  assert.equal(summary.totalPaid, 7482);
+  assert.equal(summary.totalPaid, 7250);
   assert.equal(summary.totalPendingVerification, 0);
-  assert.equal(summary.remainingBalance, 7482);
+  assert.equal(summary.remainingBalance, 7250);
 
   // 3. Webhook de Stripe: Preparar payload firmado con HMAC
   const stripeEvent = {
@@ -76,7 +76,7 @@ test('Pagos & Webhooks — Stripe HMAC, Idempotencia, SPEI y Chargebacks', () =>
       object: {
         id: 'cs_test_session_1',
         client_reference_id: 'pay_order_2',
-        amount_total: 748200, // $7,482.00 MXN en centavos
+        amount_total: 725000, // $7,250.00 MXN en centavos
         metadata: {
           payment_id: 'pay_order_2',
           project_id: 'GC-Q-2026-000300'
@@ -89,7 +89,7 @@ test('Pagos & Webhooks — Stripe HMAC, Idempotencia, SPEI y Chargebacks', () =>
     INSERT INTO payments (
       id, project_id, concept, subtotal_mxn, tax_amount_mxn, total_mxn,
       payment_method, status
-    ) VALUES ('pay_order_2', 'GC-Q-2026-000300', 'FINIQUITO_50', 6450, 1032, 7482, 'STRIPE', 'PENDING')
+    ) VALUES ('pay_order_2', 'GC-Q-2026-000300', 'FINIQUITO_50', 6250, 1000, 7250, 'STRIPE', 'PENDING')
   `).run();
 
   const rawBody = JSON.stringify(stripeEvent);
@@ -105,7 +105,7 @@ test('Pagos & Webhooks — Stripe HMAC, Idempotencia, SPEI y Chargebacks', () =>
   assert.equal(webhookRes.processedEvent, 'checkout.session.completed');
 
   summary = paymentService.getProjectFinancialSummary('GC-Q-2026-000300');
-  assert.equal(summary.totalPaid, 14964);
+  assert.equal(summary.totalPaid, 14500);
   assert.equal(summary.remainingBalance, 0);
   assert.equal(summary.isFullyPaid, true);
 

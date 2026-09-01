@@ -221,30 +221,30 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
         }
 
         function displayDemoQuotation(id, packageHint) {
-          let subtotal = 12900;
+          let subtotal = 12500;
           let projName = 'Plataforma Corporativa Living Glass (Castle Gold)';
           let scope = 'Desarrollo integral de plataforma web corporativa con Astro SSG, arquitectura de componentes Living Glass, optimización Core Web Vitals, accesibilidad WCAG 2.1 AA y certificación formal mediante Castle Gate CQS v1.1.';
 
           if (packageHint) {
             const p = packageHint.toLowerCase();
             if (p.includes('iron')) {
-              subtotal = 2999;
+              subtotal = 2800;
               projName = 'Presencia One-Page Esencial (Castle Iron)';
               scope = 'Desarrollo de sitio One-Page ágil, enlace directo a WhatsApp, diseño responsivo optimizado y certificación Castle Gate C1.';
             } else if (p.includes('bronze')) {
-              subtotal = 4900;
+              subtotal = 4500;
               projName = 'Landing Page Comercial de Alta Conversión (Castle Bronze)';
               scope = 'Desarrollo de landing comercial de hasta 5 secciones, formulario de captura, optimización de velocidad y certificación Castle Gate C1.';
             } else if (p.includes('silver')) {
-              subtotal = 7900;
+              subtotal = 7500;
               projName = 'Portal Web Corporativo Multi-página (Castle Silver)';
               scope = 'Desarrollo de sitio web corporativo de hasta 5 páginas, estructura SEO on-page, diseño modular y certificación Castle Gate C1.';
             } else if (p.includes('platinum')) {
-              subtotal = 25900;
+              subtotal = 24500;
               projName = 'Plataforma Integrada con Pagos y CRM (Castle Platinum)';
               scope = 'Desarrollo de plataforma web de hasta 15 páginas, integración de pasarelas de pago (Stripe/Mercado Pago), webhooks para CRM y hardening de seguridad.';
             } else if (p.includes('diamond') || p.includes('medida') || p.includes('avanzado')) {
-              subtotal = 50000;
+              subtotal = 40000;
               projName = 'Ingeniería de Software a la Medida (Castle Diamond)';
               scope = 'Desarrollo de arquitectura de software personalizada por sprints, módulos operativos, portales con roles RBAC y gobernanza continua Castle Gate C4/C5.';
             } else if (p.includes('checkup')) {
