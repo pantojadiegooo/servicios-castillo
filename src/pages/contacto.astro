@@ -128,7 +128,16 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             <input type="hidden" id="paquete_origen" name="paquete_origen" value="">
             <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
               <label for="_gotcha_hp">No llenar este campo si eres humano</label>
-              <input type="text" id="_gotcha_hp" name="_gotcha" tabindex="-1" autocomplete="off" value="">
+              <input
+                type="text"
+                id="_gotcha_hp"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="new-password"
+                data-lpignore="true"
+                data-1p-ignore
+                value=""
+              />
             </div>
 
             <div class="field">
@@ -427,6 +436,17 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
         const successMsg = document.getElementById('form-success-message');
         const errorMsg = document.getElementById('form-error-message');
         const errorText = document.getElementById('form-error-text');
+        const gotchaInput = form ? form.querySelector('input[name="_gotcha"]') : null;
+
+        // Limpiar el campo invisible al inicializar y en navegación hacia atrás
+        if (gotchaInput) {
+          gotchaInput.value = '';
+        }
+        window.addEventListener('pageshow', function() {
+          if (gotchaInput) {
+            gotchaInput.value = '';
+          }
+        });
 
         function showError(msg) {
           if (errorMsg && errorText) {
@@ -484,15 +504,11 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               return;
             }
 
-            // Mitigación antispam no invasiva (Honeypot)
-            const gotchaInput = form.querySelector('input[name="_gotcha"]');
+            // Mitigación antispam: si el navegador autocompletó _gotcha, lo vaciamos y pedimos reintentar.
+            // NUNCA se simula éxito ni se omite la transmisión de red sin respuesta confirmada.
             if (gotchaInput && gotchaInput.value) {
-              form.style.display = 'none';
-              const prefillAlert = document.getElementById('prefill-alert');
-              if (prefillAlert) prefillAlert.style.display = 'none';
-              const intentSelector = document.getElementById('intent-selector-wrap');
-              if (intentSelector) intentSelector.style.display = 'none';
-              successMsg.style.display = 'block';
+              gotchaInput.value = '';
+              showError('Se detectó autocompletado en un campo de verificación invisible. El campo ha sido restablecido; por favor presiona nuevamente "Enviar Solicitud de Cotización".');
               return;
             }
 
@@ -510,31 +526,49 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
               body: formData,
               headers: { 'Accept': 'application/json' }
             })
-            .then(function(res) {
+            .then(async function(res) {
               form.setAttribute('aria-busy', 'false');
               if (res.ok) {
-                form.style.display = 'none';
-                const prefillAlert = document.getElementById('prefill-alert');
-                if (prefillAlert) prefillAlert.style.display = 'none';
-                const intentSelector = document.getElementById('intent-selector-wrap');
-                if (intentSelector) intentSelector.style.display = 'none';
-                successMsg.style.display = 'block';
-
-                const titleEl = document.getElementById('form-success-title');
-                if (titleEl) {
-                  titleEl.focus();
+                let isConfirmed = false;
+                try {
+                  const data = await res.json();
+                  if (data && (data.ok === true || data.success === true || data.next)) {
+                    isConfirmed = true;
+                  }
+                } catch (_) {
+                  isConfirmed = false;
                 }
 
-                // Evento GA4 generate_lead (sin incluir datos personales)
-                if (typeof window.gtag === 'function') {
-                  const selectedService = document.getElementById('tipo_proyecto') ? document.getElementById('tipo_proyecto').value : '';
-                  const intencion = document.getElementById('intencion_comercial') ? document.getElementById('intencion_comercial').value : '';
-                  window.gtag('event', 'generate_lead', {
-                    cta_location: 'contacto',
-                    package_name: selectedService,
-                    intent_type: intencion,
-                    contact_method: 'formspree'
-                  });
+                if (isConfirmed) {
+                  form.style.display = 'none';
+                  const prefillAlert = document.getElementById('prefill-alert');
+                  if (prefillAlert) prefillAlert.style.display = 'none';
+                  const intentSelector = document.getElementById('intent-selector-wrap');
+                  if (intentSelector) intentSelector.style.display = 'none';
+                  successMsg.style.display = 'block';
+
+                  const titleEl = document.getElementById('form-success-title');
+                  if (titleEl) {
+                    titleEl.focus();
+                  }
+
+                  // Evento GA4 generate_lead (sin incluir datos personales)
+                  if (typeof window.gtag === 'function') {
+                    const selectedService = document.getElementById('tipo_proyecto') ? document.getElementById('tipo_proyecto').value : '';
+                    const intencion = document.getElementById('intencion_comercial') ? document.getElementById('intencion_comercial').value : '';
+                    window.gtag('event', 'generate_lead', {
+                      cta_location: 'contacto',
+                      package_name: selectedService,
+                      intent_type: intencion,
+                      contact_method: 'formspree'
+                    });
+                  }
+                } else {
+                  showError('El proveedor de recepción no confirmó la entrega válida de la solicitud. Por favor verifica tus datos o contáctanos directamente a contacto@grupocastillo.lat o vía WhatsApp al +52 951 809 6110.');
+                  if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalText;
+                  }
                 }
               } else {
                 showError('El proveedor de recepción no pudo procesar la solicitud en este momento. Por favor verifica tus datos o contáctanos directamente a contacto@grupocastillo.lat o vía WhatsApp al +52 951 809 6110.');
