@@ -262,7 +262,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             if (balanceNote) balanceNote.innerText = '($0.00 MXN - Facturación mensual anticipada).';
             if (termsNotice) {
               termsNotice.style.display = 'block';
-              termsNotice.innerText = 'ℹ Castle Care se gestiona como suscripción recurrente con planes desde $590 MXN/mes (Basic $590, Pro $990, Enterprise $1,890 MXN/mes). No requiere anticipo de obra tradicional.';
+              termsNotice.innerText = 'Castle Care se gestiona como suscripción recurrente con planes desde $590 MXN/mes (Basic $590, Pro $990, Enterprise $1,890 MXN/mes). No requiere anticipo de obra tradicional.';
             }
           } else if (isGate) {
             if (depositLabel) depositLabel.innerText = 'Inversión Anual Base';
@@ -271,7 +271,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             if (balanceNote) balanceNote.innerText = '($0.00 MXN - Licencia anual liquidada al 100%).';
             if (termsNotice) {
               termsNotice.style.display = 'block';
-              termsNotice.innerText = 'ℹ Castle Gate CLI se contrata bajo licenciamiento anual desde $9,900 MXN/año según el nivel de política requerido (C1 a C6).';
+              termsNotice.innerText = 'Castle Gate CLI se contrata bajo licenciamiento anual desde $9,900 MXN/año según el nivel de política requerido (C1 a C6).';
             }
           } else if (isEngineering) {
             if (depositLabel) depositLabel.innerText = 'Pago Único Requerido (100%)';
@@ -280,7 +280,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
             if (balanceNote) balanceNote.innerText = '($0.00 MXN - Sin saldos pendientes contra entrega).';
             if (termsNotice) {
               termsNotice.style.display = 'block';
-              termsNotice.innerText = 'ℹ La capacidad de ingeniería se reserva después de confirmar el pago y recibir accesos e insumos necesarios.';
+              termsNotice.innerText = 'La capacidad de ingeniería se reserva después de confirmar el pago y recibir accesos e insumos necesarios.';
             }
           } else {
             if (depositLabel) depositLabel.innerText = 'Anticipo Requerido (50%)';
@@ -423,7 +423,7 @@ import HeroEngineVisual from '../components/HeroEngineVisual.astro';
           let balance = isEngineering ? 0 : Math.round((total - deposit) * 100) / 100;
 
           if (isCare || isGate) {
-            deposit = isCare ? subtotal : total;
+            deposit = total;
             balance = 0;
           }
 
