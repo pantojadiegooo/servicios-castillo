@@ -15,8 +15,18 @@ function configuration(mode = 'live') {
   };
 }
 
-test('disabled checkout keeps distinct, working contact routes without public Stripe links', () => {
+test('default production checkout uses official Stripe Payment Links', () => {
   const result = getCareCheckoutConfig();
+  assert.equal(result.enabled, true);
+  assert.equal(result.mode, 'live');
+  assert.equal(result.plans.basic.href, 'https://buy.stripe.com/9B614pfk1exq0xh3b1cZa00');
+  assert.equal(result.plans.pro.href, 'https://buy.stripe.com/6oU9AVfk1cpieo7fXNcZa01');
+  assert.equal(result.plans.enterprise.href, 'https://buy.stripe.com/eVqeVf8VD1KE4NxaDtcZa02');
+  assert.equal(result.portalUrl, null);
+});
+
+test('disabled checkout keeps distinct, working contact routes without public Stripe links', () => {
+  const result = getCareCheckoutConfig({ PUBLIC_CARE_CHECKOUT_ENABLED: 'false' });
   assert.equal(result.enabled, false);
   assert.equal(result.portalUrl, null);
   for (const [id, plan] of Object.entries(result.plans)) {
@@ -59,11 +69,11 @@ test('legacy PUBLIC_CARE_*_PAYMENT_LINK variables are supported as fallback', ()
   assert.equal(result.portalUrl, legacyEnv.PUBLIC_CARE_CUSTOMER_PORTAL_URL);
 });
 
-test('all links and the portal are mandatory when enabling checkout', () => {
-  for (const key of Object.keys(configuration()).filter(key => /URL/.test(key))) {
-    const env = configuration();
+test('all custom links are mandatory when running in test mode', () => {
+  for (const key of Object.keys(configuration('test')).filter(key => /URL/.test(key) && !/PORTAL/.test(key))) {
+    const env = configuration('test');
     delete env[key];
-    assert.throws(() => getCareCheckoutConfig(env), new RegExp(key));
+    assert.throws(() => getCareCheckoutConfig(env, { deployment: 'preview' }), new RegExp(key));
   }
 });
 
