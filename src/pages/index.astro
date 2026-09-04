@@ -4,8 +4,8 @@ import FAQItem from '../components/FAQItem.astro';
 import CTABand from '../components/CTABand.astro';
 import CastleTerminalSimulator from '../components/CastleTerminalSimulator.astro';
 import HeroEngineVisual from '../components/HeroEngineVisual.astro';
-import CastleGateBadge from '../components/CastleGateBadge.astro';
 import TechIcon from '../components/TechIcon.astro';
+import DeliverablesShowcase from '../components/DeliverablesShowcase.astro';
 ---
 
 <BaseLayout
@@ -170,7 +170,12 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         03 — CATÁLOGO COMERCIAL & SERVICIOS DE INGENIERÍA
+         03 — DEMOSTRACIONES DE ENTREGA (SHOWCASE DE ENTREGABLES POR PAQUETE)
+         ========================================================================= -->
+    <DeliverablesShowcase />
+
+    <!-- =========================================================================
+         04 — CATÁLOGO COMERCIAL & SERVICIOS DE INGENIERÍA
          ========================================================================= -->
     <section class="section" id="paquetes-catalogo" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
       <div class="container">
@@ -353,9 +358,9 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         04 — STACK TECNOLÓGICO FUNCIONAL (7 CATEGORÍAS CON ICONOGRAFÍA OFICIAL)
+         05 — STACK TECNOLÓGICO FUNCIONAL (7 CATEGORÍAS CON ICONOGRAFÍA OFICIAL)
          ========================================================================= -->
-    <section class="section section-dark" id="stack-tecnologico" style="padding-top: 4.5rem; padding-bottom: 4.5rem; background: #04060A; border-top: 1px solid rgba(52, 107, 241, 0.15); border-bottom: 1px solid rgba(52, 107, 241, 0.15);">
+    <section class="section section-dark" id="stack-tecnologico" style="padding-top: 4.5rem; padding-bottom: 4.5rem; background: #04060A;">
       <div class="container">
         
         <div class="section-head reveal" style="text-align: center; max-width: 860px; margin: 0 auto 3rem auto;">
@@ -579,7 +584,7 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         05 — CÓMO TRABAJAMOS (PROCESO EN 6 PASOS)
+         06 — CÓMO TRABAJAMOS (PROCESO EN 6 PASOS)
          ========================================================================= -->
     <section class="section section-dim" id="metodologia" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
       <div class="container">
@@ -652,7 +657,7 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         06 — CALIDAD VERIFICABLE & CASTLE GATE
+         07 — CALIDAD VERIFICABLE & CASTLE GATE
          ========================================================================= -->
     <section class="section section-dark" id="castle-gate-tecnologia" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
       <div class="container">
@@ -706,9 +711,9 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-         07 — CARACTERÍSTICAS TÉCNICAS VERIFICABLES EN EL REPOSITORIO
+         08 — CARACTERÍSTICAS TÉCNICAS VERIFICABLES EN EL REPOSITORIO
          ========================================================================= -->
-    <section class="section section-dark" id="metricas-verificables" style="border-top: 1px solid rgba(52, 107, 241, 0.15); border-bottom: 1px solid rgba(52, 107, 241, 0.15); background: #04060A;">
+    <section class="section section-dark" id="metricas-verificables" style="padding-top: 4.5rem; padding-bottom: 4.5rem; background: #04060A;">
       <div class="container">
         <div class="section-head reveal" style="text-align: center; max-width: 780px; margin: 0 auto 2.5rem auto;">
           <p class="eyebrow" style="color: var(--cyan); justify-content: center;">Transparencia Técnica Demostrable</p>
@@ -774,49 +779,6 @@ import TechIcon from '../components/TechIcon.astro';
             >
               Ejecutar prueba externa en PageSpeed →
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         08 — CASO DE REFERENCIA (DOGFOODING PROPIO)
-         ========================================================================= -->
-    <section class="section section-dim" id="caso-interno" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
-      <div class="container">
-        <div class="glass-panel reveal" style="padding: 2.5rem; border-color: rgba(52, 107, 241, 0.35); background: linear-gradient(135deg, rgba(8, 11, 16, 0.98) 0%, rgba(18, 48, 74, 0.4) 100%);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
-            <div>
-              <span class="badge badge-cyan" style="margin-bottom: 0.75rem; font-weight: 700;">VALIDACIÓN INTERNA — DOGFOODING</span>
-              <h2 style="font-size: 1.8rem; margin: 0 0 0.5rem 0; color: var(--paper);">
-                Plataforma Digital Grupo Castillo: Caso de Referencia Propio
-              </h2>
-              <p style="font-size: 0.96rem; color: #E2E8F0; margin: 0; max-width: 65ch; line-height: 1.65;">
-                Aplicamos Castle Gate sobre nuestra propia plataforma antes de ofrecerlo a clientes: 31 rutas estáticas SSG, componentes interactivos modulares y 100% de controles CQS v1.1 aprobados con 0 errores y 0 vulnerabilidades. <em style="color: #CBD5E1;">Esta es una validación técnica interna de nuestra propia arquitectura, no un caso de cliente externo.</em>
-              </p>
-            </div>
-            <div style="text-align: right;">
-              <CastleGateBadge variant="compact" validationId="CG-2026-68D04F" releaseSha="3d61237" isSelfValidation={true} />
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.12);">
-            <div>
-              <span style="font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; font-family: var(--f-mono); font-weight: 600;">Puntuación CQS</span>
-              <strong style="display: block; font-size: 1.35rem; color: #00E599; font-family: var(--f-mono);">100.00 / 100</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; font-family: var(--f-mono); font-weight: 600;">Rutas SSG</span>
-              <strong style="display: block; font-size: 1.35rem; color: var(--paper); font-family: var(--f-mono);">31 Páginas</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; font-family: var(--f-mono); font-weight: 600;">Accesibilidad</span>
-              <strong style="display: block; font-size: 1.35rem; color: var(--paper); font-family: var(--f-mono);">WCAG AA 100%</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.78rem; color: #CBD5E1; text-transform: uppercase; font-family: var(--f-mono); font-weight: 600;">Vulnerabilidades</span>
-              <strong style="display: block; font-size: 1.35rem; color: #00E599; font-family: var(--f-mono);">0 (npm audit)</strong>
-            </div>
           </div>
         </div>
       </div>
@@ -1055,8 +1017,8 @@ import TechIcon from '../components/TechIcon.astro';
     </section>
 
     <!-- =========================================================================
-     13 — CTA BAND FINAL & RUTAS DE CONTACTO
-     ========================================================================= -->
+         13 — CTA BAND FINAL & RUTAS DE CONTACTO
+         ========================================================================= -->
     <CTABand
       title='Hablemos de tu proyecto web o <span style="color: var(--cyan);">software a la medida</span>.'
       description="Cuéntanos tus requerimientos técnicos y te responderemos con una propuesta formal de presupuesto por escrito en menos de 24 horas."

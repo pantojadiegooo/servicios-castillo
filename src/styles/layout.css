@@ -19,8 +19,6 @@
 .section-dim {
   background: #080B10;
   color: #E2E8F0;
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
 }
 
 .section-dim h2,

@@ -1,0 +1,367 @@
+---
+/**
+ * GRUPO CASTILLO — Deliverables Showcase Component
+ * Presenta demostraciones visuales de alta fidelidad de los entregables por paquete.
+ */
+
+export interface DeliverableDemo {
+  id: string;
+  tierName: string;
+  tierPrice: string;
+  tierAccent: string;
+  tierBorderColor: string;
+  projectName: string;
+  industry: string;
+  description: string;
+  capabilities: string[];
+  image: string;
+  imageAlt: string;
+  demoUrl?: string;
+  isAvailable: boolean;
+}
+
+/**
+ * Catálogo de entregables preparado para los 6 paquetes de Grupo Castillo.
+ * Los paquetes Platinum y Diamond quedan configurados con isAvailable: false
+ * para ser activados posteriormente cuando sus demostraciones completas estén listas.
+ */
+export const deliverableDemos: DeliverableDemo[] = [
+  {
+    id: 'iron',
+    tierName: 'Castle Iron',
+    tierPrice: '$2,800 MXN',
+    tierAccent: '#94A3B8',
+    tierBorderColor: '#71717A',
+    projectName: 'Nativo Interiores',
+    industry: 'Diseño de interiores',
+    description: 'Demostración de presencia web directa y minimalista diseñada para estudio de arquitectura interior y decoración residencial. Estructura optimizada para presentar portafolio selecto, catálogo de servicios de ambientación y conversión ágil.',
+    capabilities: [
+      'One Page',
+      'Diseño Adaptativo',
+      'SEO Base',
+      'Castle Gate C1'
+    ],
+    image: '/assets/demos/iron-nativo-interiores.webp',
+    imageAlt: 'Demostración de entregable Castle Iron — Proyecto conceptual Nativo Interiores',
+    isAvailable: true
+  },
+  {
+    id: 'bronze',
+    tierName: 'Castle Bronze',
+    tierPrice: '$4,500 MXN',
+    tierAccent: '#CD7F32',
+    tierBorderColor: '#CD7F32',
+    projectName: 'Alveo Odontología Especializada',
+    industry: 'Salud · Odontología Especializada',
+    description: 'Demostración de landing page comercial de alta conversión diseñada para clínica odontológica especializada. Estructurada en 5 secciones enfocadas en captación de pacientes: propuesta de valor, tratamientos clave, credenciales del equipo, opiniones y formulario directo de valoración.',
+    capabilities: [
+      'Landing de 5 Secciones',
+      'Formulario de Citas / Consulta',
+      'Diseño Adaptativo Móvil',
+      'Castle Gate C1'
+    ],
+    image: '/assets/demos/bronze-alveo-dental.webp',
+    imageAlt: 'Demostración de entregable Castle Bronze — Proyecto conceptual Alveo Odontología Especializada',
+    isAvailable: true
+  },
+  {
+    id: 'silver',
+    tierName: 'Castle Silver',
+    tierPrice: '$7,500 MXN',
+    tierAccent: '#CBD5E1',
+    tierBorderColor: '#94A3B8',
+    projectName: 'Lumbre Café',
+    industry: 'Cafetería · Gastronomía',
+    description: 'Demostración de un sitio multipágina para una cafetería contemporánea, con arquitectura de contenido, menú de productos, experiencia de marca, captación de contactos y optimización técnica para dispositivos móviles.',
+    capabilities: [
+      'Hasta 5 páginas',
+      'SEO On-Page',
+      'Formulario con Validación',
+      'Castle Gate C1'
+    ],
+    image: '/assets/demos/silver-lumbre-cafe.webp',
+    imageAlt: 'Vista previa del proyecto demostrativo Lumbre Café desarrollado como referencia de Castle Silver',
+    isAvailable: true
+  },
+  {
+    id: 'gold',
+    tierName: 'Castle Gold',
+    tierPrice: '$12,500 MXN',
+    tierAccent: '#FFD700',
+    tierBorderColor: '#FFD700',
+    projectName: 'Axiom Systems',
+    industry: 'Tecnología / infraestructura',
+    description: 'Demostración de plataforma multi-página avanzada para compañía de infraestructura cloud, ciberseguridad industrial y microservicios. Cuenta con catálogo detallado de soluciones, arquitectura para blog y base de conocimientos con optimización técnica integral.',
+    capabilities: [
+      '8–10 páginas',
+      'Blog / Artículos',
+      'SEO Avanzado',
+      'Schema.org'
+    ],
+    image: '/assets/demos/gold-axiom-systems.webp',
+    imageAlt: 'Demostración de entregable Castle Gold — Proyecto conceptual Axiom Systems',
+    isAvailable: true
+  },
+  {
+    id: 'platinum',
+    tierName: 'Castle Platinum',
+    tierPrice: '$24,500 MXN',
+    tierAccent: '#E0E7FF',
+    tierBorderColor: '#E0E7FF',
+    projectName: 'Platinum Commerce Demo',
+    industry: 'Comercio & Plataformas',
+    description: 'Plataforma digital avanzada con hasta 15 páginas, integración de pasarelas de pago (Stripe / Mercado Pago), conexión a CRM y seguridad reforzada.',
+    capabilities: [
+      'Pasarela de Pagos',
+      'Integración con CRM',
+      'Hasta 15 Páginas',
+      'Seguridad Transaccional'
+    ],
+    image: '/assets/demos/platinum-placeholder.webp',
+    imageAlt: 'Demostración de entregable Castle Platinum',
+    isAvailable: false // Preparado en datos para activación futura
+  },
+  {
+    id: 'diamond',
+    tierName: 'Castle Diamond',
+    tierPrice: 'Desde $40,000 MXN',
+    tierAccent: '#346BF1',
+    tierBorderColor: '#346BF1',
+    projectName: 'Diamond Custom Software Demo',
+    industry: 'Software a la Medida',
+    description: 'Ingeniería de software a la medida para operaciones complejas: paneles con control de acceso RBAC, portales de clientes y bases de datos dedicadas.',
+    capabilities: [
+      'Arquitectura a la Medida',
+      'Autenticación & Roles RBAC',
+      'Bases de Datos Dedicadas',
+      'Entregas por Sprints en Git'
+    ],
+    image: '/assets/demos/diamond-placeholder.webp',
+    imageAlt: 'Demostración de entregable Castle Diamond',
+    isAvailable: false // Preparado en datos para activación futura
+  }
+];
+
+// Filtramos únicamente las demostraciones disponibles para visualización pública
+const visibleDemos = deliverableDemos.filter(demo => demo.isAvailable);
+---
+
+<section class="section deliverables-showcase" id="entregables-showcase" aria-labelledby="showcase-heading">
+  <div class="container">
+    
+    <!-- ENCABEZADO EDITORIAL -->
+    <div class="section-head reveal">
+      <p class="eyebrow" style="color: var(--cyan); justify-content: center;">DEMOSTRACIONES DE ENTREGA</p>
+      <h2 id="showcase-heading">No te mostramos solamente qué incluye. Te mostramos lo que podemos construir.</h2>
+      <p class="showcase-lead">
+        Explora proyectos demostrativos creados para representar el nivel de diseño, estructura y experiencia disponible en nuestros paquetes de desarrollo.
+      </p>
+    </div>
+
+    <!-- SELECTOR DE PAQUETES (TABLIST ACCESIBLE) -->
+    <nav class="showcase-tabs-nav reveal" aria-label="Selector de paquetes para demostración">
+      <div class="showcase-tablist" role="tablist">
+        {visibleDemos.map((demo, index) => (
+          <button
+            type="button"
+            role="tab"
+            class="showcase-tab"
+            id={`demo-tab-${demo.id}`}
+            aria-controls={`demo-panel-${demo.id}`}
+            aria-selected={index === 0 ? "true" : "false"}
+            tabindex={index === 0 ? 0 : -1}
+            data-target={demo.id}
+          >
+            <span class="showcase-tab-dot" style={`background-color: ${demo.tierAccent};`}></span>
+            <span>{demo.tierName}</span>
+          </button>
+        ))}
+      </div>
+    </nav>
+
+    <!-- SHOWCASE MAIN DISPLAY PANELS -->
+    <div class="showcase-panel-wrapper reveal">
+      {visibleDemos.map((demo, index) => (
+        <div
+          class="showcase-panel"
+          id={`demo-panel-${demo.id}`}
+          role="tabpanel"
+          aria-labelledby={`demo-tab-${demo.id}`}
+          aria-hidden={index === 0 ? "false" : "true"}
+          tabindex="0"
+          style={index === 0 ? "display: block;" : "display: none;"}
+        >
+          <!-- CHASSIS / BROWSER HEADER -->
+          <div class="showcase-chassis-bar">
+            <div class="chassis-dots">
+              <span class="chassis-dot red"></span>
+              <span class="chassis-dot yellow"></span>
+              <span class="chassis-dot green"></span>
+            </div>
+            <div class="chassis-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.6; flex-shrink: 0;">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Demostración de entregable — {demo.tierName}</span>
+            </div>
+            <span class="chassis-tag">Proyecto demostrativo</span>
+          </div>
+
+          <!-- SHOWCASE BODY -->
+          <div class="showcase-body">
+            
+            <!-- CAPTURA PRINCIPAL GRANDE -->
+            <div class="showcase-visual-wrapper">
+              <img
+                src={demo.image}
+                alt={demo.imageAlt}
+                class="showcase-img"
+                width="1200"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <!-- DETALLES DEL ENTREGABLE -->
+            <div class="showcase-details">
+              
+              <div class="showcase-meta-header">
+                <span
+                  class="showcase-badge-package"
+                  style={`background: rgba(255, 255, 255, 0.04); border: 1px solid ${demo.tierBorderColor}; color: ${demo.tierAccent};`}
+                >
+                  {demo.tierName}
+                </span>
+                <span class="showcase-badge-industry">
+                  {demo.industry}
+                </span>
+                <span class="showcase-badge-demo">
+                  Proyecto demostrativo
+                </span>
+              </div>
+
+              <h3 class="showcase-project-name">{demo.projectName}</h3>
+              <p class="showcase-subtitle">Nivel de diseño y experiencia representativo · {demo.tierPrice}</p>
+
+              <p class="showcase-description">
+                {demo.description}
+              </p>
+
+              <div class="showcase-capabilities-block">
+                <p class="showcase-capabilities-title">Capacidades representadas en este entregable:</p>
+                <div class="showcase-chips">
+                  {demo.capabilities.map((capability) => (
+                    <span class="showcase-chip">
+                      <span class="showcase-chip-check">✓</span>
+                      <span>{capability}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {demo.demoUrl && (
+                <div class="showcase-actions">
+                  <a
+                    href={demo.demoUrl}
+                    class="btn btn-primary"
+                    style="font-size: 0.88rem; padding: 0.65rem 1.35rem; display: inline-flex; align-items: center; gap: 0.5rem;"
+                    aria-label={`Explorar demostración del proyecto ${demo.projectName}`}
+                  >
+                    <span>Explorar demostración</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function setupDeliverablesShowcase() {
+    const tablist = document.querySelector<HTMLElement>('.showcase-tablist');
+    if (!tablist) return;
+
+    const tabs = Array.from(tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll<HTMLElement>('.showcase-panel'));
+
+    function activateTab(selectedTab: HTMLButtonElement, setFocus = true) {
+      const targetId = selectedTab.getAttribute('data-target');
+      if (!targetId) return;
+
+      tabs.forEach((tab) => {
+        const isSelected = tab === selectedTab;
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+      });
+
+      panels.forEach((panel) => {
+        const isTarget = panel.id === `demo-panel-${targetId}`;
+        panel.setAttribute('aria-hidden', isTarget ? 'false' : 'true');
+        panel.style.display = isTarget ? 'block' : 'none';
+      });
+
+      if (setFocus) {
+        selectedTab.focus();
+      }
+    }
+
+    // Eventos de click
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        activateTab(tab, false);
+      });
+    });
+
+    // Navegación por teclado (Flechas, Home, End)
+    tablist.addEventListener('keydown', (e: KeyboardEvent) => {
+      const activeElement = document.activeElement as HTMLButtonElement;
+      const currentIndex = tabs.indexOf(activeElement);
+      if (currentIndex === -1) return;
+
+      let nextIndex = -1;
+
+      switch (e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          e.preventDefault();
+          nextIndex = (currentIndex + 1) % tabs.length;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          e.preventDefault();
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+          break;
+        case 'Home':
+          e.preventDefault();
+          nextIndex = 0;
+          break;
+        case 'End':
+          e.preventDefault();
+          nextIndex = tabs.length - 1;
+          break;
+      }
+
+      if (nextIndex !== -1) {
+        activateTab(tabs[nextIndex], true);
+      }
+    });
+  }
+
+  // Inicialización compatible con Astro SPA / View Transitions y carga estándar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupDeliverablesShowcase);
+  } else {
+    setupDeliverablesShowcase();
+  }
+  document.addEventListener('astro:page-load', setupDeliverablesShowcase);
+</script>

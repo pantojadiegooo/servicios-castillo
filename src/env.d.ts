@@ -8,3 +8,4 @@ interface Window {
     params?: Record<string, unknown>
   ) => void;
 }
+

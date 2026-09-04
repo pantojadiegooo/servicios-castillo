@@ -6,15 +6,11 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(52, 107, 241, 0.22);
-  border-bottom: 1px solid rgba(52, 107, 241, 0.15);
   box-sizing: border-box;
 }
 
 .cta-band.cta-band-green {
   background: #04160e !important;
-  border-top: 1px solid rgba(0, 229, 153, 0.25);
-  border-bottom: 1px solid rgba(0, 229, 153, 0.15);
 }
 
 .cta-band .container {

@@ -1,7 +1,6 @@
 /* ===== Footer (Engineering & Clean Architecture) ===== */
 .site-footer {
   background: #040508;
-  border-top: 1px solid var(--line-dark);
   padding: 4.5rem 0 2.5rem;
   color: var(--steel-light);
   font-size: 0.88rem;

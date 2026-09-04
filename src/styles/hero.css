@@ -8,7 +8,6 @@
   color: var(--paper);
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--line-dark);
   box-sizing: border-box;
 }
 
@@ -181,7 +180,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--line-dark);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -276,17 +274,6 @@
     min-height: calc(100dvh - var(--header-height, 65px));
     padding: 3rem 1.15rem 2.25rem;
     position: relative;
-  }
-
-  .page-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 15%;
-    right: 15%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(52, 107, 241, 0.4), transparent);
-    pointer-events: none;
   }
 
   .page-hero h1 {

@@ -298,17 +298,19 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           } catch (e) {}
         }
         
-        const tipoSelect = document.getElementById('tipo_proyecto');
-        const presSelect = document.getElementById('presupuesto');
-        const prefillAlert = document.getElementById('prefill-alert');
-        const prefillText = document.getElementById('prefill-text');
-        const intencionInput = document.getElementById('intencion_comercial');
-        const paqueteOrigenInput = document.getElementById('paquete_origen');
-        const intentButtons = document.querySelectorAll('.intent-btn');
+        const tipoSelect = document.getElementById('tipo_proyecto') as HTMLSelectElement | null;
+        const presSelect = document.getElementById('presupuesto') as HTMLSelectElement | null;
+        const prefillAlert = document.getElementById('prefill-alert') as HTMLElement | null;
+        const prefillText = document.getElementById('prefill-text') as HTMLElement | null;
+        const intencionInput = document.getElementById('intencion_comercial') as HTMLInputElement | null;
+        const paqueteOrigenInput = document.getElementById('paquete_origen') as HTMLInputElement | null;
+        const intentButtons = document.querySelectorAll<HTMLElement>('.intent-btn');
 
         // FUNCIÓN PARA ACTIVAR PESTAÑA VISUAL
-        function setIntent(intentName) {
-          intencionInput.value = intentName;
+        function setIntent(intentName: string) {
+          if (intencionInput) {
+            intencionInput.value = intentName;
+          }
           intentButtons.forEach(btn => {
             if (btn.getAttribute('data-intent') === intentName) {
               btn.style.borderColor = 'rgba(52, 107, 241, 0.6)';
@@ -322,35 +324,39 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
         // LISTENERS PARA SELECTOR DE INTENCIÓN
         intentButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            const intent = this.getAttribute('data-intent');
+          btn.addEventListener('click', function(this: HTMLElement) {
+            const intent = this.getAttribute('data-intent') || 'construir';
             setIntent(intent);
 
             // AUTO-ADAPTAR SELECTS
-            if (intent === 'construir') {
-              tipoSelect.value = 'Castle Gold ($12,500 MXN)';
-              presSelect.value = '5k-15k';
-            } else if (intent === 'revisar') {
-              tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
-              presSelect.value = 'checkup';
-            } else if (intent === 'problema') {
-              tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
-              presSelect.value = '5k-15k';
-            } else if (intent === 'mantenimiento') {
-              tipoSelect.value = 'Castle Care (Desde $590 MXN/mes)';
-              presSelect.value = 'care-mensual';
+            if (tipoSelect && presSelect) {
+              if (intent === 'construir') {
+                tipoSelect.value = 'Castle Gold ($12,500 MXN)';
+                presSelect.value = '5k-15k';
+              } else if (intent === 'revisar') {
+                tipoSelect.value = 'Castle Checkup ($8,900 MXN)';
+                presSelect.value = 'checkup';
+              } else if (intent === 'problema') {
+                tipoSelect.value = 'Castle Rescue ($6,900 MXN)';
+                presSelect.value = '5k-15k';
+              } else if (intent === 'mantenimiento') {
+                tipoSelect.value = 'Castle Care (Desde $590 MXN/mes)';
+                presSelect.value = 'care-mensual';
+              }
             }
           });
         });
 
         // PARSEO DE PARÁMETROS URL
         if (paqParam || necParam) {
-          const rawTarget = paqParam || necParam;
+          const rawTarget = paqParam || necParam || '';
           const target = rawTarget.toLowerCase();
-          paqueteOrigenInput.value = rawTarget;
+          if (paqueteOrigenInput) {
+            paqueteOrigenInput.value = rawTarget;
+          }
 
           // Ocultar selector redundante si ya se especificó necesidad o paquete en la URL
-          const intentWrap = document.getElementById('intent-selector-wrap');
+          const intentWrap = document.getElementById('intent-selector-wrap') as HTMLElement | null;
           if (intentWrap) {
             intentWrap.style.display = 'none';
           }
@@ -360,71 +366,73 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
           if (target.includes('iron')) {
             matchedOption = 'Castle Iron ($2,800 MXN)';
-            presSelect.value = 'hasta-5k';
+            if (presSelect) presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('bronze')) {
             matchedOption = 'Castle Bronze ($4,500 MXN)';
-            presSelect.value = 'hasta-5k';
+            if (presSelect) presSelect.value = 'hasta-5k';
             detectedIntent = 'construir';
           } else if (target.includes('silver')) {
             matchedOption = 'Castle Silver ($7,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('gold')) {
             matchedOption = 'Castle Gold ($12,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           } else if (target.includes('platinum')) {
             matchedOption = 'Castle Platinum ($24,500 MXN)';
-            presSelect.value = '15k-30k';
+            if (presSelect) presSelect.value = '15k-30k';
             detectedIntent = 'construir';
           } else if (target.includes('diamond') || target.includes('avanzado') || target.includes('medida')) {
             matchedOption = 'Castle Diamond (Desde $40,000 MXN)';
-            presSelect.value = 'mas-40k';
+            if (presSelect) presSelect.value = 'mas-40k';
             detectedIntent = 'construir';
           } else if (target.includes('checkup')) {
             matchedOption = 'Castle Checkup ($8,900 MXN)';
-            presSelect.value = 'checkup';
+            if (presSelect) presSelect.value = 'checkup';
             detectedIntent = 'revisar';
           } else if (target.includes('audit') || target === 'revisar') {
             matchedOption = target.includes('audit') ? 'Castle Audit ($19,900 MXN)' : 'Castle Checkup ($8,900 MXN)';
-            presSelect.value = target.includes('audit') ? '15k-30k' : 'checkup';
+            if (presSelect) presSelect.value = target.includes('audit') ? '15k-30k' : 'checkup';
             detectedIntent = 'revisar';
           } else if (target.includes('consultoria') || target.includes('roadmap')) {
             matchedOption = 'Consultoría Digital & Roadmap';
-            presSelect.value = 'por-definir';
+            if (presSelect) presSelect.value = 'por-definir';
             detectedIntent = 'revisar';
           } else if (target.includes('rescue') || target.includes('mejorar')) {
             matchedOption = 'Castle Rescue ($6,900 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('emergency') || target.includes('urgencia') || target === 'problema') {
             matchedOption = (target.includes('emergency') || target.includes('urgencia')) ? 'Castle Emergency ($5,900 MXN)' : 'Castle Rescue ($6,900 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'problema';
           } else if (target.includes('care') || target.includes('mantenimiento') || target.includes('cuidado')) {
             matchedOption = 'Castle Care (Desde $590 MXN/mes)';
-            presSelect.value = 'care-mensual';
+            if (presSelect) presSelect.value = 'care-mensual';
             detectedIntent = 'mantenimiento';
           } else if (target.includes('gate') || target.includes('gobernanza')) {
             matchedOption = 'Castle Gate CLI ($9,900 MXN/año)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'revisar';
           } else if (target === 'construir') {
             matchedOption = 'Castle Gold ($12,500 MXN)';
-            presSelect.value = '5k-15k';
+            if (presSelect) presSelect.value = '5k-15k';
             detectedIntent = 'construir';
           }
 
-          if (matchedOption) {
+          if (matchedOption && tipoSelect) {
             tipoSelect.value = matchedOption;
           }
 
           setIntent(detectedIntent);
 
           // MOSTRAR BANNER DE PRELLENADO
-          prefillAlert.style.display = 'block';
-          prefillText.innerText = 'Has seleccionado ' + rawTarget + '. El formulario ha sido configurado para acelerar tu solicitud.';
+          if (prefillAlert && prefillText) {
+            prefillAlert.style.display = 'block';
+            prefillText.innerText = 'Has seleccionado ' + rawTarget + '. El formulario ha sido configurado para acelerar tu solicitud.';
+          }
         }
 
         if (presParam && presSelect) {
@@ -432,11 +440,11 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
         }
 
         // Manejador de envío de formulario con validación, estados accesibles y mitigación antispam
-        const form = document.getElementById('contact-form');
-        const successMsg = document.getElementById('form-success-message');
-        const errorMsg = document.getElementById('form-error-message');
-        const errorText = document.getElementById('form-error-text');
-        const gotchaInput = form ? form.querySelector('input[name="_gotcha"]') : null;
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const successMsg = document.getElementById('form-success-message') as HTMLElement | null;
+        const errorMsg = document.getElementById('form-error-message') as HTMLElement | null;
+        const errorText = document.getElementById('form-error-text') as HTMLElement | null;
+        const gotchaInput = form ? (form.querySelector('input[name="_gotcha"]') as HTMLInputElement | null) : null;
 
         // Limpiar el campo invisible al inicializar y en navegación hacia atrás
         if (gotchaInput) {
@@ -448,7 +456,7 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
           }
         });
 
-        function showError(msg) {
+        function showError(msg: string) {
           if (errorMsg && errorText) {
             errorText.textContent = msg;
             errorMsg.style.display = 'block';
@@ -468,11 +476,11 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             clearError();
 
             // Normalización y sanitización básica de entradas de texto
-            const nombreInput = form.querySelector('input[name="nombre"]');
-            const emailInput = form.querySelector('input[name="email"]');
-            const telInput = form.querySelector('input[name="whatsapp"]');
-            const empresaInput = form.querySelector('input[name="empresa"]');
-            const descInput = form.querySelector('textarea[name="descripcion"]');
+            const nombreInput = form.querySelector('input[name="nombre"]') as HTMLInputElement | null;
+            const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement | null;
+            const telInput = form.querySelector('input[name="whatsapp"]') as HTMLInputElement | null;
+            const empresaInput = form.querySelector('input[name="empresa"]') as HTMLInputElement | null;
+            const descInput = form.querySelector('textarea[name="descripcion"]') as HTMLTextAreaElement | null;
 
             if (nombreInput) nombreInput.value = nombreInput.value.trim();
             if (emailInput) emailInput.value = emailInput.value.trim();
@@ -505,14 +513,13 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
             }
 
             // Mitigación antispam: si el navegador autocompletó _gotcha, lo vaciamos y pedimos reintentar.
-            // NUNCA se simula éxito ni se omite la transmisión de red sin respuesta confirmada.
             if (gotchaInput && gotchaInput.value) {
               gotchaInput.value = '';
               showError('Se detectó autocompletado en un campo de verificación invisible. El campo ha sido restablecido; por favor presiona nuevamente "Enviar Solicitud de Cotización".');
               return;
             }
 
-            const submitBtn = document.getElementById('btn-submit-contact') || form.querySelector('button[type="submit"]');
+            const submitBtn = (document.getElementById('btn-submit-contact') || form.querySelector('button[type="submit"]')) as HTMLButtonElement | null;
             const originalText = submitBtn ? submitBtn.innerText : 'Enviar Solicitud de Cotización →';
             if (submitBtn) {
               submitBtn.disabled = true;
@@ -541,8 +548,8 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
 
                 if (isConfirmed) {
                   form.style.display = 'none';
-                  const prefillAlert = document.getElementById('prefill-alert');
-                  if (prefillAlert) prefillAlert.style.display = 'none';
+                  const prefillAlertEl = document.getElementById('prefill-alert');
+                  if (prefillAlertEl) prefillAlertEl.style.display = 'none';
                   const intentSelector = document.getElementById('intent-selector-wrap');
                   if (intentSelector) intentSelector.style.display = 'none';
                   successMsg.style.display = 'block';
@@ -553,10 +560,12 @@ const OFFICIAL_WHATSAPP_NUMBER = '529518096110';
                   }
 
                   // Evento GA4 generate_lead (sin incluir datos personales)
-                  if (typeof window.gtag === 'function') {
-                    const selectedService = document.getElementById('tipo_proyecto') ? document.getElementById('tipo_proyecto').value : '';
-                    const intencion = document.getElementById('intencion_comercial') ? document.getElementById('intencion_comercial').value : '';
-                    window.gtag('event', 'generate_lead', {
+                  if (typeof (window as any).gtag === 'function') {
+                    const serviceEl = document.getElementById('tipo_proyecto') as HTMLSelectElement | null;
+                    const intentEl = document.getElementById('intencion_comercial') as HTMLInputElement | null;
+                    const selectedService = serviceEl ? serviceEl.value : '';
+                    const intencion = intentEl ? intentEl.value : '';
+                    (window as any).gtag('event', 'generate_lead', {
                       cta_location: 'contacto',
                       package_name: selectedService,
                       intent_type: intencion,
